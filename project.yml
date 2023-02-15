@@ -1,0 +1,50 @@
+---
+settings:
+  name: Cluster and storage switches
+  search: ontap-systems-switches
+  internal:
+    pdf_enabled: false
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  pdf:
+    zip-level: 1
+    zip-filename: ontap-systems-switches-pdfs.zip
+  langs: es-es,us-en,ja-jp,ko-kr,zh-cn,zh-tw,de-de,fr-fr
+sidebar:
+  entries:
+  - title: Documentos de AFF y switches FAS
+    url: "/index.html"
+  - title: Manos a la obra
+    entries:
+    - title: Novedades
+      url: "/whats-new.html"
+    - title: Obtenga más información sobre los switches de los sistemas ONTAP
+      url: "/get-started/learn-switch-concept.html"
+    - title: Póngase en marcha
+      url: "/get-started/get-up-and-running.html"
+  - title: Switches de clúster
+    entries:
+    - section: switch-bes-53248
+    - section: switch-cisco-9336c-fx2
+    - section: switch-nvidia-sn2100
+  - title: Switches de almacenamiento
+    entries:
+    - section: switch-cisco-9336c-fx2-storage
+    - section: switch-nvidia-sn2100-storage
+  - title: Switches compartidos
+    entries:
+    - section: switch-cisco-9336c-fx2-shared
+  - title: Switches de fin de disponibilidad
+    entries:
+    - title: Descripción general
+      url: "/overview-eod.html"
+    - section: switch-cisco-3232c
+    - section: switch-cisco-3132q-v
+    - section: switch-cisco-92300
+    - section: switch-netapp-cn1610
+  - title: Avisos legales
+    url: "/legal-notices.html"
+product-family:
+  name: AFF and FAS Systems
+  repo: ontap-systems-family

@@ -1,0 +1,50 @@
+---
+permalink: switch-bes-53248/replace-switch-reqs.html 
+sidebar: sidebar 
+keywords: replace, replacing, defective, broadcom-supported, bes, cluster, switch, network, nondisruptive, procedure, ndu, replace a broadcom-supported bes-53428 cluster switch - bes-53428 switches 
+summary: 'La sustitución de un switch de clúster BES-53248 defectuoso compatible con Broadcom en una red de clúster es un procedimiento no disruptivo \(NDU\).' 
+---
+= Requisitos de sustitución
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de sustituir el interruptor, asegúrese de que se cumplen las siguientes condiciones en el entorno actual y en el interruptor de sustitución.
+
+
+
+== Infraestructura de red y clúster existente
+
+Asegúrese de que:
+
+* El clúster existente se ha verificado como completamente funcional, con al menos un switch de clúster completamente conectado.
+* Todos los puertos del clúster son *up*.
+* Todas las interfaces lógicas de cluster (LIF) están administrativamente y operativamente *up* y en sus puertos domésticos.
+* La ONTAP `cluster ping-cluster -node node1` el comando debe indicar que la configuración, `basic connectivity` y.. `larger than PMTU communication`, se realizan correctamente en todas las rutas.
+
+
+
+
+== Conmutador de clúster de sustitución BES-53248
+
+Asegúrese de que:
+
+* La conectividad de la red de gestión en el switch de reemplazo es funcional.
+* El acceso de la consola al interruptor de sustitución está en su lugar.
+* Las conexiones de nodos son los puertos 0/1 a 0/16 con licencia predeterminada.
+* Todos los puertos de enlace entre switches (ISL) están deshabilitados en los puertos 0/55 y 0/56.
+* El archivo de configuración de referencia (RCF) y la imagen del conmutador del sistema operativo EFOS se cargan en el conmutador.
+* Se ha completado la personalización inicial del conmutador, tal y como se detalla en link:configure-install-initial.html["Configure el conmutador de clúster BES-53248"].
+
+
+Cualquier personalización de sitio anterior, como STP, SNMP y SSH, se copian al nuevo switch.
+
+
+
+== Si quiere más información
+
+* https://mysupport.netapp.com/["Sitio de soporte de NetApp"^]
+* https://hwu.netapp.com/Home/Index["Hardware Universe de NetApp"^]
+

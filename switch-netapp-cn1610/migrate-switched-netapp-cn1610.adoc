@@ -1,0 +1,980 @@
+---
+permalink: switch-netapp-cn1610/migrate-switched-netapp-cn1610.html 
+sidebar: sidebar 
+keywords: migrate, switchless cluster environment, switched netapp cn1610 
+summary: Si ya dispone de un entorno de clúster sin switches de dos nodos, puede migrar a un entorno de clúster con switches de dos nodos mediante switches de red de clústeres CN1610, los cuales le permiten escalar más allá de dos nodos. 
+---
+= Migrar de un entorno de clúster sin switches a un entorno de clúster con switches CN1610 de NetApp
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si ya dispone de un entorno de clúster sin switches de dos nodos, puede migrar a un entorno de clúster con switches de dos nodos mediante switches de red de clústeres CN1610, los cuales le permiten escalar más allá de dos nodos.
+
+
+
+== Revise los requisitos
+
+.Lo que necesitará
+En el caso de una configuración sin switch de dos nodos, asegúrese de que:
+
+* La configuración sin switch de dos nodos está correctamente configurada y funciona.
+* Los nodos ejecutan ONTAP 8.2 o una versión posterior.
+* Todos los puertos del clúster están en la `up` estado.
+* Todas las interfaces lógicas (LIF) del clúster están en la `up` estado y en sus puertos de origen.
+
+
+Para la configuración del switch de clúster CN1610:
+
+* La infraestructura de switches de clúster CN1610 es completamente funcional en ambos switches.
+* Ambos switches tienen conectividad de red de gestión.
+* Hay acceso de la consola a los switches de clúster.
+* Las conexiones de switch a nodo CN1610 y de switch a switch utilizan cables de fibra óptica o twinax.
++
+La https://hwu.netapp.com/["Hardware Universe"^] contiene más información sobre el cableado.
+
+* Los cables de enlace entre switches (ISL) se conectan a los puertos 13 a 16 en los dos switches CN1610.
+* Se ha completado la personalización inicial de los dos switches CN1610.
++
+Cualquier personalización anterior del sitio, como SMTP, SNMP y SSH, se debe copiar a los nuevos switches.
+
+
+
+.Información relacionada
+* http://hwu.netapp.com["Hardware Universe"^]
+* http://support.netapp.com/NOW/download/software/cm_switches_ntap/["Página de descripción de NetApp CN1601 y CN1610"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMP1118645["Guía de instalación y configuración de switches CN1601 y CN1610"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["Artículo de la base de conocimientos de NetApp 1010449: Cómo impedir la creación automática de casos durante las ventanas de mantenimiento programado"^]
+
+
+
+
+== Migrar los switches
+
+.Acerca de los ejemplos
+Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de nodo y conmutador de cluster:
+
+* Los nombres de los switches CN1610 son cs1 y cs2.
+* Los nombres de las LIF se incluyen clus1 y clus2.
+* Los nombres de los nodos son 1 y 2.
+* La `cluster::*>` prompt indica el nombre del clúster.
+* Los puertos de clúster que se utilizan en este procedimiento son e1a y e2a.
++
+La https://hwu.netapp.com/["Hardware Universe"^] contiene la información más reciente acerca de los puertos del clúster reales para las plataformas.
+
+
+
+
+
+=== Paso 1: Preparación para la migración
+
+. Cambie el nivel de privilegio a Advanced, introduzca `y` cuando se le solicite continuar:
++
+`set -privilege advanced`
+
++
+Aparece el mensaje avanzado (*>).
+
+. Si se habilita AutoSupport en este clúster, elimine la creación automática de casos invocando un mensaje de AutoSupport:
++
+`system node autosupport invoke -node * -type all -message MAINT=xh`
+
++
+_x_ es la duración de la ventana de mantenimiento en horas.
+
++
+
+NOTE: El mensaje de AutoSupport notifica al soporte técnico de esta tarea de mantenimiento para que la creación automática de casos se suprima durante la ventana de mantenimiento.
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+El siguiente comando suprime la creación automática de casos durante dos horas:
+
+[listing]
+----
+cluster::*> system node autosupport invoke -node * -type all -message MAINT=2h
+----
+====
+
+
+
+
+=== Paso 2: Configurar puertos
+
+. Deshabilite todos los puertos orientados al nodo (no los puertos ISL) en los nuevos switches de clúster cs1 y cs2.
++
+No debe deshabilitar los puertos ISL.
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el siguiente ejemplo se muestra que los puertos 1 a 12 que están orientados al nodo están deshabilitados en el switch cs1:
+
+[listing]
+----
+
+(cs1)> enable
+(cs1)# configure
+(cs1)(Config)# interface 0/1-0/12
+(cs1)(Interface 0/1-0/12)# shutdown
+(cs1)(Interface 0/1-0/12)# exit
+(cs1)(Config)# exit
+----
+En el ejemplo siguiente se muestra que los puertos 1 a 12 que están orientados al nodo están deshabilitados en el switch cs2:
+
+[listing]
+----
+
+(c2)> enable
+(cs2)# configure
+(cs2)(Config)# interface 0/1-0/12
+(cs2)(Interface 0/1-0/12)# shutdown
+(cs2)(Interface 0/1-0/12)# exit
+(cs2)(Config)# exit
+----
+====
+. Compruebe que el ISL y los puertos físicos del ISL se encuentran entre los dos switches del clúster CN1610 cs1 y cs2 `up`:
++
+`show port-channel`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+El siguiente ejemplo muestra que los puertos ISL son `up` en el interruptor cs1:
+
+[listing]
+----
+
+(cs1)# show port-channel 3/1
+Local Interface................................ 3/1
+Channel Name................................... ISL-LAG
+Link State..................................... Up
+Admin Mode..................................... Enabled
+Type........................................... Static
+Load Balance Option............................ 7
+(Enhanced hashing mode)
+
+Mbr    Device/       Port      Port
+Ports  Timeout       Speed     Active
+------ ------------- --------- -------
+0/13   actor/long    10G Full  True
+       partner/long
+0/14   actor/long    10G Full  True
+       partner/long
+0/15   actor/long    10G Full  True
+       partner/long
+0/16   actor/long    10G Full  True
+       partner/long
+----
+El siguiente ejemplo muestra que los puertos ISL son `up` en el interruptor cs2:
+
+[listing]
+----
+
+(cs2)# show port-channel 3/1
+Local Interface................................ 3/1
+Channel Name................................... ISL-LAG
+Link State..................................... Up
+Admin Mode..................................... Enabled
+Type........................................... Static
+Load Balance Option............................ 7
+(Enhanced hashing mode)
+
+Mbr    Device/       Port      Port
+Ports  Timeout       Speed     Active
+------ ------------- --------- -------
+0/13   actor/long    10G Full  True
+       partner/long
+0/14   actor/long    10G Full  True
+       partner/long
+0/15   actor/long    10G Full  True
+       partner/long
+0/16   actor/long    10G Full  True
+       partner/long
+----
+====
+. Mostrar la lista de dispositivos vecinos:
++
+`show isdp neighbors`
+
++
+Este comando proporciona información sobre los dispositivos conectados al sistema.
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el siguiente ejemplo se enumeran los dispositivos vecinos del conmutador cs1:
+
+[listing]
+----
+
+(cs1)# show isdp neighbors
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge,
+                  S - Switch, H - Host, I - IGMP, r - Repeater
+Device ID              Intf         Holdtime  Capability   Platform  Port ID
+---------------------- ------------ --------- ------------ --------- ------------
+cs2                    0/13         11        S            CN1610    0/13
+cs2                    0/14         11        S            CN1610    0/14
+cs2                    0/15         11        S            CN1610    0/15
+cs2                    0/16         11        S            CN1610    0/16
+----
+En el siguiente ejemplo se enumeran los dispositivos vecinos en el conmutador cs2:
+
+[listing]
+----
+
+(cs2)# show isdp neighbors
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge,
+                  S - Switch, H - Host, I - IGMP, r - Repeater
+Device ID              Intf         Holdtime  Capability   Platform  Port ID
+---------------------- ------------ --------- ------------ --------- ------------
+cs1                    0/13         11        S            CN1610    0/13
+cs1                    0/14         11        S            CN1610    0/14
+cs1                    0/15         11        S            CN1610    0/15
+cs1                    0/16         11        S            CN1610    0/16
+----
+====
+. Mostrar la lista de puertos del clúster:
++
+`network port show`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el siguiente ejemplo se muestran los puertos de clúster disponibles:
+
+[listing]
+----
+
+cluster::*> network port show -ipspace Cluster
+Node: node1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0c       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0d       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e4a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e4b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node2
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0c       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0d       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e4a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e4b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+12 entries were displayed.
+----
+====
+. Compruebe que cada puerto del clúster está conectado al puerto correspondiente en el nodo del clúster asociado:
++
+`run * cdpd show-neighbors`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el siguiente ejemplo se muestra que los puertos de clúster e1a y e2a están conectados al mismo puerto en su nodo asociado de clúster:
+
+[listing]
+----
+
+cluster::*> run * cdpd show-neighbors
+2 entries were acted on.
+
+Node: node1
+Local  Remote          Remote                 Remote           Hold  Remote
+Port   Device          Interface              Platform         Time  Capability
+------ --------------- ---------------------- ---------------- ----- ----------
+e1a    node2           e1a                    FAS3270           137   H
+e2a    node2           e2a                    FAS3270           137   H
+
+
+Node: node2
+
+Local  Remote          Remote                 Remote           Hold  Remote
+Port   Device          Interface              Platform         Time  Capability
+------ --------------- ---------------------- ---------------- ----- ----------
+e1a    node1           e1a                    FAS3270           161   H
+e2a    node1           e2a                    FAS3270           161   H
+----
+====
+. Compruebe que todas las LIF del clúster son `up` y operativo:
++
+`network interface show -vserver Cluster`
+
++
+Cada LIF del clúster debería mostrar `true` En la columna «'is Home».
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
+----
+
+cluster::*> network interface show -vserver Cluster
+            Logical    Status     Network       Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask  Node          Port    Home
+----------- ---------- ---------- ------------- ------------- ------- ----
+node1
+            clus1      up/up      10.10.10.1/16 node1         e1a     true
+            clus2      up/up      10.10.10.2/16 node1         e2a     true
+node2
+            clus1      up/up      10.10.11.1/16 node2         e1a     true
+            clus2      up/up      10.10.11.2/16 node2         e2a     true
+
+4 entries were displayed.
+----
+====
++
+
+NOTE: Los siguientes comandos de modificación y migración de los pasos 10 a 13 se deben realizar desde el nodo local.
+
+. Compruebe que todos los puertos del clúster lo sean `up`:
++
+`network port show -ipspace Cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
+----
+cluster::*> network port show -ipspace Cluster
+
+                                       Auto-Negot  Duplex     Speed (Mbps)
+Node   Port   Role         Link  MTU   Admin/Oper  Admin/Oper Admin/Oper
+------ ------ ------------ ----- ----- ----------- ---------- ------------
+node1
+       e1a    clus1        up    9000  true/true  full/full   auto/10000
+       e2a    clus2        up    9000  true/true  full/full   auto/10000
+node2
+       e1a    clus1        up    9000  true/true  full/full   auto/10000
+       e2a    clus2        up    9000  true/true  full/full   auto/10000
+
+4 entries were displayed.
+----
+====
+. Ajuste la `-auto-revert` parámetro a. `false` En las LIF de cluster clus1 y clus2 en ambos nodos:
++
+`network interface modify`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
+----
+
+cluster::*> network interface modify -vserver node1 -lif clus1 -auto-revert false
+cluster::*> network interface modify -vserver node1 -lif clus2 -auto-revert false
+cluster::*> network interface modify -vserver node2 -lif clus1 -auto-revert false
+cluster::*> network interface modify -vserver node2 -lif clus2 -auto-revert false
+----
+====
++
+
+NOTE: Para las versiones 8.3 y posteriores, se debe utilizar el siguiente comando: `network interface modify -vserver Cluster -lif * -auto-revert false`
+
+. Haga ping en los puertos del clúster para verificar la conectividad de clúster:
++
+`cluster ping-cluster local`
+
++
+El resultado del comando muestra la conectividad entre todos los puertos del clúster.
+
+. Migre clus1 al puerto e2a de la consola de cada nodo:
++
+`network interface migrate`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el siguiente ejemplo, se muestra el proceso de migración de clus1 al puerto e2a en los nodos 1 y 2:
+
+[listing]
+----
+
+cluster::*> network interface migrate -vserver node1 -lif clus1 -source-node node1 -dest-node node1 -dest-port e2a
+cluster::*> network interface migrate -vserver node2 -lif clus1 -source-node node2 -dest-node node2 -dest-port e2a
+----
+====
++
+
+NOTE: Para las versiones 8.3 y posteriores, se debe utilizar el siguiente comando: `network interface migrate -vserver Cluster -lif clus1 -destination-node node1 -destination-port e2a`
+
+. Compruebe que la migración tuvo lugar:
++
+`network interface show -vserver Cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el siguiente ejemplo, se verifica que la versión 1 se migra al puerto e2a en los nodos 1 y 2:
+
+[listing]
+----
+
+cluster::*> network interface show -vserver Cluster
+            Logical    Status     Network       Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask  Node          Port    Home
+----------- ---------- ---------- ------------- ------------- ------- ----
+node1
+            clus1      up/up    10.10.10.1/16   node1         e2a     false
+            clus2      up/up    10.10.10.2/16   node1         e2a     true
+node2
+            clus1      up/up    10.10.11.1/16   node2         e2a     false
+            clus2      up/up    10.10.11.2/16   node2         e2a     true
+
+4 entries were displayed.
+----
+====
+. Apague el puerto del clúster e1a en ambos nodos:
++
+`network port modify`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el ejemplo siguiente, se muestra cómo apagar el puerto e1a en los nodos 1 y 2:
+
+[listing]
+----
+
+cluster::*> network port modify -node node1 -port e1a -up-admin false
+cluster::*> network port modify -node node2 -port e1a -up-admin false
+----
+====
+. Compruebe el estado del puerto:
++
+`network port show`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el ejemplo siguiente se muestra que el puerto e1a es `down` en los nodos 1 y 2:
+
+[listing]
+----
+
+cluster::*> network port show -role cluster
+                                      Auto-Negot  Duplex     Speed (Mbps)
+Node   Port   Role         Link   MTU Admin/Oper  Admin/Oper Admin/Oper
+------ ------ ------------ ---- ----- ----------- ---------- ------------
+node1
+       e1a    clus1        down  9000  true/true  full/full   auto/10000
+       e2a    clus2        up    9000  true/true  full/full   auto/10000
+node2
+       e1a    clus1        down  9000  true/true  full/full   auto/10000
+       e2a    clus2        up    9000  true/true  full/full   auto/10000
+
+4 entries were displayed.
+----
+====
+. Desconecte el cable del puerto del clúster e1a del nodo 1 y, a continuación, conecte e1a al puerto 1 del switch del clúster cs1 mediante el cableado adecuado que admiten los switches CN1610.
++
+La link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] contiene más información sobre el cableado.
+
+. Desconecte el cable del puerto del clúster e1a del nodo 2 y, a continuación, conecte e1a al puerto 2 del switch del clúster cs1 mediante el cableado adecuado compatible con los switches CN1610.
+. Habilite todos los puertos orientados al nodo en el switch de clúster cs1.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+El siguiente ejemplo muestra que los puertos 1 a 12 están habilitados en el conmutador cs1:
+
+[listing]
+----
+
+(cs1)# configure
+(cs1)(Config)# interface 0/1-0/12
+(cs1)(Interface 0/1-0/12)# no shutdown
+(cs1)(Interface 0/1-0/12)# exit
+(cs1)(Config)# exit
+----
+====
+. Habilite el primer puerto de clúster e1a en cada nodo:
++
+`network port modify`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el ejemplo siguiente, se muestra cómo habilitar el puerto e1a en los nodos 1 y 2:
+
+[listing]
+----
+
+cluster::*> network port modify -node node1 -port e1a -up-admin true
+cluster::*> network port modify -node node2 -port e1a -up-admin true
+----
+====
+. Compruebe que todos los puertos del clúster lo sean `up`:
++
+`network port show -ipspace Cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el siguiente ejemplo se muestra que todos los puertos del clúster son `up` en los nodos 1 y 2:
+
+[listing]
+----
+
+cluster::*> network port show -ipspace Cluster
+                                      Auto-Negot  Duplex     Speed (Mbps)
+Node   Port   Role         Link   MTU Admin/Oper  Admin/Oper Admin/Oper
+------ ------ ------------ ---- ----- ----------- ---------- ------------
+node1
+       e1a    clus1        up    9000  true/true  full/full   auto/10000
+       e2a    clus2        up    9000  true/true  full/full   auto/10000
+node2
+       e1a    clus1        up    9000  true/true  full/full   auto/10000
+       e2a    clus2        up    9000  true/true  full/full   auto/10000
+
+4 entries were displayed.
+----
+====
+. Reversión1 (que se migró anteriormente) a e1a en ambos nodos:
++
+`network interface revert`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el ejemplo siguiente, se muestra cómo revertir la versión 1 al puerto e1a en el nodo 1 y el nodo 2:
+
+[listing]
+----
+
+cluster::*> network interface revert -vserver node1 -lif clus1
+cluster::*> network interface revert -vserver node2 -lif clus1
+----
+====
++
+
+NOTE: Para las versiones 8.3 y posteriores, se debe utilizar el siguiente comando: `network interface revert -vserver Cluster -lif <nodename_clus<N>>`
+
+. Compruebe que todas las LIF del clúster son `up`, operativo y mostrar como `true` En la columna "es de inicio":
++
+`network interface show -vserver Cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+El ejemplo siguiente muestra que todas las LIF son `up` En los nodos 1 y 2, y los resultados de la columna "es Home" son `true`:
+
+[listing]
+----
+
+cluster::*> network interface show -vserver Cluster
+            Logical    Status     Network       Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask  Node          Port    Home
+----------- ---------- ---------- ------------- ------------- ------- ----
+node1
+            clus1      up/up    10.10.10.1/16   node1         e1a     true
+            clus2      up/up    10.10.10.2/16   node1         e2a     true
+node2
+            clus1      up/up    10.10.11.1/16   node2         e1a     true
+            clus2      up/up    10.10.11.2/16   node2         e2a     true
+
+4 entries were displayed.
+----
+====
+. Muestra información sobre el estado de los nodos en el clúster:
++
+`cluster show`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el siguiente ejemplo se muestra información sobre el estado y la elegibilidad de los nodos en el clúster:
+
+[listing]
+----
+
+cluster::*> cluster show
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  ------------
+node1                true    true          false
+node2                true    true          false
+----
+====
+. Migre la versión 2 al puerto e1a de la consola de cada nodo:
++
+`network interface migrate`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el siguiente ejemplo, se muestra el proceso de migración de clus2 al puerto e1a en los nodos 1 y 2:
+
+[listing]
+----
+
+cluster::*> network interface migrate -vserver node1 -lif clus2 -source-node node1 -dest-node node1 -dest-port e1a
+cluster::*> network interface migrate -vserver node2 -lif clus2 -source-node node2 -dest-node node2 -dest-port e1a
+----
+====
++
+
+NOTE: Para las versiones 8.3 y posteriores, se debe utilizar el siguiente comando: `network interface migrate -vserver Cluster -lif node1_clus2 -dest-node node1 -dest-port e1a`
+
+. Compruebe que la migración tuvo lugar:
++
+`network interface show -vserver Cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el siguiente ejemplo, se verifica que la versión 2 se migra al puerto e1a en los nodos 1 y 2:
+
+[listing]
+----
+
+cluster::*> network interface show -vserver Cluster
+            Logical    Status     Network       Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask  Node          Port    Home
+----------- ---------- ---------- ------------- ------------- ------- ----
+node1
+            clus1      up/up    10.10.10.1/16   node1         e1a     true
+            clus2      up/up    10.10.10.2/16   node1         e1a     false
+node2
+            clus1      up/up    10.10.11.1/16   node2         e1a     true
+            clus2      up/up    10.10.11.2/16   node2         e1a     false
+
+4 entries were displayed.
+----
+====
+. Apague el puerto e2a del clúster en ambos nodos:
++
+`network port modify`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el ejemplo siguiente, se muestra cómo apagar el puerto e2a en los nodos 1 y 2:
+
+[listing]
+----
+
+cluster::*> network port modify -node node1 -port e2a -up-admin false
+cluster::*> network port modify -node node2 -port e2a -up-admin false
+----
+====
+. Compruebe el estado del puerto:
++
+`network port show`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el siguiente ejemplo se muestra que el puerto e2a es `down` en los nodos 1 y 2:
+
+[listing]
+----
+
+cluster::*> network port show -role cluster
+                                      Auto-Negot  Duplex     Speed (Mbps)
+Node   Port   Role         Link   MTU Admin/Oper  Admin/Oper Admin/Oper
+------ ------ ------------ ---- ----- ----------- ---------- ------------
+node1
+       e1a    clus1        up    9000  true/true  full/full   auto/10000
+       e2a    clus2        down  9000  true/true  full/full   auto/10000
+node2
+       e1a    clus1        up    9000  true/true  full/full   auto/10000
+       e2a    clus2        down  9000  true/true  full/full   auto/10000
+
+4 entries were displayed.
+----
+====
+. Desconecte el cable del puerto del clúster e2a del nodo 1 y, a continuación, conecte e2a al puerto 1 del switch del clúster cs2 mediante el cableado adecuado que admiten los switches CN1610.
+. Desconecte el cable del puerto del clúster e2a del nodo 2 y, a continuación, conecte e2a al puerto 2 del switch del clúster cs2 mediante el cableado adecuado que admiten los switches CN1610.
+. Habilite todos los puertos orientados al nodo en el switch de clúster cs2.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+El siguiente ejemplo muestra que los puertos 1 a 12 están habilitados en el conmutador cs2:
+
+[listing]
+----
+
+(cs2)# configure
+(cs2)(Config)# interface 0/1-0/12
+(cs2)(Interface 0/1-0/12)# no shutdown
+(cs2)(Interface 0/1-0/12)# exit
+(cs2)(Config)# exit
+----
+====
+. Habilite el segundo puerto e2a de clúster en cada nodo.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el ejemplo siguiente, se muestra cómo habilitar el puerto e2a en los nodos 1 y 2:
+
+[listing]
+----
+
+cluster::*> network port modify -node node1 -port e2a -up-admin true
+cluster::*> network port modify -node node2 -port e2a -up-admin true
+----
+====
+. Compruebe que todos los puertos del clúster lo sean `up`:
++
+`network port show -ipspace Cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el siguiente ejemplo se muestra que todos los puertos del clúster son `up` en los nodos 1 y 2:
+
+[listing]
+----
+
+cluster::*> network port show -ipspace Cluster
+                                      Auto-Negot  Duplex     Speed (Mbps)
+Node   Port   Role         Link   MTU Admin/Oper  Admin/Oper Admin/Oper
+------ ------ ------------ ---- ----- ----------- ---------- ------------
+node1
+       e1a    clus1        up    9000  true/true  full/full   auto/10000
+       e2a    clus2        up    9000  true/true  full/full   auto/10000
+node2
+       e1a    clus1        up    9000  true/true  full/full   auto/10000
+       e2a    clus2        up    9000  true/true  full/full   auto/10000
+
+4 entries were displayed.
+----
+====
+. Revert clus2 (que se migró anteriormente) a e2a en ambos nodos:
++
+`network interface revert`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el ejemplo siguiente, se muestra cómo revertir clus2 al puerto e2a en los nodos 1 y 2:
+
+[listing]
+----
+
+cluster::*> network interface revert -vserver node1 -lif clus2
+cluster::*> network interface revert -vserver node2 -lif clus2
+----
+====
++
+
+NOTE: Para la versión 8.3 y posteriores, los comandos son:
+`cluster::*> network interface revert -vserver Cluster -lif node1_clus2` y..
+`cluster::*> network interface revert -vserver Cluster -lif node2_clus2`
+
+
+
+
+
+=== Paso 3: Completar la configuración
+
+. Compruebe que se muestran todas las interfaces `true` En la columna "es de inicio":
++
+`network interface show -vserver Cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+El ejemplo siguiente muestra que todas las LIF son `up` En los nodos 1 y 2, y los resultados de la columna "es Home" son `true`:
+
+[listing]
+----
+
+cluster::*> network interface show -vserver Cluster
+
+             Logical    Status     Network            Current     Current Is
+Vserver      Interface  Admin/Oper Address/Mask       Node        Port    Home
+-----------  ---------- ---------- ------------------ ----------- ------- ----
+node1
+             clus1      up/up      10.10.10.1/16      node1       e1a     true
+             clus2      up/up      10.10.10.2/16      node1       e2a     true
+node2
+             clus1      up/up      10.10.11.1/16      node2       e1a     true
+             clus2      up/up      10.10.11.2/16      node2       e2a     true
+----
+====
+. Haga ping en los puertos del clúster para verificar la conectividad de clúster:
++
+`cluster ping-cluster local`
+
++
+El resultado del comando muestra la conectividad entre todos los puertos del clúster.
+
+. Compruebe que ambos nodos tienen dos conexiones a cada switch:
++
+`show isdp neighbors`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el siguiente ejemplo, se muestran los resultados adecuados para ambos switches:
+
+[listing]
+----
+
+(cs1)# show isdp neighbors
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge,
+                  S - Switch, H - Host, I - IGMP, r - Repeater
+Device ID              Intf         Holdtime  Capability   Platform  Port ID
+---------------------- ------------ --------- ------------ --------- ------------
+node1                  0/1          132       H            FAS3270   e1a
+node2                  0/2          163       H            FAS3270   e1a
+cs2                    0/13         11        S            CN1610    0/13
+cs2                    0/14         11        S            CN1610    0/14
+cs2                    0/15         11        S            CN1610    0/15
+cs2                    0/16         11        S            CN1610    0/16
+
+(cs2)# show isdp neighbors
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge,
+                  S - Switch, H - Host, I - IGMP, r - Repeater
+Device ID              Intf         Holdtime  Capability   Platform  Port ID
+---------------------- ------------ --------- ------------ --------- ------------
+node1                  0/1          132       H            FAS3270   e2a
+node2                  0/2          163       H            FAS3270   e2a
+cs1                    0/13         11        S            CN1610    0/13
+cs1                    0/14         11        S            CN1610    0/14
+cs1                    0/15         11        S            CN1610    0/15
+cs1                    0/16         11        S            CN1610    0/16
+----
+====
+. Muestra información sobre los dispositivos de la configuración:
++
+`network device discovery show`
+
+. Deshabilite la configuración de dos nodos sin switch en ambos nodos mediante el comando Advanced Privilege:
++
+`network options detect-switchless modify`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el siguiente ejemplo se muestra cómo deshabilitar las opciones de configuración sin switch:
+
+[listing]
+----
+
+cluster::*> network options detect-switchless modify -enabled false
+----
+====
++
+
+NOTE: Para la versión 9.2 y posteriores, omita este paso ya que la configuración se convertirá automáticamente.
+
+. Compruebe que la configuración está desactivada:
++
+`network options detect-switchless-cluster show`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+La `false` el resultado del ejemplo siguiente muestra que las opciones de configuración están deshabilitadas:
+
+[listing]
+----
+
+cluster::*> network options detect-switchless-cluster show
+Enable Switchless Cluster Detection: false
+----
+====
++
+
+NOTE: Para la versión 9.2 o posterior, espere hasta `Enable Switchless Cluster` se establece en falso. Esto puede tardar hasta tres minutos.
+
+. Configure los clústeres clus1 y clus2 para revertir automáticamente cada nodo y confirmar.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
+----
+
+cluster::*> network interface modify -vserver node1 -lif clus1 -auto-revert true
+cluster::*> network interface modify -vserver node1 -lif clus2 -auto-revert true
+cluster::*> network interface modify -vserver node2 -lif clus1 -auto-revert true
+cluster::*> network interface modify -vserver node2 -lif clus2 -auto-revert true
+----
+====
++
+
+NOTE: Para las versiones 8.3 y posteriores, se debe utilizar el siguiente comando: `network interface modify -vserver Cluster -lif * -auto-revert true` para habilitar la reversión automática en todos los nodos del clúster.
+
+. Compruebe el estado de los miembros del nodo en el clúster:
++
+`cluster show`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el siguiente ejemplo se muestra información sobre el estado y la elegibilidad de los nodos en el clúster:
+
+[listing]
+----
+
+cluster::*> cluster show
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  ------------
+node1                true    true          false
+node2                true    true          false
+----
+====
+. Si ha suprimido la creación automática de casos, rehabilitarla invocando un mensaje de AutoSupport:
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
+----
+cluster::*> system node autosupport invoke -node * -type all -message MAINT=END
+----
+====
+. Vuelva a cambiar el nivel de privilegio a admin:
++
+`set -privilege admin`
+
+

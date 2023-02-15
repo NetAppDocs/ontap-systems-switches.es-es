@@ -1,0 +1,590 @@
+---
+permalink: switch-cisco-92300/replace-92300yc.html 
+sidebar: sidebar 
+keywords: replace,upgrade cisco nexus 92300yc cluster switch 
+summary: 'La sustitución de un switch Nexus 92300YC defectuoso en una red de clúster es un procedimiento no disruptivo \(NDU\).' 
+---
+= Sustituya un switch Cisco Nexus 92300YC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La sustitución de un switch Nexus 92300YC defectuoso en una red de clúster es un procedimiento no disruptivo (NDU).
+
+
+
+== Revise los requisitos
+
+.Lo que necesitará
+Antes de realizar la sustitución del interruptor, asegúrese de que:
+
+* En el clúster y la infraestructura de red existentes:
++
+** El clúster existente se ha verificado como completamente funcional, con al menos un switch de clúster completamente conectado.
+** Todos los puertos del clúster están activos.
+** Todas las interfaces lógicas de clúster (LIF) están en funcionamiento y en sus puertos raíz.
+** El comando ONTAP cluster ping-cluster -node no1 debe indicar que la conectividad básica y el tamaño superior que la comunicación PMTU son correctos en todas las rutas.
+
+
+* Para el switch de sustitución Nexus 92300YC:
++
+** La conectividad de la red de gestión en el switch de reemplazo es funcional.
+** El acceso de la consola al interruptor de sustitución está en su lugar.
+** Las conexiones de los nodos son los puertos 1/1 a 1/64.
+** Todos los puertos de enlace entre switches (ISL) están deshabilitados en los puertos 1/65 y 1/66.
+** El archivo de configuración de referencia (RCF) y el conmutador de imagen del sistema operativo NX-OS se cargan en el conmutador.
+** Se ha completado la personalización inicial del conmutador, tal como se detalla en: link:configure-install-initial.html["Configure el switch Cisco Nexus 92300YC"].
++
+Cualquier personalización de sitio anterior, como STP, SNMP y SSH, se copian al nuevo switch.
+
+
+
+
+
+
+
+== Sustituya el interruptor
+
+.Acerca de los ejemplos
+Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:
+
+* Los nombres de los switches Nexus 92300YC existentes son cs1 y cs2.
+* El nombre del nuevo switch Nexus 92300YC es newcs2.
+* Los nombres de nodo son 1 y 2.
+* Los puertos del clúster de cada nodo se denominan e0a y e0b.
+* Los nombres de las LIF del clúster son 1_clus1 y 1_clus2 para los nodos 1, y 2_clus1 y 2_clus2 para los nodos 2.
+* El símbolo del sistema de cambios en todos los nodos del cluster es cluster1:*>
+
+
+.Acerca de esta tarea
+Debe ejecutar el comando para migrar una LIF de clúster desde el nodo donde se aloja la LIF del clúster.
+
+El siguiente procedimiento se basa en la siguiente topología de red de clúster:
+
+.Mostrar topología
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node2
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+4 entries were displayed.
+
+
+
+cluster1::*> *network interface show -vserver Cluster*
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+            node1_clus1  up/up    169.254.209.69/16  node1         e0a     true
+            node1_clus2  up/up    169.254.49.125/16  node1         e0b     true
+            node2_clus1  up/up    169.254.47.194/16  node2         e0a     true
+            node2_clus2  up/up    169.254.19.183/16  node2         e0b     true
+4 entries were displayed.
+
+
+
+cluster1::*> *network device-discovery show -protocol cdp*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node2      /cdp
+            e0a    cs1                       Eth1/2            N9K-C92300YC
+            e0b    cs2                       Eth1/2            N9K-C92300YC
+node1      /cdp
+            e0a    cs1                       Eth1/1            N9K-C92300YC
+            e0b    cs2                       Eth1/1            N9K-C92300YC
+4 entries were displayed.
+
+
+
+cs1# *show cdp neighbors*
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+node1              Eth1/1         144    H           FAS2980       e0a
+node2              Eth1/2         145    H           FAS2980       e0a
+cs2(FDO220329V5)   Eth1/65        176    R S I s     N9K-C92300YC  Eth1/65
+cs2(FDO220329V5)   Eth1/66        176    R S I s     N9K-C92300YC  Eth1/66
+
+Total entries displayed: 4
+
+
+
+cs2# *show cdp neighbors*
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+node1              Eth1/1         139    H           FAS2980       e0b
+node2              Eth1/2         124    H           FAS2980       e0b
+cs1(FDO220329KU)   Eth1/65        178    R S I s     N9K-C92300YC  Eth1/65
+cs1(FDO220329KU)   Eth1/66        178    R S I s     N9K-C92300YC  Eth1/66
+
+Total entries displayed: 4
+----
+====
+
+
+=== Paso 1: Prepararse para la sustitución
+
+. Instale el RCF y la imagen adecuados en el interruptor, newcs2, y realice las preparaciones necesarias del sitio.
++
+Si es necesario, verifique, descargue e instale las versiones apropiadas del software RCF y NX-OS para el nuevo switch. Si ha comprobado que el nuevo conmutador está correctamente configurado y no necesita actualizaciones para el software RCF y NX-OS, continúe con el paso 2.
+
++
+.. Vaya a la página _NetApp Cluster and Management Network Switches Reference Configuration File Description_ en el sitio de soporte de NetApp.
+.. Haga clic en el vínculo de _Cluster Network and Management Network Compatibility Matrix_ y a continuación, anote la versión de software del switch que desee.
+.. Haga clic en la flecha de retroceso de su navegador para volver a la página *Descripción*, haga clic en *CONTINUAR*, acepte el acuerdo de licencia y, a continuación, vaya a la página *Descargar*.
+.. Siga los pasos de la página Descarga para descargar los archivos RCF y NX-OS correctos para la versión del software ONTAP que está instalando.
+
+
+. En el nuevo switch, inicie sesión como administrador y apague todos los puertos que se conectarán a las interfaces de clúster de nodos (puertos 1/1 a 1/64).
++
+Si el interruptor que va a sustituir no funciona y está apagado, vaya al paso 4. Los LIF de los nodos del clúster ya deberían haber realizado la conmutación al otro puerto del clúster para cada nodo.
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+newcs2# *config*
+Enter configuration commands, one per line. End with CNTL/Z.
+newcs2(config)# *interface e1/1-64*
+newcs2(config-if-range)# *shutdown*
+----
+====
+. Compruebe que todas las LIF del clúster tengan la reversión automática habilitada:
++
+`network interface show -vserver Cluster -fields auto-revert`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::> *network interface show -vserver Cluster -fields auto-revert*
+
+             Logical
+Vserver      Interface     Auto-revert
+------------ ------------- -------------
+Cluster      node1_clus1   true
+Cluster      node1_clus2   true
+Cluster      node2_clus1   true
+Cluster      node2_clus2   true
+
+4 entries were displayed.
+----
+====
+. Compruebe que todas las LIF del clúster pueden comunicarse:
++
+`cluster ping-cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster node1*
+
+Host is node2
+Getting addresses from network interface table...
+Cluster node1_clus1 169.254.209.69 node1 e0a
+Cluster node1_clus2 169.254.49.125 node1 e0b
+Cluster node2_clus1 169.254.47.194 node2 e0a
+Cluster node2_clus2 169.254.19.183 node2 e0b
+Local = 169.254.47.194 169.254.19.183
+Remote = 169.254.209.69 169.254.49.125
+Cluster Vserver Id = 4294967293
+Ping status:
+....
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s)
+................
+Detected 9000 byte MTU on 4 path(s):
+Local 169.254.47.194 to Remote 169.254.209.69
+Local 169.254.47.194 to Remote 169.254.49.125
+Local 169.254.19.183 to Remote 169.254.209.69
+Local 169.254.19.183 to Remote 169.254.49.125
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
+----
+====
+
+
+
+
+=== Paso 2: Configure los cables y los puertos
+
+. Apague los puertos ISL 1/65 y 1/66 en el switch Nexus 92300YC cs1:
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *configure*
+Enter configuration commands, one per line. End with CNTL/Z.
+cs1(config)# *interface e1/65-66*
+cs1(config-if-range)# *shutdown*
+cs1(config-if-range)#
+----
+====
+. Retire todos los cables del switch Nexus 92300YC cs2 y, a continuación, conéctelos a los mismos puertos del switch Nexus 92300YC newcs2.
+. Traiga los puertos ISL 1/65 y 1/66 entre los switches cs1 y newcs2 y, a continuación, verifique el estado de operación del canal de puerto.
++
+Port-Channel debe indicar PO1(su) y los puertos de miembro deben indicar eth1/65(P) y eth1/66(P).
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En este ejemplo, se habilitan los puertos ISL 1/65 y 1/66, y se muestra un resumen de canal de puerto en el switch cs1:
+
+[listing, subs="+quotes"]
+----
+cs1# *configure*
+Enter configuration commands, one per line. End with CNTL/Z.
+cs1(config)# *int e1/65-66*
+cs1(config-if-range)# *no shutdown*
+
+cs1(config-if-range)# show port-channel summary
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/65(P)   Eth1/66(P)
+
+cs1(config-if-range)#
+----
+====
+. Verifique que el puerto e0b esté activo en todos los nodos:
++
+`network port show ipspace Cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+La salida debe ser similar a la siguiente:
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                        Ignore
+                                                   Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU   Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ----- ----------- -------- -------
+e0a       Cluster      Cluster          up   9000  auto/10000  healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000  healthy  false
+
+Node: node2
+                                                                        Ignore
+                                                   Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU   Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ----- ----------- -------- -------
+e0a       Cluster      Cluster          up   9000  auto/10000  healthy  false
+e0b       Cluster      Cluster          up   9000  auto/auto   -        false
+
+4 entries were displayed.
+----
+====
+. En el mismo nodo que utilizó en el paso anterior, revierte la LIF del clúster asociada con el puerto en el paso anterior usando el comando network interface revert.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En este ejemplo, la LIF no1_clus2 del nodo 1 se revierte correctamente si el valor Home es TRUE y el puerto es e0b.
+
+Los siguientes comandos devuelven la LIF `node1_clus2` encendido `node1` al puerto de inicio `e0a` Y muestra información acerca de las LIF en ambos nodos. La creación del primer nodo se realiza correctamente si la columna es Inicio es true para ambas interfaces del clúster y se muestran las asignaciones de puerto correctas, en este ejemplo `e0a` y.. `e0b` en el nodo 1.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+
+            Logical      Status     Network            Current    Current Is
+Vserver     Interface    Admin/Oper Address/Mask       Node       Port    Home
+----------- ------------ ---------- ------------------ ---------- ------- -----
+Cluster
+            node1_clus1  up/up      169.254.209.69/16  node1      e0a     true
+            node1_clus2  up/up      169.254.49.125/16  node1      e0b     true
+            node2_clus1  up/up      169.254.47.194/16  node2      e0a     true
+            node2_clus2  up/up      169.254.19.183/16  node2      e0a     false
+
+4 entries were displayed.
+----
+====
+. Muestra información sobre los nodos de un clúster:
++
+`cluster show`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En este ejemplo, se muestra que el estado del nodo para el nodo 1 y el nodo 2 en este clúster es TRUE.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+
+Node          Health  Eligibility
+------------- ------- ------------
+node1         false   true
+node2         true    true
+----
+====
+. Compruebe que todos los puertos físicos del clúster estén en funcionamiento:
++
+`network port show ipspace Cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+																																									 					 																					 	  Ignore
+                                                    Speed(Mbps) Health   Health
+Port      IPspace     Broadcast Domain  Link  MTU   Admin/Oper  Status   Status
+--------- ----------- ----------------- ----- ----- ----------- -------- ------
+e0a       Cluster     Cluster           up    9000  auto/10000  healthy  false
+e0b       Cluster     Cluster           up    9000  auto/10000  healthy  false
+
+Node: node2
+                                                                         Ignore
+                                                    Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link  MTU   Admin/Oper  Status   Status
+--------- ------------ ---------------- ----- ----- ----------- -------- ------
+e0a       Cluster      Cluster          up    9000  auto/10000  healthy  false
+e0b       Cluster      Cluster          up    9000  auto/10000  healthy  false
+
+4 entries were displayed.
+----
+====
+
+
+
+
+=== Paso 3: Complete el procedimiento
+
+. Compruebe que todas las LIF del clúster pueden comunicarse:
++
+`cluster ping-cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node node2*
+Host is node2
+Getting addresses from network interface table...
+Cluster node1_clus1 169.254.209.69 node1 e0a
+Cluster node1_clus2 169.254.49.125 node1 e0b
+Cluster node2_clus1 169.254.47.194 node2 e0a
+Cluster node2_clus2 169.254.19.183 node2 e0b
+Local = 169.254.47.194 169.254.19.183
+Remote = 169.254.209.69 169.254.49.125
+Cluster Vserver Id = 4294967293
+Ping status:
+....
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s)
+................
+Detected 9000 byte MTU on 4 path(s):
+Local 169.254.47.194 to Remote 169.254.209.69
+Local 169.254.47.194 to Remote 169.254.49.125
+Local 169.254.19.183 to Remote 169.254.209.69
+Local 169.254.19.183 to Remote 169.254.49.125
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
+----
+====
+. Confirme la siguiente configuración de red del clúster:
++
+`network port show`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+Node: node1
+																																																																			 	  Ignore
+                                       Speed(Mbps)            Health   Health
+Port      IPspace     Broadcast Domain Link MTU   Admin/Oper  Status   Status
+--------- ----------- ---------------- ---- ----- ----------- -------- ------
+e0a       Cluster     Cluster          up   9000  auto/10000  healthy  false
+e0b       Cluster     Cluster          up   9000  auto/10000  healthy  false
+
+Node: node2
+                                                                       Ignore
+                                        Speed(Mbps)           Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000 auto/10000  healthy  false
+e0b       Cluster      Cluster          up   9000 auto/10000  healthy  false
+
+4 entries were displayed.
+
+
+cluster1::*> *network interface show -vserver Cluster*
+
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+            node1_clus1  up/up    169.254.209.69/16  node1         e0a     true
+            node1_clus2  up/up    169.254.49.125/16  node1         e0b     true
+            node2_clus1  up/up    169.254.47.194/16  node2         e0a     true
+            node2_clus2  up/up    169.254.19.183/16  node2         e0b     true
+
+4 entries were displayed.
+
+cluster1::> *network device-discovery show -protocol cdp*
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node2      /cdp
+            e0a    cs1                       0/2               N9K-C92300YC
+            e0b    newcs2                    0/2               N9K-C92300YC
+node1      /cdp
+            e0a    cs1                       0/1               N9K-C92300YC
+            e0b    newcs2                    0/1               N9K-C92300YC
+
+4 entries were displayed.
+
+
+cs1# *show cdp neighbors*
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID            Local Intrfce  Hldtme Capability  Platform      Port ID
+node1                Eth1/1         144    H           FAS2980       e0a
+node2                Eth1/2         145    H           FAS2980       e0a
+newcs2(FDO296348FU)  Eth1/65        176    R S I s     N9K-C92300YC  Eth1/65
+newcs2(FDO296348FU)  Eth1/66        176    R S I s     N9K-C92300YC  Eth1/66
+
+
+Total entries displayed: 4
+
+
+cs2# *show cdp neighbors*
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+node1              Eth1/1         139    H           FAS2980       e0b
+node2              Eth1/2         124    H           FAS2980       e0b
+cs1(FDO220329KU)   Eth1/65        178    R S I s     N9K-C92300YC  Eth1/65
+cs1(FDO220329KU)   Eth1/66        178    R S I s     N9K-C92300YC  Eth1/66
+
+Total entries displayed: 4
+----
+====
+. En ONTAP 9.4 y versiones posteriores, habilite la función de recogida de registros del control de estado del switch de clúster para recopilar archivos de registro relacionados con el switch mediante gthe commds:
++
+`system cluster-switch log setup-password` y.. `system cluster-switch log enable-collection`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system cluster-switch log setup-password*
+Enter the switch name: <return>
+The switch name entered is not recognized.
+Choose from the following list:
+cs1
+cs2
+
+cluster1::*> *system cluster-switch log setup-password*
+
+Enter the switch name: *cs1*
+RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] *y*
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster1::*> *system cluster-switch log setup-password*
+
+Enter the switch name: *cs2*
+RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
+Do you want to continue? {y|n}:: [n] *y*
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster1::*> *system cluster-switch log enable-collection*
+
+Do you want to enable cluster log collection for all nodes in the cluster?
+{y|n}: [n] *y*
+
+Enabling cluster switch log collection.
+
+cluster1::*>
+----
+====
++
+
+NOTE: Si alguno de estos comandos devuelve un error, póngase en contacto con el soporte de NetApp.
+
+

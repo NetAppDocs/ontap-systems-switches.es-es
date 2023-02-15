@@ -1,0 +1,69 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9336c-fx2-shared/cable-9336c-shared.html 
+keywords: shared storage cluster switch cable 
+summary: Utilice las imágenes de cableado para completar el cableado entre las controladoras y los switches. 
+---
+= Rellene la hoja de trabajo del cableado Cisco Nexus 9336C-FX2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Utilice las siguientes imágenes de cableado para completar el cableado entre las controladoras y los switches.
+
+
+
+== Almacenamiento de cable NS224 como conectado a conmutador
+
+Si desea conectar el cable de almacenamiento NS224 como conmutador, siga el diagrama conectado al conmutador:
+
+image:9336c_image1.jpg["Conectado a interruptor"]
+
+Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obtener más información sobre los puertos de switch.
+
+
+
+== Almacenamiento de cable NS224 como conexión directa
+
+Si desea conectar mediante cable el almacenamiento NS224 como de conexión directa en lugar de utilizar los puertos de almacenamiento del conmutador compartido, siga el diagrama de conexión directa:
+
+image:9336c_image2.jpg["Conexión directa"]
+
+Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obtener más información sobre los puertos de switch.
+
+
+
+== Hoja de trabajo del cableado Cisco Nexus 9336C-FX2
+
+Si desea documentar las plataformas compatibles, debe rellenar la hoja de datos de cableado en blanco utilizando la hoja de datos de cableado de muestra completada como guía.
+
+La definición de puerto de ejemplo de cada par de conmutadores es la siguiente:image:cabling_worksheet.jpg["Hoja de trabajo para el cableado"]
+
+Donde:
+
+* ISL DE 100 G para cambiar al puerto 35
+* ISL DE 100 G para cambiar al puerto 36
+* 100G ISL al puerto 35 del switch B.
+* 100G ISL al puerto 36 del switch B.
+
+
+
+
+== Hoja de trabajo de cableado en blanco
+
+Puede utilizar la hoja de datos de cableado vacía para documentar las plataformas que se admiten como nodos de un clúster. La tabla conexiones de clúster admitidas del Hardware Universe define los puertos de clúster que utiliza la plataforma.
+
+image:blank_cabling_worksheet.jpg["Hoja de trabajo de cableado en blanco"]
+
+Donde:
+
+* ISL DE 100 G para cambiar al puerto 35
+* ISL DE 100 G para cambiar al puerto 36
+* 100G ISL al puerto 35 del switch B.
+* 100G ISL al puerto 36 del switch B.
+

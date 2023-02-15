@@ -1,0 +1,207 @@
+---
+permalink: switch-bes-53248/configure-install-rcf.html 
+sidebar: sidebar 
+keywords: install rcf,setup rcf 
+summary: 'Puede instalar el archivo de configuración de referencia (RCF) después de configurar el conmutador de clúster BES-53248 y después de aplicar las nuevas licencias.' 
+---
+= Instalación del archivo de configuración de referencia (RCF)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede instalar el archivo de configuración de referencia (RCF) después de configurar el conmutador de clúster BES-53248 y después de aplicar las nuevas licencias.
+
+Si está actualizando un RCF desde una versión anterior, debe restablecer la configuración del switch Broadcom y realizar la configuración básica para volver a aplicar el RCF. Debe realizar esta operación cada vez que desee actualizar o cambiar un RCF. Consulte https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric%2C_Interconnect_and_Management_Switches/Error!_in_configuration_script_file_at_line_number_XX_when_applying_a_new_RCF["Artículo de base de conocimientos"^] para obtener más detalles.
+
+.Pasos
+. Conecte el switch de clúster a la red de gestión.
+. Utilice la `ping` Comando para verificar la conectividad con el servidor que aloja EFOS, licencias y RCF.
++
+Si la conectividad es un problema, utilice una red no enrutada y configure el puerto de servicio con la dirección IP 192.168.x o 172.19.x. Puede volver a configurar el puerto del servicio con la dirección IP de administración de producción más adelante.
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En este ejemplo se comprueba que el conmutador está conectado al servidor en la dirección IP 172.19.2.1:
+
+[listing, subs="+quotes"]
+----
+(cs2)# *ping 172.19.2.1*
+Pinging 172.19.2.1 with 0 bytes of data:
+
+Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
+----
+====
+. Instale el RCF en el conmutador de clúster BES-53248 mediante el `copy` comando.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *copy sftp://172.19.2.1/tmp/BES-53248_RCF_v1.6-Cluster-HA.txt nvram:script BES-53248_RCF_v1.6-Cluster-HA.scr*
+
+Remote Password:********
+
+Mode........................................... SFTP
+Set Server IP.................................. 172.19.2.1
+Path........................................... //tmp/
+Filename....................................... BES-53248_RCF_v1.6-Cluster-HA.txt
+Data Type...................................... Config Script
+Destination Filename........................... BES-53248_RCF_v1.6-Cluster-HA.scr
+
+Management access will be blocked for the duration of the transfer
+Are you sure you want to start? (y/n) *y*
+SFTP Code transfer starting...
+
+File transfer operation completed successfully.
+----
+====
++
+
+NOTE: En función del entorno, es posible que deba utilizar una doble barra en `copy` comando, por ejemplo: `+copy sftp://172.19.2.1//tmp/BES-53248_RCF_v1.6-Cluster-HA.txt nvram:script BES-53248_RCF_v1.6-Cluster-HA.scr+`.
+
++
+
+NOTE: La `.scr` la extensión se debe establecer como parte del nombre de archivo antes de llamar al script. Esta extensión es la extensión del sistema operativo EFOS. El conmutador valida la secuencia de comandos automáticamente cuando se descarga en el conmutador y la salida va a la consola. Además, puede cambiar el nombre del `.scr` para ajustar la pantalla de la consola para facilitar la legibilidad, por ejemplo: `+copy sftp://172.19.2.1/tmp/BES-53248_RCF_v1.6-Cluster-HA.txt nvram:script RCF_v1.6-Cluster-HA.scr+`.
+
++
+
+NOTE: El nombre de archivo no debe incluir los símbolos `\/:*?"<>|` además, la longitud máxima permitida es de 32 caracteres.
+
+. Compruebe que la secuencia de comandos se ha descargado y guardado en el nombre de archivo que le ha proporcionado:
++
+`script list`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *script list*
+
+Configuration Script Name                  Size(Bytes)  Date of Modification
+-----------------------------------------  -----------  --------------------
+BES-53248_RCF_v1.6-Cluster-HA.scr        2241         2020 09 30 05:41:00
+
+1 configuration script(s) found.
+----
+====
+. Aplique el script al conmutador:
++
+`script apply`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *script apply BES-53248_RCF_v1.6-Cluster-HA.scr*
+
+Are you sure you want to apply the configuration script? (y/n) *y*
+
+The system has unsaved changes.
+Would you like to save them now? (y/n) *y*
+Config file 'startup-config' created successfully .
+Configuration Saved!
+
+Configuration script 'BES-53248_RCF_v1.6-Cluster-HA.scr' applied.
+----
+====
+. Verifique los puertos para una licencia adicional después de aplicar el RCF:
++
+`show port all | exclude Detach`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *show port all \| exclude Detach*
+
+                 Admin     Physical     Physical   Link   Link    LACP   Actor
+Intf      Type   Mode      Mode         Status     Status Trap    Mode   Timeout
+--------- ------ --------- ---------- ---------- ------ ------- ------ --------
+0/1              Enable    Auto                    Down   Enable  Enable long
+0/2              Enable    Auto                    Down   Enable  Enable long
+0/3              Enable    Auto                    Down   Enable  Enable long
+0/4              Enable    Auto                    Down   Enable  Enable long
+0/5              Enable    Auto                    Down   Enable  Enable long
+0/6              Enable    Auto                    Down   Enable  Enable long
+0/7              Enable    Auto                    Down   Enable  Enable long
+0/8              Enable    Auto                    Down   Enable  Enable long
+0/9              Enable    Auto                    Down   Enable  Enable long
+0/10             Enable    Auto                    Down   Enable  Enable long
+0/11             Enable    Auto                    Down   Enable  Enable long
+0/12             Enable    Auto                    Down   Enable  Enable long
+0/13             Enable    Auto                    Down   Enable  Enable long
+0/14             Enable    Auto                    Down   Enable  Enable long
+0/15             Enable    Auto                    Down   Enable  Enable long
+0/16             Enable    Auto                    Down   Enable  Enable long
+0/49             Enable    40G Full                Down   Enable  Enable long
+0/50             Enable    40G Full                Down   Enable  Enable long
+0/51             Enable    100G Full               Down   Enable  Enable long
+0/52             Enable    100G Full               Down   Enable  Enable long
+0/53             Enable    100G Full               Down   Enable  Enable long
+0/54             Enable    100G Full               Down   Enable  Enable long
+0/55             Enable    100G Full               Down   Enable  Enable long
+0/56             Enable    100G Full               Down   Enable  Enable long
+----
+====
+. Compruebe en el conmutador que se han realizado los cambios:
++
+`show running-config`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *show running-config*
+----
+. Guarde la configuración en ejecución para que se convierta en la configuración de inicio al reiniciar el conmutador:
++
+`write memory`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *write memory*
+This operation may take a few minutes.
+Management interfaces will not be available during this time.
+
+Are you sure you want to save? (y/n) *y*
+
+Config file 'startup-config' created successfully.
+
+Configuration Saved!
+----
+====
+. Reinicie el conmutador y compruebe que la configuración en ejecución es correcta:
++
+`reload`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *reload*
+
+Are you sure you would like to reset the system? (y/n) *y*
+
+System will now restart!
+----
+====
+
+
+.El futuro
+link:configure-health-monitor.html["Instale el archivo de configuración CSHM"].

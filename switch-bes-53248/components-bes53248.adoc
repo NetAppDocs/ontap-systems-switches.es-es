@@ -1,0 +1,74 @@
+---
+permalink: switch-bes-53248/components-bes53248.html 
+sidebar: sidebar 
+keywords: cluster-mode,supported versions,switches supported,cluster network,efos 
+summary: Para la instalación y mantenimiento del conmutador BES-53248, asegúrese de revisar la lista de componentes y números de pieza. 
+---
+= Componentes y números de pieza para switches de clúster BES-53248
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para la instalación y mantenimiento del conmutador BES-53248, asegúrese de revisar la lista de componentes y números de pieza.
+
+En la siguiente tabla se enumeran el número de pieza y la descripción de los componentes del switch de clúster BES-53248, incluido el kit de raíl para montaje en rack, los ventiladores y las fuentes de alimentación.
+
+[cols="1,2"]
+|===
+| Número de pieza | Descripción 
+
+
+ a| 
+X190005
+ a| 
+BES-53248, CLSW, 16Pt10/25GB, PTSX, SOPORTE de BRDCM (PTSX = escape lateral del puerto)
+
+
+
+ a| 
+X190005R
+ a| 
+BES-53248, CLSW, 16Pt10/25GB, PSIN, SOPORTE de BRDCM (PSIN = entrada lateral del puerto)
+
+
+
+ a| 
+X-RAIL-4POST-190005
+ a| 
+Kit de rieles para montaje en rack Ozeki 4 post 19"
+
+
+
+ a| 
+X-FAN-190005-R.
+ a| 
+Ventilador, toma lateral de la lumbrera X190005
+
+
+
+ a| 
+X-FAN-190005-F
+ a| 
+Ventilador, escape lateral de la lumbrera X190005
+
+
+
+ a| 
+X-PSU-190005-R
+ a| 
+Fuente de alimentación, toma lateral de la lumbrera X190005
+
+Flujo de aire de admisión del lado del puerto (aire de retroceso): El aire frío entra en el chasis a través del extremo del puerto del pasillo frío y sale por los módulos de ventilador y fuente de alimentación del pasillo caliente.
+
+
+
+ a| 
+X-PSU-190005-F
+ a| 
+Fuente de alimentación, escape lateral de la lumbrera X190005
+
+Flujo de aire de escape del lado del puerto (aire estándar): El aire frío entra en el chasis a través del ventilador y los módulos de alimentación del pasillo frío y sale por el extremo del puerto del chasis en el pasillo caliente. El color azul indica el flujo de aire de escape del puerto. Esta es la opción más común.
+
+|===

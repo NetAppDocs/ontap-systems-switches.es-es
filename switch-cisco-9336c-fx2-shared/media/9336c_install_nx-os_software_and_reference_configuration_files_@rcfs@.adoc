@@ -1,0 +1,1537 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9336c-shared/9336c_install_nx-os_software_and_reference_configuration_files_@rcfs@.html 
+keywords: rcfs, nx-os, install 
+summary:  
+---
+= Instalar el software NX-OS y los archivos de configuración de referencia (RCF)
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+
+
+==== Instale el software NX-OS y RCF en un switch de clúster Cisco Nexus 9336C- FX2
+
+Debe instalarse el software Cisco NX-OS y el archivo de configuración de referencia (RCF) en los switches de clúster Cisco Nexus 9336C-FX2.
+
+.Antes de empezar
+Deben existir las siguientes condiciones antes de instalar el software NX-OS y RCF en el switch del clúster:
+
+* El clúster debe estar funcionando completamente (no debe haber errores en los registros ni problemas similares).
+* Debe haber comprobado o establecido la configuración de inicio deseada en el RCF para reflejar las imágenes de arranque deseadas si sólo está instalando NX-OS y manteniendo su versión actual de RCF.
+* Si necesita cambiar la configuración de arranque para reflejar las imágenes de arranque actuales, debe hacerlo antes de volver a aplicar el RCF para que se cree una instancia de la versión correcta en futuros reinicios.
+* Debe tener una conexión de consola al conmutador, necesaria para instalar el RCF.
+* Debe haber consultado la tabla de compatibilidad de switches de la página del conmutador Ethernet de Cisco para las versiones ONTAP, NX-OS y RCF compatibles. Consulte https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"] si quiere más información.
+* Puede haber dependencias de comandos entre la sintaxis de comandos en el RCF y la que se encuentra en las versiones de NX-OS.
+* Debe haber hecho referencia a las guías de software y actualizaciones adecuadas disponibles en el sitio web de Cisco para obtener documentación completa sobre los procedimientos de actualización y degradación de switches de Cisco en los switches de la serie Cisco Nexus 9000. Consulte https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html["Switches Cisco Nexus serie 9000"] si quiere más información.
+* Debe tener el RCF actual.
+
+
+
+
+===== Configuración inicial
+
+Los ejemplos de este procedimiento utilizan dos nodos. Estos nodos utilizan dos puertos de interconexión de clúster de 100 GbE e3a y e3b, como se indica en la controladora A400. Consulte https://hwu.netapp.com["Hardware Universe"] para verificar los puertos de clúster correctos en sus plataformas.
+
+
+NOTE: Los resultados del comando pueden variar en función de las diferentes versiones de ONTAP.
+
+Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:
+
+* Los nombres de los dos switches Cisco son _cs1_ y _cs2_.
+* Los nombres de nodo son _cluster1-01_ y _cluster1-02_.
+* Los nombres de las LIF del clúster son _cluster1-01_clus1_ y _cluster1-01_clus2_ para cluster1-01 y _cluster1-02_clus1_ y _cluster1-02_clus2_ para cluster1-02.
+* El símbolo del sistema cluster1:*> indica el nombre del clúster.
+
+
+
+NOTE: Para ello, es necesario utilizar tanto comandos de la ONTAP como comandos de la serie Cisco Nexus 9000; los comandos de la ONTAP se usan a menos que se indique lo contrario.
+
+.Pasos
+. [[step1]]Si AutoSupport está habilitado en este clúster, elimine la creación automática de casos invocando un mensaje de AutoSupport: `system node autosupport invoke -node * -type all -message MAINT=x h`
++
+Donde x es la duración de la ventana de mantenimiento en horas.
+
+
+
+. [[step2]]cambie el nivel de privilegio a avanzado, introduciendo y cuando se le solicite continuar:
+`set -privilege advanced`
++
+Aparece el mensaje avanzado (*>).
+
+. [[step3]]muestra cuántas interfaces de interconexión de clúster están configuradas en cada nodo para cada switch de interconexión de clúster:
+`network device-discovery show -protocol cdp`
+
+
+[listing]
+----
+cluster1:: network device-discovery show -protocol cdp
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------- --------
+cluster1-02/cdp
+            e3a    cs1                       Eth1/2            N9K-C9336C
+            e3b    cs2                       Eth1/2            N9K-C9336C
+cluster1-01/cdp
+            e3a    cs1                       Eth1/1            N9K-C9336C
+            e3b    cs2                       Eth1/1            N9K-C9336C
+4 entries were displayed.
+----
+. [[step4]]Compruebe el estado administrativo u operativo de cada interfaz de clúster:
++
+.. Mostrar los atributos del puerto de red:
+`network port show –ipspace Cluster`
+
+
+
+
+[listing]
+----
+cluster1::*> network port show -ipspace Cluster
+Node: cluster1-02
+                                                  Speed(Mbps)  Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status
+--------- ------------ ---------------- ---- ---- ------------ ------
+e3a       Cluster      Cluster          up   9000  auto/100000 healthy
+e3b       Cluster      Cluster          up   9000  auto/100000 healthy
+
+Node: cluster1-01
+                                                  Speed(Mbps)  Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status
+--------- ------------ ---------------- ---- ---- ------------ ------
+e3a       Cluster      Cluster          up   9000  auto/100000 healthy
+e3b       Cluster      Cluster          up   9000  auto/100000 healthy
+4 entries were displayed.
+
+----
+. Mostrar información acerca de las LIF:
+`network interface show - vserver Cluster`
+
+
+[listing]
+----
+cluster1::*> network interface show -vserver Cluster
+        Logical            Status     Network            Current    Current Is
+Vserver Interface          Admin/Oper Address/Mask       Node        Port   Home
+------- ------------------ ---------- ------------------ ----------- ------ ----
+Cluster
+        cluster1-01_clus1  up/up      169.254.209.69/16  cluster1-01  e3a   true
+        cluster1-01_clus2  up/up      169.254.49.125/16  cluster1-01  e3b   true
+        cluster1-02_clus1  up/up      169.254.47.194/16  cluster1-02  e3a   true
+        cluster1-02_clus2  up/up      169.254.19.183/16  cluster1-02  e3b   true
+4 entries were displayed.
+----
+. [[step5]]Ping las LIF del clúster remoto:
+`cluster ping-cluster -node node-name`
+
+
+[listing]
+----
+cluster1::*> cluster ping-cluster -node cluster1-02
+Host is cluster1-02
+Getting addresses from network interface table...
+Cluster cluster1-01_clus1 169.254.209.69 cluster1-01     e3a
+Cluster cluster1-01_clus2 169.254.49.125 cluster1-01     e3b
+Cluster cluster1-02_clus1 169.254.47.194 cluster1-02     e3a
+Cluster cluster1-02_clus2 169.254.19.183 cluster1-02     e3b
+Local = 169.254.47.194 169.254.19.183
+Remote = 169.254.209.69 169.254.49.125
+Cluster Vserver Id = 4294967293
+Ping status:
+
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s)
+
+Detected 9000 byte MTU on 4 path(s):
+    Local 169.254.19.183 to Remote 169.254.209.69
+    Local 169.254.19.183 to Remote 169.254.49.125
+    Local 169.254.47.194 to Remote 169.254.209.69
+    Local 169.254.47.194 to Remote 169.254.49.125
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
+----
+. [[step6]]Compruebe que el comando de reversión automática esté habilitado en todas las LIF del clúster:
+`network interface show - vserver Cluster -fields auto-revert`
+
+
+[listing]
+----
+cluster1::*> network interface show -vserver Cluster -fields auto-revert
+          Logical
+Vserver   Interface            Auto-revert
+--------- ––––––-------------- ------------
+Cluster
+          cluster1-01_clus1    true
+          cluster1-01_clus2    true
+          cluster1-02_clus1    true
+          cluster1-02_clus2    true
+4 entries were displayed.
+----
+. [[step7]]habilite la función de recopilación de registros del monitor de estado del switch Ethernet para recopilar archivos de registro relacionados con el conmutador, utilizando los siguientes comandos:
++
+** `system switch ethernet log setup-password`
+** `system switch ethernet log enable-collection`
+
+
+
+
+[listing]
+----
+cluster1::*> system switch ethernet log setup password
+Enter the switch name: <return>
+The switch name entered is not recognized.
+Choose from the following list:
+cs1
+cs2
+cluster1::*> system switch ethernet log setup-password
+Enter the switch name: cs1
+RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] y
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+cluster1::*> system switch ethernet log setup-password
+Enter the switch name: cs2
+RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
+Do you want to continue? {y|n}:: [n] y
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+cluster1::*> system  switch ethernet log enable-collection
+Do you want to enable cluster log collection for all nodes in the cluster? {y|n}: [n] y
+Enabling cluster switch log collection.
+cluster1::*>
+----
+
+NOTE: Si alguno de estos comandos devuelve un error, póngase en contacto con el soporte de NetApp.
+
+
+
+==== Instale el software NX-OS en un switch de clúster Cisco Nexus 9336C- FX2
+
+Puede utilizar este procedimiento para instalar el software NX-OS en el switch de clúster Cisco Nexus 9336C-FX2.
+
+.Pasos
+. [[step1]]Conecte el switch de cluster a la red de administración.
+. [[step2]]Utilice el `ping` Comando para verificar la conectividad con el servidor que aloja el software NX-OS y el RCF.
++
+En este ejemplo se verifica que el switch puede llegar al servidor en la dirección IP `172.19.2.1`:
+
+
+
+[listing]
+----
+cs2# ping 172.19.2.1
+Pinging 172.19.2.1 with 0 bytes of data:
+Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
+----
+. [[step3]]copie las imágenes del software NX-OS y EPLD en el switch Nexus 9336C-FX2.
+
+
+[listing]
+----
+cs2# copy sftp: bootflash: vrf management
+Enter source filename: /code/nxos.9.3.5.bin
+Enter hostname for the sftp server: 172.19.2.1
+Enter username: user1
+Outbound-ReKey for 172.19.2.1:22
+Inbound-ReKey for 172.19.2.1:22
+user1@172.19.2.1's password:
+sftp> progress
+Progress meter enabled
+sftp> get   /code/nxos.9.3.5.bin  /bootflash/nxos.9.3.5.bin
+/code/nxos.9.3.5.bin  100% 1261MB   9.3MB/s   02:15
+sftp> exit
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+cs2# copy sftp: bootflash: vrf management
+Enter source filename: /code/n9000-epld.9.3.5.img
+Enter hostname for the sftp server: 172.19.2.1
+Enter username: user1
+Outbound-ReKey for 172.19.2.1:22
+Inbound-ReKey for 172.19.2.1:22
+user1@172.19.2.1's password:
+sftp> progress
+Progress meter enabled
+sftp> get   /code/n9000-epld.9.3.5.img  /bootflash/n9000-epld.9.3.5.img
+/code/n9000-epld.9.3.5.img  100%  161MB   9.5MB/s   00:16
+sftp> exit
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+----
+. [[step4]]Compruebe la versión en ejecución del software NX-OS:
+`show version`
+
+
+[listing]
+----
+cs2# show version
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2020, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or
+Lesser General Public License (LGPL) Version 2.0.
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+Software
+  BIOS: version 08.38
+  NXOS: version 9.3(4)
+  BIOS compile time:  05/29/2020
+  NXOS image file is: bootflash:///nxos.9.3.4.bin
+  NXOS compile time:  4/28/2020 21:00:00 [04/29/2020 02:28:31]
+Hardware
+  cisco Nexus9000 C9336C-FX2 Chassis
+  Intel(R) Xeon(R) CPU E5-2403 v2 @ 1.80GHz with 8154432 kB of memory.
+  Processor Board ID FOC20291J6K
+  Device name: cs2
+  bootflash:   53298520 kB
+Kernel uptime is 0 day(s), 0 hour(s), 3 minute(s), 42 second(s)
+Last reset at 157524 usecs after Mon Nov  2 18:32:06 2020
+  Reason: Reset Requested by CLI command reload
+  System version: 9.3(4)
+  Service:
+plugin
+  Core Plugin, Ethernet Plugin
+Active Package(s):
+
+cs2#
+----
+. [[step5]]instale la imagen NX-OS.
+
+
+
+NOTE: La instalación del archivo de imagen hace que se cargue cada vez que se reinicia el conmutador.
+
+[listing]
+----
+cs2# install all nxos bootflash:nxos.9.3.5.bin
+Installer will perform compatibility check first. Please wait.
+Installer is forced disruptive
+Verifying image bootflash:/nxos.9.3.5.bin for boot variable "nxos".
+[####################] 100% -- SUCCESS
+Verifying image type.
+[####################] 100% -- SUCCESS
+Preparing "nxos" version info using image bootflash:/nxos.9.3.5.bin.
+[####################] 100% -- SUCCESS
+Preparing "bios" version info using image bootflash:/nxos.9.3.5.bin.
+[####################] 100% -- SUCCESS
+Performing module support checks.
+[####################] 100% -- SUCCESS
+Notifying services about system upgrade.
+[####################] 100% -- SUCCESS
+Compatibility check is done:
+Module  bootable       Impact     Install-type  Reason
+------  --------  --------------- ------------  ------
+  1       yes      disruptive         reset     default upgrade is not hitless
+Images will be upgraded according to following table:
+Module   Image    Running-Version(pri:alt                New-Version         Upg-
+                                                                             Required
+------- --------- -------------------------------------- ------------------- ------------
+  1      nxos     9.3(4)                                 9.3(5)              yes
+  1      bios     v08.37(01/28/2020):v08.23(09/23/2015)  v08.38(05/29/2020)  yes
+Switch will be reloaded for disruptive upgrade.
+Do you want to continue with the installation (y/n)?  [n] y
+Install is in progress, please wait.
+Performing runtime checks.
+[####################] 100% -- SUCCESS
+Setting boot variables.
+[####################] 100% -- SUCCESS
+Performing configuration copy.
+[####################] 100% -- SUCCESS
+Module 1: Refreshing compact flash and upgrading bios/loader/bootrom.
+Warning: please do not remove or power off the module at this time.
+[####################] 100% -- SUCCESS
+Finishing the upgrade, switch will reboot in 10 seconds.
+----
+. [[step6]] Compruebe la nueva versión del software NX-OS después de que se haya reiniciado el conmutador:
+`show version`
+
+
+[listing]
+----
+cs2# show version
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2020, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or
+Lesser General Public License (LGPL) Version 2.0.
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+Software
+  BIOS: version 05.33
+  NXOS: version 9.3(5)
+  BIOS compile time:  09/08/2018
+  NXOS image file is: bootflash:///nxos.9.3.5.bin
+  NXOS compile time:  11/4/2018 21:00:00 [11/05/2018 06:11:06]
+Hardware
+  cisco Nexus9000 C9336C-FX2 Chassis
+  Intel(R) Xeon(R) CPU E5-2403 v2 @ 1.80GHz with 8154432 kB of memory.
+  Processor Board ID FOC20291J6K
+  Device name: cs2
+  bootflash:   53298520 kB
+Kernel uptime is 0 day(s), 0 hour(s), 3 minute(s), 42 second(s)
+Last reset at 277524 usecs after Mon Nov  2 22:45:12 2020
+  Reason: Reset due to upgrade
+  System version: 9.3(4)
+  Service:
+plugin
+  Core Plugin, Ethernet Plugin
+Active Package(s):
+----
+. [[step7]]Actualice la imagen EPLD y reinicie el conmutador.
+
+
+[listing]
+----
+cs2# show version module 1 epld
+EPLD Device                     Version
+---- -------------------------- -------
+MI   FPGA                        0x7
+IO   FPGA                        0x17
+MI   FPGA2                       0x2
+GEM  FPGA                        0x2
+GEM  FPGA                        0x2
+GEM  FPGA                        0x2
+GEM  FPGA                        0x2
+cs2# install epld bootflash:n9000-epld.9.3.5.img module 1
+Compatibility check:
+Module      Type        Upgradable  Impact      Reason
+------  -------------- ------------ ----------- -------
+     1      SUP        Yes          disruptive  Module Upgradable
+Retrieving EPLD versions... Please wait.
+Images will be upgraded according to following table:
+Module  Type   EPLD              Running-Version   New-Version  Upg-Required
+------- ------ ----------------- ----------------- ------------ ------------
+     1  SUP    MI FPGA           0x07              0x07         No
+     1  SUP    IO FPGA           0x17              0x19         Yes
+     1  SUP    MI FPGA2          0x02              0x02         No
+The above modules require upgrade.
+The switch will be reloaded at the end of the upgrade
+Do you want to continue (y/n) ?  [n] y
+Proceeding to upgrade Modules.
+Starting Module 1 EPLD Upgrade
+Module 1 : IO FPGA [Programming] : 100.00% (     64 of      64 sectors)
+Module 1 EPLD upgrade is successful.
+Module   Type  Upgrade-Result
+-------- ----- --------------
+     1   SUP   Success
+EPLDs upgraded.
+Module 1 EPLD upgrade is successful.
+----
+. [[step8]]después de reiniciar el switch, vuelva a iniciar sesión y compruebe que la nueva versión de EPLD se ha cargado correctamente.
+
+
+[listing]
+----
+cs2# show version module 1 epld
+EPLD Device                     Version
+---- -------------------------- --------
+MI   FPGA                        0x7
+IO   FPGA                        0x19
+MI   FPGA2                       0x2
+GEM  FPGA                        0x2
+GEM  FPGA                        0x2
+GEM  FPGA                        0x2
+GEM  FPGA                        0x2
+----
+
+
+==== Instale el RCF en un switch de clúster Cisco Nexus 9336C-FX2
+
+Puede instalar el RCF después de configurar por primera vez el switch de clúster Nexus 9336C-FX2. También puede usar este procedimiento para actualizar la versión de RCF en el switch de clúster.
+
+.Acerca de esta tarea
+Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:
+
+* Los nombres de los dos switches Cisco son `cs1` y.. `cs2`.
+* Los nombres de nodo son `cluster1-01`, `cluster1-02`, `cluster1-03`, y. `cluster1-04`.
+* Los nombres de LIF del clúster son `cluster1-01_clus1`, `cluster1-01_clus2`, `cluster1-02_clus1`, `cluster1-02_clus2`, `cluster1-03_clus1`, `cluster1-03_clus2`, `cluster1-04_clus1`, y. `cluster1-04_clus2`.
+* El símbolo del sistema cluster1:*> indica el nombre del clúster.
+
+
+
+NOTE: Para ello, es necesario utilizar tanto comandos de la ONTAP como comandos de la serie Cisco Nexus 9000; los comandos de la ONTAP se usan a menos que se indique lo contrario.
+
+.Pasos
+. [[step1]]muestre los puertos de clúster de cada nodo conectado a los switches de clúster:
+`network device-discovery show`
+
+
+[listing]
+----
+cluster1::*> network device-discovery show
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  --------
+cluster1-01/cdp
+            e3a    cs1                       Ethernet1/7       N9K-C9336C
+            e0d    cs2                       Ethernet1/7       N9K-C9336C
+cluster1-02/cdp
+            e3a    cs1                       Ethernet1/8       N9K-C9336C
+            e0d    cs2                       Ethernet1/8       N9K-C9336C
+cluster1-03/cdp
+            e3a    cs1                       Ethernet1/1/1     N9K-C9336C
+            e3b    cs2                       Ethernet1/1/1     N9K-C9336C
+cluster1-04/cdp
+            e3a    cs1                       Ethernet1/1/2     N9K-C9336C
+            e3b    cs2                       Ethernet1/1/2     N9K-C9336C
+cluster1::*>
+----
+. [[step2]]Compruebe el estado administrativo y operativo de cada puerto del clúster.
+. [[step3]]Compruebe que todos los puertos del clúster estén en buen estado:
+`network port show –role cluster`
+
+
+[listing]
+----
+cluster1::*> network port show -role cluster
+Node: cluster1-01
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e3a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
+Node: cluster1-02
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e3a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
+8 entries were displayed.
+Node: cluster1-03
+
+                                                                        Ignore
+                                                  Speed(Mbps)  Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status   Status
+--------- ------------ ---------------- ---- ---- ------------ -------- ------
+e3a       Cluster      Cluster          up   9000  auto/100000 healthy  false
+e3b       Cluster      Cluster          up   9000  auto/100000 healthy  false
+Node: cluster1-04
+                                                                        Ignore
+                                                  Speed(Mbps)  Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status   Status
+--------- ------------ ---------------- ---- ---- ------------ -------- ------
+e0a       Cluster      Cluster          up   9000  auto/100000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/100000 healthy  false
+cluster1::*>
+----
+. [[step4]]Compruebe que todas las interfaces de clúster (LIF) estén en el puerto de inicio:
+`network interface show -role cluster`
+
+
+[listing]
+----
+cluster1::*> network interface show -role cluster
+        Logical            Status     Network         Current      Current Is
+Vserver Interface          Admin/Oper Address/Mask    Node         Port    Home
+------- ------------------ ---------- --------------- ------------ ------- ----
+Cluster
+        cluster1-01_clus1  up/up     169.254.3.4/23   cluster1-01  e3a     true
+        cluster1-01_clus2  up/up     169.254.3.5/23   cluster1-01  e0d     true
+        cluster1-02_clus1  up/up     169.254.3.8/23   cluster1-02  e3a     true
+        cluster1-02_clus2  up/up     169.254.3.9/23   cluster1-02  e0d     true
+        cluster1-03_clus1  up/up     169.254.1.3/23   cluster1-03  e3a     true
+        cluster1-03_clus2  up/up     169.254.1.1/23   cluster1-03  e3b     true
+        cluster1-04_clus1  up/up     169.254.1.6/23   cluster1-04  e3a     true
+        cluster1-04_clus2  up/up     169.254.1.7/23   cluster1-04  e3b     true
+8 entries were displayed.
+cluster1::*>
+----
+. [[step5]]Compruebe que el clúster muestre información de los dos switches del clúster:
+`system cluster-switch show -is-monitoring-enabled-operational true`
+
+
+[listing]
+----
+cluster1::*> system cluster-switch show -is-monitoring-enabled-operational true
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- -----
+cs1                         cluster-network    10.233.205.90    N9K-C9336C
+     Serial Number: FOCXXXXXXGD
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(5)
+    Version Source: CDP
+cs2                         cluster-network    10.233.205.91    N9K-C9336C
+     Serial Number: FOCXXXXXXGS
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(5)
+    Version Source: CDP
+cluster1::*>
+----
+. [[step6]]deshabilite la reversión automática en las LIF del clúster.
+
+
+[listing]
+----
+cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert false
+----
+. [[step7]]en el switch de clúster cs2, apague los puertos conectados a los puertos del clúster de los nodos.
+
+
+[listing]
+----
+cs2(config)# interface eth1/1/1-2,eth1/7-8
+cs2(config-if-range)# shutdown
+----
+. [[paso8]]Compruebe que las LIF del clúster han migrado a los puertos alojados en el switch de clúster cs1. Esto puede tardar unos segundos:
+`network interface show -role cluster`
+
+
+[listing]
+----
+cluster1::*> network interface show -role cluster
+        Logical           Status     Network          Current      Current  Is
+Vserver Interface         Admin/Oper Address/Mask     Node         Port     Home
+------- ----------------- --------- ---------------- ------------- ------- ----
+Cluster
+        cluster1-01_clus1 up/up     169.254.3.4/23   cluster1-01   e3a     true
+        cluster1-01_clus2 up/up     169.254.3.5/23   cluster1-01   e3a     false
+        cluster1-02_clus1 up/up     169.254.3.8/23   cluster1-02   e3a     true
+        cluster1-02_clus2 up/up     169.254.3.9/23   cluster1-02   e3a     false
+        cluster1-03_clus1 up/up     169.254.1.3/23   cluster1-03   e3a     true
+        cluster1-03_clus2 up/up     169.254.1.1/23   cluster1-03   e3a     false
+        cluster1-04_clus1 up/up     169.254.1.6/23   cluster1-04   e3a     true
+        cluster1-04_clus2 up/up     169.254.1.7/23   cluster1-04   e3a     false
+8 entries were displayed.
+cluster1::*>
+----
+. [[step9]]Compruebe que el clúster esté en buen estado:
+`cluster show`
+
+
+[listing]
+----
+cluster1::*> cluster show
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  -------
+cluster1-01          true    true          false
+cluster1-02          true    true          false
+cluster1-03          true    true          true
+cluster1-04          true    true          false
+4 entries were displayed.
+cluster1::*>
+----
+. [[step10]]Limpie la configuración del interruptor cs2 y realice una configuración básica.
++
+.. Limpie la configuración. Este paso requiere una conexión de consola al conmutador.
+
+
+
+
+[listing]
+----
+cs2# write erase
+Warning: This command will erase the startup-configuration.
+Do you wish to proceed anyway? (y/n)  [n] y
+cs2# reload
+This command will reboot the system. (y/n)?  [n] y
+cs2#
+----
+. Realice una configuración básica del interruptor.
+
+
+. [[step11]]copie el RCF al bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP. Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Guías de referencia de comandos Cisco Nexus serie 9000 NX-OS"].
++
+En este ejemplo se muestra TFTP que se utiliza para copiar un RCF al bootflash del conmutador cs2.
+
+
+
+[listing]
+----
+cs2# copy tftp: bootflash: vrf management
+Enter source filename: Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt
+Enter hostname for the tftp server: 172.22.201.50
+Trying to connect to tftp server...Connection to Server Established.
+TFTP get operation was successful
+Copy complete, now saving to disk (please wait)...
+----
+. [[step12]]aplique el RCF descargado anteriormente al flash de inicio. Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Guías de referencia de comandos Cisco Nexus serie 9000 NX-OS"].
++
+En este ejemplo se muestra el archivo RCF `Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt` se está instalando en el conmutador cs2.
+
+
+
+[listing]
+----
+cs2# copy Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-commands
+----
+. [[step13]]examine la salida del banner desde el `show banner motd` comando. Debe leer y seguir estas instrucciones para asegurarse de que la configuración y el funcionamiento del interruptor son correctos.
+
+
+[listing]
+----
+cs2# show banner motd
+***************************************************************************
+* NetApp Reference Configuration File (RCF)
+*
+* Switch   : Nexus N9K-C9336C-FX2
+* Filename : Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt
+* Date     : 10-23-2020
+* Version  : v1.6
+*
+* Port Usage:
+* Ports  1- 3: Breakout mode (4x10G) Intra-Cluster Ports, int e1/1/1-4,
+* e1/2/1-4, e1/3/1-4
+* Ports  4- 6: Breakout mode (4x25G) Intra-Cluster/HA Ports, int e1/4/1-4,
+* e1/5/1-4, e1/6/1-4
+* Ports  7-34: 40/100GbE Intra-Cluster/HA Ports, int e1/7-34
+* Ports 35-36: Intra-Cluster ISL Ports, int e1/35-36
+*
+* Dynamic breakout commands:
+* 10G: interface breakout module 1 port <range> map 10g-4x
+* 25G: interface breakout module 1 port <range> map 25g-4x
+*
+* Undo breakout commands and return interfaces to 40/100G configuration in
+* config mode:
+* no interface breakout module 1 port <range> map 10g-4x
+* no interface breakout module 1 port <range> map 25g-4x
+* interface Ethernet <interfaces taken out of breakout mode>
+* inherit port-profile 40-100G
+* priority-flow-control mode auto
+* service-policy input HA
+* exit
+*
+***************************************************************************
+----
+. [[step14]]Compruebe que el archivo RCF es la versión más reciente correcta:
+`show running-config`
++
+Cuando compruebe la salida para verificar que tiene el RCF correcto, asegúrese de que la siguiente información es correcta:
+
++
+** El banner de RCF
+** La configuración del nodo y el puerto
+** Personalizaciones
++
+La salida varía en función de la configuración del sitio. Compruebe la configuración del puerto y consulte las notas de versión para conocer los cambios específicos del RCF que haya instalado.
+
+
+
+. Después de comprobar que las versiones de RCF y los ajustes del switch son correctos, copie el archivo running-config en el archivo startup-config.
++
+Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Guías de referencia de comandos Cisco Nexus serie 9000 NX-OS"].
+
+
+
+[listing]
+----
+cs2# copy running-config startup-config [########################################] 100% Copy complete
+----
+. [[step16]]reinicie el interruptor cs2. Es posible ignorar los eventos de “puertos de clúster inactivos” que se informan en los nodos mientras se reinicia el switch.
+
+
+[listing]
+----
+cs2# reload
+This command will reboot the system. (y/n)?  [n] y
+----
+. [[step17]]aplique el mismo RCF y guarde la configuración en ejecución por segunda vez.
+
+
+[listing]
+----
+cs2# copy Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-commands
+cs2# copy running-config startup-config [########################################] 100% Copy complete
+----
+. [[paso 18]]Compruebe el estado de los puertos del clúster.
++
+.. Compruebe que los puertos e0d están en buen estado y en todos los nodos del clúster:
+`network port show -role cluster`
+
+
+
+
+[listing]
+----
+cluster1::*> network port show -role cluster
+Node: cluster1-01
+                                                                   Ignore
+                                             Speed(Mbps)  Health   Health
+Port    IPspace   Broadcast Domain Link MTU  Admin/Oper   Status   Status
+------- --------- ---------------- ---- ---- ------------ -------- ------
+e3a     Cluster   Cluster          up   9000 auto/100000  healthy  false
+e3b     Cluster   Cluster          up   9000 auto/100000  healthy  false
+
+Node: cluster1-02
+                                                                   Ignore
+                                              Speed(Mbps)  Health  Health
+Port    IPspace   Broadcast Domain Link MTU   Admin/Oper   Status  Status
+------- --------- ---------------- ---- ----- ------------ -------- ------
+e3a    Cluster   Cluster          up   9000  auto/100000  healthy  false
+e3b    Cluster   Cluster          up   9000  auto/100000  healthy  false
+
+Node: cluster1-03
+                                                                   Ignore
+                                              Speed(Mbps) Health   Health
+Port   IPspace    Broadcast Domain Link MTU   Admin/Oper  Status   Status
+------ ---------- ---------------- ---- ----- ----------- -------- ------
+e3a    Cluster    Cluster          up   9000  auto/100000 healthy  false
+e0d    Cluster    Cluster          up   9000  auto/100000 healthy  false
+
+Node: cluster1-04
+                                                                   Ignore
+                                              Speed(Mbps) Health   Health
+Port   IPspace    Broadcast Domain Link MTU   Admin/Oper  Status   Status
+------ ---------- ---------------- ---- ----- ----------- -------- ------
+e3a    Cluster      Cluster        up   9000  auto/100000 healthy  false
+e0d    Cluster      Cluster        up   9000  auto/100000 healthy  false
+8 entries were displayed.
+----
+. Compruebe el estado del switch del clúster (es posible que no muestre el switch cs2, ya que las LIF no son homadas en el e0d).
+
+
+[listing]
+----
+cluster1::*> network device-discovery show -protocol cdp
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------- --------
+cluster1-01/cdp
+            e3a    cs1                       Ethernet1/7       N9K-C9336C
+            e0d    cs2                       Ethernet1/7       N9K-C9336C
+cluster01-2/cdp
+            e3a    cs1                       Ethernet1/8       N9K-C9336C
+            e0d    cs2                       Ethernet1/8       N9K-C9336C
+cluster01-3/cdp
+            e3a    cs1                       Ethernet1/1/1     N9K-C9336C
+            e3b    cs2                       Ethernet1/1/1     N9K-C9336C
+cluster1-04/cdp
+            e3a    cs1                       Ethernet1/1/2     N9K-C9336C
+            e3b    cs2                       Ethernet1/1/2     N9K-C9336C
+cluster1::*> system cluster-switch show -is-monitoring-enabled-operational true
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- -----
+cs1                         cluster-network    10.233.205.90    NX9-C9336C
+     Serial Number: FOCXXXXXXGD
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(5)
+    Version Source: CDP
+cs2                         cluster-network    10.233.205.91    NX9-C9336C
+     Serial Number: FOCXXXXXXGS
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(5)
+    Version Source: CDP
+2 entries were displayed.
+----
+
+NOTE: Puede observar la siguiente salida en la consola del conmutador cs1 dependiendo de la versión RCF cargada previamente en el conmutador.
+
+[listing]
+----
+2020 Nov 17 16:07:18 cs1 %$ VDC-1 %$ %STP-2-UNBLOCK_CONSIST_PORT: Unblocking port port-channel1 on VLAN0092. Port consistency restored.
+2020 Nov 17 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_PEER: Blocking port-channel1 on VLAN0001. Inconsistent peer vlan.
+2020 Nov 17 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_LOCAL: Blocking port-channel1 on VLAN0092. Inconsistent local vlan.
+----
+. [[paso 19]]en el switch de clúster cs1, apague los puertos conectados a los puertos del clúster de los nodos. En el ejemplo siguiente se utiliza el resultado del ejemplo de interfaz del paso 1:
+
+
+[listing]
+----
+cs1(config)# interface eth1/1/1-2,eth1/7-8
+cs1(config-if-range)# shutdown
+----
+. [[paso 20]]Compruebe que las LIF del clúster han migrado a los puertos alojados en el switch cs2. Esto puede tardar unos segundos:
+`network interface show -role cluster`
+
+
+[listing]
+----
+cluster1::*> network interface show -role cluster
+        Logical            Status      Network         Current      Current Is
+Vserver Interface          Admin/Oper  Address/Mask    Node         Port    Home
+------- ------------------ ----------- --------------- ------------ ------- ----
+Cluster
+        cluster1-01_clus1  up/up       169.254.3.4/23   cluster1-01   e0d  false
+        cluster1-01_clus2  up/up       169.254.3.5/23   cluster1-01   e0d   true
+        cluster1-02_clus1  up/up       169.254.3.8/23   cluster1-02   e0d  false
+        cluster1-02_clus2  up/up       169.254.3.9/23   cluster1-02   e0d   true
+        cluster1-03_clus1  up/up       169.254.1.3/23   cluster1-03   e3b  false
+        cluster1-03_clus2  up/up       169.254.1.1/23   cluster1-03   e3b   true
+        cluster1-04_clus1  up/up       169.254.1.6/23   cluster1-04   e3b  false
+        cluster1-04_clus2  up/up       169.254.1.7/23   cluster1-04   e3b   true
+8 entries were displayed.
+cluster1::*>
+----
+. [[step21]]Compruebe que el clúster esté en buen estado:
+`cluster show`
+
+
+[listing]
+----
+cluster1::*> cluster show
+Node                 Health   Eligibility   Epsilon
+-------------------- -------- ------------- -------
+cluster1-01          true     true          false
+cluster1-02          true     true          false
+cluster1-03          true     true          true
+cluster1-04          true     true          false
+4 entries were displayed.
+cluster1::*>
+----
+. [[step22]]repita los pasos 7 a 14 en el interruptor cs1.
+. Habilite la reversión automática en las LIF del clúster.
+
+
+[listing]
+----
+cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert True
+----
+. [[step24]]reinicie el interruptor cs1. Para activar las LIF de clúster y revertir a sus puertos raíz, haga lo siguiente. Es posible ignorar los eventos de “puertos de clúster inactivos” que se informan en los nodos mientras se reinicia el switch.
+
+
+[listing]
+----
+cs1# reload
+This command will reboot the system. (y/n)?  [n] y
+----
+. [[step25]]Compruebe que los puertos del switch conectados a los puertos del clúster estén activos.
+
+
+[listing]
+----
+cs1# show interface brief | grep up
+.
+.
+Eth1/1/1      1       eth  access up      none                   100G(D) --
+Eth1/1/2      1       eth  access up      none                   100G(D) --
+Eth1/7        1       eth  trunk  up      none                   100G(D) --
+Eth1/8        1       eth  trunk  up      none                   100G(D) --
+.
+.
+----
+. [[step26]]Compruebe que el ISL entre cs1 y cs2 funciona:
+`show port-channel summary`
+
+
+[listing]
+----
+cs1# show port-channel summary
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/35(P)        Eth1/36(P)
+cs1#
+----
+. [[step27]]Compruebe que las LIF del clúster hayan vuelto a su puerto de inicio:
+`network interface show -role cluster`
+
+
+[listing]
+----
+cluster1::*> network interface show -role cluster
+        Logical            Status     Network           Current     Current Is
+Vserver Interface          Admin/Oper Address/Mask      Node        Port    Home
+------- ------------------ ---------- ----------------- ----------- ------- ----
+Cluster
+        cluster1-01_clus1  up/up      169.254.3.4/23    cluster1-01  e0d   true
+        cluster1-01_clus2  up/up      169.254.3.5/23    cluster1-01  e0d   true
+        cluster1-02_clus1  up/up      169.254.3.8/23    cluster1-02  e0d   true
+        cluster1-02_clus2  up/up      169.254.3.9/23    cluster1-02  e0d   true
+        cluster1-03_clus1  up/up      169.254.1.3/23    cluster1-03  e3b   true
+        cluster1-03_clus2  up/up      169.254.1.1/23    cluster1-03  e3b   true
+        cluster1-04_clus1  up/up      169.254.1.6/23    cluster1-04  e3b   true
+        cluster1-04_clus2  up/up      169.254.1.7/23    cluster1-04  e3b   true
+8 entries were displayed.
+cluster1::*>
+----
+. [[paso28]]Compruebe que el clúster esté en buen estado:
+`cluster show`
+
+
+[listing]
+----
+cluster1::*> cluster show
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------- -------
+cluster1-01          true    true          false
+cluster1-02          true    true          false
+cluster1-03          true    true          true
+cluster1-04          true    true          false
+4 entries were displayed.
+cluster1::*>
+----
+. [[step29]]Ping las interfaces del clúster remoto para verificar la conectividad:
+`cluster ping-cluster -node local`
+
+
+[listing]
+----
+cluster1::*> cluster ping-cluster -node local
+Host is cluster1-03
+Getting addresses from network interface table...
+Cluster cluster1-03_clus1 169.254.1.3 cluster1-03 e3a
+Cluster cluster1-03_clus2 169.254.1.1 cluster1-03 e3b
+Cluster cluster1-04_clus1 169.254.1.6 cluster1-04 e3a
+Cluster cluster1-04_clus2 169.254.1.7 cluster1-04 e3b
+Cluster cluster1-01_clus1 169.254.3.4 cluster1-01 e3a
+Cluster cluster1-01_clus2 169.254.3.5 cluster1-01 e0d
+Cluster cluster1-02_clus1 169.254.3.8 cluster1-02 e3a
+Cluster cluster1-02_clus2 169.254.3.9 cluster1-02 e0d
+Local = 169.254.1.3 169.254.1.1
+Remote = 169.254.1.6 169.254.1.7 169.254.3.4 169.254.3.5 169.254.3.8 169.254.3.9
+Cluster Vserver Id = 4294967293
+Ping status:
+
+Basic connectivity succeeds on 12 path(s)
+Basic connectivity fails on 0 path(s)
+
+Detected 9000 byte MTU on 12 path(s):
+    Local 169.254.1.3 to Remote 169.254.1.6
+    Local 169.254.1.3 to Remote 169.254.1.7
+    Local 169.254.1.3 to Remote 169.254.3.4
+    Local 169.254.1.3 to Remote 169.254.3.5
+    Local 169.254.1.3 to Remote 169.254.3.8
+    Local 169.254.1.3 to Remote 169.254.3.9
+    Local 169.254.1.1 to Remote 169.254.1.6
+    Local 169.254.1.1 to Remote 169.254.1.7
+    Local 169.254.1.1 to Remote 169.254.3.4
+    Local 169.254.1.1 to Remote 169.254.3.5
+    Local 169.254.1.1 to Remote 169.254.3.8
+    Local 169.254.1.1 to Remote 169.254.3.9
+Larger than PMTU communication succeeds on 12 path(s)
+RPC status:
+6 paths up, 0 paths down (tcp check)
+6 paths up, 0 paths down (udp check)
+----
+
+
+==== Instale el RCF en un switch de almacenamiento Cisco Nexus 9336C-FX2
+
+Los archivos de configuración de referencia (RCF) se pueden actualizar en los switches de almacenamiento Cisco Nexus 9336C-FX2.
+
+.Antes de empezar
+Antes de actualizar el RCF en el conmutador de almacenamiento deben existir las siguientes condiciones:
+
+* El conmutador debe estar completamente operativo (no debe haber errores en los registros o problemas similares).
+* Debe haber comprobado o establecido las variables de arranque deseadas en el RCF para reflejar las imágenes de arranque deseadas si sólo está instalando NX-OS y manteniendo su versión actual de RCF.
+* Si necesita cambiar las variables de arranque para reflejar las imágenes de arranque actuales, debe hacerlo antes de volver a aplicar el RCF para que se cree una instancia de la versión correcta en futuros reinicios.
+* Debe haber hecho referencia a las guías de software y actualizaciones adecuadas disponibles en el sitio web de Cisco para obtener documentación completa sobre los procedimientos de actualización y degradación del almacenamiento de Cisco. Consulte https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html["Switches Cisco Nexus serie 9000"] si quiere más información.
+* El número de puertos de 100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"] página.
+
+
+
+
+===== Resumen del procedimiento
+
+. Comprobar el estado de los switches y los puertos (pasos 1-4)
+. Descargue la imagen de NX-OS al switch cisco st2 y reinicie (pasos 5-8)
+. Copie el RCF al switch cisco st2 (pasos 9-12)
+. Volver a comprobar el estado de los switches y puertos (pasos 13-15)
+. Repita los pasos 1-15 para el switch Cisco st1.
+
+
+
+NOTE: Los resultados del comando pueden variar en función de las diferentes versiones de ONTAP.
+
+Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:
+
+* Los nombres de los dos switches de almacenamiento son _st1_ y _st2_.
+* Los nodos son _1_ y _2_.
+
+
+
+NOTE: Para ello, es necesario utilizar tanto comandos de la ONTAP como comandos de la serie Cisco Nexus 9000; los comandos de la ONTAP se usan a menos que se indique lo contrario.
+
+.Pasos
+. Si se habilita AutoSupport en este clúster, elimine la creación automática de casos invocando un mensaje de AutoSupport: `system node autosupport invoke -node * -type all - message MAINT=xh`
++
+Donde x es la duración de la ventana de mantenimiento en horas.
+
+. Compruebe que estén disponibles los switches de almacenamiento:
+`system switch ethernet show`
+
+
+[listing]
+----
+storage::*> system switch ethernet show
+Switch                    Type               Address          Model
+------------------------- ------------------ ---------------- ---------------
+st1
+                          storage-network    172.17.227.5     NX9-C9336C
+      Serial Number: FOC221206C2
+       Is Monitored: true
+             Reason: None
+   Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                     9.3(5)
+     Version Source: CDP
+st2
+                          storage-network    172.17.227.6     NX9-C9336C
+      Serial Number: FOC220443LZ
+       Is Monitored: true
+             Reason: None
+   Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                     9.3(5)
+     Version Source: CDP
+2 entries were displayed.
+storage::*>
+----
+. [[step3]]Compruebe que los puertos del nodo estén en buen estado y operativos:
+`storage port show -port-type ENET`
+
+
+[listing]
+----
+storage::*> storage port show -port-type ENET
+                                   Speed                            VLAN
+Node     Port   Type    Mode       (Gb/s)     State     Status        ID
+------- ------- ------- ---------- ---------- --------- ----------- -----
+node1
+        e3a     ENET    storage    100        enabled   online         30
+        e3b     ENET    storage      0        enabled   offline        30
+        e7a     ENET    storage      0        enabled   offline        30
+        e7b     ENET    storage    100        enabled   online         30
+node2
+        e3a     ENET    storage    100        enabled   online         30
+        e3b     ENET    storage      0        enabled   offline        30
+        e7a     ENET    storage      0        enabled   offline        30
+        e7b     ENET    storage    100        enabled   online         30
+----
+. [[step4]]Compruebe que no haya problemas de cableado o switch de almacenamiento con el clúster:
+`system health alert show -instance`
+
+
+[listing]
+----
+storage::*> system health alert show -instance
+There are no entries matching your query.
+----
+. [[step5]]Descargue la imagen NX-OS para cambiar st2.
+. Instale la imagen del sistema para que la nueva versión se cargue la próxima vez que se reinicie el conmutador st2. El interruptor se reiniciará en 10 segundos con la nueva imagen, como se muestra en la siguiente salida:
+
+
+[listing]
+----
+st2# install all nxos bootflash:nxos.9.3. 5.bin
+Installer will perform compatibility check first. Please wait.
+Installer is forced disruptive
+Verifying image bootflash:/nxos.9.3.4.bin for boot variable "nxos".
+[####################] 100% -- SUCCESS
+Verifying image type.
+[[####################] 100% -- SUCCESS
+Preparing "nxos" version info using image bootflash:/nxos.9.3.4.bin.
+[####################] 100% -- SUCCESS
+Preparing "bios" version info using image bootflash:/nxos.9.3.4.bin.
+[####################] 100% -- SUCCESS
+Performing module support checks.
+[####################] 100% -- SUCCESS
+Notifying services about system upgrade.
+[####################] 100% -- SUCCESS
+Compatibility check is done:
+Module  bootable  Impact  Install-type  Reason
+------    --------   ----- --------   ------------   ---- --
+     1        yes      disruptive         reset  default upgrade is not hitless
+Images will be upgraded according to following table:
+Module Image        Running-Version(pri:alt)               New-Version  Upg
+                                                                        Required
+------ --------  ---------------------------------------  ------------  --------
+ 1     nxos                                     9.3(3)          9.3(4)       yes
+ 1     bios      v08.37(01/28/2020):v08.23(09/23/2015)   v08.38(05/29/2020)   no
+Switch will be reloaded for disruptive upgrade.
+Do you want to continue with the installation (y/n)? [n] y
+input string too long
+Do you want to continue with the installation (y/n)? [n] y
+Install is in progress, please wait.
+Performing runtime checks.
+[####################] 100% -- SUCCESS
+Setting boot variables.
+[####################] 100% -- SUCCESS
+Performing configuration copy.
+[####################] 100% -- SUCCESS
+Module 1: Refreshing compact flash and upgrading bios/loader/bootrom.
+Warning: please do not remove or power off the module at this time.
+[####################] 100% -- SUCCESS
+Finishing the upgrade, switch will reboot in 10 seconds.
+st2#
+----
+. [[step7]]Guardar la configuración.
++
+Se le pedirá que reinicie el sistema como se muestra en el ejemplo siguiente:
+
+
+
+[listing]
+----
+st2# copy running-config startup-config
+[########################################] 100% Copy complete.
+st2# reload
+This command will reboot the system. (y/n)? [n] y
+----
+. [[step8]]confirme que el nuevo número de versión del NX-OS está en el conmutador.
+
+
+[listing]
+----
+st2# show version
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Upgrading a Cisco Nexus 9336C Storage Switch 6
+Upgrading a Cisco Nexus 9336C storage switch
+Copyright (C) 2002-2020, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source. This software is provided "as is," and unless otherwise stated, there is no warranty, express or implied, including but not limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or
+GNU General Public License (GPL) version 3.0 or the GNU
+Lesser General Public License (LGPL) Version 2.1 or
+Lesser General Public License (LGPL) Version 2.0.
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+.
+Software
+ BIOS: version 08.38
+ NXOS: version 9.3(5)
+ BIOS compile time: 05/29/2020
+ NXOS image file is: bootflash:///nxos.9.3. 5.bin
+ NXOS compile time: 4/28/2020 21:00:00 [04/29/2020 02:28:31]
+Hardware
+ cisco Nexus9000 C9336C Chassis (Nexus 9000 Series)
+ Intel(R) Xeon(R) CPU E5-2403 v2 @ 1.80GHz with 8154432 kB of memory.
+ Processor Board ID FOC20291J6K
+ Device name: S2
+ bootflash: 53298520 kB
+Kernel uptime is 0 day(s), 0 hour(s), 3 minute(s), 42 second(s)
+Last reset at 157524 usecs after Mon Nov 2 18:32:06 2020
+           Reason: Reset due to upgrade
+   System version: 9.3(5)
+   Service:
+plugin
+   Core Plugin, Ethernet Plugin
+   Active Package(s):
+st2#
+----
+. [[step9]]copie el RCF en el conmutador st2 en el bootflash del conmutador utilizando uno de los siguientes protocolos de transferencia: FTP, HTTP, TFTP, SFTP o SCP.
++
+Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Guías de referencia de comandos Cisco Nexus serie 9000 NX-OS"].
+
++
+El ejemplo siguiente muestra que se está utilizando HTTP para copiar un RCF al bootflash en el switch st2:
+
+
+
+[listing]
+----
+st2# copy http://172.16.10.1//cfg/Nexus_9336C_RCF_v1.6-Storage.txt bootflash: vrf management
+% Total % Received % Xferd   Average   Speed  Time   Time   Time
+Current
+   Dload     Upload  Total Spent   Left
+Speed
+ 100    3254          100     3254      0       0     8175    0 --:--:-- --:--:-- --:--:–
+8301
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+st2#
+----
+. [[step10]]aplique el RCF descargado anteriormente al flash de inicio:
+`copy bootflash`.
++
+En el siguiente ejemplo se muestra el archivo RCF `Nexus_9336C_RCF_v1.6-Storage.txt` instalación en el interruptor st2:
+
+
+
+[listing]
+----
+st2# copy Nexus_9336C_RCF_v1.6-Storage.txt running-config echo-commands
+----
+. [[step11]]Compruebe que el archivo RCF es la versión más reciente correcta:
+`show running-config`
++
+Cuando compruebe la salida para verificar que tiene el RCF correcto, asegúrese de que la siguiente información es correcta:
+
++
+** El banner de RCF
+** La configuración del nodo y el puerto
+** Personalizaciones
++
+La salida varía en función de la configuración del sitio. Compruebe la configuración del puerto y consulte las notas de versión para conocer los cambios específicos del RCF que haya instalado.
+
++
+*Importante:* en la salida de banner de `show banner motd` Debe leer y seguir las instrucciones de la sección *NOTAS IMPORTANTES *para garantizar la configuración y el funcionamiento correctos del interruptor.
+
+
+
+
+
+[listing]
+----
+st2# show banner motd
+******************************************************************************
+*NetApp Reference Configuration File (RCF)
+*
+*Switch : Nexus N9K-C9336C-FX2
+*Filename : Nexus_9336C_RCF_v1.6-Storage.txt
+* Date : 10-23-2020
+*Version  : v1.6
+*
+*Port Usage: Storage configuration
+*Ports 1-36: 100GbE Controller and Shelf Storage Ports
+*
+*IMPORTANT NOTES*
+*- This RCF utilizes QoS and requires TCAM re-configuration, requiring RCF
+*to be loaded twice with the Storage Switch rebooted in between.
+*
+*- Perform the following 4 steps to ensure proper RCF installation:
+*
+*(1) Apply RCF first time, expect following messages:
+*- Please save config and reload the system...
+*- Edge port type (portfast) should only be enabled on ports...
+*- TCAM region is not configured for feature QoS class IPv4 ingress...
+*
+*(2) Save running-configuration and reboot Cluster Switch
+*
+*(3) After reboot, apply same RCF second time and expect following messages:
+*- % Invalid command at '^' marker
+*- Syntax error while parsing...
+*
+*(4) Save running-configuration again
+******************************************************************************
+st2#
+----
+. [[step12]]después de comprobar que las versiones de software y los ajustes del switch son correctos, copie el archivo running-config en el archivo startup-config en el conmutador st2.
++
+Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Guías de referencia de comandos Cisco Nexus serie 9000 NX-OS"].
+
++
+En el siguiente ejemplo se muestra el `running-config` el archivo se ha copiado correctamente en `startup-config` archivo:
+
+
+
+[listing]
+----
+st2# copy running-config startup-config
+[########################################] 100% Copy complete.
+----
+. [[step13]]vuelva a comprobar que los interruptores de almacenamiento están disponibles después del reinicio:
+`system switch ethernet show`
+
+
+[listing]
+----
+storage::*> system switch ethernet show
+Switch                       Type               Address          Model
+---------------------------- ------------------ ---------------- ---------------
+st1
+                            storage-network     172.17.227.5     NX9-C9336C
+     Serial Number: FOC221206C2
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(5)
+    Version Source: CDP
+st2
+                            storage-network      172.17.227.6    NX9-C9336C
+     Serial Number: FOC220443LZ
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(5)
+    Version Source: CDP
+2 entries were displayed.
+storage::*
+----
+. [[step14]]Compruebe que los puertos del switch están en buen estado y en funcionamiento después del reinicio:
+`storage port show -port-type ENET`
+
+
+[listing]
+----
+storage::*> storage port show -port-type ENET
+                                   Speed                            VLAN
+Node    Port    Type    Mode       (Gb/s)      State     Status       ID
+------- ------- ------- ---------- ----------- --------- --------- -----
+node1
+        e3a     ENET    storage           100   enabled   online       30
+        e3b     ENET    storage             0   enabled   offline      30
+        e7a     ENET    storage             0   enabled   offline      30
+        e7b     ENET    storage           100   enabled   online       30
+node2
+        e3a     ENET    storage           100   enabled   online       30
+        e3b     ENET    storage             0   enabled   offline      30
+        e7a     ENET    storage             0   enabled   offline      30
+        e7b     ENET    storage           100   enabled   online       30
+----
+. [[step15]]vuelva a comprobar que no haya problemas de cableado o switch de almacenamiento con el clúster:
+`system health alert show -instance`
+
+
+[listing]
+----
+storage::*> system health alert show -instance
+There are no entries matching your query.
+----
+. [[step16]]repita este procedimiento para el interruptor RCF on st1.
+. Si ha suprimido la creación automática de casos, vuelva a habilitarla invocando un mensaje de AutoSupport:
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
+
+
+
+==== Instale el RCF en un switch compartido Cisco Nexus 9336C-FX2
+
+Desde ONTAP 9.9.1, puede utilizar los switches Cisco Nexus 9336C-FX2 para combinar las funciones de almacenamiento y clúster en un escenario de switch compartido.
+
+.Antes de empezar
+* Los switches del clúster deben funcionar correctamente (no deben haber errores en los registros ni problemas similares).
+* Los switches de almacenamiento deben funcionar correctamente (no deben haber errores en los registros ni problemas similares).
+* Los nombres de los dos conmutadores de almacenamiento son _sh1_ y _sh2_.
+* El ejemplo utilizado aquí carga el RCF compartido en el nuevo conmutador.
+
+
+.Pasos
+. Copie el RCF del switch sh2 en el bootflash del switch utilizando uno de los siguientes protocolos de transferencia: FTP, HTTP, TFTP, SFTP o SCP.
++
+Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Guías de referencia de comandos Cisco Nexus serie 9000 NX-OS"].
+
++
+En el ejemplo siguiente se muestra el uso de HTTP para copiar un RCF al flash de inicio del conmutador sh2:
+
+
+
+[listing]
+----
+sh2# copy http://172.16.10.1//cfg/Nexus_9336C_RCF_v1.7-Cluster-Ha-Storage.txt bootflash: vrf management
+% Total % Received % Xferd   Average   Speed  Time   Time   Time
+Current
+   Dload     Upload  Total Spent   Left
+Speed
+ 100    5143          100     5143      0       0     11300    0 --:--:-- --:--:-- --:--:–
+11300
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+sh2#
+----
+. [[step2]]aplique el RCF descargado anteriormente al flash de inicio:
+`copy bootflash`.
++
+El ejemplo siguiente muestra el archivo RCF 'Nexus_9336C_RCF_v1.7-Cluster-HA-Storage.txt ' que se está instalando en el conmutador sh2:
+
+
+
+[listing]
+----
+sh2# copy Nexus_9336C_RCF_v1.7-Cluster-HA-Storage.txt running-config echo-commands
+----
+. [[step3]]Compruebe que el archivo RCF es la versión más reciente correcta:  `show running-config`
++
+Cuando compruebe la salida para verificar que tiene el RCF correcto, asegúrese de que la siguiente información es correcta:
+
++
+** El banner de RCF
+** La configuración del nodo y el puerto
+** Personalizaciones
++
+La salida varía en función de la configuración del sitio. Compruebe la configuración del puerto y consulte las notas de versión para conocer los cambios específicos del RCF que haya instalado.
+
++
+*Importante:* en la salida de banner de `show banner motd` Debe leer y seguir las instrucciones de la sección *NOTAS IMPORTANTES *para garantizar la configuración y el funcionamiento correctos del interruptor.
+
+
+
+
+
+[listing]
+----
+sh2# show banner motd
+******************************************************************************
+*NetApp Reference Configuration File (RCF)
+*
+*Switch : Nexus N9K-C9336C-FX2
+*Filename : Nexus_9336C_RCF_v1.7-Cluster-HA-Storage.txt
+* Date :  Jan-08-2021
+*Version  : v1.7
+*
+*Port Usage:
+*Ports  1-8: 40/100GbE Intra-Cluster/HA Ports, int e1/1-8
+*Port     9: 10GbE breakout Intra-Cluster Ports, int e1/9/1-4
+*Port    10: 25GbE breakout Intra-Cluster/HA Ports, int e1/10/1-4
+*Ports 11-22: First HA-pair Controller and Shelf Storage Ports, int e1/11-22
+*Ports 23-34: Second HA-pair Controller and Shelf Storage Ports, int e1/23-34
+*Ports 35-36: Intra-Cluster ISL Ports, int e1/35-36
+*
+* Undo breakout commands and return interfaces to 40/100G configuration in
+* config mode:
+* no interface breakout module 1 port 9 map 10g-4x
+* no interface breakout module 1 port 10 map 25g-4x
+* interface Ethernet 1/9-10
+* inherit port-profile CLUSTER_HA
+* priority-flow-control mode auto
+* service-policy type qos input HA_POLICY
+* exit
+*
+*IMPORTANT NOTES*
+* In certain conditions, N9K-C9336C-FX2 may not be able to auto-negotiate port
+* speed correctly, and port speed must be manually set, in config mode, e.g.
+* int e1/1
+* speed 40000
+* int e1/3
+* speed 100000
+*
+******************************************************************************
+sh2#
+----
+. [[step4]]después de verificar que las versiones de software y los ajustes del switch son correctos, copie el `running-config` archivo al archivo de configuración de inicio en el conmutador sh2.
++
+Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Guías de referencia de comandos Cisco Nexus serie 9000 NX-OS"].
+
++
+En el siguiente ejemplo se muestra el `running-config` el archivo se ha copiado correctamente en `startup-config` archivo:
+
+
+
+[listing]
+----
+sh2# copy running-config startup-config
+[########################################] 100% Copy complete.
+----
+. [[step5]]repita este procedimiento para el interruptor sh1 de encendido de RCF.
+

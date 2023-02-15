@@ -1,0 +1,416 @@
+---
+permalink: switch-bes-53248/replace-switch.html 
+sidebar: sidebar 
+keywords: replace, replacing, defective, broadcom-supported, bes, cluster, switch, network, nondisruptive, procedure, ndu, replace a broadcom-supported bes-53428 cluster switch - bes-53428 switches 
+summary: 'La sustitución de un switch de clúster BES-53248 defectuoso compatible con Broadcom en una red de clúster es un procedimiento no disruptivo \(NDU\).' 
+---
+= Sustituya un switch de clúster BES-53248 compatible con Broadcom
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga estos pasos para sustituir un conmutador de clúster BES-53248 compatible con Broadcom defectuoso en una red de clúster. Este es un procedimiento no disruptivo (NDU).
+
+.Acerca de los ejemplos
+Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:
+
+* Los nombres de los conmutadores BES-53248 existentes son `cs1` y.. `cs2`.
+* El nombre del nuevo conmutador BES-53248 es `newcs2`.
+* Los nombres de nodo son `node1` y.. `node2`.
+* Los puertos del clúster de cada nodo se llaman `e0a` y.. `e0b`.
+* Los nombres de LIF del clúster son `node1_clus1` y.. `node1_clus2` para los nodos 1, y. `node2_clus1` y.. `node2_clus2` para el 2.
+* El prompt de cambios en todos los nodos del clúster es `cluster1::>`
+
+
+.Acerca de la topología
+Este procedimiento se basa en la siguiente topología de red de clúster:
+
+.Mostrar topología de ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+
+Node: node2
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+
+cluster1::> *network interface show -vserver Cluster*
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+            node1_clus1  up/up    169.254.209.69/16  node1         e0a     true
+            node1_clus2  up/up    169.254.49.125/16  node1         e0b     true
+            node2_clus1  up/up    169.254.47.194/16  node2         e0a     true
+            node2_clus2  up/up    169.254.19.183/16  node2         e0b     true
+
+
+cluster1::> *network device-discovery show -protocol cdp*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node2      /cdp
+            e0a    cs1                       0/2               BES-53248
+            e0b    cs2                       0/2               BES-53248
+node1      /cdp
+            e0a    cs1                       0/1               BES-53248
+            e0b    cs2                       0/1               BES-53248
+----
+[listing, subs="+quotes"]
+----
+(cs1)# *show isdp neighbors*
+
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge,
+                  S - Switch, H - Host, I - IGMP, r - Repeater
+
+Device ID                Intf      Holdtime  Capability Platform         Port ID
+------------------------ --------- --------- ---------- ---------------- ---------
+node1                    0/1       175       H          FAS2750          e0a
+node2                    0/2       152       H          FAS2750          e0a
+cs2                      0/55      179       R          BES-53248        0/55
+cs2                      0/56      179       R          BES-53248        0/56
+
+
+(cs2)# show isdp neighbors
+
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge,
+                  S - Switch, H - Host, I - IGMP, r - Repeater
+
+Device ID                Intf      Holdtime  Capability Platform         Port ID
+------------------------ --------- --------- ---------- ---------------- ---------
+node1                    0/1       129       H          FAS2750          e0b
+node2                    0/2       165       H          FAS2750          e0b
+cs1                      0/55      179       R          BES-53248        0/55
+cs1                      0/56      179       R          BES-53248        0/56
+----
+====
+.Pasos
+. Revise la link:replace-switch-reqs.html["Requisitos de sustitución"].
+. Instale el archivo de configuración de referencia (RCF) y la imagen adecuados en el conmutador, newcs2, y realice las preparaciones necesarias del sitio.
++
+Si es necesario, verifique, descargue e instale las versiones adecuadas del software RCF y EFOS para el nuevo conmutador. Si ha comprobado que el nuevo interruptor está correctamente configurado y no necesita actualizaciones para el software RCF y EFOS, continúe con el paso 2.
+
++
+.. Puede descargar el software Broadcom EFOS aplicable para los switches de clúster de la https://www.broadcom.com/support/bes-switch["Compatibilidad con switches Ethernet Broadcom"^] sitio. Siga los pasos de la página de descarga para descargar el archivo EFOS de la versión del software ONTAP que está instalando.
+.. El RCF adecuado está disponible en https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Switches de clúster Broadcom"^] página. Siga los pasos de la página de descarga para descargar el RCF correcto para la versión del software ONTAP que está instalando.
+
+
+. En el nuevo switch, inicie sesión como `admin` y apague todos los puertos que se conectarán a las interfaces del clúster de nodos (puertos 1 a 16).
++
+
+NOTE: Si ha adquirido licencias adicionales para puertos adicionales, apague estos puertos también.
+
++
+Si el switch que desea sustituir no está funcional y está apagado, los LIF de los nodos del clúster ya deberían haber realizado una conmutación al otro puerto del clúster para cada nodo.
+
++
+
+NOTE: No se requiere ninguna contraseña para introducirla `enable` modo.
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+User: *admin*
+Password:
+(newcs2)> *enable*
+(newcs2)# *config*
+(newcs2)(config)# *interface 0/1-0/16*
+(newcs2)(interface 0/1-0/16)# *shutdown*
+(newcs2)(interface 0/1-0/16)# *exit*
+(newcs2)(config)# *exit*
+(newcs2)#
+----
+====
+. Compruebe que todas las LIF del clúster tienen `auto-revert` habilitado:
++
+`network interface show -vserver Cluster -fields auto-revert`
+
++
+.Mostrar topología de ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::> *network interface show -vserver Cluster -fields auto-revert*
+
+Logical
+Vserver   Interface    Auto-revert
+--------- ------------ ------------
+Cluster   node1_clus1  true
+Cluster   node1_clus2  true
+Cluster   node2_clus1  true
+Cluster   node2_clus2  true
+----
+====
+. Apague los puertos ISL 0/55 y 0/56 en el switch BES-53248 cs1:
++
+.Mostrar topología de ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs1)# *config*
+(cs1)(config)# *interface 0/55-0/56*
+(cs1)(interface 0/55-0/56)# *shutdown*
+----
+====
+. Elimine todos los cables del conmutador BES-53248 cs2 y, a continuación, conéctelos a los mismos puertos del conmutador BES-53248 newcs2.
+. Traiga los puertos ISL 0/55 y 0/56 entre los switches cs1 y newcs2 y, a continuación, verifique el estado de operación del canal de puerto.
++
+El estado de enlace para el canal de puerto 1/1 debe ser *up* y todos los puertos miembros deben ser True bajo el encabezado Port Active.
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En este ejemplo, se habilitan los puertos ISL 0/55 y 0/56, y se muestra el estado de enlace para el canal de puerto 1/1 en el switch cs1:
+
+[listing, subs="+quotes"]
+----
+(cs1)# *config*
+(cs1)(config)# *interface 0/55-0/56*
+(cs1)(interface 0/55-0/56)# *no shutdown*
+(cs1)(interface 0/55-0/56)# *exit*
+(cs1)# *show port-channel 1/1*
+
+Local Interface................................ 1/1
+Channel Name................................... Cluster-ISL
+Link State..................................... Up
+Admin Mode..................................... Enabled
+Type........................................... Dynamic
+Port-channel Min-links......................... 1
+Load Balance Option............................ 7
+(Enhanced hashing mode)
+
+Mbr    Device/       Port       Port
+Ports  Timeout       Speed      Active
+------ ------------- ---------- -------
+0/55   actor/long    100G Full  True
+       partner/long
+0/56   actor/long    100G Full  True
+       partner/long
+----
+====
+. En el nuevo switch newcs2, vuelva a habilitar todos los puertos conectados a las interfaces de clúster del nodo (puertos 1 a 16).
++
+
+NOTE: Si ha adquirido licencias adicionales para puertos adicionales, apague estos puertos también.
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+User:admin
+Password:
+(newcs2)> *enable*
+(newcs2)# *config*
+(newcs2)(config)# *interface 0/1-0/16*
+(newcs2)(interface 0/1-0/16)# *no shutdown*
+(newcs2)(interface 0/1-0/16)# *exit*
+(newcs2)(config)# *exit*
+----
+====
+. Compruebe que el puerto e0b está *activo*:
++
+`network port show -ipspace Cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+La salida debe ser similar a la siguiente:
+
+[listing, subs="+quotes"]
+----
+cluster1::> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                        Ignore
+                                                   Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU   Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ----- ----------- -------- -------
+e0a       Cluster      Cluster          up   9000  auto/10000  healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000  healthy  false
+
+Node: node2
+                                                                        Ignore
+                                                   Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU   Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ----- ----------- -------- -------
+e0a       Cluster      Cluster          up   9000  auto/10000  healthy  false
+e0b       Cluster      Cluster          up   9000  auto/auto   -        false
+----
+====
+. En el mismo nodo que haya utilizado en el paso anterior, espere a que la LIF del clúster no1_clus2 del nodo 1 se revierte automáticamente.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En este ejemplo, la LIF no1_clus2 del nodo 1 se revierte correctamente si `Is Home` es `true` y el puerto es e0b.
+
+El siguiente comando muestra información acerca de las LIF en ambos nodos. El estado del primer nodo es correcto si `Is Home` es `true` en ambas interfaces de clúster y muestran las asignaciones de puerto correctas, en este ejemplo `e0a` y.. `e0b` en el nodo 1.
+
+[listing, subs="+quotes"]
+----
+cluster::> *network interface show -vserver Cluster*
+
+            Logical      Status     Network            Current    Current Is
+Vserver     Interface    Admin/Oper Address/Mask       Node       Port    Home
+----------- ------------ ---------- ------------------ ---------- ------- -----
+Cluster
+            node1_clus1  up/up      169.254.209.69/16  node1      e0a     true
+            node1_clus2  up/up      169.254.49.125/16  node1      e0b     true
+            node2_clus1  up/up      169.254.47.194/16  node2      e0a     true
+            node2_clus2  up/up      169.254.19.183/16  node2      e0a     false
+----
+====
+. Muestra información sobre los nodos de un clúster:
++
+`cluster show`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En este ejemplo se muestra el estado del nodo para `node1` y.. `node2` en este clúster lo es `true`:
+
+[listing, subs="+quotes"]
+----
+cluster1::> *cluster show*
+Node   Health   Eligibility   Epsilon
+------ -------- ------------  --------
+node1  true     true          true
+node2  true     true          true
+----
+====
+. Confirme la siguiente configuración de red del clúster:
++
+`network port show`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::> *network port show -ipspace Cluster*
+Node: node1
+                                                                       Ignore
+                                       Speed(Mbps)            Health   Health
+Port      IPspace     Broadcast Domain Link MTU   Admin/Oper  Status   Status
+--------- ----------- ---------------- ---- ----- ----------- -------- ------
+e0a       Cluster     Cluster          up   9000  auto/10000  healthy  false
+e0b       Cluster     Cluster          up   9000  auto/10000  healthy  false
+
+Node: node2
+                                                                       Ignore
+                                        Speed(Mbps)           Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000 auto/10000  healthy  false
+e0b       Cluster      Cluster          up   9000 auto/10000  healthy  false
+
+
+cluster1::> *network interface show -vserver Cluster*
+
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+            node1_clus1  up/up    169.254.209.69/16  node1         e0a     true
+            node1_clus2  up/up    169.254.49.125/16  node1         e0b     true
+            node2_clus1  up/up    169.254.47.194/16  node2         e0a     true
+            node2_clus2  up/up    169.254.19.183/16  node2         e0b     true
+4 entries were displayed.
+----
++
+
+[listing, subs="+quotes"]
+----
+cs1# *show cdp neighbors*
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID            Local Intrfce  Hldtme Capability  Platform      Port ID
+node1                Eth1/1         144    H           FAS2980       e0a
+node2                Eth1/2         145    H           FAS2980       e0a
+newcs2(FDO296348FU)  Eth1/65        176    R S I s     N9K-C92300YC  Eth1/65
+newcs2(FDO296348FU)  Eth1/66        176    R S I s     N9K-C92300YC  Eth1/66
+
+
+cs2# *show cdp neighbors*
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+node1              Eth1/1         139    H           FAS2980       e0b
+node2              Eth1/2         124    H           FAS2980       e0b
+cs1(FDO220329KU)   Eth1/65        178    R S I s     N9K-C92300YC  Eth1/65
+cs1(FDO220329KU)   Eth1/66        178    R S I s     N9K-C92300YC  Eth1/66
+----
+====
+. Compruebe que la red de clúster esté en buen estado:
++
+`show isdp neighbors`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs1)# *show isdp neighbors*
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge,
+S - Switch, H - Host, I - IGMP, r - Repeater
+Device ID    Intf    Holdtime    Capability    Platform    Port ID
+---------    ----    --------    ----------    --------    --------
+node1        0/1     175         H             FAS2750     e0a
+node2        0/2     152         H             FAS2750     e0a
+newcs2       0/55    179         R             BES-53248   0/55
+newcs2       0/56    179         R             BES-53248   0/56
+
+(newcs2)# *show isdp neighbors*
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge,
+S - Switch, H - Host, I - IGMP, r - Repeater
+
+Device ID    Intf    Holdtime    Capability    Platform    Port ID
+---------    ----    --------    ----------    --------    --------
+node1        0/1     129         H             FAS2750     e0b
+node2        0/2     165         H             FAS2750     e0b
+cs1          0/55    179         R             BES-53248   0/55
+cs1          0/56    179         R             BES-53248   0/56
+----
+====
+
+
+.El futuro
+Consulte link:configure-log-collection.html["Habilite la función de recogida de registros"] en el caso de los pasos necesarios para habilitar la recogida del registro del switch de estado del clúster utilizado para recoger archivos de registro relacionados con el switch.

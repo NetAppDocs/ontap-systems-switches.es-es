@@ -1,0 +1,143 @@
+---
+permalink: switch-nvidia-sn2100/install-onie-mode-sn2100-storage.html 
+sidebar: sidebar 
+keywords: install cumulus onie mode, sn2100 SN2100 switches setup, cumulus linux, onie mode 
+summary: 'Cumulus Linux (CL) OS se puede instalar ya sea cuando el conmutador ejecuta Cumulus Linux o ONIE.' 
+---
+= Instale Cumulus Linux en modo ONIE
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga este procedimiento para instalar Cumulus Linux (CL) OS cuando el conmutador se ejecute EN modo ONIE.
+
+
+NOTE: Cumulus Linux (CL) OS se puede instalar ya sea cuando el conmutador ejecuta Cumulus Linux o ONIE (consulte link:install-cumulus-mode-sn2100-storage.html["Instalar en modo Cumulus"]).
+
+.Acerca de esta tarea
+Puede instalar Cumulus Linux utilizando Open Network Install Environment (ONIE) que permite la detección automática de una imagen del instalador de red. Esto facilita el modelo de sistema de asegurar los conmutadores con una opción de sistema operativo, como Cumulus Linux. La forma más fácil de instalar Cumulus Linux con ONIE es con el descubrimiento HTTP local.
+
+
+NOTE: Si el host tiene IPv6 habilitada, asegúrese de que ejecuta un servidor web. Si el host tiene la función IPv4 habilitada, asegúrese de que esté ejecutando DHCP además de un servidor web.
+
+Este procedimiento muestra cómo actualizar Cumulus Linux después de que el administrador haya arrancado EN ONIE.
+
+.Pasos
+. Descargue el archivo de instalación de Cumulus Linux en el directorio raíz del servidor Web. Cambie el nombre de este archivo `onie-installer`.
+. Conecte el host al puerto Ethernet de gestión del switch mediante un cable Ethernet.
+. Encienda el interruptor. El conmutador descarga el instalador DE imágenes ONIE y arranca. Una vez finalizada la instalación, aparece el indicador de inicio de sesión de Cumulus Linux en la ventana del terminal.
++
+
+NOTE: Cada vez que se instala Cumulus Linux, se borra y reconstruye toda la estructura del sistema de archivos.
+
+. Reinicie el interruptor SN2100:
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *sudo reboot*
+----
+. Pulse la tecla *Esc* en la pantalla GNU GRUB para interrumpir el proceso de arranque normal, seleccione *ONIE* y pulse *Intro*.
+. En la siguiente pantalla, seleccione *ONIE: Install OS*.
+. EL proceso DE detección DEL instalador DE ONIE ejecuta la búsqueda de la instalación automática. Pulse *Intro* para detener temporalmente el proceso.
+. Cuando el proceso de detección se detuvo:
++
+[listing, subs="+quotes"]
+----
+ONIE:/ # *onie-stop*
+discover: installer mode detected.
+Stopping: discover...start-stop-daemon: warning: killing process 427:
+No such process done.
+----
+. Si el servicio DHCP se está ejecutando en la red, compruebe que la dirección IP, la máscara de subred y la puerta de enlace predeterminada están correctamente asignadas:
++
+`ifconfig eth0`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+ONIE:/ # *ifconfig eth0*
+eth0   Link encap:Ethernet  HWaddr B8:CE:F6:19:1D:F6
+       inet addr:10.233.204.71  Bcast:10.233.205.255  Mask:255.255.254.0
+       inet6 addr: fe80::bace:f6ff:fe19:1df6/64 Scope:Link
+       UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+       RX packets:21344 errors:0 dropped:2135 overruns:0 frame:0
+       TX packets:3500 errors:0 dropped:0 overruns:0 carrier:0
+       collisions:0 txqueuelen:1000
+       RX bytes:6119398 (5.8 MiB)  TX bytes:472975 (461.8 KiB)
+       Memory:dfc00000-dfc1ffff
+
+ONIE:/ # *route*
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+
+default         10.233.204.1    0.0.0.0         UG    0      0      0   eth0
+10.233.204.0    *               255.255.254.0   U     0      0      0   eth0
+----
+====
+. Si el esquema de direccionamiento IP se define manualmente, haga lo siguiente:
++
+[listing, subs="+quotes"]
+----
+ONIE:/ # *ifconfig eth0 10.233.204.71 netmask 255.255.254.0*
+ONIE:/ # *route add default gw 10.233.204.1*
+----
+. Repita el paso 9 para comprobar que la información estática se ha introducido correctamente.
+. Instalar Cumulus Linux:
++
+[listing, subs="+quotes"]
+----
+ONIE:/ # *route*
+
+  Kernel IP routing table
+
+  ONIE:/ # *onie-nos-install http://_<web-server>/<path>_/cumulus-linux-4.4.2-mlx-amd64.bin*
+
+  Stopping: discover... done.
+  Info: Attempting http://10.60.132.97/x/eng/testbedN,svl/nic/files/cumulus-linux-4.4.2-mlx-amd64.bin ...
+  Connecting to 10.60.132.97 (10.60.132.97:80)
+  installer            100% |*******************************|   552M  0:00:00 ETA
+  ...
+  ...
+----
+. Una vez finalizada la instalación, inicie sesión en el conmutador:
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cumulus login: *cumulus*
+Password: *cumulus*
+You are required to change your password immediately (administrator enforced)
+Changing password for cumulus.
+Current password: *cumulus*
+New password: *netapp1!*
+Retype new password: *netapp1!*
+----
+====
+. Verifique la versión de Cumulus Linux:
++
+`net show version`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *net show version*
+NCLU_VERSION=1.0-cl4.4.2u4
+DISTRIB_ID="Cumulus Linux"
+DISTRIB_RELEASE=*4.4.2*
+DISTRIB_DESCRIPTION=*"Cumulus Linux 4.4.2”*
+----
+====
+
+
+.El futuro
+link:install-rcf-sn2100-storage.html["Instale la secuencia de comandos RCF"].

@@ -1,0 +1,121 @@
+---
+permalink: switch-cisco-92300/92300-overview.html 
+sidebar: sidebar 
+keywords: cisco nexus 92300YC 
+summary: Si desea crear clústeres de ONTAP con más de dos nodos, necesita dos switches de red de clúster compatibles. Puede usar switches de gestión adicionales, que son opcionales. 
+---
+= Información general del switch Cisco Nexus 92300YC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si desea crear clústeres de ONTAP con más de dos nodos, necesita dos switches de red de clúster compatibles. Puede usar switches de gestión adicionales, que son opcionales.
+
+Puede instalar el switch Cisco Nexus 92300YC (X190003/R) en un armario del sistema de NetApp o armario de terceros con los soportes estándar que se incluyen con el switch.
+
+En la siguiente tabla se enumeran el número de pieza y la descripción del conmutador 92300YC, los ventiladores y las fuentes de alimentación:
+
+[cols="1,2"]
+|===
+| Número de pieza | Descripción 
+
+
+ a| 
+190003
+ a| 
+Cisco 92300YC, CLSW, 48Pt10/25GB, 18Pt100G, PTSX (PTSX = escape lateral de puerto)
+
+
+
+ a| 
+190003R
+ a| 
+Cisco 92300YC, CLSW, 48Pt10/25GB, 18Pt100G, PSIN (PSIN = entrada lateral de puerto)
+
+
+
+ a| 
+X-NXA-FAN-35CFM-B
+ a| 
+Ventilador, flujo de aire de admisión lateral del puerto Cisco N9K
+
+
+
+ a| 
+X-NXA-FAN-35CFM-F
+ a| 
+Ventilador, flujo de aire de escape lateral del puerto Cisco N9K
+
+
+
+ a| 
+X-NXA-PAC-650W-B.
+ a| 
+Fuente de alimentación, Cisco 650W - entrada lateral de puerto
+
+
+
+ a| 
+X-NXA-PAC-650W-F
+ a| 
+Fuente de alimentación, Cisco 650W - salida lateral de puerto
+
+|===
+Detalles del flujo de aire del switch Cisco Nexus 92300YC:
+
+* Flujo de aire de escape del lado del puerto (aire estándar) --el aire frío entra en el chasis a través del ventilador y los módulos de alimentación del pasillo frío y sale por el extremo del puerto del chasis en el pasillo caliente. Flujo de aire de escape del puerto con coloración azul.
+* Flujo de aire de admisión del lado del puerto (aire de retroceso) --el aire frío entra en el chasis a través del extremo del puerto en el pasillo frío y sale por los módulos de ventilador y fuente de alimentación del pasillo caliente. Flujo de aire de entrada en el puerto con colorante borgoña.
+
+
+.Documentación disponible
+En la siguiente tabla se muestra la documentación disponible para los switches Cisco Nexus 92300YC.
+
+|===
+
+
+| Título | Descripción 
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2/setup-switches.html["_Configurar los switches_ del clúster Cisco® Nexus 92300YC"^]
+ a| 
+Describe cómo configurar y configurar los switches de clúster Cisco Nexus 92300YC.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/install-nxos-overview.html["_Install NX-OS y Archivos de configuración de referencia (RCF)_"^]
+ a| 
+Describe cómo instalar NX-OS y archivos de configuración de referencia (RCF) en el switch de clúster Nexus 92300YC.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/configure-overview.html["_Configure un nuevo Cisco Nexus 92300YC Switch_"^]
+ a| 
+Describe cómo migrar desde entornos que utilizan switches Cisco anteriores a entornos que utilizan switches Cisco 92300YC.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/migrate-to-92300yc-overview.html["_Migre de un Cisco Switch antiguo a un Cisco Nexus 92300YC Switch_"^]
+ a| 
+Describe el procedimiento para reemplazar un switch Cisco antiguo con un switch de clúster Cisco Nexus 92300YC.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/migrate-to-2n-switched.html["_Migrate desde un Cluster_ sin switch de dos nodos"^]
+ a| 
+Describe cómo migrar de un entorno de clúster sin switches de dos nodos a un entorno con switches de dos nodos mediante switches de clúster Cisco Nexus 92300YC
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/replace-92300yc.html["_Reemplace un Cisco Nexus 92300YC Cluster Switch_"^]
+ a| 
+Describe el procedimiento para reemplazar un conmutador Cisco Nexus 92300YC defectuoso en un clúster y descargar el sistema operativo del conmutador y el archivo de configuración de referencia.
+
+|===

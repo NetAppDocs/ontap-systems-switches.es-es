@@ -1,0 +1,27 @@
+---
+permalink: switch-cisco-9336c-fx2/smart-call-9336c-cluster.html 
+sidebar: sidebar 
+keywords: cisco smart call,small call home 
+summary: Smart Call Home supervisa los componentes de hardware y software de su red para generar una notificación basada en correo electrónico de las condiciones críticas del sistema. Cuando se produce un evento en el dispositivo, Smart Call Home genera una alerta a todos los destinatarios configurados en el perfil de destino. 
+---
+= Requisitos de Smart Call Home
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para utilizar la función de inicio de llamada inteligente, revise las siguientes directrices.
+
+Smart Call Home supervisa los componentes de hardware y software de su red. Cuando se produce una configuración de sistema crítica, genera una notificación basada en correo electrónico y genera una alerta a todos los destinatarios que están configurados en el perfil de destino. Para utilizar Smart Call Home, debe configurar un conmutador de red de clúster para comunicarse mediante correo electrónico con el sistema Smart Call Home. Además, puede configurar opcionalmente el conmutador de red de clúster para aprovechar la función integrada de soporte Smart Call Home de Cisco.
+
+Antes de poder utilizar Smart Call Home, tenga en cuenta las siguientes consideraciones:
+
+* Debe haber un servidor de correo electrónico.
+* El switch debe tener conectividad IP con el servidor de correo electrónico.
+* Se debe configurar el nombre del contacto (contacto del servidor SNMP), el número de teléfono y la dirección de la calle. Esto es necesario para determinar el origen de los mensajes recibidos.
+* Un ID de CCO debe estar asociado con un contrato de servicio Cisco SMARTnet adecuado para su empresa.
+* El servicio Cisco SMARTnet debe estar en su lugar para que el dispositivo se registre.
+
+
+La http://www.cisco.com/c/en/us/products/switches/index.html["Sitio de soporte de Cisco"^] Contiene información acerca de los comandos para configurar Smart Call Home.

@@ -1,0 +1,24 @@
+---
+permalink: switch-netapp-cn1610/migrate-overview.html 
+sidebar: sidebar 
+keywords: migrate, two-node switched cluster, netapp cn1610 
+summary: Si dispone de un clúster sin switches de dos nodos, puede migrar, sin interrupciones, a un clúster con switches de dos nodos que incluya switches de red de clúster CN1610 de NetApp. 
+---
+= Opciones de migración para un clúster con switches de dos nodos con switches de clúster CN1610 de NetApp
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si dispone de un clúster sin switches de dos nodos, puede migrar, sin interrupciones, a un clúster con switches de dos nodos que incluya switches de red de clúster CN1610 de NetApp. El procedimiento que utilice dependerá de si tiene dos puertos de red de clúster dedicados en cada controladora o un único puerto de clúster de cada controladora.
+
+La mayoría de los sistemas requieren dos puertos de red de clúster dedicados en cada controladora.
+
+Los nodos FAS22xx permiten un único puerto de cluster en cada controladora.
+
+Hay dos opciones de migración disponibles:
+
+* link:migrate-switched-netapp-cn1610.html["Migrar de un clúster sin switches a un entorno de clúster con switches CN1610 de NetApp"]
+* link:migrate-fas22xx-systems.html["Migración desde un clúster sin switches (sistemas FAS22xx con una única conexión a red de cluster)"]
+

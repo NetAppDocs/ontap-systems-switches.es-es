@@ -1,0 +1,138 @@
+---
+permalink: switch-bes-53248/replace-upgrade.html 
+sidebar: sidebar 
+keywords: BES-53248 switches,upgrading,BES-53248 switches 
+summary: 'La actualización de switches de clúster BES-53248 comienza con la preparación de la controladora para la actualización, la instalación del software EFOS, las licencias y el archivo de configuración de referencia \(RCF\). Tras la instalación, puede restaurar la configuración de la controladora en un entorno de actualización no disruptiva \(NDU\) y de operación no disruptiva \(NDO\).' 
+---
+= Actualice el switch de clúster BES-53248
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga estos pasos para actualizar el switch de clúster BES-53248.
+
+Este procedimiento se aplica a un clúster en funcionamiento y permite un entorno de actualizaciones no disruptivas (NDU) y operaciones no disruptivas (NDO).
+
+
+
+== Revise los requisitos
+
+Antes de instalar el software EFOS, las licencias y el archivo RCF en un switch de clúster BES-53248 de NetApp existente, asegúrese de que:
+
+* El clúster es un clúster en funcionamiento completo (sin mensajes de registro de errores u otros problemas).
+* El clúster no contiene ninguna tarjeta de interfaz de red (NIC) del clúster defectuosa.
+* Todos los puertos conectados en ambos switches de clúster son funcionales.
+* Todos los puertos del clúster están activos.
+* Todos los LIF del clúster están tanto de forma administrativa como operativa, y en sus puertos raíz.
+* Los primeros dos LIF de clúster de cada nodo se configuran en NIC independientes y se conectan a puertos de switch de clúster independientes.
+* La ONTAP `cluster ping-cluster -node node1` el comando advanced privilege indica que `larger than PMTU communication` se realiza correctamente en todas las rutas.
+
+
+
+NOTE: Puede haber dependencias de comandos entre la sintaxis de comandos en las versiones RCF y EFOS.
+
+
+NOTE: Para la compatibilidad de los interruptores, consulte la tabla de compatibilidad de la https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Switches de clúster Broadcom"^] Para las versiones EFOS, RCF y ONTAP compatibles.
+
+
+
+== Prepare la controladora
+
+Siga este procedimiento para preparar el controlador para una actualización de clúster BES-53248.
+
+.Pasos
+. Conecte el switch de clúster a la red de gestión.
+. Utilice el comando ping para verificar la conectividad con el servidor que aloja EFOS, las licencias y el RCF.
++
+Si se trata de un problema, utilice una red no enrutada y configure el puerto de servicio con la dirección IP 192.168.x o 172.19.x. Puede volver a configurar el puerto del servicio con la dirección IP de administración de producción más adelante.
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En este ejemplo se comprueba que el conmutador está conectado al servidor en la dirección IP 172.19.2.1:
+
+[listing, subs="+quotes"]
+----
+(cs2)# *ping 172.19.2.1*
+Pinging 172.19.2.1 with 0 bytes of data:
+
+Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
+----
+====
+. Compruebe que los puertos del clúster estén en buen estado y tengan un enlace mediante el comando:
++
+`network port show -ipspace Cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el siguiente ejemplo, se muestra el tipo de resultado con todos los puertos que tienen un `Link` valor de up y a `Health Status` de salud:
+
+[listing, subs="+quotes"]
+----
+cluster1::> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                    Ignore
+                                               Speed(Mbps) Health   Health
+Port   IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+------ ------------ ---------------- ---- ---- ----------- -------- ------
+e0a    Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b    Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node2
+                                                                    Ignore
+                                               Speed(Mbps) Health   Health
+Port   IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+-----  ------------ ---------------- ---- ---- ----------- -------- ------
+e0a    Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b    Cluster      Cluster          up   9000  auto/10000 healthy  false
+----
+====
+. Verifique que las LIF del clúster estén activas de manera administrativa y operativa, y residan en sus puertos raíz mediante el comando:
++
+`network interface show -vserver Cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En este ejemplo, la `-vserver` El parámetro muestra información acerca de las LIF asociadas con los puertos del clúster. `Status Admin/Oper` debe estar en la `Is Home` debe ser verdadero:
+
+[listing, subs="+quotes"]
+----
+cluster1::> *network interface show -vserver Cluster*
+
+          Logical      Status     Network             Current       Current Is
+Vserver   Interface    Admin/Oper Address/Mask        Node          Port    Home
+--------- ----------   ---------- ------------------  ------------- ------- ----
+Cluster
+          node1_clus1
+                       up/up      169.254.217.125/16  node1         e0a     true
+          node1_clus2
+                       up/up      169.254.205.88/16   node1         e0b     true
+          node2_clus1
+                       up/up      169.254.252.125/16  node2         e0a     true
+          node2_clus2
+                       up/up      169.254.110.131/16  node2         e0b     true
+----
+====
+
+
+
+
+== Instale el software
+
+Siga estas instrucciones para instalar el software.
+
+. link:configure-efos-software.html["Instale el software del EFOS"]. Descargue e instale el software Ethernet Fabric OS (EFOS) en el switch de clúster BES-53248.
+. link:configure-licenses.html["Instale licencias para switches de clúster BES-53248"]. Opcionalmente, añada nuevos puertos comprando e instalando más licencias. El modelo de base de switches tiene licencia para 16 puertos de 10 GbE o 25 GbE y dos puertos de 100 GbE.
+. link:configure-install-rcf.html["Instalación del archivo de configuración de referencia (RCF)"]. Instale o actualice el RCF en el conmutador de clúster BES-53248 y, a continuación, compruebe los puertos para obtener una licencia adicional después de aplicar el RCF.
+. link:configure-health-monitor.html["Instale el archivo de configuración del Monitor de estado del conmutador de clúster (CSHM)"]. Instale el archivo de configuración correspondiente para la supervisión del estado del switch del clúster.
+. link:configure-ssh.html["Habilite SSH en switches de clúster BES-53248"]. Si utiliza las funciones de Cluster Switch Health Monitor (CSHM) y de recopilación de registros, habilite SSH en los switches.
+. link:configure-log-collection.html["Habilite la función de recogida de registros"]. Utilice esta función para recopilar archivos de registro relacionados con el conmutador en ONTAP.
+

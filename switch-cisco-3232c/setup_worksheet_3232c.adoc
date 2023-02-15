@@ -1,0 +1,591 @@
+---
+permalink: switch-cisco-3232c/setup_worksheet_3232c.html 
+sidebar: sidebar 
+keywords: cable worksheet, Cisco NX 3232C 
+summary: Si desea documentar las plataformas compatibles, debe rellenar la hoja de datos de cableado en blanco utilizando la hoja de datos de cableado de muestra completada como guía. Cada switch puede configurarse como un único puerto de 100 GbE, 40 GbE o 4 puertos de 10 GbE. 
+---
+= Complete la hoja de trabajo de cableado Cisco Nexus 3232C
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si desea documentar las plataformas compatibles, descargue un PDF de esta página y rellene la hoja de datos de cableado.
+
+La hoja de cálculo de cableado de ejemplo proporciona ejemplos de asignaciones de puertos recomendadas desde los switches a las controladoras. La hoja de datos en blanco proporciona una plantilla que puede utilizar para configurar su clúster.
+
+Cada switch puede configurarse como un único puerto de 100 GbE, 40 GbE o 4 puertos de 10 GbE.
+
+
+
+== Hoja de trabajo para el cableado de muestra
+
+La definición de puerto de ejemplo de cada par de conmutadores es la siguiente:
+
+[cols="1, 1, 1, 1"]
+|===
+2+| Switch de clúster a 2+| Switch del clúster B 
+
+
+| Puerto del switch | Uso de nodos y puertos | Puerto del switch | Uso de nodos y puertos 
+
+
+ a| 
+1
+ a| 
+4 nodos 10 G/40 G/100 G
+ a| 
+1
+ a| 
+4 nodos 10 G/40 G/100 G
+
+
+
+ a| 
+2
+ a| 
+4 nodos 10 G/40 G/100 G
+ a| 
+2
+ a| 
+4 nodos 10 G/40 G/100 G
+
+
+
+ a| 
+3
+ a| 
+4 nodos 10 G/40 G/100 G
+ a| 
+3
+ a| 
+4 nodos 10 G/40 G/100 G
+
+
+
+ a| 
+4
+ a| 
+4 nodos 10 G/40 G/100 G
+ a| 
+4
+ a| 
+4 nodos 10 G/40 G/100 G
+
+
+
+ a| 
+5
+ a| 
+4 nodos 10 G/40 G/100 G
+ a| 
+5
+ a| 
+4 nodos 10 G/40 G/100 G
+
+
+
+ a| 
+6
+ a| 
+4 x 10 G/40 G/100 Gnode
+ a| 
+6
+ a| 
+4 x 10 G/40 G/100 Gnode
+
+
+
+ a| 
+7
+ a| 
+4 nodos 10 G/40 G/100 G
+ a| 
+7
+ a| 
+4 nodos 10 G/40 G/100 G
+
+
+
+ a| 
+8
+ a| 
+4 nodos 10 G/40 G/100 G
+ a| 
+8
+ a| 
+4 nodos 10 G/40 G/100 G
+
+
+
+ a| 
+9
+ a| 
+4 nodos 10 G/40 G/100 G
+ a| 
+9
+ a| 
+4 nodos 10 G/40 G/100 G
+
+
+
+ a| 
+10
+ a| 
+4 nodos 10 G/40 G/100 G
+ a| 
+10
+ a| 
+4 nodos 10 G/40 G/100 G
+
+
+
+ a| 
+11
+ a| 
+4 nodos 10 G/40 G/100 G
+ a| 
+11
+ a| 
+4 nodos 10 G/40 G/100 G
+
+
+
+ a| 
+12
+ a| 
+4 nodos 10 G/40 G/100 G
+ a| 
+12
+ a| 
+4 nodos 10 G/40 G/100 G
+
+
+
+ a| 
+13
+ a| 
+4 nodos 10 G/40 G/100 G
+ a| 
+13
+ a| 
+4 nodos 10 G/40 G/100 G
+
+
+
+ a| 
+14
+ a| 
+4 nodos 10 G/40 G/100 G
+ a| 
+14
+ a| 
+4 nodos 10 G/40 G/100 G
+
+
+
+ a| 
+15
+ a| 
+4 nodos 10 G/40 G/100 G
+ a| 
+15
+ a| 
+4 nodos 10 G/40 G/100 G
+
+
+
+ a| 
+16
+ a| 
+4 nodos 10 G/40 G/100 G
+ a| 
+16
+ a| 
+4 nodos 10 G/40 G/100 G
+
+
+
+ a| 
+17
+ a| 
+4 nodos 10 G/40 G/100 G
+ a| 
+17
+ a| 
+4 nodos 10 G/40 G/100 G
+
+
+
+ a| 
+18
+ a| 
+4 nodos 10 G/40 G/100 G
+ a| 
+18
+ a| 
+4 nodos 10 G/40 G/100 G
+
+
+
+ a| 
+19
+ a| 
+Nodo 19 DE 40 G/100 G
+ a| 
+19
+ a| 
+Nodo 19 DE 40 G/100 G
+
+
+
+ a| 
+20
+ a| 
+Nodo 20 DE 40 G/100 G
+ a| 
+20
+ a| 
+Nodo 20 DE 40 G/100 G
+
+
+
+ a| 
+21
+ a| 
+Nodo 21 DE 40 G/100 G
+ a| 
+21
+ a| 
+Nodo 21 DE 40 G/100 G
+
+
+
+ a| 
+22
+ a| 
+Nodo 22 DE 40 G/100 G
+ a| 
+22
+ a| 
+Nodo 22 DE 40 G/100 G
+
+
+
+ a| 
+23
+ a| 
+Nodo 23 DE 40 G/100 G
+ a| 
+23
+ a| 
+Nodo 23 DE 40 G/100 G
+
+
+
+ a| 
+24
+ a| 
+Nodo 24 DE 40 G/100 G
+ a| 
+24
+ a| 
+Nodo 24 DE 40 G/100 G
+
+
+
+ a| 
+25 hasta 30
+ a| 
+Reservado
+ a| 
+25 hasta 30
+ a| 
+Reservado
+
+
+
+ a| 
+31
+ a| 
+100G ISL al puerto 31 del switch B.
+ a| 
+31
+ a| 
+ISL DE 100 G para cambiar al puerto 31
+
+
+
+ a| 
+32
+ a| 
+100G ISL al puerto 32 del switch B.
+ a| 
+32
+ a| 
+ISL DE 100 G para cambiar al puerto 32
+
+|===
+
+
+== Hoja de trabajo de cableado en blanco
+
+Puede utilizar la hoja de datos de cableado vacía para documentar las plataformas que se admiten como nodos de un clúster. La sección _Cluster Connections_ del https://hwu.netapp.com["Hardware Universe"^] define los puertos de clúster que utiliza la plataforma.
+
+[cols="1, 1, 1, 1"]
+|===
+2+| Switch de clúster a 2+| Switch del clúster B 
+
+
+| Puerto del switch | Uso del nodo/puerto | Puerto del switch | Uso del nodo/puerto 
+
+
+ a| 
+1
+ a| 
+ a| 
+1
+ a| 
+
+
+
+ a| 
+2
+ a| 
+ a| 
+2
+ a| 
+
+
+
+ a| 
+3
+ a| 
+ a| 
+3
+ a| 
+
+
+
+ a| 
+4
+ a| 
+ a| 
+4
+ a| 
+
+
+
+ a| 
+5
+ a| 
+ a| 
+5
+ a| 
+
+
+
+ a| 
+6
+ a| 
+ a| 
+6
+ a| 
+
+
+
+ a| 
+7
+ a| 
+ a| 
+7
+ a| 
+
+
+
+ a| 
+8
+ a| 
+ a| 
+8
+ a| 
+
+
+
+ a| 
+9
+ a| 
+ a| 
+9
+ a| 
+
+
+
+ a| 
+10
+ a| 
+ a| 
+10
+ a| 
+
+
+
+ a| 
+11
+ a| 
+ a| 
+11
+ a| 
+
+
+
+ a| 
+12
+ a| 
+ a| 
+12
+ a| 
+
+
+
+ a| 
+13
+ a| 
+ a| 
+13
+ a| 
+
+
+
+ a| 
+14
+ a| 
+ a| 
+14
+ a| 
+
+
+
+ a| 
+15
+ a| 
+ a| 
+15
+ a| 
+
+
+
+ a| 
+16
+ a| 
+ a| 
+16
+ a| 
+
+
+
+ a| 
+17
+ a| 
+ a| 
+17
+ a| 
+
+
+
+ a| 
+18
+ a| 
+ a| 
+18
+ a| 
+
+
+
+ a| 
+19
+ a| 
+ a| 
+19
+ a| 
+
+
+
+ a| 
+20
+ a| 
+ a| 
+20
+ a| 
+
+
+
+ a| 
+21
+ a| 
+ a| 
+21
+ a| 
+
+
+
+ a| 
+22
+ a| 
+ a| 
+22
+ a| 
+
+
+
+ a| 
+23
+ a| 
+ a| 
+23
+ a| 
+
+
+
+ a| 
+24
+ a| 
+ a| 
+24
+ a| 
+
+
+
+ a| 
+25 hasta 30
+ a| 
+Reservado
+ a| 
+25 hasta 30
+ a| 
+Reservado
+
+
+
+ a| 
+31
+ a| 
+100G ISL al puerto 31 del switch B.
+ a| 
+31
+ a| 
+ISL DE 100 G para cambiar al puerto 31
+
+
+
+ a| 
+32
+ a| 
+100G ISL al puerto 32 del switch B.
+ a| 
+32
+ a| 
+ISL DE 100 G para cambiar al puerto 32
+
+|===

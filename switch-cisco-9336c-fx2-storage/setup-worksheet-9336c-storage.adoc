@@ -1,0 +1,586 @@
+---
+permalink: switch-cisco-9336c-fx2-storage/setup-worksheet-9336c-storage.html 
+sidebar: sidebar 
+keywords: document, support, platform, complete, blank, cabling, worksheet, guide, cisco, nexus, cisco nexus 9336c-fx2 cabling worksheet - cisco nexus 9336-fx2 
+summary: Si desea documentar las plataformas compatibles, debe rellenar la hoja de datos de cableado en blanco utilizando la hoja de datos de cableado de muestra completada como guía. 
+---
+= Rellene la hoja de trabajo del cableado Cisco Nexus 9336C-FX2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si desea documentar las plataformas compatibles, descargue un PDF de esta página y rellene la hoja de datos de cableado.
+
+La hoja de cálculo de cableado de ejemplo proporciona ejemplos de asignaciones de puertos recomendadas desde los switches a las controladoras. La hoja de datos en blanco proporciona una plantilla que puede utilizar para configurar su clúster.
+
+
+
+== Hoja de trabajo para el cableado de muestra
+
+La definición de puerto de ejemplo de cada par de conmutadores es la siguiente:
+
+[cols="1, 1, 1, 1"]
+|===
+2+| Switch de clúster a 2+| Switch del clúster B 
+
+
+| Puerto del switch | Uso de nodos y puertos | Puerto del switch | Uso de nodos y puertos 
+
+
+ a| 
+1
+ a| 
+4 nodos de 10 GbE 1
+ a| 
+1
+ a| 
+4 nodos de 10 GbE 1
+
+
+
+ a| 
+2
+ a| 
+4 nodos de 10 GbE 2
+ a| 
+2
+ a| 
+4 nodos de 10 GbE 2
+
+
+
+ a| 
+3
+ a| 
+4 nodos 10 GbE 3
+ a| 
+3
+ a| 
+4 nodos 10 GbE 3
+
+
+
+ a| 
+4
+ a| 
+4 nodos de 25 GbE 4
+ a| 
+4
+ a| 
+4 nodos de 25 GbE 4
+
+
+
+ a| 
+5
+ a| 
+4 nodos de 25 GbE 5
+ a| 
+5
+ a| 
+4 nodos de 25 GbE 5
+
+
+
+ a| 
+6
+ a| 
+4 nodos de 25 GbE 6
+ a| 
+6
+ a| 
+4 nodos de 25 GbE 6
+
+
+
+ a| 
+7
+ a| 
+4 nodos de 100 GbE 7
+ a| 
+7
+ a| 
+4 nodos de 100 GbE 7
+
+
+
+ a| 
+8
+ a| 
+4 nodos de 100 GbE 8
+ a| 
+8
+ a| 
+4 nodos de 100 GbE 8
+
+
+
+ a| 
+9
+ a| 
+4 nodos de 100 GbE 9
+ a| 
+9
+ a| 
+4 nodos de 100 GbE 9
+
+
+
+ a| 
+10
+ a| 
+4 nodos de 100 GbE 10
+ a| 
+10
+ a| 
+4 nodos de 100 GbE 10
+
+
+
+ a| 
+11
+ a| 
+4 nodos de 100 GbE 11
+ a| 
+11
+ a| 
+4 nodos de 100 GbE 11
+
+
+
+ a| 
+12
+ a| 
+4 nodos de 100 GbE 12
+ a| 
+12
+ a| 
+4 nodos de 100 GbE 12
+
+
+
+ a| 
+13
+ a| 
+4 nodos de 100 GbE 13
+ a| 
+13
+ a| 
+4 nodos de 100 GbE 13
+
+
+
+ a| 
+14
+ a| 
+4 nodos de 100 GbE 14
+ a| 
+14
+ a| 
+4 nodos de 100 GbE 14
+
+
+
+ a| 
+15
+ a| 
+4 nodos de 100 GbE 15
+ a| 
+15
+ a| 
+4 nodos de 100 GbE 15
+
+
+
+ a| 
+16
+ a| 
+4 nodos de 100 GbE 16
+ a| 
+16
+ a| 
+4 nodos de 100 GbE 16
+
+
+
+ a| 
+17
+ a| 
+4 nodos de 100 GbE 17
+ a| 
+17
+ a| 
+4 nodos de 100 GbE 17
+
+
+
+ a| 
+18
+ a| 
+4 nodos de 100 GbE 18
+ a| 
+18
+ a| 
+4 nodos de 100 GbE 18
+
+
+
+ a| 
+19
+ a| 
+4 nodos de 100 GbE 19
+ a| 
+19
+ a| 
+4 nodos de 100 GbE 19
+
+
+
+ a| 
+20
+ a| 
+4 nodos de 100 GbE 20
+ a| 
+20
+ a| 
+4 nodos de 100 GbE 20
+
+
+
+ a| 
+21
+ a| 
+4 nodos de 100 GbE 21
+ a| 
+21
+ a| 
+4 nodos de 100 GbE 21
+
+
+
+ a| 
+22
+ a| 
+4 nodos de 100 GbE 22
+ a| 
+22
+ a| 
+4 nodos de 100 GbE 22
+
+
+
+ a| 
+23
+ a| 
+4 nodos de 100 GbE 23
+ a| 
+23
+ a| 
+4 nodos de 100 GbE 23
+
+
+
+ a| 
+24
+ a| 
+4 nodos de 100 GbE 24
+ a| 
+24
+ a| 
+4 nodos de 100 GbE 24
+
+
+
+ a| 
+25 hasta 34
+ a| 
+Reservado
+ a| 
+25 hasta 34
+ a| 
+Reservado
+
+
+
+ a| 
+35
+ a| 
+100G ISL al puerto 35 del switch B.
+ a| 
+35
+ a| 
+ISL DE 100 G para cambiar al puerto 35
+
+
+
+ a| 
+36
+ a| 
+100G ISL al puerto 36 del switch B.
+ a| 
+36
+ a| 
+ISL DE 100 G para cambiar al puerto 36
+
+|===
+
+
+== Hoja de trabajo de cableado en blanco
+
+Puede utilizar la hoja de datos de cableado vacía para documentar las plataformas que se admiten como nodos de un clúster. La sección _Cluster Connections_ del https://hwu.netapp.com["Hardware Universe"^] define los puertos de clúster que utiliza la plataforma.
+
+[cols="1, 1, 1, 1"]
+|===
+2+| Switch de clúster a 2+| Switch del clúster B 
+
+
+ a| 
+1
+ a| 
+ a| 
+1
+ a| 
+
+
+
+ a| 
+2
+ a| 
+ a| 
+2
+ a| 
+
+
+
+ a| 
+3
+ a| 
+ a| 
+3
+ a| 
+
+
+
+ a| 
+4
+ a| 
+ a| 
+4
+ a| 
+
+
+
+ a| 
+5
+ a| 
+ a| 
+5
+ a| 
+
+
+
+ a| 
+6
+ a| 
+ a| 
+6
+ a| 
+
+
+
+ a| 
+7
+ a| 
+ a| 
+7
+ a| 
+
+
+
+ a| 
+8
+ a| 
+ a| 
+8
+ a| 
+
+
+
+ a| 
+9
+ a| 
+ a| 
+9
+ a| 
+
+
+
+ a| 
+10
+ a| 
+ a| 
+10
+ a| 
+
+
+
+ a| 
+11
+ a| 
+ a| 
+11
+ a| 
+
+
+
+ a| 
+12
+ a| 
+ a| 
+12
+ a| 
+
+
+
+ a| 
+13
+ a| 
+ a| 
+13
+ a| 
+
+
+
+ a| 
+14
+ a| 
+ a| 
+14
+ a| 
+
+
+
+ a| 
+15
+ a| 
+ a| 
+15
+ a| 
+
+
+
+ a| 
+16
+ a| 
+ a| 
+16
+ a| 
+
+
+
+ a| 
+17
+ a| 
+ a| 
+17
+ a| 
+
+
+
+ a| 
+18
+ a| 
+ a| 
+18
+ a| 
+
+
+
+ a| 
+19
+ a| 
+ a| 
+19
+ a| 
+
+
+
+ a| 
+20
+ a| 
+ a| 
+20
+ a| 
+
+
+
+ a| 
+21
+ a| 
+ a| 
+21
+ a| 
+
+
+
+ a| 
+22
+ a| 
+ a| 
+22
+ a| 
+
+
+
+ a| 
+23
+ a| 
+ a| 
+23
+ a| 
+
+
+
+ a| 
+24
+ a| 
+ a| 
+24
+ a| 
+
+
+
+ a| 
+25 hasta 34
+ a| 
+Reservado
+ a| 
+25 hasta 34
+ a| 
+Reservado
+
+
+
+ a| 
+35
+ a| 
+100G ISL al puerto 35 del switch B.
+ a| 
+35
+ a| 
+ISL DE 100 G para cambiar al puerto 35
+
+
+
+ a| 
+36
+ a| 
+100G ISL al puerto 36 del switch B.
+ a| 
+36
+ a| 
+ISL DE 100 G para cambiar al puerto 36
+
+|===

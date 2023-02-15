@@ -1,0 +1,44 @@
+---
+section: switch-nvidia-sn2100-storage
+title: NVIDIA SN2100
+entries:
+- title: Descripción general
+  entries:
+  - title: Información general de configuración
+    url: "/switch-nvidia-sn2100/configure-overview-sn2100-storage.html"
+  - title: Requisitos de configuración
+    url: "/switch-nvidia-sn2100/configure-reqs-sn2100-storage.html"
+  - title: Componentes y números de pieza
+    url: "/switch-nvidia-sn2100/components-sn2100-storage.html"
+  - title: Documentación requerida
+    url: "/switch-nvidia-sn2100/required-documentation-sn2100-storage.html"
+- title: Instale el hardware
+  entries:
+  - title: Instalar el interruptor
+    url: "/switch-nvidia-sn2100/install-hardware-sn2100-storage.html"
+  - title: Configurar el switch
+    url: "/switch-nvidia-sn2100/configure-sn2100-storage.html"
+  - title: Revisar el cableado y la configuración
+    url: "/switch-nvidia-sn2100/cabling-considerations-sn2100-storage.html"
+  - title: Cableado para estantes NS224
+    url: "/switch-nvidia-sn2100/install-cable-shelves-sn2100-storage.html"
+- title: Configurar el software
+  entries:
+  - title: Flujo de trabajo de instalación del software
+    url: "/switch-nvidia-sn2100/configure-software-sn2100-storage.html"
+  - title: Instale Cumulus Linux en modo Cumulus
+    url: "/switch-nvidia-sn2100/install-cumulus-mode-sn2100-storage.html"
+  - title: Instale Cumulus Linux en modo ONIE
+    url: "/switch-nvidia-sn2100/install-onie-mode-sn2100-storage.html"
+  - title: Instale la secuencia de comandos RCF
+    url: "/switch-nvidia-sn2100/install-rcf-sn2100-storage.html"
+  - title: Configurar la recopilación de registros del switch
+    url: "/switch-nvidia-sn2100/install-snmpv3-sn2100-storage.html"
+- title: Migrar switches
+  entries:
+  - title: Migre desde switches de almacenamiento de Cisco
+    url: "/switch-nvidia-sn2100/migrate-cisco-storage-switch-sn2100-storage.html"
+  - title: Migre a un clúster de dos nodos con switches
+    url: "/switch-nvidia-sn2100/migrate-2n-switched-sn2100-storage.html"
+- title: Sustituir el interruptor
+  url: "/switch-nvidia-sn2100/replace-sn2100-switch-storage.html"

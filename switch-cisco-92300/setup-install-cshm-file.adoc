@@ -1,0 +1,67 @@
+---
+permalink: switch-cisco-92300/setup-install-cshm-file.html 
+sidebar: sidebar 
+keywords: 'install, applicable, configuration, file, cluster, switch, health, monitor, nexus, ontap, install the cluster switch health monitor (csm) configuration file for 92300yc switches - cisco nexus 9336c-fx2' 
+summary: Puede utilizar este procedimiento para instalar el archivo de configuración correspondiente para la supervisión del estado del switch del clúster de los switches de clúster Nexus 92300YC. 
+---
+= Instale el archivo de configuración del Monitor de estado del conmutador de clúster (CSHM)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga este procedimiento para instalar el archivo de configuración correspondiente para la supervisión del estado de los switches de clúster de los switches de clúster Nexus 92300YC.
+
+En las versiones 9.5P7 y anteriores y 9.6P2 y anteriores de ONTAP, debe descargar el archivo de configuración del monitor de estado del switch de clúster por separado. En las versiones 9.5P8 y posteriores de ONTAP, 9.6P3 y posterior, y 9.7 y posterior, el archivo de configuración del monitor de estado del switch de clúster se incluye con ONTAP.
+
+.Lo que necesitará
+Antes de configurar el monitor de estado del switch para los switches de clúster 92300YC, asegúrese de que el clúster ONTAP esté en funcionamiento y listo.
+
+
+NOTE: También debe habilitar SSH para utilizar todas las funciones disponibles en CSHM.
+
+.Pasos
+. Descargue el archivo zip de configuración del monitor de estado del switch de clúster según la versión de ONTAP correspondiente. Este archivo está disponible en https://mysupport.netapp.com/NOW/cgi-bin/software/["Descarga de software de NetApp"^] página.
++
+.. En la página de descarga de software, seleccione *Switch Health Monitor Configuration Files*
+.. Seleccione Plataforma = *ONTAP* y haga clic en *Ir*
+.. En la página Switch Health Monitor Configuration Files for ONTAP (Archivos de configuración del monitor de estado del conmutador para), haga clic en *Ver y descargar*
+.. En la página Archivos de configuración del Monitor de estado del conmutador para ONTAP - Descripción, haga clic en *Descargar* para el modelo de conmutador de clúster aplicable, por ejemplo: *Cisco Nexus 92300YC*
+.. En la página Contrato de licencia para el usuario final, haga clic en *Aceptar*
+.. En la página Archivos de configuración del Monitor de estado del conmutador para ONTAP - Descargar, seleccione el archivo de configuración correspondiente, por ejemplo, *Cisco_Nexus_92300YC.zip*
+
+
+. Cargue el archivo zip correspondiente en su servidor Web interno donde la dirección IP es X.X.X.X.
++
+Para una dirección IP de servidor web interno de 192.168.2.20 y suponiendo que existe un directorio /usr/download, puede cargar su archivo zip a su servidor web usando scp:
+
++
+[listing]
+----
+% scp Cisco_Nexus_92300YC.zip admin@192.168.2.20:/usr/download/Cisco_Nexus_92300YC.zip
+----
+. Acceda a la configuración de modo avanzado desde uno de los sistemas ONTAP del clúster mediante el comando set-Privilege Advanced:
++
+[listing]
+----
+cluster1::> set -privilege advanced
+----
+. Ejecute el monitor de estado del switch configure command system cluster-switch configure-health-monitor -node * -package-URL X. creación de un archivo .X/location_to_download_zip_file:
++
+[listing]
+----
+cluster1::> system cluster-switch configure-health-monitor -node * -package-url 192.168.2.20/usr/download/Cisco_Nexus_92300YC.zip
+----
+. Compruebe que el resultado del comando contiene la cadena de texto "paquete descargado procesado correctamente". Si se produce un error, póngase en contacto con el soporte de NetApp.
+. Ejecute el comando system cluster-switch show en el sistema de ONTAP y asegúrese de que los switches del clúster se detecten con el campo supervisado establecido en "True".
++
+[listing]
+----
+cluster1::> system cluster-switch show
+----
++
+
+NOTE: Si en cualquier momento vuelve a una versión anterior de ONTAP, necesitará instalar de nuevo el archivo de configuración CSHM para habilitar la supervisión del estado del switch de conmutadores de clúster 92300YC.
+
+

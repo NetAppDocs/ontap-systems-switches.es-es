@@ -1,0 +1,199 @@
+---
+permalink: switch-cisco-9336c-fx2/setup-switch-9336c-cluster.html 
+sidebar: sidebar 
+keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
+summary: Siga este procedimiento para configurar y configurar el switch Cisco Nexus 9336C-FX2. 
+---
+= Configure el switch de clúster 9336C-FX2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga este procedimiento para configurar el switch Cisco Nexus 9336C-FX2.
+
+.Lo que necesitará
+* Acceso a un servidor HTTP, FTP o TFTP en el sitio de instalación para descargar las versiones correspondientes del NX-OS y del archivo de configuración de referencia (RCF).
+* Las licencias aplicables, la información de configuración y red, y los cables.
+* Completado link:setup-worksheet-9336c-cluster.html["hojas de datos para el cableado"].
+* Los RCF de red de gestión y red de clúster de NetApp aplicables descargados del sitio de soporte de NetApp en http://mysupport.netapp.com/["mysupport.netapp.com"^]. Todos los switches de red de gestión y red de clúster de Cisco llegan con la configuración predeterminada de fábrica de Cisco. Estos conmutadores también tienen la versión actual del software NX-OS pero no tienen cargados los RCF.
+* link:required-documentation-9336c-cluster.html["Documentación necesaria sobre el switch y ONTAP"].
+
+
+.Pasos
+. Realice una configuración inicial de los switches de red de clúster.
++
+Proporcione las respuestas correspondientes a las siguientes preguntas de configuración inicial cuando arranque el switch por primera vez. La política de seguridad de su sitio define las respuestas y los servicios que se deben habilitar.
+
++
+[cols="1,2"]
+|===
+| Prompt | Respuesta 
+
+
+ a| 
+¿Desea anular el aprovisionamiento automático y continuar con la configuración normal? (sí/no)
+ a| 
+Responda con *sí*. El valor predeterminado es no
+
+
+
+ a| 
+¿Desea aplicar un estándar de contraseña segura? (sí/no)
+ a| 
+Responda con *sí*. El valor predeterminado es yes.
+
+
+
+ a| 
+Introduzca la contraseña para el administrador.
+ a| 
+La contraseña predeterminada es "'admin'"; debe crear una nueva contraseña segura. Se puede rechazar una contraseña débil.
+
+
+
+ a| 
+¿Desea introducir el cuadro de diálogo de configuración básica? (sí/no)
+ a| 
+Responda con *sí* en la configuración inicial del interruptor.
+
+
+
+ a| 
+¿Crear otra cuenta de inicio de sesión? (sí/no)
+ a| 
+Su respuesta depende de las políticas de su sitio con respecto a los administradores alternativos. El valor predeterminado es *no*.
+
+
+
+ a| 
+¿Configurar cadena de comunidad SNMP de solo lectura? (sí/no)
+ a| 
+Responda con *no*. El valor predeterminado es no
+
+
+
+ a| 
+¿Configurar cadena de comunidad SNMP de lectura y escritura? (sí/no)
+ a| 
+Responda con *no*. El valor predeterminado es no
+
+
+
+ a| 
+Introduzca el nombre del switch.
+ a| 
+Introduzca el nombre del switch, que está limitado a 63 caracteres alfanuméricos.
+
+
+
+ a| 
+¿Continuar con la configuración de administración fuera de banda (mgmt0)? (sí/no)
+ a| 
+Responda con *sí* (el valor predeterminado) en ese indicador. En el símbolo de sistema mgmt0 IPv4 address:, introduzca su dirección IP: ip_address.
+
+
+
+ a| 
+¿Configurar la puerta de enlace predeterminada? (sí/no)
+ a| 
+Responda con *sí*. En la dirección IPv4 de la solicitud default-Gateway:, introduzca su default_Gateway.
+
+
+
+ a| 
+¿Configurar las opciones avanzadas de IP? (sí/no)
+ a| 
+Responda con *no*. El valor predeterminado es no
+
+
+
+ a| 
+¿Habilitar el servicio telnet? (sí/no)
+ a| 
+Responda con *no*. El valor predeterminado es no
+
+
+
+ a| 
+¿Servicio SSH habilitado? (sí/no)
+ a| 
+Responda con *sí*. El valor predeterminado es yes.
+
+
+NOTE: Se recomienda SSH cuando se utilice el Monitor de estado del conmutador de clúster (CSHM) para sus funciones de recopilación de registros. También se recomienda SSHv2 para mejorar la seguridad.
+
+
+
+ a| 
+Introduzca el tipo de clave SSH que desea generar (dsa/rsa/rsa1).
+ a| 
+El valor predeterminado es *rsa*.
+
+
+
+ a| 
+Introduzca el número de bits de clave (1024-2048).
+ a| 
+Introduzca el número de bits de clave de 1024 a 2048.
+
+
+
+ a| 
+¿Configurar el servidor NTP? (sí/no)
+ a| 
+Responda con *no*. El valor predeterminado es no
+
+
+
+ a| 
+Configuración de la capa de interfaz predeterminada (L3/L2)
+ a| 
+Responda con *L2*. El valor predeterminado es L2.
+
+
+
+ a| 
+Configurar el estado predeterminado de la interfaz del puerto del switch (cerrada/nohut)
+ a| 
+Responda con *nohut*. El valor predeterminado es nohut.
+
+
+
+ a| 
+Configurar el perfil del sistema COPP (estricto/moderado/indulgente/denso)
+ a| 
+Responda con *estricto*. El valor predeterminado es estricto.
+
+
+
+ a| 
+¿Desea editar la configuración? (sí/no)
+ a| 
+Debería ver la nueva configuración en este momento. Revise y realice los cambios necesarios en la configuración que acaba de introducir. Si está satisfecho con la configuración, responda *no* en el indicador. Responda con *sí* si desea editar los ajustes de configuración.
+
+
+
+ a| 
+¿Utilizar esta configuración y guardarla? (sí/no)
+ a| 
+Responda con *sí* para guardar la configuración. De esta forma se actualizan automáticamente las imágenes kickstart y del sistema.
+
+
+NOTE: Si no guarda la configuración en esta fase, ninguno de los cambios se aplicará la próxima vez que reinicie el conmutador.
+
+|===
+. Compruebe las opciones de configuración que ha realizado en la pantalla que aparece al final de la instalación y asegúrese de guardar la configuración.
+. Compruebe la versión de los switches de red de clúster y, si es necesario, descargue la versión del software que admite NetApp en los switches.
++
+Si descarga la versión de software compatible con NetApp, también debe descargar el _archivo de configuración_ de referencia del switch de red del clúster de NetApp y combinarlo con la configuración que guardó en el paso 5. Puede descargar el archivo y las instrucciones desde la https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^] página.
+
+. Compruebe la versión del software en los switches de red y, si es necesario, descargue la versión del software compatible con NetApp en los switches. Si dispone de sus propios conmutadores, consulte https://cisco.com["Sitio Cisco"^].
++
+Si descarga la versión del software compatible con NetApp, también deberá descargar el _archivo de configuración_ de referencia del switch de red de gestión de NetApp y combinarlo con la configuración que guardó anteriormente. Puede descargar el archivo y las instrucciones desde la https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^] página.
+
+
+
+.El futuro
+Opcionalmente, puede hacerlo link:install-switch-and-passthrough-panel-9336c-cluster.html["Instale un switch Cisco Nexus 9336C-FX2 en un armario de NetApp"]. De lo contrario, vaya a. link:install-nxos-overview-9336c-cluster.html["Prepare la instalación de NX-OS y RCF"].

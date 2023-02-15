@@ -1,0 +1,58 @@
+---
+permalink: get-started/learn-switch-concept.html 
+sidebar: sidebar 
+keywords:  
+summary: Obtenga más información sobre clústeres, almacenamiento y switches compartidos. 
+---
+= Obtenga más información sobre clústeres, almacenamiento y switches compartidos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp ofrece clúster, almacenamiento y switches compartidos que proporcionan comunicaciones internas con la capacidad de mover datos e interfaces de red sin interrupciones por todo el clúster.
+
+Los switches de «front-end» proporcionan conectividad al almacenamiento host, mientras que los switches de clúster de «back-end» proporcionan conexiones entre dos o más controladoras de NetApp.
+
+
+
+== Switches de clúster
+
+Los switches de clúster permiten crear clústeres de ONTAP con más de dos nodos. Los switches de clúster admitidos por NetApp incluyen:
+
+* Broadcom BES-53248
+* Cisco Nexus 9336C-FX2
+* NVIDIA SN2100
+
+
+
+
+== Switches de almacenamiento
+
+Los switches de almacenamiento le permiten enrutar datos entre servidores y matrices de almacenamiento en una red DE área de almacenamiento (SAN). Los switches de clúster admitidos por NetApp incluyen:
+
+* Cisco Nexus 9336C-FX2
+* NVIDIA SN2100
+
+
+
+
+== Switches compartidos
+
+Los switches compartidos permiten combinar la funcionalidad de clúster y almacenamiento en una configuración de switch compartido, al admitir el uso de RCF de almacenamiento y clúster compartidos. El switch compartido compatible con NetApp es:
+
+* Cisco Nexus 9336C-FX2
+
+
+
+
+== Fin de la disponibilidad
+
+Los siguientes switches de almacenamiento ya no se pueden adquirir, pero siguen siendo compatibles:
+
+* Cisco Nexus 3232C
+* Cisco Nexus 3132Q-V
+* Cisco Nexus 92300YC
+* CN1610 de NetApp
+

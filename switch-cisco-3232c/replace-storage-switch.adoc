@@ -1,0 +1,269 @@
+---
+permalink: switch-cisco-3232c/replace-storage-switch.html 
+sidebar: sidebar 
+keywords: replace, cisco nexus, 3232c storage switch 
+summary: Puede sustituir un switch de almacenamiento Cisco Nexus 3232C defectuoso realizando una secuencia específica de tareas. 
+---
+= Sustituya un switch de almacenamiento Cisco Nexus 3232C
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga estos pasos para sustituir un switch de almacenamiento Cisco Nexus 3232C defectuoso. Este procedimiento no es disruptivo.
+
+
+
+== Revise los requisitos
+
+La configuración de red existente debe tener las siguientes características:
+
+* La página Cisco Ethernet Switches tiene las versiones más recientes de RCF y NX-OS en sus switches.
+* Debe haber conectividad de gestión en ambos switches.
++
+[NOTE]
+====
+Asegúrese de que se han completado todos los pasos de solución de problemas para confirmar que es necesario sustituir el interruptor.
+
+====
+
+
+El switch Cisco Nexus 3232C de sustitución debe tener las siguientes características:
+
+* La conectividad de la red de gestión debe ser funcional.
+* El acceso de la consola al interruptor de sustitución debe estar en su lugar.
+* Se deben cargar en el conmutador las imágenes del sistema operativo RCF y NX-OS adecuadas.
+* Se debe completar la personalización inicial del conmutador.
+
+
+
+
+== Sustituya el interruptor
+
+Este procedimiento reemplaza al segundo switch de almacenamiento Nexus 3232C S2 con el nuevo switch 3232C NS2. Los dos nodos son 1 y 2.
+
+
+
+=== Paso 1: Confirmar que el interruptor que se va a sustituir es S2
+
+. Si se habilita AutoSupport en este clúster, elimine la creación automática de casos invocando un mensaje de AutoSupport:
+`system node autosupport invoke -node * -type all - message MAINT=xh`
++
+_x_ es la duración de la ventana de mantenimiento en horas.
+
++
+[NOTE]
+====
+El mensaje de AutoSupport notifica al soporte técnico de esta tarea de mantenimiento para que la creación automática de casos se suprima durante la ventana de mantenimiento.
+
+====
+. Compruebe el estado de los puertos del nodo de almacenamiento para asegurarse de que exista conexión al switch de almacenamiento S1:
++
+`storage port show -port-type ENET`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
+----
+storage::*> storage port show -port-type ENET
+                                      Speed                     VLAN
+Node               Port Type  Mode    (Gb/s) State    Status      ID
+------------------ ---- ----- ------- ------ -------- --------- ----
+node1
+                   e3a  ENET  storage    100 enabled  online      30
+                   e3b  ENET  storage      0 enabled  offline     30
+                   e7a  ENET  storage      0 enabled  offline     30
+                   e7b  ENET  storage      0 enabled  offline     30
+node2
+                   e3a  ENET  storage    100 enabled  online      30
+                   e3b  ENET  storage      0 enabled  offline     30
+                   e7a  ENET  storage      0 enabled  offline     30
+                   e7b  ENET  storage      0 enabled  offline     30
+----
+====
+. Verifique que el interruptor de almacenamiento S1 esté disponible:
++
+`network device-discovery show`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
+----
+storage::*> network device-discovery show
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------- ----------------
+node1/cdp
+            e3a    S1                        Ethernet1/1       NX3232C
+            e4a    node2                     e4a               AFF-A700
+            e4e    node2                     e4e               AFF-A700
+node1/lldp
+            e3a    S1                        Ethernet1/1       -
+            e4a    node2                     e4a               -
+            e4e    node2                     e4e               -
+node2/cdp
+            e3a    S1                        Ethernet1/2       NX3232C
+            e4a    node1                     e4a               AFF-A700
+            e4e    node1                     e4e               AFF-A700
+node2/lldp
+            e3a    S1                        Ethernet1/2       -
+            e4a    node1                     e4a               -
+            e4e    node1                     e4e               -
+----
+====
+. Ejecute el `show lldp neighbors` comando en el switch de trabajo para confirmar que puede ver tanto los nodos como todas las bandejas:
++
+`show lldp neighbors`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
+----
+S1# show lldp neighbors
+Capability codes:
+  (R) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device
+  (W) WLAN Access Point, (P) Repeater, (S) Station, (O) Other
+Device ID               Local Intf      Hold-time  Capability  Port ID
+node1                   Eth1/1          121        S           e3a
+node2                   Eth1/2          121        S           e3a
+SHFGD2008000011         Eth1/5          121        S           e0a
+SHFGD2008000011         Eth1/6          120        S           e0a
+SHFGD2008000022         Eth1/7          120        S           e0a
+SHFGD2008000022         Eth1/8          120        S           e0a
+----
+====
+
+
+
+
+=== Paso 2: Configure el cableado
+
+. [[cinco]]Compruebe los puertos de las bandejas del sistema de almacenamiento:
++
+`storage shelf port show -fields remote-device,remote-port`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
+----
+storage::*> storage shelf port show -fields remote-device,remote-port
+
+shelf  id  remote-port  remote-device
+-----  --  -----------  -------------
+3.20   0   Ethernet1/5  S1
+3.20   1   -            -
+3.20   2   Ethernet1/6  S1
+3.20   3   -            -
+3.30   0   Ethernet1/7  S1
+3.20   1   -            -
+3.30   2   Ethernet1/8  S1
+3.20   3   -            -
+----
+====
+. Retire todos los cables conectados al interruptor de almacenamiento S2.
+. Vuelva a conectar todos los cables al interruptor de sustitución NS2.
+
+
+
+
+=== Paso 3: Verifique todas las configuraciones del dispositivo en el conmutador NS2
+
+. Vuelva a comprobar el estado de los puertos del nodo de almacenamiento:
++
+`storage port show -port-type ENET`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
+----
+storage::*> storage port show -port-type ENET
+                                      Speed                       VLAN
+Node               Port Type  Mode    (Gb/s) State    Status        ID
+------------------ ---- ----- ------- ------ -------- ------------ ---
+node1
+                   e3a  ENET  storage    100 enabled  online        30
+                   e3b  ENET  storage      0 enabled  offline       30
+                   e7a  ENET  storage      0 enabled  offline       30
+                   e7b  ENET  storage    100 enabled  online        30
+node2
+                   e3a  ENET  storage    100 enabled  online        30
+                   e3b  ENET  storage      0 enabled  offline       30
+                   e7a  ENET  storage      0 enabled  offline       30
+                   e7b  ENET  storage    100 enabled  online        30
+----
+====
+. Compruebe que ambos conmutadores estén disponibles:
++
+`network device-discovery show`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
+----
+storage::*> network device-discovery show
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  --------
+node1/cdp
+            e3a    S1                        Ethernet1/1       NX3232C
+            e4a    node2                     e4a               AFF-A700
+            e4e    node2                     e4e               AFF-A700
+            e7b    NS2                       Ethernet1/1       NX3232C
+node1/lldp
+            e3a    S1                        Ethernet1/1       -
+            e4a    node2                     e4a               -
+            e4e    node2                     e4e               -
+            e7b    NS2                       Ethernet1/1       -
+node2/cdp
+            e3a    S1                        Ethernet1/2       NX3232C
+            e4a    node1                     e4a               AFF-A700
+            e4e    node1                     e4e               AFF-A700
+            e7b    NS2                       Ethernet1/2       NX3232C
+node2/lldp
+            e3a    S1                        Ethernet1/2       -
+            e4a    node1                     e4a               -
+            e4e    node1                     e4e               -
+            e7b    NS2                       Ethernet1/2       -
+----
+====
+. Compruebe los puertos de la bandeja en el sistema de almacenamiento:
++
+`storage shelf port show -fields remote-device,remote-port`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
+----
+storage::*> storage shelf port show -fields remote-device,remote-port
+shelf id remote-port remote-device
+----- -- ----------- -------------
+3.20  0  Ethernet1/5 S1
+3.20  1  Ethernet1/5 NS2
+3.20  2  Ethernet1/6 S1
+3.20  3  Ethernet1/6 NS2
+3.30  0  Ethernet1/7 S1
+3.20  1  Ethernet1/7 NS2
+3.30  2  Ethernet1/8 S1
+3.20  3  Ethernet1/8 NS2
+----
+====
+. Si ha suprimido la creación automática de casos, vuelva a habilitarla invocando un mensaje de AutoSupport:
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
+

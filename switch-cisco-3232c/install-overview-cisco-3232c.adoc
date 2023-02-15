@@ -1,0 +1,39 @@
+---
+permalink: switch-cisco-3232c/install-overview-cisco-3232c.html 
+sidebar: sidebar 
+keywords: install, cisco nexus 3232c switch, 
+summary: Antes de configurar los switches Cisco Nexus 3232c, revise una descripción general del proceso y la nomenclatura. 
+---
+= Descripción general de la instalación y la configuración de los switches Cisco Nexus 3232c
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los switches Cisco Nexus 3232C se pueden utilizar como switches de clúster en su clúster AFF o FAS. Los switches de clúster permiten crear clústeres de ONTAP con más de dos nodos.
+
+
+
+== Información general de configuración inicial
+
+Para configurar inicialmente un switch Cisco Nexus 3232c en sistemas que ejecutan ONTAP, siga estos pasos:
+
+. link:setup_worksheet_3232c.html["Complete la hoja de trabajo de cableado Cisco Nexus 3232C"]. La hoja de cálculo de cableado de ejemplo proporciona ejemplos de asignaciones de puertos recomendadas desde los switches a las controladoras. La hoja de datos en blanco proporciona una plantilla que puede utilizar para configurar su clúster.
+. link:install-cisco-nexus-3232c.html["Instale un switch de clúster Cisco Nexus 3232C en un armario de NetApp"]. Instale el switch de clúster Cisco Nexus 3232C y el panel de paso a través de un armario de NetApp con los soportes estándar que se incluyen con el switch.
+. link:setup-switch.html["Configure el switch del clúster 3232C"]. Configure y configure el switch Cisco Nexus 3232C.
+. link:prepare-install-cisco-nexus-3232c.html["Prepare la instalación del software NX-OS y del archivo de configuración de referencia"]. Prepare la instalación del software NX-OS y del archivo de configuración de referencia (RCF).
+. link:install-nx-os-software-3232c.html["Instale el software NX-OS"]. Instale el software NX-OS en el switch de clúster Nexus 3232C.
+. link:install-rcf-3232c.html["Instalación del archivo de configuración de referencia (RCF)"]. Instale el RCF después de configurar el interruptor Nexus 3232C por primera vez. También puede utilizar este procedimiento para actualizar la versión de RCF.
+
+
+
+
+== Información adicional
+
+Antes de iniciar la instalación o el mantenimiento, asegúrese de revisar lo siguiente:
+
+* link:configure-reqs-3232c.html["Requisitos de configuración"]
+* link:required-documentation-3232c.html["Documentación requerida"]
+* link:smart-call-home-3232c.html["Requisitos de Smart Call Home"]
+

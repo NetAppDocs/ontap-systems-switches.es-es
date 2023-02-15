@@ -1,0 +1,516 @@
+---
+permalink: switch-nvidia-sn2100/migrate-cisco-storage-switch-sn2100-cluster.html 
+sidebar: sidebar 
+keywords: migrating to a storage switch with NVIDIA SN2100 storage switches, how to migrate 
+summary: Puede migrar switches Cisco anteriores de forma no disruptiva para un clúster de ONTAP a switches de almacenamiento NVIDIA SN2100. 
+---
+= Migrar desde un switch de almacenamiento de Cisco a un switch de almacenamiento NVIDIA SN2100
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede migrar desde switches Cisco anteriores para un clúster de ONTAP a switches de almacenamiento NVIDIA SN2100. Se trata de un procedimiento no disruptivo.
+
+
+
+== Revise los requisitos
+
+Debe conocer determinada información de configuración, las conexiones de puertos y los requisitos de cableado cuando sustituya algunos switches Cisco anteriores por switches de almacenamiento NVIDIA SN2100. Consulte link:configure-overview-sn2100-cluster.html["Descripción general de la instalación y configuración de los switches NVIDIA SN2100"].
+
+.Switches compatibles
+Se admiten los siguientes switches de almacenamiento:
+
+* Cisco Nexus 9336C-FX2
+* Cisco Nexus 3232C
+
+
+Para obtener más información acerca de los puertos admitidos y sus configuraciones, consulte https://hwu.netapp.com/["Hardware Universe"^].
+
+.Lo que necesitará
+Asegúrese de que:
+
+* El clúster existente está configurado y funciona correctamente.
+* Todos los puertos de almacenamiento están en estado up para garantizar operaciones no disruptivas.
+* Los switches de almacenamiento NVIDIA SN2100 están configurados y funcionan con la versión adecuada de Cumulus Linux instalado con el archivo de configuración de referencia (RCF) aplicado.
+* La configuración de red de almacenamiento existente tiene lo siguiente:
++
+** Un clúster de NetApp redundante y totalmente funcional mediante switches Cisco anteriores.
+** Conectividad de la administración y acceso de consola a los switches Cisco anteriores y a los nuevos.
+** Todos los LIF del clúster en el estado *up* con las LIF del clúster se encuentran en sus puertos iniciales.
+** Puertos ISL habilitados y cableado entre los switches de Cisco anteriores y entre los switches nuevos.
+
+
+* Algunos puertos de los switches NVIDIA SN2100 están configurados para ejecutarse a 100 GbE.
+* Ha planificado, migrado y documentado la conectividad de 100 GbE desde los nodos a los switches de almacenamiento NVIDIA SN2100.
+
+
+
+
+== Migrar los switches
+
+.Acerca de los ejemplos
+En este procedimiento, se utilizan los switches de almacenamiento Cisco Nexus 9336C-FX2 como comandos y salidas de ejemplo.
+
+Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:
+
+* Los switches de almacenamiento existentes Cisco Nexus 9336C-FX2 son _S1_ y _S2_.
+* Los nuevos switches de almacenamiento NVIDIA SN2100 son _sw1_ y _sw2_.
+* Los nodos son _1_ y _2_.
+* Las LIF del clúster son _1_clus1_ y _1_clus2_ en el nodo 1, y _2_clus1_ y _2_clus2_ en el nodo 2, respectivamente.
+* La `cluster1::*>` prompt indica el nombre del clúster.
+* Los puertos de red utilizados en este procedimiento son _e5a_ y _e5b_.
+* Los puertos de arranque toman el formato: Swp1s0-3. Por ejemplo, cuatro puertos de arranque en swp1 son _swp1s0_, _swp1s1_, _swp1s2_ y _swp1s3_.
+* El interruptor S2 se sustituye primero por el interruptor sw2 y luego el interruptor S1 se sustituye por el interruptor sw1.
++
+** El cableado entre los nodos y S2 se desconecta de S2 y se vuelve a conectar a sw2.
+** El cableado entre los nodos y S1 se desconecta de S1 y se vuelve a conectar a sw1.
+
+
+
+
+
+
+=== Paso 1: Preparación para la migración
+
+. Si AutoSupport está habilitado, elimine la creación automática de casos invocando un mensaje de AutoSupport:
++
+`system node autosupport invoke -node * -type all -message MAINT=xh`
+
++
+donde _x_ es la duración de la ventana de mantenimiento en horas.
+
+. Cambie el nivel de privilegio a avanzado, introduciendo *y* cuando se le solicite continuar: `set -privilege advanced`
++
+Aparece el mensaje avanzado (*>).
+
+
+
+
+
+=== Paso 2: Configure los puertos y el cableado
+
+. Determinar el estado administrativo u operativo de cada interfaz de almacenamiento.
++
+Cada puerto debe aparecer habilitado para  `Status`.
+
++
+Mostrar los atributos del puerto de red:
+
++
+`storage port show`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage port show*
+                                  Speed                     VLAN
+Node           Port Type  Mode    (Gb/s) State    Status      ID
+-------------- ---- ----- ------- ------ -------- --------- ----
+node1
+               e0c  ENET  storage  100   enabled  online      30
+               e0d  ENET  storage    0   enabled  offline     30
+               e5a  ENET  storage    0   enabled  offline     30
+               e5b  ENET  storage  100   enabled  online      30
+node2
+               e0c  ENET  storage  100   enabled  online      30
+               e0d  ENET  storage    0   enabled  offline     30
+               e5a  ENET  storage    0   enabled  offline     30
+               e5b  ENET  storage  100   enabled  online      30
+cluster1::*>
+----
+====
+. Los puertos de almacenamiento de cada nodo se conectan a los switches de almacenamiento existentes de la siguiente manera (desde la perspectiva de los nodos) mediante el comando:
++
+`network device-discovery show -protocol lldp`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol lldp*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface       Platform
+----------- ------ ------------------------- --------------  ----------------
+node1      /lldp
+            e0c    S1 (7c:ad:4f:98:6d:f0)    Eth1/1           -
+            e5b    S2 (7c:ad:4f:98:8e:3c)    Eth1/1           -
+node2      /lldp
+            e0c    S1 (7c:ad:4f:98:6d:f0)    Eth1/2           -
+            e5b    S2 (7c:ad:4f:98:8e:3c)    Eth1/2           -
+----
+====
+. En los interruptores S1 y S2, los puertos de almacenamiento y los interruptores se conectan de la siguiente manera (desde la perspectiva de los interruptores) mediante el comando:
++
+`show lldp neighbors`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+S1# *show lldp neighbors*
+
+Capability Codes: (R) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device,
+                  (W) WLAN Access Point, (P) Repeater, (S) Station (O) Other
+
+Device-ID             Local Intf     Holdtime    Capability           Port ID
+node1                 Eth1/1         121         S                    e0c
+node2                 Eth1/2         121         S                    e0c
+SHFGD1947000186       Eth1/10        120         S                    e0a         
+SHFGD1947000186       Eth1/11        120         S                    e0a         
+SHFGB2017000269       Eth1/12        120         S                    e0a         
+SHFGB2017000269       Eth1/13        120         S                    e0a
+
+S2# *show lldp neighbors*
+
+Capability Codes: (R) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device,
+                  (W) WLAN Access Point, (P) Repeater, (S) Station (O) Other
+
+Device-ID             Local Intf     Holdtime    Capability          Port ID
+node1                 Eth1/1         121         S                   e5b
+node2                 Eth1/2         121         S                   e5b
+SHFGD1947000186       Eth1/10        120         S                   e0b         
+SHFGD1947000186       Eth1/11        120         S                   e0b         
+SHFGB2017000269       Eth1/12        120         S                   e0b         
+SHFGB2017000269       Eth1/13        120         S                   e0b
+----
+====
+. En el switch sw2, apague los puertos conectados a los nodos y los puertos de almacenamiento de las bandejas de discos.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cumulus@sw2:~$ *net add interface swp1-16 link down*
+cumulus@sw2:~$ *net pending*
+cumulus@sw2:~$ *net commit*
+----
+====
+. Mueva los puertos de almacenamiento de nodos de la controladora y de las bandejas de discos del conmutador S2 antiguo al nuevo switch sw2 utilizando el cableado adecuado que admite NVIDIA SN2100.
+. En el switch sw2, conecte los puertos conectados a los puertos de almacenamiento de los nodos y las bandejas de discos.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cumulus@sw2:~$ *net del interface swp1-16 link down*
+cumulus@sw2:~$ *net pending*
+cumulus@sw2:~$ *net commit*
+----
+====
+. Los puertos de almacenamiento de cada nodo se conectan ahora a los switches de la siguiente manera, desde la perspectiva de los nodos:
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol lldp*
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface      Platform
+----------- ------ ------------------------- -------------  ----------------
+node1      /lldp
+            e0c    S1 (7c:ad:4f:98:6d:f0)    Eth1/1         -
+            e5b    sw2 (b8:ce:f6:19:1a:7e)   swp1           -
+
+node2      /lldp
+            e0c    S1 (7c:ad:4f:98:6d:f0)    Eth1/2         -
+            e5b    sw2 (b8:ce:f6:19:1a:7e)   swp2           -
+----
+====
+. Verifique los atributos de puerto de red:
++
+`storage port show`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage port show*
+                                  Speed                     VLAN
+Node           Port Type  Mode    (Gb/s) State    Status      ID
+-------------- ---- ----- ------- ------ -------- --------- ----
+node1
+               e0c  ENET  storage  100   enabled  online      30
+               e0d  ENET  storage    0   enabled  offline     30
+               e5a  ENET  storage    0   enabled  offline     30
+               e5b  ENET  storage  100   enabled  online      30
+node2
+               e0c  ENET  storage  100   enabled  online      30
+               e0d  ENET  storage    0   enabled  offline     30
+               e5a  ENET  storage    0   enabled  offline     30
+               e5b  ENET  storage  100   enabled  online      30
+cluster1::*>
+----
+====
+. En el switch sw2, compruebe que todos los puertos de almacenamiento de nodos estén activos:
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cumulus@sw2:~$ *net show interface*
+
+State  Name    Spd   MTU    Mode        LLDP                  Summary
+-----  ------  ----  -----  ----------  --------------------  --------------------
+...
+...
+UP     swp1    100G  9216   Trunk/L2   node1 (e5b)             Master: bridge(UP)
+UP     swp2    100G  9216   Trunk/L2   node2 (e5b)             Master: bridge(UP)
+UP     swp3    100G  9216   Trunk/L2   SHFFG1826000112 (e0b)   Master: bridge(UP)
+UP     swp4    100G  9216   Trunk/L2   SHFFG1826000112 (e0b)   Master: bridge(UP)
+UP     swp5    100G  9216   Trunk/L2   SHFFG1826000102 (e0b)   Master: bridge(UP)
+UP     swp6    100G  9216   Trunk/L2   SHFFG1826000102 (e0b)   Master: bridge(UP))
+...
+...
+----
+====
+. En el switch sw1, apague los puertos conectados a los puertos de almacenamiento de los nodos y las bandejas de discos.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *net add interface swp1-16 link down*
+cumulus@sw1:~$ *net pending*
+cumulus@sw1:~$ *net commit*
+----
+====
+. Mueva los puertos de almacenamiento de nodos de la controladora y las bandejas de discos del conmutador S1 antiguo al switch sw1 nuevo, utilizando el cableado adecuado que admite NVIDIA SN2100.
+. En el switch sw1, conecte los puertos conectados a los puertos de almacenamiento de los nodos y las bandejas de discos.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *net del interface swp1-16 link down*
+cumulus@sw1:~$ *net pending*
+cumulus@sw1:~$ *net commit*
+----
+====
+. Los puertos de almacenamiento de cada nodo se conectan ahora a los switches de la siguiente manera, desde la perspectiva de los nodos:
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol lldp*
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface       Platform
+----------- ------ ------------------------- --------------  ----------------
+node1      /lldp
+            e0c    sw1 (b8:ce:f6:19:1b:96)   swp1            -
+            e5b    sw2 (b8:ce:f6:19:1a:7e)   swp1            -
+
+node2      /lldp
+            e0c    sw1  (b8:ce:f6:19:1b:96)  swp2            -
+            e5b    sw2  (b8:ce:f6:19:1a:7e)  swp2            -
+----
+====
+. Compruebe la configuración final:
++
+`storage port show`
+
++
+Cada puerto debe aparecer habilitado para `State` y habilitado para `Status`.
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage port show*
+                                  Speed                     VLAN
+Node           Port Type  Mode    (Gb/s) State    Status      ID
+-------------- ---- ----- ------- ------ -------- --------- ----
+node1
+               e0c  ENET  storage  100   enabled  online      30
+               e0d  ENET  storage    0   enabled  offline     30
+               e5a  ENET  storage    0   enabled  offline     30
+               e5b  ENET  storage  100   enabled  online      30
+node2
+               e0c  ENET  storage  100   enabled  online      30
+               e0d  ENET  storage    0   enabled  offline     30
+               e5a  ENET  storage    0   enabled  offline     30
+               e5b  ENET  storage  100   enabled  online      30
+cluster1::*>
+----
+====
+. En el switch sw2, compruebe que todos los puertos de almacenamiento de nodos estén activos:
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cumulus@sw2:~$ *net show interface*
+
+State  Name    Spd   MTU    Mode        LLDP                  Summary
+-----  ------  ----  -----  ----------  --------------------  --------------------
+...
+...
+UP     swp1    100G  9216   Trunk/L2   node1 (e5b)             Master: bridge(UP)
+UP     swp2    100G  9216   Trunk/L2   node2 (e5b)             Master: bridge(UP)
+UP     swp3    100G  9216   Trunk/L2   SHFFG1826000112 (e0b)   Master: bridge(UP)
+UP     swp4    100G  9216   Trunk/L2   SHFFG1826000112 (e0b)   Master: bridge(UP)
+UP     swp5    100G  9216   Trunk/L2   SHFFG1826000102 (e0b)   Master: bridge(UP)
+UP     swp6    100G  9216   Trunk/L2   SHFFG1826000102 (e0b)   Master: bridge(UP))
+...
+...
+----
+====
+. Compruebe que ambos nodos tengan una conexión cada uno con cada switch:
++
+`net show lldp`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el siguiente ejemplo, se muestran los resultados adecuados para ambos switches:
+
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *net show lldp*
+LocalPort  Speed  Mode      RemoteHost             RemotePort
+---------  -----  --------  ---------------------  -----------
+...
+swp1       100G   Trunk/L2  node1                  e0c
+swp2       100G   Trunk/L2  node2                  e0c
+swp3       100G   Trunk/L2  SHFFG1826000112        e0a
+swp4       100G   Trunk/L2  SHFFG1826000112        e0a
+swp5       100G   Trunk/L2  SHFFG1826000102        e0a
+swp6       100G   Trunk/L2  SHFFG1826000102        e0a
+
+cumulus@sw2:~$ *net show lldp*
+LocalPort  Speed  Mode      RemoteHost             RemotePort
+---------  -----  --------  ---------------------  -----------
+...
+swp1       100G   Trunk/L2  node1                  e5b
+swp2       100G   Trunk/L2  node2                  e5b
+swp3       100G   Trunk/L2  SHFFG1826000112        e0b
+swp4       100G   Trunk/L2  SHFFG1826000112        e0b
+swp5       100G   Trunk/L2  SHFFG1826000102        e0b
+swp6       100G   Trunk/L2  SHFFG1826000102        e0b
+----
+====
+
+
+
+
+=== Paso 3: Complete el procedimiento
+
+. Habilite la función de recogida de registros de control de estado del switch Ethernet para recopilar archivos de registro relacionados con el switch mediante los dos comandos:
++
+`system switch ethernet log setup-password` y.. `system switch ethernet log enable-collection`
+
++
+.. Introduzca: `system switch ethernet log setup-password`
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log setup-password*
+Enter the switch name: <return>
+The switch name entered is not recognized.
+Choose from the following list:
+*sw1*
+*sw2*
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *sw1*
+RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] *y*
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *sw2*
+RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
+Do you want to continue? {y|n}:: [n] *y*
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+----
+====
+.. Seguido de: `system switch ethernet log enable-collection`
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system  switch ethernet log enable-collection*
+
+Do you want to enable cluster log collection for all nodes in the cluster?
+{y|n}: [n] *y*
+
+Enabling cluster switch log collection.
+
+cluster1::*>
+----
+====
++
+
+NOTE: Si alguno de estos comandos devuelve un error, póngase en contacto con el soporte de NetApp.
+
+
+
+. Inicie la función de recopilación de registros del switch:
++
+`system switch ethernet log collect -device *`
+
++
+Espere 10 minutos y compruebe que la recopilación del registro se ha realizado correctamente mediante el comando:
+
++
+`system switch ethernet log show`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log show*
+Log Collection Enabled: true
+
+Index  Switch                       Log Timestamp        Status
+------ ---------------------------- -------------------  ---------    
+1      sw1 (b8:ce:f6:19:1b:42)      4/29/2022 03:05:25   complete   
+2      sw2 (b8:ce:f6:19:1b:96)      4/29/2022 03:07:42   complete
+----
+====
+. Vuelva a cambiar el nivel de privilegio a admin:
++
+`set -privilege admin`
+
+. Si ha suprimido la creación automática de casos, rehabilitarla invocando un mensaje de AutoSupport:
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
+

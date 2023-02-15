@@ -1,0 +1,91 @@
+---
+permalink: switch-bes-53248/replace-verify.html 
+sidebar: sidebar 
+keywords: command, verify, operational, bes, cluster, switch, upgrade, verify the configuration after a cluster switch upgrade - bes-53428 switches 
+summary: Puede utilizar los comandos proporcionados aquí para comprobar que todo funciona después de una actualización de conmutador de clúster BES-53248. 
+---
+= Verifique la configuración después de una actualización de switch de clúster BES-53248
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar los comandos recomendados para verificar las operaciones después de una actualización de clúster BES-53248.
+
+.Pasos
+. Muestra información sobre los puertos de red del clúster con el comando:
++
+`network port show -ipspace Cluster`
+
++
+`Link` debe tener el valor `up` y.. `Health Status` debe ser `healthy`.
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el siguiente ejemplo se muestra el resultado del comando:
+
+[listing, subs="+quotes"]
+----
+cluster1::> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                    Ignore
+                                               Speed(Mbps) Health   Health
+Port   IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+------ ------------ ---------------- ---- ---- ----------- -------- ------
+e0a    Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b    Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node2
+                                                                    Ignore
+                                               Speed(Mbps) Health   Health
+Port   IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+-----  ------------ ---------------- ---- ---- ----------- -------- ------
+e0a    Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b    Cluster      Cluster          up   9000  auto/10000 healthy  false
+----
+====
+. Compruebe esto para cada LIF `Is Home` es `true` y.. `Status Admin/Oper` es `up` en ambos nodos, utilizando el comando:
++
+`network interface show -vserver Cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::> *network interface show -vserver Cluster*
+
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+            node1_clus1  up/up    169.254.217.125/16 node1         e0a     true
+            node1_clus2  up/up    169.254.205.88/16  node1         e0b     true
+            node2_clus1  up/up    169.254.252.125/16 node2         e0a     true
+            node2_clus2  up/up    169.254.110.131/16 node2         e0b     true
+----
+====
+. Compruebe que el `Health Status` de cada nodo es `true` con el comando:
++
+`cluster show`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::> *cluster show*
+
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  ------------
+node1                true    true          false
+node2                true    true          false
+----
+====
+

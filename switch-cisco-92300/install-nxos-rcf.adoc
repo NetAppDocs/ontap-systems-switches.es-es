@@ -1,0 +1,211 @@
+---
+permalink: switch-cisco-92300/install-nxos-rcf.html 
+sidebar: sidebar 
+keywords: install rcf,rcf configure 
+summary: Puede instalar el RCF después de configurar el conmutador Nexus 92300YC por primera vez. 
+---
+= Instalación del archivo de configuración de referencia (RCF)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede instalar el RCF después de configurar el conmutador Nexus 92300YC por primera vez.
+
+.Nomenclatura de switch y nodo
+Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:
+
+* Los nombres de los dos switches Cisco son `cs1` y.. `cs2`.
+* Los nombres de nodo son `node1` y.. `node2`.
+* Los nombres de LIF del clúster son `node1_clus1` y.. `node1_clus2` para los nodos 1 y `node2_clus1` y.. `node2_clus2` para el 2.
+* La `cluster1::*>` prompt indica el nombre del clúster.
+* Los puertos del clúster de cada nodo se llaman `e0a` y.. `e0b`.
++
+Consulte link:https://hwu.netapp.com/Home/Index["_Hardware Universe_"] para los puertos de clúster reales compatibles con la plataforma.
+
+
+
+.Puertos y conexiones de nodo compatibles
+* Los enlaces Inter-Switch (ISL) compatibles con los switches Nexus 92300YC son los puertos 1/65 y 1/66.
+* Las conexiones de nodos compatibles con los switches Nexus 92300YC son los puertos 1/1 a 1/66.
+* Los ejemplos de este procedimiento utilizan dos nodos. Estos nodos utilizan dos puertos de interconexión de clúster de 10 GbE `e0a` y.. `e0b`. Consulte https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para verificar los puertos de clúster correctos en sus plataformas.
+
+
+.Antes de empezar
+* Debe tener el RCF actual.
+* El clúster debe estar funcionando completamente (no debe haber errores en los registros ni problemas similares).
+* Debe haber comprobado o establecido la configuración de inicio deseada en el RCF para reflejar las imágenes de arranque deseadas si sólo está instalando NX-OS y manteniendo su versión actual de RCF.
+* Si necesita cambiar la configuración de arranque para reflejar las imágenes de arranque actuales, debe hacerlo antes de volver a aplicar el RCF para que se cree una instancia de la versión correcta en futuros reinicios.
+* Debe haber consultado la tabla de compatibilidad de conmutadores de https://support.netapp.com/NOW/download/software/cm_switches/["Switch Ethernet de Cisco"^] Para las versiones ONTAP, NX-OS y RCF admitidas.
+* Puede haber dependencias de comandos entre la sintaxis de comandos en el RCF y la que se encuentra en las versiones de NX-OS.
+
+
+.Acerca de esta tarea
+Para ello, es necesario utilizar tanto comandos de la ONTAP como comandos de la serie Cisco Nexus 9000; los comandos de la ONTAP se usan a menos que se indique lo contrario.
+
+Los resultados del comando pueden variar en función de las diferentes versiones de ONTAP.
+
+.Pasos
+. Conecte el switch de clúster a la red de gestión.
+. Utilice el comando ping para verificar la conectividad con el servidor que aloja el RCF.
++
+Este ejemplo verifica que el switch puede llegar al servidor en la dirección IP 172.19.2.1:
+
++
+[listing, subs="+quotes"]
+----
+cs2# *ping 172.19.2.1*
+Pinging 172.19.2.1 with 0 bytes of data:
+
+Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
+----
+. Copie el RCF en el conmutador Nexus 92300YC:
++
+[listing, subs="+quotes"]
+----
+cs2# *copy sftp: bootflash: vrf management*
+Enter source filename: */code/Nexus_92300YC_RCF_v1.0.2.txt*
+Enter hostname for the sftp server: *172.19.2.1*
+Enter username: *user1*
+
+Outbound-ReKey for 172.19.2.1:22
+Inbound-ReKey for 172.19.2.1:22
+user1@172.19.2.1's password:
+sftp> progress
+Progress meter enabled
+sftp> get   /code/Nexus_92300YC_RCF_v1.0.2.txt  /bootflash/nxos.9.2.2.bin
+/code/Nexus_92300YC_R  100% 9687   530.2KB/s   00:00
+sftp> exit
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+----
+. Fusionar el RCF con la configuración de ejecución del conmutador:
++
+[listing, subs="+quotes"]
+----
+cs2# *copy bootflash:Nexus_92300YC_RCF_v1.0.2.txt running-config*
+
+Disabling ssh: as its enabled right now:
+ generating ecdsa key(521 bits)......
+generated ecdsa key
+
+Enabling ssh: as it has been disabled
+ this command enables edge port type (portfast) by default on all interfaces. You
+ should now disable edge port type (portfast) explicitly on switched ports leading to hubs,
+ switches and bridges as they may create temporary bridging loops.
+
+Edge port type (portfast) should only be enabled on ports connected to a single
+ host. Connecting hubs, concentrators, switches, bridges, etc...  to this
+ interface when edge port type (portfast) is enabled, can cause temporary bridging loops.
+ Use with CAUTION
+
+Edge Port Type (Portfast) has been configured on Ethernet1/1 but will only
+ have effect when the interface is in a non-trunking mode.
+
+...
+
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+----
+. Compruebe en el conmutador que el RCF se ha combinado correctamente:
++
+`show running-config`
+
++
+[listing, subs="+quotes"]
+----
+cs2# *show running-config*
+!Command: show running-config
+!Running configuration last done at: Wed Apr 10 06:32:27 2019
+!Time: Wed Apr 10 06:36:00 2019
+
+version 9.2(2) Bios:version 05.33
+switchname cs2
+vdc cs2 id 1
+  limit-resource vlan minimum 16 maximum 4094
+  limit-resource vrf minimum 2 maximum 4096
+  limit-resource port-channel minimum 0 maximum 511
+  limit-resource u4route-mem minimum 248 maximum 248
+  limit-resource u6route-mem minimum 96 maximum 96
+  limit-resource m4route-mem minimum 58 maximum 58
+  limit-resource m6route-mem minimum 8 maximum 8
+
+feature lacp
+
+no password strength-check
+username admin password 5 $5$HY9Kk3F9$YdCZ8iQJ1RtoiEFa0sKP5IO/LNG1k9C4lSJfi5kesl
+6  role network-admin
+ssh key ecdsa 521
+
+banner motd #
+********************************************************************************
+*                                                                              *
+*  Nexus 92300YC Reference Configuration File (RCF) v1.0.2 (10-19-2018)        *
+*                                                                              *
+*  Ports 1/1  - 1/48: 10GbE Intra-Cluster Node Ports                           *
+*  Ports 1/49 - 1/64: 40/100GbE Intra-Cluster Node Ports                       *
+*  Ports 1/65 - 1/66: 40/100GbE Intra-Cluster ISL Ports                        *
+*                                                                              *
+********************************************************************************
+----
+. Guarde la configuración en ejecución para que se convierta en la configuración de inicio al reiniciar el conmutador:
++
+[listing, subs="+quotes"]
+----
+cs2# *copy running-config startup-config*
+
+[########################################] 100%
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+----
+. Para ONTAP 9.6P8 y versiones posteriores, habilite la función de recopilación de registros del monitor de estado del switch Ethernet para recopilar archivos de registro relacionados con el switch mediante los comandos: `system cluster-switch log setup-password` y.. `system cluster-switch log enable-collection`
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *system cluster-switch log setup-password*
+Enter the switch name: <return>
+The switch name entered is not recognized.
+Choose from the following list:
+cs1
+cs2
+
+cluster1::*> *system cluster-switch log setup-password*
+
+Enter the switch name: *cs1*
+RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] *y*
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster1::*> *system cluster-switch log setup-password*
+
+Enter the switch name: *cs2*
+RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
+Do you want to continue? {y|n}:: [n] *y*
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster1::*> *system cluster-switch log enable-collection*
+
+Do you want to enable cluster log collection for all nodes in the cluster?
+{y|n}: [n] *y*
+
+Enabling cluster switch log collection.
+
+cluster1::*>
+----
+. Reinicie el conmutador y compruebe que la configuración en ejecución es correcta:
++
+`reload`
+
++
+[listing, subs="+quotes"]
+----
+cs2# *reload*
+
+This command will reboot the system. (y/n)?  [n] *y*
+----
+

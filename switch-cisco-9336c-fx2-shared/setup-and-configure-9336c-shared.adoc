@@ -1,0 +1,146 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9336c-fx2-shared/setup-and-configure-9336c-shared.html 
+keywords:  
+summary:  
+---
+= Configurar los switches compartidos Cisco Nexus 9336C-FX2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Siga estas instrucciones para configurar los switches compartidos Cisco Nexus 9336C-FX2.
+
+.Lo que necesitará
+* Se requiere documentación de los switches compartidos, documentación de la controladora y documentación de ONTAP. Consulte link:required-documentation-9336c-shared.html["Requisitos de documentación de los switches compartidos Cisco Nexus 9336C-FX2"] y.. https://docs.netapp.com/us-en/ontap/index.html["Documentación de ONTAP de NetApp"^].
+* Las licencias aplicables, la información de configuración y red, y los cables.
+* Hojas de datos de cableado completadas. Consulte link:cable-9336c-shared.html["Rellene la hoja de trabajo del cableado Cisco Nexus 9336C-FX2"]. Para obtener más información sobre el cableado, consulte https://hwu.netapp.com["Hardware Universe"].
+
+
+.Pasos
+. [[step3]]realice una configuración inicial de los interruptores.
++
+Para la configuración, necesita el número y tipo adecuados de cables y conectores de cable para los conmutadores.
+
++
+Según el tipo de switch que esté configurando inicialmente, debe conectarse al puerto de la consola del switch con el cable de consola incluido; también debe proporcionar información de red específica.
+
+. Arranque el interruptor.
++
+Proporcione las respuestas correspondientes a las siguientes preguntas de configuración inicial cuando arranque el switch por primera vez.
+
++
+La política de seguridad de su sitio define las respuestas y los servicios que se deben habilitar.
+
++
+.. ¿Desea anular el aprovisionamiento automático y continuar con la configuración normal? (sí/no)
++
+Responda con *sí*. El valor predeterminado es no
+
+.. ¿Desea aplicar un estándar de contraseña segura? (sí/no)
++
+Responda con *sí*. El valor predeterminado es yes.
+
+.. Introduzca la contraseña para el administrador.
++
+La contraseña predeterminada es admin, pero debe crear una contraseña nueva.
+
++
+Se puede rechazar una contraseña débil.
+
+.. ¿Desea introducir el cuadro de diálogo de configuración básica? (sí/no)
++
+Responda con *sí* en la configuración inicial del interruptor.
+
+.. ¿Crear otra cuenta de inicio de sesión? (sí/no)
++
+Su respuesta depende de las políticas de su sitio con respecto a los administradores alternativos. El valor predeterminado es no
+
+.. ¿Configurar cadena de comunidad SNMP de solo lectura? (sí/no)
++
+Responda con *no*. El valor predeterminado es no
+
+.. ¿Configurar cadena de comunidad SNMP de lectura y escritura? (sí/no)
++
+Responda con *no*. El valor predeterminado es no
+
+.. Introduzca el nombre del switch.
++
+El nombre del conmutador está limitado a 63 caracteres alfanuméricos.
+
+.. ¿Continuar con la configuración de administración fuera de banda (mgmt0)? (sí/no)
++
+Responda con *sí* (el valor predeterminado) en ese indicador. En el símbolo de sistema mgmt0 IPv4 address:, introduzca su dirección IP: ip_address
+
+.. ¿Configurar la puerta de enlace predeterminada? (sí/no)
++
+Responda con *sí*. En la dirección IPv4 de la solicitud default-Gateway:, introduzca su default_Gateway.
+
+.. ¿Configurar las opciones avanzadas de IP? (sí/no)
++
+Responda con *no*. El valor predeterminado es no
+
+.. ¿Habilitar el servicio telnet? (sí/no)
++
+Responda con *no*. El valor predeterminado es no
+
+.. ¿Habilitar el servicio SSH? (sí/no)
++
+Responda con *sí*. El valor predeterminado es yes.
+
++
+
+NOTE: Se recomienda SSH cuando se utilice el Monitor de estado del conmutador de clúster (CSHM) para sus funciones de recopilación de registros. También se recomienda SSHv2 para mejorar la seguridad.
+
+.. [[step14]]Introduzca el tipo de clave SSH que desea generar (dsa/rsa/rsa1). El valor predeterminado es rsa.
+.. Introduzca el número de bits de clave (1024- 2048).
+.. ¿Configurar el servidor NTP? (sí/no)
++
+Responda con *no*. El valor predeterminado es no
+
+.. Configurar la capa de interfaz predeterminada (L3/L2):
++
+Responda con *L2*. El valor predeterminado es L2.
+
+.. Configurar el estado predeterminado de la interfaz del puerto del switch (cerrada/nohut):
++
+Responda con *nohut*. El valor predeterminado es nohut.
+
+.. Configurar el perfil del sistema COPP (estricto/moderado/indulgente/denso):
++
+Responda con *estricto*. El valor predeterminado es estricto.
+
+.. ¿Desea editar la configuración? (sí/no)
++
+Debería ver la nueva configuración en este momento. Revise y realice los cambios necesarios en la configuración que acaba de introducir. Si está satisfecho con la configuración, responda sin que aparezca el mensaje. Responda con *sí* si desea editar los ajustes de configuración.
+
+.. ¿Utilizar esta configuración y guardarla? (sí/no)
++
+Responda con *sí* para guardar la configuración. De esta forma se actualizan automáticamente las imágenes kickstart y del sistema.
+
+
+
+. Compruebe las opciones de configuración que ha realizado en la pantalla que aparece al final de la instalación y asegúrese de guardar la configuración.
++
+
+NOTE: Si no guarda la configuración en esta fase, ninguno de los cambios se aplicará la próxima vez que reinicie el conmutador.
+
+. Compruebe la versión del software de los switches y, si es necesario, descargue la versión del software que admite NetApp en los switches.
++
+Si descarga la versión de software compatible con NetApp, también debe descargar el archivo de configuración de referencia de switches de red de NetApp y combinarlo con la configuración en la que guardó <<step3,Paso 3>>.
+
++
+Puede descargar el archivo y las instrucciones desde la https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"] página.
+
++
+Si dispone de sus propios conmutadores, consulte http://www.cisco.com["Cisco"] sitio.
+
+
+
+.El futuro
+En función de la configuración, podrá hacerlo link:install-switch-and-passthrough-panel-9336c-shared.html["Instale el switch en el armario de NetApp"]. De lo contrario, vaya a. link:install-nxos-overview-9336c-storage.html["Prepare la instalación de NX-OS y RCF"].

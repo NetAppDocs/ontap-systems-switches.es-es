@@ -1,0 +1,47 @@
+---
+permalink: switch-cisco-9336c-fx2-storage/configure-switch-overview-9336c-storage.html 
+sidebar: sidebar 
+keywords: BES-53248 switches, initial installation, configure switch-cisco-9336c-fx2 switch 
+summary: Descripción general de la instalación y la configuración de los switches de almacenamiento Cisco Nexus 9336C-FX2 
+---
+= Descripción general de la instalación y la configuración de los switches de almacenamiento Cisco Nexus 9336C-FX2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El switch de almacenamiento Cisco Nexus 9336C-FX2 forma parte de la plataforma Cisco Nexus 9000 y se puede instalar en un armario rack de sistemas de NetApp. Los switches de almacenamiento le permiten enrutar datos entre servidores y matrices de almacenamiento en una red DE área de almacenamiento (SAN).
+
+
+
+== Información general de configuración inicial
+
+Para configurar un switch Cisco Nexus 9336C-FX2 en sistemas que ejecutan ONTAP, siga estos pasos:
+
+. link:setup-worksheet-9336c-storage.html["Complete la hoja de cálculo de cableado"].
+. link:install-9336c-storage.html["Instale el interruptor"].
+. link:setup-switch-9336c-storage.html["Configurar el switch"].
+. link:install-switch-and-passthrough-panel-9336c-storage.html["Instale el switch en el armario de NetApp"].
++
+En función de la configuración, podrá instalar el switch y el panel de paso a través de Cisco Nexus 9336C-FX2 en un armario de NetApp con los soportes estándar que se incluyen con el switch.
+
+. link:install-nxos-overview-9336c-storage.html["Prepare la instalación de NX-OS y RCF"].
+. link:install-nxos-software-9336c-storage.html["Instale el software NX-OS"].
+. link:install-nxos-rcf-9336c-storage.html["Instale el archivo de configuración RCF"].
++
+Instale el RCF después de configurar por primera vez el conmutador Nexus 9336C-FX2. También puede utilizar este procedimiento para actualizar la versión de RCF.
+
+
+
+
+
+== Información adicional
+
+Antes de iniciar la instalación o el mantenimiento, asegúrese de revisar lo siguiente:
+
+* link:configure-reqs-9336c-storage.html["Requisitos de configuración"]
+* link:components-9336c-storage.html["Componentes y números de pieza"]
+* link:required-documentation-9336c-storage.html["Documentación requerida"]
+* link:smart-call-9336c-storage.html["Requisitos de Smart Call Home"]
+

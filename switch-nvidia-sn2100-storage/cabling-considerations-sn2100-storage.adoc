@@ -1,0 +1,109 @@
+---
+permalink: switch-nvidia-sn2100/cabling-considerations-sn2100-storage.html 
+sidebar: sidebar 
+keywords: sn2100 SN2100 cabling setup, sn2100 switches configuration, cumulus linux os 
+summary: Antes de configurar el conmutador NVIDIA SN2100, revise la siguiente información. 
+---
+= Revise las consideraciones sobre el cableado y la configuración
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de configurar el conmutador NVIDIA SN2100, revise las siguientes consideraciones.
+
+
+
+== Detalles del puerto NVIDIA
+
+|===
+
+
+| *Puertos del conmutador* | *Uso de puertos* 
+
+
+ a| 
+swp1s0-3
+ a| 
+10/40 nodos de puerto de clúster
+
+
+
+ a| 
+swp2s0-3
+ a| 
+25/100 nodos de puerto de clúster
+
+
+
+ a| 
+nodos de puerto de clúster swp3-14 40/100
+ a| 
+Swp15-16 40/100 puertos de enlace entre switches (ISL)
+
+|===
+Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obtener más información sobre los puertos de switch.
+
+
+
+== Conexiones ópticas
+
+Sólo se admiten conexiones ópticas en conmutadores SN2100 con NIC X1151A, NIC X1146A o puertos 100 GbE incorporados. Por ejemplo:
+
+* AFF A800 en los puertos e0a y e0b
+* AFF A320 en los puertos e0g y e0h
+
+
+
+
+== Adpeter QSA
+
+Cuando se utiliza un adaptador QSA para conectarse a los puertos de clúster Intel integrados en una plataforma, no todos los enlaces aparecen. Las plataformas de ejemplo son FAS2750, AFF A300 y FAS8200 (todos 10G) y AFF A250 (25G).
+
+Para resolver este problema, haga lo siguiente:
+
+. Para Intel 10G, configure manualmente la velocidad de enlace swp1s0-3 en 10000 y configure la negociación automática en OFF.
+. Para Chelsio 25G, ajuste manualmente la velocidad de enlace swp2s0-3 a 25000 y ajuste la negociación automática a OFF.
+
+
+
+NOTE: Con 10G/25G QSA, utilice los puertos 40/100G sin salida. No inserte el adaptador QSA en los puertos que estén configurados para el arranque.
+
+
+
+== Velocidad del puerto del switch
+
+En función del transceptor del puerto de switch, es posible que deba establecer la velocidad del puerto de switch a velocidad fija. Si utiliza puertos de arranque de 10G y 25G, asegúrese de que la negociación automática está desactivada y fija la velocidad del puerto en el switch. Por ejemplo:
+
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ net add int swp1s3 link autoneg off && net com
+--- /etc/network/interfaces     2019-11-17 00:17:13.470687027 +0000
++++ /run/nclu/ifupdown2/interfaces.tmp  2019-11-24 00:09:19.435226258 +0000
+@@ -37,21 +37,21 @@
+     alias 10G Intra-Cluster Node
+     link-autoneg off
+     link-speed 10000  *<---- port speed set*
+     mstpctl-bpduguard yes
+     mstpctl-portadminedge yes
+     mtu 9216
+
+auto swp1s3
+iface swp1s3
+     alias 10G Intra-Cluster Node
+-    link-autoneg off
++    link-autoneg on
+     link-speed 10000 *<---- port speed set*
+     mstpctl-bpduguard yes
+     mstpctl-portadminedge yes
+     mtu 9216
+
+auto swp2s0
+iface swp2s0
+     alias 25G Intra-Cluster Node
+     link-autoneg off
+     link-speed 25000 *<---- port speed set*
+----
+.El futuro
+link:install-cable-shelves-sn2100-storage.html["Conecte el cable de las bandejas NS224 como almacenamiento conectado al conmutador"].

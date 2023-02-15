@@ -1,0 +1,109 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9336c-fx2-shared/index.html 
+keywords: shared storage cluster switch 
+summary: Desde ONTAP 9.9.1, puede utilizar los switches Cisco Nexus 9336C-FX2 para combinar las funciones de almacenamiento y clúster en un escenario de switch compartido. 
+---
+= Descripción general y requisitos
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Desde ONTAP 9.9.1, puede utilizar los switches Cisco Nexus 9336C-FX2 para combinar la funcionalidad de almacenamiento y clúster en una configuración de switch compartido.
+
+Si desea crear clústeres de ONTAP con más de dos nodos, necesita dos switches de red compatibles.
+
+
+
+== Descripción general de Nexus 9336C-FX2
+
+Puede instalar el switch Cisco Nexus 9336C-FX2 (X190200/X190210) en un armario del sistema de NetApp o armario de terceros con soportes estándar que se incluyen con el switch.
+
+En la tabla siguiente se enumeran el número de pieza y la descripción del switch 9336C-FX2, sus ventiladores y fuentes de alimentación:
+
+|===
+| Número de pieza | Descripción 
+
+
+| X190200-CS-PE | N9K-9336C-FX2, CS, PTSX, 36PT10/25/40/100GQSFP28 
+
+
+| X190200-CS-PI | N9K-9336C-FX2, CS, PSIN, 36PT10/25/40/100GQSFP28 
+
+
+| X190002 | Kit de accesorios X190001/X190003 
+
+
+| X-NXA-PAC-1100W-PE2 | Fuente de alimentación de 1100 W ac N9K-9336C: Flujo de aire de escape lateral del puerto 
+
+
+| X-NXA-PAC-1100W-PI2 | Fuente de alimentación de 1100 W ac N9K-9336C - flujo de aire de entrada lateral del puerto 
+
+
+| X-NXA-FAN-65CFM-PE | N9K-9336C 65CFM, flujo de aire del lado de la lumbrera 
+
+
+| X-NXA-FAN-65CFM-PI | N9K-9336C 65CFM, flujo de aire de entrada lateral de la lumbrera 
+|===
+
+
+== Requisitos de configuración
+
+Para la configuración, necesita el número y tipo adecuados de cables y conectores de cable para los conmutadores.
+
+Según el tipo de switch que esté configurando inicialmente, debe conectarse al puerto de la consola del switch con el cable de consola incluido; también debe proporcionar información de red específica.
+
+
+
+== Requisitos de red
+
+Necesita la siguiente información de red para todas las configuraciones de los switches.
+
+* Subred IP para el tráfico de red de gestión
+* Nombres de host y direcciones IP para cada una de las controladoras del sistema de almacenamiento y todos los switches aplicables
+* La mayoría de las controladoras del sistema de almacenamiento se gestionan a través de la interfaz e0M mediante la conexión al puerto de servicio Ethernet (icono de llave inglesa). En los sistemas A800 y AFF A700 de AFF, la interfaz e0M utiliza un puerto Ethernet dedicado.
+* Consulte la https://hwu.netapp.com["Hardware Universe"] para obtener la información más reciente.
+
+
+Para obtener más información acerca de la configuración inicial del switch, consulte la siguiente guía: https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Guía de instalación y actualización de Cisco Nexus 9336C-FX2"].
+
+
+
+== Requisitos de documentación
+
+Necesita documentación específica sobre los switches y la controladora para configurar la red ONTAP.
+
+Para configurar los switches compartidos Cisco Nexus 9336C-FX2, consulte https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Compatibilidad con los switches Cisco Nexus serie 9000"] página.
+
+|===
+| Título del documento | Descripción 
+
+
+| link:https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Guía de instalación de hardware de Nexus serie 9000"] | Proporciona información detallada acerca de los requisitos del sitio, detalles del switch de hardware y las opciones de instalación. 
+
+
+| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-and-configuration-guides-list.html["Guías de configuración del software del switch Cisco Nexus serie 9000"] (Elija la guía de la versión NX-OS instalada en sus switches) | Proporciona la información inicial de configuración del switch que necesita para poder configurar el switch para el funcionamiento de ONTAP. 
+
+
+| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Guía de actualización y degradación del software Cisco Nexus serie 9000 NX-OS"] (Elija la guía de la versión NX-OS instalada en sus switches) | Proporciona información sobre cómo degradar el switch a software de switch compatible con ONTAP, si es necesario. 
+
+
+| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Índice principal de referencia de comandos Cisco Nexus serie 9000 NX-OS"] | Proporciona vínculos a las diferentes referencias de comandos proporcionadas por Cisco. 
+
+
+| link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/sw/mib/quickreference/b_Cisco_Nexus_7000_Series_and_9000_Series_NX-OS_MIB_Quick_Reference.html["Referencia de MIBs de Cisco Nexus 9000"] | Describe los archivos de la base de datos de información de gestión (MIB) para los switches Nexus 9000. 
+
+
+| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-system-message-guides-list.html["Referencia de mensajes del sistema Nexus serie 9000 NX-OS"] | Describe los mensajes del sistema de los switches Cisco Nexus serie 9000, los que son informativos y otros que podrían ayudar a diagnosticar problemas con los enlaces, el hardware interno o el software del sistema. 
+
+
+| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#ReleaseandCompatibility["Notas de la versión de Cisco Nexus serie 9000 NX-OS"] (Elija las notas para la versión de NX-OS instalada en sus switches) | Describe las funciones, errores y limitaciones de Cisco Nexus 9000 Series. 
+
+
+| link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/mds9000/hw/regulatory/compliance/RCSI.html["Cumplimiento normativo e información de seguridad para Cisco Nexus serie 9000"] | Proporciona información legal, de seguridad y cumplimiento de normativas de agencias internacionales para los switches de la serie Nexus 9000. 
+|===

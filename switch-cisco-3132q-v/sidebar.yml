@@ -1,0 +1,46 @@
+---
+section: switch-cisco-3132q-v
+title: Cisco Nexus 3132Q-V
+entries:
+- title: Descripción general
+  entries:
+  - title: Información general de configuración
+    url: "/switch-cisco-3132q-v/install-overview-cisco-3132qv.html"
+  - title: Requisitos de configuración
+    url: "/switch-cisco-3132q-v/configure-reqs-3132q.html"
+  - title: Documentación requerida
+    url: "/switch-cisco-3132q-v/required-documentation-3132q.html"
+  - title: Requisitos de Smart Call Home
+    url: "/switch-cisco-3132q-v/smart-call-home-3132q.html"
+- title: Instale el hardware
+  entries:
+  - title: Complete la hoja de cálculo de cableado
+    url: "/switch-cisco-3132q-v/setup_worksheet_3132q.html"
+  - title: Configurar el switch
+    url: "/switch-cisco-3132q-v/setup-switch.html"
+  - title: Instale el switch en el armario de NetApp
+    url: "/switch-cisco-3132q-v/install-cisco-nexus-3132qv.html"
+- title: Configurar el software
+  entries:
+  - title: Prepare la instalación de NX-OS y RCF
+    url: "/switch-cisco-3132q-v/prepare-install-cisco-nexus-3132q.html"
+  - title: Instale el software NX-OS
+    url: "/switch-cisco-3132q-v/install-nx-os-software-3132q-v.html"
+  - title: Instale el archivo de configuración RCF
+    url: "/switch-cisco-3132q-v/install-rcf-3132q-v.html"
+- title: Migrar switches
+  entries:
+  - title: Migrar desde switches CN5596
+    url: "/switch-cisco-3132q-v/migrate-from-cisco-nexus-5596-to-cisco-nexus-3232c.html"
+  - title: Migrar desde switches CN1610
+    url: "/switch-cisco-3132q-v/replace-cn1610-with-cisco-nexus-3232c.html"
+  - title: Migrar del clúster sin switches a clúster con switches
+    url: "/switch-cisco-3132q-v/migrate-from-switchless-cluster-to-cisco-nexus-3132q-v.html"
+  - title: Migrar del clúster con switches a sin switches
+    url: "/switch-cisco-3132q-v/migrate-to-switchless-cluster-interconnect.html"
+- title: Sustituya los interruptores
+  entries:
+  - title: Sustituya los requisitos
+    url: "/switch-cisco-3132q-v/switch-requirements.html"
+  - title: Sustituir los interruptores CN3132Q-V.
+    url: "/switch-cisco-3132q-v/replace-cisco-nexus-3132q-v.html"

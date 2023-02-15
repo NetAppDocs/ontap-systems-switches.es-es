@@ -1,0 +1,265 @@
+---
+permalink: switch-netapp-cn1610/migrate-fas22xx-systems.html 
+sidebar: sidebar 
+keywords: migrate, two-node switched cluster, fas22xx systems, single, network connection 
+summary: Si tiene sistemas FAS22xx en un clúster sin switch de dos nodos existente en el que cada módulo de controladora tiene una única conexión de 10 GbE back-to-back para la conectividad de clúster, puede utilizar la opción de red de clúster sin switch y sustituir la conectividad directa de back-to-back por conexiones de switch. 
+---
+= Migre a un cluster de dos nodos con switches en sistemas FAS22xx con una única conexión a red de cluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si tiene sistemas FAS22xx en un clúster sin switch de dos nodos existente en el que cada módulo de controladora tiene una única conexión de 10 GbE back-to-back para la conectividad de clúster, puede utilizar la opción de red de clúster sin switch y sustituir la conectividad directa de back-to-back por conexiones de switch.
+
+
+
+== Revise los requisitos
+
+.Lo que necesitará
+* Dos conexiones de clúster para migrar desde una configuración sin switch a una configuración con switch.
+* El clúster está en buen estado y consta de dos nodos conectados con conectividad de back-to-back.
+* Los nodos ejecutan ONTAP 8.2 o una versión posterior.
+* La función de clúster sin switches no se puede usar con más de dos nodos.
+* Todos los puertos del clúster están en la `up` estado.
+
+
+.Información relacionada
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["Artículo de la base de conocimientos de NetApp 1010449: Cómo impedir la creación automática de casos durante las ventanas de mantenimiento programado"^]
+
+
+
+== Migrar los switches
+
+Este procedimiento es un procedimiento no disruptivo que elimina la conectividad de clúster directa de un entorno sin switches y sustituye cada conexión al switch por una conexión al nodo asociado.
+
+
+
+=== Paso 1: Preparación para la migración
+
+. Cambie el nivel de privilegio a Advanced, introduzca `y` cuando se le solicite continuar:
++
+`set -privilege advanced`
+
++
+El aviso avanzado (`*>`) aparece.
+
+. Compruebe el estado del clúster de los nodos en la consola del sistema de cualquier nodo:
++
+`cluster show`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el siguiente ejemplo se muestra información sobre el estado y la elegibilidad de los nodos en el clúster:
+
+[listing]
+----
+
+cluster::*> cluster show
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  ------------
+node1                true    true          false
+node2                true    true          false
+
+2 entries were displayed.
+----
+====
+. Compruebe el estado de la pareja de alta disponibilidad en la consola del sistema de cualquier nodo: `storage failover show`
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el ejemplo siguiente, se muestra el estado de los nodos 1 y 2:
+
+[listing]
+----
+
+Node           Partner        Possible State Description
+-------------- -------------- -------- -------------------------------------
+node1          node2          true      Connected to node2
+node2          node1          true      Connected to node1
+
+2 entries were displayed.
+----
+====
+. Si se habilita AutoSupport en este clúster, elimine la creación automática de casos invocando un mensaje de AutoSupport:
++
+`system node autosupport invoke -node * -type all -message MAINT=xh`
+
++
+`x` es la duración del plazo de mantenimiento en horas.
+
++
+
+NOTE: El mensaje notifica al soporte técnico de esta tarea de mantenimiento para que la creación automática de casos se suprima durante la ventana de mantenimiento.
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+El siguiente comando suprime la creación automática de casos durante dos horas:
+
+[listing]
+----
+cluster::*> system node autosupport invoke -node * -type all -message MAINT=2h
+----
+====
+. Compruebe que el estado actual del clúster sin switches es `true`y a continuación, desactive el modo de clúster sin switches:
++
+`network options switchless-cluster modify -enabled false`
+
+. Tome el control del nodo de destino:
++
+`storage failover takeover -ofnode _target_node_name_`
+
++
+No importa qué nodo sea el nodo de destino. Cuando es necesario, el nodo de destino se reinicia automáticamente y se muestra el `Waiting for giveback...` mensaje.
+
++
+El nodo activo ahora sirve datos para el nodo del partner (destino) que se ha tomado.
+
+. Espere dos minutos después de la toma de control del nodo dañado para confirmar que la toma de control se ha completado correctamente.
+. Con el nodo de destino que muestra el `Waiting for giveback...` ciérrelo.
++
+El método que utiliza para apagar el nodo depende de si utiliza la gestión remota a través del nodo Service Processor (SP).
+
++
+|===
+| Si SP | Realice lo siguiente... 
+
+
+ a| 
+Está configurado
+ a| 
+Inicie sesión en el SP de nodo dañado y, a continuación, apague el sistema: `system power off`
+
+
+
+ a| 
+No está configurado
+ a| 
+Cuando aparezca el aviso del nodo dañado, pulse `Ctrl-C`y, a continuación, responda `y` para detener el nodo.
+
+|===
+
+
+
+
+=== Paso 2: Configure los cables y los puertos
+
+. En cada módulo de controladora, desconecte el cable que conecta el puerto del clúster de 10 GbE al clúster sin switches.
+. Conecte el puerto de clúster de 10 GbE al switch de ambos módulos de controladora.
+. Confirmar que los puertos de clúster de 10 GbE conectados en el switch están configurados para formar parte de la misma VLAN.
++
+Si piensa conectar los puertos del clúster de cada módulo de controladora a switches diferentes, debe comprobar que los puertos en los que están conectados los puertos del clúster en cada switch están configurados para la misma VLAN y que la conexión de enlaces se ha configurado correctamente en ambos switches.
+
+. Proporcione almacenamiento al nodo de destino:
++
+`storage failover giveback -ofnode node2`
+
+. Supervise el progreso de la operación de devolución del control:
++
+`storage failover show-giveback`
+
+. Una vez finalizada la operación de devolución, confirme que el estado de la pareja de ha es correcto y que la toma de control es posible:
++
+`storage failover show`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+La salida debe ser similar a la siguiente:
+
+[listing]
+----
+
+Node           Partner        Possible State Description
+-------------- -------------- -------- -------------------------------------
+node1          node2          true      Connected to node2
+node2          node1          true      Connected to node1
+
+2 entries were displayed.
+----
+====
+. Compruebe que las LIF de puerto del clúster funcionan correctamente:
++
+`network interface show -role cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+El ejemplo siguiente muestra que las LIF son `up` En los nodos 1 y 2, y los resultados de la columna "es Home" son `true`:
+
+[listing]
+----
+
+cluster::*> network interface show -role cluster
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+node1
+            clus1        up/up    192.168.177.121/24  node1        e1a     true
+node2
+            clus1        up/up    192.168.177.123/24  node2        e1a     true
+
+2 entries were displayed.
+----
+====
+. Compruebe el estado del clúster de los nodos en la consola del sistema de cualquier nodo:
++
+`cluster show`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el siguiente ejemplo se muestra información sobre el estado y la elegibilidad de los nodos en el clúster:
+
+[listing]
+----
+
+cluster::*> cluster show
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  ------------
+node1                true    true          false
+node2                true    true          false
+
+2 entries were displayed.
+----
+====
+. Haga ping en los puertos del clúster para verificar la conectividad de clúster:
++
+`cluster ping-cluster local`
+
++
+El resultado del comando debe mostrar conectividad entre todos los puertos del clúster.
+
+
+
+
+
+=== Paso 3: Complete el procedimiento
+
+. Si ha suprimido la creación automática de casos, rehabilitarla invocando un mensaje de AutoSupport:
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
+----
+cluster::*> system node autosupport invoke -node * -type all -message MAINT=END
+----
+====
+. Vuelva a cambiar el nivel de privilegio a admin:
++
+`set -privilege admin`
+
+

@@ -1,0 +1,165 @@
+---
+permalink: switch-cisco-92300/configure-install-initial.html 
+sidebar: sidebar 
+keywords: install cisco 92300YC cluster switch, cisco nx 92300yc 
+summary: Puede utilizar este procedimiento para realizar la instalación inicial del conmutador Cisco Nexus 92300YC. 
+---
+= Configure el switch Cisco Nexus 92300YC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga este procedimiento para configurar y configurar el switch Cisco Nexus 92300YC.
+
+.Pasos
+. Conecte el puerto serie a un host o puerto serie.
+. Conecte el puerto de gestión (en el lado que no sea un puerto del switch) a la misma red donde esté ubicado el servidor SFTP.
+. En la consola, configure los ajustes de serie del lado del host:
++
+** 9600 baudios
+** 8 bits de datos
+** 1 bit de parada
+** paridad: none
+** control de flujo: ninguno
+
+
+. Cuando se arranca por primera vez o se reinicia después de borrar la configuración en ejecución, el switch Nexus 92300YC recorre un ciclo de arranque. Interrumpa este ciclo escribiendo *yes* para cancelar la alimentación en el aprovisionamiento automático.
++
+Aparecerá la configuración de la cuenta de administración del sistema.
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+$ VDC-1 %$ %POAP-2-POAP_INFO:   - Abort Power On Auto Provisioning [yes - continue with normal setup, skip - bypass password and basic configuration, no - continue with Power On Auto Provisioning] (yes/skip/no)[no]: *y*
+Disabling POAP.......Disabling POAP
+2019 Apr 10 00:36:17 switch %$ VDC-1 %$ poap: Rolling back, please wait... (This may take 5-15 minutes)
+
+          ---- System Admin Account Setup ----
+
+Do you want to enforce secure password standard (yes/no) [y]:
+----
+====
+. Escriba *y* para aplicar el estándar de contraseña segura:
++
+[listing, subs="+quotes"]
+----
+Do you want to enforce secure password standard (yes/no) [y]: *y*
+----
+. Introduzca y confirme la contraseña para el administrador del usuario:
++
+[listing]
+----
+Enter the password for "admin":
+Confirm the password for "admin":
+----
+. Escriba *yes* para abrir el cuadro de diálogo Configuración básica del sistema.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
+----
+This setup utility will guide you through the basic configuration of
+the system. Setup configures only enough connectivity for management
+of the system.
+
+Please register Cisco Nexus9000 Family devices promptly with your
+supplier. Failure to register may affect response times for initial
+service calls. Nexus9000 devices must be registered to receive
+entitled support services.
+
+Press Enter at anytime to skip a dialog. Use ctrl-c at anytime
+to skip the remaining dialogs.
+
+Would you like to enter the basic configuration dialog (yes/no):
+----
+====
+. Cree otra cuenta de inicio de sesión:
++
+[listing]
+----
+Create another login account (yes/no) [n]:
+----
+. Configure las cadenas de comunidad SNMP de solo lectura y de lectura y escritura:
++
+[listing]
+----
+Configure read-only SNMP community string (yes/no) [n]:
+
+Configure read-write SNMP community string (yes/no) [n]:
+----
+. Configure el nombre del switch del clúster:
++
+[listing, subs="+quotes"]
+----
+Enter the switch name : *cs2*
+----
+. Configure la interfaz de gestión fuera de banda:
++
+[listing, subs="+quotes"]
+----
+Continue with Out-of-band (mgmt0) management configuration? (yes/no) [y]: *y*
+
+Mgmt0 IPv4 address : 172.22.133.216
+
+Mgmt0 IPv4 netmask : 255.255.224.0
+
+Configure the default gateway? (yes/no) [y]: *y*
+
+IPv4 address of the default gateway : 172.22.128.1
+----
+. Configure las opciones avanzadas de IP:
++
+[listing, subs="+quotes"]
+----
+Configure advanced IP options? (yes/no) [n]: *n*
+----
+. Configurar servicios Telnet:
++
+[listing, subs="+quotes"]
+----
+Enable the telnet service? (yes/no) [n]: *n*
+----
+. Configure los servicios SSH y las claves SSH:
++
+[listing, subs="+quotes"]
+----
+Enable the ssh service? (yes/no) [y]: *y*
+
+       Type of ssh key you would like to generate (dsa/rsa) [rsa]: *rsa*
+
+       Number of rsa key bits <1024-2048> [1024]: *2048*
+----
+. Configurar otras opciones:
++
+[listing, subs="+quotes"]
+----
+Configure the ntp server? (yes/no) [n]: *n*
+
+  Configure default interface layer (L3/L2) [L2]: *L2*
+
+  Configure default switchport interface state (shut/noshut) [noshut]: *noshut*
+
+  Configure CoPP system profile (strict/moderate/lenient/dense) [strict]: *strict*
+----
+. Confirme la información del switch y guarde la configuración:
++
+[listing, subs="+quotes"]
+----
+Would you like to edit the configuration? (yes/no) [n]: *n*
+
+Use this configuration and save it? (yes/no) [y]: *y*
+
+[########################################] 100%
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+----
+
+
+.El futuro
+link:install-nxos-overview.html["Prepárese para instalar el software NX-OS y RCF"].

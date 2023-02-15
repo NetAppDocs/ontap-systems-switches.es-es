@@ -1,0 +1,282 @@
+---
+permalink: switch-cisco-9336c-fx2/install-nxos-overview-9336c-cluster.html 
+sidebar: sidebar 
+keywords: cisco, nx-os, software, reference, configuration, file, rcf, install, fx2, cluster, switch, install nx-os software and rcfs on cisco nexus 9336-fx2 cluster switches - cisco nexus 9336x-fx2 
+summary: 'Se deben instalar el software Cisco NX-OS y los archivos de configuración de referencia \(RCF\) en los switches de clúster Cisco Nexus 9336C-FX2.' 
+---
+= Prepárese para instalar el software NX-OS y RCF
+:allow-uri-read: 
+
+
+[role="lead"]
+Antes de instalar el software NX-OS y el archivo de configuración de referencia (RCF), siga este procedimiento.
+
+.Acerca de los ejemplos
+Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:
+
+* Los nombres de los dos switches de Cisco son cs1 y cs2.
+* Los nombres de nodo son cluster1-01 y cluster1-02.
+* Los nombres de las LIF de clúster son cluster1-01_clus1 y cluster1-01_clus2 para cluster1-01 y cluster1-02_clus1 y cluster1-02_clus2 para cluster1-02.
+* La `cluster1::*>` prompt indica el nombre del clúster.
+
+
+.Acerca de esta tarea
+Para ello, es necesario utilizar tanto comandos de la ONTAP como comandos de la serie Cisco Nexus 9000; los comandos de la ONTAP se usan a menos que se indique lo contrario.
+
+.Pasos
+. Si se habilita AutoSupport en este clúster, elimine la creación automática de casos invocando un mensaje de AutoSupport: `system node autosupport invoke -node * -type all -message MAINT=x h`
++
+donde x es la duración de la ventana de mantenimiento en horas.
+
++
+
+NOTE: El mensaje de AutoSupport notifica al soporte técnico de esta tarea de mantenimiento para que la creación automática de casos se suprima durante la ventana de mantenimiento.
+
+. Cambie el nivel de privilegio a avanzado, introduciendo *y* cuando se le solicite continuar:
++
+`set -privilege advanced`
+
++
+El aviso avanzado (`*>`) aparece.
+
+. Muestre cuántas interfaces de interconexión de clúster se han configurado en cada nodo para cada switch de interconexión de clúster:
++
+`network device-discovery show -protocol cdp`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
+----
+cluster1::*> network device-discovery show -protocol cdp
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------- --------
+cluster1-02/cdp
+            e0a    cs1                       Eth1/2            N9K-C9336C
+            e0b    cs2                       Eth1/2            N9K-C9336C
+cluster1-01/cdp
+            e0a    cs1                       Eth1/1            N9K-C9336C
+            e0b    cs2                       Eth1/1            N9K-C9336C
+
+4 entries were displayed.
+----
+====
+. Compruebe el estado administrativo u operativo de cada interfaz de clúster.
++
+.. Mostrar los atributos del puerto de red:
++
+ `network port show –ipspace Cluster`
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
+----
+cluster1::*> network port show -ipspace Cluster
+
+Node: cluster1-02
+                                                  Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+--------- ------------ ---------------- ---- ---- ----------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy
+
+Node: cluster1-01
+                                                  Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+--------- ------------ ---------------- ---- ---- ----------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy
+
+4 entries were displayed.
+----
+====
+.. Mostrar información acerca de las LIF:
++
+`network interface show -vserver Cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
+----
+cluster1::*> network interface show -vserver Cluster
+
+            Logical            Status     Network            Current       Current Is
+Vserver     Interface          Admin/Oper Address/Mask       Node          Port    Home
+----------- ------------------ ---------- ------------------ ------------- ------- ----
+Cluster
+            cluster1-01_clus1  up/up      169.254.209.69/16  cluster1-01   e0a     true
+            cluster1-01_clus2  up/up      169.254.49.125/16  cluster1-01   e0b     true
+            cluster1-02_clus1  up/up      169.254.47.194/16  cluster1-02   e0a     true
+            cluster1-02_clus2  up/up      169.254.19.183/16  cluster1-02   e0b     true
+
+4 entries were displayed.
+----
+====
+
+
+. Haga ping en las LIF de clúster remoto:
++
+`cluster ping-cluster -node node-name`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
+----
+cluster1::*> cluster ping-cluster -node cluster1-02
+Host is cluster1-02
+Getting addresses from network interface table...
+Cluster cluster1-01_clus1 169.254.209.69 cluster1-01     e0a
+Cluster cluster1-01_clus2 169.254.49.125 cluster1-01     e0b
+Cluster cluster1-02_clus1 169.254.47.194 cluster1-02     e0a
+Cluster cluster1-02_clus2 169.254.19.183 cluster1-02     e0b
+Local = 169.254.47.194 169.254.19.183
+Remote = 169.254.209.69 169.254.49.125
+Cluster Vserver Id = 4294967293
+Ping status:
+
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s)
+
+Detected 9000 byte MTU on 4 path(s):
+    Local 169.254.19.183 to Remote 169.254.209.69
+    Local 169.254.19.183 to Remote 169.254.49.125
+    Local 169.254.47.194 to Remote 169.254.209.69
+    Local 169.254.47.194 to Remote 169.254.49.125
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
+----
+====
+. Compruebe que el comando de reversión automática está habilitado en todas las LIF del clúster:
++
+`network interface show -vserver Cluster -fields auto-revert`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
+----
+cluster1::*> network interface show -vserver Cluster -fields auto-revert
+
+          Logical
+Vserver   Interface           Auto-revert
+--------- ––––––-------------- ------------
+Cluster
+          cluster1-01_clus1   true
+          cluster1-01_clus2   true
+          cluster1-02_clus1   true
+          cluster1-02_clus2   true
+4 entries were displayed.
+----
+====
+. Para ONTAP 9.8 y versiones posteriores, habilite la función de recogida de registros de control de estado del switch Ethernet para recopilar archivos de registro relacionados con el switch, mediante los comandos:
++
+`system switch ethernet log setup-password` y.. `system switch ethernet log enable-collection`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
+----
+cluster1::*> system switch ethernet log setup-password
+Enter the switch name: <return>
+The switch name entered is not recognized.
+Choose from the following list:
+cs1
+cs2
+
+cluster1::*> system switch ethernet log setup-password
+
+Enter the switch name: cs1
+RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] y
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster1::*> system switch ethernet log setup-password
+
+Enter the switch name: cs2
+RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
+Do you want to continue? {y|n}:: [n] y
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster1::*> system  switch ethernet log enable-collection
+
+Do you want to enable cluster log collection for all nodes in the cluster?
+{y|n}: [n] y
+
+Enabling cluster switch log collection.
+
+cluster1::*>
+----
+====
++
+
+NOTE: Si alguno de estos comandos devuelve un error, póngase en contacto con el soporte de NetApp.
+
+. Para las versiones 9.5P16, 9.6P12 y 9.7P10 de ONTAP y versiones posteriores de parches, habilite la función de recopilación de registros del monitor de estado del switch Ethernet para recopilar archivos de registro relacionados con el switch mediante los comandos:
++
+`system cluster-switch log setup-password` y.. `system cluster-switch log enable-collection`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
+----
+cluster1::*> system cluster-switch log setup-password
+Enter the switch name: <return>
+The switch name entered is not recognized.
+Choose from the following list:
+cs1
+cs2
+
+cluster1::*> system cluster-switch log setup-password
+
+Enter the switch name: cs1
+RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] y
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster1::*> system cluster-switch log setup-password
+
+Enter the switch name: cs2
+RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
+Do you want to continue? {y|n}:: [n] y
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster1::*> system cluster-switch log enable-collection
+
+Do you want to enable cluster log collection for all nodes in the cluster?
+{y|n}: [n] y
+
+Enabling cluster switch log collection.
+
+cluster1::*>
+----
+====
+
+
+
+NOTE: Si alguno de estos comandos devuelve un error, póngase en contacto con el soporte de NetApp.
+
+.El futuro
+link:install-nxos-software-9336c-cluster.html["Instale el software NX-OS"].

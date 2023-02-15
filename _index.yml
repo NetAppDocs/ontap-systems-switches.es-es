@@ -1,0 +1,41 @@
+---
+indexpage:
+  lead: NetApp ofrece clúster, almacenamiento y switches compartidos para proporcionar
+    conectividad entre el almacenamiento de host y dos o más controladoras AFF/FAS,
+    lo que le permite mover datos e interfaces de red sin interrupciones a través
+    de su infraestructura de almacenamiento.
+  tiles:
+  - title: Manos a la obra
+    links:
+    - title: Novedades
+      url: whats-new.html
+    - title: Inicio rápido
+      url: "/get-started/get-up-and-running.html"
+    - title: Notas de la versión de ONTAP
+      url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508
+  - title: Switches compatibles
+    links:
+    - title: BES-53248
+      url: "/switch-bes-53248/configure-new-switch-overview.html"
+    - title: Cisco Nexus 9336C-FX2
+      url: "/switch-cisco-9336c-fx2/configure-switch-overview-9336c-cluster.html"
+    - title: NVIDIA SN2100
+      url: "/switch-nvidia-sn2100/configure-overview-sn2100-cluster.html"
+    - title: Fin de la disponibilidad
+      url: "/overview-eod.html"
+  - title: Documentos de ONTAP relacionados
+    links:
+    - title: Sistemas de hardware AFF/FAS
+      url: https://docs.netapp.com/us-en/ontap-systems/index.html
+    - title: Software ONTAP
+      url: https://docs.netapp.com/us-en/ontap/index.htmly/
+  - title: Herramientas y soporte
+    links:
+    - title: Matriz de interoperabilidad de NetApp
+      url: http://mysupport.netapp.com/matrix/
+    - title: Hardware Universe de NetApp
+      url: https://hwu.netapp.com/
+    - title: Base de conocimientos de NetApp
+      url: https://kb.netapp.com/
+    - title: Active IQ (se requiere inicio de sesión)
+      url: https://activeiq.netapp.com/?source=aiqnsspages

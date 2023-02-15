@@ -1,0 +1,40 @@
+---
+permalink: switch-nvidia-sn2100/required-documentation-sn2100-cluster.html 
+sidebar: sidebar 
+keywords: nvidia SN2100 switches 
+summary: Para la instalación y el mantenimiento del conmutador NVIDIA SN2100, asegúrese de revisar toda la documentación recomendada. 
+---
+= Requisitos de documentación para los switches NVIDIA SN2100
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para la instalación y el mantenimiento del conmutador NVIDIA SN2100, asegúrese de revisar toda la documentación recomendada.
+
+[cols="1,2"]
+|===
+| Título | Descripción 
+
+
+ a| 
+https://docs.nvidia.com/networking/display/sn2000pub/Installation["Guía de instalación del switch NVIDIA"^]
+ a| 
+Describe cómo instalar los switches NVIDIA SN2100.
+
+
+
+ a| 
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["Guía de cableado de bandeja de unidades NVMe NS224"^]
+ a| 
+Información general e ilustraciones que muestran cómo configurar el cableado de bandejas de unidades.
+
+
+
+ a| 
+https://hwu.netapp.com/["Hardware Universe de NetApp"^]
+ a| 
+Permite confirmar el hardware compatible, como los switches y cables de almacenamiento, para su modelo de plataforma.
+
+|===

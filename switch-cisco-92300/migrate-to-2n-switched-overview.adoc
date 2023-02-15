@@ -1,0 +1,21 @@
+---
+permalink: switch-cisco-92300/migrate-to-2n-switched-overview.html 
+sidebar: sidebar 
+keywords: TNSC,migrate two-node,migrate 2-node 
+summary: Debe conocer cierta información de configuración, conexiones de puertos y requisitos de cableado cuando migre un clúster sin switches de dos nodos, sin interrupciones, a un clúster con switches de clúster Cisco Nexus 92300YC 
+---
+= Migre a un clúster con switches de dos nodos con switches Cisco Nexus 92300YC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe conocer cierta información de configuración, conexiones de puertos y requisitos de cableado cuando migre un clúster sin switches de dos nodos, sin interrupciones, a un clúster con switches de clúster Cisco Nexus 92300YC
+
+El procedimiento que utilice dependerá de si tiene dos puertos de red de clúster dedicados en cada controladora o un único puerto de clúster de cada controladora. El proceso documentado funciona para todos los nodos utilizando puertos ópticos o de twinax; pero no es compatible con este switch si los nodos están usando puertos 10 GB BASE-T RJ45 integrados para los puertos de red del clúster.
+
+La mayoría de los sistemas requieren dos puertos de red de clúster dedicados en cada controladora.
+
+
+NOTE: Una vez finalizada la migración, es posible que necesite instalar el archivo de configuración necesario para admitir el Monitor de estado del conmutador de clúster (CSHM) para los conmutadores de clúster 92300YC. Consulte _instalación del archivo de configuración del Monitor de estado del conmutador de clúster (CSHM) para los conmutadores 92300YC_ de la link:../com.netapp.doc.hw-sw-cisco-setup/home.html["Configuración"] guía.

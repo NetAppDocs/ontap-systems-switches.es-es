@@ -1,0 +1,44 @@
+---
+section: switch-nvidia-sn2100
+title: NVIDIA SN2100
+entries:
+- title: Descripción general
+  entries:
+  - title: Información general de configuración
+    url: "/switch-nvidia-sn2100/configure-overview-sn2100-cluster.html"
+  - title: Requisitos de configuración
+    url: "/switch-nvidia-sn2100/configure-reqs-sn2100-cluster.html"
+  - title: Componentes y números de pieza
+    url: "/switch-nvidia-sn2100/components-sn2100-cluster.html"
+  - title: Documentación requerida
+    url: "/switch-nvidia-sn2100/required-documentation-sn2100-cluster.html"
+- title: Instale el hardware
+  entries:
+  - title: Instalar el interruptor
+    url: "/switch-nvidia-sn2100/install-hardware-sn2100-cluster.html"
+  - title: Configurar el switch
+    url: "/switch-nvidia-sn2100/configure-sn2100-cluster.html"
+  - title: Revisar el cableado y la configuración
+    url: "/switch-nvidia-sn2100/cabling-considerations-sn2100-cluster.html"
+  - title: Conecte el cable de las bandejas NS224
+    url: "/switch-nvidia-sn2100/install-cable-shelves-sn2100-cluster.html"
+- title: Configurar el software
+  entries:
+  - title: Flujo de trabajo de instalación del software
+    url: "/switch-nvidia-sn2100/configure-software-overview-sn2100-cluster.html"
+  - title: Instale Cumulus Linux en modo Cumulus
+    url: "/switch-nvidia-sn2100/install-cumulus-mode-sn2100-cluster.html"
+  - title: Instale Cumulus Linux en modo ONIE
+    url: "/switch-nvidia-sn2100/install-onie-mode-sn2100-cluster.html"
+  - title: Instale la secuencia de comandos RCF
+    url: "/switch-nvidia-sn2100/install-rcf-sn2100-cluster.html"
+  - title: Configurar la recopilación de registros del switch
+    url: "/switch-nvidia-sn2100/install-snmpv3-sn2100-cluster.html"
+- title: Migrar switches
+  entries:
+  - title: Migre desde switches de clúster de Cisco
+    url: "/switch-nvidia-sn2100/migrate-cisco-sn2100-cluster-switch.html"
+  - title: Migre a un clúster sin switches de dos nodos
+    url: "/switch-nvidia-sn2100/migrate-to-switchless-interconnect-sn2100-cluster.html"
+- title: Sustituya el switch del clúster
+  url: "/switch-nvidia-sn2100/replace-sn2100-switch-cluster.html"

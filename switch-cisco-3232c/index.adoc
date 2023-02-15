@@ -1,0 +1,193 @@
+---
+permalink: switch-cisco-3232c/index.html 
+sidebar: sidebar 
+keywords: cisco 3232c, cluster switches 
+summary: Puede utilizar switches Cisco Nexus 3232C como switches de clúster en su clúster AFF o FAS. 
+---
+= Información general y requisitos: Switches Cisco Nexus 3232C
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para la instalación y el mantenimiento del switch Cisco Nexus 3232C, asegúrese de revisar todos los requisitos y la documentación recomendada.
+
+
+
+== Descripción general de la tarea
+
+Puede utilizar switches Cisco Nexus 3232C como switches de clúster en su clúster AFF o FAS. Entre las tareas de instalación y mantenimiento se incluyen:
+
+* Instalar el switch Cisco Nexus 3232C (X190100) en un armario del sistema de NetApp con los soportes personalizados que se incluyen en el switch o instalarlo en un rack con los soportes estándar que también se incluyen con el switch.
+* Instalar el software NX-OS y archivos de configuración de referencia (RCF) en el switch de clúster Cisco Nexus 3232C.
+* Migración de un clúster sin switches de dos nodos a un clúster con switches de clúster Cisco Nexus 3232C.
+* Reemplazar un switch de clúster Cisco Nexus 3232C.
+* Reemplazar un switch de almacenamiento Cisco Nexus 3232C.
+
+
+
+
+== Requisitos de configuración
+
+Para configurar el clúster, necesita el número y el tipo de cables y conectores de cable adecuados para los switches. Según el tipo de switch que esté configurando inicialmente, debe conectarse al puerto de la consola del switch con el cable de consola incluido; también debe proporcionar información de red específica.
+
+
+
+== Requisitos de red
+
+Necesita la siguiente información de red para todas las configuraciones de los switches:
+
+* Subred IP para el tráfico de red de gestión
+* Nombres de host y direcciones IP para cada una de las controladoras del sistema de almacenamiento y todos los switches aplicables
+* La mayoría de las controladoras del sistema de almacenamiento se gestionan a través de la interfaz e0M mediante la conexión al puerto de servicio Ethernet (icono de llave inglesa). En los sistemas A800 y A700 de AFF de AFF, la interfaz e0M utiliza un puerto Ethernet dedicado.
+
+
+Consulte la https://hwu.netapp.com["Hardware Universe"^] para obtener la información más reciente.
+
+
+
+== Requisitos de Smart Call Home
+
+Smart Call Home supervisa los componentes de hardware y software de su red para generar una notificación basada en correo electrónico de las condiciones críticas del sistema. Cuando se produce un evento en el dispositivo, Smart Call Home genera una alerta a todos los destinatarios configurados en el perfil de destino.
+
+Debe configurar un conmutador de red de clúster para comunicarse mediante correo electrónico con el sistema Smart Call Home. Opcionalmente, puede configurar el conmutador de red de clúster para aprovechar la función integrada de soporte Smart Call Home de Cisco.
+
+Para poder utilizar la función de inicio de llamada inteligente, debe tener en cuenta las siguientes consideraciones:
+
+* Debe haber un servidor de correo electrónico.
+* El switch debe tener conectividad IP con el servidor de correo electrónico.
+* Se debe configurar el nombre del contacto (contacto del servidor SNMP), el número de teléfono y la dirección de la calle. Esto es necesario para determinar el origen de los mensajes recibidos.
+* Un ID de CCO debe estar asociado con un contrato de servicio Cisco SMARTnet adecuado para su empresa.
+* El servicio Cisco SMARTnet debe estar en su lugar para que el dispositivo se registre.
+
+
+La http://www.cisco.com/c/en/us/products/switches/index.html["Sitio de soporte de Cisco"^] Contiene información acerca de los comandos para configurar Smart Call Home.
+
+
+
+== Requisitos de documentación
+
+Necesita documentación específica sobre los switches y la controladora para configurar los switches Cisco Nexus 3232C y el clúster de ONTAP.
+
+
+
+=== Documentación de los switches
+
+Para configurar los switches Cisco Nexus 3232C, necesita la siguiente documentación de https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/series.html["Compatibilidad con los switches Cisco Nexus serie 3000"^] página.
+
+[cols="1,2"]
+|===
+| Título del documento | Descripción 
+
+
+ a| 
+_Guía de instalación de hardware de la serie Nexus 3000_
+ a| 
+Proporciona información detallada acerca de los requisitos del sitio, detalles del switch de hardware y las opciones de instalación.
+
+
+
+ a| 
+_Guías de configuración del software del switch Cisco Nexus serie 3000_ (elija la guía para la versión NX-OS instalada en los switches)
+ a| 
+Proporciona la información inicial de configuración del switch que necesita para poder configurar el switch para el funcionamiento de ONTAP.
+
+
+
+ a| 
+_Guía de actualización y degradación de software NX-OS de Cisco Nexus 3000 Series_ (elija la guía para la versión de NX-OS instalada en los switches)
+ a| 
+Proporciona información sobre cómo degradar el switch a software de switch compatible con ONTAP, si es necesario.
+
+
+
+ a| 
+_Cisco Nexus 3000 Series NX-OS Command Reference Master Index_
+ a| 
+Proporciona vínculos a las diferentes referencias de comandos proporcionadas por Cisco.
+
+
+
+ a| 
+_Cisco Nexus 3000 MIBs Reference_
+ a| 
+Describe los archivos de la base de datos de información de gestión (MIB) para los switches Nexus 3000.
+
+
+
+ a| 
+_Referencia_ de mensajes del sistema NX-OS serie Nexus 3000
+ a| 
+Describe los mensajes del sistema de los switches Cisco Nexus serie 3000, los que son informativos y otros que podrían ayudar a diagnosticar problemas con los enlaces, el hardware interno o el software del sistema.
+
+
+
+ a| 
+_Notas de la versión de Cisco Nexus serie 3000 NX-OS (elija las notas para la versión de NX-OS instalada en los switches)_
+ a| 
+Describe las funciones, errores y limitaciones de Cisco Nexus 3000 Series.
+
+
+
+ a| 
+Información sobre cumplimiento de normativas y seguridad de Cisco Nexus 6000, Cisco Nexus 5000 Series, Cisco Nexus 3000 Series y Cisco Nexus 2000 Series
+ a| 
+Proporciona información legal, de seguridad y cumplimiento de normativas de agencias internacionales para los switches de la serie Nexus 3000.
+
+|===
+
+
+=== Documentación de los sistemas ONTAP
+
+Para configurar un sistema ONTAP, necesita los siguientes documentos para su versión del sistema operativo desde la https://docs.netapp.com/ontap-9/index.jsp["Centro de documentación de ONTAP 9"^].
+
+[cols="1,2"]
+|===
+| Nombre | Descripción 
+
+
+ a| 
+Específicos del controlador _instrucciones de instalación y configuración_
+ a| 
+Describe cómo instalar el hardware de NetApp.
+
+
+
+ a| 
+Documentación de ONTAP
+ a| 
+Proporciona información detallada sobre todos los aspectos de las versiones de ONTAP.
+
+
+
+ a| 
+https://hwu.netapp.com["Hardware Universe"^]
+ a| 
+Ofrece información de compatibilidad y configuración de hardware de NetApp.
+
+|===
+
+
+=== Kit de raíl y documentación del armario
+
+Para instalar un switch Cisco 3232C en un armario de NetApp, consulte la siguiente documentación del hardware.
+
+[cols="1,2"]
+|===
+| Nombre | Descripción 
+
+
+ a| 
+https://library.netapp.com/ecm/ecm_download_file/ECMM1280394["Armario del sistema 42U, guía detallada"^]
+ a| 
+Describe las FRU asociadas al armario del sistema 42U, y proporciona instrucciones de mantenimiento y sustitución de FRU.
+
+
+
+ a| 
+link:task-install-a-cisco-nexus-3232c-cluster-switch-and-pass-through-panel-in-a-netapp-cabinet.html["Instale un switch Cisco Nexus 3232C en un armario de NetApp"^]
+ a| 
+Describe cómo instalar un switch Cisco Nexus 3232C en un armario de cuatro parantes de NetApp.
+
+|===

@@ -1,0 +1,50 @@
+---
+permalink: switch-cisco-9336c-fx2-storage/install-9336c-storage.html 
+sidebar: sidebar 
+keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
+summary: Si no tiene la información de configuración y la documentación necesarias, debe recopilar esa información antes de configurar los switches de red del clúster y de gestión. 
+---
+= Instale el switch de almacenamiento 9336C-FX2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga este procedimiento para instalar el switch de almacenamiento Cisco Nexus 9336C-FX2.
+
+.Lo que necesitará
+* Acceso a un servidor HTTP, FTP o TFTP en el sitio de instalación para descargar las versiones correspondientes del NX-OS y del archivo de configuración de referencia (RCF).
+* Las licencias aplicables, la información de configuración y red, y los cables.
+* Completado link:setup-worksheet-9336c-storage.html["hojas de datos para el cableado"].
+* Los RCF de red de gestión y red de clúster de NetApp aplicables descargados del sitio de soporte de NetApp en http://mysupport.netapp.com/["mysupport.netapp.com"^]. Todos los switches de red de gestión y red de clúster de Cisco llegan con la configuración predeterminada de fábrica de Cisco. Estos conmutadores también tienen la versión actual del software NX-OS pero no tienen cargados los RCF.
+* Documentación del switch requerida. Consulte link:required-documentation-9336c-storage.html["Documentación requerida"] si quiere más información.
+
+
+.Pasos
+. Monte en rack la red del clúster y los switches de red de gestión y las controladoras.
++
+[cols="1,2"]
+|===
+| Si está instalando el... | Realice lo siguiente... 
+
+
+ a| 
+Cisco Nexus 9336C-FX2 en un armario de sistemas de NetApp
+ a| 
+Consulte link:install-switch-and-passthrough-panel-9336c-storage.html["Instale el switch en el armario de NetApp"] Para obtener instrucciones sobre cómo instalar el switch en un armario de NetApp.
+
+
+
+ a| 
+Equipo en un bastidor de Telco
+ a| 
+Consulte los procedimientos proporcionados en las guías de instalación del hardware del switch y las instrucciones de instalación y configuración de NetApp.
+
+|===
+. Conecte los cables de la red de clústeres y los switches de red de gestión a las controladoras mediante las hojas de trabajo de cableado completadas.
+. Encienda la red de clúster y los switches de red de gestión y las controladoras.
+
+
+.El futuro
+Vaya a. link:setup-switch-9336c-storage.html["Configurar el switch de almacenamiento Cisco Nexus 9336C-FX2"].

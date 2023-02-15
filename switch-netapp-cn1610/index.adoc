@@ -1,0 +1,18 @@
+---
+permalink: switch-netapp-cn1610/index.html 
+sidebar: sidebar 
+keywords: install, fastpath, software, rcfs 
+summary: cn1610, switch, netapp 
+---
+= Switches CN1610 de NetApp
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El CN1610 es un switch de capa 2 gestionado con alto ancho de banda que proporciona puertos SFP+ (Small Form-factor Pluggable Plus) de 16 10 gigabits. El switch incluye suministros de alimentación redundantes y soportes de ventiladores que admiten el intercambio en caliente para alta disponibilidad.
+
+Este switch 1U se puede instalar en un armario estándar de sistemas 42U de 19 pulgadas de NetApp o en armario de terceros.
+
+El conmutador admite la administración local a través del puerto de consola o la administración remota utilizando Telnet o SSH a través de una conexión de red. El CN1610 incluye un puerto de gestión RJ45 Ethernet de 1 Gigabit dedicado para la gestión de switches fuera de banda. Puede gestionar el switch introduciendo comandos en la interfaz de línea de comandos (CLI) o mediante un sistema de gestión de red basado en SNMP (NMS).

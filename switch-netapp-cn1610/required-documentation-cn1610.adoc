@@ -1,0 +1,64 @@
+---
+permalink: switch-netapp-cn1610/required-documentation-cn1610.html 
+sidebar: sidebar 
+keywords: cn1610, switch, netapp 
+summary: Para la instalación y mantenimiento del switch CN1610 de NetApp, asegúrese de revisar toda la documentación recomendada. 
+---
+= Requisitos de documentación para los switches CN1610 de NetApp
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para la instalación y mantenimiento del switch CN1610 de NetApp, asegúrese de revisar toda la documentación recomendada.
+
+[cols="1,2"]
+|===
+| Título del documento | Descripción 
+
+
+ a| 
+https://library.netapp.com/ecm/ecm_download_file/ECMP1117853["Guía de instalación de 1G"^]
+ a| 
+Descripción general de las características de hardware y software del switch CN1601 y del proceso de instalación.
+
+
+
+ a| 
+https://library.netapp.com/ecm/ecm_download_file/ECMP1117824["Guía de instalación de 10G"^]
+ a| 
+Una descripción general de las características de hardware y software del switch CN1610 y describe las características para instalar el switch y acceder a la CLI.
+
+
+
+ a| 
+https://library.netapp.com/ecm/ecm_download_file/ECMP1118645["Guía de instalación y configuración de switches CN1601 y CN1610"^]
+ a| 
+Muestra cómo configurar el hardware y el software de switch para su entorno de clúster.
+
+
+
+ a| 
+Guía del administrador del switch CN1601
+ a| 
+Proporciona ejemplos de cómo utilizar el switch CN1601 en una red típica.
+
+* https://library.netapp.com/ecm/ecm_download_file/ECMP1117844["Guía del administrador"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2811865["Guía del administrador, Versión 1.1.x.x"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMP1117874["Guía del administrador, Versión 1.2.x.x"^]
+
+
+
+
+ a| 
+Referencia de comandos de CLI del switch de red CN1610
+ a| 
+Proporciona información detallada acerca de los comandos de la interfaz de línea de comandos (CLI) que utiliza para configurar el software CN1601.
+
+* https://library.netapp.com/ecm/ecm_download_file/ECMP1117834["Referencia de comandos"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2811863["Referencia de comandos, Versión 1.1.x.x"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMP1117863["Referencia de comandos, Versión 1.2.x.x"^]
+
+
+|===

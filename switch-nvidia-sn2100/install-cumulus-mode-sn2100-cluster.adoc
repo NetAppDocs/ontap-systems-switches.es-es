@@ -1,0 +1,248 @@
+---
+permalink: switch-nvidia-sn2100/install-cumulus-mode-sn2100-cluster.html 
+sidebar: sidebar 
+keywords: install cumulus mode, sn2100 SN2100 switches setup, cumulus linux, cumulus mode 
+summary: 'Cumulus Linux (CL) OS se puede instalar ya sea cuando el conmutador ejecuta Cumulus Linux o ONIE.' 
+---
+= Instale Cumulus Linux en modo Cumulus
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga este procedimiento para instalar Cumulus Linux (CL) OS cuando el conmutador se esté ejecutando en modo Cumulus.
+
+
+NOTE: Cumulus Linux (CL) OS se puede instalar ya sea cuando el conmutador ejecuta Cumulus Linux o ONIE (consulte link:install-onie-mode-sn2100-cluster.html["Instale EN modo ONIE"]).
+
+.Lo que necesitará
+* Conocimientos de Linux de nivel intermedio.
+* Estar familiarizado con la edición de texto básica, los permisos de archivos UNIX y la supervisión de procesos. Una variedad de editores de texto están preinstalados, incluyendo `vi` y.. `nano`.
+* Acceso a un shell de Linux o UNIX. Si ejecuta Windows, utilice un entorno Linux como herramienta de línea de comandos para interactuar con Cumulus Linux.
+* El requisito de velocidad en baudios se establece en 115200 en el conmutador de consola serie para el acceso a la consola del conmutador NVIDIA SN2100 de la siguiente manera:
++
+** 115200 baudios
+** 8 bits de datos
+** 1 bit de parada
+** paridad: none
+** control de flujo: ninguno
+
+
+
+
+.Acerca de esta tarea
+Tenga en cuenta lo siguiente:
+
+
+NOTE: Cada vez que se instala Cumulus Linux, se borra y reconstruye toda la estructura del sistema de archivos.
+
+
+CAUTION: La contraseña predeterminada para la cuenta de usuario de cumulus es *cumulus*. La primera vez que inicie sesión en Cumulus Linux, debe cambiar esta contraseña predeterminada. Asegúrese de actualizar cualquier secuencia de comandos de automatización antes de instalar una nueva imagen. Cumulus Linux proporciona opciones de línea de comandos para cambiar automáticamente la contraseña predeterminada durante el proceso de instalación.
+
+.Pasos
+. Inicie sesión en el switch.
++
+La primera vez que inicia sesión en el conmutador requiere nombre de usuario/contraseña de *cumulus*/*cumulus* con `sudo` privilegios.
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cumulus login: *cumulus*
+Password: *cumulus*
+You are required to change your password immediately (administrator enforced)
+Changing password for cumulus.
+Current password: *cumulus*
+New password: *netapp1!*
+Retype new password: *netapp1!*
+----
+====
+. Compruebe la versión de Cumulus Linux:
++
+`net show system`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *net show system*
+Hostname......... cumulus
+Build............ *Cumulus Linux 4.4.2*
+Uptime........... 0:08:20.860000
+Model............ Mlnx X86
+CPU.............. x86_64 Intel Atom C2558 2.40GHz
+Memory........... 8GB
+Disk............. 14.7GB
+ASIC............. Mellanox Spectrum MT52132
+Ports............ 16 x 100G-QSFP28
+Part Number...... MSN2100-CB2FC
+Serial Number.... MT2105T05177
+Platform Name.... x86_64-mlnx_x86-r0
+Product Name..... MSN2100
+ONIE Version..... 2019.11-5.2.0020-115200
+Base MAC Address. 04:3F:72:43:92:80
+Manufacturer..... Mellanox
+----
+====
+. Configure el nombre de host, la dirección IP, la máscara de subred y la puerta de enlace predeterminada. El nuevo nombre de host solo se inicia después de reiniciar la sesión de la consola/SSH.
++
+
+NOTE: Un switch Cumulus Linux proporciona al menos un puerto de administración Ethernet dedicado llamado `eth0`. Esta interfaz se utiliza específicamente para la gestión fuera de banda. De forma predeterminada, la interfaz de gestión utiliza DHCPv4 para la direccionamiento.
+
++
+
+CAUTION: No utilice caracteres de subrayado (_), apóstrofe (') o no ASCII en el nombre de host.
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *net add hostname sw1*
+cumulus@cumulus:mgmt:~$ *net add interface eth0 ip address 10.233.204.71*
+cumulus@cumulus:mgmt:~$ *net add interface eth0 ip gateway 10.233.204.1*
+cumulus@cumulus:mgmt:~$ *net pending*
+cumulus@cumulus:mgmt:~$ *net commit*
+----
+====
++
+Este comando modifica ambos `/etc/hostname` y.. `/etc/hosts` archivos.
+
+. Confirme que se han actualizado el nombre de host, la dirección IP, la máscara de subred y la puerta de enlace predeterminada.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *hostname sw1*
+cumulus@sw1:mgmt:~$ *ifconfig eth0*
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+inet 10.233.204.71  netmask 255.255.254.0  broadcast 10.233.205.255
+inet6 fe80::bace:f6ff:fe19:1df6  prefixlen 64  scopeid 0x20<link>
+ether b8:ce:f6:19:1d:f6  txqueuelen 1000  (Ethernet)
+RX packets 75364  bytes 23013528 (21.9 MiB)
+RX errors 0  dropped 7  overruns 0  frame 0
+TX packets 4053  bytes 827280 (807.8 KiB)
+TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0 device memory 0xdfc00000-dfc1ffff
+
+cumulus@sw1::mgmt:~$ *ip route show vrf mgmt*
+default via 10.233.204.1 dev eth0
+unreachable default metric 4278198272
+10.233.204.0/23 dev eth0 proto kernel scope link src 10.233.204.71
+127.0.0.0/8 dev mgmt proto kernel scope link src 127.0.0.1
+----
+====
+. Configure la zona horaria con el modo interactivo NTP.
++
+.. En un terminal, ejecute el comando siguiente:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *sudo dpkg-reconfigure tzdata*
+----
+.. Siga las opciones del menú en pantalla para seleccionar el área geográfica y la región.
+.. Para establecer la zona horaria de todos los servicios y daemons, reinicie el conmutador.
+.. Compruebe que la fecha y la hora del interruptor son correctas y que se actualizan si es necesario.
+
+
+. Instale Cumulus Linux 4.4.2:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *sudo onie-install -a -i http://_<web-server>/<path>_/cumulus-linux-4.4.2-mlx-amd64.bin*
+----
++
+El instalador inicia la descarga. Escriba *y* cuando se le solicite.
+
+. Reinicie el conmutador NVIDIA SN2100:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *sudo reboot*
+----
+. La instalación se inicia automáticamente y aparecen las siguientes opciones de pantalla de GRUB. * No* realice ninguna selección.
++
+** Cumulus-Linux GNU/Linux
+** ONIE: Instalar el sistema operativo
+** CUMULUS-INSTALL
+** Cumulus-Linux GNU/Linux
+
+
+. Repita los pasos del 1 al 4 para iniciar sesión.
+. Compruebe que la versión de Cumulus Linux es 4.4.2:
++
+`net show version`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *net show version*
+NCLU_VERSION=1.0-cl4.4.2u0
+DISTRIB_ID="Cumulus Linux"
+DISTRIB_RELEASE=*4.4.2*
+DISTRIB_DESCRIPTION=*"Cumulus Linux 4.4.2"*
+----
+====
+. Cree un nuevo usuario y agregue este usuario a `sudo` grupo. Este usuario sólo se hace efectivo después de reiniciar la sesión de la consola/SSH.
++
+`sudo adduser --ingroup netedit admin`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *sudo adduser --ingroup netedit admin*
+[sudo] password for cumulus:
+Adding user `admin’ ...
+Adding new user `admin’ (1001) with group `netedit' ...
+Creating home directory `/home/admin’ ...
+Copying files from `/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for admin
+Enter the new value, or press ENTER for the default
+Full Name []:
+Room Number []:
+Work Phone []:
+Home Phone []:
+Other []:
+Is the information correct? [Y/n] *y*
+
+cumulus@sw1:mgmt:~$ *sudo adduser admin sudo*
+[sudo] password for cumulus:
+Adding user `admin' to group `sudo' ...
+Adding user admin to group sudo
+Done.
+cumulus@sw1:mgmt:~$ exit
+logout
+Connection to 10.233.204.71 closed.
+
+[admin@cycrh6svl01 ~]$ ssh admin@10.233.204.71
+admin@10.233.204.71's password:
+Linux sw1 4.19.0-cl-1-amd64 #1 SMP Cumulus 4.19.206-1+cl4.4.1u1 (2021-09-09) x86_64
+Welcome to NVIDIA Cumulus (R) Linux (R)
+
+For support and online technical documentation, visit
+http://www.cumulusnetworks.com/support
+
+The registered trademark Linux (R) is used pursuant to a sublicense from LMI, the exclusive licensee of Linus Torvalds, owner of the mark on a world-wide basis.
+admin@sw1:mgmt:~$
+----
+====
+
+
+.El futuro
+link:install-rcf-sn2100-cluster.html["Instale la secuencia de comandos del archivo de configuración de referencia (RCF)"].

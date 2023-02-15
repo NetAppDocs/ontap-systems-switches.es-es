@@ -1,0 +1,257 @@
+---
+permalink: switch-cisco-9336c-fx2/index.html 
+sidebar: sidebar 
+keywords: cisco, switch, cisco 9336 switch 
+summary: Switches Cisco 9336-FX2» 
+---
+= Descripción general y requisitos: Switches Cisco Nexus 9336C-FX2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En lo que respecta a la instalación y el mantenimiento de los switches Cisco Nexus 9336C-FX2, asegúrese de revisar los requisitos de configuración y documentación.
+
+Si desea crear clústeres de ONTAP con más de dos nodos, necesita dos switches de red de clúster compatibles. Puede usar switches de gestión adicionales, que son opcionales.
+
+Puede instalar el switch Cisco Nexus 9336C-FX2 (X190200/X190210) en un armario del sistema de NetApp o armario de terceros con soportes estándar que se incluyen con el switch.
+
+
+
+== Componentes del interruptor
+
+En la tabla siguiente se enumeran el número de pieza y la descripción del switch 9336C-FX2, sus ventiladores y fuentes de alimentación:
+
+[cols="1,2"]
+|===
+| Número de pieza | Descripción 
+
+
+ a| 
+X190200-CS-PE
+ a| 
+N9K-9336C-FX2, CS, PTSX, 36PT10/25/40/100GQSFP28
+
+
+
+ a| 
+X190200-CS-PI
+ a| 
+N9K-9336C-FX2, CS, PSIN, 36PT10/25/40/100GQSFP28
+
+
+
+ a| 
+X190210-FE-PE
+ a| 
+N9K-9336C, FTE, PTSX, 36PT10/25/40/100GQSFP28
+
+
+
+ a| 
+X190210-FE-PI
+ a| 
+N9K-9336C, FTE, PSIN, 36PT10/25/40/100GQSFP28
+
+
+
+ a| 
+X190002
+ a| 
+Kit de accesorios X190001/X190003
+
+
+
+ a| 
+X-NXA-PAC-1100W-PE2
+ a| 
+Fuente de alimentación de 1100 W ac N9K-9336C: Flujo de aire de escape lateral del puerto
+
+
+
+ a| 
+X-NXA-PAC-1100W-PI2
+ a| 
+Fuente de alimentación de 1100 W ac N9K-9336C - flujo de aire de entrada lateral del puerto
+
+
+
+ a| 
+X-NXA-FAN-65CFM-PE
+ a| 
+N9K-9336C 65CFM, flujo de aire del lado de la lumbrera
+
+
+
+ a| 
+X-NXA-FAN-65CFM-PI
+ a| 
+N9K-9336C 65CFM, flujo de aire de entrada lateral de la lumbrera
+
+|===
+
+
+== Requisitos de configuración
+
+Para configurar el clúster, necesita el número y el tipo de cables y conectores de cable adecuados para los switches. Según el tipo de switch que esté configurando inicialmente, debe conectarse al puerto de la consola del switch con el cable de consola incluido; también debe proporcionar información de red específica.
+
+
+
+== Requisitos de red
+
+Necesita la siguiente información de red para todas las configuraciones de los switches:
+
+* Subred IP para el tráfico de red de gestión
+* Nombres de host y direcciones IP para cada una de las controladoras del sistema de almacenamiento y todos los switches aplicables
+* La mayoría de las controladoras del sistema de almacenamiento se gestionan a través de la interfaz e0M mediante la conexión al puerto de servicio Ethernet (icono de llave inglesa). En los sistemas A800 y A700 de AFF de AFF, la interfaz e0M utiliza un puerto Ethernet dedicado.
+
+
+Consulte la https://hwu.netapp.com["Hardware Universe"^] para obtener la información más reciente.
+
+
+
+== Requisitos de Smart Call Home
+
+Smart Call Home supervisa los componentes de hardware y software de su red para generar una notificación basada en correo electrónico de las condiciones críticas del sistema. Cuando se produce un evento en el dispositivo, Smart Call Home genera una alerta a todos los destinatarios configurados en el perfil de destino.
+
+Debe configurar un conmutador de red de clúster para comunicarse mediante correo electrónico con el sistema Smart Call Home. Opcionalmente, puede configurar el conmutador de red de clúster para aprovechar la función integrada de soporte Smart Call Home de Cisco.
+
+Para poder utilizar la función de inicio de llamada inteligente, debe tener en cuenta las siguientes consideraciones:
+
+* Debe haber un servidor de correo electrónico.
+* El switch debe tener conectividad IP con el servidor de correo electrónico.
+* Se debe configurar el nombre del contacto (contacto del servidor SNMP), el número de teléfono y la dirección de la calle. Esto es necesario para determinar el origen de los mensajes recibidos.
+* Un ID de CCO debe estar asociado con un contrato de servicio Cisco SMARTnet adecuado para su empresa.
+* El servicio Cisco SMARTnet debe estar en su lugar para que el dispositivo se registre.
+
+
+La http://www.cisco.com/c/en/us/products/switches/index.html["Sitio de soporte de Cisco"^] Contiene información acerca de los comandos para configurar Smart Call Home.
+
+
+
+== Requisitos de documentación
+
+Necesita documentación específica sobre switches y controladoras para configurar sus switches Cisco 9336-FX2 y su clúster ONTAP.
+
+
+
+=== Documentación de los switches
+
+Para configurar los switches Cisco Nexus 9336C-FX2, necesita la siguiente documentación del https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Compatibilidad con los switches Cisco Nexus serie 9000"^] página:
+
+[cols="1,2"]
+|===
+| Título del documento | Descripción 
+
+
+ a| 
+_Guía de instalación de hardware de la serie Nexus 9000_
+ a| 
+Proporciona información detallada acerca de los requisitos del sitio, detalles del switch de hardware y las opciones de instalación.
+
+
+
+ a| 
+_Guías de configuración del software del switch Cisco Nexus serie 9000_ (elija la guía para la versión NX-OS instalada en los switches)
+ a| 
+Proporciona la información inicial de configuración del switch que necesita para poder configurar el switch para el funcionamiento de ONTAP.
+
+
+
+ a| 
+_Guía de actualización y degradación de software NX-OS de Cisco Nexus 9000 Series_ (elija la guía para la versión de NX-OS instalada en los switches)
+ a| 
+Proporciona información sobre cómo degradar el switch a software de switch compatible con ONTAP, si es necesario.
+
+
+
+ a| 
+_Cisco Nexus 9000 Series NX-OS Command Reference Master Index_
+ a| 
+Proporciona vínculos a las diferentes referencias de comandos proporcionadas por Cisco.
+
+
+
+ a| 
+_Cisco Nexus 9000 MIBs Reference_
+ a| 
+Describe los archivos de la base de datos de información de gestión (MIB) para los switches Nexus 9000.
+
+
+
+ a| 
+_Referencia_ de mensajes del sistema NX-OS serie Nexus 9000
+ a| 
+Describe los mensajes del sistema de los switches Cisco Nexus serie 9000, los que son informativos y otros que podrían ayudar a diagnosticar problemas con los enlaces, el hardware interno o el software del sistema.
+
+
+
+ a| 
+_Notas de la versión de Cisco Nexus serie 9000 NX-OS (elija las notas para la versión de NX-OS instalada en los switches)_
+ a| 
+Describe las funciones, errores y limitaciones de Cisco Nexus 9000 Series.
+
+
+
+ a| 
+Cumplimiento normativo e información de seguridad para Cisco Nexus serie 9000
+ a| 
+Proporciona información legal, de seguridad y cumplimiento de normativas de agencias internacionales para los switches de la serie Nexus 9000.
+
+|===
+
+
+=== Documentación de los sistemas ONTAP
+
+Para configurar un sistema ONTAP, necesita los siguientes documentos para su versión del sistema operativo desde la https://docs.netapp.com/ontap-9/index.jsp["Centro de documentación de ONTAP 9"^].
+
+[cols="1,2"]
+|===
+| Nombre | Descripción 
+
+
+ a| 
+Específicos del controlador _instrucciones de instalación y configuración_
+ a| 
+Describe cómo instalar el hardware de NetApp.
+
+
+
+ a| 
+Documentación de ONTAP
+ a| 
+Proporciona información detallada sobre todos los aspectos de las versiones de ONTAP.
+
+
+
+ a| 
+https://hwu.netapp.com["Hardware Universe"^]
+ a| 
+Ofrece información de compatibilidad y configuración de hardware de NetApp.
+
+|===
+
+
+=== Kit de raíl y documentación del armario
+
+Para instalar un switch Cisco 9336-FX2 en un armario de NetApp, consulte la siguiente documentación de hardware.
+
+[cols="1,2"]
+|===
+| Nombre | Descripción 
+
+
+ a| 
+https://library.netapp.com/ecm/ecm_download_file/ECMM1280394["Armario del sistema 42U, guía detallada"^]
+ a| 
+Describe las FRU asociadas al armario del sistema 42U, y proporciona instrucciones de mantenimiento y sustitución de FRU.
+
+
+
+ a| 
+link:install-switch-and-passthrough-panel.html["Instale un switch Cisco 9336-FX2 en un armario de NetApp"^]
+ a| 
+Describe cómo instalar un switch Cisco Nexus 9336C-FX2 en un armario de cuatro parantes de NetApp.
+
+|===

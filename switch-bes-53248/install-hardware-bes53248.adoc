@@ -1,0 +1,22 @@
+---
+permalink: switch-bes-53248/install-hardware-bes53248.html 
+sidebar: sidebar 
+keywords: switches hardware installation 
+summary: Para instalar el hardware BES-53248, consulte la documentación de Broadcom. 
+---
+= Instale el hardware para el conmutador de clúster BES-53248
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para instalar el hardware BES-53248, consulte la documentación de Broadcom.
+
+.Pasos
+. Revise la link:configure-reqs-bes53248.html["requisitos de configuración"].
+. Siga las instrucciones de https://library.netapp.com/ecm/ecm_download_file/ECMLP2864537["Guía de instalación de switches de clúster compatible con BES-53248 de Broadcom"^].
+
+
+.El futuro
+link:configure-install-initial.html["Configure el switch"].

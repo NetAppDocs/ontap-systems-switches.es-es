@@ -1,0 +1,78 @@
+---
+permalink: switch-bes-53248/configure-reqs-bes53248.html 
+sidebar: sidebar 
+keywords: bes, cluster, switch, port, assignment, table, configure, bes-53428 cluster switch port assignments - bes-53428 switches 
+summary: Puede utilizar la tabla de asignación de puertos del conmutador de clúster BES-53248 como guía para configurar el clúster. 
+---
+= Requisitos de configuración para los switches de clúster BES-53248
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para la instalación y mantenimiento del conmutador BES-53248, asegúrese de revisar la compatibilidad con el sistema operativo y los requisitos de configuración.
+
+
+
+== Compatibilidad con el sistema operativo (SO)
+
+El conmutador BES-53248 admite lo siguiente:
+
+* *EFOS firmware 3.4.4.6 y posterior*. El switch BES-53248 se ejecuta en un sistema operativo Broadcom integrado conocido como Ethernet Fabric OS (EFOS). La compatibilidad con puertos de clúster de 40/100 GbE comienza con el firmware EFOS versión 3.4.4.6 y posteriores.
+* *ONTAP 9.5P8 y posterior*. Los switches de clúster BES-53248 compatibles con Broadcom están diseñados para funcionar en clústeres con diferentes tamaños de dos a 24 nodos en ONTAP 9.5P8 y versiones posteriores.
+
+
+
+
+== Requisitos de configuración
+
+Para configurar un clúster, necesita el número y el tipo de cables y conectores de cable adecuados para los switches del clúster. Según el tipo de switch de clúster que se esté configurando inicialmente, debe conectarse al puerto de la consola del switch con el cable de consola incluido.
+
+
+
+=== Asignaciones de puertos del switch del clúster
+
+Puede utilizar la tabla de asignaciones de puertos de conmutador de clúster BES-53248 compatible con Broadcom como guía para configurar su clúster.
+
+[cols="1,2"]
+|===
+| Puertos del switch | Uso de puertos 
+
+
+ a| 
+01-16
+ a| 
+Configuración base de nodos de puertos de clúster de 10 GbE
+
+
+
+ a| 
+17-48
+ a| 
+Nodos de puertos de clúster de 10 GbE, con licencias
+
+
+
+ a| 
+49-54
+ a| 
+Nodos de puertos de clúster de 100 GbE, con licencias, añadidos de derecha a izquierda
+
+
+
+ a| 
+55-56
+ a| 
+Puertos de enlace entre switches (ISL) de clúster de 100 GbE, configuración base
+
+|===
+Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obtener más información sobre los puertos de switch.
+
+
+
+=== Limitación de velocidad del grupo de puertos
+
+En los switches de clúster BES-53248, los puertos de 48 10 GbE (SFP28/SFP+) se combinan en 12 grupos de puertos de 4 de la siguiente manera: Puertos 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44, y 45-48.
+
+La velocidad del puerto SFP28/SFP+ debe ser la misma (10 GbE o 25 GbE) en todos los puertos del grupo de 4 puertos.
