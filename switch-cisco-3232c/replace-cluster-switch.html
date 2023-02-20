@@ -1,0 +1,5067 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head class="at-element-marker">
+  <title>Sustituya un switch de clúster Cisco Nexus 3232C</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Sustituya un switch de clúster Cisco Nexus 3232C" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-3232c/replace-cluster-switch.html" />
+	<meta property="og:description" content="Puede sustituir de forma no disruptiva un switch Cisco Nexus 3232C en un clúster realizando una secuencia específica de tareas." />
+  <meta property="og:image" content="https://docs.netapp.com/es-es/ontap-systems-switches/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Puede sustituir de forma no disruptiva un switch Cisco Nexus 3232C en un clúster realizando una secuencia específica de tareas.">
+  <meta name="keywords" content=" replace, cisco nexus 3232c, cluster switch"><!-- Icons -->
+  <link rel="icon" href="/es-es/ontap-systems-switches/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/es-es/ontap-systems-switches/css/netappdocs.css">
+
+  
+  <link rel="stylesheet" href="/es-es/ontap-systems-switches/css/landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/es-es/ontap-systems-switches/css/tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel='stylesheet' href='/es-es/ontap-systems-switches/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
+    function addAdobeLaunch(adobeId) {
+      var head = document.getElementsByTagName('head')[0];
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/"+adobeId+".min.js";
+      head.appendChild(adobe);
+    }
+
+    function addGoogleAnalytics(gtagId) {
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id="+gtagId;
+      var head = document.getElementsByTagName('head')[0];
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gtagId);
+    }
+
+    function addConsent(consentId) {
+      var head = document.getElementsByTagName('head')[0];
+      var onetrustConsent = document.createElement("script");
+      onetrustConsent.type = "text/javascript";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/"+consentId+"/OtAutoBlock.js";
+      head.appendChild(onetrustConsent);
+
+      var onetrustScript = document.createElement("script");
+      onetrustScript.type = "text/javascript";
+      onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
+      onetrustScript.charset = "UTF-8";
+      onetrustScript.dataset.documentLanguage = "true";
+      onetrustScript.dataset.domainScript = consentId;
+      head.appendChild(onetrustScript);
+    }addConsent("72570c5c-fe30-465f-b0e0-b77f7fb4ae34");
+    addAdobeLaunch("launch-e9ff3acac59f");
+    addGoogleAnalytics("UA-81697994-3");function OptanonWrapper() { }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/es-es/ontap-systems-switches/js/na-search.js'></script><script src='/es-es/ontap-systems-switches/js/na-pagenav.js'></script><script src='/es-es/ontap-systems-switches/js/na-utility.js'></script>
+  <script src='/es-es/ontap-systems-switches/js/clouddocs.js'></script>
+  <script src='/es-es/ontap-systems-switches/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/es-es/ontap-systems-switches/js/toc.js'></script>
+  <script src='/es-es/ontap-systems-switches/js/customscripts.js'></script><script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+          $(".sidebar-nav-container").on("scroll", function() {
+            $.cookie("sidebarScroll", $(".sidebar-nav-container").scrollTop(), {
+              path    : "/es-es/ontap-systems-switches"  
+            });
+          });
+          $(function() {
+            if ($.cookie("sidebarScroll")) {
+              $(".sidebar-nav-container").scrollTop($.cookie("sidebarScroll"));
+            }
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+  <script src='/es-es/ontap-systems-switches/js/custom-dropdown.js'></script>
+  <script src='/es-es/ontap-systems-switches/js/FileSaver.min.js'></script>
+  <script src='/es-es/ontap-systems-switches/js/jszip-utils.min.js'></script>
+  <script src='/es-es/ontap-systems-switches/js/jszip.min.js'></script>
+  <script src='/es-es/ontap-systems-switches/js/pdf-ux.js'></script>
+</head>
+
+
+  <body class role="document" data-flavor="">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/ontap-systems-switches/issues/new?body=Page%3A%20[Sustituya un switch de clúster Cisco Nexus 3232C](https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-3232c/replace-cluster-switch.html)&template=public-issue-template.md" class="page-nav-contribute-link" role="button"><img src="/es-es/ontap-systems-switches/images/discuss-sm.svg" alt="" class="github-icon" />Solicitar cambios en el documento</a><a target="_blank" href="https://github.com/NetAppDocs/ontap-systems-switches/blob/main/switch-cisco-3232c/replace-cluster-switch.adoc" class="page-nav-contribute-link" role="button"><img src="/es-es/ontap-systems-switches/images/edit-sm.svg" alt="" class="github-icon" />Editar en GitHub</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/es-es/ontap-systems-switches/images/article-sm.svg" alt="" class="github-icon" />Guía del colaborador</a></div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">EN ESTA PÁGINA</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/products-a-z/" class="n-top-hat__link">Producto y soluciones</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/support-and-training/netapp-university/" class="n-top-hat__link">Asistencia y capacitación</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://cloud.netapp.com" class="n-top-hat__link">Cloud Central</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">Comunidad</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">Blog</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">Historias de clientes</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/company/contact-us/" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/es-es/ontap-systems-switches/common/svg/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/es-es/ontap-systems-switches/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/es-es/ontap-systems-switches/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      
+      
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/es-es/ontap-systems-switches/search.html"
+          data-type="widget" 
+          data-placeholder="Buscar documentación"
+          data-no-results-found="No se encontraron resultados para {query}"
+          data-did-you-mean="Buscar {suggestion}."
+          data-no-results-found-did-you-mean="No se encontraron resultados para {query}. ¿Quiso decir {suggestion}?"
+          data-results-found="{hitCount} resultados encontrados"
+          data-error-message="We're sorry, an issue occurred when fetching your results. Please try again."
+          data-error-reset="Reset Search"
+          data-sk-es-pf-indexes=""
+          data-flavor=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/ontap-systems-switches/common/svg/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">Español</span>
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/ontap-systems-switches/common/svg/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-3232c/replace-cluster-switch.html" target="_self"><span translate="no" class="notranslate">Español</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-3232c/replace-cluster-switch.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/ontap-systems-switches/switch-cisco-3232c/replace-cluster-switch.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/ontap-systems-switches/switch-cisco-3232c/replace-cluster-switch.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-cn/ontap-systems-switches/switch-cisco-3232c/replace-cluster-switch.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/ontap-systems-switches/switch-cisco-3232c/replace-cluster-switch.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/de-de/ontap-systems-switches/switch-cisco-3232c/replace-cluster-switch.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/fr-fr/ontap-systems-switches/switch-cisco-3232c/replace-cluster-switch.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
+        </li></ul>
+    </div><!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+  </div>
+  <!-- End property bar -->
+</header>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" id="sidebar-height">
+      <button id="btn-sidebar-collapse" onclick="hideSidebar()"><img src="/es-es/ontap-systems-switches/images/collapse.png" alt="Contraer panel de navegación"></button>
+      <div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>PDFs disponibles<span>
+    </span>
+  </a>
+</div>
+<div class="n-pdf-body-container">
+  <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        
+        
+        
+        <a target="_blank" href="/es-es/ontap-systems-switches/pdfs/fullsite-sidebar/Documentación_de_AFF_y_switches_FAS.pdf" >
+          <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>PDF de este sitio de documentos</a>
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Manos_a_la_obra.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Manos a la obra
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Switches_de_clúster.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Switches de clúster
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/BES_53248_compatible_con_Broadcom.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            BES-53248 compatible con Broadcom
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Descripción_general.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Descripción general
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Instale_el_hardware.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Instale el hardware
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Configurar_el_software.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Configurar el software
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Actualice_los_switches.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Actualice los switches
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Migrar_switches.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Migrar switches
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Sustituya_los_interruptores.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Sustituya los interruptores
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Cisco_Nexus_9336C_FX2.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Cisco Nexus 9336C-FX2
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Descripción_general.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Descripción general
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Instale_el_hardware.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Instale el hardware
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Configurar_el_software.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Configurar el software
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Migrar_switches.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Migrar switches
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/NVIDIA_SN2100.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            NVIDIA SN2100
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Descripción_general.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Descripción general
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Instale_el_hardware.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Instale el hardware
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Configurar_el_software.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Configurar el software
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Migrar_switches.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Migrar switches
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Switches_de_almacenamiento.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Switches de almacenamiento
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Cisco_Nexus_9336C_FX2.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Cisco Nexus 9336C-FX2
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Descripción_general.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Descripción general
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Instale_el_hardware.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Instale el hardware
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Configurar_el_software.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Configurar el software
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Migrar_switches.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Migrar switches
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/NVIDIA_SN2100.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            NVIDIA SN2100
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Descripción_general.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Descripción general
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Instale_el_hardware.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Instale el hardware
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Configurar_el_software.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Configurar el software
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Migrar_switches.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Migrar switches
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Switches_compartidos.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Switches compartidos
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Cisco_Nexus_9336C_FX2.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Cisco Nexus 9336C-FX2
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Descripción_general.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Descripción general
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Instale_el_hardware.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Instale el hardware
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Configurar_el_software.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Configurar el software
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Migrar_switches.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Migrar switches
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Switches_de_fin_de_disponibilidad.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Switches de fin de disponibilidad
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Cisco_Nexus_3232C.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Cisco Nexus 3232C
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Descripción_general.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Descripción general
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Instale_el_hardware.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Instale el hardware
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Configurar_el_software.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Configurar el software
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Migrar_switches.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Migrar switches
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Sustituya_los_interruptores.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Sustituya los interruptores
+          </a>
+          
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Cisco_Nexus_3132Q_V.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Cisco Nexus 3132Q-V
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Descripción_general.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Descripción general
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Instale_el_hardware.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Instale el hardware
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Configurar_el_software.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Configurar el software
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Migrar_switches.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Migrar switches
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Sustituya_los_interruptores.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Sustituya los interruptores
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Cisco_Nexus_92300YC.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Cisco Nexus 92300YC
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Descripción_general.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Descripción general
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Instale_el_hardware.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Instale el hardware
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Configurar_el_software.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Configurar el software
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Migrar_switches.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Migrar switches
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/CN1610_de_NetApp.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            CN1610 de NetApp
+          </a>
+          
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Instalar_y_configurar.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Instalar y configurar
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/ontap-systems-switches/pdfs/sidebar/Migrar_switches.pdf" 
+            
+          >
+            <img src="/es-es/ontap-systems-switches/images/pdf.png" alt="" width="16" height="16"/>
+            Migrar switches
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+</li></ul>
+  <div class="zip-pdf-link-container" style="display: none;">   
+    <a href="#" id="zipPdf">
+      <img src="/es-es/ontap-systems-switches/images/pdf-zip.png" alt="" width="16" height="16"/>
+      <pre>Colección de documentos PDF separados<span class="zip-size"></span></pre>
+    </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+</div>
+<script>
+  $("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+  });
+</script><div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Documentos de AFF y switches FAS"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/index.html">
+        Documentos de AFF y switches FAS
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Manos a la obra"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Manos a la obra</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Novedades"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/whats-new.html">
+        Novedades
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Obtenga más información sobre los switches de los sistemas ONTAP"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/get-started/learn-switch-concept.html">
+        Obtenga más información sobre los switches de los sistemas ONTAP
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Póngase en marcha"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/get-started/get-up-and-running.html">
+        Póngase en marcha
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Switches de clúster"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Switches de clúster</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="BES-53248 compatible con Broadcom"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> BES-53248 compatible con Broadcom</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Descripción general"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Descripción general</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Información general de configuración"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-bes-53248/configure-new-switch-overview.html">
+        Información general de configuración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisitos de configuración"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-bes-53248/configure-reqs-bes53248.html">
+        Requisitos de configuración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Componentes y números de pieza"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-bes-53248/components-bes53248.html">
+        Componentes y números de pieza
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Documentación requerida"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-bes-53248/required-documentation-bes53248.html">
+        Documentación requerida
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el hardware"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Instale el hardware</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instalar el interruptor"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-bes-53248/install-hardware-bes53248.html">
+        Instalar el interruptor
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar el switch"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-bes-53248/configure-install-initial.html">
+        Configurar el switch
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar el software"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Configurar el software</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Flujo de trabajo de instalación del software"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-bes-53248/configure-software-overview-bes53248.html">
+        Flujo de trabajo de instalación del software
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instalar el software de EFOS"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-bes-53248/configure-efos-software.html">
+        Instalar el software de EFOS
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale licencias"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-bes-53248/configure-licenses.html">
+        Instale licencias
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el archivo de configuración RCF"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-bes-53248/configure-install-rcf.html">
+        Instale el archivo de configuración RCF
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el archivo de configuración de CSHM"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-bes-53248/configure-health-monitor.html">
+        Instale el archivo de configuración de CSHM
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Habilite SSH"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-bes-53248/configure-ssh.html">
+        Habilite SSH
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Habilite la recogida de registros"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-bes-53248/configure-log-collection.html">
+        Habilite la recogida de registros
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Actualice los switches"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Actualice los switches</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Información general de la actualización"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-bes-53248/upgrade-switch-overview.html">
+        Información general de la actualización
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Actualice el interruptor"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-bes-53248/replace-upgrade.html">
+        Actualice el interruptor
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Verificar la configuración de actualización"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-bes-53248/replace-verify.html">
+        Verificar la configuración de actualización
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migrar switches"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Migrar switches</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migrar desde switches CN1610"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-bes-53248/migrate-cn1610.html">
+        Migrar desde switches CN1610
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migre a switches de dos nodos"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-bes-53248/migrate-to-2n-switched.html">
+        Migre a switches de dos nodos
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sustituya los interruptores"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Sustituya los interruptores</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisitos de sustitución"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-bes-53248/replace-switch-reqs.html">
+        Requisitos de sustitución
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Reemplace el conmutador BES-53248"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-bes-53248/replace-switch.html">
+        Reemplace el conmutador BES-53248
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cisco Nexus 9336C-FX2"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Cisco Nexus 9336C-FX2</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Descripción general"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Descripción general</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Información general de configuración"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/configure-switch-overview-9336c-cluster.html">
+        Información general de configuración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisitos de configuración"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/configure-reqs-9336c-cluster.html">
+        Requisitos de configuración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Componentes y números de pieza"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/components-9336c-cluster.html">
+        Componentes y números de pieza
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Documentación requerida"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/required-documentation-9336c-cluster.html">
+        Documentación requerida
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisitos de Smart Call Home"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/smart-call-9336c-cluster.html">
+        Requisitos de Smart Call Home
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el hardware"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Instale el hardware</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Complete la hoja de cálculo de cableado"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/setup-worksheet-9336c-cluster.html">
+        Complete la hoja de cálculo de cableado
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instalar el interruptor"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/install-switch-9336c-cluster.html">
+        Instalar el interruptor
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar el switch"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/setup-switch-9336c-cluster.html">
+        Configurar el switch
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el switch en el armario de NetApp"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/install-switch-and-passthrough-panel-9336c-cluster.html">
+        Instale el switch en el armario de NetApp
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar el software"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Configurar el software</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Flujo de trabajo de instalación del software"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/configure-software-overview-9336c-cluster.html">
+        Flujo de trabajo de instalación del software
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Prepare la instalación de NX-OS y RCF"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/install-nxos-overview-9336c-cluster.html">
+        Prepare la instalación de NX-OS y RCF
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el software NX-OS"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/install-nxos-software-9336c-cluster.html">
+        Instale el software NX-OS
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el archivo de configuración RCF"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/install-nxos-rcf-9336c-cluster.html">
+        Instale el archivo de configuración RCF
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migrar switches"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Migrar switches</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Realizar la migración desde un switch de Cisco anterior"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/migrate-to-9336-cluster.html">
+        Realizar la migración desde un switch de Cisco anterior
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migre a un clúster de dos nodos con switches"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/migrate-to-2n-switched-9336-cluster.html">
+        Migre a un clúster de dos nodos con switches
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migre a un clúster sin switches de dos nodos"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/migrate-to-switchless-interconnect-9336-cluster.html">
+        Migre a un clúster sin switches de dos nodos
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sustituya el switch del clúster"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/replace-9336c-cluster.html">
+        Sustituya el switch del clúster
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="NVIDIA SN2100"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> NVIDIA SN2100</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Descripción general"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Descripción general</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Información general de configuración"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/configure-overview-sn2100-cluster.html">
+        Información general de configuración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisitos de configuración"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/configure-reqs-sn2100-cluster.html">
+        Requisitos de configuración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Componentes y números de pieza"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/components-sn2100-cluster.html">
+        Componentes y números de pieza
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Documentación requerida"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/required-documentation-sn2100-cluster.html">
+        Documentación requerida
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el hardware"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Instale el hardware</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instalar el interruptor"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/install-hardware-sn2100-cluster.html">
+        Instalar el interruptor
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar el switch"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/configure-sn2100-cluster.html">
+        Configurar el switch
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Revisar el cableado y la configuración"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/cabling-considerations-sn2100-cluster.html">
+        Revisar el cableado y la configuración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Conecte el cable de las bandejas NS224"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/install-cable-shelves-sn2100-cluster.html">
+        Conecte el cable de las bandejas NS224
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar el software"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Configurar el software</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Flujo de trabajo de instalación del software"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/configure-software-overview-sn2100-cluster.html">
+        Flujo de trabajo de instalación del software
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale Cumulus Linux en modo Cumulus"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/install-cumulus-mode-sn2100-cluster.html">
+        Instale Cumulus Linux en modo Cumulus
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale Cumulus Linux en modo ONIE"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/install-onie-mode-sn2100-cluster.html">
+        Instale Cumulus Linux en modo ONIE
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale la secuencia de comandos RCF"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/install-rcf-sn2100-cluster.html">
+        Instale la secuencia de comandos RCF
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar la recopilación de registros del switch"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/install-snmpv3-sn2100-cluster.html">
+        Configurar la recopilación de registros del switch
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migrar switches"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Migrar switches</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migre desde switches de clúster de Cisco"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/migrate-cisco-sn2100-cluster-switch.html">
+        Migre desde switches de clúster de Cisco
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migre a un clúster sin switches de dos nodos"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/migrate-to-switchless-interconnect-sn2100-cluster.html">
+        Migre a un clúster sin switches de dos nodos
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sustituya el switch del clúster"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/replace-sn2100-switch-cluster.html">
+        Sustituya el switch del clúster
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Switches de almacenamiento"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Switches de almacenamiento</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cisco Nexus 9336C-FX2"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Cisco Nexus 9336C-FX2</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Descripción general"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Descripción general</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Información general de configuración"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-storage/configure-switch-overview-9336c-storage.html">
+        Información general de configuración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisitos de configuración"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-storage/configure-reqs-9336c-storage.html">
+        Requisitos de configuración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Componentes y números de pieza"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-storage/components-9336c-storage.html">
+        Componentes y números de pieza
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Documentación requerida"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-storage/required-documentation-9336c-storage.html">
+        Documentación requerida
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisitos de Smart Call Home"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-storage/smart-call-9336c-storage.html">
+        Requisitos de Smart Call Home
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el hardware"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Instale el hardware</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Complete la hoja de cálculo de cableado"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-storage/setup-worksheet-9336c-storage.html">
+        Complete la hoja de cálculo de cableado
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instalar el interruptor"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-storage/install-9336c-storage.html">
+        Instalar el interruptor
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar el switch"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-storage/setup-switch-9336c-storage.html">
+        Configurar el switch
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el switch en el armario de NetApp"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-storage/install-switch-and-passthrough-panel-9336c-storage.html">
+        Instale el switch en el armario de NetApp
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar el software"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Configurar el software</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Flujo de trabajo de instalación del software"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-storage/configure-software-overview-9336c-storage.html">
+        Flujo de trabajo de instalación del software
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Prepare la instalación de NX-OS y RCF"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-storage/install-nxos-overview-9336c-storage.html">
+        Prepare la instalación de NX-OS y RCF
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el software NX-OS"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-storage/install-nxos-software-9336c-storage.html">
+        Instale el software NX-OS
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el archivo de configuración RCF"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-storage/install-nxos-rcf-9336c-storage.html">
+        Instale el archivo de configuración RCF
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migrar switches"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Migrar switches</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Realizar la migración desde un switch de Cisco anterior"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-storage/migrate-to-9336-storage.html">
+        Realizar la migración desde un switch de Cisco anterior
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migre a un clúster de dos nodos con switches"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-storage/migrate-to-2n-switched-9336-storage.html">
+        Migre a un clúster de dos nodos con switches
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migre a un clúster sin switches de dos nodos"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-storage/migrate-to-switchless-interconnect-9336-storage.html">
+        Migre a un clúster sin switches de dos nodos
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sustituir el interruptor de almacenamiento"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-storage/replace-storage-switch-9336c-storage.html">
+        Sustituir el interruptor de almacenamiento
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="NVIDIA SN2100"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> NVIDIA SN2100</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Descripción general"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Descripción general</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Información general de configuración"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/configure-overview-sn2100-storage.html">
+        Información general de configuración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisitos de configuración"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/configure-reqs-sn2100-storage.html">
+        Requisitos de configuración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Componentes y números de pieza"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/components-sn2100-storage.html">
+        Componentes y números de pieza
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Documentación requerida"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/required-documentation-sn2100-storage.html">
+        Documentación requerida
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el hardware"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Instale el hardware</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instalar el interruptor"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/install-hardware-sn2100-storage.html">
+        Instalar el interruptor
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar el switch"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/configure-sn2100-storage.html">
+        Configurar el switch
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Revisar el cableado y la configuración"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/cabling-considerations-sn2100-storage.html">
+        Revisar el cableado y la configuración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cableado para estantes NS224"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/install-cable-shelves-sn2100-storage.html">
+        Cableado para estantes NS224
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar el software"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Configurar el software</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Flujo de trabajo de instalación del software"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/configure-software-sn2100-storage.html">
+        Flujo de trabajo de instalación del software
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale Cumulus Linux en modo Cumulus"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/install-cumulus-mode-sn2100-storage.html">
+        Instale Cumulus Linux en modo Cumulus
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale Cumulus Linux en modo ONIE"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/install-onie-mode-sn2100-storage.html">
+        Instale Cumulus Linux en modo ONIE
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale la secuencia de comandos RCF"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/install-rcf-sn2100-storage.html">
+        Instale la secuencia de comandos RCF
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar la recopilación de registros del switch"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/install-snmpv3-sn2100-storage.html">
+        Configurar la recopilación de registros del switch
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migrar switches"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Migrar switches</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migre desde switches de almacenamiento de Cisco"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/migrate-cisco-storage-switch-sn2100-storage.html">
+        Migre desde switches de almacenamiento de Cisco
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migre a un clúster de dos nodos con switches"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/migrate-2n-switched-sn2100-storage.html">
+        Migre a un clúster de dos nodos con switches
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sustituir el interruptor"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/replace-sn2100-switch-storage.html">
+        Sustituir el interruptor
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Switches compartidos"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Switches compartidos</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cisco Nexus 9336C-FX2"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Cisco Nexus 9336C-FX2</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Descripción general"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Descripción general</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Información general de configuración"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-shared/configure-switch-overview-9336c-shared.html">
+        Información general de configuración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisitos de configuración"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-shared/configure-reqs-9336c-shared.html">
+        Requisitos de configuración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Componentes y números de pieza"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-shared/components-9336c-shared.html">
+        Componentes y números de pieza
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Documentación requerida"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-shared/required-documentation-9336c-shared.html">
+        Documentación requerida
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el hardware"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Instale el hardware</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Complete la hoja de cálculo de cableado"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-shared/cable-9336c-shared.html">
+        Complete la hoja de cálculo de cableado
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instalar el interruptor"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-shared/install-9336c-shared.html">
+        Instalar el interruptor
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar el switch"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-shared/setup-and-configure-9336c-shared.html">
+        Configurar el switch
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el switch en el armario de NetApp"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-shared/install-switch-and-passthrough-panel-9336c-shared.html">
+        Instale el switch en el armario de NetApp
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar el software"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Configurar el software</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Flujo de trabajo de instalación del software"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-shared/configure-software-overview-9336c-shared.html">
+        Flujo de trabajo de instalación del software
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Prepárese para instalar el software NX-OS y RCF"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-shared/prepare-nxos-rcf-9336c-shared.html">
+        Prepárese para instalar el software NX-OS y RCF
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el software NX-OS"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-shared/install-nxos-software-9336c-shared.html">
+        Instale el software NX-OS
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el archivo de configuración RCF"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-shared/install-nxos-rcf-9336c-shared.html">
+        Instale el archivo de configuración RCF
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migrar switches"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Migrar switches</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Realice la migración desde un clúster DAS sin switches"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-shared/migrate-from-switchless-cluster-dat-storage.html">
+        Realice la migración desde un clúster DAS sin switches
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migrar desde la configuración de DAS conmutada"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-shared/migrate-from-switched-configuration-dat-storage.html">
+        Migrar desde la configuración de DAS conmutada
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migrar desde la configuración SAT sin switches"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-shared/migrate-from-switchless-configuration-sat-storage.html">
+        Migrar desde la configuración SAT sin switches
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migrar desde el grupo SAT conmutado"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-shared/migrate-from-switched-cluster-sat-storage.html">
+        Migrar desde el grupo SAT conmutado
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migre a un clúster sin switches de dos nodos"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-shared/migrate-to-switchless-cluster-interconnect.html">
+        Migre a un clúster sin switches de dos nodos
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sustituya los interruptores"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-shared/replace-9336c-fx2-shared.html">
+        Sustituya los interruptores
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Switches de fin de disponibilidad"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Switches de fin de disponibilidad</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Descripción general"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/overview-eod.html">
+        Descripción general
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cisco Nexus 3232C"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Cisco Nexus 3232C</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Descripción general"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Descripción general</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Información general de configuración"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3232c/install-overview-cisco-3232c.html">
+        Información general de configuración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisitos de configuración"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3232c/configure-reqs-3232c.html">
+        Requisitos de configuración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Documentación requerida"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3232c/required-documentation-3232c.html">
+        Documentación requerida
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisitos de Smart Call Home"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3232c/smart-call-home-3232c.html">
+        Requisitos de Smart Call Home
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el hardware"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Instale el hardware</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Complete la hoja de cálculo de cableado"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3232c/setup_worksheet_3232c.html">
+        Complete la hoja de cálculo de cableado
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar el switch"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3232c/setup-switch.html">
+        Configurar el switch
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el switch en el armario de NetApp"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3232c/install-cisco-nexus-3232c.html">
+        Instale el switch en el armario de NetApp
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar el software"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Configurar el software</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Prepare la instalación de NX-OS y RCF"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3232c/prepare-install-cisco-nexus-3232c.html">
+        Prepare la instalación de NX-OS y RCF
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el software NX-OS"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3232c/install-nx-os-software-3232c.html">
+        Instale el software NX-OS
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el archivo de configuración RCF"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3232c/install-rcf-3232c.html">
+        Instale el archivo de configuración RCF
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migrar switches"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Migrar switches</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisitos de migración"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3232c/migrate-requirements-3232c.html">
+        Requisitos de migración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migrar desde el switch de clúster CN1610"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3232c/migrate-cn1610-cluster-switches.html">
+        Migrar desde el switch de clúster CN1610
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migrar desde el switch de clúster Cisco Nexus 5596"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3232c/migrate-from-cisco-nexus-5596.html">
+        Migrar desde el switch de clúster Cisco Nexus 5596
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migre desde un clúster sin switches de dos nodos"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3232c/migrate-from-two-node-switchless-cluster.html">
+        Migre desde un clúster sin switches de dos nodos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migre a un clúster sin switches de dos nodos"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3232c/migrate-to-switchless-cluster-interconnect.html">
+        Migre a un clúster sin switches de dos nodos
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sustituya los interruptores"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Sustituya los interruptores</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sustituya el switch del clúster"
+      data-li-level="4#" 
+      class="  active "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3232c/replace-cluster-switch.html">
+        Sustituya el switch del clúster
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sustituir el interruptor de almacenamiento"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3232c/replace-storage-switch.html">
+        Sustituir el interruptor de almacenamiento
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Actualice los switches"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3232c/upgrade-3232c-storage-switches.html">
+        Actualice los switches
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cisco Nexus 3132Q-V"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Cisco Nexus 3132Q-V</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Descripción general"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Descripción general</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Información general de configuración"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3132q-v/install-overview-cisco-3132qv.html">
+        Información general de configuración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisitos de configuración"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3132q-v/configure-reqs-3132q.html">
+        Requisitos de configuración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Documentación requerida"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3132q-v/required-documentation-3132q.html">
+        Documentación requerida
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisitos de Smart Call Home"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3132q-v/smart-call-home-3132q.html">
+        Requisitos de Smart Call Home
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el hardware"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Instale el hardware</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Complete la hoja de cálculo de cableado"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3132q-v/setup_worksheet_3132q.html">
+        Complete la hoja de cálculo de cableado
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar el switch"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3132q-v/setup-switch.html">
+        Configurar el switch
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el switch en el armario de NetApp"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3132q-v/install-cisco-nexus-3132qv.html">
+        Instale el switch en el armario de NetApp
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar el software"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Configurar el software</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Prepare la instalación de NX-OS y RCF"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3132q-v/prepare-install-cisco-nexus-3132q.html">
+        Prepare la instalación de NX-OS y RCF
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el software NX-OS"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3132q-v/install-nx-os-software-3132q-v.html">
+        Instale el software NX-OS
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el archivo de configuración RCF"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3132q-v/install-rcf-3132q-v.html">
+        Instale el archivo de configuración RCF
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migrar switches"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Migrar switches</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migrar desde switches CN5596"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3132q-v/migrate-from-cisco-nexus-5596-to-cisco-nexus-3232c.html">
+        Migrar desde switches CN5596
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migrar desde switches CN1610"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3132q-v/replace-cn1610-with-cisco-nexus-3232c.html">
+        Migrar desde switches CN1610
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migrar del clúster sin switches a clúster con switches"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3132q-v/migrate-from-switchless-cluster-to-cisco-nexus-3132q-v.html">
+        Migrar del clúster sin switches a clúster con switches
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migrar del clúster con switches a sin switches"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3132q-v/migrate-to-switchless-cluster-interconnect.html">
+        Migrar del clúster con switches a sin switches
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sustituya los interruptores"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Sustituya los interruptores</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sustituya los requisitos"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3132q-v/switch-requirements.html">
+        Sustituya los requisitos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sustituir los interruptores CN3132Q-V."
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-3132q-v/replace-cisco-nexus-3132q-v.html">
+        Sustituir los interruptores CN3132Q-V.
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cisco Nexus 92300YC"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Cisco Nexus 92300YC</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Descripción general"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Descripción general</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Información general de configuración"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-92300/install-overview-cisco-92300.html">
+        Información general de configuración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisitos de configuración"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-92300/configure-reqs-92300.html">
+        Requisitos de configuración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Componentes y números de pieza"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-92300/components-92300.html">
+        Componentes y números de pieza
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Documentación requerida"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-92300/required-documentation-92300.html">
+        Documentación requerida
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisitos de Smart Call Home"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-92300/smart-call-home-92300.html">
+        Requisitos de Smart Call Home
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el hardware"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Instale el hardware</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Complete la hoja de cálculo de cableado"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-92300/setup-worksheet-92300yc.html">
+        Complete la hoja de cálculo de cableado
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar el switch"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-92300/configure-install-initial.html">
+        Configurar el switch
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar el software"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Configurar el software</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Prepare la instalación de NX-OS y RCF"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-92300/install-nxos-overview.html">
+        Prepare la instalación de NX-OS y RCF
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale NX-OS"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-92300/install-nxos-software.html">
+        Instale NX-OS
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el archivo de configuración RCF"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-92300/install-the-rcf-file.html">
+        Instale el archivo de configuración RCF
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instalar CSHM"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-92300/setup-install-cshm-file.html">
+        Instalar CSHM
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migrar switches"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Migrar switches</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migre a un clúster de dos nodos con switches"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-92300/migrate-to-2n-switched.html">
+        Migre a un clúster de dos nodos con switches
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migrar desde un switch Cisco antiguo"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-92300/migrate-to-92300yc.html">
+        Migrar desde un switch Cisco antiguo
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migre a un clúster sin switches de dos nodos"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-92300/migrate-to-switchless-cluster-interconnect.html">
+        Migre a un clúster sin switches de dos nodos
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sustituir el interruptor"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-cisco-92300/replace-92300yc.html">
+        Sustituir el interruptor
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="CN1610 de NetApp"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> CN1610 de NetApp</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Descripción general"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-netapp-cn1610/switch-overview-cn1610.html">
+        Descripción general
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Flujo de trabajo de instalación y configuración"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-netapp-cn1610/install-overview-cn1610.html">
+        Flujo de trabajo de instalación y configuración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Documentación requerida"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-netapp-cn1610/required-documentation-cn1610.html">
+        Documentación requerida
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instalar y configurar"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Instalar y configurar</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el hardware"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-netapp-cn1610/install-hardware-cn1610.html">
+        Instale el hardware
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale el software FASTPATH"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-netapp-cn1610/install-fastpath-software.html">
+        Instale el software FASTPATH
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale un RCF"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-netapp-cn1610/install-rcf-file.html">
+        Instale un RCF
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale FASTPATH y RCF para ONTAP 8.3.1 y versiones posteriores"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-netapp-cn1610/install-fastpath-rcf-831.html">
+        Instale FASTPATH y RCF para ONTAP 8.3.1 y versiones posteriores
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar el switch"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-netapp-cn1610/configure-hardware-cn1610.html">
+        Configurar el switch
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migrar switches"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Migrar switches</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Opciones de migración"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-netapp-cn1610/migrate-overview.html">
+        Opciones de migración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migre desde un clúster sin switches"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-netapp-cn1610/migrate-switched-netapp-cn1610.html">
+        Migre desde un clúster sin switches
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migre a un clúster de dos nodos con switches"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-netapp-cn1610/migrate-fas22xx-systems.html">
+        Migre a un clúster de dos nodos con switches
+      </a></li></ul></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Avisos legales"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/legal-notices.html">
+        Avisos legales
+      </a></li></ul>
+</div>
+<script>
+  window.onscroll = () => {
+    const value = -40 - (document.body.scrollHeight - (window.innerHeight + document.scrollingElement.scrollTop));
+    
+    document.getElementById("sidebar-height").style.bottom = Math.max(0,value) + "px";
+};
+</script>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+<script>$("#mysidebar li.active").parents('ul').css("display","block");</script>
+
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content" id="main">
+      <div class="ie-utility">
+  <button id="btn-sidebar-expand" onclick="showSidebar()"><img src="/es-es/ontap-systems-switches/images/expand.png" alt="Expandir panel de navegación"></button>
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
+        </li>
+        
+
+        
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com/es-es/ontap-systems-family/">AFF and FAS Systems</a>
+        </li>
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/es-es/ontap-systems-switches/">Cluster&nbsp;and&nbsp;storage&nbsp;switches</a>
+        </li>
+
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
+      <div class="ie-nmt-disclaimer">
+  <span>
+    <div class="ie-nmt-disclaimer-container">
+      <div class="ie-nmt-disclaimer-icon">
+        <svg class="luci-icon" aria-hidden="true">
+          <use xlink:href="/es-es/ontap-systems-switches/common/svg/sprite.svg#circle-info">
+        </svg>
+      </div>
+      <div class="ie-nmt-disclaimer-content">
+        <span> Se proporciona el idioma español mediante traducción automática para su comodidad. En caso de alguna inconsistencia, el inglés precede al español. </span>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </span>
+</div><div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Sustituya un switch de clúster Cisco Nexus 3232C</h1>
+</div>
+
+
+<p class="page-details">
+  
+    
+    <time datetime="2023-02-20 21:26:23 +0000">02/20/2023</time>
+    
+  
+
+<span>Colaboradores
+</span>
+
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>Siga estos pasos para sustituir un switch Cisco Nexus 3232C defectuoso en un clúster. Este procedimiento no es disruptivo.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="revise-los-requisitos">Revise los requisitos</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<div class="title">Lo que necesitará</div>
+<p>Asegúrese de que la configuración de clúster y red existente tenga las siguientes características:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>La infraestructura del clúster Nexus 3232C es redundante y totalmente funcional en ambos switches.</p>
+<div class="paragraph">
+<p>La página Cisco Ethernet Switches tiene las versiones más recientes de RCF y NX-OS en sus switches.</p>
+</div>
+</li>
+<li>
+<p>Todos los puertos del clúster deben estar en el estado <strong>up</strong>.</p>
+</li>
+<li>
+<p>Debe haber conectividad de gestión en ambos switches.</p>
+</li>
+<li>
+<p>Todas las interfaces lógicas de clúster (LIF) están en el estado <strong>up</strong> y no se migran.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>El switch Cisco Nexus 3232C de sustitución tiene las siguientes características:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>La conectividad de la red de gestión es funcional.</p>
+</li>
+<li>
+<p>El acceso de la consola al interruptor de sustitución está en su lugar.</p>
+</li>
+<li>
+<p>La imagen apropiada del sistema operativo RCF y NX-OS se carga en el conmutador.</p>
+</li>
+<li>
+<p>Se ha completado la personalización inicial del conmutador.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Si quiere más información</div>
+<p>Consulte lo siguiente:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://support.netapp.com/NOW/download/software/cm_switches/" target="_blank" rel="noopener">"Página de descripción de Cisco Ethernet Switch"</a></p>
+</li>
+<li>
+<p><a href="http://hwu.netapp.com" target="_blank" rel="noopener">"Hardware Universe"</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sustituya-el-interruptor">Sustituya el interruptor</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<div class="title">Acerca de esta tarea</div>
+<p>Este procedimiento de sustitución describe la siguiente situación:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Al principio, el clúster tiene cuatro nodos conectados a dos switches de clúster Nexus 3232C, CL1 y CL2.</p>
+</li>
+<li>
+<p>Tiene previsto sustituir el conmutador de clúster CL2 por C2 (pasos del 1 al 21):</p>
+<div class="ulist">
+<ul>
+<li>
+<p>En cada nodo, migra las LIF de clúster conectadas al switch del clúster CL2 a los puertos del clúster conectados al switch del clúster CL1.</p>
+</li>
+<li>
+<p>Desconecte el cableado de todos los puertos del switch del clúster CL2 y vuelva a conectar el cableado a los mismos puertos del switch del clúster de reemplazo C2.</p>
+</li>
+<li>
+<p>Revierte los LIF de clúster migrados en cada nodo.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Acerca de los ejemplos</div>
+<p>Este procedimiento de sustitución sustituye al segundo switch de clúster Nexus 3232C CL2 por el nuevo switch 3232C C2.</p>
+</div>
+<div class="paragraph">
+<p>Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Los cuatro nodos son n1, n2, n3 y n4.</p>
+</li>
+<li>
+<p>n1_clus1 es la primera interfaz lógica del clúster (LIF) conectada al switch del clúster C1 para el nodo n1.</p>
+</li>
+<li>
+<p>n1_clus2 es la primera LIF del clúster conectada al switch de clúster CL2 o C2 para el nodo n1.</p>
+</li>
+<li>
+<p>n1_clus3 es la segunda LIF conectada al switch de clúster C2 para el nodo n1.-</p>
+</li>
+<li>
+<p>n1_clusal 4 es la segunda LIF conectada al switch de clúster CL1, para el nodo n1.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la <a href="https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml" target="_blank" rel="noopener">"Descarga del archivo de configuración de referencia del conmutador de red de clúster Cisco®"</a> página.</p>
+</div>
+<div class="paragraph">
+<p>Los ejemplos de este procedimiento de sustitución utilizan cuatro nodos. Dos de estos nodos utilizan cuatro puertos de interconexión de clúster de 10 GB: E0a, e0b, e0c y e0d. Los otros dos nodos utilizan dos puertos de interconexión de clúster de 40 GB: e4a y e4e. Consulte <a href="https://hwu.netapp.com/SWITCH/INDEX.html" target="_blank" rel="noopener">"Hardware Universe"</a> para verificar los puertos de clúster correctos para su plataforma.</p>
+</div>
+<div class="sect2">
+<h3 id="paso-1-mostrar-y-migrar-los-puertos-del-clúster-al-switch">Paso 1: Mostrar y migrar los puertos del clúster al switch</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Si se habilita AutoSupport en este clúster, elimine la creación automática de casos invocando un mensaje de AutoSupport:</p>
+<div class="paragraph">
+<p><code>system node autosupport invoke -node * -type all - message MAINT=xh</code></p>
+</div>
+<div class="paragraph">
+<p><em>x</em> es la duración de la ventana de mantenimiento en horas.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems-switches/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>El mensaje de AutoSupport notifica al soporte técnico de esta tarea de mantenimiento para que la creación automática de casos se suprima durante la ventana de mantenimiento.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Muestra información sobre los dispositivos de la configuración:</p>
+<div class="paragraph">
+<p><code>network device-discovery show</code></p>
+</div>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>cluster::&gt; network device-discovery show
+            Local  Discovered
+Node        Port   Device              Interface         Platform
+----------- ------ ------------------- ----------------  ----------------
+n1         /cdp
+            e0a    CL1                 Ethernet1/1/1    N3K-C3232C
+            e0b    CL2                 Ethernet1/1/1    N3K-C3232C
+            e0c    CL2                 Ethernet1/1/2    N3K-C3232C
+            e0d    CL1                 Ethernet1/1/2    N3K-C3232C
+
+n2         /cdp
+            e0a    CL1                 Ethernet1/1/3    N3K-C3232C
+            e0b    CL2                 Ethernet1/1/3    N3K-C3232C
+            e0c    CL2                 Ethernet1/1/4    N3K-C3232C
+            e0d    CL1                 Ethernet1/1/4    N3K-C3232C
+
+n3         /cdp
+            e4a    CL1                 Ethernet1/7      N3K-C3232C
+            e4e    CL2                 Ethernet1/7      N3K-C3232C
+
+n4         /cdp
+            e4a    CL1                 Ethernet1/8      N3K-C3232C
+            e4e    CL2                 Ethernet1/8      N3K-C3232C
+
+12 entries were displayed</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>Determinar el estado administrativo u operativo de cada interfaz de clúster.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Mostrar los atributos del puerto de red:</p>
+<div class="paragraph">
+<p><code>network port show -role cluster</code></p>
+</div>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>cluster::*&gt; network port show -role cluster
+(network port show)
+Node: n1
+                                                                      Ignore
+                                                  Speed(Mbps) Health  Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status  Status
+--------- ------------ ---------------- ---- ---- ----------- ------------
+e0a       Cluster      Cluster          up   9000 auto/10000  -
+e0b       Cluster      Cluster          up   9000 auto/10000  -
+e0c       Cluster      Cluster          up   9000 auto/10000  -
+e0d       Cluster      Cluster          up   9000 auto/10000  -        -
+
+Node: n2
+                                                                      Ignore
+                                                  Speed(Mbps) Health  Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status  Status
+--------- ------------ ---------------- ---- ---- ----------- ------------
+e0a       Cluster      Cluster          up   9000  auto/10000 -
+e0b       Cluster      Cluster          up   9000  auto/10000 -
+e0c       Cluster      Cluster          up   9000  auto/10000 -
+e0d       Cluster      Cluster          up   9000  auto/10000 -        -
+
+Node: n3
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- -----
+e4a       Cluster      Cluster          up   9000 auto/40000  -        -
+e4e       Cluster      Cluster          up   9000 auto/40000  -        -
+
+Node: n4
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- -----
+e4a       Cluster      Cluster          up   9000 auto/40000  -
+e4e       Cluster      Cluster          up   9000 auto/40000  -
+
+12 entries were displayed.</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>Mostrar información acerca de las interfaces lógicas (LIF):</p>
+<div class="paragraph">
+<p><code>network interface show -role cluster</code></p>
+</div>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>cluster::*&gt; network interface show -role cluster
+             Logical    Status     Network          Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port   Home
+----------- ---------- ---------- ------------------ ------------- ------- ---
+Cluster
+            n1_clus1   up/up      10.10.0.1/24       n1            e0a     true
+            n1_clus2   up/up      10.10.0.2/24       n1            e0b     true
+            n1_clus3   up/up      10.10.0.3/24       n1            e0c     true
+            n1_clus4   up/up      10.10.0.4/24       n1            e0d     true
+            n2_clus1   up/up      10.10.0.5/24       n2            e0a     true
+            n2_clus2   up/up      10.10.0.6/24       n2            e0b     true
+            n2_clus3   up/up      10.10.0.7/24       n2            e0c     true
+            n2_clus4   up/up      10.10.0.8/24       n2            e0d     true
+            n3_clus1   up/up      10.10.0.9/24       n3            e0a     true
+            n3_clus2   up/up      10.10.0.10/24      n3            e0e     true
+            n4_clus1   up/up      10.10.0.11/24      n4            e0a     true
+            n4_clus2   up/up      10.10.0.12/24      n4            e0e     true
+
+12 entries were displayed.</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>Muestre los switches del clúster detectados:</p>
+<div class="paragraph">
+<p><code>system cluster-switch show</code></p>
+</div>
+</li>
+</ol>
+</div>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
+<div class="paragraph">
+<p>En el siguiente ejemplo de resultado se muestran los switches de clúster:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cluster::&gt; system cluster-switch show
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+CL1                         cluster-network    10.10.1.101      NX3232C
+Serial Number: FOX000001
+Is Monitored: true
+Reason:
+Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                   7.0(3)I6(1)
+Version Source: CDP
+
+CL2                         cluster-network    10.10.1.102      NX3232C
+Serial Number: FOX000002
+Is Monitored: true
+Reason:
+Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                   7.0(3)I6(1)
+Version Source: CDP
+
+2 entries were displayed.</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>Compruebe que el RCF y la imagen adecuados están instalados en el nuevo switch Nexus 3232C y realice las personalizaciones necesarias del sitio.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Vaya al sitio de soporte de NetApp.</p>
+<div class="paragraph">
+<p><a href="http://mysupport.netapp.com/" target="_blank" rel="noopener">"mysupport.netapp.com"</a></p>
+</div>
+</li>
+<li>
+<p>Vaya a la página <strong>Cisco Ethernet Switches</strong> y anote las versiones de software necesarias en la tabla.</p>
+<div class="paragraph">
+<p><a href="https://mysupport.netapp.com/NOW/download/software/cm_switches/" target="_blank" rel="noopener">"Switches Ethernet de Cisco"</a></p>
+</div>
+</li>
+<li>
+<p>Descargue la versión adecuada del RCF.</p>
+</li>
+<li>
+<p>Haga clic en <strong>CONTINUAR</strong> en la página <strong>Descripción</strong>, acepte el contrato de licencia y, a continuación, vaya a la página <strong>Descargar</strong>.</p>
+</li>
+<li>
+<p>Descargue la versión correcta del software Image desde la página *Descarga del archivo de configuración de referencia del conmutador de red de administración y clúster Cisco®.</p>
+<div class="paragraph">
+<p><a href="http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml" target="_blank" rel="noopener">"Descarga del archivo de configuración de referencia del conmutador de red de administración y clúster Cisco®"</a></p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Migre las LIF del clúster a los puertos del nodo físico conectados al switch de reemplazo C2:</p>
+<div class="paragraph">
+<p><code>network interface migrate -vserver Cluster -lif <em>lif-name</em> -source-node <em>node-name</em> -destination-node <em>node-name</em> -destination-port <em>port-name</em></code></p>
+</div>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
+<div class="paragraph">
+<p>Debe migrar todas las LIF del clúster individualmente, como se muestra en el ejemplo siguiente:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cluster::*&gt; network interface migrate -vserver Cluster -lif n1_clus2 -source-node n1 –destination-
+node n1 -destination-port e0a
+cluster::*&gt; network interface migrate -vserver Cluster -lif n1_clus3 -source-node n1 –destination-
+node n1 -destination-port e0d
+cluster::*&gt; network interface migrate -vserver Cluster -lif n2_clus2 -source-node n2 –destination-
+node n2 -destination-port e0a
+cluster::*&gt; network interface migrate -vserver Cluster -lif n2_clus3 -source-node n2 –destination-
+node n2 -destination-port e0d
+cluster::*&gt; network interface migrate -vserver Cluster -lif n3_clus2 -source-node n3 –destination-
+node n3 -destination-port e4a
+cluster::*&gt; network interface migrate -vserver Cluster -lif n4_clus2 -source-node n4 –destinationnode
+n4 -destination-port e4a</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>Compruebe el estado de los puertos del clúster y sus designaciones principales:</p>
+<div class="paragraph">
+<p><code>network interface show -role cluster</code></p>
+</div>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>cluster::*&gt; network interface show -role cluster
+(network interface show)
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+            n1_clus1   up/up      10.10.0.1/24       n1            e0a     true
+            n1_clus2   up/up      10.10.0.2/24       n1            e0a     false
+            n1_clus3   up/up      10.10.0.3/24       n1            e0d     false
+            n1_clus4   up/up      10.10.0.4/24       n1            e0d     true
+            n2_clus1   up/up      10.10.0.5/24       n2            e0a     true
+            n2_clus2   up/up      10.10.0.6/24       n2            e0a     false
+            n2_clus3   up/up      10.10.0.7/24       n2            e0d     false
+            n2_clus4   up/up      10.10.0.8/24       n2            e0d     true
+            n3_clus1   up/up      10.10.0.9/24       n3            e4a     true
+            n3_clus2   up/up      10.10.0.10/24      n3            e4a     false
+            n4_clus1   up/up      10.10.0.11/24      n4            e4a     true
+            n4_clus2   up/up      10.10.0.12/24      n4            e4a     false
+12 entries were displayed.</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>Apague los puertos de interconexión de clúster que están conectados físicamente al switch CL2 original:</p>
+<div class="paragraph">
+<p><code>network port modify -node <em>node-name</em> -port <em>port-name</em> -up-admin false</code></p>
+</div>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
+<div class="paragraph">
+<p>En el siguiente ejemplo se muestran los puertos de interconexión de clúster se apagan en todos los nodos:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cluster::*&gt; network port modify -node n1 -port e0b -up-admin false
+cluster::*&gt; network port modify -node n1 -port e0c -up-admin false
+cluster::*&gt; network port modify -node n2 -port e0b -up-admin false
+cluster::*&gt; network port modify -node n2 -port e0c -up-admin false
+cluster::*&gt; network port modify -node n3 -port e4e -up-admin false
+cluster::*&gt; network port modify -node n4 -port e4e -up-admin false</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>Hacer ping a las interfaces remotas del clúster y realizar una comprobación del servidor RPC:</p>
+<div class="paragraph">
+<p><code>cluster ping-cluster -node <em>node-name</em></code></p>
+</div>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
+<div class="paragraph">
+<p>En el siguiente ejemplo se muestra el nodo n1 con alas y el estado RPC indicado posteriormente:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cluster::*&gt; cluster ping-cluster -node n1
+Host is n1 Getting addresses from network interface table...
+Cluster n1_clus1 n1        e0a    10.10.0.1
+Cluster n1_clus2 n1        e0b    10.10.0.2
+Cluster n1_clus3 n1        e0c    10.10.0.3
+Cluster n1_clus4 n1        e0d    10.10.0.4
+Cluster n2_clus1 n2        e0a    10.10.0.5
+Cluster n2_clus2 n2        e0b    10.10.0.6
+Cluster n2_clus3 n2        e0c    10.10.0.7
+Cluster n2_clus4 n2        e0d    10.10.0.8
+Cluster n3_clus1 n4        e0a    10.10.0.9
+Cluster n3_clus2 n3        e0e    10.10.0.10
+Cluster n4_clus1 n4        e0a    10.10.0.11
+Cluster n4_clus2 n4        e0e    10.10.0.12
+Local = 10.10.0.1 10.10.0.2 10.10.0.3 10.10.0.4
+Remote = 10.10.0.5 10.10.0.6 10.10.0.7 10.10.0.8 10.10.0.9 10.10.0.10 10.10.0.11
+10.10.0.12 Cluster Vserver Id = 4294967293 Ping status:
+....
+Basic connectivity succeeds on 32 path(s)
+Basic connectivity fails on 0 path(s) ................
+Detected 9000 byte MTU on 32 path(s):
+    Local 10.10.0.1 to Remote 10.10.0.5
+    Local 10.10.0.1 to Remote 10.10.0.6
+    Local 10.10.0.1 to Remote 10.10.0.7
+    Local 10.10.0.1 to Remote 10.10.0.8
+    Local 10.10.0.1 to Remote 10.10.0.9
+    Local 10.10.0.1 to Remote 10.10.0.10
+    Local 10.10.0.1 to Remote 10.10.0.11
+    Local 10.10.0.1 to Remote 10.10.0.12
+    Local 10.10.0.2 to Remote 10.10.0.5
+    Local 10.10.0.2 to Remote 10.10.0.6
+    Local 10.10.0.2 to Remote 10.10.0.7
+    Local 10.10.0.2 to Remote 10.10.0.8
+    Local 10.10.0.2 to Remote 10.10.0.9
+    Local 10.10.0.2 to Remote 10.10.0.10
+    Local 10.10.0.2 to Remote 10.10.0.11
+    Local 10.10.0.2 to Remote 10.10.0.12
+    Local 10.10.0.3 to Remote 10.10.0.5
+    Local 10.10.0.3 to Remote 10.10.0.6
+    Local 10.10.0.3 to Remote 10.10.0.7
+    Local 10.10.0.3 to Remote 10.10.0.8
+    Local 10.10.0.3 to Remote 10.10.0.9
+    Local 10.10.0.3 to Remote 10.10.0.10
+    Local 10.10.0.3 to Remote 10.10.0.11
+    Local 10.10.0.3 to Remote 10.10.0.12
+    Local 10.10.0.4 to Remote 10.10.0.5
+    Local 10.10.0.4 to Remote 10.10.0.6
+    Local 10.10.0.4 to Remote 10.10.0.7
+    Local 10.10.0.4 to Remote 10.10.0.8
+    Local 10.10.0.4 to Remote 10.10.0.9
+    Local 10.10.0.4 to Remote 10.10.0.10
+    Local 10.10.0.4 to Remote 10.10.0.11
+    Local 10.10.0.4 to Remote 10.10.0.12
+Larger than PMTU communication succeeds on 32 path(s) RPC status:
+8 paths up, 0 paths down (tcp check)
+8	paths up, 0 paths down (udp check)</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="paso-2-migrar-isl-al-switch-cl1-y-c2">Paso 2: Migrar ISL al switch CL1 y C2</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Apague los puertos 1/31 y 1/32 en el conmutador de grupo CL1.</p>
+<div class="paragraph">
+<p>Para obtener más información acerca de los comandos de Cisco, consulte las guías que se enumeran en <a href="https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html" target="_blank" rel="noopener">"Referencias de comandos NX-OS de Cisco Nexus serie 3000"</a>.</p>
+</div>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>(CL1)# configure
+(CL1)(Config)# interface e1/31-32
+(CL1(config-if-range)# shutdown
+(CL1(config-if-range)# exit
+(CL1)(Config)# exit (CL1)#</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>Retire todos los cables conectados al switch del clúster CL2 y vuelva a conectarlos al conmutador C2 de sustitución para todos los nodos.</p>
+</li>
+<li>
+<p>Retire los cables de enlace entre switches (ISL) de los puertos e1/31 y e1/32 en el switch del clúster CL2 y vuelva a conectarlos a los mismos puertos en el switch de reemplazo C2.</p>
+</li>
+<li>
+<p>Conecte los puertos ISL 1/31 y 1/32 en el switch de clúster CL1.</p>
+<div class="paragraph">
+<p>Para obtener más información acerca de los comandos de Cisco, consulte las guías que se enumeran en <a href="https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html" target="_blank" rel="noopener">"Referencias de comandos NX-OS de Cisco Nexus serie 3000"</a>.</p>
+</div>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>(CL1)# configure
+(CL1)(Config)# interface e1/31-32
+(CL1(config-if-range)# no shutdown
+(CL1(config-if-range)# exit
+(CL1)(Config)# exit
+(CL1)#</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>Verifique que los ISL estén activos en CL1.</p>
+<div class="paragraph">
+<p>Para obtener más información acerca de los comandos de Cisco, consulte las guías que se enumeran en <a href="https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html" target="_blank" rel="noopener">"Referencias de comandos NX-OS de Cisco Nexus serie 3000"</a>.</p>
+</div>
+<div class="paragraph">
+<p>Los puertos eth1/31 y eth1/32 deben indicar <code>(P)</code>, Lo que significa que los puertos ISL están activos en el canal de puerto:</p>
+</div>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>CL1# show port-channel summary
+Flags: D - Down         P - Up in port-channel (members)
+       I - Individual   H - Hot-standby (LACP only)
+       s - Suspended    r - Module-removed
+       S - Switched     R - Routed
+       U - Up (port-channel)
+       M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-        Type   Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)      Eth    LACP      Eth1/31(P)   Eth1/32(P)</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>Compruebe que los ISL estén activos en el switch del clúster C2.</p>
+<div class="paragraph">
+<p>Para obtener más información acerca de los comandos de Cisco, consulte las guías que se enumeran en <a href="https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html" target="_blank" rel="noopener">"Referencias de comandos NX-OS de Cisco Nexus serie 3000"</a>.</p>
+</div>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>Ports Eth1/31 and Eth1/32 should indicate (P), which means that both ISL ports are up in the port-channel.
+Example
+C2# show port-channel summary
+Flags: D - Down         P - Up in port-channel (members)
+       I - Individual   H - Hot-standby (LACP only)        s - Suspended    r - Module-removed
+       S - Switched     R - Routed
+       U - Up (port-channel)
+       M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-        Type   Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)      Eth    LACP      Eth1/31(P)   Eth1/32(P)</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>En todos los nodos, active todos los puertos de interconexión del clúster conectados al switch de reemplazo C2:</p>
+<div class="paragraph">
+<p><code>network port modify -node <em>node-name</em> -port <em>port-name</em> -up-admin true</code></p>
+</div>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>cluster::*&gt; network port modify -node n1 -port e0b -up-admin true
+cluster::*&gt; network port modify -node n1 -port e0c -up-admin true
+cluster::*&gt; network port modify -node n2 -port e0b -up-admin true
+cluster::*&gt; network port modify -node n2 -port e0c -up-admin true
+cluster::*&gt; network port modify -node n3 -port e4e -up-admin true
+cluster::*&gt; network port modify -node n4 -port e4e -up-admin true</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="paso-3-revierte-todas-las-lif-a-los-puertos-asignados-originalmente">Paso 3: Revierte todas las LIF a los puertos asignados originalmente</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Revierte todos los LIF de interconexión de clúster migrados en todos los nodos:</p>
+<div class="paragraph">
+<p><code>network interface revert -vserver cluster -lif <em>lif-name</em></code></p>
+</div>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
+<div class="paragraph">
+<p>Debe revertir todas las LIF de interconexión del clúster individualmente, tal y como se muestra en el ejemplo siguiente:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cluster::*&gt; network interface revert -vserver cluster -lif n1_clus2
+cluster::*&gt; network interface revert -vserver cluster -lif n1_clus3
+cluster::*&gt; network interface revert -vserver cluster -lif n2_clus2
+cluster::*&gt; network interface revert -vserver cluster -lif n2_clus3
+Cluster::*&gt; network interface revert –vserver cluster –lif n3_clus2
+Cluster::*&gt; network interface revert –vserver cluster –lif n4_clus2</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>Compruebe que los puertos de interconexión de clúster ahora se han revertido a su origen:</p>
+<div class="paragraph">
+<p><code>network interface show</code></p>
+</div>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
+<div class="paragraph">
+<p>El siguiente ejemplo muestra que todas las LIF se han revertido correctamente porque los puertos enumerados en <code>Current Port</code> la columna tiene el estado de <code>true</code> en la <code>Is Home</code> columna. Si un puerto tiene un valor de <code>false</code>, El LIF no se ha revertido.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cluster::*&gt; network interface show -role cluster
+ (network interface show)
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+             n1_clus1   up/up      10.10.0.1/24       n1            e0a     true
+             n1_clus2   up/up      10.10.0.2/24       n1            e0b     true
+             n1_clus3   up/up      10.10.0.3/24       n1            e0c     true
+             n1_clus4   up/up      10.10.0.4/24       n1            e0d     true
+             n2_clus1   up/up      10.10.0.5/24       n2            e0a     true
+             n2_clus2   up/up      10.10.0.6/24       n2            e0b     true
+             n2_clus3   up/up      10.10.0.7/24       n2            e0c     true
+             n2_clus4   up/up      10.10.0.8/24       n2            e0d     true
+             n3_clus1   up/up      10.10.0.9/24       n3            e4a     true
+             n3_clus2   up/up      10.10.0.10/24      n3            e4e     true
+             n4_clus1   up/up      10.10.0.11/24      n4            e4a     true
+             n4_clus2   up/up      10.10.0.12/24      n4            e4e     true
+12 entries were displayed.</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>Compruebe que los puertos del clúster están conectados:</p>
+<div class="paragraph">
+<p><code>network port show -role cluster</code></p>
+</div>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>cluster::*&gt; network port show –role cluster
+  (network port show)
+Node: n1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- -----
+e0a       Cluster      Cluster          up   9000 auto/10000  -
+e0b       Cluster      Cluster          up   9000 auto/10000  -
+e0c       Cluster      Cluster          up   9000 auto/10000  -
+e0d       Cluster      Cluster          up   9000 auto/10000  -        -
+
+Node: n2
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+ --------- ------------ ---------------- ---- ---- ----------- -------- -----
+e0a       Cluster      Cluster          up   9000  auto/10000 -
+e0b       Cluster      Cluster          up   9000  auto/10000 -
+e0c       Cluster      Cluster          up   9000  auto/10000 -
+e0d       Cluster      Cluster          up   9000  auto/10000 -        -
+Node: n3
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- -----
+e4a       Cluster      Cluster          up   9000 auto/40000  -
+e4e       Cluster      Cluster          up   9000 auto/40000  -        -
+Node: n4
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- -----
+e4a       Cluster      Cluster          up   9000 auto/40000  -
+e4e       Cluster      Cluster          up   9000 auto/40000  -
+        12 entries were displayed.</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>Hacer ping a las interfaces remotas del clúster y realizar una comprobación del servidor RPC:</p>
+<div class="paragraph">
+<p><code>cluster ping-cluster -node <em>node-name</em></code></p>
+</div>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
+<div class="paragraph">
+<p>En el siguiente ejemplo se muestra el nodo n1 con alas y el estado RPC indicado posteriormente:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cluster::*&gt; cluster ping-cluster -node n1
+Host is n1 Getting addresses from network interface table...
+Cluster n1_clus1 n1        e0a    10.10.0.1
+Cluster n1_clus2 n1        e0b    10.10.0.2
+Cluster n1_clus3 n1        e0c    10.10.0.3
+Cluster n1_clus4 n1        e0d    10.10.0.4
+Cluster n2_clus1 n2        e0a    10.10.0.5
+Cluster n2_clus2 n2        e0b    10.10.0.6
+Cluster n2_clus3 n2        e0c    10.10.0.7
+Cluster n2_clus4 n2        e0d    10.10.0.8
+Cluster n3_clus1 n3        e0a    10.10.0.9
+Cluster n3_clus2 n3        e0e    10.10.0.10
+Cluster n4_clus1 n4        e0a    10.10.0.11
+Cluster n4_clus2 n4        e0e    10.10.0.12
+Local = 10.10.0.1 10.10.0.2 10.10.0.3 10.10.0.4
+Remote = 10.10.0.5 10.10.0.6 10.10.0.7 10.10.0.8 10.10.0.9 10.10.0.10 10.10.0.11 10.10.0.12
+Cluster Vserver Id = 4294967293 Ping status:
+....
+Basic connectivity succeeds on 32 path(s)
+Basic connectivity fails on 0 path(s) ................
+Detected 1500 byte MTU on 32 path(s):
+    Local 10.10.0.1 to Remote 10.10.0.5
+    Local 10.10.0.1 to Remote 10.10.0.6
+    Local 10.10.0.1 to Remote 10.10.0.7
+    Local 10.10.0.1 to Remote 10.10.0.8
+    Local 10.10.0.1 to Remote 10.10.0.9
+    Local 10.10.0.1 to Remote 10.10.0.10
+    Local 10.10.0.1 to Remote 10.10.0.11
+    Local 10.10.0.1 to Remote 10.10.0.12
+    Local 10.10.0.2 to Remote 10.10.0.5
+    Local 10.10.0.2 to Remote 10.10.0.6
+    Local 10.10.0.2 to Remote 10.10.0.7
+    Local 10.10.0.2 to Remote 10.10.0.8
+    Local 10.10.0.2 to Remote 10.10.0.9
+    Local 10.10.0.2 to Remote 10.10.0.10
+    Local 10.10.0.2 to Remote 10.10.0.11
+    Local 10.10.0.2 to Remote 10.10.0.12
+    Local 10.10.0.3 to Remote 10.10.0.5
+    Local 10.10.0.3 to Remote 10.10.0.6
+    Local 10.10.0.3 to Remote 10.10.0.7
+    Local 10.10.0.3 to Remote 10.10.0.8
+    Local 10.10.0.3 to Remote 10.10.0.9
+    Local 10.10.0.3 to Remote 10.10.0.10
+    Local 10.10.0.3 to Remote 10.10.0.11
+    Local 10.10.0.3 to Remote 10.10.0.12
+    Local 10.10.0.4 to Remote 10.10.0.5
+    Local 10.10.0.4 to Remote 10.10.0.6
+    Local 10.10.0.4 to Remote 10.10.0.7
+    Local 10.10.0.4 to Remote 10.10.0.8
+    Local 10.10.0.4 to Remote 10.10.0.9
+    Local 10.10.0.4 to Remote 10.10.0.10
+    Local 10.10.0.4 to Remote 10.10.0.11
+    Local 10.10.0.4 to Remote 10.10.0.12
+Larger than PMTU communication succeeds on 32 path(s) RPC status:
+8 paths up, 0 paths down (tcp check)
+8	paths up, 0 paths down (udp check)</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="paso-4-verificar-que-todos-los-puertos-y-lif-se-han-migrado-correctamente">Paso 4: Verificar que todos los puertos y LIF se han migrado correctamente</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Para mostrar la información sobre los dispositivos de la configuración, introduzca los siguientes comandos:</p>
+<div class="paragraph">
+<p>Puede ejecutar los siguientes comandos en cualquier orden:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>network device-discovery show</code></p>
+</li>
+<li>
+<p><code>network port show -role cluster</code></p>
+</li>
+<li>
+<p><code>network interface show -role cluster</code></p>
+</li>
+<li>
+<p><code>system cluster-switch show</code></p>
+</li>
+</ul>
+</div>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>cluster::&gt; network device-discovery show
+            Local  Discovered
+Node        Port   Device              Interface        Platform
+----------- ------ ------------------- ---------------- ----------------
+n1         /cdp
+            e0a    C1                 Ethernet1/1/1    N3K-C3232C
+            e0b    C2                 Ethernet1/1/1    N3K-C3232C
+            e0c    C2                 Ethernet1/1/2    N3K-C3232C
+            e0d    C1                 Ethernet1/1/2    N3K-C3232C
+n2         /cdp
+            e0a    C1                 Ethernet1/1/3    N3K-C3232C
+            e0b    C2                 Ethernet1/1/3    N3K-C3232C
+            e0c    C2                 Ethernet1/1/4    N3K-C3232C
+            e0d    C1                 Ethernet1/1/4    N3K-C3232C
+n3         /cdp
+            e4a    C1                 Ethernet1/7      N3K-C3232C
+            e4e    C2                 Ethernet1/7      N3K-C3232C
+
+n4         /cdp
+            e4a    C1                 Ethernet1/8      N3K-C3232C
+            e4e    C2                 Ethernet1/8      N3K-C3232C
+
+12 entries were displayed.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>+</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cluster::*&gt; network port show –role cluster
+  (network port show)
+Node: n1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+ --------- ------------ ---------------- ---- ---- ----------- -------- -----
+e0a       Cluster      Cluster          up   9000 auto/10000  -
+e0b       Cluster      Cluster          up   9000 auto/10000  -
+e0c       Cluster      Cluster          up   9000 auto/10000  -
+e0d       Cluster      Cluster          up   9000 auto/10000  -        -
+
+Node: n2
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+ --------- ------------ ---------------- ---- ---- ----------- -------- -----
+e0a       Cluster      Cluster          up   9000  auto/10000 -
+e0b       Cluster      Cluster          up   9000  auto/10000 -
+e0c       Cluster      Cluster          up   9000  auto/10000 -
+e0d       Cluster      Cluster          up   9000  auto/10000 -        -
+
+Node: n3
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- -----
+e4a       Cluster      Cluster          up   9000 auto/40000  -
+e4e       Cluster      Cluster          up   9000 auto/40000  -        -
+Node: n4
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- -----
+e4a       Cluster      Cluster          up   9000 auto/40000  -
+e4e       Cluster      Cluster          up   9000 auto/40000  -
+
+12 entries were displayed.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>+</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cluster::*&gt; network interface show -role cluster
+
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+            nm1_clus1  up/up      10.10.0.1/24       n1            e0a     true
+            n1_clus2   up/up      10.10.0.2/24       n1            e0b     true
+            n1_clus3   up/up      10.10.0.3/24       n1            e0c     true
+            n1_clus4   up/up      10.10.0.4/24       n1            e0d     true
+            n2_clus1   up/up      10.10.0.5/24       n2            e0a     true
+            n2_clus2   up/up      10.10.0.6/24       n2            e0b     true
+            n2_clus3   up/up      10.10.0.7/24       n2            e0c     true
+            n2_clus4   up/up      10.10.0.8/24       n2            e0d     true
+            n3_clus1   up/up      10.10.0.9/24       n3            e4a     true
+            n3_clus2   up/up      10.10.0.10/24      n3            e4e     true
+            n4_clus1   up/up      10.10.0.11/24      n4            e4a     true
+            n4_clus2   up/up      10.10.0.12/24      n4            e4e     true
+ 12 entries were displayed.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>+</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cluster::*&gt; system cluster-switch show
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+CL1                          cluster-network   10.10.1.101      NX3232C
+Serial Number: FOX000001
+Is Monitored: true
+Reason:
+Software Version: Cisco Nexus Operating System (NX-OS) Software, Version 7.0(3)I6(1)
+Version Source: CDP
+CL2                          cluster-network   10.10.1.102      NX3232C
+Serial Number: FOX000002
+Is Monitored: true
+Reason:
+Software Version: Cisco Nexus Operating System (NX-OS) Software, Version 7.0(3)I6(1)
+Version Source: CDP
+
+C2                          cluster-network    10.10.1.103      NX3232C
+Serial Number: FOX000003
+Is Monitored: true
+Reason:
+Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    7.0(3)I6(1)     Version Source: CDP 3 entries were displayed.</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>Elimine el interruptor del grupo de instrumentos sustituido CL2 si no se ha quitado automáticamente:</p>
+<div class="paragraph">
+<p><code>system cluster-switch delete -device cluster-switch-name</code></p>
+</div>
+</li>
+<li>
+<p>Compruebe que se supervisan los switches de clúster adecuados:</p>
+<div class="paragraph">
+<p><code>system cluster-switch show</code></p>
+</div>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
+<div class="paragraph">
+<p>En el siguiente ejemplo se muestran los switches de clúster se supervisan porque <code>Is Monitored</code> el estado es <code>true</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cluster::&gt; system cluster-switch show
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+CL1                         cluster-network    10.10.1.101      NX3232C
+Serial Number: FOX000001
+Is Monitored: true
+Reason:
+Software Version: Cisco Nexus Operating System (NX-OS) Software, Version 7.0(3)I6(1)
+Version Source: CDP
+
+C2                          cluster-network    10.10.1.103      NX3232C
+Serial Number: FOX000002
+Is Monitored: true
+Reason:
+
+Software Version: Cisco Nexus Operating System (NX-OS) Software, Version 7.0(3)I6(1)
+Version Source: CDP
+2 entries were displayed.</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>Habilite la función de recogida de registro de supervisión del estado del switch para recopilar archivos de registro relacionados con el switch:</p>
+<div class="paragraph">
+<p><code>system cluster-switch log setup-password</code></p>
+</div>
+<div class="paragraph">
+<p><code>system cluster-switch log enable-collection</code></p>
+</div>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>cluster::*&gt; system cluster-switch log setup-password
+Enter the switch name: &lt;return&gt;
+The switch name entered is not recognized.
+Choose from the following list:
+CL1
+C2
+
+cluster::*&gt; system cluster-switch log setup-password
+
+Enter the switch name: CL1
+**RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] y
+
+Enter the password: &lt;enter switch password&gt;
+Enter the password again: &lt;enter switch password&gt;
+
+cluster::*&gt; system cluster-switch log setup-password
+
+Enter the switch name: C2
+RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
+Do you want to continue? {y|n}:: [n] y
+
+Enter the password: &lt;enter switch password&gt;
+Enter the password again: &lt;enter switch password&gt;
+
+cluster::*&gt; system cluster-switch log enable-collection
+
+Do you want to enable cluster log collection for all nodes in the cluster?
+{y|n}: [n] y
+
+Enabling cluster switch log collection.
+
+cluster::*&gt;</pre>
+</div>
+</div>
+</div>
+</details>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems-switches/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si alguno de estos comandos devuelve un error, póngase en contacto con el soporte de NetApp.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Si ha suprimido la creación automática de casos, vuelva a habilitarla invocando un mensaje de AutoSupport:</p>
+<div class="paragraph">
+<p><code>system node autosupport invoke -node * -type all -message MAINT=END</code></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/copyright/">© 2023 NetApp, Inc.</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">Términos y condiciones</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">Política de privacidad</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Política de Cookies</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">Configuración de cookies</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="n-footer__bottom-right">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a target="_self" href="javascript:netapp_mailto()">Enviar comentarios sobre esta página</a>
+            </li>
+          </ul>
+        </div>
+        <div class="n-footer__social-links">
+          <ul class="n-footer__social-link-list">
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com"
+                target="_blank" title="blog" alt="blog">
+                <span class="n-footer__social-link-text">blog</span>
+                <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                  <title>blog@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/ontap-systems-switches/common/svg/sprite.svg#blog"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/"
+                target="_blank" title="community" alt="community">
+                <span class="n-footer__social-link-text">community</span>
+                <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+                  <title>community@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/ontap-systems-switches/common/svg/sprite.svg#comments"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp"
+                target="_blank" title="twitter" alt="twitter">
+                <span class="n-footer__social-link-text">twitter</span>
+                <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                  <title>twitter@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/ontap-systems-switches/common/svg/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp"
+                target="_blank" title="facebook" alt="facebook">
+                <span class="n-footer__social-link-text">facebook</span>
+                <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+                  <title>facebook@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/ontap-systems-switches/common/svg/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-linkedin"
+                href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+                <span class="n-footer__social-link-text">linkedin</span>
+                <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+                  <title>linkedin@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/ontap-systems-switches/common/svg/sprite.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-youtube"
+                href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+                <span class="n-footer__social-link-text">youtube</span>
+                <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                  <title>youtube@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/ontap-systems-switches/common/svg/sprite.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-slideshare"
+                href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+                <span class="n-footer__social-link-text">slideshare</span>
+                <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+                  <title>slideshare@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/ontap-systems-switches/common/svg/sprite.svg#slideshare"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/es-es/ontap-systems-switches/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/es-es/ontap-systems-switches/js/prism.js'></script>
+      <script type="text/javascript" src='/es-es/ontap-systems-switches/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/es-es/ontap-systems-switches/js/www-ntap.js'></script>
+    <script src='/es-es/ontap-systems-switches/js/tabbed-blocks.js'></script>
+    <script src='/es-es/ontap-systems-switches/js/sidebar.js'></script>
+  </body></html>
