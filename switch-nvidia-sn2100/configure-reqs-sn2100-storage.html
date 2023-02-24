@@ -79,11 +79,17 @@
 
   <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/es-es/ontap-systems-switches/js/na-search.js'></script><script src='/es-es/ontap-systems-switches/js/na-pagenav.js'></script><script src='/es-es/ontap-systems-switches/js/na-utility.js'></script>
+ <!--  
+  <link rel='stylesheet' href='/es-es/ontap-systems-switches/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/es-es/ontap-systems-switches/css/prism-netapp.css' type='text/css'>
+ -->
+
+  <!-- <script src='/es-es/ontap-systems-switches/js/na-utility.js'></script> -->
   <script src='/es-es/ontap-systems-switches/js/clouddocs.js'></script>
   <script src='/es-es/ontap-systems-switches/js/jquery.navgoco.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script src='/es-es/ontap-systems-switches/js/toc.js'></script>
-  <script src='/es-es/ontap-systems-switches/js/customscripts.js'></script><script>
+  <!-- <script src='/es-es/ontap-systems-switches/js/toc.js'></script> -->
+  <!-- <script src='/es-es/ontap-systems-switches/js/customscripts.js'></script> --><script>
       $(document).ready(function() {
           
           var collapseOnInit = true;
@@ -148,7 +154,7 @@
   <script src='/es-es/ontap-systems-switches/js/FileSaver.min.js'></script>
   <script src='/es-es/ontap-systems-switches/js/jszip-utils.min.js'></script>
   <script src='/es-es/ontap-systems-switches/js/jszip.min.js'></script>
-  <script src='/es-es/ontap-systems-switches/js/pdf-ux.js'></script>
+  <!-- <script src='/es-es/ontap-systems-switches/js/pdf-ux.js'></script> -->
 </head>
 
 
@@ -221,7 +227,7 @@
           <span class="n-property-bar__menu-toggle-text">Menu</span>
           <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
             <title>bars</title>
-            <use xlink:href="/es-es/ontap-systems-switches/common/svg/sprite.svg#bars"></use>
+            <use xlink:href="/es-es/ontap-systems-switches/images/sprite.svg#bars"></use>
           </svg>
         </a>
       </div>
@@ -230,11 +236,11 @@
           <div class="n-property-bar__logo">
             <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
               <title>netapp-mark</title>
-              <use xlink:href="/es-es/ontap-systems-switches/common/svg/sprite.svg#netapp-mark"></use>
+              <use xlink:href="/es-es/ontap-systems-switches/images/sprite.svg#netapp-mark"></use>
             </svg>
             <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
               <title>netapp-logo</title>
-              <use xlink:href="/es-es/ontap-systems-switches/common/svg/sprite.svg#netapp-logo"></use>
+              <use xlink:href="/es-es/ontap-systems-switches/images/sprite.svg#netapp-logo"></use>
             </svg>
           </div>
         </a>
@@ -260,7 +266,7 @@
           <button class="n-property-bar__search-toggle-button" type="button">
             <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
               <title>search</title>
-              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/ontap-systems-switches/common/svg/sprite.svg#search"></use>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/ontap-systems-switches/images/sprite.svg#search"></use>
             </svg>
           </button>
         </div>
@@ -274,7 +280,7 @@
       <span class="lang-name">Español</span>
           <svg class="n-globe__icon" aria-labelledby="title">
             <title>globe</title>
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/ontap-systems-switches/common/svg/sprite.svg#globe"></use>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/ontap-systems-switches/images/sprite.svg#globe"></use>
           </svg>
         </button>
       </div>
@@ -3766,7 +3772,7 @@
     <div class="ie-nmt-disclaimer-container">
       <div class="ie-nmt-disclaimer-icon">
         <svg class="luci-icon" aria-hidden="true">
-          <use xlink:href="/es-es/ontap-systems-switches/common/svg/sprite.svg#circle-info">
+          <use xlink:href="/es-es/ontap-systems-switches/images/sprite.svg#circle-info">
         </svg>
       </div>
       <div class="ie-nmt-disclaimer-content">
@@ -3783,7 +3789,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-02-20 21:26:23 +0000">02/20/2023</time>
+    <time datetime="2023-02-24 14:05:06 +0000">02/24/2023</time>
     
   
 
@@ -3826,7 +3832,10 @@
 <p>ONTAP 9.10.1P3. El switch SN2100 sirve a las aplicaciones de clúster y almacenamiento de ONTAP 9.10.1P3 sobre diferentes pares de switches. Desde ONTAP 9.10.1P3, puede utilizar los switches NVIDIA SN2100 para combinar las funciones de almacenamiento y clúster en una configuración de switch compartido.</p>
 </li>
 <li>
-<p>Cumulus Linux (CL) OS versión 4.4.2. Cumulus Linux se puede instalar ya sea cuando el conmutador esté ejecutando Cumulus Linux o ONIE.</p>
+<p>Cumulus Linux (CL) OS versión 4.4.3. Para obtener información actual sobre compatibilidad, consulte <a href="https://mysupport.netapp.com/site/info/nvidia-cluster-switch" target="_blank" rel="noopener">"Switches Ethernet de NVIDIA"</a> página de información.</p>
+</li>
+<li>
+<p>Puede instalar Cumulus Linux cuando el conmutador esté ejecutando Cumulus Linux o ONIE.</p>
 </li>
 </ul>
 </div>
@@ -3882,7 +3891,7 @@
                 <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
                   <title>blog@</title>
                   <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xlink:href="/es-es/ontap-systems-switches/common/svg/sprite.svg#blog"></use>
+                    xlink:href="/es-es/ontap-systems-switches/images/sprite.svg#blog"></use>
                 </svg>
               </a>
             </li>
@@ -3893,7 +3902,7 @@
                 <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
                   <title>community@</title>
                   <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xlink:href="/es-es/ontap-systems-switches/common/svg/sprite.svg#comments"></use>
+                    xlink:href="/es-es/ontap-systems-switches/images/sprite.svg#comments"></use>
                 </svg>
               </a>
             </li>
@@ -3904,7 +3913,7 @@
                 <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                   <title>twitter@</title>
                   <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xlink:href="/es-es/ontap-systems-switches/common/svg/sprite.svg#twitter"></use>
+                    xlink:href="/es-es/ontap-systems-switches/images/sprite.svg#twitter"></use>
                 </svg>
               </a>
             </li>
@@ -3915,7 +3924,7 @@
                 <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
                   <title>facebook@</title>
                   <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xlink:href="/es-es/ontap-systems-switches/common/svg/sprite.svg#facebook"></use>
+                    xlink:href="/es-es/ontap-systems-switches/images/sprite.svg#facebook"></use>
                 </svg>
               </a>
             </li>
@@ -3926,7 +3935,7 @@
                 <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
                   <title>linkedin@</title>
                   <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xlink:href="/es-es/ontap-systems-switches/common/svg/sprite.svg#linkedin"></use>
+                    xlink:href="/es-es/ontap-systems-switches/images/sprite.svg#linkedin"></use>
                 </svg>
               </a>
             </li>
@@ -3937,7 +3946,7 @@
                 <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
                   <title>youtube@</title>
                   <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xlink:href="/es-es/ontap-systems-switches/common/svg/sprite.svg#youtube"></use>
+                    xlink:href="/es-es/ontap-systems-switches/images/sprite.svg#youtube"></use>
                 </svg>
               </a>
             </li>
@@ -3948,7 +3957,7 @@
                 <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
                   <title>slideshare@</title>
                   <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xlink:href="/es-es/ontap-systems-switches/common/svg/sprite.svg#slideshare"></use>
+                    xlink:href="/es-es/ontap-systems-switches/images/sprite.svg#slideshare"></use>
                 </svg>
               </a>
             </li>
@@ -3972,7 +3981,6 @@
       cookieLaw.euCountry = "US";
       cookieLaw.invoke = function(){return false;}
     </script>
-    <script src='/es-es/ontap-systems-switches/js/www-ntap.js'></script>
     <script src='/es-es/ontap-systems-switches/js/tabbed-blocks.js'></script>
     <script src='/es-es/ontap-systems-switches/js/sidebar.js'></script>
   </body></html>

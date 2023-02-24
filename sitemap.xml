@@ -239,14 +239,14 @@
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-nvidia-sn2100/configure-reqs-sn2100-cluster.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-nvidia-sn2100/configure-reqs-sn2100-storage.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
       
     </url>
   
@@ -342,70 +342,7 @@
     </url>
   
     <url>
-      <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-nvidia-sn2100/</loc>
-      
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
-      
-    </url>
-  
-    <url>
-      <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-3132q-v/</loc>
-      
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
-      
-    </url>
-  
-    <url>
-      <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-3232c/</loc>
-      
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
-      
-    </url>
-  
-    <url>
-      <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-shared/</loc>
-      
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
-      
-    </url>
-  
-    <url>
-      <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-92300/</loc>
-      
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
-      
-    </url>
-  
-    <url>
-      <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-bes-53248/</loc>
-      
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
-      
-    </url>
-  
-    <url>
-      <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-nvidia-sn2100/</loc>
-      
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
-      
-    </url>
-  
-    <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/</loc>
-      
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
-      
-    </url>
-  
-    <url>
-      <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/</loc>
-      
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
-      
-    </url>
-  
-    <url>
-      <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-netapp-cn1610/</loc>
       
       <lastmod>2023-02-20T21:26:23+00:00</lastmod>
       
@@ -435,7 +372,7 @@
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-storage/install-9336c-storage.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
       
     </url>
   
@@ -470,14 +407,14 @@
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-nvidia-sn2100/install-cumulus-mode-sn2100-cluster.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-nvidia-sn2100/install-cumulus-mode-sn2100-storage.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
       
     </url>
   
@@ -554,21 +491,21 @@
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/install-nxos-rcf-9336c-cluster.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-shared/install-nxos-rcf-9336c-shared.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-storage/install-nxos-rcf-9336c-storage.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
       
     </url>
   
@@ -610,14 +547,14 @@
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-nvidia-sn2100/install-onie-mode-sn2100-cluster.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-nvidia-sn2100/install-onie-mode-sn2100-storage.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
       
     </url>
   
@@ -652,14 +589,14 @@
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-3132q-v/install-rcf-3132q-v.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-3232c/install-rcf-3232c.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
       
     </url>
   
@@ -673,14 +610,14 @@
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-nvidia-sn2100/install-rcf-sn2100-cluster.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-nvidia-sn2100/install-rcf-sn2100-storage.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
       
     </url>
   
@@ -694,14 +631,14 @@
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-nvidia-sn2100/install-snmpv3-sn2100-storage.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/install-switch-9336c-cluster.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
       
     </url>
   
@@ -1121,7 +1058,7 @@
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-nvidia-sn2100/replace-sn2100-switch-storage.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
       
     </url>
   
@@ -1205,7 +1142,7 @@
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/required-documentation-9336c-cluster.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
       
     </url>
   
@@ -1254,14 +1191,14 @@
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches//search.html</loc>
       
-      <lastmod>2023-02-21T12:53:21+00:00</lastmod>
+      <lastmod>2023-02-24T14:05:22+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-shared/setup-and-configure-9336c-shared.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
       
     </url>
   
@@ -1275,28 +1212,28 @@
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/setup-switch-9336c-cluster.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-storage/setup-switch-9336c-storage.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-3132q-v/setup-switch.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-3232c/setup-switch.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
       
     </url>
   
@@ -1373,14 +1310,14 @@
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-nvidia-sn2100/sn2100-overview.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-nvidia-sn2100/sn2100-overview.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
       
     </url>
   
