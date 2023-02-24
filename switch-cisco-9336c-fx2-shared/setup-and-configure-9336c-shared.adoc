@@ -130,16 +130,7 @@ Responda con *sí* para guardar la configuración. De esta forma se actualizan a
 
 NOTE: Si no guarda la configuración en esta fase, ninguno de los cambios se aplicará la próxima vez que reinicie el conmutador.
 
-. Compruebe la versión del software de los switches y, si es necesario, descargue la versión del software que admite NetApp en los switches.
-+
-Si descarga la versión de software compatible con NetApp, también debe descargar el archivo de configuración de referencia de switches de red de NetApp y combinarlo con la configuración en la que guardó <<step3,Paso 3>>.
-
-+
-Puede descargar el archivo y las instrucciones desde la https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"] página.
-
-+
-Si dispone de sus propios conmutadores, consulte http://www.cisco.com["Cisco"] sitio.
-
+. Compruebe la versión de los switches de red del clúster y, si es necesario, descargue la versión del software compatible con NetApp en los switches de la https://software.cisco.com/download/home["Descarga de software de Cisco"^] página.
 
 
 .El futuro

@@ -15,6 +15,7 @@ Siga este procedimiento para configurar el switch Cisco Nexus 3132Q-V.
 
 .Lo que necesitará
 * Acceso a un servidor HTTP, FTP o TFTP en el sitio de instalación para descargar las versiones correspondientes del NX-OS y del archivo de configuración de referencia (RCF).
+* La versión aplicable de NX-OS, descargada del https://software.cisco.com/download/home["Descarga de software de Cisco"^] página.
 * Se requiere documentación del switch de red, documentación de la controladora y documentación de ONTAP. Para obtener más información, consulte link:required-documentation-3132q.html["Documentación requerida"].
 * Las licencias aplicables, la información de configuración y red, y los cables.
 * Hojas de datos de cableado completadas. Consulte link:setup_worksheet_3132q.html["Hoja de trabajo completa del cableado Cisco Nexus 3132Q-V."].
@@ -207,14 +208,7 @@ NOTE: Si no guarda la configuración en esta fase, ninguno de los cambios se apl
 
 |===
 . Compruebe las opciones de configuración que ha realizado en la pantalla que aparece al final de la instalación y asegúrese de guardar la configuración.
-. Compruebe la versión de los switches de red de clúster y, si es necesario, descargue la versión del software que admite NetApp en los switches.
-+
-Si descarga la versión de software compatible con NetApp, también debe descargar el _archivo de configuración_ de referencia del switch de red del clúster de NetApp y combinarlo con la configuración que guardó en el paso 5. Puede descargar el archivo y las instrucciones desde la https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^] página.
-
-. Compruebe la versión del software en los switches de red y, si es necesario, descargue la versión del software compatible con NetApp en los switches. Si dispone de sus propios conmutadores, consulte https://cisco.com["Sitio Cisco"^].
-+
-Si descarga la versión del software compatible con NetApp, también debe descargar el _archivo de configuración_ de referencia del switch de red de gestión de NetApp y combinarlo con la configuración que guardó en el paso 5. Puede descargar el archivo y las instrucciones desde la https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^] página.
-
+. Compruebe la versión de los switches de red del clúster y, si es necesario, descargue la versión del software compatible con NetApp en los switches de la https://software.cisco.com/download/home["Descarga de software de Cisco"^] página.
 
 
 .El futuro

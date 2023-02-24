@@ -43,6 +43,8 @@ Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo
 .Acerca de esta tarea
 Para ello, es necesario utilizar tanto comandos de la ONTAP como comandos de la serie Cisco Nexus 3000; los comandos de la ONTAP se usan a menos que se indique lo contrario.
 
+Durante este procedimiento no se necesita ningún enlace entre switches (ISL) operativo. Esto se debe a que los cambios en la versión de RCF pueden afectar temporalmente a la conectividad ISL. Para garantizar operaciones de clúster no disruptivas, el siguiente procedimiento migra todas las LIF del clúster al switch de partner operativo mientras realiza los pasos del switch de destino.
+
 Asegúrese de completar el procedimiento en link:prepare-install-cisco-nexus-3132q.html["Prepare la instalación del software NX-OS y del archivo de configuración de referencia"]y, a continuación, siga los pasos que se indican a continuación.
 
 

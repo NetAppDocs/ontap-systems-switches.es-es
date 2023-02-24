@@ -40,6 +40,8 @@ NOTE: Los resultados del comando pueden variar en función de las diferentes ver
 .Acerca de esta tarea
 Para ello, es necesario utilizar tanto comandos de la ONTAP como comandos de la serie Cisco Nexus 9000; los comandos de la ONTAP se usan a menos que se indique lo contrario.
 
+Durante este procedimiento no se necesita ningún enlace entre switches (ISL) operativo. Esto se debe a que los cambios en la versión de RCF pueden afectar temporalmente a la conectividad ISL. Para garantizar operaciones de clúster no disruptivas, el siguiente procedimiento migra todas las LIF del clúster al switch de partner operativo mientras realiza los pasos del switch de destino.
+
 
 CAUTION: Antes de instalar una nueva versión de software del conmutador y RCF, debe borrar los ajustes del conmutador y realizar la configuración básica. Debe estar conectado al conmutador mediante la consola serie. Esta tarea restablece la configuración de la red de gestión.
 
@@ -193,7 +195,7 @@ cluster1::*>
 ====
 [listing]
 ----
-cluster1::*> network interface modify -vserver Cluster -lif \* -auto-revert false
+cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert false
 ----
 ====
 
@@ -578,7 +580,7 @@ cluster1::*>
 ====
 [listing]
 ----
-cluster1::*> network interface modify -vserver Cluster -lif \* -auto-revert True
+cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert True
 ----
 ====
 . Reinicie el interruptor cs1. Para activar las LIF de clúster y revertir a sus puertos raíz, haga lo siguiente. Puede ignorar los eventos «'cluster ports down'» notificados en los nodos mientras se reinicia el switch.
@@ -605,7 +607,7 @@ This command will reboot the system. (y/n)?  [n] y
 ====
 [listing]
 ----
-cs1# show interface brief \| grep up
+cs1# show interface brief | grep up
 .
 .
 Eth1/1/1      1       eth  access up      none                    10G(D) --

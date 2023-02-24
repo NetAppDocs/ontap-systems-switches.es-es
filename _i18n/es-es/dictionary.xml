@@ -395,7 +395,6 @@
   <block id="936c629e80045932a8ce12daf69dd2f2" category="section-title">Soporte de ONTAP y Linux</block>
   <block id="8b62efe83d10f30e759dd095dcc5c1ab" category="paragraph">El conmutador NVIDIA SN2100 es un conmutador Ethernet de 10/25/40/100 GB que ejecuta Cumulus Linux. El conmutador admite lo siguiente:</block>
   <block id="9f1786af24b58b6fc579205bca0e1f44" category="list-text">ONTAP 9.10.1P3. El switch SN2100 sirve a las aplicaciones de clúster y almacenamiento de ONTAP 9.10.1P3 sobre diferentes pares de switches. Desde ONTAP 9.10.1P3, puede utilizar los switches NVIDIA SN2100 para combinar las funciones de almacenamiento y clúster en una configuración de switch compartido.</block>
-  <block id="ce72203fd2d1702e41b12d3f834f5510" category="list-text">Cumulus Linux (CL) OS versión 4.4.2. Cumulus Linux se puede instalar ya sea cuando el conmutador esté ejecutando Cumulus Linux o ONIE.</block>
   <block id="9d36413c7ae238ebf79e37939969b9ee" category="summary">Puede migrar switches Cisco anteriores de forma no disruptiva para un clúster de ONTAP a switches de almacenamiento NVIDIA SN2100.</block>
   <block id="c0e54fd32010cccd4fea353a8f62265e" category="doc">Migrar desde un switch de almacenamiento de Cisco a un switch de almacenamiento NVIDIA SN2100</block>
   <block id="311103ba8a3a6ddd19fc0a1c5dae4a53" category="paragraph">Puede migrar switches Cisco anteriores para un clúster de ONTAP a switches de almacenamiento NVIDIA SN2100. Este procedimiento no es disruptivo.</block>
@@ -473,8 +472,6 @@
   <block id="4aaebba2a5287c74eb41bf080e6d1fe4" category="list-text">Confirme el hardware compatible, como los switches y cables de almacenamiento, para su modelo de plataforma:</block>
   <block id="e5e09031843479ef9ef8cbbd4c2f404c" category="inline-link">Hardware Universe de NetApp</block>
   <block id="4c1c93397a0ad82f0b80502a6c7c0799" category="paragraph"><block ref="4c1c93397a0ad82f0b80502a6c7c0799" category="inline-link-rx"></block></block>
-  <block id="aaea07599d1157945444c3c301565e94" category="summary">Switches NVIDIA SN2100</block>
-  <block id="d502e4d284e017c272fbc044d1c805ee" category="paragraph">Desde ONTAP 9.10.1P3, puede utilizar los switches NVIDIA SN2100 para combinar las funciones de almacenamiento y clúster en un escenario de switch compartido.</block>
   <block id="a1db73a47f571c20627d62d37a2069c2" category="summary">La sustitución de un switch NVIDIA SN2100 defectuoso en una red de clúster es un procedimiento no disruptivo \(NDU\).</block>
   <block id="a3651ea5ff10cfef31750e91f195d5ee" category="doc">Sustituya un conmutador de clúster NVIDIA SN2100</block>
   <block id="087a0cdfa40d1253f83403998d37833d" category="paragraph">La sustitución de un switch NVIDIA SN2100 defectuoso en una red de clúster es un procedimiento no disruptivo (NDU).</block>
@@ -526,7 +523,6 @@
   <block id="5a5096484954db754c9fdc1d20f50720" category="summary">Siga este procedimiento para instalar la secuencia de comandos RCF.</block>
   <block id="3722090c5c0b0496759b23b1db5566cd" category="doc">Instale la secuencia de comandos RCF</block>
   <block id="2123b47f46a6b2a44de513e0c343098f" category="paragraph">Antes de instalar la secuencia de comandos RCF, asegúrese de que en el conmutador se encuentran disponibles las siguientes opciones:</block>
-  <block id="f0628c60efd94ed2822e83944aa83ad5" category="list-text">Cumulus Linux 4.4.2 está instalado.</block>
   <block id="90bd80eefde443be8809a3edf64f7ef2" category="list-text">Dirección IP, máscara de subred y puerta de enlace predeterminada definida a través de DHCP o configurado manualmente.</block>
   <block id="3dd056f4d7006839605c6bd4a990b087" category="paragraph-title">Versiones actuales de la secuencia de comandos RCF</block>
   <block id="526990b43ff7cafabc1a3c5dda4e8c9b" category="paragraph">Hay dos secuencias de comandos RCF disponibles para las aplicaciones de almacenamiento y agrupación en clúster. El procedimiento para cada uno es el mismo.</block>
@@ -578,7 +574,6 @@
   <block id="83d1563d45527134091bdab8d6e5072d" category="list-text">Siga las opciones del menú en pantalla para seleccionar el área geográfica y la región.</block>
   <block id="fe0f6a5f9b992c1eea817100a2c1c148" category="list-text">Para establecer la zona horaria de todos los servicios y daemons, reinicie el conmutador.</block>
   <block id="61d6aab01fc093c66c1e769d05c39812" category="list-text">Compruebe que la fecha y la hora del interruptor son correctas y que se actualizan si es necesario.</block>
-  <block id="f415282bef0374e283b8082be4765eea" category="list-text">Instale Cumulus Linux 4.4.2:</block>
   <block id="9a828cf107e0b55e82b0e52b871aa982" category="paragraph">El instalador inicia la descarga. Escriba *y* cuando se le solicite.</block>
   <block id="b64202cf747d1cf1ed877a2b16051b9b" category="list-text">Reinicie el conmutador NVIDIA SN2100:</block>
   <block id="9f4f33c5c40ac522549c3e58d187e0a0" category="list-text">La instalación se inicia automáticamente y aparecen las siguientes pantallas de GRUB. Hacer *no* realizar selecciones:</block>
@@ -586,7 +581,6 @@
   <block id="a64ef5ea949c8d49f35a27151295f942" category="list-text">ONIE: Instalar el sistema operativo</block>
   <block id="e0fb005ad468c2c6da5d94ae5ee83311" category="list-text">CUMULUS-INSTALL</block>
   <block id="aaf5ecccbfaebfdecab9b13474cd1016" category="list-text">Repita los pasos del 1 al 4 para iniciar sesión.</block>
-  <block id="c883d7af8e0067ad8d312770086b2d07" category="list-text">Compruebe que la versión de Cumulus Linux es 4.4.2:</block>
   <block id="d592f003299c9790cf6b7880991e4552" category="list-text">Cree un nuevo usuario y agregue este usuario a<block ref="d338b3f0f405eb5e51c8cc1e5ca66f02" prefix=" " category="inline-code"></block> grupo. Este usuario sólo se hace efectivo después de reiniciar la sesión de la consola/SSH.</block>
   <block id="d006305baa198ce937fb8d7cec588b7e" category="paragraph"><block ref="5f3d789fda71670b944a623edd4613a5" prefix="" category="inline-code"></block></block>
   <block id="1a29ca4be6c9125e8ac9fccfa8df289c" category="summary">Sustitución de un conmutador de almacenamiento NVIDIA SN2100 defectuoso en un procedimiento no disruptivo \(NDU\).</block>
@@ -769,12 +763,7 @@
   <block id="5a54e42dd698c598e59f9b64356c9418" category="paragraph">Responda con *sí* para guardar la configuración. De esta forma se actualizan automáticamente las imágenes kickstart y del sistema.</block>
   <block id="8ebeb0aa57e41e8e582e0d2bd7d57e8e" category="admonition">Si no guarda la configuración en esta fase, ninguno de los cambios se aplicará la próxima vez que reinicie el conmutador.</block>
   <block id="d51ed7f10b5732d6e9ec975c89648212" category="list-text">Compruebe las opciones de configuración que ha realizado en la pantalla que aparece al final de la instalación y asegúrese de guardar la configuración.</block>
-  <block id="96ed0cc56c5e8196aceb1b998f9535d1" category="list-text">Compruebe la versión de los switches de red de clúster y, si es necesario, descargue la versión del software que admite NetApp en los switches.</block>
   <block id="70399670eb37f7ebf7bbd91e15766e17" category="inline-link">Switches Ethernet de Cisco</block>
-  <block id="d7de59d570551ce510d04111914f9ad7" category="paragraph">Si descarga la versión de software compatible con NetApp, también debe descargar el _archivo de configuración_ de referencia del switch de red del clúster de NetApp y combinarlo con la configuración que guardó en el paso 5. Puede descargar el archivo y las instrucciones desde la<block ref="91aaf2f14ce017094691ed108f35b756" category="inline-link-rx"></block> página.</block>
-  <block id="e75e1151ec00758e18759a8f40279f42" category="inline-link">Sitio Cisco</block>
-  <block id="771335554e309a1fffe48143bbab90a9" category="list-text">Compruebe la versión del software en los switches de red y, si es necesario, descargue la versión del software compatible con NetApp en los switches. Si dispone de sus propios conmutadores, consulte<block ref="c602ce64cde2f26d0f98979dc6b3aef5" category="inline-link-rx"></block>.</block>
-  <block id="b2cb13c509425b76d525187f976cf094" category="paragraph">Si descarga la versión del software compatible con NetApp, también debe descargar el _archivo de configuración_ de referencia del switch de red de gestión de NetApp y combinarlo con la configuración que guardó en el paso 5. Puede descargar el archivo y las instrucciones desde la<block ref="91aaf2f14ce017094691ed108f35b756" category="inline-link-rx"></block> página.</block>
   <block id="0d5a52d62bb26b9e7ae6a509e4469dc1" category="inline-link-macro">Prepare la instalación de NX-OS y RCF</block>
   <block id="83855999b3308477760994ec497ea43a" category="paragraph"><block ref="12fd8f733c82b6251ce762993bfda2b0" category="inline-link-macro-rx"></block>.</block>
   <block id="dd7ac721959b4aaa170786e82881ae7b" category="summary">Deben instalarse los archivos de configuración de referencia y el software Cisco NX-OS (RCF) en los switches de clúster Cisco Nexus 3132Q-V.</block>
@@ -1068,21 +1057,9 @@
   <block id="9cfc8a50f07804d5007c52c4a385e3a2" category="section-title">Hoja de trabajo de cableado en blanco</block>
   <block id="7fa5050d326d5f521a9d98c95b04122b" category="paragraph">Puede utilizar la hoja de datos de cableado vacía para documentar las plataformas que se admiten como nodos de un clúster. La sección _Cluster Connections_ del<block ref="16a6d09025d51cb8dd3516798b3fee8a" category="inline-link-rx"></block> define los puertos de clúster que utiliza la plataforma.</block>
   <block id="30e2b286e00ce8831f1082e08a611616" category="cell">Uso del nodo/puerto</block>
-  <block id="dc41570bc2d65bc76b561aeb1f830c14" category="summary">Migración a un clúster con switches de dos nodos</block>
-  <block id="cd60c40cb099f72abfc853944220530f" category="doc">Descripción general y requisitos: Switches Cisco Nexus 3132Q-V.</block>
-  <block id="c8bb0ea97175165d9cb903f8d96ce128" category="paragraph">Para la instalación y el mantenimiento del switch Cisco Nexus 3132Q-V, asegúrese de revisar todos los requisitos y la documentación recomendada.</block>
-  <block id="061d0bb17fcfd90ff506c4e0ba0995e9" category="section-title">Descripción general de la tarea</block>
-  <block id="bb99d6e220fd145b5cefd52c57ea3853" category="paragraph">Puede usar los switches Cisco Nexus 3132Q-V como switches de clúster en su clúster AFF o FAS. Entre las tareas de instalación y mantenimiento se incluyen:</block>
-  <block id="f99d3ad769eb6a80131b2f32d1f6d984" category="list-text">Instalación de NX-OS y archivos de configuración de referencia (RCF) en el switch de clúster Cisco Nexus 3132Q-V.</block>
-  <block id="37150b17ca4ead4cf5b8564bbf5b4ada" category="list-text">Migrar de un entorno de clúster sin switch de dos nodos a un entorno con switches de dos nodos mediante los switches de clúster Cisco Nexus 3132Q-V.</block>
-  <block id="63ab9ba5d362a8345289de5dd4ef671c" category="list-text">Reemplazar un conmutador Cisco Nexus 3132Q-V defectuoso en un clúster y descargar el sistema operativo del switch y el archivo de configuración de referencia.</block>
-  <block id="0ad9affe7411783bea0f8abc713ab787" category="list-text">Reemplazar switches de clúster Cisco Nexus 5596, Nexus 5020 o Nexus 5010 con switches Cisco Nexus 3132Q-V.</block>
-  <block id="f5f56ff081c321e780acd2585ec8712c" category="list-text">Reemplazar los switches CN1610 de NetApp con switches de clúster Cisco Nexus 3132Q-V.</block>
   <block id="bdaa0ac1a14f06640cc063a63e6b48d5" category="paragraph">Smart Call Home supervisa los componentes de hardware y software de su red para generar una notificación basada en correo electrónico de las condiciones críticas del sistema. Cuando se produce un evento en el dispositivo, Smart Call Home genera una alerta a todos los destinatarios configurados en el perfil de destino.</block>
   <block id="869c1820533f03424b7373120a0eed8f" category="paragraph">Debe configurar un conmutador de red de clúster para comunicarse mediante correo electrónico con el sistema Smart Call Home. Opcionalmente, puede configurar el conmutador de red de clúster para aprovechar la función integrada de soporte Smart Call Home de Cisco.</block>
-  <block id="009c6d363796a7a3590b6e6f670884a1" category="paragraph">Antes de poder utilizar la función de inicio de llamada inteligente, tenga en cuenta las siguientes consideraciones:</block>
   <block id="0122c541d0f6f527c0389bab2430d4c9" category="section-title">Requisitos de documentación</block>
-  <block id="c6c3624138815835afae980d749118db" category="paragraph">Necesita documentación específica sobre los switches y las controladoras para configurar los switches 3132Q-V y el clúster ONTAP.</block>
   <block id="0097ce0f8a70e3f4836e959cc2aab7af" category="summary">Para reemplazar los switches de clúster CN1610 existentes en un clúster con switches de clúster Cisco Nexus 3132Q-V, debe realizar una secuencia específica de tareas.</block>
   <block id="f0d32094af5747f6104cd6349cd44b98" category="doc">Migre de los switches de clúster CN1610 a los switches de clúster Cisco Nexus 3132Q-V.</block>
   <block id="5df649542c57202f02bfbe07032d6c7c" category="paragraph">Siga este procedimiento para sustituir los switches de clúster CN1610 existentes por switches de clúster Cisco Nexus 3132Q-V.</block>
@@ -1794,16 +1771,7 @@
   <block id="8d84d93bb6de6b0f88135e2e08153e5f" category="list-text">Elimine el interruptor del grupo de instrumentos sustituido CL2 si no se ha quitado automáticamente:</block>
   <block id="cf7b7a2450cdf724bf9db825b3b4aa4a" category="paragraph"><block ref="0ef821c4d99f895e3cc04c1c391a05de" prefix="" category="inline-code"></block></block>
   <block id="f163f843faddde93ed2caa19f8e0f9fe" category="paragraph">En el siguiente ejemplo se muestran los switches de clúster se supervisan porque<block ref="6beb2cc170f0a90f965716390d45b3d5" prefix=" " category="inline-code"></block> el estado es<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>.</block>
-  <block id="c8c9a67674bc39cd6ff6f1f5d95bad32" category="doc">Información general y requisitos: Switches Cisco Nexus 3232C</block>
-  <block id="8d0990009da02bfb69d0f3cee5617945" category="paragraph">Para la instalación y el mantenimiento del switch Cisco Nexus 3232C, asegúrese de revisar todos los requisitos y la documentación recomendada.</block>
-  <block id="7da82735909dbd5f8aa65552d57af14d" category="paragraph">Puede utilizar switches Cisco Nexus 3232C como switches de clúster en su clúster AFF o FAS. Entre las tareas de instalación y mantenimiento se incluyen:</block>
-  <block id="e09ce0e5fae2834fe0f24812765b6050" category="list-text">Instalar el switch Cisco Nexus 3232C (X190100) en un armario del sistema de NetApp con los soportes personalizados que se incluyen en el switch o instalarlo en un rack con los soportes estándar que también se incluyen con el switch.</block>
-  <block id="37fdb404fc626b9459958f33fd8220cd" category="list-text">Instalar el software NX-OS y archivos de configuración de referencia (RCF) en el switch de clúster Cisco Nexus 3232C.</block>
-  <block id="3901ea2aee7007d4cd8300eb64cdbf75" category="list-text">Migración de un clúster sin switches de dos nodos a un clúster con switches de clúster Cisco Nexus 3232C.</block>
-  <block id="6b5b64523be0a7bcbb1d9e9aa431e32c" category="list-text">Reemplazar un switch de clúster Cisco Nexus 3232C.</block>
-  <block id="2ce673c77c644931c93f242577cbd91f" category="list-text">Reemplazar un switch de almacenamiento Cisco Nexus 3232C.</block>
   <block id="4697012720f5f4269c1b9795a2e8ff34" category="paragraph">Para poder utilizar la función de inicio de llamada inteligente, debe tener en cuenta las siguientes consideraciones:</block>
-  <block id="e4c54c8db8fd1960a63e83ce1690c9f3" category="paragraph">Necesita documentación específica sobre los switches y la controladora para configurar los switches Cisco Nexus 3232C y el clúster de ONTAP.</block>
   <block id="4a91febaa4c24955d4b5a205fc4846e7" category="summary">Antes de configurar los switches Cisco Nexus 3232c, revise una descripción general del proceso y la nomenclatura.</block>
   <block id="3d8c0d3afd6618c62321bcaf19ae1a50" category="doc">Descripción general de la instalación y la configuración de los switches Cisco Nexus 3232c</block>
   <block id="d4d8b9ec23fdb4722400f56c58539809" category="paragraph">Los switches Cisco Nexus 3232C se pueden utilizar como switches de clúster en su clúster AFF o FAS. Los switches de clúster permiten crear clústeres de ONTAP con más de dos nodos.</block>
@@ -2047,11 +2015,6 @@
   <block id="cf0438cf1f16dd8541401b40f77b205f" category="list-text">[[step14]]Introduzca el tipo de clave SSH que desea generar (dsa/rsa/rsa1). El valor predeterminado es rsa.</block>
   <block id="4affd6f79bcfe129021bccfab36973db" category="list-text">Introduzca el número de bits de clave (1024- 2048).</block>
   <block id="63380e79f39db6a40b46be28e461cc74" category="paragraph">Debería ver la nueva configuración en este momento. Revise y realice los cambios necesarios en la configuración que acaba de introducir. Si está satisfecho con la configuración, responda sin que aparezca el mensaje. Responda con *sí* si desea editar los ajustes de configuración.</block>
-  <block id="39ea6d6c5412ec7e0e17dd391cd35f3a" category="list-text">Compruebe la versión del software de los switches y, si es necesario, descargue la versión del software que admite NetApp en los switches.</block>
-  <block id="5cc7848076482937d11b61240634ed7a" category="paragraph">Si descarga la versión de software compatible con NetApp, también debe descargar el archivo de configuración de referencia de switches de red de NetApp y combinarlo con la configuración en la que guardó <block ref="6f5e80c5f38b7c17bfcb05f65cf8fc44" category="inline-xref-macro-rx"></block>.</block>
-  <block id="bca39608d42dd06cd48d84cb90bcb0ae" category="paragraph">Puede descargar el archivo y las instrucciones desde la<block ref="5c27bdff6f5cc32ce77bb635aee5a3ec" category="inline-link-rx"></block> página.</block>
-  <block id="7b1d1185b835814de783483f686e9825" category="inline-link">Cisco</block>
-  <block id="02940b8528baa18ab229adf16971aad1" category="paragraph">Si dispone de sus propios conmutadores, consulte<block ref="352cc6d5e14cbc28943a82cb55bedc13" category="inline-link-rx"></block> sitio.</block>
   <block id="91e900250e74122a13484678f32eb0d2" category="inline-link-macro">Instale el switch en el armario de NetApp</block>
   <block id="39f03c8807c9d36b2901f7198a4ae0c2" category="paragraph">En función de la configuración, podrá hacerlo <block ref="bd7e5f56c6474a1d0a59eeac0ce681d7" category="inline-link-macro-rx"></block>. De lo contrario, vaya a. <block ref="16a9a5fa8979bab3106e7aad0dfd20d9" category="inline-link-macro-rx"></block>.</block>
   <block id="b72c69a60f695309089392e6d394557c" category="doc">Instalar el software NX-OS y los archivos de configuración de referencia (RCF)</block>
@@ -2411,8 +2374,6 @@
   <block id="3a9c214d82ea0f7f835b71b5f4850c6b" category="inline-link-macro">Cumplimiento normativo e información de seguridad para Cisco Nexus serie 9000</block>
   <block id="83a1f0b32ba6ed26d00737e3faf8fc2e" category="cell"><block ref="83a1f0b32ba6ed26d00737e3faf8fc2e" category="inline-link-macro-rx"></block></block>
   <block id="fdffc0fdf626802f6fc29cff36498ecf" category="cell">Proporciona información legal, de seguridad y cumplimiento de normativas de agencias internacionales para los switches de la serie Nexus 9000.</block>
-  <block id="49274a22f777d8ee156d9a597e66731d" category="doc">Descripción general y requisitos</block>
-  <block id="7a22fc80a0833e5d697b1429fc1b1020" category="section-title">Descripción general de Nexus 9336C-FX2</block>
   <block id="7a132c4084cb90373827f0625aad2cb0" category="paragraph">Puede instalar el switch Cisco Nexus 9336C-FX2 (X190200/X190210) en un armario del sistema de NetApp o armario de terceros con soportes estándar que se incluyen con el switch.</block>
   <block id="5dfcb593b3c7fd66ae6fded55e29ddb1" category="paragraph">En la tabla siguiente se enumeran el número de pieza y la descripción del switch 9336C-FX2, sus ventiladores y fuentes de alimentación:</block>
   <block id="90dc16eea9a08fad9923a5ebde819373" category="cell">X190200-CS-PE</block>
@@ -2429,7 +2390,6 @@
   <block id="9f20b68dcb3f25905807b00fdbdc4368" category="cell">N9K-9336C 65CFM, flujo de aire del lado de la lumbrera</block>
   <block id="afb5efd2052a5d24db3e141e498b20de" category="cell">X-NXA-FAN-65CFM-PI</block>
   <block id="464c69327917d32444dfaf4ff328f5d5" category="cell">N9K-9336C 65CFM, flujo de aire de entrada lateral de la lumbrera</block>
-  <block id="e2cd1c4a8333627097591821747e2b1b" category="paragraph">Necesita documentación específica sobre los switches y la controladora para configurar la red ONTAP.</block>
   <block id="c17578df3a8103b0b9f77304ee468668" category="doc">Prepárese para instalar el software NX-OS y RCF</block>
   <block id="75f5ca2695f30fa3987540c3aa6c3b02" category="list-text">Los nombres de nodo son cluster1-01 y cluster1-02.</block>
   <block id="9ffdf3ff45071667f2b0aadc7de3c8d9" category="list-text">Los nombres de las LIF de clúster son cluster1-01_clus1 y cluster1-01_clus2 para cluster1-01 y cluster1-02_clus1 y cluster1-02_clus2 para cluster1-02.</block>
@@ -2786,10 +2746,7 @@
   <block id="fc8000433fb91bb2ac18805337e9f44f" category="list-text">Configurar otras opciones:</block>
   <block id="9cce6cea5fdcbb4782ca8d3b2c134882" category="list-text">Confirme la información del switch y guarde la configuración:</block>
   <block id="6d0680539caaa7f504c758a128c001d8" category="paragraph"><block ref="7bf2abe68cd5ba6b2b26f0fe6668421e" category="inline-link-macro-rx"></block>.</block>
-  <block id="3cd6cf1ddcb9cbb3fdccae78cac22205" category="doc">Descripción general y requisitos: Switches Cisco Nexus 92300YC</block>
-  <block id="56ff75ac3271a4d12336e888f7c3fc0c" category="paragraph">Para la instalación y mantenimiento del switch Cisco Nexus 92300YC, asegúrese de revisar todos los requisitos y la documentación recomendada.</block>
   <block id="c7c3b8d53ffb83548ff8a021ca0fa284" category="section-title">Componentes del interruptor</block>
-  <block id="56cfe07bba5e5bd0c1c2e82679c82db5" category="paragraph">Necesita documentación específica sobre los switches y las controladoras para configurar los switches Cisco Nexus 92300YC y el clúster ONTAP.</block>
   <block id="661270741d4b9ee98072782fd9c54b20" category="summary">Si ya tiene un entorno de clúster sin switches de dos nodos, puede migrar a un entorno de clúster con switches de dos nodos mediante switches Cisco Nexus 92300YC para permitirle escalar más allá de dos nodos en el clúster.</block>
   <block id="d4e1936831cfaebc87e3a86531309354" category="doc">Migre a un clúster con switches de dos nodos con un switch Cisco Nexus 92300YC</block>
   <block id="00e7e4df003eed991b5440311022278d" category="paragraph">Si tiene un entorno de clúster _sin switch_ de dos nodos existente, puede migrar a un entorno de clúster _con switches_ de dos nodos utilizando switches Cisco Nexus 92300YC para permitirle escalar más allá de los dos nodos del clúster.</block>
@@ -3260,11 +3217,6 @@
   <block id="c1153c185fedbfeda743da4308b381a6" category="paragraph"><block ref="40a61a57278f7a619526d0eb4a09a9f1" prefix="" category="inline-code"></block></block>
   <block id="7daa1f3bd2e50f13bfebdb7a7895f251" category="list-text">Configure la hora manualmente:</block>
   <block id="049c9cde4c991381b8a286f75afc69c5" category="paragraph"><block ref="05531b19bb846b18c09f979eeb429ad3" prefix="" category="inline-code"></block></block>
-  <block id="834c9cf25896d0e8e1155bcd47d30a15" category="summary">Para la instalación y mantenimiento del switch BES-53248, asegúrese de revisar la compatibilidad con el SO, los números de pieza, los requisitos de configuración y los requisitos de documentación.</block>
-  <block id="8593819c144c2a2ce810206970a5c7be" category="doc">Descripción general y requisitos: Conmutadores BES-53248</block>
-  <block id="21c14aede5215fb90baeafb94920857f" category="section-title">Cambiar números de pieza de componente</block>
-  <block id="1069b9aeccd9318ca5a0004bd8b60a99" category="paragraph">Para configurar el clúster, necesita el número y el tipo de cables y conectores de cables adecuados para los switches de clúster. Según el tipo de switch de clúster que se esté configurando inicialmente, debe conectarse al puerto de la consola del switch con el cable de consola incluido y necesita información de red específica.</block>
-  <block id="dd2a270d46b6de5fa30967cb2fe61249" category="paragraph">Necesita documentación específica sobre los switches y las controladoras para configurar su switch de clúster BES-53248 y su clúster de ONTAP.</block>
   <block id="e8ab0c1581dc0dcc64441ffb1b729ce5" category="summary">Si tiene un clúster sin switch de dos nodos, puede migrar, sin interrupciones, a un clúster con switches de dos nodos que incluya switches de clúster BES-53248 compatibles con Broadcom</block>
   <block id="446e9d64184ff722494a9a706bbd9d06" category="doc">Migrar a un entorno de clúster de NetApp conmutado</block>
   <block id="aa7dd6235ef36f2c7e4cd4edddab41eb" category="paragraph">Si tiene un entorno de clúster _sin switch_ de dos nodos existente, puede migrar a un entorno de clúster _con switches_ de dos nodos mediante switches de clúster BES-53248 compatibles con Broadcom, lo que le permite escalar más allá de dos nodos del clúster.</block>
@@ -3803,7 +3755,6 @@
   <block id="5e771b5b909032a79810f03b4d3094cd" category="paragraph">Configuración de la capa de interfaz predeterminada (L3/L2)</block>
   <block id="e6119e5e7b756f5ac645bab3bd6b7cf5" category="paragraph">Configurar el estado predeterminado de la interfaz del puerto del switch (cerrada/nohut)</block>
   <block id="ddcc83d63cc173465ab257f25d480cfc" category="paragraph">Configurar el perfil del sistema COPP (estricto/moderado/indulgente/denso)</block>
-  <block id="1b9261a17b2793d1fa348fcdce0863ee" category="paragraph">Si descarga la versión del software compatible con NetApp, también deberá descargar el _archivo de configuración_ de referencia del switch de red de gestión de NetApp y combinarlo con la configuración que guardó anteriormente. Puede descargar el archivo y las instrucciones desde la<block ref="91aaf2f14ce017094691ed108f35b756" category="inline-link-rx"></block> página.</block>
   <block id="95f749c32572d23c36c0f33b9f48fa88" category="inline-link-macro">Instale un switch Cisco Nexus 9336C-FX2 en un armario de NetApp</block>
   <block id="80f16525d7b1d7efe562fab354c53efe" category="paragraph">Opcionalmente, puede hacerlo <block ref="a8c82b142f94f7d62d6e984faba746ca" category="inline-link-macro-rx"></block>. De lo contrario, vaya a. <block ref="7be1885a02922674638042ed6280ba6b" category="inline-link-macro-rx"></block>.</block>
   <block id="baaff3aaf11e952cd40c4070094f2177" category="paragraph">4 nodos de 10 GbE 1</block>
@@ -3865,7 +3816,6 @@
   <block id="bc0630b5ddba535ff747f33d931d3694" category="inline-link-macro">Configurar el switch de almacenamiento Cisco Nexus 9336C-FX2</block>
   <block id="72ebeb1eaefeb8dcaddced548aa138a6" category="paragraph">Vaya a. <block ref="dbe1537ab2448f7ffd0bedd5a713fbd6" category="inline-link-macro-rx"></block>.</block>
   <block id="a8619fc94e4c2f63e5e439fa6be6c256" category="doc">Configurar el switch de almacenamiento 9336C-FX2</block>
-  <block id="4b336a78fcb64b240386ab171f94f2ba" category="paragraph">Opcionalmente, puede hacerlo <block ref="bc9b639ac839607472e9d3ce7e8971cb" category="inline-link-macro-rx"></block>. De lo contrario, vaya a. <block ref="16a9a5fa8979bab3106e7aad0dfd20d9" category="inline-link-macro-rx"></block>.</block>
   <block id="5847c0d3314204843b079da93ef9ce69" category="paragraph">Es posible sustituir un switch Nexus 9336C-FX2 defectuoso en una red de clúster. Se trata de un procedimiento no disruptivo.</block>
   <block id="09b135a429627a1342d1baae7e2a545c" category="paragraph">Antes de instalar el software NX-OS y los RCF en un switch de almacenamiento Cisco Nexus 9336C-FX2, asegúrese de que:</block>
   <block id="52254d9e98d791278e52f39723dbdb4a" category="list-text">Ha consultado la tabla de compatibilidad de switches de la página Cisco Ethernet Switch para ver las versiones ONTAP, NX-OS y RCF compatibles.</block>
@@ -4149,10 +4099,6 @@
   <block id="7a0710d974a24414099e3b97e3fe7207" category="inline-link">Guía de instalación de 10G</block>
   <block id="88e07c2041c42e55f6362baddb7f4214" category="list-text"><block ref="88e07c2041c42e55f6362baddb7f4214" category="inline-link-rx"></block></block>
   <block id="0e2aae3ee01b2f52d0ffbce68df5db61" category="paragraph">Una descripción general de las características de hardware y software del switch CN1610 y describe las características para instalar el switch y acceder a la CLI.</block>
-  <block id="9e94cbd196ed6920e8f54f3638a877cf" category="summary">cn1610, switch, netapp</block>
-  <block id="7644ee6a5d07b8a490380246b4f6b79a" category="doc">Switches CN1610 de NetApp</block>
-  <block id="4ea3ead37abb65fd297ca7404c0252a6" category="paragraph">El CN1610 es un switch de capa 2 gestionado con alto ancho de banda que proporciona puertos SFP+ (Small Form-factor Pluggable Plus) de 16 10 gigabits. El switch incluye suministros de alimentación redundantes y soportes de ventiladores que admiten el intercambio en caliente para alta disponibilidad.</block>
-  <block id="c9538971330f4f4fca683d6a1d65a1a4" category="paragraph">Este switch 1U se puede instalar en un armario estándar de sistemas 42U de 19 pulgadas de NetApp o en armario de terceros.</block>
   <block id="275799143340170eadc00ccaf78e483e" category="summary">Si ya dispone de un entorno de clúster sin switches de dos nodos, puede migrar a un entorno de clúster con switches de dos nodos mediante switches de red de clústeres CN1610, los cuales le permiten escalar más allá de dos nodos.</block>
   <block id="9a4ccadfaca83872ff2ccc100a0c3be4" category="doc">Migrar de un entorno de clúster sin switches a un entorno de clúster con switches CN1610 de NetApp</block>
   <block id="bf4e5001234dfa8b3e29882950fc2316" category="list-text">Todas las interfaces lógicas (LIF) del clúster están en la<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> estado y en sus puertos de origen.</block>
@@ -4325,4 +4271,18 @@
   <block id="eac9e7086f92a026c0dbe06001206204" category="sidebar">Guía de configuración y configuración para switches compartidos de Cisco</block>
   <block id="467a501ced0eaaee20142a975e074f95" category="sidebar">Migre de una configuración conmutada con almacenamiento DAT agregando dos nuevos switches compartidos</block>
   <block id="62bb127cfc33134b4b7ba3eb79ae05f3" category="sidebar">Migre de un clúster conmutado con almacenamiento SAT reutilizando los switches de almacenamiento</block>
+  <block id="0b12903428200835d01a68c020062f58" category="inline-link">Switches Ethernet de NVIDIA</block>
+  <block id="cce7d8d927747eb9a2c6b20af69fbb8a" category="list-text">Cumulus Linux (CL) OS versión 4.4.3. Para obtener información actual sobre compatibilidad, consulte<block ref="f6aa36fb7711a9179cbd2c4c52b8d6ef" category="inline-link-rx"></block> página de información.</block>
+  <block id="6bb3008abc00d2a0fe4d634f0b89831e" category="list-text">Puede instalar Cumulus Linux cuando el conmutador esté ejecutando Cumulus Linux o ONIE.</block>
+  <block id="8f77c20cd9bd8afa1521eb15ea44a8ef" category="list-text">Cumulus Linux 4.4.3 está instalado.</block>
+  <block id="2da5e3ee5bdcbc1a5443b42db962c1bb" category="list-text">Instale Cumulus Linux 4.4.3:</block>
+  <block id="d639f69fd7b303cd7aefe025e7d76848" category="list-text">Compruebe que la versión de Cumulus Linux es 4.4.3:</block>
+  <block id="4a4b6084f06cc45c6f17ae2aa9bd4dc4" category="inline-link">Descarga de software de Cisco</block>
+  <block id="0a6aaed7ba5c231511f7822eac6c4607" category="list-text">La versión aplicable de NX-OS, descargada del<block ref="f823faeecc1cbb37f2d732cc29c07d86" category="inline-link-rx"></block> página.</block>
+  <block id="b27df45c7b9d2b8ac8126550ac4038eb" category="list-text">Compruebe la versión de los switches de red del clúster y, si es necesario, descargue la versión del software compatible con NetApp en los switches de la<block ref="f823faeecc1cbb37f2d732cc29c07d86" category="inline-link-rx"></block> página.</block>
+  <block id="23ff17cc831acddb66c70196f1a8295f" category="paragraph">Durante este procedimiento no se necesita ningún enlace entre switches (ISL) operativo. Esto se debe a que los cambios en la versión de RCF pueden afectar temporalmente a la conectividad ISL. Para garantizar operaciones de clúster no disruptivas, el siguiente procedimiento migra todas las LIF del clúster al switch de partner operativo mientras realiza los pasos del switch de destino.</block>
+  <block id="c00379eb260028495e53ff62fa9b3a5a" category="inline-link">Descarga de software de Cisco</block>
+  <block id="03f4e394a093a045e6047871ed96a882" category="list-text">La versión aplicable de NX-OS, descargada del<block ref="5a1c929e557009655aef79d819d791d1" category="inline-link-rx"></block> página.</block>
+  <block id="c5490cef816a5fdfd03bfbae460638f5" category="paragraph"><block ref="c5490cef816a5fdfd03bfbae460638f5" category="inline-link-macro-rx"></block></block>
+  <block id="674dac01986b07db44266812735775f6" category="paragraph">Opcionalmente, puede hacerlo <block ref="2243efeaee625d6b6076bcdcbd40e014" category="inline-link-macro-rx"></block>. De lo contrario, vaya a. <block ref="16a9a5fa8979bab3106e7aad0dfd20d9" category="inline-link-macro-rx"></block>.</block>
 </blocks>

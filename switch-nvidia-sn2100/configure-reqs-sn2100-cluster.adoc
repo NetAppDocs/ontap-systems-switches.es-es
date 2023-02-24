@@ -30,5 +30,6 @@ Para conocer las directrices de cableado, consulte link:cabling-considerations-s
 El conmutador NVIDIA SN2100 es un conmutador Ethernet de 10/25/40/100 GB que ejecuta Cumulus Linux. El conmutador admite lo siguiente:
 
 * ONTAP 9.10.1P3. El switch SN2100 sirve a las aplicaciones de clúster y almacenamiento de ONTAP 9.10.1P3 sobre diferentes pares de switches. Desde ONTAP 9.10.1P3, puede utilizar los switches NVIDIA SN2100 para combinar las funciones de almacenamiento y clúster en una configuración de switch compartido.
-* Cumulus Linux (CL) OS versión 4.4.2. Cumulus Linux se puede instalar ya sea cuando el conmutador esté ejecutando Cumulus Linux o ONIE.
+* Cumulus Linux (CL) OS versión 4.4.3. Para obtener información actual sobre compatibilidad, consulte https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Switches Ethernet de NVIDIA"^] página de información.
+* Puede instalar Cumulus Linux cuando el conmutador esté ejecutando Cumulus Linux o ONIE.
 

@@ -63,6 +63,9 @@ _x_ es la duración de la ventana de mantenimiento en horas.
 `storage port show -port-type ENET`
 
 +
+.Muestra el ejemplo
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *storage port show -port-type ENET*
@@ -81,9 +84,13 @@ node2
                e7b  ENET  storage 100    enabled  online      30
 cluster1::*>
 ----
+====
 . Compruebe que el interruptor sw1 de almacenamiento esté disponible:
 `network device-discovery show`
 +
+.Muestra el ejemplo
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network device-discovery show protocol lldp*
@@ -96,10 +103,14 @@ node2/lldp
            e3a   sw1 (b8:ce:f6:19:1b:42)   swp4        -
 cluster1::*>
 ----
+====
 . Ejecute el
 `net show interface` comando en el switch de trabajo para confirmar que puede ver tanto los nodos como todas las bandejas:
 `net show interface`
 +
+.Muestra el ejemplo
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:~$ *net show interface*
@@ -117,9 +128,13 @@ UP     swp6    100G  9216   Trunk/L2   SHFFG1826000102 (e0b)   Master: bridge(UP
 ...
 ...
 ----
+====
 . Compruebe los puertos de la bandeja en el sistema de almacenamiento:
 `storage shelf port show -fields remote-device, remote-port`
 +
+.Muestra el ejemplo
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *storage shelf port show -fields remote-device, remote-port*
@@ -135,11 +150,15 @@ shelf   id  remote-port   remote-device
 3.20    3   -             -
 cluster1::*>
 ----
+====
 . Retire todos los cables conectados al interruptor de almacenamiento sw2.
 . Vuelva a conectar todos los cables al interruptor de recambio nsw2.
 . Vuelva a comprobar el estado de los puertos del nodo de almacenamiento:
 `storage port show -port-type ENET`
 +
+.Muestra el ejemplo
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *storage port show -port-type ENET*
@@ -158,9 +177,13 @@ node2
                  e7b  ENET  storage 100    enabled  online      30
 cluster1::*>
 ----
+====
 . Compruebe que ambos conmutadores estén disponibles:
 `net device-discovery show`
 +
+.Muestra el ejemplo
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network device-discovery show protocol lldp*
@@ -175,9 +198,13 @@ node2/lldp
           e7b  nsw2 (b8:ce:f6:19:1a:7e)   swp2        -
 cluster1::*>
 ----
+====
 . Compruebe los puertos de la bandeja en el sistema de almacenamiento:
 `storage shelf port show -fields remote-device, remote-port`
 +
+.Muestra el ejemplo
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *storage shelf port show -fields remote-device, remote-port*
@@ -193,11 +220,15 @@ shelf   id    remote-port     remote-device
 3.20    3     swp6            nsw2
 cluster1::*>
 ----
+====
 . Habilite la función de recogida de registros de control de estado del switch Ethernet para recopilar archivos de registro relacionados con el switch mediante los dos comandos: `system switch ethernet log setup-password` y.. `system switch ethernet log enable-collection`
 +
 Introduzca: `system switch ethernet log setup-password`
 
 +
+.Muestra el ejemplo
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *system switch ethernet log setup-password*
@@ -225,10 +256,14 @@ Do you want to continue? {y|n}:: [n] *y*
 Enter the password: <enter switch password>
 Enter the password again: <enter switch password>
 ----
+====
 +
 Seguido de: `system switch ethernet log enable-collection`
 
 +
+.Muestra el ejemplo
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *system  switch ethernet log enable-collection*
@@ -240,6 +275,7 @@ Enabling cluster switch log collection.
 
 cluster1::*>
 ----
+====
 +
 
 NOTE: Si alguno de estos comandos devuelve un error, póngase en contacto con el soporte de NetApp.
@@ -249,6 +285,9 @@ NOTE: Si alguno de estos comandos devuelve un error, póngase en contacto con el
 Espere 10 minutos y compruebe que la recopilación del registro se ha realizado correctamente mediante el comando: `system switch ethernet log show`
 
 +
+.Muestra el ejemplo
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *system switch ethernet log show*
@@ -259,6 +298,7 @@ Index  Switch                       Log Timestamp        Status
 1      sw1 (b8:ce:f6:19:1b:42)      4/29/2022 03:05:25   complete   
 2      nsw2 (b8:ce:f6:19:1b:96)     4/29/2022 03:07:42   complete
 ----
+====
 . Vuelva a cambiar el nivel de privilegio a admin: `set -privilege admin`
 . Si ha suprimido la creación automática de casos, vuelva a habilitarla invocando un mensaje de AutoSupport:
 `system node autosupport invoke -node * -type all -message MAINT=END`
