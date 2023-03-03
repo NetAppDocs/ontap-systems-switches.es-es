@@ -38,6 +38,8 @@ entries:
   entries:
   - title: Migre desde switches de clúster de Cisco
     url: "/switch-nvidia-sn2100/migrate-cisco-sn2100-cluster-switch.html"
+  - title: Migre a un clúster de dos nodos con switches
+    url: "/switch-nvidia-sn2100/migrate-2n-switched-sn2100-cluster.html"
   - title: Migre a un clúster sin switches de dos nodos
     url: "/switch-nvidia-sn2100/migrate-to-switchless-interconnect-sn2100-cluster.html"
 - title: Sustituya el switch del clúster

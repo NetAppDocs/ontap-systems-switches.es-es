@@ -26,6 +26,7 @@ Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo
 ====
 * El procedimiento requiere el uso de tanto comandos de la ONTAP como de https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Switches Cisco Nexus serie 9000"^]; Los comandos ONTAP se utilizan a menos que se indique lo contrario.
 * Antes de realizar este procedimiento, asegúrese de que tiene una copia de seguridad actual de la configuración del conmutador.
+* Durante este procedimiento no se necesita ningún enlace entre switches (ISL) operativo. Esto se debe a que los cambios en la versión de RCF pueden afectar temporalmente a la conectividad ISL. Para garantizar operaciones de clúster no disruptivas, el siguiente procedimiento migra todas las LIF del clúster al switch de partner operativo mientras realiza los pasos del switch de destino.
 
 
 ====
@@ -33,7 +34,10 @@ Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo
 . Muestre los puertos del clúster en cada nodo que están conectados a los switches de clúster:
 `network device-discovery show`
 +
-[listing, subs="+quotes"]
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *network device-discovery show*
 Node/       Local  Discovered
@@ -47,12 +51,16 @@ node2/cdp
             e0b    cs2                       Ethernet1/1/2     N9K-C92300YC
 cluster1::*>
 ----
+====
 . Compruebe el estado administrativo y operativo de cada puerto del clúster.
 +
 .. Compruebe que todos los puertos del clúster tengan el estado correcto:
 `network port show -ipspace Cluster`
 +
-[listing, subs="+quotes"]
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *network port show -ipspace Cluster*
 
@@ -73,10 +81,14 @@ e0c       Cluster      Cluster          up   9000  auto/100000 healthy false
 e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
 cluster1::*>
 ----
+====
 .. Compruebe que todas las interfaces del clúster (LIF) están en el puerto de inicio:
 `network interface show -vserver Cluster`
 +
-[listing, subs="+quotes"]
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *network interface show -vserver Cluster*
             Logical            Status     Network           Current      Current Is
@@ -89,10 +101,14 @@ Cluster
             node2_clus2        up/up      169.254.3.9/23    node2        e0d     true
 cluster1::*>
 ----
+====
 .. Compruebe que el clúster muestra información de ambos switches de clúster:
 `system cluster-switch show -is-monitoring-enabled-operational true`
 +
-[listing, subs="+quotes"]
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
 Switch                      Type               Address          Model
@@ -115,6 +131,7 @@ cs2                         cluster-network    10.233.205.93    N9K-C92300YC
 
 2 entries were displayed.
 ----
+====
 
 
 . Deshabilite la reversión automática en las LIF del clúster.
@@ -133,7 +150,10 @@ cs2(config-if-range)# *shutdown*
 . Comprobar que los puertos del clúster han migrado a los puertos alojados en el switch cs1 del clúster. Esto puede tardar unos segundos.
 `network interface show -vserver Cluster`
 +
-[listing, subs="+quotes"]
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *network interface show -vserver Cluster*
             Logical           Status     Network            Current       Current Is
@@ -146,10 +166,14 @@ Cluster
             node2_clus2       up/up      169.254.3.9/23     node2         e0c     false
 cluster1::*>
 ----
+====
 . Compruebe que el clúster esté en buen estado:
 `cluster show`
 +
-[listing, subs="+quotes"]
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *cluster show*
 Node           Health  Eligibility   Epsilon
@@ -158,6 +182,7 @@ node1          true    true          false
 node2          true    true          false
 cluster1::*>
 ----
+====
 . Si todavía no tiene una copia de seguridad actual del switch, puede guardar la configuración actual del switch copiando el resultado del siguiente comando en un archivo de registro:
 +
 `show running-config`
@@ -314,7 +339,10 @@ This command will reboot the system. (y/n)?  [n] *y*
 .. Compruebe que los puertos e0d están en buen estado y en todos los nodos del clúster:
 `network port show -ipspace Cluster`
 +
-[listing, subs="+quotes"]
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *network port show -ipspace Cluster*
 
@@ -334,9 +362,13 @@ Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
 e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
 e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
+====
 .. Compruebe el estado del switch del clúster (es posible que no muestre el switch cs2, ya que las LIF no son homadas en el e0d).
 +
-[listing, subs="+quotes"]
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *network device-discovery show -protocol cdp*
 Node/       Local  Discovered
@@ -370,6 +402,7 @@ cs2                         cluster-network    10.233.205.91    N9K-C92300YC
 
 2 entries were displayed.
 ----
+====
 
 
 +
@@ -395,7 +428,10 @@ cs1(config-if-range)# *shutdown*
 ----
 . Comprobar que las LIF del clúster han migrado a los puertos alojados en el switch cs2. Esto puede tardar unos segundos. `network interface show -vserver Cluster`
 +
-[listing, subs="+quotes"]
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *network interface show -vserver Cluster*
             Logical          Status     Network            Current           Current Is
@@ -408,10 +444,14 @@ Cluster
             node2_clus2      up/up      169.254.3.9/23     node2             e0d     true
 cluster1::*>
 ----
+====
 . Compruebe que el clúster esté en buen estado:
 `cluster show`
 +
-[listing, subs="+quotes"]
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *cluster show*
 Node           Health   Eligibility   Epsilon
@@ -420,6 +460,7 @@ node1          true     true          false
 node2          true     true          false
 cluster1::*>
 ----
+====
 . Repita los pasos 7 a 14 en el interruptor cs1.
 . Habilite la reversión automática en las LIF del clúster.
 +
@@ -451,7 +492,10 @@ Ethernet1/4      1       eth  trunk  up      none                   100G(D) --
 . Compruebe que el ISL entre cs1 y cs2 funciona:
 `show port-channel summary`
 +
-[listing, subs="+quotes"]
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
 ----
 cs1# *show port-channel summary*
 Flags:  D - Down        P - Up in port-channel (members)
@@ -469,10 +513,14 @@ Group Port-       Type     Protocol  Member Ports
 1     Po1(SU)     Eth      LACP      Eth1/65(P)   Eth1/66(P)
 cs1#
 ----
+====
 . Compruebe que las LIF del clúster han vuelto a su puerto de inicio:
 `network interface show -vserver Cluster`
 +
-[listing, subs="+quotes"]
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *network interface show -vserver Cluster*
             Logical       Status     Network            Current       Current Is
@@ -485,10 +533,14 @@ Cluster
             node2_clus2   up/up      169.254.3.9/23     node2         e0d     true
 cluster1::*>
 ----
+====
 . Compruebe que el clúster esté en buen estado:
 `cluster show`
 +
-[listing, subs="+quotes"]
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *cluster show*
 Node           Health  Eligibility   Epsilon
@@ -496,10 +548,14 @@ Node           Health  Eligibility   Epsilon
 node1          true    true          false
 node2          true    true          false
 ----
+====
 . Haga ping en las interfaces de clúster remoto para verificar la conectividad:
 `cluster ping-cluster -node local`
 +
-[listing, subs="+quotes"]
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *cluster ping-cluster -node local*
 Host is node1
@@ -534,6 +590,7 @@ RPC status:
 6 paths up, 0 paths down (tcp check)
 6 paths up, 0 paths down (udp check)
 ----
+====
 
 
 [role="tabbed-block"]
