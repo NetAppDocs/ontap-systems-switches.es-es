@@ -858,6 +858,8 @@
 
 
 
+
+
         </li>
       </ul>
     
@@ -1173,8 +1175,6 @@
             Migrar switches
           </a>
           
-
-
 
 
         </li>
@@ -2577,6 +2577,13 @@
         Migre desde switches de clúster de Cisco
       </a></li><li 
       data-pdf-exists="true" 
+      data-pdf-filename="Migre a un clúster de dos nodos con switches"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/migrate-2n-switched-sn2100-cluster.html">
+        Migre a un clúster de dos nodos con switches
+      </a></li><li 
+      data-pdf-exists="true" 
       data-pdf-filename="Migre a un clúster sin switches de dos nodos"
       data-li-level="4#" 
       class=" "
@@ -2905,13 +2912,6 @@
       class=" "
     ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/migrate-cisco-storage-switch-sn2100-storage.html">
         Migre desde switches de almacenamiento de Cisco
-      </a></li><li 
-      data-pdf-exists="true" 
-      data-pdf-filename="Migre a un clúster de dos nodos con switches"
-      data-li-level="4#" 
-      class=" "
-    ><a class="na-navbar-padding" href="/es-es/ontap-systems-switches/switch-nvidia-sn2100/migrate-2n-switched-sn2100-storage.html">
-        Migre a un clúster de dos nodos con switches
       </a></li></ul></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Sustituir el interruptor"
@@ -3789,7 +3789,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-02-20 21:26:23 +0000">02/20/2023</time>
+    <time datetime="2023-03-03 10:48:24 +0000">03/03/2023</time>
     
   
 
@@ -3837,6 +3837,9 @@
 <li>
 <p>Antes de realizar este procedimiento, asegúrese de que tiene una copia de seguridad actual de la configuración del conmutador.</p>
 </li>
+<li>
+<p>Durante este procedimiento no se necesita ningún enlace entre switches (ISL) operativo. Esto se debe a que los cambios en la versión de RCF pueden afectar temporalmente a la conectividad ISL. Para garantizar operaciones de clúster no disruptivas, el siguiente procedimiento migra todas las LIF del clúster al switch de partner operativo mientras realiza los pasos del switch de destino.</p>
+</li>
 </ul>
 </div>
 </td>
@@ -3849,9 +3852,12 @@
 <li>
 <p>Muestre los puertos del clúster en cada nodo que están conectados a los switches de clúster:
 <code>network device-discovery show</code></p>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
 <div class="listingblock">
 <div class="content">
-<pre>cluster1::*&gt; <strong>network device-discovery show</strong>
+<pre>cluster1::*&gt; *network device-discovery show*
 Node/       Local  Discovered
 Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
 ----------- ------ ------------------------- ----------------  ------------
@@ -3864,6 +3870,8 @@ node2/cdp
 cluster1::*&gt;</pre>
 </div>
 </div>
+</div>
+</details>
 </li>
 <li>
 <p>Compruebe el estado administrativo y operativo de cada puerto del clúster.</p>
@@ -3872,9 +3880,12 @@ cluster1::*&gt;</pre>
 <li>
 <p>Compruebe que todos los puertos del clúster tengan el estado correcto:
 <code>network port show -ipspace Cluster</code></p>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
 <div class="listingblock">
 <div class="content">
-<pre>cluster1::*&gt; <strong>network port show -ipspace Cluster</strong>
+<pre>cluster1::*&gt; *network port show -ipspace Cluster*
 
 Node: node1
                                                                        Ignore
@@ -3894,13 +3905,18 @@ e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
 cluster1::*&gt;</pre>
 </div>
 </div>
+</div>
+</details>
 </li>
 <li>
 <p>Compruebe que todas las interfaces del clúster (LIF) están en el puerto de inicio:
 <code>network interface show -vserver Cluster</code></p>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
 <div class="listingblock">
 <div class="content">
-<pre>cluster1::*&gt; <strong>network interface show -vserver Cluster</strong>
+<pre>cluster1::*&gt; *network interface show -vserver Cluster*
             Logical            Status     Network           Current      Current Is
 Vserver     Interface          Admin/Oper Address/Mask      Node         Port    Home
 ----------- ------------------ ---------- ----------------- ------------ ------- ----
@@ -3912,13 +3928,18 @@ Cluster
 cluster1::*&gt;</pre>
 </div>
 </div>
+</div>
+</details>
 </li>
 <li>
 <p>Compruebe que el clúster muestra información de ambos switches de clúster:
 <code>system cluster-switch show -is-monitoring-enabled-operational true</code></p>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
 <div class="listingblock">
 <div class="content">
-<pre>cluster1::*&gt; <strong>system cluster-switch show -is-monitoring-enabled-operational true</strong>
+<pre>cluster1::*&gt; *system cluster-switch show -is-monitoring-enabled-operational true*
 Switch                      Type               Address          Model
 --------------------------- ------------------ ---------------- ---------------
 cs1                         cluster-network    10.233.205.92    N9K-C92300YC
@@ -3940,6 +3961,8 @@ cs2                         cluster-network    10.233.205.93    N9K-C92300YC
 2 entries were displayed.</pre>
 </div>
 </div>
+</div>
+</details>
 </li>
 </ol>
 </div>
@@ -3964,9 +3987,12 @@ cs2(config-if-range)# <strong>shutdown</strong></pre>
 <li>
 <p>Comprobar que los puertos del clúster han migrado a los puertos alojados en el switch cs1 del clúster. Esto puede tardar unos segundos.
 <code>network interface show -vserver Cluster</code></p>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
 <div class="listingblock">
 <div class="content">
-<pre>cluster1::*&gt; <strong>network interface show -vserver Cluster</strong>
+<pre>cluster1::*&gt; *network interface show -vserver Cluster*
             Logical           Status     Network            Current       Current Is
 Vserver     Interface         Admin/Oper Address/Mask       Node          Port    Home
 ----------- ----------------- ---------- ------------------ ------------- ------- ----
@@ -3978,13 +4004,18 @@ Cluster
 cluster1::*&gt;</pre>
 </div>
 </div>
+</div>
+</details>
 </li>
 <li>
 <p>Compruebe que el clúster esté en buen estado:
 <code>cluster show</code></p>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
 <div class="listingblock">
 <div class="content">
-<pre>cluster1::*&gt; <strong>cluster show</strong>
+<pre>cluster1::*&gt; *cluster show*
 Node           Health  Eligibility   Epsilon
 -------------- ------- ------------  -------
 node1          true    true          false
@@ -3992,6 +4023,8 @@ node2          true    true          false
 cluster1::*&gt;</pre>
 </div>
 </div>
+</div>
+</details>
 </li>
 <li>
 <p>Si todavía no tiene una copia de seguridad actual del switch, puede guardar la configuración actual del switch copiando el resultado del siguiente comando en un archivo de registro:</p>
@@ -4190,9 +4223,12 @@ This command will reboot the system. (y/n)?  [n] <strong>y</strong></pre>
 <li>
 <p>Compruebe que los puertos e0d están en buen estado y en todos los nodos del clúster:
 <code>network port show -ipspace Cluster</code></p>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
 <div class="listingblock">
 <div class="content">
-<pre>cluster1::*&gt; <strong>network port show -ipspace Cluster</strong>
+<pre>cluster1::*&gt; *network port show -ipspace Cluster*
 
 Node: node1
                                                                        Ignore
@@ -4211,12 +4247,17 @@ e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
 e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false</pre>
 </div>
 </div>
+</div>
+</details>
 </li>
 <li>
 <p>Compruebe el estado del switch del clúster (es posible que no muestre el switch cs2, ya que las LIF no son homadas en el e0d).</p>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
 <div class="listingblock">
 <div class="content">
-<pre>cluster1::*&gt; <strong>network device-discovery show -protocol cdp</strong>
+<pre>cluster1::*&gt; *network device-discovery show -protocol cdp*
 Node/       Local  Discovered
 Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
 ----------- ------ ------------------------- ----------------- ------------
@@ -4227,7 +4268,7 @@ node2/cdp
             e0a    cs1                       Ethernet1/2       N9K-C92300YC
             e0b    cs2                       Ethernet1/2       N9K-C92300YC
 
-cluster1::*&gt; <strong>system cluster-switch show -is-monitoring-enabled-operational true</strong>
+cluster1::*&gt; *system cluster-switch show -is-monitoring-enabled-operational true*
 Switch                      Type               Address          Model
 --------------------------- ------------------ ---------------- ------------
 cs1                         cluster-network    10.233.205.90    N9K-C92300YC
@@ -4249,6 +4290,8 @@ cs2                         cluster-network    10.233.205.91    N9K-C92300YC
 2 entries were displayed.</pre>
 </div>
 </div>
+</div>
+</details>
 </li>
 </ol>
 </div>
@@ -4288,9 +4331,12 @@ cs1(config-if-range)# <strong>shutdown</strong></pre>
 </li>
 <li>
 <p>Comprobar que las LIF del clúster han migrado a los puertos alojados en el switch cs2. Esto puede tardar unos segundos. <code>network interface show -vserver Cluster</code></p>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
 <div class="listingblock">
 <div class="content">
-<pre>cluster1::*&gt; <strong>network interface show -vserver Cluster</strong>
+<pre>cluster1::*&gt; *network interface show -vserver Cluster*
             Logical          Status     Network            Current           Current Is
 Vserver     Interface        Admin/Oper Address/Mask       Node              Port    Home
 ----------- ---------------- ---------- ------------------ ----------------- ------- ----
@@ -4302,13 +4348,18 @@ Cluster
 cluster1::*&gt;</pre>
 </div>
 </div>
+</div>
+</details>
 </li>
 <li>
 <p>Compruebe que el clúster esté en buen estado:
 <code>cluster show</code></p>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
 <div class="listingblock">
 <div class="content">
-<pre>cluster1::*&gt; <strong>cluster show</strong>
+<pre>cluster1::*&gt; *cluster show*
 Node           Health   Eligibility   Epsilon
 -------------- -------- ------------- -------
 node1          true     true          false
@@ -4316,6 +4367,8 @@ node2          true     true          false
 cluster1::*&gt;</pre>
 </div>
 </div>
+</div>
+</details>
 </li>
 <li>
 <p>Repita los pasos 7 a 14 en el interruptor cs1.</p>
@@ -4356,9 +4409,12 @@ Ethernet1/4      1       eth  trunk  up      none                   100G(D) --
 <li>
 <p>Compruebe que el ISL entre cs1 y cs2 funciona:
 <code>show port-channel summary</code></p>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
 <div class="listingblock">
 <div class="content">
-<pre>cs1# <strong>show port-channel summary</strong>
+<pre>cs1# *show port-channel summary*
 Flags:  D - Down        P - Up in port-channel (members)
         I - Individual  H - Hot-standby (LACP only)
         s - Suspended   r - Module-removed
@@ -4375,13 +4431,18 @@ Group Port-       Type     Protocol  Member Ports
 cs1#</pre>
 </div>
 </div>
+</div>
+</details>
 </li>
 <li>
 <p>Compruebe que las LIF del clúster han vuelto a su puerto de inicio:
 <code>network interface show -vserver Cluster</code></p>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
 <div class="listingblock">
 <div class="content">
-<pre>cluster1::*&gt; <strong>network interface show -vserver Cluster</strong>
+<pre>cluster1::*&gt; *network interface show -vserver Cluster*
             Logical       Status     Network            Current       Current Is
 Vserver     Interface     Admin/Oper Address/Mask       Node          Port    Home
 ----------- ------------- ---------- ------------------ ------------- ------- ----
@@ -4393,26 +4454,36 @@ Cluster
 cluster1::*&gt;</pre>
 </div>
 </div>
+</div>
+</details>
 </li>
 <li>
 <p>Compruebe que el clúster esté en buen estado:
 <code>cluster show</code></p>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
 <div class="listingblock">
 <div class="content">
-<pre>cluster1::*&gt; <strong>cluster show</strong>
+<pre>cluster1::*&gt; *cluster show*
 Node           Health  Eligibility   Epsilon
 -------------- ------- ------------- -------
 node1          true    true          false
 node2          true    true          false</pre>
 </div>
 </div>
+</div>
+</details>
 </li>
 <li>
 <p>Haga ping en las interfaces de clúster remoto para verificar la conectividad:
 <code>cluster ping-cluster -node local</code></p>
+<details>
+<summary class="title">Muestra el ejemplo</summary>
+<div class="content">
 <div class="listingblock">
 <div class="content">
-<pre>cluster1::*&gt; <strong>cluster ping-cluster -node local</strong>
+<pre>cluster1::*&gt; *cluster ping-cluster -node local*
 Host is node1
 Getting addresses from network interface table...
 Cluster node1_clus1 169.254.3.4 node1 e0a
@@ -4446,6 +4517,8 @@ RPC status:
 6 paths up, 0 paths down (udp check)</pre>
 </div>
 </div>
+</div>
+</details>
 </li>
 </ol>
 </div>
