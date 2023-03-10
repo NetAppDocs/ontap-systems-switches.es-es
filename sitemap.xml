@@ -407,14 +407,14 @@
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-nvidia-sn2100/install-cumulus-mode-sn2100-cluster.html</loc>
       
-      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
+      <lastmod>2023-03-10T10:52:07+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-nvidia-sn2100/install-cumulus-mode-sn2100-storage.html</loc>
       
-      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
+      <lastmod>2023-03-10T10:52:07+00:00</lastmod>
       
     </url>
   
@@ -547,14 +547,14 @@
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-nvidia-sn2100/install-onie-mode-sn2100-cluster.html</loc>
       
-      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
+      <lastmod>2023-03-10T10:52:07+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-nvidia-sn2100/install-onie-mode-sn2100-storage.html</loc>
       
-      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
+      <lastmod>2023-03-10T10:52:07+00:00</lastmod>
       
     </url>
   
@@ -624,14 +624,14 @@
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-nvidia-sn2100/install-snmpv3-sn2100-cluster.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-03-10T10:52:07+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-nvidia-sn2100/install-snmpv3-sn2100-storage.html</loc>
       
-      <lastmod>2023-02-24T14:05:06+00:00</lastmod>
+      <lastmod>2023-03-10T10:52:07+00:00</lastmod>
       
     </url>
   
@@ -909,14 +909,14 @@
     </url>
   
     <url>
-      <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-shared/migrate-to-switchless-cluster-interconnect.html</loc>
+      <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-92300/migrate-to-switchless-cluster-interconnect.html</loc>
       
       <lastmod>2023-02-20T21:26:23+00:00</lastmod>
       
     </url>
   
     <url>
-      <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-92300/migrate-to-switchless-cluster-interconnect.html</loc>
+      <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-shared/migrate-to-switchless-cluster-interconnect.html</loc>
       
       <lastmod>2023-02-20T21:26:23+00:00</lastmod>
       
@@ -993,14 +993,14 @@
     </url>
   
     <url>
-      <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/replace-9336c-cluster.html</loc>
+      <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-storage/replace-9336c-cluster.html</loc>
       
       <lastmod>2023-02-20T21:26:23+00:00</lastmod>
       
     </url>
   
     <url>
-      <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-9336c-fx2-storage/replace-9336c-cluster.html</loc>
+      <loc>https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/replace-9336c-cluster.html</loc>
       
       <lastmod>2023-02-20T21:26:23+00:00</lastmod>
       
@@ -1100,7 +1100,7 @@
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches/other-procedures/replace-switches-with-direct-connections.html</loc>
       
-      <lastmod>2023-02-20T21:26:23+00:00</lastmod>
+      <lastmod>2023-03-10T10:52:07+00:00</lastmod>
       
     </url>
   
@@ -1191,7 +1191,7 @@
     <url>
       <loc>https://docs.netapp.com/es-es/ontap-systems-switches//search.html</loc>
       
-      <lastmod>2023-03-03T10:48:39+00:00</lastmod>
+      <lastmod>2023-03-10T10:52:20+00:00</lastmod>
       
     </url>
   
