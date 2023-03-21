@@ -42,7 +42,5 @@ entries:
     url: "/switch-cisco-9336c-fx2-shared/migrate-from-switchless-configuration-sat-storage.html"
   - title: Migrar desde el grupo SAT conmutado
     url: "/switch-cisco-9336c-fx2-shared/migrate-from-switched-cluster-sat-storage.html"
-  - title: Migre a un clúster sin switches de dos nodos
-    url: "/switch-cisco-9336c-fx2-shared/migrate-to-switchless-cluster-interconnect.html"
 - title: Sustituya los interruptores
   url: "/switch-cisco-9336c-fx2-shared/replace-9336c-fx2-shared.html"

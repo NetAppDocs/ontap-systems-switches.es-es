@@ -253,6 +253,10 @@ Enable Switchless Cluster: true
 +
 `cluster ping-cluster -node local`
 
++
+
+IMPORTANT: Antes de continuar con el siguiente paso, debe esperar al menos dos minutos para confirmar una conexión de retroceso en funcionamiento en el grupo 1.
+
 . Configure la configuración sin switches para los puertos del grupo 2.
 +
 

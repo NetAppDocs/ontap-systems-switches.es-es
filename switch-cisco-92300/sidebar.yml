@@ -36,7 +36,9 @@ entries:
     url: "/switch-cisco-92300/migrate-to-2n-switched.html"
   - title: Migrar desde un switch Cisco antiguo
     url: "/switch-cisco-92300/migrate-to-92300yc.html"
-  - title: Migre a un clúster sin switches de dos nodos
+- title: Sustituya los interruptores
+  entries:
+  - title: Sustituir el interruptor
+    url: "/switch-cisco-92300/replace-92300yc.html"
+  - title: Sustituya los switches del clúster por conexiones sin switch
     url: "/switch-cisco-92300/migrate-to-switchless-cluster-interconnect.html"
-- title: Sustituir el interruptor
-  url: "/switch-cisco-92300/replace-92300yc.html"

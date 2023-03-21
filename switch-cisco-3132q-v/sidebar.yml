@@ -36,11 +36,11 @@ entries:
     url: "/switch-cisco-3132q-v/replace-cn1610-with-cisco-nexus-3232c.html"
   - title: Migrar del clúster sin switches a clúster con switches
     url: "/switch-cisco-3132q-v/migrate-from-switchless-cluster-to-cisco-nexus-3132q-v.html"
-  - title: Migrar del clúster con switches a sin switches
-    url: "/switch-cisco-3132q-v/migrate-to-switchless-cluster-interconnect.html"
 - title: Sustituya los interruptores
   entries:
   - title: Sustituya los requisitos
     url: "/switch-cisco-3132q-v/switch-requirements.html"
   - title: Sustituir los interruptores CN3132Q-V.
     url: "/switch-cisco-3132q-v/replace-cisco-nexus-3132q-v.html"
+  - title: Sustituya los switches del clúster por conexiones sin switch
+    url: "/switch-cisco-3132q-v/migrate-to-switchless-cluster-interconnect.html"

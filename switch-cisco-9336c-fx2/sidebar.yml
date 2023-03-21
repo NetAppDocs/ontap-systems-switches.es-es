@@ -40,7 +40,9 @@ entries:
     url: "/switch-cisco-9336c-fx2/migrate-to-9336-cluster.html"
   - title: Migre a un clúster de dos nodos con switches
     url: "/switch-cisco-9336c-fx2/migrate-to-2n-switched-9336-cluster.html"
-  - title: Migre a un clúster sin switches de dos nodos
+- title: Sustituya los interruptores
+  entries:
+  - title: Sustituya el switch del clúster
+    url: "/switch-cisco-9336c-fx2/replace-9336c-cluster.html"
+  - title: Sustituya los switches del clúster por conexiones sin switch
     url: "/switch-cisco-9336c-fx2/migrate-to-switchless-interconnect-9336-cluster.html"
-- title: Sustituya el switch del clúster
-  url: "/switch-cisco-9336c-fx2/replace-9336c-cluster.html"

@@ -38,13 +38,13 @@ entries:
     url: "/switch-cisco-3232c/migrate-from-cisco-nexus-5596.html"
   - title: Migre desde un clúster sin switches de dos nodos
     url: "/switch-cisco-3232c/migrate-from-two-node-switchless-cluster.html"
-  - title: Migre a un clúster sin switches de dos nodos
-    url: "/switch-cisco-3232c/migrate-to-switchless-cluster-interconnect.html"
 - title: Sustituya los interruptores
   entries:
   - title: Sustituya el switch del clúster
     url: "/switch-cisco-3232c/replace-cluster-switch.html"
   - title: Sustituir el interruptor de almacenamiento
     url: "/switch-cisco-3232c/replace-storage-switch.html"
+  - title: Sustituya los switches del clúster por conexiones sin switch
+    url: "/switch-cisco-3232c/migrate-to-switchless-cluster-interconnect.html"
 - title: Actualice los switches
   url: "/switch-cisco-3232c/upgrade-3232c-storage-switches.html"

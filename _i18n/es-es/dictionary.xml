@@ -31,7 +31,6 @@
   <block id="f4959eb49cd0d468fb22d0fde13f93d1" category="inline-link-macro">Configure el switch</block>
   <block id="26579e78de73f5546f69f3f79a7b8f48" category="paragraph"><block ref="d639995fde516a3ba2e60963b02aecc1" category="inline-link-macro-rx"></block>.</block>
   <block id="fa7a3d1e5babb00593a110ab5870ff56" category="summary">Puede migrar desde un clúster con una red de clúster conmutada a uno donde dos nodos están conectados directamente para ONTAP 9.3 y versiones posteriores.</block>
-  <block id="cc0e36a3f48f0af38ed8ceca6914ee74" category="doc">Migre a un clúster sin switches de dos nodos con switches de clúster NVIDIA SN2100</block>
   <block id="2d0e9a7694bf5bc701c3af145a6bba71" category="section-title">Revise los requisitos</block>
   <block id="af68aec6a9ff864bb2ea1a13ec1ac66f" category="paragraph-title">Directrices</block>
   <block id="d2c3016b1c4893861f6df9e9ca35fb38" category="paragraph">Revise las siguientes directrices:</block>
@@ -664,7 +663,6 @@
   <block id="7b180b39357479c0dfc914a589065e0f" category="inline-link-macro">Instale el switch Cisco Nexus 3132Q-V en un armario de NetApp</block>
   <block id="bf52aa99c31093c8c238d41b9b3fcef1" category="paragraph"><block ref="bf52aa99c31093c8c238d41b9b3fcef1" category="inline-link-macro-rx"></block></block>
   <block id="36fd3a3766a1b332d080839630cb202d" category="paragraph">Describe cómo instalar un switch Cisco Nexus 3132Q-V en un armario de cuatro parantes de NetApp.</block>
-  <block id="f04a3d7452808e95f394e61a165ad1fe" category="doc">Migre a un clúster sin switches de dos nodos con switches de clúster Cisco Nexus 3132Q-V.</block>
   <block id="bf30874b6334fc99e10539c66e1807f2" category="summary">Puede utilizar este procedimiento para instalar el software NX-OS en el switch de clúster Nexus 3132Q-V.</block>
   <block id="e85d82d5e43386edb063cee5493cc6f4" category="doc">Instale el software NX-OS</block>
   <block id="50deaa4511349944fdb3f83e9e71b2ea" category="paragraph">Siga este procedimiento para instalar el software NX-OS en el switch de clúster Nexus 3132Q-V.</block>
@@ -1634,7 +1632,6 @@
   <block id="5655241624f11355f5911ce18ad8e847" category="list-text">Compruebe que los puertos del switch funcionan en buen estado y operativo después del reinicio:</block>
   <block id="c75fb03f38414ef60d8a0ffe8c2f06d8" category="list-text">Vuelva a comprobar que no haya problemas de switch de almacenamiento o cableado con el clúster:</block>
   <block id="f543ce97fb14fdd83e102f7c07cb1098" category="list-text">Repita el procedimiento para actualizar el software NX-OS y el conmutador S1 RCF on.</block>
-  <block id="489ffb441a69ef8ab5ae302c7d5a28e3" category="doc">Migre a un clúster sin switches de dos nodos con switches de clúster Cisco Nexus 3232C</block>
   <block id="63990467755c5a4c3727faca4f024adb" category="summary">Debe conocer determinada información de configuración, conexiones de puertos y requisitos de cableado cuando sustituya los switches del clúster CN1610 por switches de clúster Cisco Nexus 3232C.</block>
   <block id="ccc7541015670d615a3ac3ca54f328a2" category="doc">Requisitos de migración para los switches de clúster Cisco Nexus 3232C</block>
   <block id="095f3ce4df6c9efa0ac2ac584751cd57" category="paragraph">Antes de migrar a switches de clúster Cisco Nexus 3232C. revise la información de configuración, las conexiones de puertos y los requisitos de cableado.</block>
@@ -2591,7 +2588,6 @@
   <block id="7d5e5990cb3bdda7d774b1b9dbba810d" category="paragraph"><block ref="24bc8a6655a0623a7f4e402c12df4b9c" prefix="" category="inline-code"></block></block>
   <block id="6b7440a940de051fd62b68b3fd600735" category="doc">Requisitos de configuración para switches Cisco Nexus 92300YC</block>
   <block id="8917a30f03f4abae51ca9229e01f580d" category="paragraph">Para la instalación y el mantenimiento del switch Cisco Nexus 92300YC, asegúrese de revisar todos los requisitos de configuración y red.</block>
-  <block id="ebc12b227052e3324f3307fa003df8b8" category="doc">Migre a un clúster sin switches de dos nodos con switches de clúster Cisco Nexus 92300YC</block>
   <block id="0087b0de389e5b9f017430f157337f28" category="summary">Puede migrar switches de clúster Cisco antiguos sin interrupciones para un clúster ONTAP a switches de red de clúster Cisco Nexus 92300YC.</block>
   <block id="96b8ff1634f6f4a5cc62e8b2c11e4a44" category="doc">Migre desde un switch de Cisco a un switch Cisco Nexus 92300YC</block>
   <block id="831c7097602d84295a892b4ccd5c5664" category="inline-link-macro">Instalación del monitor de estado del interruptor del clúster (CSHM)</block>
@@ -3445,23 +3441,7 @@
   <block id="8849c41092b79554e9b7f3a213d25622" category="list-text">Para implementaciones de ONTAP, consulte<block ref="a9c0083f0559526553eb5b29452926d5" category="inline-link-rx"></block>.</block>
   <block id="10775dd39d5bac0a859a7c2aa804576e" category="inline-link">Configuración de MetroCluster con ONTAP</block>
   <block id="cd0ac8ac6ae100c0f56d712237ad4aea" category="list-text">Para ver ONTAP con implementaciones de MetroCluster, consulte<block ref="725c74f5b5396d66bd86e73daf02329b" category="inline-link-rx"></block>.</block>
-  <block id="e92a37c58dda9b6ad3b2129262043d6a" category="summary">Puede sustituir los switches de un clúster de dos nodos por conexiones directas de vuelta a atrás entre los nodos.</block>
-  <block id="42831c80a579ed060615d4e90f0500cf" category="doc">Sustituya los interruptores por conexiones directas</block>
-  <block id="f9ca0dca2bbe2bca99b0ad5e676f7bb6" category="paragraph">Si tiene un clúster de dos nodos que utiliza switches de interconexión de clúster, reemplace los switches por conexiones directas de vuelta a respaldo entre los nodos. Esta operación no es disruptiva.</block>
-  <block id="085c76ece7f19b4de00a80d42051e8df" category="list-text">El clúster debe estar en buen estado y tener dos nodos conectados mediante switches del clúster, y los nodos deben ejecutar la misma versión de ONTAP.</block>
-  <block id="aadaf9415e70bd5bc3b6c11d549fbe14" category="list-text">Cada nodo debe tener el número requerido de puertos de clúster dedicados que proporcionan conexiones redundantes de interconexión de clúster para admitir la configuración del sistema, por ejemplo, dos puertos redundantes para un sistema con dos puertos dedicados de interconexión de clúster en cada nodo.</block>
-  <block id="9c4d948f63c8c6f48823d7e858286716" category="paragraph">Si la opción "Activar detección de clústeres sin switch" está en<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block>, póngase en contacto con el servicio de asistencia</block>
-  <block id="1742cd0ed0e3d9a5d0c757426e551f53" category="paragraph">Compruebe que los puertos tienen un valor de<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> Para la columna “Link” y un valor de<block ref="741839f346d6e8126ae38ee76a96fd12" prefix=" " category="inline-code"></block> Para la columna "Estado de salud", como se muestra en el ejemplo siguiente:</block>
-  <block id="fd894a783c8c8400a3021bd2ad147cba" category="paragraph">El sistema muestra un resultado similar al siguiente ejemplo:</block>
-  <block id="fe02c7580400b9e0117d9abf6c4cbde1" category="paragraph">La columna “dispositivo detectado” debe ser el nombre del conmutador de clúster al que está conectado el puerto. En el siguiente ejemplo se muestra que los puertos de clúster «e0a» y «e0b» están conectados correctamente a los switches del clúster «cs1» y «cs2».</block>
-  <block id="7d828f71c40144b012224932607715ca" category="list-text">Vuelva a habilitar la reversión automática para las LIF del clúster:</block>
-  <block id="5fa7d5204d3d489974fd1ec321213563" category="list-text">Compruebe que todas las LIF son Home. Esto puede tardar unos segundos:</block>
-  <block id="d33f2a600ba4fe43084a26e95e4908c0" category="paragraph">*Información relacionada*</block>
-  <block id="fb49a7219fb53efa33b80ec1a40ab7ce" category="paragraph"><block ref="fb49a7219fb53efa33b80ec1a40ab7ce" category="inline-link-macro-rx"></block></block>
-  <block id="9f5be684442d922984d48ddc3b7aa93f" category="summary">Puede cambiar a un clúster de dos nodos que utilice switches de Cluster Interconnect a uno en el que dos nodos estén conectados directamente.</block>
   <block id="3b878279a04dc47d60932cb294d96259" category="doc">Descripción general</block>
-  <block id="a2c17c2ce71b362b920e8850ba8c4dbc" category="paragraph">La transición a una configuración de clúster de dos nodos sin switch es un funcionamiento no disruptivo. La mayoría de los sistemas tienen dos puertos de interconexión de clúster dedicados en cada nodo, pero también puede usar este procedimiento para sistemas con un número mayor de puertos de interconexión de clúster dedicados en cada nodo, como cuatro, seis u ocho.</block>
-  <block id="4d60464781e02c960e35d4e4cea119aa" category="paragraph">En este procedimiento, se describe la transición de un clúster con una red de clúster conmutada a uno donde dos nodos están conectados directamente para ONTAP 9.3 y una versión posterior.</block>
   <block id="9774890cfe12c06be0a62e129c79b90e" category="paragraph">Puede migrar desde switches Cisco anteriores para un clúster de ONTAP a switches de almacenamiento NVIDIA SN2100. Se trata de un procedimiento no disruptivo.</block>
   <block id="e868bded76541295e018b74bb15a7920" category="inline-link-macro">Descripción general de la instalación y configuración de los switches NVIDIA SN2100</block>
   <block id="f0f6629d5722a4b34b499d989ab07603" category="paragraph">Debe conocer determinada información de configuración, las conexiones de puertos y los requisitos de cableado cuando sustituya algunos switches Cisco anteriores por switches de almacenamiento NVIDIA SN2100. Consulte <block ref="d007e33ffeb91af7b1ca0d25ce622b32" category="inline-link-macro-rx"></block>.</block>
@@ -4228,13 +4208,11 @@
   <block id="07d35609271d556894601ed6d4518ed5" category="sidebar">Migrar desde switches CN5596</block>
   <block id="ce140d6d1921435e3df40a72b6d032f4" category="sidebar">Migrar desde switches CN1610</block>
   <block id="ac0586dfb2126d95d9be6378c5f70512" category="sidebar">Migrar del clúster sin switches a clúster con switches</block>
-  <block id="6d980346baee6b5e5651aafe9e5bbb87" category="sidebar">Migrar del clúster con switches a sin switches</block>
   <block id="703c0fedc12db69e340d7c2f3de0d764" category="sidebar">Sustituya los interruptores</block>
   <block id="4e8b0737e5a683e7ada812ad2005b768" category="sidebar">Sustituir los interruptores CN3132Q-V.</block>
   <block id="88af8e6a19edbffd16db05ce4d139e3f" category="sidebar">Migrar desde el switch de clúster CN1610</block>
   <block id="c40e2faa3e9cd894cbecfcf038ffe999" category="sidebar">Migrar desde el switch de clúster Cisco Nexus 5596</block>
   <block id="ae5073b7cedbbc7111f9e806343efc7e" category="sidebar">Migre desde un clúster sin switches de dos nodos</block>
-  <block id="ea70cda597fdbaa3684515ff3dec86c9" category="sidebar">Migre a un clúster sin switches de dos nodos</block>
   <block id="194d828d5f6903e0190e08180b8af056" category="sidebar">Sustituya el switch del clúster</block>
   <block id="512f694616622dd7d0109c65f582ba21" category="sidebar">Sustituir el interruptor de almacenamiento</block>
   <block id="742d7720a6bdc19b4810641f0c74ddd3" category="sidebar">Actualice los switches</block>
@@ -4255,8 +4233,6 @@
   <block id="1f23e03e99812c23b47ad60d475647df" category="sidebar">Actualice el interruptor</block>
   <block id="2707e98202897bbf6d508b6f4c5232cc" category="sidebar">Migre a switches de dos nodos</block>
   <block id="90f9408edf534ae6691bfa241e3cef32" category="sidebar">Reemplace el conmutador BES-53248</block>
-  <block id="e55e97993d59e593f9db82748c7205cd" category="sidebar">Otros procedimientos del interruptor</block>
-  <block id="66a1a209b630861db25c9013c19efe3b" category="sidebar">Transición a un clúster sin switches de dos nodos</block>
   <block id="0b3c99e812c06053658bbb2a0b59fbb8" category="sidebar">Conecte el cable de las bandejas NS224</block>
   <block id="ad8c6613a9c5149c2f22f875459b6a06" category="sidebar">Migre desde switches de clúster de Cisco</block>
   <block id="7fda27801f23bbd9656018fa8a6f6af0" category="sidebar">Realizar la migración desde un switch de Cisco anterior</block>
@@ -4286,4 +4262,12 @@
   <block id="c5490cef816a5fdfd03bfbae460638f5" category="paragraph"><block ref="c5490cef816a5fdfd03bfbae460638f5" category="inline-link-macro-rx"></block></block>
   <block id="674dac01986b07db44266812735775f6" category="paragraph">Opcionalmente, puede hacerlo <block ref="2243efeaee625d6b6076bcdcbd40e014" category="inline-link-macro-rx"></block>. De lo contrario, vaya a. <block ref="16a9a5fa8979bab3106e7aad0dfd20d9" category="inline-link-macro-rx"></block>.</block>
   <block id="3eb0f8cafe973dd42647b7ade90f7100" category="admonition">Antes de continuar con el siguiente paso, debe esperar al menos dos minutos para confirmar una conexión de retroceso en funcionamiento en el grupo 1.</block>
+  <block id="2592c17fec9ee0f2f1d872bee517581e" category="doc">Migre de un clúster con switches a uno sin switches con switches de clúster NVIDIA SN2100</block>
+  <block id="a7e9b61c9cfaadc2f123f50dfe481898" category="doc">Sustituya los switches de clúster NVIDIA SN2100 por conexiones sin switches</block>
+  <block id="a1e3722d1b72e15c4741491bfdfdb45c" category="doc">Sustituya los switches de clúster Cisco Nexus 3132Q-V por conexiones sin switches</block>
+  <block id="6772e4d59dd062c5a9260242b751786f" category="doc">Sustituya los switches de clúster Cisco Nexus 3232C por conexiones sin switches</block>
+  <block id="6dd41d8a8ed57c2ab7e587572c2bf8c5" category="doc">Sustituya los switches de clúster Cisco Nexus 92300YC por conexiones sin switches</block>
+  <block id="5e1805c74a69eb3dca33ebb7e0f38ef6" category="doc">Sustituya los switches de clúster Cisco Nexus 9336C-FX2 por conexiones sin switches</block>
+  <block id="1991711774b7f5c3d1ceb09a3f94be78" category="doc">Migre de un clúster con switches a uno sin switches con switches de clúster Cisco Nexus 9336C-FX2</block>
+  <block id="0cb146d69d0fe75b8dbae294e40edac5" category="sidebar">Sustituya los switches del clúster por conexiones sin switch</block>
 </blocks>
