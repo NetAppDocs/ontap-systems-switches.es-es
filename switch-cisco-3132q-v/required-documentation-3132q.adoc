@@ -129,7 +129,7 @@ Describe las FRU asociadas al armario del sistema 42U, y proporciona instruccion
 
 
  a| 
-link:task-install-a-cisco-nexus-3232c-cluster-switch-and-pass-through-panel-in-a-netapp-cabinet.html["Instale el switch Cisco Nexus 3132Q-V en un armario de NetApp"^]
+link:install-cisco-nexus-3132qv.html["Instale el switch Cisco Nexus 3132Q-V en un armario de NetApp"^]
  a| 
 Describe cómo instalar un switch Cisco Nexus 3132Q-V en un armario de cuatro parantes de NetApp.
 

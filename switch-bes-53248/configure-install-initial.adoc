@@ -19,7 +19,7 @@ Siga estos pasos para realizar una configuración inicial del conmutador de clú
 +
 ** link:configure-reqs-bes53248.html["Requisitos de configuración"]
 ** link:components-bes53248.html["Componentes y números de pieza"]
-** link:required-documentation-53248.html["Requisitos de documentación"]
+** link:required-documentation-bes53248.html["Requisitos de documentación"]
 
 
 

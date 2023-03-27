@@ -377,4 +377,4 @@ IO   FPGA                        0x12
 
 
 .El futuro
-link:install-rcf-3132q-v.html["Instale el archivo de configuración RCF"].
+link:install-rcf-3232c.html["Instale el archivo de configuración RCF"]

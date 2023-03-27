@@ -31,4 +31,4 @@ Consulte https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-sw-9336c-insta
 
 
 .El futuro
-Vaya a. link:.setup-and-configure-9336c-shared.html["Configurar el switch compartido Cisco Nexus 9336C-FX2"].
+Vaya a. https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2-shared/setup-and-configure-9336c-shared.html["Configurar el switch compartido Cisco Nexus 9336C-FX2"].

@@ -18,7 +18,7 @@ Siga este procedimiento para configurar el switch Cisco Nexus 3232C.
 * La versión aplicable de NX-OS, descargada del https://software.cisco.com/download/home["Descarga de software de Cisco"^] página.
 * Documentación necesaria sobre la red de clúster y el switch de red de gestión.
 +
-Consulte xref:setup-required-documentation.adoc[Documentación requerida] si quiere más información.
+Consulte link:required-documentation-3232c.html["Documentación requerida"] si quiere más información.
 
 * Documentación requerida de la controladora y documentación de ONTAP
 +

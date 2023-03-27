@@ -75,7 +75,7 @@ Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo
 
 El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Descarga del archivo de configuración de referencia del conmutador de red de clúster Cisco®"^] página.
 
-Los ejemplos de este procedimiento de sustitución utilizan cuatro nodos. Dos de estos nodos utilizan cuatro puertos de interconexión de clúster de 10 GB: E0a, e0b, e0c y e0d. Los otros dos nodos utilizan dos puertos de interconexión de clúster de 40 GB: e4a y e4e. Consulte link:https://hwu.netapp.com/SWITCH/INDEX.html["Hardware Universe"^] para verificar los puertos de clúster correctos para su plataforma.
+Los ejemplos de este procedimiento de sustitución utilizan cuatro nodos. Dos de estos nodos utilizan cuatro puertos de interconexión de clúster de 10 GB: E0a, e0b, e0c y e0d. Los otros dos nodos utilizan dos puertos de interconexión de clúster de 40 GB: e4a y e4e. Consulte link:https://hwu.netapp.com["Hardware Universe"^] para verificar los puertos de clúster correctos para su plataforma.
 
 
 

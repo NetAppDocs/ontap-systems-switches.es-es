@@ -134,4 +134,4 @@ NOTE: Si no guarda la configuración en esta fase, ninguno de los cambios se apl
 
 
 .El futuro
-En función de la configuración, podrá hacerlo link:install-switch-and-passthrough-panel-9336c-shared.html["Instale el switch en el armario de NetApp"]. De lo contrario, vaya a. link:install-nxos-overview-9336c-storage.html["Prepare la instalación de NX-OS y RCF"].
+En función de la configuración, podrá hacerlo link:install-switch-and-passthrough-panel-9336c-shared.html["Instale el switch en el armario de NetApp"]. De lo contrario, vaya a. link:prepare-nxos-rcf-9336c-shared.html["Prepare la instalación de NX-OS y RCF"].

@@ -377,4 +377,4 @@ GEM FPGA                         0x2
 
 
 .El futuro
-link:.install-the-rcf-file.html["Instale el archivo de configuración de referencia"].
+link:install-the-rcf-file.html["Instale el archivo de configuración de referencia"]

@@ -43,6 +43,6 @@ Debe conocer determinada información de configuración, conexiones de puertos y
 * Las versiones ONTAP y NX-OS compatibles con este procedimiento son en la https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^] página.
 +
 
-NOTE: Una vez finalizada la migración, es posible que necesite instalar el archivo de configuración necesario para admitir el Monitor de estado del conmutador de clúster (CSHM) para los conmutadores de clúster 92300YC. Consulte _instalación del archivo de configuración del Monitor de estado del conmutador de clúster (CSHM) para los conmutadores 92300YC_ de la link:../com.netapp.doc.hw-sw-cisco-setup/home.html["Configuración"] guía.
+NOTE: Una vez finalizada la migración, es posible que necesite instalar el archivo de configuración necesario para admitir el Monitor de estado del conmutador de clúster (CSHM) para los conmutadores de clúster 92300YC. Consulte link:setup-install-cshm-file.html["Instale el archivo de configuración del Monitor de estado del conmutador de clúster (CSHM)"] para obtener más detalles.
 
 
