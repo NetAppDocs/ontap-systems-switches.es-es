@@ -15,16 +15,15 @@ Para empezar a trabajar con el clúster, el almacenamiento y los switches compar
 
 La implementación del switch implica el siguiente flujo de trabajo.
 
-
-
-== Paso 1: Instalar las controladoras AFF/FAS
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"] Instale las controladoras AFF/FAS
+[role="quick-margin-para"]
 Instale las controladoras AFF/FAS en el rack o armario. Acceda a las instrucciones de instalación y configuración para su modelo de plataforma AFF/FAS.
 
-[cols="9,9,9"]
+[cols="4,9,9,9"]
 |===
 
 
+ a| 
  a| 
 .Sistemas AFF
 * https://docs.netapp.com/us-en/ontap-systems/c190/install-setup.html["C190 de AFF"]
@@ -46,16 +45,15 @@ Instale las controladoras AFF/FAS en el rack o armario. Acceda a las instruccion
  a| 
 
 |===
-
-
-== Paso 2: Instale la tornillería del conmutador
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"] Instale la tornillería del conmutador
+[role="quick-margin-para"]
 Instale los switches en el rack o armario. Acceda a las siguientes instrucciones para su modelo de conmutador.
 
-[cols="9,9,9"]
+[cols="2,9,9,9"]
 |===
 
 
+ a| 
  a| 
 .Switches de clúster
 * link:../switch-bes-53248/install-hardware-bes53248.html["Instale el conmutador BES-53248"]
@@ -73,16 +71,15 @@ Instale los switches en el rack o armario. Acceda a las siguientes instrucciones
 
 
 |===
-
-
-== Paso 3: Conecte los switches a las controladoras
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"]Conecte los switches a las controladoras
+[role="quick-margin-para"]
 Las instrucciones de instalación y configuración de AFF/FAS incluyen instrucciones para cableado de los puertos de la controladora al switch. Sin embargo, si necesita listas de cables y transceptores admitidos e información detallada sobre los puertos de host para el switch, acceda a las siguientes instrucciones para su modelo de switch.
 
-[cols="9,9,9"]
+[cols="2,9,9,9"]
 |===
 
 
+ a| 
  a| 
 .Switches de clúster
 * link:../switch-bes-53248/configure-reqs-bes53248.html#configuration-requirements["Conmutador BES-53248 de cable"]
@@ -100,16 +97,15 @@ Las instrucciones de instalación y configuración de AFF/FAS incluyen instrucci
 
 
 |===
-
-
-== Paso 4: Configure el switch
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]Configurar el switch
+[role="quick-margin-para"]
 Realice una configuración inicial de los switches. Acceda a las siguientes instrucciones para su modelo de conmutador.
 
-[cols="9,9,9"]
+[cols="2,9,9,9"]
 |===
 
 
+ a| 
  a| 
 .Switches de clúster
 * link:../switch-bes-53248/configure-install-initial.html["Configure el conmutador BES-53248"]
@@ -127,16 +123,15 @@ Realice una configuración inicial de los switches. Acceda a las siguientes inst
 
 
 |===
-
-
-== Paso 5: Instalar el software del interruptor
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"] Instalar el software del interruptor
+[role="quick-margin-para"]
 Para instalar y configurar el software en el conmutador, siga el flujo de trabajo de instalación de software del modelo de conmutador.
 
-[cols="9,9,9"]
+[cols="2,9,9,9"]
 |===
 
 
+ a| 
  a| 
 .Switches de clúster
 * link:../switch-bes-53248/configure-software-overview-bes53248.html["Instale el software para los conmutadores BES-53248"]
@@ -154,16 +149,15 @@ Para instalar y configurar el software en el conmutador, siga el flujo de trabaj
 
 
 |===
-
-
-== Paso 6: Completar la configuración del sistema
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"] Completar la configuración del sistema
+[role="quick-margin-para"]
 Una vez que haya configurado los switches y instalado el software requerido, acceda a las instrucciones de instalación y configuración para su modelo de plataforma AFF/FAS para completar la configuración del sistema.
 
-[cols="9,9,9"]
+[cols="4,9,9,9"]
 |===
 
 
+ a| 
  a| 
 .Sistemas AFF
 * https://docs.netapp.com/us-en/ontap-systems/c190/install-setup.html["C190 de AFF"]
@@ -185,12 +179,11 @@ Una vez que haya configurado los switches y instalado el software requerido, acc
  a| 
 
 |===
-
-
-== Paso 7: Configuración completa de ONTAP
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Siete"] Configuración de ONTAP completa
+[role="quick-margin-para"]
 Después de instalar y configurar las controladoras y los switches AFF/FAS, debe completar la configuración del almacenamiento en ONTAP. Acceda a las siguientes instrucciones de acuerdo con la configuración de la implementación.
 
+[role="quick-margin-list"]
 * Para implementaciones de ONTAP, consulte https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configure ONTAP"].
 * Para ver ONTAP con implementaciones de MetroCluster, consulte https://docs.netapp.com/us-en/ontap-metrocluster/["Configuración de MetroCluster con ONTAP"].
 
