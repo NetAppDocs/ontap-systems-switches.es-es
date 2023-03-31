@@ -26,55 +26,89 @@ Antes de configurar el conmutador NVIDIA SN2100, revise las siguientes considera
  a| 
 swp1s0-3
  a| 
-10/40 nodos de puerto de clúster
+4 nodos de puertos de clúster de 10 GbE de arranque
 
 
 
  a| 
 swp2s0-3
  a| 
-25/100 nodos de puerto de clúster
+4 nodos de puertos de clúster de 10 GbE de cable abierto
 
 
 
  a| 
-nodos de puerto de clúster swp3-14 40/100
+swp3-14
  a| 
-Swp15-16 40/100 puertos de enlace entre switches (ISL)
+40/100 nodos de puerto de clúster
+
+
+
+ a| 
+swp15-16
+ a| 
+40/100 puertos de enlace entre switches (ISL)
 
 |===
-Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obtener más información sobre los puertos de switch.
+Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para obtener más información sobre los puertos de switch.
 
 
 
 == Conexiones ópticas
 
-Sólo se admiten conexiones ópticas en conmutadores SN2100 con NIC X1151A, NIC X1146A o puertos 100 GbE incorporados. Por ejemplo:
+Para Cumulus Linux 4.4.2, sólo se admiten conexiones ópticas en conmutadores SN2100 con NIC X1151A, NIC X1146A o puertos 100 GbE incorporados. Por ejemplo:
 
 * AFF A800 en los puertos e0a y e0b
 * AFF A320 en los puertos e0g y e0h
 
 
+Para Cumulus Linux 4.4.3 y posteriores, se necesitan los siguientes cambios de configuración para solucionar este problema.
+
+. Añada las dos líneas siguientes a la `/etc/cumulus/switchd.conf` Archivo para cada puerto (jpg <n>) que utiliza cables de cobre 40 GbE:
++
+** `interface.swp<n>.enable_media_depended_linkup_flow=TRUE`
+** `interface.swp<n>.enable_short_tuning=TRUE`
+
+
+. Reinicie el daemon switch: `systemctl restart switchd`
+
+
+Consulte lo siguiente https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["KB"^] para obtener más detalles.
+
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *cat /etc/cumulus/switchd.conf | grep swp3*
+interface.swp3.enable_media_depended_linkup_flow=TRUE
+interface.swp3.enable_short_tuning=TRUE
+cumulus@cumulus:mgmt:~$ *cat /etc/cumulus/switchd.conf | grep swp6*
+interface.swp6.enable_media_depended_linkup_flow=TRUE
+interface.swp6.enable_short_tuning=TRUE
+cumulus@cumulus:mgmt:~$
+----
+====
 
 
 == Adaptador QSA
 
-Cuando se utiliza un adaptador QSA para conectarse a los puertos de clúster Intel integrados en una plataforma, no todos los enlaces aparecen. Las plataformas de ejemplo son FAS2750, AFF A300 y FAS8200 (todos 10G) y AFF A250 (25G).
+Cuando se utiliza un adaptador QSA para conectarse a los puertos integrados del clúster en una plataforma, es posible que el enlace no aparezca.
 
 Para resolver este problema, haga lo siguiente:
 
-. Para Intel 10G, configure manualmente la velocidad de enlace swp1s0-3 en 10000 y configure la negociación automática en OFF.
-. Para Chelsio 25G, ajuste manualmente la velocidad de enlace swp2s0-3 a 25000 y ajuste la negociación automática a OFF.
+* Para 10G, establezca manualmente la velocidad de enlace swp1s0-3 en 10000 y configure la negociación automática en OFF.
+* Para 25G, ajuste manualmente la velocidad del enlace swp2s0-3 en 25000 y ajuste la negociación automática en OFF.
 
 
 
-NOTE: Con 10G/25G QSA, utilice los puertos 40/100G sin salida. No inserte el adaptador QSA en los puertos que estén configurados para el arranque.
+NOTE: Cuando utilice QSA de 10G/25G, insértelos en puertos 40/100G sin salida. No inserte el adaptador QSA en los puertos que estén configurados para el arranque.
 
 
 
-== Velocidad del puerto del switch
+== Configuración de la velocidad de la interfaz en los puertos de arranque
 
-En función del transceptor del puerto de switch, es posible que deba establecer la velocidad del puerto de switch a velocidad fija. Si utiliza puertos de arranque de 10G y 25G, asegúrese de que la negociación automática está desactivada y fija la velocidad del puerto en el switch. Por ejemplo:
+En función del transceptor del puerto del switch, es posible que deba establecer la velocidad en la interfaz del switch a una velocidad fija. Si utiliza puertos de arranque 10G y 25G, asegúrese de que la negociación automática está desactivada y fija la velocidad de la interfaz en el switch. Por ejemplo:
 
 [listing, subs="+quotes"]
 ----
