@@ -2664,9 +2664,6 @@
   <block id="e617d80a2294adb5c3c62b25af747e57" category="inline-link-macro">Instale el archivo de configuración del Monitor de estado del conmutador de clúster (CSHM)</block>
   <block id="a08609130428631761bac82d994b04c7" category="paragraph"><block ref="6f694a83f3a80cbdd0707c7c90c80946" category="inline-link-macro-rx"></block>.</block>
   <block id="255c4d8b5fe19006ce3e32d6abe4c5dd" category="summary">Antes de configurar los switches Cisco Nexus 92300, revise una descripción general del proceso y la nomenclatura.</block>
-  <block id="69614c5d5f9b9621dc6f19eb2e11553a" category="doc">Descripción general de la instalación y configuración de los switches Cisco Nexus 92300</block>
-  <block id="c5576d656ffb0b43f469f79ee2d05339" category="paragraph">Antes de configurar switches Cisco Nexus 92300, revise la descripción general del procedimiento.</block>
-  <block id="13c3fd465bc0082cbe1310f539553cfc" category="paragraph">Para configurar inicialmente un switch Cisco Nexus 92300 en sistemas que ejecutan ONTAP, siga estos pasos:</block>
   <block id="774ba8094c5cc02cee9829855a2d5641" category="inline-link-macro">Complete la hoja de trabajo para el cableado Cisco Nexus 92300YC</block>
   <block id="ffbe1aba3ae8a278e4f28ac52b2be316" category="list-text"><block ref="d38e35e34a06630798f8736804a06d84" category="inline-link-macro-rx"></block>. La hoja de cálculo de cableado de ejemplo proporciona ejemplos de asignaciones de puertos recomendadas desde los switches a las controladoras. La hoja de datos en blanco proporciona una plantilla que puede utilizar para configurar su clúster.</block>
   <block id="71be1affbed75bebb8eb96c3572e9f1b" category="list-text"><block ref="f0d24ec92e2951fca3ce05ded916eb30" category="inline-link-macro-rx"></block>. Configure y configure el switch Cisco Nexus 92300YC.</block>
@@ -2679,7 +2676,6 @@
   <block id="953b08a76549ddb5339056aaf68e6af4" category="list-text"><block ref="953b08a76549ddb5339056aaf68e6af4" category="inline-link-macro-rx"></block></block>
   <block id="a2a393519d6030a855c14ef4686abf73" category="list-text"><block ref="a2a393519d6030a855c14ef4686abf73" category="inline-link-macro-rx"></block></block>
   <block id="06f7473ee7b667cf7e6c7384b4e91957" category="doc">Componentes para switches Cisco Nexus 92300YC</block>
-  <block id="cca2cd595451689ee569b5dab14cb718" category="paragraph">Para la instalación y mantenimiento del switch Cisco Nexus 92300YC, asegúrese de revisar todos los componentes del switch y sus números de pieza.</block>
   <block id="26961e618ecd01e172d0cc2829344d09" category="list-text">Flujo de aire de escape del lado del puerto (aire estándar) -- el aire frío entra en el chasis a través del ventilador y los módulos de alimentación del pasillo frío y sale por el extremo del puerto del chasis en el pasillo caliente. Flujo de aire de escape del puerto con coloración azul.</block>
   <block id="a65de0b2540eeae253ed86b6c80d5cd8" category="list-text">Flujo de aire de admisión del lado del puerto (aire de retroceso) -- el aire frío entra en el chasis a través del extremo del puerto en el pasillo frío y sale por los módulos de ventilador y fuente de alimentación del pasillo caliente. Flujo de aire de entrada en el puerto con colorante borgoña.</block>
   <block id="c3fefe6517671336a8a9051770e62e39" category="summary">Puede utilizar este procedimiento para instalar el software NX-OS en el switch Nexus 92300YC.</block>
@@ -4296,4 +4292,8 @@
   <block id="6b7eaec843bb5fcdab1371328ab1e94c" category="admonition">Cuando utilice QSA de 10G/25G, insértelos en puertos 40/100G sin salida. No inserte el adaptador QSA en los puertos que estén configurados para el arranque.</block>
   <block id="92f8e266fe70da4f6717e931d81faa46" category="section-title">Configuración de la velocidad de la interfaz en los puertos de arranque</block>
   <block id="577c386d1bb7bbffa59ac5c15182ada1" category="paragraph">En función del transceptor del puerto del switch, es posible que deba establecer la velocidad en la interfaz del switch a una velocidad fija. Si utiliza puertos de arranque 10G y 25G, asegúrese de que la negociación automática está desactivada y fija la velocidad de la interfaz en el switch. Por ejemplo:</block>
+  <block id="5501293605b4b8c8957b68e1854b0f11" category="doc">Información general de la instalación y configuración para switches Cisco Nexus 92300YC</block>
+  <block id="c5fed3189b0ec4237029df463c0c1f64" category="paragraph">Antes de configurar los switches Cisco Nexus 92300YC, revise la descripción general del procedimiento.</block>
+  <block id="109e216a5aa6e526f504483738dabc7b" category="paragraph">Para configurar inicialmente un switch Cisco Nexus 92300YC en sistemas que ejecutan ONTAP, siga estos pasos:</block>
+  <block id="ed6ae629414abab8b0e9b2e8deadb8c2" category="paragraph">Para la instalación y mantenimiento del switch Cisco Nexus 92300YC, asegúrese de revisar todos los componentes del switch y sus números de pieza. Consulte<block ref="cd25cbe53f0a314145c84729c6ce2c78" category="inline-link-rx"></block> para obtener más detalles.</block>
 </blocks>
