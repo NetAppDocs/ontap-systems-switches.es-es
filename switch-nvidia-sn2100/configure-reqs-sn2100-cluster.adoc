@@ -19,7 +19,7 @@ Para la instalación y el mantenimiento del conmutador NVIDIA SN2100, asegúrese
 
 Si desea crear clústeres de ONTAP con más de dos nodos, necesita dos switches de red de clúster compatibles. Puede usar switches de gestión adicionales, que son opcionales.
 
-El conmutador NVIDIA SN2100 (X190006/X190106) se instala en el armario de conmutadores doble/único NVIDIA con los soportes estándar que se incluyen con el conmutador.
+Se instala el switch NVIDIA SN2100 (X190006) en el armario de conmutación doble/simple NVIDIA con los soportes estándar incluidos con el switch.
 
 Para conocer las directrices de cableado, consulte link:cabling-considerations-sn2100-cluster.html["Revise las consideraciones sobre el cableado y la configuración"].
 
@@ -27,9 +27,9 @@ Para conocer las directrices de cableado, consulte link:cabling-considerations-s
 
 == Soporte de ONTAP y Linux
 
-El conmutador NVIDIA SN2100 es un conmutador Ethernet de 10/25/40/100 GB que ejecuta Cumulus Linux. El conmutador admite lo siguiente:
+El conmutador NVIDIA SN2100 es un conmutador 10/25/40/100GbE que ejecuta Cumulus Linux. El conmutador admite lo siguiente:
 
-* ONTAP 9.10.1P3. El switch SN2100 sirve a las aplicaciones de clúster y almacenamiento de ONTAP 9.10.1P3 sobre diferentes pares de switches. Desde ONTAP 9.10.1P3, puede utilizar los switches NVIDIA SN2100 para combinar las funciones de almacenamiento y clúster en una configuración de switch compartido.
-* Cumulus Linux (CL) OS versión 4.4.3. Para obtener información actual sobre compatibilidad, consulte https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Switches Ethernet de NVIDIA"^] página de información.
+* ONTAP 9.10.1P3. El switch SN2100 sirve a las aplicaciones de clúster y almacenamiento de ONTAP 9.10.1P3 sobre diferentes pares de switches.
+* Versión de Cumulus Linux (CL) OS. Para descargar el software SN2100 Cumulus, inicie sesión en https://enterprise-support.nvidia.com/s/["Portal de soporte empresarial de NVIDIA"^]. Tenga en cuenta que debe tener credenciales de inicio de sesión para acceder al software Cumulus. Para obtener información actual sobre compatibilidad, consulte https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Switches Ethernet de NVIDIA"^] página de información.
 * Puede instalar Cumulus Linux cuando el conmutador esté ejecutando Cumulus Linux o ONIE.
 

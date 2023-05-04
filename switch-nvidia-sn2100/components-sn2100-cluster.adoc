@@ -17,7 +17,7 @@ Para la instalación y el mantenimiento del switch NVIDIA SN2100, asegúrese de 
 
 == Detalles del armario
 
-El conmutador NVIDIA SN2100 (X190006/X190106) se instala en el armario de conmutadores doble/único NVIDIA con los soportes estándar que se incluyen con el conmutador.
+Se instala el switch NVIDIA SN2100 (X190006) en el armario de conmutación doble/simple NVIDIA con los soportes estándar incluidos con el switch.
 
 
 
@@ -33,28 +33,14 @@ La tabla siguiente muestra el número de pieza y la descripción de los interrup
  a| 
 X190006-PE
  a| 
-Cluster Switch, NVIDIA SN2100, 16PT 100G, PTSX
+Cluster Switch, NVIDIA SN2100, 16PT 100GbE, PTSX
 
 
 
  a| 
 X190006-PI
  a| 
-Cluster Switch, NVIDIA SN2100, 16PT 100G, PSIN
-
-
-
- a| 
-X190106-FE-PE
- a| 
-Conmutador, NVIDIA SN2100, 16PT 100G, PTSX, front-end
-
-
-
- a| 
-X190106-FE-PI
- a| 
-Conmutador, NVIDIA SN2100, 16PT 100G, PSIN, front-end
+Cluster Switch, NVIDIA SN2100, 16PT 100GbE, PSIN
 
 
 

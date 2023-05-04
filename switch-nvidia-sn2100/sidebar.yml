@@ -34,6 +34,8 @@ entries:
     url: "/switch-nvidia-sn2100/install-rcf-sn2100-cluster.html"
   - title: Configurar la recopilación de registros del switch
     url: "/switch-nvidia-sn2100/install-snmpv3-sn2100-cluster.html"
+  - title: Actualice la versión de Cumulus Linux
+    url: "/switch-nvidia-sn2100/upgrade-cl-version.html"
 - title: Migrar switches
   entries:
   - title: Migre desde switches de clúster de Cisco

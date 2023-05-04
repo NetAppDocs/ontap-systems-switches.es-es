@@ -11,17 +11,13 @@ summary: Puede utilizar la tabla de asignación de puertos del conmutador de cl�
 
 
 [role="lead"]
-Para la instalación y mantenimiento del conmutador BES-53248, asegúrese de revisar la compatibilidad con el sistema operativo y los requisitos de configuración.
+Para la instalación y el mantenimiento del conmutador BES-53248, asegúrese de revisar los requisitos de soporte y configuración de EFOS y ONTAP.
 
 
 
-== Compatibilidad con el sistema operativo (SO)
+== Soporte para EFOS y ONTAP
 
-El conmutador BES-53248 admite lo siguiente:
-
-* *EFOS firmware 3.4.4.6 y posterior*. El switch BES-53248 se ejecuta en un sistema operativo Broadcom integrado conocido como Ethernet Fabric OS (EFOS). La compatibilidad con puertos de clúster de 40/100 GbE comienza con el firmware EFOS versión 3.4.4.6 y posteriores.
-* *ONTAP 9.5P8 y posterior*. Los switches de clúster BES-53248 compatibles con Broadcom están diseñados para funcionar en clústeres con diferentes tamaños de dos a 24 nodos en ONTAP 9.5P8 y versiones posteriores.
-
+Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe de NetApp"^] y.. https://mysupport.netapp.com/site/info/broadcom-cluster-switch["Matriz de compatibilidad de switches Broadcom"^] Para obtener información sobre compatibilidad de EFOS y ONTAP con conmutadores BES-53248. La compatibilidad con EFOS y ONTAP puede variar según el tipo de máquina específico del interruptor BES-53248. Para obtener información detallada sobre todos los tipos de máquinas de conmutación BES-52348, consulte link:components-bes53248.html["Componentes y números de pieza para switches de clúster BES-53248"].
 
 
 
@@ -57,7 +53,7 @@ Nodos de puertos de clúster de 10 GbE, con licencias
  a| 
 49-54
  a| 
-Nodos de puertos de clúster de 100 GbE, con licencias, añadidos de derecha a izquierda
+40/100GbE nodos de puertos en clúster, con licencias, añadidos a la derecha a la izquierda
 
 
 
@@ -73,6 +69,14 @@ Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obtener m
 
 === Limitación de velocidad del grupo de puertos
 
-En los switches de clúster BES-53248, los puertos de 48 10 GbE (SFP28/SFP+) se combinan en 12 grupos de puertos de 4 de la siguiente manera: Puertos 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44, y 45-48.
+* En los switches de clúster BES-53248, los puertos de 48 10 GbE (SFP28/SFP+) se combinan en 12 grupos de puertos de 4 de la siguiente manera: Puertos 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44, y 45-48.
+* La velocidad del puerto SFP28/SFP+ debe ser la misma (10 GbE o 25 GbE) en todos los puertos del grupo de 4 puertos.
 
-La velocidad del puerto SFP28/SFP+ debe ser la misma (10 GbE o 25 GbE) en todos los puertos del grupo de 4 puertos.
+
+
+
+=== Requisitos adicionales
+
+* Si compra licencias adicionales, consulte link:configure-licenses.html["Activar puertos de licencias nuevas"] para obtener detalles sobre cómo activarlos.
+* Si SSH está activo, debe volver a habilitarlo manualmente después de ejecutar el comando `erase startup-config` y reiniciando el interruptor.
+

@@ -13,24 +13,57 @@ summary: Para la instalación y mantenimiento del conmutador BES-53248, asegúre
 [role="lead"]
 Para la instalación y mantenimiento del conmutador BES-53248, asegúrese de revisar la lista de componentes y números de pieza.
 
-En la siguiente tabla se enumeran el número de pieza y la descripción de los componentes del switch de clúster BES-53248, incluido el kit de raíl para montaje en rack, los ventiladores y las fuentes de alimentación.
+En la siguiente tabla se enumeran el número de pieza, la descripción y las versiones mínimas de EFOS y ONTAP para los componentes del conmutador de clúster BES-53248, incluidos los detalles del kit de guías de montaje en bastidor.
 
-[cols="1,2"]
+
+NOTE: Se requiere una versión EFOS mínima de *3.10.0.3* para los números de pieza *X190005-B* y *X190005R-B*.
+
+[cols="20,40,20,20"]
 |===
-| Número de pieza | Descripción 
+| Número de pieza | Descripción | Versión mínima de EFOS | Versión de ONTAP mínima 
+
+
+ a| 
+X190005-B
+ a| 
+BES-53248-B/IX8, CLSW, 16PT10/25GB, PTSX (PTSX = escape del lado del puerto)
+ a| 
+3.10.0.3
+ a| 
+9.8
+
+
+
+ a| 
+X190005R-B
+ a| 
+BES-53248-B/IX8, CLSW, 16PT10/25GB, PSIN (PSIN = entrada lateral del puerto)
+ a| 
+3.10.0.3
+ a| 
+9.8
+
 
 
  a| 
 X190005
  a| 
-BES-53248, CLSW, 16Pt10/25GB, PTSX, SOPORTE de BRDCM (PTSX = escape lateral del puerto)
+BES-53248, CLSW, 16PT10/25GB, PTSX, SOPORTE BRDCM
+ a| 
+3.4.4.6
+ a| 
+9.5P8
 
 
 
  a| 
 X190005R
  a| 
-BES-53248, CLSW, 16Pt10/25GB, PSIN, SOPORTE de BRDCM (PSIN = entrada lateral del puerto)
+BES-53248, CLSW, 16PT10/25GB, PSIN, BRDCM SUPP
+ a| 
+3.4.4.6
+ a| 
+9.5P8
 
 
 
@@ -38,37 +71,58 @@ BES-53248, CLSW, 16Pt10/25GB, PSIN, SOPORTE de BRDCM (PSIN = entrada lateral del
 X-RAIL-4POST-190005
  a| 
 Kit de rieles para montaje en rack Ozeki 4 post 19"
-
-
-
  a| 
-X-FAN-190005-R.
+N.A.
  a| 
-Ventilador, toma lateral de la lumbrera X190005
-
-
-
- a| 
-X-FAN-190005-F
- a| 
-Ventilador, escape lateral de la lumbrera X190005
-
-
-
- a| 
-X-PSU-190005-R
- a| 
-Fuente de alimentación, toma lateral de la lumbrera X190005
-
-Flujo de aire de admisión del lado del puerto (aire de retroceso): El aire frío entra en el chasis a través del extremo del puerto del pasillo frío y sale por los módulos de ventilador y fuente de alimentación del pasillo caliente.
-
-
-
- a| 
-X-PSU-190005-F
- a| 
-Fuente de alimentación, escape lateral de la lumbrera X190005
-
-Flujo de aire de escape del lado del puerto (aire estándar): El aire frío entra en el chasis a través del ventilador y los módulos de alimentación del pasillo frío y sale por el extremo del puerto del chasis en el pasillo caliente. El color azul indica el flujo de aire de escape del puerto. Esta es la opción más común.
+N.A.
 
 |===
+
+IMPORTANT: Tenga en cuenta la siguiente información con respecto a los tipos de máquinas:
+
+[cols="50,50"]
+|===
+| Tipo de máquina | Versión EFOS 
+
+
+ a| 
+BES-53248A1
+| 3.4.4.6 
+
+
+ a| 
+BES-53248A2
+| 3.10.0.3 
+
+
+ a| 
+BES-53248A3
+| 3.10.0.3 
+|===
+Puede determinar su tipo de máquina específico mediante el comando: `show version`
+
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs1)# *show version*
+
+Switch: cs1
+
+System Description............................. EFOS, 3.10.0.3, Linux 5.4.2-b4581018, 2016.05.00.07
+Machine Type................................... *_BES-53248A3_*
+Machine Model.................................. BES-53248
+Serial Number.................................. QTWCU225xxxxx
+Part Number.................................... 1IX8BZxxxxx
+Maintenance Level.............................. a3a
+Manufacturer................................... QTMC
+Burned In MAC Address.......................... C0:18:50:F4:3x:xx
+Software Version............................... 3.10.0.3
+Operating System............................... Linux 5.4.2-b4581018
+Network Processing Device...................... BCM56873_A0
+.
+.
+.
+----
+====
