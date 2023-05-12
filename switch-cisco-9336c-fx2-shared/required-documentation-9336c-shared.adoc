@@ -16,7 +16,7 @@ summary: En lo que respecta a la instalación y el mantenimiento de los switches
 [role="lead"]
 En lo que respecta a la instalación y el mantenimiento de los switches Cisco Nexus 9336C-FX2, asegúrese de revisar la documentación específica de los switches y la controladora para configurar sus switches Cisco 9336-FX2 y su clúster ONTAP.
 
-Para configurar los switches compartidos Cisco Nexus 9336C-FX2, consulte https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Compatibilidad con los switches Cisco Nexus serie 9000"] página.
+Para configurar los switches compartidos Cisco Nexus 9336C-FX2, consulte https://["Compatibilidad con los switches Cisco Nexus serie 9000"] página.
 
 |===
 | Título del documento | Descripción 

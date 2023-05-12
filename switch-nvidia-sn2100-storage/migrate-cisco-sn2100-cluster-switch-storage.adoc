@@ -36,7 +36,7 @@ Puede migrar switches de clúster de Cisco anteriores y no disruptivos para un c
 ** Puertos ISL habilitados y cableado entre los switches de Cisco anteriores y entre los switches nuevos.
 
 
-* Consulte https://hwu.netapp.com/["Hardware Universe"^] para obtener toda la información de los puertos compatibles y sus configuraciones.
+* Consulte https://["Hardware Universe"^] para obtener toda la información de los puertos compatibles y sus configuraciones.
 * Configuró algunos de los puertos en los switches NVIDIA SN2100 para que se ejecuten a 40 GbE o 100 GbE.
 * Ha planificado, migrado y documentado conectividad de 40 GbE y 100 GbE desde los nodos a switches de clúster NVIDIA SN2100.
 +

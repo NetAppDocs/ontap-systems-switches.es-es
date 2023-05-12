@@ -20,7 +20,7 @@ Antes de instalar el software Cumulus y los RCF en un conmutador de almacenamien
 * Ha descargado los RCF correspondientes.
 
 
-La http://hwu.netapp.com["Hardware Universe"^] proporciona información completa sobre los puertos admitidos y sus configuraciones.
+La http://["Hardware Universe"^] proporciona información completa sobre los puertos admitidos y sus configuraciones.
 
 La configuración de red existente debe tener las siguientes características:
 

@@ -17,9 +17,9 @@ summary:
 Siga estas instrucciones para configurar los switches compartidos Cisco Nexus 9336C-FX2.
 
 .Lo que necesitará
-* Se requiere documentación de los switches compartidos, documentación de la controladora y documentación de ONTAP. Consulte link:required-documentation-9336c-shared.html["Requisitos de documentación de los switches compartidos Cisco Nexus 9336C-FX2"] y.. https://docs.netapp.com/us-en/ontap/index.html["Documentación de ONTAP de NetApp"^].
+* Se requiere documentación de los switches compartidos, documentación de la controladora y documentación de ONTAP. Consulte link:required-documentation-9336c-shared.html["Requisitos de documentación de los switches compartidos Cisco Nexus 9336C-FX2"] y.. https://["Documentación de ONTAP de NetApp"^].
 * Las licencias aplicables, la información de configuración y red, y los cables.
-* Hojas de datos de cableado completadas. Consulte link:cable-9336c-shared.html["Rellene la hoja de trabajo del cableado Cisco Nexus 9336C-FX2"]. Para obtener más información sobre el cableado, consulte https://hwu.netapp.com["Hardware Universe"].
+* Hojas de datos de cableado completadas. Consulte link:cable-9336c-shared.html["Rellene la hoja de trabajo del cableado Cisco Nexus 9336C-FX2"]. Para obtener más información sobre el cableado, consulte https://["Hardware Universe"].
 
 
 .Pasos
@@ -130,7 +130,7 @@ Responda con *sí* para guardar la configuración. De esta forma se actualizan a
 
 NOTE: Si no guarda la configuración en esta fase, ninguno de los cambios se aplicará la próxima vez que reinicie el conmutador.
 
-. Compruebe la versión de los switches de red del clúster y, si es necesario, descargue la versión del software compatible con NetApp en los switches de la https://software.cisco.com/download/home["Descarga de software de Cisco"^] página.
+. Compruebe la versión de los switches de red del clúster y, si es necesario, descargue la versión del software compatible con NetApp en los switches de la https://["Descarga de software de Cisco"^] página.
 
 
 .El futuro

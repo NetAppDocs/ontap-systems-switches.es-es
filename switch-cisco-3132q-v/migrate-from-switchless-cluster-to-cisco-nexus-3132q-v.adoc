@@ -43,7 +43,7 @@ Puede hacer que cuatro puertos SFP+ estén activos en lugar de un puerto QSFP pa
 +
 Puede extraer los primeros seis puertos en modo 4x10 GbE mediante el `interface breakout module 1 port 1-6 map 10g-4x` comando. De forma similar, puede volver a agrupar los primeros seis puertos QSFP+ de la configuración de cable mediante el `no interface breakout module 1 port 1-6 map 10g-4x` comando.
 
-* El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Descarga del archivo de configuración de referencia del switch de red de clúster de Cisco ®"^] página.
+* El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://["Descarga del archivo de configuración de referencia del switch de red de clúster de Cisco ®"^] página.
 
 
 .Lo que necesitará
@@ -92,7 +92,7 @@ Este procedimiento cubre los siguientes escenarios:
 * n1_clus2 es la primera LIF del clúster que se conecta al switch de clúster C2 del nodo n1.
 * n2_clus1 es la primera LIF de clúster que se conecta al switch de clúster C1 para el nodo n2.
 * n2_clus2 es la segunda LIF del clúster que se conecta al switch de clúster C2 del nodo n2.
-* El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Descarga del archivo de configuración de referencia del switch de red de clúster de Cisco ®"^] página.
+* El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://["Descarga del archivo de configuración de referencia del switch de red de clúster de Cisco ®"^] página.
 
 
 [NOTE]

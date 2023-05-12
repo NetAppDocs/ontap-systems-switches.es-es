@@ -29,7 +29,7 @@ Se admiten los siguientes switches de clúster de Cisco:
 * Nexus 3132Q-V
 
 
-Para obtener más información acerca de los puertos admitidos y sus configuraciones, consulte https://hwu.netapp.com/["Hardware Universe"^] .
+Para obtener más información acerca de los puertos admitidos y sus configuraciones, consulte https://["Hardware Universe"^] .
 
 .Lo que necesitará
 Asegúrese de que:

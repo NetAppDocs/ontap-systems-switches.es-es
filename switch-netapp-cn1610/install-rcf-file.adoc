@@ -28,7 +28,7 @@ Antes de instalar un RCF, primero debe migrar las LIF del clúster fuera del swi
 * Una ruta de comunicación correcta: El ONTAP (privilegio: Avanzado) `cluster ping-cluster -node node1` el comando debe indicar que `larger than PMTU communication` se realiza correctamente en todas las rutas.
 * Una versión compatible de RCF y ONTAP.
 +
-Asegúrese de consultar la tabla de compatibilidad de los interruptores en la http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["Switches CN1601 y CN1610 de NetApp"^] Para las versiones RCF y ONTAP admitidas.
+Asegúrese de consultar la tabla de compatibilidad de los interruptores en la http://["Switches CN1601 y CN1610 de NetApp"^] Para las versiones RCF y ONTAP admitidas.
 
 
 
@@ -41,7 +41,7 @@ El siguiente procedimiento usa la sintaxis de Clustered Data ONTAP 8.2. Como res
 Puede haber dependencias de comandos entre la sintaxis de comandos en las versiones RCF y FASTPATH.
 
 
-NOTE: En la versión 1.2 de RCF, la compatibilidad con Telnet se ha desactivado explícitamente debido a problemas de seguridad. Para evitar problemas de conectividad durante la instalación de RCF 1.2, compruebe que Secure Shell (SSH) está habilitado. La https://library.netapp.com/ecm/ecm_get_file/ECMP1117874["Guía para administradores de switches NetApp CN1610"^] Tiene más información acerca de SSH.
+NOTE: En la versión 1.2 de RCF, la compatibilidad con Telnet se ha desactivado explícitamente debido a problemas de seguridad. Para evitar problemas de conectividad durante la instalación de RCF 1.2, compruebe que Secure Shell (SSH) está habilitado. La https://["Guía para administradores de switches NetApp CN1610"^] Tiene más información acerca de SSH.
 
 .Acerca de los ejemplos
 Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:
@@ -52,13 +52,13 @@ Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo
 * La `cluster::*>` prompt indica el nombre del clúster.
 * Los puertos de clúster de cada nodo se denominan e1a y e2a.
 +
-https://hwu.netapp.com/["Hardware Universe"^] dispone de más información sobre los puertos de clúster que admiten su plataforma.
+https://["Hardware Universe"^] dispone de más información sobre los puertos de clúster que admiten su plataforma.
 
 * Los enlaces Inter-Switch (ISL) compatibles son los puertos 0/13 a 0/16.
 * Las conexiones de nodos admitidas son los puertos 0/1 a 0/12.
 * Una versión compatible de FASTPATH, RCF y ONTAP.
 +
-Asegúrese de consultar la tabla de compatibilidad de los interruptores en la http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["Switches CN1601 y CN1610 de NetApp"^] Página para las versiones DE FASTPATH, RCF y ONTAP compatibles.
+Asegúrese de consultar la tabla de compatibilidad de los interruptores en la http://["Switches CN1601 y CN1610 de NetApp"^] Página para las versiones DE FASTPATH, RCF y ONTAP compatibles.
 
 
 

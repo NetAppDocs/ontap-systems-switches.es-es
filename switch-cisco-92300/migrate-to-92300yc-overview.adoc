@@ -37,10 +37,10 @@ Debe conocer determinada información de configuración, conexiones de puertos y
 ** Puertos e1/13-20 (10 GbE): Nexus 5010
 
 
-* La https://hwu.netapp.com/SWITCH/INDEX["_Hardware Universe_"^] contiene información sobre el cableado compatible para todos los switches de clúster.
+* La https://["_Hardware Universe_"^] contiene información sobre el cableado compatible para todos los switches de clúster.
 * Ha configurado algunos de los puertos en los switches Nexus 92300YC para que se ejecuten a 10 GbE o 40 GbE.
 * Ha planificado, migrado y documentado conectividad de 10 GbE y 40 GbE desde los nodos a los switches de clúster Nexus 92300YC.
-* Las versiones ONTAP y NX-OS compatibles con este procedimiento son en la https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^] página.
+* Las versiones ONTAP y NX-OS compatibles con este procedimiento son en la https://["Switches Ethernet de Cisco"^] página.
 +
 
 NOTE: Una vez finalizada la migración, es posible que necesite instalar el archivo de configuración necesario para admitir el Monitor de estado del conmutador de clúster (CSHM) para los conmutadores de clúster 92300YC. Consulte link:setup-install-cshm-file.html["Instale el archivo de configuración del Monitor de estado del conmutador de clúster (CSHM)"] para obtener más detalles.

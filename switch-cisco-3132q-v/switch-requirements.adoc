@@ -58,7 +58,7 @@ La link:http://mysupport.netapp.com/NOW/download/software/cm_switches/["Switches
 ** Nexus 3132Q-V
 
 
-* El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Descarga del archivo de configuración de referencia del conmutador de red de clúster Cisco®"^] página.
+* El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://["Descarga del archivo de configuración de referencia del conmutador de red de clúster Cisco®"^] página.
 * Los switches de clúster utilizan los siguientes puertos para las conexiones a los nodos:
 +
 ** Puertos e1/1-40 (10 GbE): Nexus 5596

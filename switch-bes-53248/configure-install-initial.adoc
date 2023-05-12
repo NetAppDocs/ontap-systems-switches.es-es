@@ -13,7 +13,7 @@ summary: Puede utilizar este procedimiento para realizar la instalación inicial
 [role="lead"]
 Siga estos pasos para realizar una configuración inicial del conmutador de clúster BES-53248.
 
-.Lo que necesitará
+.Antes de empezar
 * El hardware está instalado, como se describe en link:install-hardware-bes53248.html["Instale el hardware"].
 * Ha revisado lo siguiente:
 +
@@ -31,7 +31,7 @@ Los ejemplos de los procedimientos de configuración utilizan la siguiente nomen
 * Los nombres de LIF del clúster son `node1_clus1` y.. `node1_clus2` para los nodos 1, y. `node2_clus1` y.. `node2_clus2` para el 2.
 * El nombre del espacio IP es Cluster.
 * La `cluster1::>` prompt indica el nombre del clúster.
-* Los puertos del clúster de cada nodo se llaman `e0a` y.. `e0b`. Consulte https://hwu.netapp.com/Home/Index["Hardware Universe de NetApp"^] para los puertos de clúster reales compatibles con la plataforma.
+* Los puertos del clúster de cada nodo se llaman `e0a` y.. `e0b`. Consulte https://["Hardware Universe de NetApp"^] para los puertos de clúster reales compatibles con la plataforma.
 * Los vínculos entre switches (ISL) compatibles con los switches de NetApp son los puertos 0/55 y 0/56.
 * Las conexiones de nodos compatibles con los switches de NetApp son los puertos 0/1 a 0/16, con licencia predeterminada.
 * En los ejemplos se utilizan dos nodos, pero puede tener hasta 24 nodos en un clúster.

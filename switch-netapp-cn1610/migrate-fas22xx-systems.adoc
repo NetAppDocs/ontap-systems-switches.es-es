@@ -26,7 +26,7 @@ Si tiene sistemas FAS22xx en un clúster sin switch de dos nodos existente en el
 
 
 .Información relacionada
-https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["Artículo de la base de conocimientos de NetApp 1010449: Cómo impedir la creación automática de casos durante las ventanas de mantenimiento programado"^]
+https://["Artículo de la base de conocimientos de NetApp 1010449: Cómo impedir la creación automática de casos durante las ventanas de mantenimiento programado"^]
 
 
 

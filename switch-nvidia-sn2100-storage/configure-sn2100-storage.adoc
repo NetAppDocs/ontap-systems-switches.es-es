@@ -15,7 +15,7 @@ Para configurar el conmutador SN2100, consulte la documentación de NVIDIA.
 
 .Pasos
 . Revise la link:configure-reqs-sn2100-storage.html["requisitos de configuración"].
-. Siga las instrucciones de https://docs.nvidia.com/networking/display/sn2000pub/System+Bring-Up["Puesta en marcha del sistema NVIDIA."^].
+. Siga las instrucciones de https://["Puesta en marcha del sistema NVIDIA."^].
 
 
 .El futuro

@@ -17,7 +17,7 @@ Para la instalación y el mantenimiento del conmutador BES-53248, asegúrese de 
 
 == Soporte para EFOS y ONTAP
 
-Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe de NetApp"^] y.. https://mysupport.netapp.com/site/info/broadcom-cluster-switch["Matriz de compatibilidad de switches Broadcom"^] Para obtener información sobre compatibilidad de EFOS y ONTAP con conmutadores BES-53248. La compatibilidad con EFOS y ONTAP puede variar según el tipo de máquina específico del interruptor BES-53248. Para obtener información detallada sobre todos los tipos de máquinas de conmutación BES-52348, consulte link:components-bes53248.html["Componentes y números de pieza para switches de clúster BES-53248"].
+Consulte https://["Hardware Universe de NetApp"^] y.. https://["Matriz de compatibilidad de switches Broadcom"^] Para obtener información sobre compatibilidad de EFOS y ONTAP con conmutadores BES-53248. La compatibilidad con EFOS y ONTAP puede variar según el tipo de máquina específico del interruptor BES-53248. Para obtener información detallada sobre todos los tipos de máquinas de conmutación BES-52348, consulte link:components-bes53248.html["Componentes y números de pieza para switches de clúster BES-53248"].
 
 
 
@@ -63,7 +63,7 @@ Nodos de puertos de clúster de 10 GbE, con licencias
 Puertos de enlace entre switches (ISL) de clúster de 100 GbE, configuración base
 
 |===
-Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obtener más información sobre los puertos de switch.
+Consulte https://["Hardware Universe"] para obtener más información sobre los puertos de switch.
 
 
 

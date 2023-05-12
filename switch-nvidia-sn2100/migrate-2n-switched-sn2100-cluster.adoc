@@ -36,7 +36,7 @@ Asegúrese de que:
 * El switch de nodo a nodo NVIDIA SN2100 y las conexiones de switch a switch utilizan cables Twinax o de fibra.
 +
 
-IMPORTANT: Consulte link:cabling-considerations-sn2100-cluster.html["Revise las consideraciones sobre el cableado y la configuración"] para obtener advertencias e información adicional. La https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - interruptores"^] también contiene más información sobre el cableado.
+IMPORTANT: Consulte link:cabling-considerations-sn2100-cluster.html["Revise las consideraciones sobre el cableado y la configuración"] para obtener advertencias e información adicional. La https://["Hardware Universe - interruptores"^] también contiene más información sobre el cableado.
 
 * Los cables de enlace entre switches (ISL) están conectados a los puertos swp15 y swp16 en ambos switches NVIDIA SN2100.
 * Se ha completado la personalización inicial de los dos conmutadores SN2100, de modo que:
@@ -45,7 +45,7 @@ IMPORTANT: Consulte link:cabling-considerations-sn2100-cluster.html["Revise las 
 ** Los archivos de configuración de referencia (RCF) se aplican a los conmutadores
 ** Cualquier personalización de sitio, como SMTP, SNMP y SSH, se configura en los nuevos switches.
 +
-La https://hwu.netapp.com["Hardware Universe"^] contiene la información más reciente acerca de los puertos del clúster reales para las plataformas.
+La https://["Hardware Universe"^] contiene la información más reciente acerca de los puertos del clúster reales para las plataformas.
 
 
 
@@ -227,7 +227,7 @@ Cluster
 ====
 . Desconecte el cable del puerto del clúster e3a del nodo 1 y, a continuación, conecte e3a al puerto 3 del conmutador del cluster sw1, utilizando el cableado adecuado admitido por los conmutadores SN2100.
 +
-La https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - interruptores"^] contiene más información sobre el cableado.
+La https://["Hardware Universe - interruptores"^] contiene más información sobre el cableado.
 
 . Desconecte el cable del puerto del clúster e3a en el nodo 2 y, a continuación, conecte e3a al puerto 4 del interruptor del cluster sw1, utilizando el cableado adecuado admitido por los interruptores SN2100.
 . En el switch sw1, habilite todos los puertos orientados al nodo.

@@ -21,8 +21,8 @@ Revise los requisitos de Cisco Nexus 5596 en link:switch-requirements.html["Requ
 
 Para obtener más información, consulte:
 
-* http://support.netapp.com/NOW/download/software/cm_switches/["Página de descripción de Cisco Ethernet Switch"^]
-* http://hwu.netapp.com["Hardware Universe"^]
+* http://["Página de descripción de Cisco Ethernet Switch"^]
+* http://["Hardware Universe"^]
 
 
 
@@ -43,7 +43,7 @@ El procedimiento utiliza la siguiente nomenclatura de conmutación y nodo:
 * n1_clusal 4 es la segunda LIF conectada al switch de clúster 1 (CL1 o C1) para el nodo n1.
 * Los nodos son n1, n2, n3 y n4.
 * Los ejemplos de este procedimiento emplean cuatro nodos: Dos nodos utilizan cuatro puertos de interconexión de clúster de 10 GbE: E0a, e0b, e0c y e0d. Los otros dos nodos utilizan dos puertos de interconexión de clúster de 40/100 GbE: e4a y e4e. La link:https://hwu.netapp.com/["Hardware Universe"^] la enumera los puertos del clúster reales en las plataformas.
-* El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Descarga del archivo de configuración de referencia del conmutador de red de clúster Cisco®"^] página.
+* El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://["Descarga del archivo de configuración de referencia del conmutador de red de clúster Cisco®"^] página.
 +
 
 NOTE: Para ello, es necesario utilizar tanto comandos de la ONTAP como comandos de la serie Cisco Nexus 3000; los comandos de la ONTAP se usan a menos que se indique lo contrario.

@@ -40,7 +40,7 @@ La link:http://support.netapp.com/NOW/download/software/cm_switches/["Switch Eth
 ** Se ha completado la personalización inicial del conmutador.
 
 
-* http://hwu.netapp.com["Hardware Universe"^]
+* http://["Hardware Universe"^]
 
 
 

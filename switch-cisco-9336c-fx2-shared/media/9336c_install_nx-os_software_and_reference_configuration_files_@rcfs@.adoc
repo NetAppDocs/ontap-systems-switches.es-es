@@ -26,9 +26,9 @@ Deben existir las siguientes condiciones antes de instalar el software NX-OS y R
 * Debe haber comprobado o establecido la configuración de inicio deseada en el RCF para reflejar las imágenes de arranque deseadas si sólo está instalando NX-OS y manteniendo su versión actual de RCF.
 * Si necesita cambiar la configuración de arranque para reflejar las imágenes de arranque actuales, debe hacerlo antes de volver a aplicar el RCF para que se cree una instancia de la versión correcta en futuros reinicios.
 * Debe tener una conexión de consola al conmutador, necesaria para instalar el RCF.
-* Debe haber consultado la tabla de compatibilidad de switches de la página del conmutador Ethernet de Cisco para las versiones ONTAP, NX-OS y RCF compatibles. Consulte https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"] si quiere más información.
+* Debe haber consultado la tabla de compatibilidad de switches de la página del conmutador Ethernet de Cisco para las versiones ONTAP, NX-OS y RCF compatibles. Consulte https://["Switches Ethernet de Cisco"] si quiere más información.
 * Puede haber dependencias de comandos entre la sintaxis de comandos en el RCF y la que se encuentra en las versiones de NX-OS.
-* Debe haber hecho referencia a las guías de software y actualizaciones adecuadas disponibles en el sitio web de Cisco para obtener documentación completa sobre los procedimientos de actualización y degradación de switches de Cisco en los switches de la serie Cisco Nexus 9000. Consulte https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html["Switches Cisco Nexus serie 9000"] si quiere más información.
+* Debe haber hecho referencia a las guías de software y actualizaciones adecuadas disponibles en el sitio web de Cisco para obtener documentación completa sobre los procedimientos de actualización y degradación de switches de Cisco en los switches de la serie Cisco Nexus 9000. Consulte https://["Switches Cisco Nexus serie 9000"] si quiere más información.
 * Debe tener el RCF actual.
 
 
@@ -36,7 +36,7 @@ Deben existir las siguientes condiciones antes de instalar el software NX-OS y R
 
 ===== Configuración inicial
 
-Los ejemplos de este procedimiento utilizan dos nodos. Estos nodos utilizan dos puertos de interconexión de clúster de 100 GbE e3a y e3b, como se indica en la controladora A400. Consulte https://hwu.netapp.com["Hardware Universe"] para verificar los puertos de clúster correctos en sus plataformas.
+Los ejemplos de este procedimiento utilizan dos nodos. Estos nodos utilizan dos puertos de interconexión de clúster de 100 GbE e3a y e3b, como se indica en la controladora A400. Consulte https://["Hardware Universe"] para verificar los puertos de clúster correctos en sus plataformas.
 
 
 NOTE: Los resultados del comando pueden variar en función de las diferentes versiones de ONTAP.
@@ -665,7 +665,7 @@ cs2#
 . Realice una configuración básica del interruptor.
 
 
-. [[step11]]copie el RCF al bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP. Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Guías de referencia de comandos Cisco Nexus serie 9000 NX-OS"].
+. [[step11]]copie el RCF al bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP. Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://["Guías de referencia de comandos Cisco Nexus serie 9000 NX-OS"].
 +
 En este ejemplo se muestra TFTP que se utiliza para copiar un RCF al bootflash del conmutador cs2.
 
@@ -680,7 +680,7 @@ Trying to connect to tftp server...Connection to Server Established.
 TFTP get operation was successful
 Copy complete, now saving to disk (please wait)...
 ----
-. [[step12]]aplique el RCF descargado anteriormente al flash de inicio. Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Guías de referencia de comandos Cisco Nexus serie 9000 NX-OS"].
+. [[step12]]aplique el RCF descargado anteriormente al flash de inicio. Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://["Guías de referencia de comandos Cisco Nexus serie 9000 NX-OS"].
 +
 En este ejemplo se muestra el archivo RCF `Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt` se está instalando en el conmutador cs2.
 
@@ -744,7 +744,7 @@ La salida varía en función de la configuración del sitio. Compruebe la config
 
 . Después de comprobar que las versiones de RCF y los ajustes del switch son correctos, copie el archivo running-config en el archivo startup-config.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Guías de referencia de comandos Cisco Nexus serie 9000 NX-OS"].
+Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://["Guías de referencia de comandos Cisco Nexus serie 9000 NX-OS"].
 
 
 
@@ -1052,8 +1052,8 @@ Antes de actualizar el RCF en el conmutador de almacenamiento deben existir las 
 * El conmutador debe estar completamente operativo (no debe haber errores en los registros o problemas similares).
 * Debe haber comprobado o establecido las variables de arranque deseadas en el RCF para reflejar las imágenes de arranque deseadas si sólo está instalando NX-OS y manteniendo su versión actual de RCF.
 * Si necesita cambiar las variables de arranque para reflejar las imágenes de arranque actuales, debe hacerlo antes de volver a aplicar el RCF para que se cree una instancia de la versión correcta en futuros reinicios.
-* Debe haber hecho referencia a las guías de software y actualizaciones adecuadas disponibles en el sitio web de Cisco para obtener documentación completa sobre los procedimientos de actualización y degradación del almacenamiento de Cisco. Consulte https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html["Switches Cisco Nexus serie 9000"] si quiere más información.
-* El número de puertos de 100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"] página.
+* Debe haber hecho referencia a las guías de software y actualizaciones adecuadas disponibles en el sitio web de Cisco para obtener documentación completa sobre los procedimientos de actualización y degradación del almacenamiento de Cisco. Consulte https://["Switches Cisco Nexus serie 9000"] si quiere más información.
+* El número de puertos de 100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://["Switches Ethernet de Cisco"] página.
 
 
 
@@ -1252,7 +1252,7 @@ st2#
 ----
 . [[step9]]copie el RCF en el conmutador st2 en el bootflash del conmutador utilizando uno de los siguientes protocolos de transferencia: FTP, HTTP, TFTP, SFTP o SCP.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Guías de referencia de comandos Cisco Nexus serie 9000 NX-OS"].
+Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://["Guías de referencia de comandos Cisco Nexus serie 9000 NX-OS"].
 
 +
 El ejemplo siguiente muestra que se está utilizando HTTP para copiar un RCF al bootflash en el switch st2:
@@ -1339,7 +1339,7 @@ st2#
 ----
 . [[step12]]después de comprobar que las versiones de software y los ajustes del switch son correctos, copie el archivo running-config en el archivo startup-config en el conmutador st2.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Guías de referencia de comandos Cisco Nexus serie 9000 NX-OS"].
+Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://["Guías de referencia de comandos Cisco Nexus serie 9000 NX-OS"].
 
 +
 En el siguiente ejemplo se muestra el `running-config` el archivo se ha copiado correctamente en `startup-config` archivo:
@@ -1430,7 +1430,7 @@ Desde ONTAP 9.9.1, puede utilizar los switches Cisco Nexus 9336C-FX2 para combin
 .Pasos
 . Copie el RCF del switch sh2 en el bootflash del switch utilizando uno de los siguientes protocolos de transferencia: FTP, HTTP, TFTP, SFTP o SCP.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Guías de referencia de comandos Cisco Nexus serie 9000 NX-OS"].
+Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://["Guías de referencia de comandos Cisco Nexus serie 9000 NX-OS"].
 
 +
 En el ejemplo siguiente se muestra el uso de HTTP para copiar un RCF al flash de inicio del conmutador sh2:
@@ -1521,7 +1521,7 @@ sh2#
 ----
 . [[step4]]después de verificar que las versiones de software y los ajustes del switch son correctos, copie el `running-config` archivo al archivo de configuración de inicio en el conmutador sh2.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Guías de referencia de comandos Cisco Nexus serie 9000 NX-OS"].
+Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://["Guías de referencia de comandos Cisco Nexus serie 9000 NX-OS"].
 
 +
 En el siguiente ejemplo se muestra el `running-config` el archivo se ha copiado correctamente en `startup-config` archivo:

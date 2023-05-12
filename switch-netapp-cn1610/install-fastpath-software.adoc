@@ -26,7 +26,7 @@ Al instalar el software FASTPATH en los switches de NetApp, debe comenzar la act
 * Una ruta de comunicación correcta: El ONTAP (privilegio: Avanzado) `cluster ping-cluster -node node1` el comando debe indicar que `larger than PMTU communication` se realiza correctamente en todas las rutas.
 * Una versión compatible de FASTPATH y ONTAP.
 +
-Asegúrese de consultar la tabla de compatibilidad de los interruptores en la http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["Switches CN1601 y CN1610 de NetApp"^] Página para las versiones DE FASTPATH y ONTAP admitidas.
+Asegúrese de consultar la tabla de compatibilidad de los interruptores en la http://["Switches CN1601 y CN1610 de NetApp"^] Página para las versiones DE FASTPATH y ONTAP admitidas.
 
 
 
@@ -47,7 +47,7 @@ Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo
 * La `cluster::*>` prompt indica el nombre del clúster.
 * Los puertos de clúster de cada nodo se denominan e1a y e2a.
 +
-https://hwu.netapp.com/["Hardware Universe"^] dispone de más información sobre los puertos de clúster que admiten su plataforma.
+https://["Hardware Universe"^] dispone de más información sobre los puertos de clúster que admiten su plataforma.
 
 * Los enlaces Inter-Switch (ISL) compatibles son los puertos 0/13 a 0/16.
 * Las conexiones de nodos admitidas son los puertos 0/1 a 0/12.

@@ -15,11 +15,11 @@ Antes de instalar el software NX-OS y el archivo de configuración de referencia
 
 .Lo que necesitará
 * Un clúster en pleno funcionamiento (sin errores en los registros o problemas similares).
-* Guías de software y actualización adecuadas, disponibles en https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Switches Cisco Nexus serie 9000"^].
+* Guías de software y actualización adecuadas, disponibles en https://["Switches Cisco Nexus serie 9000"^].
 
 
 .Acerca de los ejemplos
-Los ejemplos de este procedimiento utilizan dos nodos. Estos nodos utilizan dos puertos de interconexión de clúster de 10 GbE `e0a` y.. `e0b`. Consulte https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para verificar los puertos de clúster correctos en sus plataformas.
+Los ejemplos de este procedimiento utilizan dos nodos. Estos nodos utilizan dos puertos de interconexión de clúster de 10 GbE `e0a` y.. `e0b`. Consulte https://["Hardware Universe"^] para verificar los puertos de clúster correctos en sus plataformas.
 
 Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:
 

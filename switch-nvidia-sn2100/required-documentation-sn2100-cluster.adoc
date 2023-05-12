@@ -19,21 +19,21 @@ Para la instalación y el mantenimiento del conmutador NVIDIA SN2100, asegúrese
 
 
  a| 
-https://docs.nvidia.com/networking/display/sn2000pub/Installation["Guía de instalación del switch NVIDIA"^]
+https://["Guía de instalación del switch NVIDIA"^]
  a| 
 Describe cómo instalar los switches NVIDIA SN2100.
 
 
 
  a| 
-https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["Guía de cableado de bandeja de unidades NVMe NS224"^]
+https://["Guía de cableado de bandeja de unidades NVMe NS224"^]
  a| 
 Información general e ilustraciones que muestran cómo configurar el cableado de bandejas de unidades.
 
 
 
  a| 
-https://hwu.netapp.com/["Hardware Universe de NetApp"^]
+https://["Hardware Universe de NetApp"^]
  a| 
 Permite confirmar el hardware compatible, como los switches y cables de almacenamiento, para su modelo de plataforma.
 

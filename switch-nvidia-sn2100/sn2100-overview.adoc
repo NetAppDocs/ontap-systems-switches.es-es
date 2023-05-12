@@ -22,7 +22,7 @@ Si desea crear clústeres de ONTAP con más de dos nodos, necesita dos switches 
 El conmutador NVIDIA SN2100 es un conmutador 10/25/40/100GbE que ejecuta Cumulus Linux. El conmutador admite lo siguiente:
 
 * ONTAP 9.10.1P3. El switch SN2100 sirve a las aplicaciones de clúster y almacenamiento de ONTAP 9.10.1P3 sobre diferentes pares de switches. Desde ONTAP 9.10.1P3, puede utilizar los switches NVIDIA SN2100 para combinar las funciones de almacenamiento y clúster en una configuración de switch compartido.
-* Cumulus Linux (CL) OS versión 4.4.3. Para obtener información actual sobre compatibilidad, consulte https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Switches Ethernet de NVIDIA"^] página de información.
+* Cumulus Linux (CL) OS versión 4.4.3. Para obtener información actual sobre compatibilidad, consulte https://["Switches Ethernet de NVIDIA"^] página de información.
 * Puede instalar Cumulus Linux cuando el conmutador esté ejecutando Cumulus Linux o ONIE.
 
 
@@ -81,7 +81,7 @@ Kit de rieles, profundidad corta de un único conmutador NVIDIA
 
 |===
 
-NOTE: Consulte la documentación de NVIDIA para obtener más información acerca de https://docs.nvidia.com/networking/display/sn2000pub/Installation["Instalación del kit de rieles y interruptor SN2100"^].
+NOTE: Consulte la documentación de NVIDIA para obtener más información acerca de https://["Instalación del kit de rieles y interruptor SN2100"^].
 
 
 
@@ -95,42 +95,42 @@ En la siguiente tabla se muestra la documentación disponible para los conmutado
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/install-hardware-sn2100-cluster.html["_Configurar y configurar los switches NVIDIA SN2100_"^]
+https://["_Configurar y configurar los switches NVIDIA SN2100_"^]
  a| 
 Describe cómo configurar y configurar los conmutadores NVIDIA SN2100, incluida la instalación de Cumulus Linux y RCF aplicables.
 
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/migrate-cisco-sn2100-cluster-switch.html["_Migre de un switch Cisco Cluster a un conmutador de clúster NVIDIA SN2100_"^]
+https://["_Migre de un switch Cisco Cluster a un conmutador de clúster NVIDIA SN2100_"^]
  a| 
 Describe cómo migrar desde entornos que usan switches de clúster de Cisco a entornos que utilizan switches de clúster NVIDIA SN2100.
 
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/migrate-cisco-storage-switch-sn2100-storage.html["_Migre de un switch de almacenamiento de Cisco a un switch de almacenamiento de NVIDIA_"^]
+https://["_Migre de un switch de almacenamiento de Cisco a un switch de almacenamiento de NVIDIA_"^]
  a| 
 Describe cómo migrar desde entornos que usan switches de almacenamiento de Cisco a entornos que utilizan switches de almacenamiento NVIDIA SN2100.
 
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/migrate-2n-switched-sn2100-cluster.html["_Migre a un clúster con switches de dos nodos con switches de clúster NVIDIA SN2100_"^]
+https://["_Migre a un clúster con switches de dos nodos con switches de clúster NVIDIA SN2100_"^]
  a| 
 Describe cómo migrar a un entorno con switches de dos nodos mediante switches de clúster NVIDIA SN2100.
 
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/replace-sn2100-switch-cluster.html["_Reemplace un conmutador de clúster NVIDIA SN2100_"^]
+https://["_Reemplace un conmutador de clúster NVIDIA SN2100_"^]
  a| 
 Describe el procedimiento para sustituir un conmutador NVIDIA SN2100 defectuoso en un clúster y descargar Cumulus Linux y el archivo de configuración de referencia.
 
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/replace-sn2100-switch-storage.html["_Reemplace un conmutador de almacenamiento NVIDIA SN2100_"^]
+https://["_Reemplace un conmutador de almacenamiento NVIDIA SN2100_"^]
  a| 
 Describe el procedimiento para sustituir un conmutador de almacenamiento NVIDIA SN2100 defectuoso y descargar Cumulus Linux y el archivo de configuración de referencia.
 

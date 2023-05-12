@@ -38,7 +38,7 @@ Revise los siguientes requisitos para el entorno del clúster.
 ** Hay acceso de la consola a los switches de clúster.
 ** El switch nodo a nodo BES-53248 y las conexiones de switch a switch utilizan cables Twinax o de fibra.
 +
-La https://hwu.netapp.com/Home/Index["_Hardware Universe_ de NetApp"^] Contiene información acerca de la compatibilidad con ONTAP, el firmware EFOS compatible y el cableado para los switches BES-53248.
+La https://["_Hardware Universe_ de NetApp"^] Contiene información acerca de la compatibilidad con ONTAP, el firmware EFOS compatible y el cableado para los switches BES-53248.
 
 
 
@@ -66,7 +66,7 @@ Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de nodo y 
 * La `cluster1::*>` prompt indica el nombre del clúster.
 * Los puertos de clúster que se utilizan en este procedimiento son `e0a` y.. `e0b`.
 +
-La https://hwu.netapp.com/Home/Index["_Hardware Universe_ de NetApp"^] contiene la información más reciente acerca de los puertos del clúster reales para las plataformas.
+La https://["_Hardware Universe_ de NetApp"^] contiene la información más reciente acerca de los puertos del clúster reales para las plataformas.
 
 
 
@@ -293,7 +293,7 @@ Cluster
 ====
 . Desconecte el cable del puerto del clúster e0a del nodo 1 y, a continuación, conecte e0a al puerto 1 del switch del clúster cs1 mediante el cableado adecuado compatible con los switches BES-53248.
 +
-La https://hwu.netapp.com/Home/Index["_Hardware Universe_ de NetApp"^] contiene más información sobre el cableado.
+La https://["_Hardware Universe_ de NetApp"^] contiene más información sobre el cableado.
 
 . Desconecte el cable del puerto e0a del clúster en el nodo 2 y, a continuación, conecte e0a al puerto 2 del switch del clúster cs1 mediante el cableado adecuado compatible con los switches BES-53248.
 . Habilite todos los puertos orientados al nodo en el switch de clúster cs1.
@@ -589,7 +589,7 @@ cluster1::*> system node autosupport invoke -node \* -type all -message MAINT=EN
 ----
 ====
 +
-Para obtener más información, consulte: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["Artículo de la base de conocimientos de NetApp: Cómo impedir la creación automática de casos durante las ventanas de mantenimiento programado"^]
+Para obtener más información, consulte: https://["Artículo de la base de conocimientos de NetApp: Cómo impedir la creación automática de casos durante las ventanas de mantenimiento programado"^]
 
 
 

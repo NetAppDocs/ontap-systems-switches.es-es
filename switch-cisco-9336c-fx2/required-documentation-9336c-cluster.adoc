@@ -20,7 +20,7 @@ En lo que respecta a la instalación y el mantenimiento de los switches Cisco Ne
 
 == Documentación de los switches
 
-Para configurar los switches Cisco Nexus 9336C-FX2, necesita la siguiente documentación del https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Compatibilidad con los switches Cisco Nexus serie 9000"^] página:
+Para configurar los switches Cisco Nexus 9336C-FX2, necesita la siguiente documentación del https://["Compatibilidad con los switches Cisco Nexus serie 9000"^] página:
 
 [cols="1,2"]
 |===
@@ -86,7 +86,7 @@ Proporciona información legal, de seguridad y cumplimiento de normativas de age
 
 == Documentación de los sistemas ONTAP
 
-Para configurar un sistema ONTAP, necesita los siguientes documentos para su versión del sistema operativo desde la https://docs.netapp.com/ontap-9/index.jsp["Centro de documentación de ONTAP 9"^].
+Para configurar un sistema ONTAP, necesita los siguientes documentos para su versión del sistema operativo desde la https://["Centro de documentación de ONTAP 9"^].
 
 [cols="1,2"]
 |===
@@ -108,7 +108,7 @@ Proporciona información detallada sobre todos los aspectos de las versiones de 
 
 
  a| 
-https://hwu.netapp.com["Hardware Universe"^]
+https://["Hardware Universe"^]
  a| 
 Ofrece información de compatibilidad y configuración de hardware de NetApp.
 
@@ -125,7 +125,7 @@ Para instalar un switch Cisco 9336-FX2 en un armario de NetApp, consulte la sigu
 
 
  a| 
-https://library.netapp.com/ecm/ecm_download_file/ECMM1280394["Armario del sistema 42U, guía detallada"^]
+https://["Armario del sistema 42U, guía detallada"^]
  a| 
 Describe las FRU asociadas al armario del sistema 42U, y proporciona instrucciones de mantenimiento y sustitución de FRU.
 

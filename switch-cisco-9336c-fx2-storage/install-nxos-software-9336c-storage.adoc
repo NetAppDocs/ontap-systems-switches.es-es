@@ -23,7 +23,7 @@ Antes de comenzar, complete el procedimiento en link:install-nxos-overview-9336c
 * Una copia de seguridad actual de la configuración del switch.
 * Un clúster en pleno funcionamiento (sin errores en los registros o problemas similares).
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Página del switch Cisco Ethernet"^]. Consulte en la tabla de compatibilidad del switch las versiones ONTAP y NX-OS compatibles.
-* Guías de software y actualización adecuadas disponibles en el sitio web de Cisco para los procedimientos de actualización y degradación de switches de Cisco. Consulte https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Switches Cisco Nexus serie 9000"^].
+* Guías de software y actualización adecuadas disponibles en el sitio web de Cisco para los procedimientos de actualización y degradación de switches de Cisco. Consulte https://["Switches Cisco Nexus serie 9000"^].
 
 
 .Acerca de los ejemplos

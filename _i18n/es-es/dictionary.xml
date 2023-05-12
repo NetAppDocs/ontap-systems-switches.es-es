@@ -2889,18 +2889,10 @@
   <block id="ce4c0c35cac0cafac061a49da52f93cd" category="paragraph"><block ref="74dd19c11d43cfa2dd387ecf7d984746" category="inline-link-macro-rx"></block>.</block>
   <block id="245b6d4f01047a24b306b9ff15a6f528" category="summary">Puede instalar el archivo de configuración de referencia (RCF) después de configurar el conmutador de clúster BES-53248 y después de aplicar las nuevas licencias.</block>
   <block id="dd76252ea7a50def2a98f218cb1505b4" category="inline-link">Artículo de base de conocimientos</block>
-  <block id="71288405dcf65a0c34e5f6f072ddacbf" category="paragraph">Si está actualizando un RCF desde una versión anterior, debe restablecer la configuración del switch Broadcom y realizar la configuración básica para volver a aplicar el RCF. Debe realizar esta operación cada vez que desee actualizar o cambiar un RCF. Consulte<block ref="868fcd63f67a83c695a1a52b76012f85" category="inline-link-rx"></block> para obtener más detalles.</block>
-  <block id="c1421c83b1d1a38b2417491ece25b6ef" category="list-text">Utilice la<block ref="df911f0151f9ef021d410b4be5060972" prefix=" " category="inline-code"></block> Comando para verificar la conectividad con el servidor que aloja EFOS, licencias y RCF.</block>
-  <block id="cc902b05dea9b78580c439034d034533" category="paragraph">Si la conectividad es un problema, utilice una red no enrutada y configure el puerto de servicio con la dirección IP 192.168.x o 172.19.x. Puede volver a configurar el puerto del servicio con la dirección IP de administración de producción más adelante.</block>
-  <block id="f0e95f5c0e8e4943599aed05c5dcaa5c" category="list-text">Instale el RCF en el conmutador de clúster BES-53248 mediante el<block ref="12cba3ee81cf4a793796a51b6327c678" prefix=" " category="inline-code"></block> comando.</block>
-  <block id="4d87d0aacff9e4a95b16be27f0f1e89e" category="admonition">En función del entorno, es posible que deba utilizar una doble barra en<block ref="12cba3ee81cf4a793796a51b6327c678" prefix=" " category="inline-code"></block> comando, por ejemplo:<block ref="a4bf294b73950b3019252cc54ae24b09" prefix=" " category="inline-code"></block>.</block>
-  <block id="cd7d89f0423765df2ea4dd61283f22c1" category="admonition">La<block ref="e9f6316b4b0161f7581dee64491a28dd" prefix=" " category="inline-code"></block> la extensión se debe establecer como parte del nombre de archivo antes de llamar al script. Esta extensión es la extensión del sistema operativo EFOS. El conmutador valida la secuencia de comandos automáticamente cuando se descarga en el conmutador y la salida va a la consola. Además, puede cambiar el nombre del<block ref="e9f6316b4b0161f7581dee64491a28dd" prefix=" " category="inline-code"></block> para ajustar la pantalla de la consola para facilitar la legibilidad, por ejemplo:<block ref="b5e738b93eb223b2be03140bf0010931" prefix=" " category="inline-code"></block>.</block>
-  <block id="62f283441d74bc72551cfe8b6031e2e8" category="admonition">El nombre de archivo no debe incluir los símbolos<block ref="f7f78177fe7e595a817da2765186a20e" prefix=" " category="inline-code"></block> además, la longitud máxima permitida es de 32 caracteres.</block>
   <block id="830bcf54c3049ac10bbbb40fb1258902" category="list-text">Compruebe que la secuencia de comandos se ha descargado y guardado en el nombre de archivo que le ha proporcionado:</block>
   <block id="406bb351c55daa6b29920fa6ce644c29" category="paragraph"><block ref="b6bb909f15a4cebed583f578fc5afd2d" prefix="" category="inline-code"></block></block>
   <block id="b3d2ab282b59bbaad33610c1e37f6f97" category="list-text">Aplique el script al conmutador:</block>
   <block id="02afa83850d1a1e555c0bc75967fef66" category="paragraph"><block ref="5590c26cbf8a14b147a1465a6168f701" prefix="" category="inline-code"></block></block>
-  <block id="c6be61a8840e03c0f7ec854569281fe0" category="list-text">Verifique los puertos para una licencia adicional después de aplicar el RCF:</block>
   <block id="44204cecc6038ea77eba4b1c7fdb67ca" category="list-text">Compruebe en el conmutador que se han realizado los cambios:</block>
   <block id="05811097becdf827e7905c7085aac958" category="paragraph"><block ref="2dddacc5e6efaad8de6eb5a7e2c10d11" prefix="" category="inline-code"></block></block>
   <block id="4b3087862136b477f2ba4eb874340862" category="inline-link-macro">Instale el archivo de configuración CSHM</block>
@@ -2912,12 +2904,6 @@
   <block id="9343a353b1f82fabd9ee240e066471c9" category="list-text">Siga las instrucciones de<block ref="2499b40383e5eeae4a8e13c0ef2b5e8c" category="inline-link-rx"></block>.</block>
   <block id="2c313ef83d1daadd03ff286fd1bc25ab" category="paragraph"><block ref="b88c299eeb38820fb709454fcd144438" category="inline-link-macro-rx"></block>.</block>
   <block id="48cd97dc0d15293354643e695aa2cd19" category="summary">La función de recogida de registros de control de estado del switch de clúster se utiliza para recoger archivos de registro relacionados con el switch en ONTAP. Debe asegurarse de que ha configurado su entorno mediante la CLI del switch de clúster BES-53248, tal y como se describe a continuación.</block>
-  <block id="cae419e0f4ccc97a6a12d463f55b5c3b" category="paragraph">Puede habilitar la función de recogida de registros, que se utiliza para recoger archivos de registro relacionados con el switch en ONTAP.</block>
-  <block id="3cad572dfde5fdce5421e54e89062e7b" category="paragraph">Asegúrese de que ha configurado su entorno mediante la CLI del switch de clúster BES-53248.</block>
-  <block id="c72a86b35a4617dacc0dd7690691bc10" category="paragraph">Habilite la función de recogida de registros mediante los comandos:</block>
-  <block id="2970c748fd66e910b8a8cc8afdfef311" category="section-title">Para versiones de parches ONTAP 9.5P15, 9.6P11, 9.7P8 y posteriores</block>
-  <block id="e9e71e2f88e554c14e51453471eb9563" category="inline-link-macro">Error 1225042</block>
-  <block id="5a072aaf4668506fc992d2fe4e8eab94" category="admonition">El comando log Collect no está disponible en este momento. Consulte <block ref="f0dc05ac25b63ff4a92a1ab0ec233df6" category="inline-link-macro-rx"></block> para obtener más detalles.</block>
   <block id="4a79c6270afcb7ed4e28cd8c98692b07" category="inline-link-macro">Verificar la configuración de actualización</block>
   <block id="201928a01eb0d8a784dcd677be49e1a6" category="paragraph">Si va a actualizar el switch, vaya a. <block ref="4ea612b493226a65342298638fddee90" category="inline-link-macro-rx"></block>.</block>
   <block id="418e7af0f19846dd2ad5f09dfc7d56a0" category="summary">Puede utilizar los comandos proporcionados aquí para comprobar que todo funciona después de una actualización de conmutador de clúster BES-53248.</block>
@@ -3285,7 +3271,6 @@
   <block id="8f9711a7318f4700b907c76b986e81c0" category="list-text">Compruebe que se puede acceder al servidor que aloja el archivo DE instalación ONIE:</block>
   <block id="a16e89a0f24e9a42d02bbe4bb573176b" category="paragraph"><block ref="df911f0151f9ef021d410b4be5060972" prefix="" category="inline-code"></block></block>
   <block id="939ed640d7e855bf91c94dd159eec9e9" category="list-text">Instale el nuevo software del conmutador:</block>
-  <block id="830d0d51353cfd443213537734ff2e76" category="paragraph"><block ref="c982fa8ec7bf560015f478ac445de332" prefix="" category="inline-code"></block></block>
   <block id="fead9f0c9e5b3f33cc2bdfbb331d335c" category="paragraph">El software se instala y, a continuación, reinicia el conmutador. Deje que el interruptor se reinicie normalmente en la nueva versión de EFOS.</block>
   <block id="0deffd557577017ec52052f85fe4ead6" category="list-text">Compruebe que el nuevo software del switch está instalado:</block>
   <block id="a84f79c234a674f8c78ce3dcf3107d96" category="list-text">Complete la instalación.</block>
@@ -3583,9 +3568,6 @@
   <block id="1a0894513362fda649e11ba9de926b82" category="list-text">Determinar el estado administrativo u operativo de cada puerto de clúster.</block>
   <block id="1da3446a4a17fed544e965b2918f91fb" category="list-text">Compruebe que todas las interfaces del clúster (LIF) están en sus puertos de inicio:</block>
   <block id="819ff57f464e039de1c480b406150b87" category="list-text">En el switch del clúster cs2, apague los puertos conectados a los puertos del clúster de los nodos:</block>
-  <block id="c0aae69da186a464bb2e5ce0a8b32451" category="list-text">Mueva todas las conexiones de nodos de clúster del conmutador cs2 antiguo al nuevo conmutador cs2.</block>
-  <block id="ae7b3cb9899d7947e3b5d7996824f062" category="paragraph">*Las conexiones del nodo del clúster se han movido al conmutador cs2-new*</block>
-  <block id="1f5e0ea57e0f194957353e2db3df4e2d" category="image-alt">Conexiones del nodo de clúster movidas al switch cs2-new</block>
   <block id="9d86c44ae37d2be813c8c1b5c9454105" category="list-text">Confirme el estado de las conexiones de red movidas a cs2-new:</block>
   <block id="be6163ad0c362d632b28f98dea1fdaaa" category="paragraph">Todos los puertos del clúster que se movieron deben estar en funcionamiento.</block>
   <block id="e0b5dd148b27eba7b37861e24a42cd95" category="list-text">Compruebe la información de cercanía en los puertos de clúster:</block>
@@ -3594,9 +3576,6 @@
   <block id="c4fb5fab435d358d1b3a68ec74352416" category="list-text">En el switch de clúster cs1, apague los puertos conectados a los puertos del clúster de los nodos. En el ejemplo siguiente se utiliza el resultado del ejemplo de interfaz del paso 7.</block>
   <block id="8c61118abc6e9e30fd4469d362e96e00" category="paragraph">Todos los LIF del clúster se moverán al switch cs2-new.</block>
   <block id="8b7e96c4a6ec3f09a7abd139ff295c0f" category="list-text">Compruebe que las LIF del clúster han migrado a los puertos alojados en el switch cs2-new. Esto puede tardar unos segundos:</block>
-  <block id="494ad00c3b01ee37729fae8f4d4c52c0" category="list-text">Mueva las conexiones de cs1 al nuevo conmutador cs1.</block>
-  <block id="3fb38d5aab534a043c30d7f1a3b0a9dd" category="paragraph">*Las conexiones del nodo del clúster se han movido al nuevo conmutador cs1*</block>
-  <block id="84532259a7d4acf54c61408e0d42d0ce" category="image-alt">Conexiones del nodo de clúster movidas al switch cs1-new</block>
   <block id="cddcb87f9d8427437485fbaad0309f0d" category="list-text">Confirme el estado de las conexiones de red movidas a cs1-new:</block>
   <block id="2a5fc0afbcb2299e24c73a909b297e93" category="paragraph">Compruebe que los puertos del clúster movidos ven al switch cs1-new como vecino.</block>
   <block id="35d736ae56a7e094d4d2c2786669f8ca" category="list-text">Confirme las conexiones del puerto del conmutador desde la perspectiva del conmutador cs1-new:</block>
@@ -4376,4 +4355,78 @@
   <block id="caf789a40cb327fa8f64258a010c13e0" category="list-text">Compruebe que la versión de Cumulus Linux es 5,4:<block ref="9fcc1ae85aac3dbd490f575cf5eb3d52" prefix=" " category="inline-code"></block></block>
   <block id="ebf243f9c791c52799ecfef9dba7e609" category="doc">Sustituya los switches de clúster CN1610 de NetApp por conexiones sin switches</block>
   <block id="261de3e636d4ab259e73f4993ea87a6a" category="sidebar">Actualice la versión de Cumulus Linux</block>
+  <block id="f854d13ce34c20dd774e2f26c0bcbec7" category="paragraph">Para comprobar si su versión de EFOS cumple con FIPS o no cumple con FIPS, utilice<block ref="861d2504fbcbe4985de13f1d87bfc483" prefix=" " category="inline-code"></block> comando. En los siguientes ejemplos, *ip_switch_A1* está utilizando EFOS compatible con FIPS y *ip_switch_A2* está utilizando EFOS no compatible con FIPS.</block>
+  <block id="155fd6818143cef882d5eb7ac134f393" category="list-text">En el interruptor IP_SWITCH_A1:</block>
+  <block id="457ab5c73d8f159a9a225c9b9c6605c3" category="list-text">En el interruptor IP_SWITCH_A2:</block>
+  <block id="49215cf233256204aa5b6259719da694" category="paragraph"><block ref="6db371c6b710567f9ba5b5a3491f792a" prefix="" category="inline-code"></block></block>
+  <block id="830d0a0665249b8b3b3020695c8b5e4b" category="paragraph">SW-BES-53248A2-8P-2P</block>
+  <block id="29246b22307b855ef04699ca8197dbc2" category="paragraph">Clave de licencia Broadcom 8PT-10G25G + 2PT-40G100G, X190005/R</block>
+  <block id="0e361df3624bdebcafc621eb4f0786a6" category="paragraph">SW-BES-53248A2-8P-1025G</block>
+  <block id="289a869a94a6cd9561fc4e79cad65152" category="paragraph">Clave de licencia 10G25G de 8 puertos Broadcom, X190005/R</block>
+  <block id="1cf9764233d69f1045190b7401cd7289" category="paragraph">SW-BES53248A2-6P-40-100G</block>
+  <block id="6f8d029e2ec4dbf3007f214f6019e2b5" category="paragraph">Clave de licencia de Broadcom 6 puertos 40G100G, X190005/R</block>
+  <block id="b70d80924ca5c08e45b9b84343687a46" category="section-title">Licencias heredadas</block>
+  <block id="e6459831eff3ab73436a3472b543daed" category="paragraph">En la siguiente tabla se enumeran las licencias heredadas que estaban disponibles para su uso en el conmutador de clúster BES-53248:</block>
+  <block id="5c60227e684a42ed2c4295981335965a" category="list-text">Compruebe que SSH está desactivado:</block>
+  <block id="7481f181e296e575db2349974a47cc2c" category="paragraph">Siga estos pasos para instalar el archivo de configuración del monitor de estado del switch de clúster (CSHM).</block>
+  <block id="810bc3d02021061ba2b8f87b703a66dd" category="paragraph">Es posible usar la función de recopilación de registros para recoger archivos de registro relacionados con switches en ONTAP.</block>
+  <block id="ee3c886759b6a2517a47e20c04320ed6" category="admonition">Para habilitar la función de recopilación de registros, debe ejecutar ONTAP versión 9.12.1 y posteriores, y EFOS 3.8.0.2 y posteriores.</block>
+  <block id="ea234103ea5e655162d46327fb979006" category="paragraph">Asegúrese de haber configurado su entorno utilizando el conmutador de clúster BES-53248 *CLI*.</block>
+  <block id="f7cbc1a4399eb952f71e7f3276fe30cb" category="list-text">Habilite la función de recogida de registros del monitor de estado del switch de Ethernet para recoger archivos de registro relacionados con switches con los siguientes comandos:</block>
+  <block id="b8df928a1a67f132ebda54d2c7fee7dc" category="paragraph">Si está actualizando un RCF desde una versión anterior, debe restablecer la configuración del switch Broadcom y realizar la configuración básica para volver a aplicar el RCF. Debe realizar esta operación cada vez que desee actualizar o cambiar un RCF. Consulte<block ref="ca0e22b4f868295e6cf32a824edc5c13" category="inline-link-rx"></block> para obtener más detalles.</block>
+  <block id="fecbf70623c5c07c3f3c4c8793d5061b" category="list-text">El archivo RCF actual, disponible en la<block ref="b4c2fb45a290e6214474529bd84dd3bc" category="inline-link-rx"></block> página.</block>
+  <block id="23c89511c80ceef00a8d3343b5f08569" category="list-text">Una configuración de inicio en el RCF que refleja las imágenes de inicio deseadas, necesaria si está instalando sólo EFOS y manteniendo su versión actual de RCF. Si necesita cambiar la configuración de arranque para reflejar las imágenes de arranque actuales, debe hacerlo antes de volver a aplicar el RCF para que se cree una instancia de la versión correcta en futuros reinicios.</block>
+  <block id="3a6a9877fc8c73a9267914b786517ca9" category="inline-link">Cómo borrar la configuración en un switch de interconexión Broadcom manteniendo la conectividad remota</block>
+  <block id="d814617aab418a35a7ebbe46f6db2549" category="list-text">Una conexión de consola al switch, necesaria al instalar el RCF desde un estado predeterminado de fábrica. Este requisito es opcional si ha utilizado el artículo de la base de conocimientos <block ref="18b4271d2bf70dbfb01e42cb4850cea6" category="inline-link-rx"></block> para borrar la configuración, de antemano.</block>
+  <block id="7f3040034b245d1b75afb3699c743540" category="inline-link">Descarga del software EFOS</block>
+  <block id="d56ac00853938590c6688c295fc4ecaf" category="list-text">Consulte la tabla de compatibilidad del conmutador para conocer las versiones ONTAP y RCF admitidas. Consulte<block ref="d105630f090d19d3cb8ede812081d134" category="inline-link-rx"></block> página. Tenga en cuenta que puede haber dependencias de comandos entre la sintaxis de comandos en el RCF y la que se encuentra en las versiones de EFOS.</block>
+  <block id="93933c6ca68705cf2c6eee19987428b0" category="inline-link">Broadcom</block>
+  <block id="c8225beca732debe3ac01e6db48e30da" category="list-text">Consulte las guías de software y actualización correspondientes disponibles en la<block ref="16e70ad0a745fa89b30fcfd59454547f" category="inline-link-rx"></block> Sitio para obtener documentación completa sobre los procedimientos de actualización y degradación del conmutador BES-53248.</block>
+  <block id="b3c7299de687b34f57bdbef88331d09b" category="section-title">Instale el archivo de configuración</block>
+  <block id="96645db343acbd79a0ce22b9f8615312" category="list-text">Los nombres de los dos interruptores BES-53248 son CS1 y CS2.</block>
+  <block id="020f2efcf6a1d37fe39fcf5ab7cd7681" category="list-text">Los nombres de LIF de clúster son cluster1-01_clus1, cluster1-01_clus2, cluster1-02_clus1, cluster1-02_clus2, cluster1-03_clus1, cluster1-03_clus2, cluster1-04_clus1 y cluster1-04_clus2.</block>
+  <block id="735f1f81fce19c6dbd9326c356c42794" category="list-text">En los ejemplos de este procedimiento se utilizan cuatro nodos. Estos nodos utilizan dos puertos de interconexión de clúster de 10 GbE<block ref="922c556baf6272bffc4fa28b2e9a0bbc" prefix=" " category="inline-code"></block> y..<block ref="22fe67c2e87caff18249cf1804bbeaad" prefix=" " category="inline-code"></block>. Consulte<block ref="e527f95d8e68b368d64d0d2dab643ea1" category="inline-link-rx"></block> para verificar los puertos de clúster correctos en sus plataformas.</block>
+  <block id="ce86a637b15bcd24602c029445c6ecb5" category="paragraph">El procedimiento requiere el uso de comandos de la ONTAP y de comandos del switch de Broadcom; los comandos de la ONTAP se utilizan a menos que se indique lo contrario.</block>
+  <block id="5ea8c6e5f4563fff82293f272dc6f6ed" category="paragraph">Durante este procedimiento no se necesita ningún enlace entre switches (ISL) operativo. Esto se debe a que los cambios en la versión de RCF pueden afectar temporalmente a la conectividad ISL. Para garantizar operaciones de clúster no disruptivas, el siguiente procedimiento migra todos los LIF de clúster al switch de partner operativo mientras realiza los pasos en el switch de destino.</block>
+  <block id="331d3619bd86486daa8ae20287b042b0" category="inline-link">KB: Cómo borrar la configuración en un conmutador de interconexión Broadcom mientras se mantiene la conectividad remota</block>
+  <block id="2ad76ee2dd44393b128aa703e18c0180" category="admonition">Antes de instalar una nueva versión de software del conmutador y RCF, utilice el<block ref="0dbbaa06eaeff384c85940b756e5a890" category="inline-link-rx"></block>. Si debe borrar completamente los ajustes del switch, deberá volver a realizar la configuración básica. Debe estar conectado al switch mediante la consola de serie, ya que el borrado de la configuración completa restablece la configuración de la red de gestión.</block>
+  <block id="655ebdf839055b53c81fe98843842372" category="list-text">Muestre los puertos del clúster en cada nodo que están conectados a los switches de clúster:<block ref="633709925611b54d23e52bde1cb56811" prefix=" " category="inline-code"></block></block>
+  <block id="9d7316571cefaae2ca32e98fc9e57981" category="list-text">Compruebe que todos los puertos del clúster tengan el estado correcto:<block ref="229e8d1240617e0b97c680c36bbc9564" prefix=" " category="inline-code"></block></block>
+  <block id="404e35375d78f3af8db8d2ab71618ce7" category="list-text">Compruebe que todas las interfaces del clúster (LIF) están en el puerto de inicio:<block ref="fb5130635551fff679ab6d902eaff8d9" prefix=" " category="inline-code"></block></block>
+  <block id="40bdb15fb49f18cee766c49c83713e34" category="list-text">Compruebe que el clúster muestra información para ambos switches de clúster.</block>
+  <block id="a76ff2554d27751da451d7ba735995b2" category="paragraph">A partir de ONTAP 9,8, utilice el comando:<block ref="c57378c3b3bb81c6b42a2b31a30ddda7" prefix=" " category="inline-code"></block></block>
+  <block id="5a830b76ff5a71db59759b13f383410c" category="open-title">ONTAP 9.7 y anteriores</block>
+  <block id="8db6b188941318108123dd47b9038cf7" category="paragraph">Para ONTAP 9,7 y versiones anteriores, utilice el comando:<block ref="7ca607e345a217b6fb9148234fe84d0c" prefix=" " category="inline-code"></block></block>
+  <block id="a3b40857ce7fb3046b527517e75db42e" category="list-text">Compruebe que el clúster esté en buen estado:<block ref="639161158d7426b3865ce9c5a6f648b3" prefix=" " category="inline-code"></block></block>
+  <block id="7da2d511ceda949386786cd3a9b0904c" category="list-text">Si todavía no lo ha hecho, guarde la configuración del switch actual copiando el resultado del siguiente comando en un archivo de registro:<block ref="d064a73c32d00bf384204782a696a298" prefix=" " category="inline-code"></block></block>
+  <block id="044db7e4b2e2480e0b918af88e09b16c" category="list-text">SSH en el switch.</block>
+  <block id="b216a46caec0572ad44c6c3b8b20e09c" category="paragraph">Solo proceda cuando todas las LIF de clúster se hayan eliminado de los puertos del switch y el switch esté preparado para borrar la configuración.</block>
+  <block id="48ca6f7074b4cd6ad17a0b10e124e059" category="list-text">Introduzca el modo de privilegio:</block>
+  <block id="3085a2f68e00244f5ad273171421c4a3" category="list-text">Copie y pegue los siguientes comandos para eliminar la configuración anterior de RCF (dependiendo de la versión anterior de RCF utilizada, algunos comandos pueden generar un error si no hay una configuración concreta):</block>
+  <block id="3dcdf9c7761ce642c5fe2fe73d425b75" category="list-text">Guarde la configuración en ejecución en la configuración de inicio:</block>
+  <block id="b48ffac2fb8952951818ab2ce539c1d3" category="list-text">Reinicie el conmutador:</block>
+  <block id="d03fee12ab01ee4f556908abcba26347" category="list-text">Vuelva a iniciar sesión en el switch usando SSH para completar la instalación de RCF.</block>
+  <block id="a8935c8fdc41e9990bb4a300a40c1700" category="list-text">Si se han instalado licencias de puerto adicionales en el switch, debe modificar el RCF para configurar los puertos adicionales con licencia. Consulte <block ref="4d3fc05ce7b1ba9afd520aecf6c7f3bb" category="inline-link-macro-rx"></block> para obtener más detalles.</block>
+  <block id="63f7338fc9ee539e34242e8d03110038" category="list-text">Copie el RCF en el bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP.</block>
+  <block id="b211f67e6e9195c32683368a53542802" category="paragraph">Este ejemplo muestra SFTP que se está utilizando para copiar un RCF al bootflash del switch CS2:</block>
+  <block id="c77174e35b7f7fc235a87561809ad614" category="list-text">Examine el resultado del banner desde el<block ref="db837131dc56fab41bddc52d5aff8865" prefix=" " category="inline-code"></block> comando. Debe leer y seguir estas instrucciones para asegurarse de que la configuración y el funcionamiento del interruptor son correctos.</block>
+  <block id="420b545896cb1c9b03dbccd44bf33f86" category="list-text">En el switch, compruebe que los puertos adicionales con licencia aparecen después de aplicar el RCF:</block>
+  <block id="2a886bfc4f98f8b2263d47853859d640" category="list-text">Compruebe los puertos del switch CS2:<block ref="3ecfeafb159bbded4fdecd6f5a860f4a" prefix=" " category="inline-code"></block></block>
+  <block id="818dbe7dc43a870c6906959f7d426ba7" category="list-text">Compruebe que los puertos e0b estén activos y en buen estado en todos los nodos del clúster:<block ref="856f897c52a15ad9c779d1f7b82c2593" prefix=" " category="inline-code"></block></block>
+  <block id="7780adb3deb169c3e834888c0fec0145" category="list-text">[[step17]]En el switch de cluster CS1, apague los puertos conectados a los puertos de cluster de los nodos.</block>
+  <block id="7fc0653470d537d0d0fc3997f25d581b" category="list-text">Comprobar que las LIF del clúster han migrado a los puertos alojados en el switch cs2. Esto puede tardar unos segundos.<block ref="fb5130635551fff679ab6d902eaff8d9" prefix=" " category="inline-code"></block></block>
+  <block id="b0553791d0540be1d52514a1a47621f6" category="list-text">Repita los pasos 4 a 14 en el interruptor CS1.</block>
+  <block id="9cb99e0cdd58aac4297608fa8d8ef89b" category="list-text">Habilite la reversión automática en las LIF del clúster:<block ref="478474aa0db28144d5db02c478cd5215" prefix=" " category="inline-code"></block></block>
+  <block id="e23c199f14d9e7bf9dbb9da03bf726a2" category="list-text">Reinicie el interruptor cs1. Para activar las LIF de clúster y revertir a sus puertos raíz, haga lo siguiente. Es posible ignorar los eventos de “puertos de clúster inactivos” que se informan en los nodos mientras se reinicia el switch.</block>
+  <block id="d9c15a3fe5ea0c8a95b7c30c068a97e8" category="list-text">En el switch CS1, verifique que los puertos del switch conectados a los puertos del cluster sean *UP*.</block>
+  <block id="5f424e43ea12971db12c054ce8992c88" category="list-text">Compruebe que el ISL entre los switches CS1 y CS2 funciona:<block ref="f366ffdad905090c14aaf5084fbd75f1" prefix=" " category="inline-code"></block></block>
+  <block id="f688ff7107bf9d836f9cd01490f96a85" category="list-text">Compruebe que las LIF del clúster han vuelto a su puerto de inicio:<block ref="fb5130635551fff679ab6d902eaff8d9" prefix=" " category="inline-code"></block></block>
+  <block id="c1d6313b7fd8031407df0653209f4d42" category="list-text">Haga ping en las interfaces de clúster remoto para verificar la conectividad:<block ref="6d931e460f3e419ca5bc874e47132b6d" prefix=" " category="inline-code"></block></block>
+  <block id="6285269d7b8b003aed53cad1f3d13717" category="list-text">Mueva todos los cables de conexión de nodos del clúster del switch CS2 antiguo al nuevo switch de CS2 nuevos.</block>
+  <block id="f8e1e48a80ce2fac4d53a95f1f1ffd18" category="paragraph">* Cables de conexión de nodo de clúster movidos al switch CS2-new*</block>
+  <block id="e07ca5d2322ee212c9dcb668e9db443a" category="image-alt">Los cables de conexión de nodo de clúster se mueven al switch CS2 nuevo</block>
+  <block id="604d674dc95a98cb2db636e889289949" category="list-text">Mueva los cables de conexión de nodo de clúster de CS1 al nuevo switch de CS1 nuevos.</block>
+  <block id="2e58f874fe5dd7ef46fee2c92b1e77eb" category="paragraph">* Cables de conexión de nodo de clúster movidos al switch CS1-new*</block>
+  <block id="7d829570fe05df690649474b2bb97a3b" category="image-alt">Los cables de conexión de nodo de clúster se mueven al switch CS1 nuevo</block>
+  <block id="ec5ea2f0318e4d906c296f5576b9c026" category="list-text">[[step6]]Si suprimió la creación automática de casos, vuelva a activarla llamando a un mensaje AutoSupport:<block ref="9ac424c0d7b432975df36a19daf50c9c" prefix=" " category="inline-code"></block></block>
 </blocks>

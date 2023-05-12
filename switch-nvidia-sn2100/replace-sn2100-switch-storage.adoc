@@ -18,7 +18,7 @@ Debe verificar que existen las siguientes condiciones antes de instalar el softw
 
 * Su sistema puede admitir los switches de almacenamiento NVIDIA SN2100.
 * Debe haber descargado los RCF correspondientes.
-* La http://hwu.netapp.com["Hardware Universe"^] proporciona información completa sobre los puertos admitidos y sus configuraciones.
+* La http://["Hardware Universe"^] proporciona información completa sobre los puertos admitidos y sus configuraciones.
 
 
 .Acerca de esta tarea

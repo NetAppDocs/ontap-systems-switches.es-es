@@ -15,11 +15,13 @@ Puede instalar el archivo de configuración del Monitor de estado del conmutador
 
 En las versiones 9.5P7 y anteriores de ONTAP y 9.6P2 y anteriores, debe descargar el archivo CSHM por separado. En las versiones 9.5P8 y posteriores de ONTAP, 9.6P3 y posterior, y 9.7 y posterior, el archivo CSHM se incluye con ONTAP.
 
-.Lo que necesitará
+.Antes de empezar
 Asegúrese de que el clúster de ONTAP esté en funcionamiento.
 
+Siga estos pasos para instalar el archivo de configuración del monitor de estado del switch de clúster (CSHM).
+
 .Pasos
-. Descargue el archivo zip de CSHM según la versión de ONTAP correspondiente. Este archivo está disponible en la página: https://mysupport.netapp.com/NOW/cgi-bin/software/["Descarga de software de NetApp"^]
+. Descargue el archivo zip de CSHM según la versión de ONTAP correspondiente. Este archivo está disponible en la página: https://["Descarga de software de NetApp"^]
 +
 .. En la página de descarga de software, seleccione *Switch Health Monitor Configuration Files*.
 .. Seleccione Plataforma = *ONTAP* y haga clic en *Ir*.

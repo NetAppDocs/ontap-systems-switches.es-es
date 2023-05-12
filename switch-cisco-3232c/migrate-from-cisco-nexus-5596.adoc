@@ -26,8 +26,8 @@ Para ello, es necesario utilizar tanto comandos de la ONTAP como comandos de la 
 ====
 Para obtener más información, consulte:
 
-* http://support.netapp.com/NOW/download/software/cm_switches/["Página de descripción de Cisco Ethernet Switch"^]
-* http://hwu.netapp.com["Hardware Universe"^]
+* http://["Página de descripción de Cisco Ethernet Switch"^]
+* http://["Hardware Universe"^]
 
 
 
@@ -46,7 +46,7 @@ El procedimiento también utiliza la siguiente nomenclatura de conmutación y no
 * n1_clus2 es la primera LIF del clúster conectada al switch de clúster 2 (CL2 o C2) para el nodo n1.
 * n1_clus3 es la segunda LIF conectada al switch de clúster 2 (CL2 o C2) para el nodo n1.
 * n1_clusal 4 es la segunda LIF conectada al switch de clúster 1 (CL1 o C1) para el nodo n1.-
-* El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Descarga del archivo de configuración de referencia del conmutador de red de clúster Cisco®"^] página.
+* El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://["Descarga del archivo de configuración de referencia del conmutador de red de clúster Cisco®"^] página.
 * Los nodos son n1, n2, n3 y n4.
 
 
@@ -241,7 +241,7 @@ Si necesita actualizar el RCF y la imagen, debe realizar los siguientes pasos:
 +
 .. Vaya a la página _Cisco Ethernet Switches_ del sitio de soporte de NetApp.
 +
-http://support.netapp.com/NOW/download/software/cm_switches/["Switches Ethernet de Cisco"^]
+http://["Switches Ethernet de Cisco"^]
 
 .. Anote el conmutador y las versiones de software necesarias en la tabla de esa página.
 .. Descargue la versión adecuada del RCF.
@@ -388,7 +388,7 @@ RPC status:
 ====
 . Apague ISL 41 a 48 en CL1, el switch Nexus 5596 activo con Cisco `shutdown` comando.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
+Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
 
 +
 .Muestra el ejemplo
@@ -408,7 +408,7 @@ En el ejemplo siguiente se muestran los ISL 41 a 48 apagados en el switch Nexus 
 ====
 . Cree un ISL temporal entre CL1 y C2 con los comandos de Cisco correspondientes.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
+Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
 
 +
 .Muestra el ejemplo
@@ -443,7 +443,7 @@ Conecte los cables de ruptura Cisco QSFP a SFP+ que conectan el puerto 1/24 del 
 
 . Traiga los puertos ISL 45 a 48 en el switch CL1 de Nexus 5596 activo.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
+Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
 
 +
 .Muestra el ejemplo
@@ -463,7 +463,7 @@ El ejemplo siguiente muestra los puertos ISL 45 a 48 que se están poniendo en m
 ====
 . Compruebe que los ISL son `up` En el interruptor Nexus 5596 CL1.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
+Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
 
 +
 .Muestra el ejemplo
@@ -722,7 +722,7 @@ cluster::*> network port modify -node n2 -port e0d -up-admin false
 ====
 . Apague ISL 24, 31 y 32 en el interruptor activo 3232C C2.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
+Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
 
 +
 .Muestra el ejemplo
@@ -754,7 +754,7 @@ Conecte los puertos e1/31 y e1/32 en C1 a los puertos e1/31 y e1/32 en C2 utiliz
 
 . Restaure la configuración en el puerto 24 y retire el canal de puerto temporal 2 en C2.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
+Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
 
 +
 .Muestra el ejemplo
@@ -782,7 +782,7 @@ Copy Complete.
 ====
 . Traiga los puertos ISL 31 y 32 en C2, el switch 3232C activo, introduciendo el siguiente comando de Cisco: `no shutdown`
 +
-Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
+Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
 
 +
 .Muestra el ejemplo
@@ -800,7 +800,7 @@ C2(config-if-range)# no shutdown
 ====
 . Compruebe que las conexiones ISL están `up` En el conmutador C2 3232C.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
+Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
 
 +
 Los puertos eth1/31 y eth1/32 deben indicar (P) esto con el significado de ambos puertos ISL se deben subir en el puerto-canal

@@ -19,7 +19,7 @@ summary:
 
 Debe conocer determinada información de la configuración, las conexiones de puertos y los requisitos de cableado cuando migra un clúster sin switches de dos nodos, de forma no disruptiva, a un clúster con switches de clústeres Cisco Nexus 9336C-FX2. El procedimiento que utilice dependerá de si tiene dos puertos de red de clúster dedicados en cada controladora o un único puerto de clúster de cada controladora. El proceso documentado funciona para todos los nodos utilizando puertos ópticos o Twinax, pero no es compatible con este switch si los nodos utilizan puertos RJ45 DE 10 GB BASE-T integrados para los puertos de red del clúster.
 
-La mayoría de los sistemas requieren dos puertos de red de clúster dedicados en cada controladora. Consulte  https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"] si quiere más información.
+La mayoría de los sistemas requieren dos puertos de red de clúster dedicados en cada controladora. Consulte  https://["Switches Ethernet de Cisco"] si quiere más información.
 
 Si ya tiene un entorno de clúster sin switches de dos nodos, puede migrar a un entorno de clústeres con switches de dos nodos mediante switches Cisco Nexus 9336C-FX2 para permitirle escalar más allá de dos nodos del clúster.
 
@@ -37,7 +37,7 @@ Si ya tiene un entorno de clúster sin switches de dos nodos, puede migrar a un 
 ** Ambos switches deben tener conectividad de red de gestión.
 ** Debe haber acceso de consola a los switches del clúster.
 ** Las conexiones de nodo a nodo y de switch a switch Nexus 9336C-FX2 deben utilizar cables Twinax o de fibra.
-** La solución de NetApp https://hwu.netapp.com["Hardware Universe"] contiene más información sobre el cableado.
+** La solución de NetApp https://["Hardware Universe"] contiene más información sobre el cableado.
 ** Los cables de enlace entre switches (ISL) deben estar conectados a los puertos 1/35 y 1/36 en los dos switches 9336C-FX2.
 
 
@@ -57,7 +57,7 @@ Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de nodo y 
 * Los nombres de las SVM del clúster son _1_ y _2_.
 * Los nombres de las LIF son _1_clus1_ y _1_clus2_ en el nodo 1, y _2_clus1_ y _2_clus2_ en el nodo 2, respectivamente.
 * El símbolo del sistema cluster1:*> indica el nombre del clúster.
-* Los puertos de clúster que se utilizan en este procedimiento son _e3a_ y _e3b_, como se indica en la controladora AFF A400. La https://hwu.netapp.com["Hardware Universe"] contiene la información más reciente acerca de los puertos del clúster reales para las plataformas.
+* Los puertos de clúster que se utilizan en este procedimiento son _e3a_ y _e3b_, como se indica en la controladora AFF A400. La https://["Hardware Universe"] contiene la información más reciente acerca de los puertos del clúster reales para las plataformas.
 
 
 .Pasos
@@ -230,7 +230,7 @@ Cluster
 ----
 . [[step9]]desconecte el cable del puerto del clúster e3a del nodo 1 y, a continuación, conecte e3a al puerto 1 del switch del clúster cs1, utilizando el cableado adecuado admitido por los switches 9336C-FX2.
 +
-La solución de NetApp https://hwu.netapp.com["Hardware Universe"] contiene más información sobre el cableado.
+La solución de NetApp https://["Hardware Universe"] contiene más información sobre el cableado.
 
 . Desconecte el cable del puerto del clúster e3a en el nodo 2 y, a continuación, conecte e3a al puerto 2 del switch del clúster cs1, utilizando el cableado adecuado compatible con los switches 9336C-FX2.
 . Habilite todos los puertos orientados al nodo en el switch de clúster cs1.

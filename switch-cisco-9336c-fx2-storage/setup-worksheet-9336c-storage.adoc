@@ -329,7 +329,7 @@ ISL DE 100 G para cambiar al puerto 36
 
 == Hoja de trabajo de cableado en blanco
 
-Puede utilizar la hoja de datos de cableado vacía para documentar las plataformas que se admiten como nodos de un clúster. La sección _Cluster Connections_ del https://hwu.netapp.com["Hardware Universe"^] define los puertos de clúster que utiliza la plataforma.
+Puede utilizar la hoja de datos de cableado vacía para documentar las plataformas que se admiten como nodos de un clúster. La sección _Cluster Connections_ del https://["Hardware Universe"^] define los puertos de clúster que utiliza la plataforma.
 
 [cols="1, 1, 1, 1"]
 |===

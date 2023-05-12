@@ -11,7 +11,7 @@ summary: Si desea crear clústeres de ONTAP con más de dos nodos, necesita dos 
 
 
 [role="lead"]
-Para la instalación y mantenimiento del switch Cisco Nexus 92300YC, asegúrese de revisar todos los componentes del switch y sus números de pieza. Consulte https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para obtener más detalles.
+Para la instalación y mantenimiento del switch Cisco Nexus 92300YC, asegúrese de revisar todos los componentes del switch y sus números de pieza. Consulte https://["Hardware Universe"^] para obtener más detalles.
 
 En la siguiente tabla se enumeran el número de pieza y la descripción del conmutador 92300YC, los ventiladores y las fuentes de alimentación:
 

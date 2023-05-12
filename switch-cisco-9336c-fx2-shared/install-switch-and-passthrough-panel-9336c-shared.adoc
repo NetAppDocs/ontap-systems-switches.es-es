@@ -22,7 +22,7 @@ En función de la configuración existente, es posible que tenga que instalar el
 NOTE: Los cables de puente no están incluidos con el kit de paso a través y deben incluirse con los interruptores. Si no se enviaron con los switches, puede solicitarlos a NetApp (número de pieza X1558A-R6).
 
 .Documentación requerida
-Revise los requisitos iniciales de preparación, el contenido del kit y las precauciones de seguridad en la https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/hw/aci_9336cfx2_hig/guide/b_n9336cFX2_aci_hardware_installation_guide.html["Guía de instalación de hardware de Cisco Nexus serie 9000"^].
+Revise los requisitos iniciales de preparación, el contenido del kit y las precauciones de seguridad en la https://["Guía de instalación de hardware de Cisco Nexus serie 9000"^].
 
 .Pasos
 . Instale el panel de borrado de paso en el armario de NetApp.

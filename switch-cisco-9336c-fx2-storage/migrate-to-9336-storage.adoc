@@ -29,8 +29,8 @@ Asegúrese de que:
 ** La personalización de cualquier sitio, como DNS, NTP, SMTP, SNMP, Y SSH, se configuran en los nuevos switches.
 
 
-* Tiene acceso a la tabla de compatibilidad del conmutador de https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^] Para las versiones ONTAP, NX-OS y RCF admitidas.
-* Ha revisado las guías de actualización y software adecuadas disponibles en el sitio web de Cisco para los procedimientos de actualización y degradación de switches de Cisco en https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Compatibilidad con los switches Cisco Nexus serie 9000"^] página.
+* Tiene acceso a la tabla de compatibilidad del conmutador de https://["Switches Ethernet de Cisco"^] Para las versiones ONTAP, NX-OS y RCF admitidas.
+* Ha revisado las guías de actualización y software adecuadas disponibles en el sitio web de Cisco para los procedimientos de actualización y degradación de switches de Cisco en https://["Compatibilidad con los switches Cisco Nexus serie 9000"^] página.
 
 
 
@@ -38,7 +38,7 @@ Asegúrese de que:
 == Migrar los switches
 
 .Acerca de los ejemplos
-Los ejemplos de este procedimiento utilizan dos nodos. Estos nodos utilizan dos puertos de interconexión de clúster de 10 GbE en los puertos e0a y e0b. Consulte https://hwu.netapp.com/["Hardware Universe"^] para verificar los puertos de clúster correctos en sus plataformas.
+Los ejemplos de este procedimiento utilizan dos nodos. Estos nodos utilizan dos puertos de interconexión de clúster de 10 GbE en los puertos e0a y e0b. Consulte https://["Hardware Universe"^] para verificar los puertos de clúster correctos en sus plataformas.
 
 
 NOTE: Los resultados del comando pueden variar en función de las diferentes versiones de ONTAP.
@@ -57,7 +57,9 @@ Durante este procedimiento, consulte el siguiente ejemplo:
 image::../media/Initial_setup.png[Configuración inicial del switch]
 
 .Acerca de esta tarea
-El procedimiento requiere el uso de tanto comandos de la ONTAP como de https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Switches de la serie Nexus 9000"^] Comandos; los comandos de ONTAP se utilizan, a menos que se indique lo contrario.
+El procedimiento requiere el uso de tanto comandos de la ONTAP como de https://["Switches de la serie Nexus 9000"^] Comandos; los comandos de ONTAP se utilizan, a menos que se indique lo contrario.
+
+Durante este procedimiento no se necesita ningún enlace entre switches (ISL) operativo. Esto se debe a que los cambios en la versión de RCF pueden afectar temporalmente a la conectividad ISL. Para garantizar operaciones de clúster no disruptivas, el siguiente procedimiento migra todas las LIF del clúster al switch de partner operativo mientras realiza los pasos del switch de destino.
 
 
 
@@ -291,12 +293,12 @@ node1      true    true          false
 node2      true    true          false
 ----
 ====
-. Mueva todas las conexiones de nodos de clúster del conmutador cs2 antiguo al nuevo conmutador cs2.
+. Mueva todos los cables de conexión de nodos del clúster del switch CS2 antiguo al nuevo switch de CS2 nuevos.
 +
-*Las conexiones del nodo del clúster se han movido al conmutador cs2-new*
+* Cables de conexión de nodo de clúster movidos al switch CS2-new*
 
 +
-image::../media/new_switch_cs1.png[Conexiones del nodo de clúster movidas al switch cs2-new]
+image::../media/new_switch_cs1.png[Los cables de conexión de nodo de clúster se mueven al switch CS2 nuevo]
 
 . Confirme el estado de las conexiones de red movidas a cs2-new:
 +
@@ -412,12 +414,12 @@ node1      true    true          false
 node2      true    true          false
 ----
 ====
-. Mueva las conexiones de cs1 al nuevo conmutador cs1.
+. Mueva los cables de conexión de nodo de clúster de CS1 al nuevo switch de CS1 nuevos.
 +
-*Las conexiones del nodo del clúster se han movido al nuevo conmutador cs1*
+* Cables de conexión de nodo de clúster movidos al switch CS1-new*
 
 +
-image::../media/new_switch_cs2.png[Conexiones del nodo de clúster movidas al switch cs1-new]
+image::../media/new_switch_cs2.png[Los cables de conexión de nodo de clúster se mueven al switch CS1 nuevo]
 
 . Confirme el estado de las conexiones de red movidas a cs1-new:
 +
@@ -703,4 +705,5 @@ cluster1::*>
 
 --
 ====
-Si ha suprimido la creación automática de casos, rehabilitarla invocando un mensaje de AutoSupport: `system node autosupport invoke -node * -type all -message MAINT=END`
+. [[step6]]Si suprimió la creación automática de casos, vuelva a activarla llamando a un mensaje AutoSupport: `system node autosupport invoke -node * -type all -message MAINT=END`
+

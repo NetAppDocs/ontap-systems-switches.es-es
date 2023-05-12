@@ -24,7 +24,7 @@ Siga este procedimiento para instalar el software NX-OS en el switch de clúster
 
 .Documentación sugerida
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet de Cisco"^]. Consulte en la tabla de compatibilidad del switch las versiones ONTAP y NX-OS compatibles.
-* https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Switches Cisco Nexus serie 3000"^]. Consulte las guías de actualización y software adecuadas disponibles en el sitio web de Cisco para obtener documentación completa sobre los procedimientos de actualización y degradación de switches de Cisco.
+* https://["Switches Cisco Nexus serie 3000"^]. Consulte las guías de actualización y software adecuadas disponibles en el sitio web de Cisco para obtener documentación completa sobre los procedimientos de actualización y degradación de switches de Cisco.
 
 
 
@@ -51,7 +51,7 @@ Pinging 172.19.2.1 with 0 bytes of data:
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
 ====
-. Copie el software NX-OS en el switch Nexus 3132Q-V utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP. Para obtener más información acerca de los comandos de Cisco, consulte la guía adecuada en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guías de referencia de comandos Cisco Nexus serie 3000 NX-OS"^].
+. Copie el software NX-OS en el switch Nexus 3132Q-V utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP. Para obtener más información acerca de los comandos de Cisco, consulte la guía adecuada en https://["Guías de referencia de comandos Cisco Nexus serie 3000 NX-OS"^].
 +
 .Muestra el ejemplo
 [%collapsible]
