@@ -189,18 +189,81 @@ cluster1::*>
 
 . Limpie la configuración del interruptor cs2 y realice una configuración básica.
 +
-.. Limpie la configuración. Este paso requiere una conexión de consola al conmutador.
+
+CAUTION: Al actualizar o aplicar una nueva RCF, debe borrar los ajustes del conmutador y realizar la configuración básica. El acceso al conmutador SSH se conserva si puede desactivar PowerOn Auto Provisioning (POAP) (requiere NX-OS 9.2P1 o posterior). Como medida de precaución adicional, conéctese al switch mediante la consola serie si no es posible acceder a SSH después de reiniciar el switch.
+
 +
+.. SSH en el switch.
++
+Solo proceda cuando todas las LIF de clúster se hayan eliminado de los puertos del switch y el switch esté preparado para borrar la configuración.
+
+.. Introduzca el modo de privilegio:
++
+.Muestra el ejemplo
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
-cs2# *write erase*
-Warning: This command will erase the startup-configuration.
-Do you wish to proceed anyway? (y/n)  [n] *y*
-cs2# *reload*
-This command will reboot the system. (y/n)?  [n] *y*
-cs2#
+(cs2)> *enable*
 ----
-.. Realice una configuración básica del interruptor.
+====
+.. Limpie la configuración:
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *write erase*
+
+Warning: This command will erase the startup-configuration.
+
+Do you wish to proceed anyway? (y/n)  [n]  *y*
+----
+====
+.. Desactivar POAP:
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *system no poap*
+----
+====
++
+Consulte https://["Uso del aprovisionamiento automático de PowerOn"^] para obtener más detalles.
+
+.. Confirme que POAP está desactivado en la siguiente recarga:
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)#  *show boot*
+Current Boot Variables:
+ sup-1
+NXOS variable = bootflash:/nxos.9.2.1.125.bin
+Boot POAP Disabled
+
+POAP permanently disabled using 'system no poap'
+----
+====
+.. Reinicie el conmutador:
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *reload*
+
+Are you sure you would like to reset the system? (y/n) *y*
+
+----
+====
+.. Vuelva a iniciar sesión en el switch usando SSH para completar la instalación de RCF.
 
 
 . Copie el RCF en el bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP. Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://["Switches Cisco Nexus serie 9000"^] guías.
@@ -314,7 +377,10 @@ Cuando compruebe la salida para verificar que tiene el RCF correcto, asegúrese 
 +
 ** El banner de RCF
 ** La configuración del nodo y el puerto
-** Personalizaciones la salida varía según la configuración del sitio. Compruebe la configuración del puerto y consulte las notas de versión para conocer los cambios específicos del RCF que haya instalado.
+** Personalizaciones
++
+La salida varía en función de la configuración del sitio. Compruebe la configuración del puerto y consulte las notas de versión para conocer los cambios específicos del RCF que haya instalado.
+
 
 
 . Después de comprobar que las versiones de RCF y los ajustes del switch son correctos, copie el archivo running-config en el archivo startup-config.
