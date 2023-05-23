@@ -11,4 +11,4 @@ summary: Para instalar el hardware CN1610 de NetApp, consulte la documentación 
 
 
 [role="lead"]
-Para configurar el hardware y el software del switch para el entorno de clúster, consulte la  https://["Guía de instalación y configuración de switches CN1601 y CN1610"^].
+Para configurar el hardware y el software del switch para el entorno de clúster, consulte la  https://library.netapp.com/ecm/ecm_download_file/ECMP1118645["Guía de instalación y configuración de switches CN1601 y CN1610"^].

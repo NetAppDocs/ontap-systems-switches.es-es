@@ -39,7 +39,7 @@ Para la configuración del switch Cisco Nexus 92300YC:
 * Hay acceso de la consola a los switches de clúster.
 * El switch de nodo a nodo y las conexiones de switch a switch Nexus 92300YC utilizan cables twinax o fibra.
 +
-https://["Hardware Universe - interruptores"^] contiene más información sobre el cableado.
+https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - interruptores"^] contiene más información sobre el cableado.
 
 * Los cables de enlace entre switches (ISL) están conectados a los puertos 1/65 y 1/66 en los dos switches 92300YC.
 * Se ha completado la personalización inicial de los dos conmutadores 92300YC. Para que:
@@ -63,7 +63,7 @@ Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de nodo y 
 * La `cluster1::*>` prompt indica el nombre del clúster.
 * Los puertos de clúster utilizados en este procedimiento son e0a y e0b.
 +
-https://["Hardware Universe"^] contiene la información más reciente acerca de los puertos del clúster reales para las plataformas.
+https://hwu.netapp.com["Hardware Universe"^] contiene la información más reciente acerca de los puertos del clúster reales para las plataformas.
 
 
 
@@ -309,7 +309,7 @@ Cluster
 ====
 . Desconecte el cable del puerto e0a del clúster en el nodo 1 y, a continuación, conecte e0a al puerto 1 del switch del clúster cs1 mediante el cableado adecuado compatible con los switches 92300YC.
 +
-La https://["_Hardware Universe - Switches_"^] contiene más información sobre el cableado.
+La https://hwu.netapp.com/SWITCH/INDEX["_Hardware Universe - Switches_"^] contiene más información sobre el cableado.
 
 . Desconecte el cable del puerto e0a del clúster en el nodo 2 y, a continuación, conecte e0a al puerto 2 del switch del clúster cs1 con el cableado adecuado compatible con los switches 92300YC.
 . Habilite todos los puertos orientados al nodo en el switch de clúster cs1.

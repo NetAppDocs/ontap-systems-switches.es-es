@@ -83,7 +83,7 @@ node2
 storage::*> system health alert show -instance
 There are no entries matching your query.
 ----
-. [[step7]]sustituya el RCF de almacenamiento en el conmutador compartido A por el archivo RCF compartido. Consulte http://["Instale el RCF en un switch compartido Cisco Nexus 9336C-FX2"] para obtener más detalles.
+. [[step7]]sustituya el RCF de almacenamiento en el conmutador compartido A por el archivo RCF compartido. Consulte http://9336c_install_nx-os_software_and_reference_configuration_files_@rcfs@.html#install-the-rcf-on-a-cisco-nexus-9336c-fx2-shared-switch["Instale el RCF en un switch compartido Cisco Nexus 9336C-FX2"] para obtener más detalles.
 . Compruebe que el almacenamiento conectado al par de alta disponibilidad 1, el switch de almacenamiento B sea correcto:
 `system health alert show -instance`
 

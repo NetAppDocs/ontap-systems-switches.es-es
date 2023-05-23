@@ -14,7 +14,7 @@ summary: Puede instalar el switch Cisco Nexus 3132Q-V y el panel de paso a trav�
 En función de la configuración, es posible que necesite instalar el switch y el panel de paso a través de Cisco Nexus 3132Q-V en un armario de NetApp con los soportes estándar que se incluyen con el switch.
 
 .Lo que necesitará
-* Los requisitos iniciales de preparación, el contenido del kit y las precauciones de seguridad del http://["Guía de instalación de hardware de Cisco Nexus serie 3000"^]. Revise estos documentos antes de comenzar el procedimiento.
+* Los requisitos iniciales de preparación, el contenido del kit y las precauciones de seguridad del http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus3000/hw/installation/guide/b_n3000_hardware_install_guide.html["Guía de instalación de hardware de Cisco Nexus serie 3000"^]. Revise estos documentos antes de comenzar el procedimiento.
 * El kit de panel de paso a través, disponible en NetApp (número de pieza X8784-R6). El kit del panel de paso a través de NetApp contiene el siguiente hardware:
 +
 ** Un panel de supresión de paso a través

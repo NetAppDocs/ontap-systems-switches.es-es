@@ -104,7 +104,7 @@ La secuencia de comandos RCF completa los pasos indicados anteriormente.
 
 +
 
-NOTE: Para cualquier problema de script de Python de RCF que no se pueda corregir, póngase en contacto con https://["Soporte de NetApp"^] para obtener ayuda.
+NOTE: Para cualquier problema de script de Python de RCF que no se pueda corregir, póngase en contacto con https://mysupport.netapp.com/["Soporte de NetApp"^] para obtener ayuda.
 
 . Verificar la configuración tras el reinicio:
 +

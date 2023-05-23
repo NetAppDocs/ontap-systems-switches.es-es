@@ -21,7 +21,7 @@
 ** Hay acceso de la consola a los switches de clúster.
 ** Las conexiones de switch nodo a nodo y de switch a switch Nexus 9336C-FX2 utilizan cables Twinax o de fibra.
 +
-Consulte https://["Hardware Universe - interruptores"^] para obtener más información sobre el cableado.
+Consulte https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - interruptores"^] para obtener más información sobre el cableado.
 
 
 
@@ -44,7 +44,7 @@ Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de nodo y 
 * Los puertos de clúster utilizados en este procedimiento son e0a y e0b.
 
 
-Consulte https://["Hardware Universe"^] para obtener información acerca de los puertos de clúster para las plataformas.
+Consulte https://hwu.netapp.com["Hardware Universe"^] para obtener información acerca de los puertos de clúster para las plataformas.
 
 
 
@@ -277,7 +277,7 @@ Cluster
 ====
 . Desconecte el cable del puerto del clúster e0a del nodo 1 y, a continuación, conecte e0a al puerto 1 del switch del clúster cs1 mediante el cableado adecuado compatible con los switches 9336C-FX2.
 +
-La https://["Hardware Universe - interruptores"^] contiene más información sobre el cableado.
+La https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - interruptores"^] contiene más información sobre el cableado.
 
 . Desconecte el cable del puerto e0a del clúster en el nodo 2 y, a continuación, conecte e0a al puerto 2 del switch de clúster cs1 mediante el cableado adecuado compatible con los switches 9336C-FX2.
 . Habilite todos los puertos orientados al nodo en el switch de clúster cs1.

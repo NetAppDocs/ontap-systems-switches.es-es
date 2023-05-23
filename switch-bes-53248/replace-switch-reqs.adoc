@@ -45,6 +45,6 @@ Cualquier personalización de sitio anterior, como STP, SNMP y SSH, se copian al
 
 == Si quiere más información
 
-* https://["Sitio de soporte de NetApp"^]
-* https://["Hardware Universe de NetApp"^]
+* https://mysupport.netapp.com/["Sitio de soporte de NetApp"^]
+* https://hwu.netapp.com/Home/Index["Hardware Universe de NetApp"^]
 

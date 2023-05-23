@@ -306,7 +306,7 @@ Do you wish to proceed anyway? (y/n)  [n]  *y*
 ----
 ====
 +
-Consulte https://["Uso del aprovisionamiento automático de PowerOn"^] para obtener más detalles.
+Consulte https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/103x/configuration/fundamentals/cisco-nexus-9000-nx-os-fundamentals-configuration-guide-103x/m-using-poap.html?bookSearch=true#id_85315["Uso del aprovisionamiento automático de PowerOn"^] para obtener más detalles.
 
 .. Confirme que POAP está desactivado en la siguiente recarga:
 +
@@ -340,7 +340,7 @@ Are you sure you would like to reset the system? (y/n) *y*
 .. Vuelva a iniciar sesión en el switch usando SSH para completar la instalación de RCF.
 
 
-. Copie el RCF en el bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP. Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://["Referencia de comandos NX-OS de Cisco Nexus serie 3000"^] guías.
+. Copie el RCF en el bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP. Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referencia de comandos NX-OS de Cisco Nexus serie 3000"^] guías.
 +
 .Muestra el ejemplo
 [%collapsible]
@@ -359,7 +359,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . Aplique el RCF descargado anteriormente al flash de inicio.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://["Referencia de comandos NX-OS de Cisco Nexus serie 3000"^] guías.
+Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referencia de comandos NX-OS de Cisco Nexus serie 3000"^] guías.
 
 +
 .Muestra el ejemplo
@@ -443,7 +443,7 @@ La salida varía en función de la configuración del sitio. Compruebe la config
 
 . Después de comprobar que las versiones de RCF y los ajustes del switch son correctos, copie el archivo running-config en el archivo startup-config.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://["Referencia de comandos NX-OS de Cisco Nexus serie 3000"^] guías.
+Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referencia de comandos NX-OS de Cisco Nexus serie 3000"^] guías.
 
 +
 [listing]

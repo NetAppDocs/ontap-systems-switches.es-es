@@ -43,7 +43,7 @@ nodos de puerto de clúster swp3-14 40/100
 Swp15-16 40/100 puertos de enlace entre switches (ISL)
 
 |===
-Consulte https://["Hardware Universe"] para obtener más información sobre los puertos de switch.
+Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obtener más información sobre los puertos de switch.
 
 
 

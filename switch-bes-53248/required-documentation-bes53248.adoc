@@ -17,7 +17,7 @@ Para la instalación y mantenimiento del conmutador BES-53248, asegúrese de rev
 
 == Documentación de Broadcom
 
-Para configurar el switch de clúster BES-53248, necesita los siguientes documentos disponibles en el sitio de soporte de Broadcom: https://["Línea de producto de conmutador Ethernet Broadcom"^]
+Para configurar el switch de clúster BES-53248, necesita los siguientes documentos disponibles en el sitio de soporte de Broadcom: https://www.broadcom.com/support/bes-switch["Línea de producto de conmutador Ethernet Broadcom"^]
 
 [cols="1,2"]
 |===
@@ -76,14 +76,14 @@ Proporciona información específica de la versión sobre el software BES-53248.
  a| 
 _Matriz de compatibilidad de redes de administración y redes de clúster_
  a| 
-Proporciona información sobre la compatibilidad de red. La matriz está disponible en el sitio de descarga del conmutador BES-53248 en https://["Switches de clúster Broadcom"^].
+Proporciona información sobre la compatibilidad de red. La matriz está disponible en el sitio de descarga del conmutador BES-53248 en https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Switches de clúster Broadcom"^].
 
 |===
 
 
 == Documentación de los sistemas ONTAP y artículos de la base de conocimientos
 
-Para configurar un sistema ONTAP, necesita los siguientes documentos en el sitio de soporte de NetApp en http://["mysupport.netapp.com"^] O el sitio de la base de conocimientos (KB) en https://["kb.netapp.com"^].
+Para configurar un sistema ONTAP, necesita los siguientes documentos en el sitio de soporte de NetApp en http://mysupport.netapp.com/["mysupport.netapp.com"^] O el sitio de la base de conocimientos (KB) en https://kb.netapp.com/["kb.netapp.com"^].
 
 [cols="1,2"]
 |===
@@ -91,7 +91,7 @@ Para configurar un sistema ONTAP, necesita los siguientes documentos en el sitio
 
 
  a| 
-https://["Hardware Universe de NetApp"^]
+https://hwu.netapp.com/Home/Index["Hardware Universe de NetApp"^]
  a| 
 Describe los requisitos de alimentación y del sitio para todo el hardware de NetApp, incluidos los armarios de sistema, y proporciona información sobre los conectores y las opciones de cables relevantes que se deben usar junto con sus números de pieza.
 
@@ -114,6 +114,6 @@ Proporciona información detallada sobre todos los aspectos de la versión 9 de 
  a| 
 _Cómo añadir licencias de puerto adicionales para el conmutador BES-53248 compatible con Broadcom_
  a| 
-Proporciona información detallada sobre cómo agregar licencias de puerto. Vaya a la https://["Artículo de base de conocimientos"^].
+Proporciona información detallada sobre cómo agregar licencias de puerto. Vaya a la https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_add_Additional_Port_Licensing_for_the_Broadcom-Supported_BES-53248_Switch["Artículo de base de conocimientos"^].
 
 |===

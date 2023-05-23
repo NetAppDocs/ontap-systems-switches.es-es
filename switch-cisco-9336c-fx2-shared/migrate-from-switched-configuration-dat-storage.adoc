@@ -23,7 +23,7 @@ Se admiten los siguientes switches:
 * Nexus 3232C
 
 
-Las versiones ONTAP y NX-OS compatibles con este procedimiento se encuentran en la página Cisco Ethernet Switches. Consulte https://["Switches Ethernet de Cisco"].
+Las versiones ONTAP y NX-OS compatibles con este procedimiento se encuentran en la página Cisco Ethernet Switches. Consulte https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"].
 
 .Puertos de conexión
 Los switches utilizan los siguientes puertos para conectarse a los nodos:
@@ -48,7 +48,7 @@ Los switches utilizan los siguientes puertos para conectarse a los nodos:
 
 
 
-La https://["Hardware Universe"] contiene información sobre el cableado compatible para todos los switches de clúster.
+La https://hwu.netapp.com["Hardware Universe"] contiene información sobre el cableado compatible para todos los switches de clúster.
 
 .Lo que necesitará
 * Asegúrese de completar las siguientes tareas:

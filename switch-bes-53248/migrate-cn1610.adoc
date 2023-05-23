@@ -49,7 +49,7 @@ Los switches de clúster utilizan los siguientes puertos de enlace entre switche
 * BES-53248: Puertos 0/55-0/56 (100 GbE)
 
 
-La https://["_Hardware Universe_ de NetApp"^] Contiene información acerca de la compatibilidad con ONTAP, el firmware EFOS compatible y el cableado para switches de clúster BES-53248.
+La https://hwu.netapp.com/Home/Index["_Hardware Universe_ de NetApp"^] Contiene información acerca de la compatibilidad con ONTAP, el firmware EFOS compatible y el cableado para switches de clúster BES-53248.
 
 
 
@@ -343,7 +343,7 @@ Ports   Timeout        Speed     Active
 ====
 . En todos los nodos, quite los cables conectados al conmutador CL2 CN1610.
 +
-A continuación, debe volver a conectar los puertos desconectados de todos los nodos al nuevo conmutador BES-53248 cs2. Consulte la https://["_Hardware Universe_ de NetApp"^] para ver las opciones de cableado aprobadas.
+A continuación, debe volver a conectar los puertos desconectados de todos los nodos al nuevo conmutador BES-53248 cs2. Consulte la https://hwu.netapp.com/Home/Index["_Hardware Universe_ de NetApp"^] para ver las opciones de cableado aprobadas.
 
 . Quite cuatro cables ISL de los puertos 13 a 16 en el conmutador CL2 CN1610.
 +
@@ -529,7 +529,7 @@ RPC status:
 ====
 . En todos los nodos, quite los cables conectados al conmutador CL1 CN1610.
 +
-A continuación, debe volver a conectar los puertos desconectados de todos los nodos al nuevo conmutador BES-53248 cs1. Consulte la https://["_Hardware Universe_ de NetApp"^] para ver las opciones de cableado aprobadas.
+A continuación, debe volver a conectar los puertos desconectados de todos los nodos al nuevo conmutador BES-53248 cs1. Consulte la https://hwu.netapp.com/Home/Index["_Hardware Universe_ de NetApp"^] para ver las opciones de cableado aprobadas.
 
 . Quite cuatro cables ISL de los puertos 13 a 16 en el switch BES-53248 cs2.
 . Retire el canal de puerto temporal 2 de cs2.

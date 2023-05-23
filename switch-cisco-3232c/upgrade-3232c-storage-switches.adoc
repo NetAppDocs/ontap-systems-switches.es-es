@@ -25,8 +25,8 @@ Asegúrese de que existen las siguientes condiciones antes de actualizar el soft
 +
 Si necesita cambiar las variables de arranque para reflejar las imágenes de arranque actuales, debe hacerlo antes de volver a aplicar el RCF para que se cree una instancia de la versión correcta en futuros reinicios.
 
-* Ha hecho referencia a las guías de software y actualización adecuadas disponibles en la http://["Switches Cisco Nexus serie 3000"^] Para obtener documentación completa sobre los procedimientos de actualización y degradación del almacenamiento de Cisco.
-* El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://["Switches Cisco® Ethernet"^] página.
+* Ha hecho referencia a las guías de software y actualización adecuadas disponibles en la http://www.cisco.com/en/US/products/ps9670/prod_installation_guides_list.html["Switches Cisco Nexus serie 3000"^] Para obtener documentación completa sobre los procedimientos de actualización y degradación del almacenamiento de Cisco.
+* El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Cisco® Ethernet"^] página.
 
 
 
@@ -141,7 +141,7 @@ There are no entries matching your query.
 
 . Copie el RCF del switch S2 en el bootflash del switch utilizando uno de los siguientes protocolos de transferencia: FTP, HTTP, TFTP, SFTP o SCP.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
+Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
 
 +
 .Muestra el ejemplo
@@ -245,7 +245,7 @@ NOTE: Al aplicar el RCF por primera vez, se espera el mensaje *ERROR: Error al e
 
 . Después de verificar que las versiones de software y los ajustes del switch son correctos, copie el `running-config` en la `startup-config` Archivo en el interruptor S2.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
+Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
 
 +
 .Muestra el ejemplo
@@ -378,7 +378,7 @@ S2#
 ====
 . Guarde la configuración.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
+Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
 
 +
 Se le solicitará que reinicie el sistema.

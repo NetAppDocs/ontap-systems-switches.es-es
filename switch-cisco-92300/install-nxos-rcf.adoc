@@ -29,7 +29,7 @@ Consulte link:https://hwu.netapp.com/Home/Index["_Hardware Universe_"] para los 
 .Puertos y conexiones de nodo compatibles
 * Los enlaces Inter-Switch (ISL) compatibles con los switches Nexus 92300YC son los puertos 1/65 y 1/66.
 * Las conexiones de nodos compatibles con los switches Nexus 92300YC son los puertos 1/1 a 1/66.
-* Los ejemplos de este procedimiento utilizan dos nodos. Estos nodos utilizan dos puertos de interconexión de clúster de 10 GbE `e0a` y.. `e0b`. Consulte https://["Hardware Universe"^] para verificar los puertos de clúster correctos en sus plataformas.
+* Los ejemplos de este procedimiento utilizan dos nodos. Estos nodos utilizan dos puertos de interconexión de clúster de 10 GbE `e0a` y.. `e0b`. Consulte https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para verificar los puertos de clúster correctos en sus plataformas.
 
 
 .Antes de empezar
@@ -37,7 +37,7 @@ Consulte link:https://hwu.netapp.com/Home/Index["_Hardware Universe_"] para los 
 * El clúster debe estar funcionando completamente (no debe haber errores en los registros ni problemas similares).
 * Debe haber comprobado o establecido la configuración de inicio deseada en el RCF para reflejar las imágenes de arranque deseadas si sólo está instalando NX-OS y manteniendo su versión actual de RCF.
 * Si necesita cambiar la configuración de arranque para reflejar las imágenes de arranque actuales, debe hacerlo antes de volver a aplicar el RCF para que se cree una instancia de la versión correcta en futuros reinicios.
-* Debe haber consultado la tabla de compatibilidad de conmutadores de https://["Switch Ethernet de Cisco"^] Para las versiones ONTAP, NX-OS y RCF admitidas.
+* Debe haber consultado la tabla de compatibilidad de conmutadores de https://support.netapp.com/NOW/download/software/cm_switches/["Switch Ethernet de Cisco"^] Para las versiones ONTAP, NX-OS y RCF admitidas.
 * Puede haber dependencias de comandos entre la sintaxis de comandos en el RCF y la que se encuentra en las versiones de NX-OS.
 
 

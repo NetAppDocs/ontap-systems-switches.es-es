@@ -20,7 +20,7 @@ El software EFOS incluye un conjunto de funciones y protocolos de red avanzados 
 == Preparación de la instalación
 
 .Antes de empezar
-* Descargue el software Broadcom EFOS aplicable para los switches de su clúster de la https://["Compatibilidad con switches Ethernet Broadcom"^] sitio.
+* Descargue el software Broadcom EFOS aplicable para los switches de su clúster de la https://www.broadcom.com/support/bes-switch["Compatibilidad con switches Ethernet Broadcom"^] sitio.
 * Consulte las siguientes notas sobre las versiones EFOS.
 
 
@@ -140,7 +140,7 @@ Utilice uno de los siguientes métodos:
 Lleve a cabo los siguientes pasos para instalar o actualizar el software del EFOS.
 
 
-IMPORTANT: Tenga en cuenta que después de actualizar los conmutadores de clúster BES-53248 de EFOS 3.3.x.x o 3.4.x.x a EFOS 3.7.0.4 o 3.8.0.2, los enlaces Inter-Switch (ISL) y el canal de puerto se marcan en el estado *Down*. Consulte este artículo de la base de conocimientos: https://["Error en la actualización NDU del conmutador de clúster BES-53248 a EFOS 3.7.0.4 y posterior"^] para obtener más detalles.
+IMPORTANT: Tenga en cuenta que después de actualizar los conmutadores de clúster BES-53248 de EFOS 3.3.x.x o 3.4.x.x a EFOS 3.7.0.4 o 3.8.0.2, los enlaces Inter-Switch (ISL) y el canal de puerto se marcan en el estado *Down*. Consulte este artículo de la base de conocimientos: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric%2C_Interconnect_and_Management_Switches/BES-53248_Cluster_Switch_NDU_failed_upgrade_to_EFOS_3.7.0.4_and_later["Error en la actualización NDU del conmutador de clúster BES-53248 a EFOS 3.7.0.4 y posterior"^] para obtener más detalles.
 
 .Pasos
 . Conecte el conmutador de clúster BES-53248 a la red de gestión.

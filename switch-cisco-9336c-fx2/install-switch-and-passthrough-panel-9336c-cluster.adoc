@@ -31,7 +31,7 @@ El kit del panel de paso a través de NetApp contiene el siguiente hardware:
 
 NOTE: Los cables de puente no están incluidos con el kit de paso a través y deben incluirse con los interruptores. Si no se enviaron con los switches, puede solicitarlos a NetApp (número de pieza X1558A-R6).
 
-* Para conocer los requisitos iniciales de preparación, el contenido del kit y las precauciones de seguridad, consulte https://["Guía de instalación de hardware de Cisco Nexus serie 9000"^].
+* Para conocer los requisitos iniciales de preparación, el contenido del kit y las precauciones de seguridad, consulte https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/hw/aci_9336cfx2_hig/guide/b_n9336cFX2_aci_hardware_installation_guide.html["Guía de instalación de hardware de Cisco Nexus serie 9000"^].
 
 
 .Pasos

@@ -66,7 +66,7 @@ Final
 2 cables de conexión directa de cobre o fibra óptica QSFP
 
 |===
-Debe haber descargado los archivos de configuración de referencia (RCF) correspondientes. El número de puertos de 10 GbE y 40/100 GbE se define en los RCF disponibles en la https://["Descarga del archivo de configuración de referencia del conmutador de red de clúster Cisco®"^] página.
+Debe haber descargado los archivos de configuración de referencia (RCF) correspondientes. El número de puertos de 10 GbE y 40/100 GbE se define en los RCF disponibles en la https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Descarga del archivo de configuración de referencia del conmutador de red de clúster Cisco®"^] página.
 
 Las versiones ONTAP y NX-OS compatibles con este procedimiento se enumeran en la link:https://mysupport.netapp.com/NOW/download/software/cm_switches/.html["Página Cisco Ethernet Switches"^].
 

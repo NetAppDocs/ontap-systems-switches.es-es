@@ -21,9 +21,9 @@ Revise los requisitos del CN1610 de NetApp en link:switch-requirements.html["Req
 
 Para obtener más información, consulte:
 
-* http://["Página de descripción de NetApp CN1601 y CN1610"^]
-* http://["Página de descripción de Cisco Ethernet Switch"^]
-* http://["Hardware Universe"^]
+* http://support.netapp.com/NOW/download/software/cm_switches_ntap/["Página de descripción de NetApp CN1601 y CN1610"^]
+* http://support.netapp.com/NOW/download/software/cm_switches/["Página de descripción de Cisco Ethernet Switch"^]
+* http://hwu.netapp.com["Hardware Universe"^]
 
 
 
@@ -40,7 +40,7 @@ Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo
 * n1_clus2 es la primera LIF del clúster que está conectada al switch de clúster 2 (CL2 o C2) para el nodo n1.
 * n1_clus3 es la segunda LIF conectada al switch de clúster 2 (CL2 o C2) para el nodo n1.
 * n1_clusal 4 es la segunda LIF conectada al switch de clúster 1 (CL1 o C1) para el nodo n1. Los nodos son n1, n2, n3 y n4.
-* El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://["Descarga del archivo de configuración de referencia del conmutador de red de clúster Cisco®"^] página.
+* El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Descarga del archivo de configuración de referencia del conmutador de red de clúster Cisco®"^] página.
 
 
 .Acerca de los ejemplos
@@ -252,7 +252,7 @@ Debe preparar ambos switches en este momento. Si necesita actualizar el RCF y la
 .. Haga clic en *CONTINUAR* en la página *Descripción*, acepte el contrato de licencia y, a continuación, siga las instrucciones de la página *Descargar* para descargar el RCF.
 .. Descargue la versión adecuada del software Image.
 +
-http://["Descarga del archivo de configuración de referencia del conmutador de red de administración y clúster Cisco®"^]
+http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Descarga del archivo de configuración de referencia del conmutador de red de administración y clúster Cisco®"^]
 
 
 

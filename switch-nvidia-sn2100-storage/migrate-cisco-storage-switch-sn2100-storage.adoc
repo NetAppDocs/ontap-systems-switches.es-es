@@ -21,7 +21,7 @@ Se admiten los siguientes switches de almacenamiento:
 
 * Cisco Nexus 9336C-FX2
 * Cisco Nexus 3232C
-* Consulte https://["Hardware Universe"^] para obtener toda la información de los puertos compatibles y sus configuraciones.
+* Consulte https://hwu.netapp.com/["Hardware Universe"^] para obtener toda la información de los puertos compatibles y sus configuraciones.
 
 
 .Lo que necesitará
@@ -38,7 +38,7 @@ Asegúrese de que:
 ** Puertos ISL habilitados y cableado entre los switches de Cisco anteriores y entre los switches nuevos.
 
 
-* Consulte https://["Hardware Universe"^] para obtener toda la información de los puertos compatibles y sus configuraciones.
+* Consulte https://hwu.netapp.com/["Hardware Universe"^] para obtener toda la información de los puertos compatibles y sus configuraciones.
 * Algunos puertos están configurados en switches NVIDIA SN2100 para que se ejecuten a 100 GbE.
 * Ha planificado, migrado y documentado la conectividad de 100 GbE desde los nodos a los switches de almacenamiento NVIDIA SN2100.
 

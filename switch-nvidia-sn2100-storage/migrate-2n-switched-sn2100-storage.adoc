@@ -38,7 +38,7 @@ Para la configuración del switch de clúster NVIDIA SN2100, asegúrese de que:
 NOTE: Consulte link:cabling-considerations-sn2100-storage.html["Consideraciones sobre el cableado y la configuración"] para obtener advertencias e información adicional.
 
 +
-La https://["Hardware Universe - interruptores"^] contiene más información sobre el cableado.
+La https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - interruptores"^] contiene más información sobre el cableado.
 
 * Los cables de enlace entre switches (ISL) están conectados a los puertos swp15 y swp16 en ambos switches NVIDIA SN2100.
 * Se ha completado la personalización inicial de los dos conmutadores SN2100, de modo que:
@@ -64,7 +64,7 @@ Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de nodo y 
 * Los puertos de clúster utilizados en este procedimiento son _e3a_ y _e3b_.
 * Los puertos de arranque tienen el formato: swp[Port]s[breakout Port 0-3]. Por ejemplo, cuatro puertos de arranque en swp1 son _swp1s0_, _swp1s1_, _swp1s2_ y _swp1s3_.
 +
-La https://["Hardware Universe"^] contiene la información más reciente acerca de los puertos del clúster reales para las plataformas.
+La https://hwu.netapp.com["Hardware Universe"^] contiene la información más reciente acerca de los puertos del clúster reales para las plataformas.
 
 
 
@@ -235,7 +235,7 @@ Cluster
 ====
 . Desconecte el cable del puerto del clúster e3a del nodo 1 y, a continuación, conecte e3a al puerto 3 del conmutador del cluster sw1, utilizando el cableado adecuado admitido por los conmutadores SN2100.
 +
-La https://["Hardware Universe - interruptores"^] contiene más información sobre el cableado.
+La https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - interruptores"^] contiene más información sobre el cableado.
 
 . Desconecte el cable del puerto del clúster e3a en el nodo 2 y, a continuación, conecte e3a al puerto 4 del interruptor del cluster sw1, utilizando el cableado adecuado admitido por los interruptores SN2100.
 . En el switch sw1, habilite todos los puertos orientados al nodo.

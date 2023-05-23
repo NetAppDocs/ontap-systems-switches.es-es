@@ -70,8 +70,8 @@ Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo
 ** Puertos e1/13-20 (10 GbE): Nexus 5010
 
 
-* https://["Hardware Universe - interruptores"^] contiene información sobre el cableado compatible para todos los switches de clúster.
-* Las versiones ONTAP y NX-OS compatibles con este procedimiento son en la https://["Switches Ethernet de Cisco"^] página.
+* https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - interruptores"^] contiene información sobre el cableado compatible para todos los switches de clúster.
+* Las versiones ONTAP y NX-OS compatibles con este procedimiento son en la https://support.netapp.com/NOW/download/software/cm_switches/["Switches Ethernet de Cisco"^] página.
 
 
 

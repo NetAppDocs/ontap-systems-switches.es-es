@@ -15,18 +15,18 @@ Siga este procedimiento para configurar el switch Cisco Nexus 3232C.
 
 .Lo que necesitará
 * Acceso a un servidor HTTP, FTP o TFTP en el sitio de instalación para descargar las versiones correspondientes del NX-OS y del archivo de configuración de referencia (RCF).
-* La versión aplicable de NX-OS, descargada del https://["Descarga de software de Cisco"^] página.
+* La versión aplicable de NX-OS, descargada del https://software.cisco.com/download/home["Descarga de software de Cisco"^] página.
 * Documentación necesaria sobre la red de clúster y el switch de red de gestión.
 +
 Consulte link:required-documentation-3232c.html["Documentación requerida"] si quiere más información.
 
 * Documentación requerida de la controladora y documentación de ONTAP
 +
-https://["Documentación de NetApp"^]
+https://netapp.com/us/documenation/index.aspx["Documentación de NetApp"^]
 
 * Las licencias aplicables, la información de configuración y red, y los cables.
 * Hojas de datos de cableado completadas.
-* Archivos RCF de red de gestión y red de clúster de NetApp aplicables, descargados del sitio de soporte de NetApp en http://["mysupport.netapp.com"^] para los switches que reciba. Todos los switches de red de gestión y red de clúster de Cisco llegan con la configuración predeterminada de fábrica de Cisco. Estos conmutadores también tienen la versión actual del software NX-OS, pero no tienen cargados los RCF.
+* Archivos RCF de red de gestión y red de clúster de NetApp aplicables, descargados del sitio de soporte de NetApp en http://mysupport.netapp.com/["mysupport.netapp.com"^] para los switches que reciba. Todos los switches de red de gestión y red de clúster de Cisco llegan con la configuración predeterminada de fábrica de Cisco. Estos conmutadores también tienen la versión actual del software NX-OS, pero no tienen cargados los RCF.
 
 
 .Pasos
@@ -215,7 +215,7 @@ NOTE: Si no guarda la configuración en esta fase, ninguno de los cambios se apl
 
 |===
 . Compruebe las opciones de configuración que ha realizado en la pantalla que aparece al final de la instalación y asegúrese de guardar la configuración.
-. Compruebe la versión de los switches de red del clúster y, si es necesario, descargue la versión del software compatible con NetApp en los switches de la https://["Descarga de software de Cisco"^] página.
+. Compruebe la versión de los switches de red del clúster y, si es necesario, descargue la versión del software compatible con NetApp en los switches de la https://software.cisco.com/download/home["Descarga de software de Cisco"^] página.
 
 
 .El futuro

@@ -34,7 +34,7 @@ Antes de instalar el software EFOS, las licencias y el archivo RCF en un switch 
 NOTE: Puede haber dependencias de comandos entre la sintaxis de comandos en las versiones RCF y EFOS.
 
 
-NOTE: Para la compatibilidad de los interruptores, consulte la tabla de compatibilidad de la https://["Switches de clúster Broadcom"^] Para las versiones EFOS, RCF y ONTAP compatibles.
+NOTE: Para la compatibilidad de los interruptores, consulte la tabla de compatibilidad de la https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Switches de clúster Broadcom"^] Para las versiones EFOS, RCF y ONTAP compatibles.
 
 
 

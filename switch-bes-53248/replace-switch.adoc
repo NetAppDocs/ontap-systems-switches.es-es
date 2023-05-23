@@ -120,8 +120,8 @@ NOTE: El mensaje de AutoSupport notifica al soporte técnico de esta tarea de ma
 Si es necesario, verifique, descargue e instale las versiones adecuadas del software RCF y EFOS para el nuevo conmutador. Si ha comprobado que el nuevo interruptor está correctamente configurado y no necesita actualizaciones para el software RCF y EFOS, continúe con el paso 2.
 
 +
-.. Puede descargar el software Broadcom EFOS aplicable para los switches de clúster de la https://["Compatibilidad con switches Ethernet Broadcom"^] sitio. Siga los pasos de la página de descarga para descargar el archivo EFOS de la versión del software ONTAP que está instalando.
-.. El RCF adecuado está disponible en https://["Switches de clúster Broadcom"^] página. Siga los pasos de la página de descarga para descargar el RCF correcto para la versión del software ONTAP que está instalando.
+.. Puede descargar el software Broadcom EFOS aplicable para los switches de clúster de la https://www.broadcom.com/support/bes-switch["Compatibilidad con switches Ethernet Broadcom"^] sitio. Siga los pasos de la página de descarga para descargar el archivo EFOS de la versión del software ONTAP que está instalando.
+.. El RCF adecuado está disponible en https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Switches de clúster Broadcom"^] página. Siga los pasos de la página de descarga para descargar el RCF correcto para la versión del software ONTAP que está instalando.
 
 
 . En el nuevo switch, inicie sesión como `admin` y apague todos los puertos que se conectarán a las interfaces del clúster de nodos (puertos 1 a 16).

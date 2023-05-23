@@ -22,7 +22,7 @@ Antes de configurar el monitor de estado del switch para los switches de clúste
 NOTE: También debe habilitar SSH para utilizar todas las funciones disponibles en CSHM.
 
 .Pasos
-. Descargue el archivo zip de configuración del monitor de estado del switch de clúster según la versión de ONTAP correspondiente. Este archivo está disponible en https://["Descarga de software de NetApp"^] página.
+. Descargue el archivo zip de configuración del monitor de estado del switch de clúster según la versión de ONTAP correspondiente. Este archivo está disponible en https://mysupport.netapp.com/NOW/cgi-bin/software/["Descarga de software de NetApp"^] página.
 +
 .. En la página de descarga de software, seleccione *Switch Health Monitor Configuration Files*
 .. Seleccione Plataforma = *ONTAP* y haga clic en *Ir*

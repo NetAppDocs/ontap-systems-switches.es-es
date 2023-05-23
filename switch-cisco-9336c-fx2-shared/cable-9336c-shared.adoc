@@ -24,7 +24,7 @@ Si desea conectar el cable de almacenamiento NS224 como conmutador, siga el diag
 
 image:9336c_image1.jpg["Conectado a interruptor"]
 
-Consulte https://["Hardware Universe"] para obtener más información sobre los puertos de switch.
+Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obtener más información sobre los puertos de switch.
 
 
 
@@ -34,7 +34,7 @@ Si desea conectar mediante cable el almacenamiento NS224 como de conexión direc
 
 image:9336c_image2.jpg["Conexión directa"]
 
-Consulte https://["Hardware Universe"] para obtener más información sobre los puertos de switch.
+Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obtener más información sobre los puertos de switch.
 
 
 

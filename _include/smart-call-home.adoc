@@ -13,4 +13,4 @@ Antes de poder utilizar Smart Call Home, tenga en cuenta las siguientes consider
 * El servicio Cisco SMARTnet debe estar en su lugar para que el dispositivo se registre.
 
 
-La http://["Sitio de soporte de Cisco"^] Contiene información acerca de los comandos para configurar Smart Call Home.
+La http://www.cisco.com/c/en/us/products/switches/index.html["Sitio de soporte de Cisco"^] Contiene información acerca de los comandos para configurar Smart Call Home.

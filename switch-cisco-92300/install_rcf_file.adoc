@@ -24,7 +24,7 @@ Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo
 
 [NOTE]
 ====
-* El procedimiento requiere el uso de tanto comandos de la ONTAP como de https://["Switches Cisco Nexus serie 9000"^]; Los comandos ONTAP se utilizan a menos que se indique lo contrario.
+* El procedimiento requiere el uso de tanto comandos de la ONTAP como de https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Switches Cisco Nexus serie 9000"^]; Los comandos ONTAP se utilizan a menos que se indique lo contrario.
 * Antes de realizar este procedimiento, asegúrese de que tiene una copia de seguridad actual de la configuración del conmutador.
 * Durante este procedimiento no se necesita ningún enlace entre switches (ISL) operativo. Esto se debe a que los cambios en la versión de RCF pueden afectar temporalmente a la conectividad ISL. Para garantizar operaciones de clúster no disruptivas, el siguiente procedimiento migra todas las LIF del clúster al switch de partner operativo mientras realiza los pasos del switch de destino.
 
@@ -232,7 +232,7 @@ Do you wish to proceed anyway? (y/n)  [n]  *y*
 ----
 ====
 +
-Consulte https://["Uso del aprovisionamiento automático de PowerOn"^] para obtener más detalles.
+Consulte https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/103x/configuration/fundamentals/cisco-nexus-9000-nx-os-fundamentals-configuration-guide-103x/m-using-poap.html?bookSearch=true#id_85315["Uso del aprovisionamiento automático de PowerOn"^] para obtener más detalles.
 
 .. Confirme que POAP está desactivado en la siguiente recarga:
 +
@@ -266,7 +266,7 @@ Are you sure you would like to reset the system? (y/n) *y*
 .. Vuelva a iniciar sesión en el switch usando SSH para completar la instalación de RCF.
 
 
-. Copie el RCF en el bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP. Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://["Switches Cisco Nexus serie 9000"^] guías.
+. Copie el RCF en el bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP. Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Switches Cisco Nexus serie 9000"^] guías.
 +
 En este ejemplo se muestra el uso de TFTP para copiar un RCF al bootflash del conmutador cs2:
 
@@ -291,7 +291,7 @@ Copy complete.
 ----
 . Aplique el RCF descargado anteriormente al flash de inicio.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://["Switches Cisco Nexus serie 9000"^] guías.
+Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Switches Cisco Nexus serie 9000"^] guías.
 
 +
 En este ejemplo se muestra el archivo RCF `Nexus_92300YC_RCF_v1.0.2.txt` instalación en el conmutador cs2:
@@ -385,7 +385,7 @@ La salida varía en función de la configuración del sitio. Compruebe la config
 
 . Después de comprobar que las versiones de RCF y los ajustes del switch son correctos, copie el archivo running-config en el archivo startup-config.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://["Switches Cisco Nexus serie 9000"^] guías.
+Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Switches Cisco Nexus serie 9000"^] guías.
 
 +
 [listing, subs="+quotes"]

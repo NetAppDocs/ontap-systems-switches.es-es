@@ -17,7 +17,7 @@ Para la instalación y el mantenimiento del switch Cisco Nexus 3132Q-V, asegúre
 
 == Documentación de los switches
 
-Para configurar los switches Cisco Nexus 3132Q-V, necesita la siguiente documentación de la https://["Compatibilidad con los switches Cisco Nexus serie 3000"^] página.
+Para configurar los switches Cisco Nexus 3132Q-V, necesita la siguiente documentación de la https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/series.html["Compatibilidad con los switches Cisco Nexus serie 3000"^] página.
 
 [cols="1,2"]
 |===
@@ -83,7 +83,7 @@ Proporciona información legal, de seguridad y cumplimiento de normativas de age
 
 == Documentación de los sistemas ONTAP
 
-Para configurar un sistema ONTAP, necesita los siguientes documentos para su versión del sistema operativo desde la https://["Centro de documentación de ONTAP 9"^].
+Para configurar un sistema ONTAP, necesita los siguientes documentos para su versión del sistema operativo desde la https://docs.netapp.com/ontap-9/index.jsp["Centro de documentación de ONTAP 9"^].
 
 [cols="1,2"]
 |===
@@ -105,7 +105,7 @@ Proporciona información detallada sobre todos los aspectos de las versiones de 
 
 
  a| 
-https://["Hardware Universe"^]
+https://hwu.netapp.com["Hardware Universe"^]
  a| 
 Ofrece información de compatibilidad y configuración de hardware de NetApp.
 
@@ -122,7 +122,7 @@ Para instalar un switch Cisco de 3132Q-V en un armario de NetApp, consulte la si
 
 
  a| 
-https://["Armario del sistema 42U, guía detallada"^]
+https://library.netapp.com/ecm/ecm_download_file/ECMM1280394["Armario del sistema 42U, guía detallada"^]
  a| 
 Describe las FRU asociadas al armario del sistema 42U, y proporciona instrucciones de mantenimiento y sustitución de FRU.
 

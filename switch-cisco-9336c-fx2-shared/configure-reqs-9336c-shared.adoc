@@ -41,7 +41,7 @@ Necesita la siguiente información de red para todas las configuraciones de los 
 * Subred IP para el tráfico de red de gestión
 * Nombres de host y direcciones IP para cada una de las controladoras del sistema de almacenamiento y todos los switches aplicables
 * La mayoría de las controladoras del sistema de almacenamiento se gestionan a través de la interfaz e0M mediante la conexión al puerto de servicio Ethernet (icono de llave inglesa). En los sistemas A800 y AFF A700 de AFF, la interfaz e0M utiliza un puerto Ethernet dedicado.
-* Consulte la https://["Hardware Universe"] para obtener la información más reciente.
+* Consulte la https://hwu.netapp.com["Hardware Universe"] para obtener la información más reciente.
 
 
-Para obtener más información acerca de la configuración inicial del switch, consulte la siguiente guía: https://["Guía de instalación y actualización de Cisco Nexus 9336C-FX2"].
+Para obtener más información acerca de la configuración inicial del switch, consulte la siguiente guía: https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Guía de instalación y actualización de Cisco Nexus 9336C-FX2"].

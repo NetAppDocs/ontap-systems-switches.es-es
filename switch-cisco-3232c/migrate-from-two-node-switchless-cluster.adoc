@@ -67,7 +67,7 @@ Los ejemplos de este procedimiento utilizan dos nodos, cada uno utilizando dos p
 * n1_clus2 es la primera LIF del clúster que se conecta al switch de clúster C2 del nodo n1.
 * n2_clus1 es la primera LIF de clúster que se conecta al switch de clúster C1 para el nodo n2.
 * n2_clus2 es la segunda LIF del clúster que se conecta al switch de clúster C2 del nodo n2.
-* El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://["Descarga del archivo de configuración de referencia del conmutador de red de clúster Cisco®"^] página.
+* El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Descarga del archivo de configuración de referencia del conmutador de red de clúster Cisco®"^] página.
 
 
 [NOTE]
@@ -172,21 +172,21 @@ Debe preparar ambos switches en este momento. Si necesita actualizar el software
 +
 .. Vaya a la página _Cisco Ethernet Switches_ del sitio de soporte de NetApp.
 +
-http://["Switches Ethernet de Cisco"^]
+http://support.netapp.com/NOW/download/software/cm_switches/["Switches Ethernet de Cisco"^]
 
 .. Anote el conmutador y las versiones de software necesarias en la tabla de esa página.
 .. Descargue la versión adecuada de RCF.
 .. Haga clic en *CONTINUAR* en la página *Descripción*, acepte el contrato de licencia y, a continuación, siga las instrucciones de la página *Descargar* para descargar el RCF.
 .. Descargue la versión adecuada del software Image.
 +
-https://["Página de descarga del archivo de configuración de referencia del switch de red de Cisco Cluster y Management"^]
+https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Página de descarga del archivo de configuración de referencia del switch de red de Cisco Cluster y Management"^]
 
 
 
 . Haga clic en *CONTINUAR* en la página *Descripción*, acepte el contrato de licencia y, a continuación, siga las instrucciones de la página *Descargar* para descargar el RCF.
 . En los switches Nexus 3232C C1 y C2, deshabilite todos los puertos C1 y C2 que están orientados al nodo, pero no deshabilite los puertos ISL e1/31-32.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte las guías que se enumeran en https://["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
+Para obtener más información acerca de los comandos de Cisco, consulte las guías que se enumeran en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
 
 +
 .Muestra el ejemplo
@@ -218,7 +218,7 @@ C2(config)# exit
 `show port-channel summary`
 
 +
-Para obtener más información acerca de los comandos de Cisco, consulte las guías que se enumeran en https://["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
+Para obtener más información acerca de los comandos de Cisco, consulte las guías que se enumeran en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
 
 +
 .Muestra el ejemplo
@@ -256,7 +256,7 @@ Group Port-        Type   Protocol  Member Ports
 ====
 . Muestra la lista de dispositivos vecinos en el conmutador.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte las guías que se enumeran en https://["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
+Para obtener más información acerca de los comandos de Cisco, consulte las guías que se enumeran en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
 
 +
 .Muestra el ejemplo
@@ -424,7 +424,7 @@ Puede consultar la configuración en ejecución y conectar e4a al siguiente puer
 
 . Habilite todos los puertos orientados al nodo en C1.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte las guías que se enumeran en https://["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
+Para obtener más información acerca de los comandos de Cisco, consulte las guías que se enumeran en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
 
 +
 .Muestra el ejemplo

@@ -32,4 +32,4 @@ Necesita la siguiente información de red para todas las configuraciones de los 
 * La mayoría de las controladoras del sistema de almacenamiento se gestionan a través de la interfaz e0M mediante la conexión al puerto de servicio Ethernet (icono de llave inglesa). En los sistemas A800 y A700 de AFF de AFF, la interfaz e0M utiliza un puerto Ethernet dedicado.
 
 
-Consulte la https://["Hardware Universe"^] para obtener la información más reciente.
+Consulte la https://hwu.netapp.com["Hardware Universe"^] para obtener la información más reciente.
