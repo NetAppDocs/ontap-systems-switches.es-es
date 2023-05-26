@@ -611,7 +611,6 @@
   <block id="166bf8fabdaf0d92b7865b37f13efc05" category="list-text">Vuelva a conectar todos los cables al interruptor de recambio nsw2.</block>
   <block id="70b9e8739fd0230a7cd09ad6e9a66421" category="list-text">Vuelva a comprobar el estado de los puertos del nodo de almacenamiento:</block>
   <block id="1baf7c89328f1d71632e29ad4a2dd59d" category="list-text">Compruebe que ambos conmutadores estén disponibles:</block>
-  <block id="b19d86e3bcfd68004760a31aa0fc60dc" category="paragraph"><block ref="fe962342e77ec6978df73d7fb900c057" prefix="" category="inline-code"></block></block>
   <block id="c13ce4df5a94da696d7e37e246e6fb8a" category="list-text">Si ha suprimido la creación automática de casos, vuelva a habilitarla invocando un mensaje de AutoSupport:</block>
   <block id="efeb406865c5500553bf0ee6711eb714" category="summary">Para la instalación y el mantenimiento del conmutador NVIDIA SN2100, asegúrese de revisar todos los requisitos y la documentación recomendada.</block>
   <block id="b6b0d0194b5b5cf69cccbe4389837b3e" category="doc">Descripción general y requisitos de los switches NVIDIA SN2100</block>
@@ -4432,4 +4431,64 @@
   <block id="b8363a3557b5e1732a20eb45a96853b7" category="list-text">Confirme que POAP está desactivado en la siguiente recarga:</block>
   <block id="f306e2be0abd8aabfa0b014c372bbac8" category="list-text">Repita los pasos 4 a 11 en el interruptor CS1.</block>
   <block id="256be937ef390f7d6dd71ad092869119" category="admonition">Para ONTAP 9.8 y versiones posteriores, utilice el comando<block ref="c57378c3b3bb81c6b42a2b31a30ddda7" prefix=" " category="inline-code"></block>.</block>
+  <block id="393a5f0f5f1f070aac964741815cca76" category="doc">Sustituya los switches del clúster Broadcom BES-53248 por conexiones sin switches</block>
+  <block id="a2ba7bf1b1a10d50fd13725865eabc47" category="list-text">Pruebe la función de recopilación de registros de conmutación:</block>
+  <block id="10b9ce0440e39e291f451f5b535309cd" category="summary">Puede sustituir de forma no disruptiva un switch de clúster de NetApp CN1610 defectuoso realizando una secuencia de tareas específica.</block>
+  <block id="a1e78a31e3c2a02f46648b1bf5b89e82" category="doc">Reemplace un switch de cluster CN1610 de NetApp</block>
+  <block id="66683ae2f7c6fa1c2c22df9a8db5475e" category="paragraph">Siga estos pasos para reemplazar un switch CN1610 de NetApp defectuoso en una red de clúster. Se trata de un procedimiento no disruptivo (NDU).</block>
+  <block id="1f5b80c6e2ed11c7bd8290ed613ae1a2" category="paragraph">Antes de realizar la sustitución del switch, debe haber las siguientes condiciones antes de realizar la sustitución del switch en el entorno actual y en el switch de sustitución del clúster y la infraestructura de red existentes:</block>
+  <block id="18277bdc1890285661ff31218ab7b9aa" category="list-text">Todos los puertos del clúster deben ser *UP*.</block>
+  <block id="f98de8b264564fc8efac53d61616a3a6" category="list-text">Todas las interfaces lógicas (LIF) del clúster deben estar activas y no se deben haber migrado.</block>
+  <block id="83ef6b033ea6f10bf71f6382d94020d8" category="list-text">El clúster de ONTAP<block ref="21228022de91fd069639d941562e2965" prefix=" " category="inline-code"></block> El comando debe indicar que la conectividad básica y la comunicación más grande que la PMTU se han realizado correctamente en todas las rutas.</block>
+  <block id="40432eff026ac452f4c464796c22cad2" category="list-text">Los nombres de los dos switches de clústeres CN1610 son<block ref="b12efe4e2b53de51a261421f77a3cbef" prefix=" " category="inline-code"></block> y..<block ref="43c8ce94d81492e62c60092a3664a65f" prefix=" " category="inline-code"></block>.</block>
+  <block id="a3f821e3cd7f17533bef9e520ea14552" category="list-text">El nombre del interruptor CN1610 que se va a sustituir (el interruptor defectuoso) es<block ref="a86ae6152b2b202f86bf7a5980821925" prefix=" " category="inline-code"></block>.</block>
+  <block id="70a4fcd6859b5065af184b992f2a90b5" category="list-text">El nombre del nuevo interruptor CN1610 (el interruptor de reemplazo) es<block ref="3e9b9ae819a46f5f7f886bfb01bfafc3" prefix=" " category="inline-code"></block>.</block>
+  <block id="42791710cd5232be1ed51712d657545b" category="list-text">El nombre del conmutador de socio que no se va a sustituir es<block ref="43c8ce94d81492e62c60092a3664a65f" prefix=" " category="inline-code"></block>.</block>
+  <block id="cd831af3a25c38b31f51ceb27d65111f" category="list-text">Confirme que el archivo de configuración de inicio coincide con el archivo de configuración en ejecución. Debe guardar estos archivos localmente para usarlos durante el reemplazo.</block>
+  <block id="c4264c3f14ebe6d8561e3cf5acc1d741" category="paragraph">Los comandos de configuración del siguiente ejemplo son para FASTPATH 1,2.0,7:</block>
+  <block id="45826415166a6e211a2acb28e84357a9" category="list-text">Cree una copia del archivo de configuración en ejecución.</block>
+  <block id="c048a33c156955dc46f6908ab7d1b4d8" category="paragraph">El comando del siguiente ejemplo es para FASTPATH 1,2.0,7:</block>
+  <block id="de99beb6ca92a5a94725134af11c8df3" category="admonition">Se puede utilizar cualquier nombre de archivo excepto<block ref="269125eef7a6ed8a576f381402d71c00" prefix=" " category="inline-code"></block>. El nombre del archivo debe tener la extensión *.scr*.</block>
+  <block id="c3e4e0f5814f326b33a9db1d9a1860c0" category="list-text">[[step3]]Guarde el archivo de configuración en ejecución del switch en un host externo como preparación para el reemplazo.</block>
+  <block id="d8442364ffcbb22977e4d9c52e73b57a" category="list-text">Comprobar que las versiones del switch y de ONTAP coinciden en la matriz de compatibilidad. Consulte<block ref="fbc4dc59d397fb80fe60d1631a99b30c" category="inline-link-rx"></block> para obtener más detalles.</block>
+  <block id="8b0dd634e752838755fd13d129cbf10e" category="inline-link">Página de descargas de software</block>
+  <block id="b597e505404c69895e6ae5d6c947f299" category="list-text">Desde la<block ref="3785e6528c27a2098021814637bc462a" category="inline-link-rx"></block> En el sitio de soporte de NetApp, seleccione switches de clúster de NetApp para descargar las versiones de RCF y FASTPATH adecuadas.</block>
+  <block id="543af457f6c3336d817218e084e17ad6" category="list-text">Configure un servidor Trivial File Transfer Protocol (TFTP) con la configuración FASTPATH, RCF y guardada<block ref="e9f6316b4b0161f7581dee64491a28dd" prefix=" " category="inline-code"></block> archivo para utilizar con el nuevo conmutador.</block>
+  <block id="0b370ae1e85c411b2432a8dd68539928" category="list-text">Conecte el puerto serie (el conector RJ-45 etiquetado como “IOIOI” en el lado derecho del switch) a un host disponible con emulación de terminal.</block>
+  <block id="fdc083ea424ff6a805eb16cc6278c425" category="list-text">En el host, establezca los ajustes de conexión del terminal serie:</block>
+  <block id="653e244c5d7d92e4099ddeea36e49c83" category="list-text">Prepárese para conectarse a la red con el servidor TFTP.</block>
+  <block id="eced0a01e57d421422879b818ddbc655" category="paragraph">Si utiliza el protocolo de configuración dinámica de host (DHCP), no es necesario configurar una dirección IP para el switch en este momento. El puerto de servicio está configurado para usar DHCP de forma predeterminada. El puerto de gestión de red está configurado como ninguno para la configuración del protocolo IPv4 y IPv6. Si el puerto de llave inglesa está conectado a una red que tiene un servidor DHCP, los ajustes del servidor se configuran automáticamente.</block>
+  <block id="044ec168f671f2601806847445bfa01f" category="paragraph">Para configurar una dirección IP estática, debe usar el protocolo serviceport, el protocolo de red y los comandos serviceport ip.</block>
+  <block id="dc293c5866c77ae15aca96b85fcb77e6" category="list-text">Opcionalmente, si el servidor TFTP está en un portátil, conecte el switch CN1610 al portátil mediante un cable Ethernet estándar y, a continuación, configure su puerto de red en la misma red con una dirección IP alternativa.</block>
+  <block id="b89dbda9007c12ba6185e044bc81949f" category="paragraph">Puede utilizar el<block ref="df911f0151f9ef021d410b4be5060972" prefix=" " category="inline-code"></block> comando para verificar la dirección. Si no puede establecer la conectividad, debe utilizar una red no enrutada y configurar el puerto de servicio con IP 192,168.x o 172,16.x. Puede volver a configurar el puerto de servicio a la dirección IP de administración de producción en una fecha posterior.</block>
+  <block id="b6254715be58b48ae4db50dd9fc31130" category="list-text">De manera opcional, verifique e instale las versiones adecuadas del software RCF y FASTPATH para el nuevo switch. Si comprobó que el nuevo switch está configurado correctamente y no requiere actualizaciones del software RCF y FASTPATH, debería ir al paso 13.</block>
+  <block id="7a1bfd4690df6818c8dc387281d627ed" category="list-text">Compruebe la nueva configuración del interruptor.</block>
+  <block id="3ead3b3c8f520426f6d28b91165e4d04" category="list-text">Descargue el RCF en el nuevo switch.</block>
+  <block id="72825f9b72f9339979ca72becca7f71a" category="list-text">Compruebe que el RCF se ha descargado en el conmutador.</block>
+  <block id="999d6ca910b9a02c83e6b39776ceedec" category="list-text">Aplique el RCF al interruptor CN1610.</block>
+  <block id="026fe9123f8f00bf5dbeb680d5c7798a" category="list-text">Guarde el archivo de configuración en ejecución para que se convierta en el archivo de configuración de inicio cuando reinicie el conmutador.</block>
+  <block id="97e20e2f0ef3427615572f54f429eddf" category="list-text">Descargue la imagen en el switch CN1610.</block>
+  <block id="3624b5e5cc6ddec75e62434e2a31ad65" category="list-text">Ejecute la nueva imagen de inicio activa reiniciando el conmutador.</block>
+  <block id="5e5e17a51764aae8ce901f8404dfc149" category="paragraph">El conmutador debe reiniciarse para que el comando del paso 6 refleje la nueva imagen. Hay dos vistas posibles para una respuesta que puede ver después de introducir el comando reload.</block>
+  <block id="62692b2ca653dbb46bb2be739ec25eca" category="list-text">Copie el archivo de configuración guardado del interruptor antiguo al nuevo.</block>
+  <block id="de9c3c21ee744efbe0e9dc92d2f3f8fa" category="list-text">Aplique la configuración guardada anteriormente al nuevo conmutador.</block>
+  <block id="19f3f611402ea405c73eff978db54c04" category="list-text">Guarde el archivo de configuración en ejecución en el archivo de configuración de inicio.</block>
+  <block id="e34c68a3be46c36d4217182cacd9c5ed" category="list-text">En el nuevo switch new_CS1, inicie sesión como el usuario administrador y apague todos los puertos que están conectados a las interfaces de clúster de nodos (puertos 1 a 12).</block>
+  <block id="c941b6ce2e4c24df909851b245a02a61" category="list-text">Migre los LIF del clúster desde los puertos conectados al switch OLD_CS1.</block>
+  <block id="4b1a908211784f472e4bd00126eca670" category="paragraph">Debe migrar cada LIF de clúster desde la interfaz de gestión de su nodo actual.</block>
+  <block id="86549eb17e74fde8019bc78ee455f2f9" category="list-text">Compruebe que todas las LIF de clúster se han movido al puerto de clúster adecuado en cada nodo.</block>
+  <block id="6699d1ca219ee05fb31767f9ee4390f7" category="list-text">Apague los puertos de clúster conectados al switch que reemplazó.</block>
+  <block id="3733adcf3b4da74ba9d591ecbad96807" category="list-text">Compruebe el estado del clúster.</block>
+  <block id="37d0e47b916b9fc27dd90cc97fc17772" category="list-text">Compruebe que los puertos están inactivos.</block>
+  <block id="bad00619b1d5dd1b493aa019cb159e27" category="list-text">En el switch CS2, apague los puertos ISL 13 a 16.</block>
+  <block id="15eb5a489e20c8cf8725dc5b810b0c97" category="list-text">Verificar si el administrador de almacenamiento está preparado para reemplazar el switch.</block>
+  <block id="e1d368bc1401944984beccd9e88393a4" category="list-text">Quite todos los cables del switch old_CS1 y, a continuación, conecte los cables a los mismos puertos del switch NEW_CS1.</block>
+  <block id="6e37f912363babbe2006b55d57ad6d78" category="list-text">En el switch CS2, levante los puertos ISL de 13 a 16.</block>
+  <block id="6ce486621cb8c46471908d6225196077" category="list-text">Abra los puertos en el nuevo switch que están asociados con los nodos del clúster.</block>
+  <block id="68399f85a753831d967234dab3cd5b35" category="list-text">En un solo nodo, abra el puerto de nodo del clúster que está conectado al switch sustituido y, a continuación, confirme que el enlace está activo.</block>
+  <block id="b19024cd31c9de6e6498dddd23993117" category="list-text">Revierta los LIF del clúster que están asociados con el puerto en el paso 25 en el mismo nodo.</block>
+  <block id="1a087f1b105982e5c8b2694ba1b674f3" category="paragraph">En este ejemplo, las LIF de node1 se revierten correctamente si la columna «is Home» es verdadera.</block>
+  <block id="b047f062da383f17811a9e72a79d23f4" category="list-text">Si el LIF de clúster del primer nodo está activo y se vuelve a convertir a su puerto de inicio, repita los pasos 25 y 26 para abrir los puertos del clúster y para revertir las LIF de clúster en los demás nodos del clúster.</block>
+  <block id="31c3fc1c4fe98b31f2904808ddd9be0b" category="list-text">Muestre información acerca de los nodos del clúster.</block>
+  <block id="bf1b3c61d401b2f6c4dbbf5853555319" category="list-text">Confirme que el archivo de configuración de inicio y el archivo de configuración en ejecución son correctos en el conmutador sustituido. Este archivo de configuración debe coincidir con la salida del paso 1.</block>
 </blocks>

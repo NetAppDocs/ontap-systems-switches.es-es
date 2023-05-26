@@ -1,0 +1,478 @@
+---
+permalink: switch-netapp-cn1610/replace-cn1610-switch.html 
+sidebar: sidebar 
+keywords: replace, netapp cn1610, cluster switch 
+summary: Puede sustituir de forma no disruptiva un switch de clúster de NetApp CN1610 defectuoso realizando una secuencia de tareas específica. 
+---
+= Reemplace un switch de cluster CN1610 de NetApp
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga estos pasos para reemplazar un switch CN1610 de NetApp defectuoso en una red de clúster. Se trata de un procedimiento no disruptivo (NDU).
+
+.Lo que necesitará
+Antes de realizar la sustitución del switch, debe haber las siguientes condiciones antes de realizar la sustitución del switch en el entorno actual y en el switch de sustitución del clúster y la infraestructura de red existentes:
+
+* El clúster existente debe verificarse como completamente funcional, con al menos un switch de clúster completamente conectado.
+* Todos los puertos del clúster deben ser *UP*.
+* Todas las interfaces lógicas (LIF) del clúster deben estar activas y no se deben haber migrado.
+* El clúster de ONTAP `ping-cluster -node node1` El comando debe indicar que la conectividad básica y la comunicación más grande que la PMTU se han realizado correctamente en todas las rutas.
+
+
+.Acerca de esta tarea
+Debe ejecutar el comando para migrar una LIF de clúster desde el nodo donde se aloja la LIF del clúster.
+
+Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de nodo y conmutador de cluster:
+
+* Los nombres de los dos switches de clústeres CN1610 son `cs1` y.. `cs2`.
+* El nombre del interruptor CN1610 que se va a sustituir (el interruptor defectuoso) es `old_cs1`.
+* El nombre del nuevo interruptor CN1610 (el interruptor de reemplazo) es `new_cs1`.
+* El nombre del conmutador de socio que no se va a sustituir es `cs2`.
+
+
+.Pasos
+. Confirme que el archivo de configuración de inicio coincide con el archivo de configuración en ejecución. Debe guardar estos archivos localmente para usarlos durante el reemplazo.
++
+Los comandos de configuración del siguiente ejemplo son para FASTPATH 1,2.0,7:
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(old_cs1) *>enable*
+(old_cs1) *#show running-config*
+(old_cs1) *#show startup-config*
+----
+====
+. Cree una copia del archivo de configuración en ejecución.
++
+El comando del siguiente ejemplo es para FASTPATH 1,2.0,7:
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(old_cs1) *#show running-config filename.scr*
+Config script created successfully.
+----
+====
+
+
+
+NOTE: Se puede utilizar cualquier nombre de archivo excepto `CN1610_CS_RCF_v1.2.scr`. El nombre del archivo debe tener la extensión *.scr*.
+
+. [[step3]]Guarde el archivo de configuración en ejecución del switch en un host externo como preparación para el reemplazo.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(old_cs1) #*copy nvram:script filename.scr scp://<Username>@<remote_IP_address>/path_to_file/filename.scr*
+----
+====
+. Comprobar que las versiones del switch y de ONTAP coinciden en la matriz de compatibilidad. Consulte https://mysupport.netapp.com/site/info/netapp-cluster-switch["Switches CN1601 y CN1610 de NetApp"^] para obtener más detalles.
+. Desde la https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/downloads-tab["Página de descargas de software"^] En el sitio de soporte de NetApp, seleccione switches de clúster de NetApp para descargar las versiones de RCF y FASTPATH adecuadas.
+. Configure un servidor Trivial File Transfer Protocol (TFTP) con la configuración FASTPATH, RCF y guardada `.scr` archivo para utilizar con el nuevo conmutador.
+. Conecte el puerto serie (el conector RJ-45 etiquetado como “IOIOI” en el lado derecho del switch) a un host disponible con emulación de terminal.
+. En el host, establezca los ajustes de conexión del terminal serie:
++
+.. 9600 baudios
+.. 8 bits de datos
+.. 1 bit de parada
+.. paridad: none
+.. control de flujo: ninguno
+
+
+. Conecte el puerto de administración (el puerto de llave RJ-45 en el lado izquierdo del switch) a la misma red en la que se encuentra el servidor TFTP.
+. Prepárese para conectarse a la red con el servidor TFTP.
++
+Si utiliza el protocolo de configuración dinámica de host (DHCP), no es necesario configurar una dirección IP para el switch en este momento. El puerto de servicio está configurado para usar DHCP de forma predeterminada. El puerto de gestión de red está configurado como ninguno para la configuración del protocolo IPv4 y IPv6. Si el puerto de llave inglesa está conectado a una red que tiene un servidor DHCP, los ajustes del servidor se configuran automáticamente.
+
++
+Para configurar una dirección IP estática, debe usar el protocolo serviceport, el protocolo de red y los comandos serviceport ip.
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(new_cs1) #*serviceport ip <ipaddr> <netmask> <gateway>*
+----
+====
+. Opcionalmente, si el servidor TFTP está en un portátil, conecte el switch CN1610 al portátil mediante un cable Ethernet estándar y, a continuación, configure su puerto de red en la misma red con una dirección IP alternativa.
++
+Puede utilizar el `ping` comando para verificar la dirección. Si no puede establecer la conectividad, debe utilizar una red no enrutada y configurar el puerto de servicio con IP 192,168.x o 172,16.x. Puede volver a configurar el puerto de servicio a la dirección IP de administración de producción en una fecha posterior.
+
+. De manera opcional, verifique e instale las versiones adecuadas del software RCF y FASTPATH para el nuevo switch. Si comprobó que el nuevo switch está configurado correctamente y no requiere actualizaciones del software RCF y FASTPATH, debería ir al paso 13.
++
+.. Compruebe la nueva configuración del interruptor.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(new_cs1) >*enable*
+(new_cs1) #*show version*
+----
+====
+.. Descargue el RCF en el nuevo switch.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(new_cs1) #*copy tftp://<server_ip_address>/CN1610_CS_RCF_v1.2.txt nvram:script CN1610_CS_RCF_v1.2.scr*
+Mode.	TFTP
+Set Server IP.	172.22.201.50
+Path.	/
+Filename....................................... CN1610_CS_RCF_v1.2.txt
+Data Type...................................... Config Script
+Destination Filename........................... CN1610_CS_RCF_v1.2.scr
+File with same name already exists.
+WARNING:Continuing with this command will overwrite the existing file.
+
+Management access will be blocked for the duration of the transfer Are you sure you want to start? (y/n) y
+
+File transfer in progress. Management access will be blocked for the duration of the transfer. please wait...
+Validating configuration script...
+(the entire script is displayed line by line)
+...
+description "NetApp CN1610 Cluster Switch RCF v1.2 - 2015-01-13"
+...
+Configuration script validated.
+File transfer operation completed successfully.
+----
+====
+.. Compruebe que el RCF se ha descargado en el conmutador.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(new_cs1) #*script list*
+Configuration Script Nam   Size(Bytes)
+-------------------------- -----------
+CN1610_CS_RCF_v1.1.scr            2191
+CN1610_CS_RCF_v1.2.scr            2240
+latest_config.scr                 2356
+
+4 configuration script(s) found.
+2039 Kbytes free.
+----
+====
+
+
+. Aplique el RCF al interruptor CN1610.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(new_cs1) #*script apply CN1610_CS_RCF_v1.2.scr*
+Are you sure you want to apply the configuration script? (y/n) *y*
+...
+(the entire script is displayed line by line)
+...
+description "NetApp CN1610 Cluster Switch RCF v1.2 - 2015-01-13"
+...
+Configuration script 'CN1610_CS_RCF_v1.2.scr' applied. Note that the script output will go to the console.
+After the script is applied, those settings will be active in the running-config file. To save them to the startup-config file, you must use the write memory command, or if you used the reload answer yes when asked if you want to save the changes.
+----
+====
++
+.. Guarde el archivo de configuración en ejecución para que se convierta en el archivo de configuración de inicio cuando reinicie el conmutador.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(new_cs1) #*write memory*
+This operation may take a few minutes.
+Management interfaces will not be available during this time.
+
+Are you sure you want to save? (y/n) *y*
+
+Config file 'startup-config' created successfully.
+
+Configuration Saved!
+----
+====
+.. Descargue la imagen en el switch CN1610.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(new_cs1) #*copy tftp://<server_ip_address>/NetApp_CN1610_1.2.0.7.stk active*
+Mode.	TFTP
+Set Server IP.	tftp_server_ip_address
+Path.	/
+Filename....................................... NetApp_CN1610_1.2.0.7.stk
+Data Type.	Code
+Destination Filename.	active
+
+Management access will be blocked for the duration of the transfer
+
+Are you sure you want to start? (y/n) *y*
+
+TFTP Code transfer starting...
+
+File transfer operation completed successfully.
+----
+====
+.. Ejecute la nueva imagen de inicio activa reiniciando el conmutador.
++
+El conmutador debe reiniciarse para que el comando del paso 6 refleje la nueva imagen. Hay dos vistas posibles para una respuesta que puede ver después de introducir el comando reload.
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(new_cs1) #*reload*
+The system has unsaved changes.
+Would you like to save them now? (y/n) *y*
+
+Config file 'startup-config' created successfully.
+
+Configuration Saved! System will now restart!
+.
+.
+.
+Cluster Interconnect Infrastructure
+
+User:admin Password: (new_cs1) >*enable*
+----
+====
+.. Copie el archivo de configuración guardado del interruptor antiguo al nuevo.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(new_cs1) #*copy tftp://<server_ip_address>/<filename>.scr nvram:script <filename>.scr*
+----
+====
+.. Aplique la configuración guardada anteriormente al nuevo conmutador.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(new_cs1) #*script apply <filename>.scr*
+Are you sure you want to apply the configuration script? (y/n) *y*
+
+The system has unsaved changes.
+Would you like to save them now? (y/n) *y*
+
+Config file 'startup-config' created successfully.
+
+Configuration Saved!
+----
+====
+.. Guarde el archivo de configuración en ejecución en el archivo de configuración de inicio.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(new_cs1) #*write memory*
+----
+====
+
+
+. Si se habilita AutoSupport en este clúster, elimine la creación automática de casos invocando un mensaje de AutoSupport:
+`system node autosupport invoke -node * -type all - message MAINT=xh`
++
+_x_ es la duración de la ventana de mantenimiento en horas.
+
++
+[NOTE]
+====
+El mensaje de AutoSupport notifica al soporte técnico de esta tarea de mantenimiento para que la creación automática de casos se suprima durante la ventana de mantenimiento.
+
+====
+. En el nuevo switch new_CS1, inicie sesión como el usuario administrador y apague todos los puertos que están conectados a las interfaces de clúster de nodos (puertos 1 a 12).
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+User:*admin*
+Password:
+(new_cs1) >*enable*
+(new_cs1) #
+
+(new_cs1) #*config*
+(new_cs1)(config)#*interface 0/1-0/12*
+(new_cs1)(interface 0/1-0/12)#*shutdown*
+(new_cs1)(interface 0/1-0/12)#*exit*
+(new_cs1) #*write memory*
+----
+====
+. Migre los LIF del clúster desde los puertos conectados al switch OLD_CS1.
++
+Debe migrar cada LIF de clúster desde la interfaz de gestión de su nodo actual.
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster::> *set -privilege advanced*
+cluster::> *network interface migrate -vserver <vserver_name> -lif <Cluster_LIF_to_be_moved> - sourcenode <current_node> -dest-node <current_node> -dest-port <cluster_port_that_is_UP>*
+----
+====
+. Compruebe que todas las LIF de clúster se han movido al puerto de clúster adecuado en cada nodo.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster::> *network interface show -role cluster*
+----
+====
+. Apague los puertos de clúster conectados al switch que reemplazó.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster::*> *network port modify -node <node_name> -port <port_to_admin_down> -up-admin false*
+----
+====
+. Compruebe el estado del clúster.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster::*> *cluster show*
+----
+====
+. Compruebe que los puertos están inactivos.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster::*> *cluster ping-cluster -node <node_name>*
+----
+====
+. En el switch CS2, apague los puertos ISL 13 a 16.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2) #*config*
+(cs2)(config)#*interface 0/13-0/16*
+(cs2)(interface 0/13-0/16)#*shutdown*
+(cs2) #*show port-channel 3/1*
+----
+====
+. Verificar si el administrador de almacenamiento está preparado para reemplazar el switch.
+. Quite todos los cables del switch old_CS1 y, a continuación, conecte los cables a los mismos puertos del switch NEW_CS1.
+. En el switch CS2, levante los puertos ISL de 13 a 16.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2) #*config*
+(cs2)(config)#*interface 0/13-0/16*
+(cs2)(interface 0/13-0/16)#*no shutdown*
+----
+====
+. Abra los puertos en el nuevo switch que están asociados con los nodos del clúster.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2) #*config*
+(cs2)(config)#*interface 0/1-0/12*
+(cs2)(interface 0/13-0/16)#*no shutdown*
+----
+====
+. En un solo nodo, abra el puerto de nodo del clúster que está conectado al switch sustituido y, a continuación, confirme que el enlace está activo.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster::*> *network port modify -node node1 -port <port_to_be_onlined> -up-admin true*
+cluster::*> *network port show -role cluster*
+----
+====
+. Revierta los LIF del clúster que están asociados con el puerto en el paso 25 en el mismo nodo.
++
+En este ejemplo, las LIF de node1 se revierten correctamente si la columna «is Home» es verdadera.
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster::*> *network interface revert -vserver node1 -lif <cluster_lif_to_be_reverted>*
+cluster::*> *network interface show -role cluster*
+----
+====
+. Si el LIF de clúster del primer nodo está activo y se vuelve a convertir a su puerto de inicio, repita los pasos 25 y 26 para abrir los puertos del clúster y para revertir las LIF de clúster en los demás nodos del clúster.
+. Muestre información acerca de los nodos del clúster.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster::*> *cluster show*
+----
+====
+. Confirme que el archivo de configuración de inicio y el archivo de configuración en ejecución son correctos en el conmutador sustituido. Este archivo de configuración debe coincidir con la salida del paso 1.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(new_cs1) >*enable*
+(new_cs1) #*show running-config*
+(new_cs1) #*show startup-config*
+----
+====
+. Si ha suprimido la creación automática de casos, vuelva a habilitarla invocando un mensaje de AutoSupport:
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
+
