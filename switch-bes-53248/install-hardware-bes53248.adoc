@@ -11,7 +11,7 @@ summary: Para instalar el hardware BES-53248, consulte la documentación de Broa
 
 
 [role="lead"]
-Para instalar el hardware BES-53248, consulte la documentación de Broadcom.
+Para instalar el hardware del BES-53248, consulte la documentación de Broadcom.
 
 .Pasos
 . Revise la link:configure-reqs-bes53248.html["requisitos de configuración"].

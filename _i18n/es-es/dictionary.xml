@@ -2234,7 +2234,6 @@
   <block id="2d0ac6e4c3a1c97979e887d423ec0f95" category="section-title">Paso 1: Prepare la instalación</block>
   <block id="4877628f2f5c2ea44515bef28ca09a0b" category="list-text">Compruebe que todos los puertos del clúster están *up* con un estado correcto:</block>
   <block id="0e6faba2ce2d4a2a73875d111bfcdded" category="list-text">Comprobar que las LIF del clúster han migrado a los puertos alojados en el switch del clúster cs1. Esto puede tardar unos segundos.</block>
-  <block id="3f8f6d237f18036be3a3fb24642d16ba" category="list-text">Si todavía no lo ha hecho, guarde la configuración del switch actual copiando el resultado del siguiente comando en un archivo de registro:</block>
   <block id="c32a2c4a7520ad02a1a78600f2a6b3bd" category="admonition">Al actualizar o aplicar una nueva RCF, debe borrar los ajustes del conmutador y realizar la configuración básica. Debe estar conectado al conmutador mediante la consola serie para borrar la configuración del conmutador.</block>
   <block id="ace72d025aa2c5badb322c055f22cb6b" category="inline-link">Referencia de comandos NX-OS de Cisco Nexus serie 9000</block>
   <block id="280f0e29cdb68937737865cc2fb4331a" category="list-text">Copie el RCF en el bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP. Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en<block ref="dba0e49fdfeab9433bb71da6c505aa34" category="inline-link-rx"></block> guías.</block>
@@ -4423,12 +4422,7 @@
   <block id="7d829570fe05df690649474b2bb97a3b" category="image-alt">Los cables de conexión de nodo de clúster se mueven al switch CS1 nuevo</block>
   <block id="ec5ea2f0318e4d906c296f5576b9c026" category="list-text">[[step6]]Si suprimió la creación automática de casos, vuelva a activarla llamando a un mensaje AutoSupport:<block ref="9ac424c0d7b432975df36a19daf50c9c" prefix=" " category="inline-code"></block></block>
   <block id="0429fa776d68090e46718ac7e32390ef" category="admonition">Para EFOS versión 3.10.0.3 y posterior, utilice el comando<block ref="c09633a606c51a161b16f8bf38f5ebb1" prefix=" " category="inline-code"></block>.</block>
-  <block id="455129a1d85d80f79e8d763a25910c74" category="admonition">Al actualizar o aplicar una nueva RCF, debe borrar los ajustes del conmutador y realizar la configuración básica. El acceso al conmutador SSH se conserva si puede desactivar PowerOn Auto Provisioning (POAP) (requiere NX-OS 9.2P1 o posterior). Como medida de precaución adicional, conéctese al switch mediante la consola serie si no es posible acceder a SSH después de reiniciar el switch.</block>
   <block id="2df26e386d021172b261bcb47e157019" category="list-text">Limpie la configuración:</block>
-  <block id="a5247127c3e0a3fcdf9f80746c33cb54" category="list-text">Desactivar POAP:</block>
-  <block id="b64ae68f672b168b4456ea13b494a759" category="inline-link">Uso del aprovisionamiento automático de PowerOn</block>
-  <block id="01197fee3250d671fd8c51972b5f4745" category="paragraph">Consulte<block ref="ff53901c2c0b0d51a17df0925879b1a5" category="inline-link-rx"></block> para obtener más detalles.</block>
-  <block id="b8363a3557b5e1732a20eb45a96853b7" category="list-text">Confirme que POAP está desactivado en la siguiente recarga:</block>
   <block id="f306e2be0abd8aabfa0b014c372bbac8" category="list-text">Repita los pasos 4 a 11 en el interruptor CS1.</block>
   <block id="256be937ef390f7d6dd71ad092869119" category="admonition">Para ONTAP 9.8 y versiones posteriores, utilice el comando<block ref="c57378c3b3bb81c6b42a2b31a30ddda7" prefix=" " category="inline-code"></block>.</block>
   <block id="393a5f0f5f1f070aac964741815cca76" category="doc">Sustituya los switches del clúster Broadcom BES-53248 por conexiones sin switches</block>
@@ -4491,4 +4485,7 @@
   <block id="b047f062da383f17811a9e72a79d23f4" category="list-text">Si el LIF de clúster del primer nodo está activo y se vuelve a convertir a su puerto de inicio, repita los pasos 25 y 26 para abrir los puertos del clúster y para revertir las LIF de clúster en los demás nodos del clúster.</block>
   <block id="31c3fc1c4fe98b31f2904808ddd9be0b" category="list-text">Muestre información acerca de los nodos del clúster.</block>
   <block id="bf1b3c61d401b2f6c4dbbf5853555319" category="list-text">Confirme que el archivo de configuración de inicio y el archivo de configuración en ejecución son correctos en el conmutador sustituido. Este archivo de configuración debe coincidir con la salida del paso 1.</block>
+  <block id="d23e0ef648ea8ae58d49d4170d37c221" category="list-text">Si aún no lo ha hecho, guarde una copia de la configuración actual del conmutador copiando la salida del siguiente comando en un archivo de texto:</block>
+  <block id="0fb51802ddab454289d99db889475b22" category="admonition">Al actualizar o aplicar una nueva RCF, debe borrar los ajustes del conmutador y realizar la configuración básica. Debe estar conectado al puerto de la consola de serie del switch para volver a configurar el switch.</block>
+  <block id="a91911d2b8a6bd2699aa77eb38d533f1" category="paragraph">Para instalar el hardware del BES-53248, consulte la documentación de Broadcom.</block>
 </blocks>
