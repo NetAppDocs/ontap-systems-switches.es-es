@@ -38,6 +38,8 @@ entries:
     url: "/switch-nvidia-sn2100/upgrade-cl-version.html"
 - title: Migrar switches
   entries:
+  - title: Migrar desde switches de clúster CN1610
+    url: "/switch-nvidia-sn2100/migrate-cn1610-sn2100-cluster-switch.html"
   - title: Migre desde switches de clúster de Cisco
     url: "/switch-nvidia-sn2100/migrate-cisco-sn2100-cluster-switch.html"
   - title: Migre a un clúster de dos nodos con switches

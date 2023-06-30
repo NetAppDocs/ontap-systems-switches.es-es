@@ -1,0 +1,610 @@
+---
+permalink: switch-cisco-9336c-fx2/migrate-cn1610-9336c-cluster.html 
+sidebar: sidebar 
+keywords: migrate cluster Cisco Nexus 9336C-FX2 cluster switches cn1610 
+summary: Puede migrar switches de clúster NetApp CN1610 de forma no disruptiva para un clúster ONTAP a los switches de red de clúster Cisco Nexus 9336C-FX2. 
+---
+= Migrar de un switch de clúster NetApp CN1610 a un switch de clúster Cisco 9336C-FX2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los switches de clúster de NetApp CN1610 para un clúster de ONTAP a los switches de clúster de Cisco 9336C-FX2. Se trata de un procedimiento no disruptivo.
+
+
+
+== Revise los requisitos
+
+Debe estar al tanto de cierta información de configuración, conexiones de puertos y requisitos de cableado cuando reemplaza los switches de clúster NetApp CN1610 por los switches de clústeres Cisco 9336C-FX2.
+
+.Switches compatibles
+Se admiten los siguientes switches de clúster:
+
+* CN1610 de NetApp
+* Cisco 9336C-FX2
+
+
+Para obtener más información acerca de los puertos admitidos y sus configuraciones, consulte https://hwu.netapp.com/["Hardware Universe"^].
+
+.Lo que necesitará
+Compruebe que la configuración cumple los siguientes requisitos:
+
+* El clúster existente está correctamente configurado y funcionando.
+* Todos los puertos de clúster se encuentran en el estado *up* para garantizar operaciones no disruptivas.
+* Los switches de cluster Cisco 9336C-FX2 están configurados y funcionan con la versión correcta de NX-OS instalada con el archivo de configuración de referencia (RCF) aplicado.
+* La configuración de red del clúster existente tiene lo siguiente:
++
+** Un clúster de NetApp redundante y completamente funcional mediante switches NetApp CN1610.
+** Conectividad de gestión y acceso mediante consola a los switches NetApp CN1610 y a los nuevos.
+** Todos los LIF del clúster con las LIF del clúster están en sus puertos de inicio.
+** Puertos ISL habilitados y cableados entre los switches NetApp CN1610 y entre los nuevos switches.
+
+
+* Algunos puertos están configurados en los switches Cisco 9336C-FX2 para funcionar a 40GbE o 100GbE Gbps.
+* Ha planificado, migrado y documentado conectividad 40GbE y 100GbE desde los nodos a los switches de clúster Cisco 9336C-FX2.
+
+
+
+
+== Migrar los switches
+
+.Acerca de los ejemplos
+Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:
+
+* Los switches de clúster CN1610 existentes son _C1_ y _C2_.
+* Los nuevos switches de clúster 9336C-FX2 son _CS1_ y _CS2_.
+* Los nodos son _1_ y _2_.
+* Las LIF del clúster son _1_clus1_ y _1_clus2_ en el nodo 1, y _2_clus1_ y _2_clus2_ en el nodo 2, respectivamente.
+* La `cluster1::*>` prompt indica el nombre del clúster.
+* Los puertos de clúster utilizados en este procedimiento son _e3a_ y _e3b_.
+* El interruptor C2 se reemplaza primero por el interruptor CS2 y luego el interruptor C1 se reemplaza por el interruptor CS1.
++
+** Después, el cableado entre los nodos y C2 se desconecta del C2 y se vuelve a conectar al CS2
+** Después, el cableado entre los nodos y C1 se desconecta del C1 y se vuelve a conectar al CS1.
+
+
+
+
+
+
+=== Paso 1: Preparación para la migración
+
+. Si se habilita AutoSupport en este clúster, elimine la creación automática de casos invocando un mensaje de AutoSupport:
++
+`system node autosupport invoke -node * -type all -message MAINT=xh`
+
++
+donde _x_ es la duración de la ventana de mantenimiento en horas.
+
+. Cambie el nivel de privilegio a avanzado, introduciendo *y* cuando se le solicite continuar:
++
+`set -privilege advanced`
+
++
+Aparece el mensaje avanzado (*>).
+
+. Deshabilite la reversión automática en las LIF del clúster:
++
+`network interface modify -vserver Cluster -lif * -auto-revert false`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
+
+Warning: Disabling the auto-revert feature of the cluster logical interface may effect the availability of your cluster network. Are you sure you want to continue? {y|n}: *y*
+----
+====
+
+
+
+
+=== Paso 2: Configure los puertos y el cableado
+
+. Determinar el estado administrativo u operativo de cada interfaz de clúster.
++
+Cada puerto debería mostrarse para `Link` y.. `healthy` para `Health Status`.
+
++
+.. Mostrar los atributos del puerto de red:
++
+`network port show -ipspace Cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                       Ignore
+                                                 Speed(Mbps)  Health   Health
+Port      IPspace    Broadcast Domain Link MTU   Admin/Oper   Status   Status
+--------- ---------- ---------------- ---- ----- ------------ -------- ------
+e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
+e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
+
+Node: node2
+                                                                       Ignore
+                                                 Speed(Mbps)  Health   Health
+Port      IPspace    Broadcast Domain Link MTU   Admin/Oper   Status   Status
+--------- ---------- ---------------- ---- ----- ------------ -------- ------
+e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
+e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
+----
+====
+.. Muestre información sobre las LIF y sus nodos iniciales designados:
++
+`network interface show -vserver Cluster`
+
++
+Cada LIF debería mostrar `up/up` para `Status Admin/Oper` y.. `true` para `Is Home`.
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+
+            Logical      Status     Network            Current     Current Is
+Vserver     Interface    Admin/Oper Address/Mask       Node        Port    Home
+----------- -----------  ---------- ------------------ ----------- ------- ----
+Cluster
+            node1_clus1  up/up      169.254.209.69/16  node1       e3a     true
+            node1_clus2  up/up      169.254.49.125/16  node1       e3b     true
+            node2_clus1  up/up      169.254.47.194/16  node2       e3a     true
+            node2_clus2  up/up      169.254.19.183/16  node2       e3b     true
+
+----
+====
+
+
+. Los puertos de clúster de cada nodo están conectados a los switches de clúster existentes de la siguiente manera (desde la perspectiva de los nodos) mediante el comando:
++
+`network device-discovery show -protocol`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol cdp*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node1      /cdp
+            e3a    C1 (6a:ad:4f:98:3b:3f)    0/1               -
+            e3b    C2 (6a:ad:4f:98:4c:a4)    0/1               -
+node2      /cdp
+            e3a    C1 (6a:ad:4f:98:3b:3f)    0/2               -
+            e3b    C2 (6a:ad:4f:98:4c:a4)    0/2               -
+----
+====
+. Los puertos y los switches del clúster se conectan de la siguiente manera (desde la perspectiva de los switches) mediante el comando:
++
+`show cdp neighbors`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+C1# *show cdp neighbors*
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID             Local Intrfce Hldtme Capability  Platform         Port ID
+node1                 Eth1/1        124    H           AFF-A400         e3a
+node2                 Eth1/2        124    H           AFF-A400         e3a
+C2                    0/13          179    S I s       CN1610           0/13
+C2                    0/14          175    S I s       CN1610           0/14
+C2                    0/15          179    S I s       CN1610           0/15
+C2                    0/16          175    S I s       CN1610           0/16
+
+C2# *show cdp neighbors*
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+
+Device-ID             Local Intrfce Hldtme Capability  Platform         Port ID
+node1                 Eth1/1        124    H           AFF-A400         e3b
+node2                 Eth1/2        124    H           AFF-A400         e3b
+C1                    0/13          175    S I s       CN1610           0/13
+C1                    0/14          175    S I s       CN1610           0/14
+C1                    0/15          175    S I s       CN1610           0/15
+C1                    0/16          175    S I s       CN1610           0/16
+----
+====
+. Compruebe que la red de clúster tiene conectividad completa mediante el comando:
++
+`cluster ping-cluster -node node-name`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node node2*
+
+Host is node2
+Getting addresses from network interface table...
+Cluster node1_clus1 169.254.209.69 node1     e3a
+Cluster node1_clus2 169.254.49.125 node1     e3b
+Cluster node2_clus1 169.254.47.194 node2     e3a
+Cluster node2_clus2 169.254.19.183 node2     e3b
+Local = 169.254.47.194 169.254.19.183
+Remote = 169.254.209.69 169.254.49.125
+Cluster Vserver Id = 4294967293
+Ping status:
+....
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s)
+................
+Detected 9000 byte MTU on 4 path(s):
+    Local 169.254.19.183 to Remote 169.254.209.69
+    Local 169.254.19.183 to Remote 169.254.49.125
+    Local 169.254.47.194 to Remote 169.254.209.69
+    Local 169.254.47.194 to Remote 169.254.49.125
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
+----
+====
+. En el switch C2, apague los puertos conectados a los puertos de clúster de los nodos.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(C2)# *configure*
+(C2)(Config)# *interface 0/1-0/12*
+(C2)(Interface 0/1-0/12)# *shutdown*
+(C2)(Interface 0/1-0/12)# *exit*
+(C2)(Config)# *exit*
+----
+====
+. Mueva los puertos de clúster de nodos del switch antiguo C2 al nuevo switch CS2 mediante el cableado adecuado compatible con Cisco 9336C-FX2.
+. Mostrar los atributos del puerto de red:
++
+`network port show -ipspace Cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                       Ignore
+                                                 Speed(Mbps)  Health   Health
+Port      IPspace    Broadcast Domain Link MTU   Admin/Oper   Status   Status
+--------- ---------- ---------------- ---- ----- ------------ -------- ------
+e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
+e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
+
+Node: node2
+                                                                       Ignore
+                                                 Speed(Mbps)  Health   Health
+Port      IPspace    Broadcast Domain Link MTU   Admin/Oper   Status   Status
+--------- ---------- ---------------- ---- ----- ------------ -------- ------
+e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
+e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
+----
+====
+. Los puertos de clúster de cada nodo ahora están conectados a los switches de clúster del siguiente modo, desde la perspectiva de los nodos:
++
+`network device-discovery show -protocol`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol cdp*
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node1      /cdp
+            e3a    C1  (6a:ad:4f:98:3b:3f)   0/1               CN1610
+            e3b    cs2 (b8:ce:f6:19:1a:7e)   Ethernet1/1/1     N9K-C9336C-FX2
+node2      /cdp
+            e3a    C1  (6a:ad:4f:98:3b:3f)   0/2               CN1610
+            e3b    cs2 (b8:ce:f6:19:1b:96)   Ethernet1/1/2     N9K-C9336C-FX2
+----
+====
+. En el switch CS2, compruebe que todos los puertos de clúster de nodos estén activos:
++
+`network interface show -vserver Cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+            Logical      Status     Network            Current     Current Is
+Vserver     Interfac     Admin/Oper Address/Mask       Node        Port    Home
+----------- ------------ ---------- ------------------ ----------- ------- ----
+Cluster
+            node1_clus1  up/up      169.254.3.4/16     node1       e0b     false
+            node1_clus2  up/up      169.254.3.5/16     node1       e0b     true
+            node2_clus1  up/up      169.254.3.8/16     node2       e0b     false
+            node2_clus2  up/up      169.254.3.9/16     node2       e0b     true
+----
+====
+. En el switch C1, apague los puertos conectados a los puertos de clúster de los nodos.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(C1)# *configure*
+(C1)(Config)# *interface 0/1-0/12*
+(C1)(Interface 0/1-0/12)# *shutdown*
+(C1)(Interface 0/1-0/12)# *exit*
+(C1)(Config)# *exit*
+----
+====
+. Mueva los puertos de clúster de nodos del switch antiguo C1 al nuevo switch CS1 mediante el cableado adecuado compatible con Cisco 9336C-FX2.
+. Compruebe la configuración final del clúster:
++
+`network port show -ipspace Cluster`
+
++
+Cada puerto debe aparecer `up` para `Link` y.. `healthy` para `Health Status`.
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                       Ignore
+                                                 Speed(Mbps)  Health   Health
+Port      IPspace    Broadcast Domain Link MTU   Admin/Oper   Status   Status
+--------- ---------- ---------------- ---- ----- ------------ -------- ------
+e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
+e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
+
+Node: node2
+                                                                       Ignore
+                                                 Speed(Mbps)  Health   Health
+Port      IPspace    Broadcast Domain Link MTU   Admin/Oper   Status   Status
+--------- ---------- ---------------- ---- ----- ------------ -------- ------
+e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
+e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
+----
+====
+. Los puertos de clúster de cada nodo ahora están conectados a los switches de clúster del siguiente modo, desde la perspectiva de los nodos:
++
+`network device-discovery show -protocol`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol cdp*
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface       Platform
+----------- ------ ------------------------- --------------  ----------------
+node1      /cdp
+            e3a    cs1 (b8:ce:f6:19:1a:7e)   Ethernet1/1/1   N9K-C9336C-FX2
+            e3b    cs2 (b8:ce:f6:19:1b:96)   Ethernet1/1/2   N9K-C9336C-FX2
+node2      /cdp
+            e3a    cs1 (b8:ce:f6:19:1a:7e)   Ethernet1/1/1   N9K-C9336C-FX2
+            e3b    cs2 (b8:ce:f6:19:1b:96)   Ethernet1/1/2   N9K-C9336C-FX2
+----
+====
+. En los switches CS1 y CS2, compruebe que todos los puertos del clúster de nodos estén activos:
++
+`network port show -ipspace Cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node2
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+----
+====
+. Compruebe que ambos nodos tengan una conexión cada uno con cada switch:
++
+`network device-discovery show -protocol`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el siguiente ejemplo, se muestran los resultados adecuados para ambos switches:
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol cdp*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface       Platform
+----------- ------ ------------------------- --------------  --------------
+node1      /cdp
+            e0a    cs1 (b8:ce:f6:19:1b:42)   Ethernet1/1/1   N9K-C9336C-FX2
+            e0b    cs2 (b8:ce:f6:19:1b:96)   Ethernet1/1/2   N9K-C9336C-FX2
+
+node2      /cdp
+            e0a    cs1 (b8:ce:f6:19:1b:42)   Ethernet1/1/1   N9K-C9336C-FX2
+            e0b    cs2 (b8:ce:f6:19:1b:96)   Ethernet1/1/2   N9K-C9336C-FX2
+----
+====
+
+
+
+
+=== Paso 3: Complete el procedimiento
+
+. Habilite la reversión automática en las LIF del clúster:
++
+`cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert true`
+
+. Compruebe que todos los LIF de red del clúster vuelven a estar en sus puertos raíz:
++
+`network interface show`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+            node1_clus1  up/up    169.254.209.69/16  node1         e3a     true
+            node1_clus2  up/up    169.254.49.125/16  node1         e3b     true
+            node2_clus1  up/up    169.254.47.194/16  node2         e3a     true
+            node2_clus2  up/up    169.254.19.183/16  node2         e3b     true
+----
+====
+. Habilite la función de recogida de registros de control de estado del switch Ethernet para recopilar archivos de registro relacionados con el switch mediante los dos comandos:
++
+`system switch ethernet log setup-password` y.. `system switch ethernet log enable-collection`
+
++
+.. Introduzca: `system switch ethernet log setup-password`
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log setup-password*
+Enter the switch name: <return>
+The switch name entered is not recognized.
+Choose from the following list:
+*cs1*
+*cs2*
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *cs1*
+RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] *y*
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *cs2*
+RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
+Do you want to continue? {y|n}:: [n] *y*
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+----
+====
+.. Seguido de: `system switch ethernet log enable-collection`
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system  switch ethernet log enable-collection*
+
+Do you want to enable cluster log collection for all nodes in the cluster?
+{y|n}: [n] *y*
+
+Enabling cluster switch log collection.
+
+cluster1::*>
+----
+====
++
+
+NOTE: Si alguno de estos comandos devuelve un error, póngase en contacto con el soporte de NetApp.
+
+
+
+. Inicie la función de recopilación de registros del switch:
++
+`system switch ethernet log collect -device *`
+
++
+Espere 10 minutos y compruebe que la recopilación del registro se ha realizado correctamente mediante el comando:
+
++
+`system switch ethernet log show`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> system switch ethernet log show
+Log Collection Enabled: true
+
+Index  Switch                       Log Timestamp        Status
+------ ---------------------------- -------------------  ---------    
+1      cs1 (b8:ce:f6:19:1b:42)      4/29/2022 03:05:25   complete   
+2      cs2 (b8:ce:f6:19:1b:96)      4/29/2022 03:07:42   complete
+----
+====
+. Vuelva a cambiar el nivel de privilegio a admin:
++
+`set -privilege admin`
+
+. Si ha suprimido la creación automática de casos, vuelva a habilitarla invocando un mensaje de AutoSupport:
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
+
