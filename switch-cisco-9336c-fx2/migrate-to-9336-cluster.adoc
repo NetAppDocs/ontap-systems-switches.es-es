@@ -19,8 +19,8 @@ Puede realizar una migración no disruptiva de un switch de clúster anterior de
 
 Asegúrese de que:
 
-* Algunos puertos de los switches Nexus 9336C-FX2 están configurados para funcionar a 10 GbE o 40 GbE.
-* La conectividad de 10 GbE y 40 GbE de los nodos a los switches de clúster Nexus 9336C-FX2 ha sido planificada, migrado y documentada.
+* Algunos de los puertos de los switches Nexus 9336C-FX2 están configurados para funcionar a 10GbE o 40GbE GbE.
+* Se ha planificado, migrado y documentado la conectividad 10GbE y 40GbE desde los nodos a los switches del clúster Nexus 9336C-FX2.
 * El clúster está funcionando completamente (no debería haber errores en los registros o problemas similares).
 * La personalización inicial de los switches Cisco Nexus 9336C-FX2 finaliza para que:
 +
@@ -561,14 +561,44 @@ Si los LIF del clúster no han cambiado a su puerto de inicio, los revierte manu
 +
 `cluster show`
 
-. Haga ping en las interfaces de clúster remoto para verificar la conectividad:
-+
+. Compruebe la conectividad de las interfaces del clúster remoto:
+
+
+[role="tabbed-block"]
+====
+.ONTAP 9.9.1 y versiones posteriores
+--
+Puede utilizar el `network interface check cluster-connectivity` comando para iniciar una comprobación de accesibilidad de la conectividad del clúster y, a continuación, muestre los detalles:
+
+`network interface check cluster-connectivity start` y.. `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity start*
+----
+*NOTA:* Espere varios segundos antes de ejecutar el comando show para mostrar los detalles.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source          Destination       Packet
+Node   Date                       LIF             LIF               Loss
+------ -------------------------- --------------- ----------------- -----------
+node1
+       3/5/2022 19:21:18 -06:00   node1_clus2      node2_clus1      none
+       3/5/2022 19:21:20 -06:00   node1_clus2      node2_clus2      none
+
+node2
+       3/5/2022 19:21:18 -06:00   node2_clus2      node1_clus1      none
+       3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
+----
+--
+.Todos los lanzamientos de ONTAP
+--
+En todas las versiones de ONTAP, también se puede utilizar el `cluster ping-cluster -node <name>` comando para comprobar la conectividad:
+
 `cluster ping-cluster -node <name>`
 
-+
-.Muestra el ejemplo
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *cluster ping-cluster -node node2*
@@ -596,8 +626,9 @@ RPC status:
 2 paths up, 0 paths down (tcp check)
 2 paths up, 0 paths down (udp check)
 ----
+--
 ====
-. Habilite la función de recogida de registros de control de estado del switch Ethernet para recopilar archivos de registro relacionados con el switch.
+. [[step5]]Habilite la función de recopilación de registros del monitor de estado del switch Ethernet para recopilar archivos de registro relacionados con el switch.
 
 
 [role="tabbed-block"]

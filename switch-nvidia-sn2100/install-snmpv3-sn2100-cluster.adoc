@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: sn2100 SN2100 cabling setup, sn2100 switches configuration, cumulus linux os 
 summary: Esta versión incluye soporte para SNMPv3 para la supervisión de registros. 
 ---
-= Configure SNMPv3 para la recopilación de registros del conmutador
+= Configurar SNMPv3
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga este procedimiento para configurar SNMPv3, que admite la recopilación de registros de conmutación y la supervisión del estado del conmutador (SHM).
+Siga este procedimiento para configurar SNMPv3, que admite la monitorización del estado del switch (CSHM).
 
 .Acerca de esta tarea
 Los siguientes comandos configuran un nombre de usuario SNMPv3 en switches NVIDIA SN2100:
@@ -27,7 +27,7 @@ Los siguientes comandos configuran un nombre de usuario SNMPv3 en switches NVIDI
 El siguiente comando configura un nombre de usuario SNMPv3 en el lado ONTAP:
 `cluster1::*> security login create -user-or-group-name _SNMPv3_USER_ -application snmp -authentication-method usm -remote-switch-ipaddress _ADDRESS_`
 
-El siguiente comando establece el nombre de usuario SNMPv3 con SHM:
+El siguiente comando establece el nombre de usuario SNMPv3 con CSHM:
 `cluster1::*> system switch ethernet modify -device _DEVICE_ -snmp-version SNMPv3 -community-or-username _SNMPv3_USER_`
 
 .Pasos
