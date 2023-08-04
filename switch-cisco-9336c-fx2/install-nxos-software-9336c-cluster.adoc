@@ -366,6 +366,7 @@ GEM  FPGA                        0x2
 GEM  FPGA                        0x2
 ----
 ====
+. Repita los pasos 1 a 8 para instalar el software NX-OS en el interruptor CS1.
 
 
 .El futuro
