@@ -25,8 +25,8 @@ Se admiten los siguientes switches de clúster:
 
 Compruebe que la configuración cumple los siguientes requisitos:
 
-* Algunos de los puertos de los switches BES-53248 están configurados para funcionar a 10GbE o 40GbE.
-* Se ha planificado, migrado y documentado la conectividad 10GbE y 40GbE desde los nodos a los switches de clúster BES-53248.
+* Algunos de los puertos de los conmutadores BES-53248 están configurados para funcionar a 10GbE.
+* La conectividad 10GbE desde los nodos a los switches de clúster BES-53248 se ha planificado, migrado y documentado.
 * El clúster está funcionando completamente (no debería haber errores en los registros o problemas similares).
 * Se ha completado la personalización inicial de los interruptores BES-53248, de modo que:
 +
@@ -205,11 +205,11 @@ Node/       Local  Discovered
 Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
 ----------- ------ ------------------------- ----------------  ----------------
 node2      /cdp
-            e0a    CL2                       0/2               CN1610
-            e0b    CL1                       0/2               CN1610
+            e0a    CL1                       0/2               CN1610
+            e0b    CL2                       0/2               CN1610
 node1      /cdp
-            e0a    CL2                       0/1               CN1610
-            e0b    CL1                       0/1               CN1610
+            e0a    CL1                       0/1               CN1610
+            e0b    CL2                       0/1               CN1610
 ----
 ====
 . Determinar el estado administrativo u operativo de cada interfaz de clúster.
@@ -279,21 +279,21 @@ A partir de ONTAP 9,8, utilice el comando: `system switch ethernet show -is-moni
 [listing, subs="+quotes"]
 ----
 cluster1::*> *system switch ethernet show -is-monitoring-enabled-operational true*
-Switch                      Type               Address          Model
---------------------------- ------------------ ---------------- ---------------
-cs1                         cluster-network    10.228.143.200   BES-53248
-           Serial Number: QTWCU22510008
-            Is Monitored: true
-                  Reason: None
-        Software Version: 3.10.0.3
-          Version Source: CDP/ISDP
+Switch                        Type             Address       Model
+----------------------------- ---------------- ------------- --------
+CL1                           cluster-network  10.10.1.101   CN1610
+     Serial Number: 01234567
+      Is Monitored: true
+            Reason:
+  Software Version: 1.3.0.3
+    Version Source: ISDP
 
-cs2                         cluster-network    10.228.143.202   BES-53248
-           Serial Number: QTWCU22510009
-            Is Monitored: true
-                  Reason: None
-        Software Version: 3.10.0.3
-          Version Source: CDP/ISDP
+CL2                           cluster-network  10.10.1.102   CN1610
+     Serial Number: 01234568
+      Is Monitored: true
+            Reason:
+  Software Version: 1.3.0.3
+    Version Source: ISDP
 cluster1::*>
 ----
 --
@@ -304,21 +304,21 @@ Para ONTAP 9,7 y versiones anteriores, utilice el comando: `system cluster-switc
 [listing, subs="+quotes"]
 ----
 cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
-Switch                      Type               Address          Model
---------------------------- ------------------ ---------------- ---------------
-cs1                         cluster-network    10.228.143.200   BES-53248
-           Serial Number: QTWCU22510008
-            Is Monitored: true
-                  Reason: None
-        Software Version: 3.10.0.3
-          Version Source: CDP/ISDP
+Switch                        Type             Address       Model
+----------------------------- ---------------- ------------- --------
+CL1                           cluster-network  10.10.1.101   CN1610
+     Serial Number: 01234567
+      Is Monitored: true
+            Reason:
+  Software Version: 1.3.0.3
+    Version Source: ISDP
 
-cs2                         cluster-network    10.228.143.202   BES-53248
-           Serial Number: QTWCU22510009
-            Is Monitored: true
-                  Reason: None
-        Software Version: 3.10.0.3
-          Version Source: CDP/ISDP
+CL2                           cluster-network  10.10.1.102   CN1610
+     Serial Number: 01234568
+      Is Monitored: true
+            Reason:
+  Software Version: 1.3.0.3
+    Version Source: ISDP
 cluster1::*>
 ----
 --
@@ -329,19 +329,19 @@ cluster1::*>
 ----
 cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
 ----
-. En el switch de clúster CL1, apague los puertos conectados a los puertos de clúster de los nodos:
+. En el switch de clúster CL2, apague los puertos conectados a los puertos de clúster de los nodos:
 +
 .Muestra el ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
 ----
-(CL1)# *configure*
-(CL1)(Config)# *interface 0/13-0/16*
-(CL1)(Interface 0/13-0/16)# *shutdown*
-(CL1)(Interface 0/13-0/16)# *exit*
-(CL1)(Config)# *exit*
-(CL1)#
+(CL2)# *configure*
+(CL2)(Config)# *interface 0/1-0/16*
+(CL2)(Interface 0/1-0/16)# *shutdown*
+(CL2)(Interface 0/1-0/16)# *exit*
+(CL2)(Config)# *exit*
+(CL2)#
 ----
 ====
 . Compruebe que las LIF del clúster han migrado a los puertos alojados en el switch de clúster CL1. Esto puede tardar unos segundos.
@@ -360,9 +360,9 @@ Vserver     Interface    Admin/Oper Address/Mask       Node          Port    Hom
 ----------- ------------ ---------- ------------------ ------------- ------- ----
 Cluster
             node1_clus1  up/up      169.254.209.69/16  node1         e0a     true
-            node1_clus2  up/up      169.254.49.125/16  node1         e0b     false
+            node1_clus2  up/up      169.254.49.125/16  node1         e0a     false
             node2_clus1  up/up      169.254.47.194/16  node2         e0a     true
-            node2_clus2  up/up      169.254.19.183/16  node2         e0b     false
+            node2_clus2  up/up      169.254.19.183/16  node2         e0a     false
 ----
 ====
 . Compruebe que el clúster esté en buen estado:
@@ -382,7 +382,7 @@ node1      true    true          false
 node2      true    true          false
 ----
 ====
-. Mueva todos los cables de conexión de nodos de clúster del switch antiguo CS2 al nuevo switch de CS2.
+. Mueva todos los cables de conexión de nodos de clúster del switch antiguo CL2 al nuevo switch de CS2.
 . Confirme el estado de las conexiones de red movidas a CS2:
 +
 `network port show -ipspace Cluster`
@@ -431,29 +431,29 @@ Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
 ----------- ------ ------------------------- ----------------  ----------------
 node2      /cdp
             e0a    CL1                       0/2               CN1610
-            e0b    cs1                       0/2               BES-53248
+            e0b    cs2                       0/2               BES-53248
 node1      /cdp
             e0a    CL1                       0/1               CN1610
-            e0b    cs1                       0/1               BES-53248
+            e0b    cs2                       0/1               BES-53248
 ----
 ====
-. Confirme las conexiones del puerto del switch desde la perspectiva del switch CS2 mediante los comandos:
+. Confirme que las conexiones de los puertos del switch sean correctas desde la perspectiva del switch CS2 mediante los comandos:
 +
 [listing, subs="+quotes"]
 ----
 cs2# *show interface brief*
 cs2# *show cdp neighbors*
 ----
-. En el switch de clúster CL2, apague los puertos conectados a los puertos de clúster de los nodos.
+. En el switch de clúster CL1, apague los puertos conectados a los puertos de clúster de los nodos.
 +
 [listing, subs="+quotes"]
 ----
-(CL2)# *configure*
-(CL2)(Config)# *interface 0/1-0/16*
-(CL2)(Interface 0/1-0/16)# *shutdown*
-(CL2)(Interface 0/13-0/16)# *exit*
-(CL2)(Config)# *exit*
-(CL2)#
+(CL1)# *configure*
+(CL1)(Config)# *interface 0/1-0/16*
+(CL1)(Interface 0/1-0/16)# *shutdown*
+(CL1)(Interface 0/13-0/16)# *exit*
+(CL1)(Config)# *exit*
+(CL1)#
 ----
 +
 Todos los LIF del clúster se mueven al switch CS2.
@@ -473,9 +473,9 @@ cluster1::*> *network interface show -vserver Cluster*
 Vserver     Interface    Admin/Oper Address/Mask       Node          Port    Home
 ----------- ------------ ---------- ------------------ ------------- ------- ----
 Cluster
-            node1_clus1  up/up      169.254.209.69/16  node1         e0a     true
+            node1_clus1  up/up      169.254.209.69/16  node1         e0b     false
             node1_clus2  up/up      169.254.49.125/16  node1         e0b     true
-            node2_clus1  up/up      169.254.47.194/16  node2         e0a     true
+            node2_clus1  up/up      169.254.47.194/16  node2         e0b     false
             node2_clus2  up/up      169.254.19.183/16  node2         e0b     true
 ----
 ====
@@ -544,14 +544,14 @@ Node/       Local  Discovered
 Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
 ----------- ------ ------------------------- ----------------  ----------------
 node1      /cdp
-            e0a    cs2                       0/1               BES-53248
-            e0b    cs1                       0/1               BES-53248
+            e0a    cs1                       0/1               BES-53248
+            e0b    cs2                       0/1               BES-53248
 node2      /cdp
-            e0a    cs2                       0/2               BES-53248
-            e0b    cs1                       0/2               BES-53248
+            e0a    cs1                       0/2               BES-53248
+            e0b    cs2                       0/2               BES-53248
 ----
 ====
-. Confirme las conexiones del puerto del switch desde la perspectiva del switch CS1 mediante los comandos:
+. Confirme que las conexiones de los puertos del switch sean correctas desde la perspectiva del switch CS1 mediante los comandos:
 +
 [listing, subs="+quotes"]
 ----
@@ -599,7 +599,7 @@ Group Port-       Type     Protocol  Member Ports
 1     Po1(SU)     Eth      LACP      Eth1/55(P)   Eth1/56(P)
 ----
 ====
-. Extraiga los interruptores CN1610 sustituidos si no se retiran automáticamente:
+. Elimine los switches CN1610 sustituidos de la tabla de switches del clúster si no se eliminan automáticamente:
 
 
 [role="tabbed-block"]
@@ -610,18 +610,18 @@ A partir de ONTAP 9,8, utilice el comando: `system switch ethernet delete -devic
 
 [listing]
 ----
-cluster::*> system switch ethernet delete -device CL2
 cluster::*> system switch ethernet delete -device CL1
+cluster::*> system switch ethernet delete -device CL2
 ----
 --
-.ONTAP 9,4 y anteriores
+.ONTAP 9.7 y anteriores
 --
-Para ONTAP 9,4 y versiones anteriores, utilice el comando: `system cluster-switch delete -device _device-name_`
+Para ONTAP 9,7 y versiones anteriores, utilice el comando: `system cluster-switch delete -device _device-name_`
 
 [listing]
 ----
-cluster::*> system cluster-switch delete -device CL2
 cluster::*> system cluster-switch delete -device CL1
+cluster::*> system cluster-switch delete -device CL2
 ----
 --
 ====
@@ -688,7 +688,7 @@ RPC status:
 . Cree una contraseña para la función de recopilación de registros de monitor de estado del switch Ethernet.
 +
 
-IMPORTANT: Para habilitar la función de recopilación de registros, debe ejecutar ONTAP 9.12.1 y versiones posteriores, y EFOS 3.8.0.2 y versiones posteriores.
+IMPORTANT: Para habilitar la función de recopilación de registros, debe ejecutar ONTAP 9.10.1P15, 9.11.1P12 o 9.12.1 y versiones posteriores, y EFOS 3.8.0.2 y versiones posteriores.
 
 +
 `system switch ethernet log setup-password`
@@ -768,6 +768,3 @@ CAUTION: Si alguno de estos comandos devuelve un error o si la recogida de regis
 cluster::*> system node autosupport invoke -node * -type all -message MAINT=END
 ----
 
-
-.El futuro
-Una vez finalizada la migración, es posible que tenga que instalar el archivo de configuración necesario para admitir el Monitor de estado del conmutador de clúster (CSHM) para los switches de clúster BES-53248. Consulte link:configure-health-monitor.html["Instale el archivo de configuración del Monitor de estado del conmutador de clúster (CSHM)"] y.. link:configure-log-collection.html["Habilite la función de recogida de registros"].
