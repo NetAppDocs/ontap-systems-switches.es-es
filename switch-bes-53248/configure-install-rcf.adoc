@@ -756,7 +756,7 @@ cluster1::*>
 ----
 --
 ====
-. [[step17]]En el switch de cluster CS1, apague los puertos conectados a los puertos de cluster de los nodos.
+. [[step18]]En el switch de cluster CS1, apague los puertos conectados a los puertos de cluster de los nodos.
 +
 En el ejemplo siguiente se utiliza el resultado del ejemplo de interfaz:
 
