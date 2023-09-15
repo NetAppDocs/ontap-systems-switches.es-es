@@ -23,7 +23,6 @@ Antes de comenzar, complete el procedimiento en link:install-nxos-overview-9336c
 * Una copia de seguridad actual de la configuración del switch.
 * Un clúster en pleno funcionamiento (sin errores en los registros o problemas similares).
 * El archivo RCF actual.
-* Una configuración de arranque en el RCF que refleja las imágenes de arranque deseadas, necesaria si está instalando únicamente NX-OS y manteniendo su versión actual de RCF. Si necesita cambiar la configuración de arranque para reflejar las imágenes de arranque actuales, debe hacerlo antes de volver a aplicar el RCF para que se cree una instancia de la versión correcta en futuros reinicios.
 * Una conexión de consola al conmutador, necesaria para instalar el RCF.
 
 

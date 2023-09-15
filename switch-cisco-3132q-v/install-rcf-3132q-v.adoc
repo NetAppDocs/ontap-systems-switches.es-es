@@ -21,7 +21,6 @@ Siga este procedimiento para instalar el RCF después de configurar por primera 
 * Una copia de seguridad actual de la configuración del switch.
 * Un clúster en pleno funcionamiento (sin errores en los registros o problemas similares).
 * El archivo de configuración de referencia actual (RCF).
-* Una configuración de arranque en el RCF que refleja las imágenes de arranque deseadas, necesaria si está instalando únicamente NX-OS y manteniendo su versión actual de RCF. Si necesita cambiar la configuración de arranque para reflejar las imágenes de arranque actuales, debe hacerlo antes de volver a aplicar el RCF para que se cree una instancia de la versión correcta en futuros reinicios.
 * Una conexión de consola al conmutador, necesaria para instalar el RCF.
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet de Cisco"^]. Consulte la tabla de compatibilidad del conmutador para conocer las versiones ONTAP y RCF admitidas. Tenga en cuenta que puede haber dependencias de comandos entre la sintaxis del comando en el RCF y la que se encuentra en las versiones de NX-OS.
 * https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Switches Cisco Nexus serie 3000"^]. Consulte las guías de actualización y software adecuadas disponibles en el sitio web de Cisco para obtener documentación completa sobre los procedimientos de actualización y degradación de switches de Cisco.
@@ -383,6 +382,10 @@ Cuando compruebe la salida para verificar que tiene el RCF correcto, asegúrese 
 ** Personalizaciones
 +
 La salida varía en función de la configuración del sitio. Compruebe la configuración del puerto y consulte las notas de versión para conocer los cambios específicos del RCF que haya instalado.
+
++
+
+NOTE: Para conocer los pasos sobre cómo conectar sus puertos 10GbE después de una actualización de RCF, consulte el artículo de la base de conocimientos https://kb.netapp.com/onprem%2FSwitches%2FCisco%2F10GbE_ports_on_Cisco_3132Q_cluster_switch_do_not_come_online["Los puertos 10GbE de un switch de clúster Cisco 3132Q no se conectan"^].
 
 
 

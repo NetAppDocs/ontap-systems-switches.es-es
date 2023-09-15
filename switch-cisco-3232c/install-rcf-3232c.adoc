@@ -21,7 +21,6 @@ Siga este procedimiento para instalar el RCF después de configurar el interrupt
 * Una copia de seguridad actual de la configuración del switch.
 * Un clúster en pleno funcionamiento (sin errores en los registros o problemas similares).
 * El archivo de configuración de referencia actual (RCF).
-* Una configuración de arranque en el RCF que refleja las imágenes de arranque deseadas, necesaria si está instalando únicamente NX-OS y manteniendo su versión actual de RCF. Si necesita cambiar la configuración de arranque para reflejar las imágenes de arranque actuales, debe hacerlo antes de volver a aplicar el RCF para que se cree una instancia de la versión correcta en futuros reinicios.
 * Una conexión de consola al conmutador, necesaria para instalar el RCF.
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Página del switch Cisco Ethernet"^] Consulte la tabla de compatibilidad del conmutador para conocer las versiones ONTAP y RCF admitidas. Tenga en cuenta que puede haber dependencias de comandos entre la sintaxis del comando en el RCF y la que se encuentra en las versiones de NX-OS.
 * link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Switches Cisco Nexus serie 3000"^]. Consulte las guías de software y actualización adecuadas disponibles en el sitio web de Cisco para obtener documentación completa sobre los procedimientos de actualización y degradación de switches de Cisco.
