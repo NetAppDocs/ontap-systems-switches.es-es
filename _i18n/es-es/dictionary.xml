@@ -1454,7 +1454,6 @@
   <block id="bd8bc538541d81e289ef66a8873145af" category="paragraph">Debe preparar ambos switches en este momento. Si necesita actualizar el RCF y la imagen, debe completar el siguiente procedimiento:</block>
   <block id="67dbd130b7f97be2f3adeeb97692aa5d" category="list-text">Consulte <block ref="03c4e3201f2c647c804c56964354a408" category="inline-link-macro-rx"></block> En el sitio de soporte de NetApp.</block>
   <block id="ef84127d5ef060917ce0f8f8ec03bf82" category="list-text">Descargue la versión adecuada del software de imagen en <block ref="a1b5971027192ba8f103906f3e0c5af3" category="inline-link-macro-rx"></block>.</block>
-  <block id="593eea095fb5f0ea1367821afa7c0fe4" category="list-text">Migre los LIF asociados con el segundo switch CN1610 que tiene previsto sustituir:<block ref="1b5c9a5a1fdd67b400dde19fe14f73dc" prefix=" " category="inline-code"></block></block>
   <block id="98eb99fcc0ed94997a2ab2be00fd87f8" category="paragraph">Debe migrar cada LIF de forma individual, como se muestra en el ejemplo siguiente:</block>
   <block id="9c79613f94322b9249048fe262f0baea" category="section-title">Paso 2: Sustituya el interruptor del grupo CL2 por C2</block>
   <block id="e95612c7ef671203cc282ce38a48bdb4" category="paragraph"><block ref="fdb936507a9dbe73b5c4b16108a324e6" prefix="" category="inline-code"></block></block>
@@ -1538,7 +1537,6 @@
   <block id="e6f83bff1ab8bd0edb5a79370ff0af31" category="list-text">Vaya a la página _Cisco Ethernet Switches_ del sitio de soporte de NetApp.</block>
   <block id="d631e277d977d88a20a9eaedfa83bd83" category="paragraph"><block ref="d631e277d977d88a20a9eaedfa83bd83" category="inline-link-rx"></block></block>
   <block id="75f25895ca6e2ae979bdd258523b64d8" category="paragraph">Consulte la página __ONTAP 8.x o posterior Archivos de configuración de referencia de switches de red de administración y clúster__ Descargar y, a continuación, haga clic en la versión adecuada.</block>
-  <block id="94969cbe0be7342cddbd9e412401c429" category="paragraph"><block ref="8e0128bc25b5dc5f9c047028168bbade" prefix="" category="inline-code"></block></block>
   <block id="23cd51d657266665ae8f8c9d2a2ae14f" category="paragraph">El ejemplo siguiente muestra las LIF que se están migrando para los nodos n1 y n2; la migración de LIF se debe realizar en todos los nodos:</block>
   <block id="fb0f753ded9498a080196f8272f79423" category="paragraph">En el ejemplo siguiente se muestra el estado actual de cada clúster:</block>
   <block id="72611877ce7fbffb44381c1c62a69cd8" category="list-text">Apague ISL 41 a 48 en CL1, el switch Nexus 5596 activo con Cisco<block ref="5924f03a95ee6f7277e5bdd1e81b8fdc" prefix=" " category="inline-code"></block> comando.</block>
@@ -1553,7 +1551,6 @@
   <block id="fa5346f0c58f4b1b5012fffb9f4934d6" category="list-text">En todos los nodos, obtenga todos los puertos de interconexión del clúster conectados al switch 3232C C2:</block>
   <block id="817ba5eed7e8835e787f89e547717b05" category="paragraph"><block ref="a635746b25cc2b8ab0a88d030b0ce678" prefix="" category="inline-code"></block></block>
   <block id="71629f00b9c8bfbcf145893027b00d78" category="paragraph">En el ejemplo siguiente se muestran los LIF de clúster migrados que se han revertido a sus puertos principales:</block>
-  <block id="4bb0a806c923415aa07fe9a1803d503f" category="paragraph"><block ref="78bb613cf8602a02eec8ff34d73bdf7a" prefix="" category="inline-code"></block></block>
   <block id="73610b963ec877545620c671a3e11854" category="paragraph">El siguiente ejemplo muestra que las LIF de clúster necesarias se han migrado a puertos de clúster adecuados alojados en el switch de clúster, C2:</block>
   <block id="aabe8c05986e330ed02f20a2c7d0c4f3" category="list-text">Apague ISL 24, 31 y 32 en el interruptor activo 3232C C2.</block>
   <block id="be40283788b5470402d985e55a9aeea9" category="paragraph">El ejemplo siguiente muestra que los ISL se están cerrando:</block>
@@ -1685,7 +1682,6 @@
   <block id="4b45f9c3c89c6b4fd380706244fef39d" category="paragraph">Puede observar la siguiente salida en la consola del conmutador cs1 dependiendo de la versión RCF cargada previamente en el conmutador</block>
   <block id="4ed47e98eb6846af4a7b5f99dc5d30fe" category="paragraph">En el ejemplo siguiente se utiliza el resultado del ejemplo de interfaz del paso 1:</block>
   <block id="682b2767f6c6f1c70e03739d417441e3" category="list-text">Repita los pasos 7 a 14 en el interruptor cs1.</block>
-  <block id="01d6ab89c082cff9a22a80f6236ceceb" category="list-text">Reinicie el switch cs1.haga esto para activar las LIF de clúster para revertir a sus puertos raíz. Es posible ignorar los eventos "puertos de clúster inactivos" que se informan en los nodos mientras se reinicia el switch.</block>
   <block id="81a21562a46551e8ca40c723aba95324" category="summary">Para la instalación y el mantenimiento del switch Cisco Nexus 3232C, asegúrese de revisar toda la documentación recomendada.</block>
   <block id="2233fed064f7c2adac2dc21492938c09" category="doc">Requisitos de documentación para los switches Cisco Nexus 3232C</block>
   <block id="47ef3517d3d3996b89399d4a9639bea1" category="paragraph">Para configurar los switches Cisco Nexus 3232C, necesita la siguiente documentación de<block ref="40f761a60b53eb5657b22596a88a5500" category="inline-link-rx"></block> página.</block>
@@ -1726,7 +1722,6 @@
   <block id="4617b3d3dcf4f5abced4e558fa0b277d" category="list-text">Haga clic en *CONTINUAR* en la página *Descripción*, acepte el contrato de licencia y, a continuación, vaya a la página *Descargar*.</block>
   <block id="61bcf7a5eda4d122b02fd04b33e7755b" category="list-text">Descargue la versión correcta del software Image desde la página *Descarga del archivo de configuración de referencia del conmutador de red de administración y clúster Cisco®.</block>
   <block id="3f193f35123de159859633b1b5db0152" category="list-text">Migre las LIF del clúster a los puertos del nodo físico conectados al switch de reemplazo C2:</block>
-  <block id="2735b3724e74edb6ccb4db8e28ba50da" category="paragraph"><block ref="93afd82621bbfc8165836252ea311809" prefix="" category="inline-code"></block></block>
   <block id="f81bd0da785b861ef3aa6aff482966d7" category="paragraph">Debe migrar todas las LIF del clúster individualmente, como se muestra en el ejemplo siguiente:</block>
   <block id="ec6c6d07f8637f08eb764567ffc9140b" category="list-text">Compruebe el estado de los puertos del clúster y sus designaciones principales:</block>
   <block id="fb752c4a6200ed286349457edd2d4ac3" category="list-text">Apague los puertos de interconexión de clúster que están conectados físicamente al switch CL2 original:</block>
@@ -1819,7 +1814,6 @@
   <block id="23e1b64b8c8851cef7b50ef569617b78" category="paragraph">En el siguiente ejemplo se muestra el comando Cisco<block ref="cdf610401d84a31ec0b35a9530629e42" prefix=" " category="inline-code"></block> se utiliza para mostrar los dispositivos vecinos en el conmutador:</block>
   <block id="07045e09dc5220012b124c8d76ed9e95" category="paragraph">En el siguiente ejemplo se muestra la conectividad de puerto de clúster mostrada para una configuración de clúster de dos nodos sin switch:</block>
   <block id="391e43d90c21a6fb18e2a30c5b7cf705" category="list-text">Migre los LIF n1_clus1 y n2_clus1 a los puertos físicos de sus nodos de destino:</block>
-  <block id="addd737ab6a0a43417b329262c42d3d2" category="paragraph"><block ref="5972024d6ed12d7726edeb1a8d467c28" prefix="" category="inline-code"></block></block>
   <block id="d72fef4ab8d9db529856e27c2fa2cd10" category="paragraph">Debe ejecutar el comando para cada nodo local tal y como se muestra en el ejemplo siguiente:</block>
   <block id="d32db9f3c8c2e2d21b5597751be33587" category="section-title">Paso 2: Apague las LIF reasignadas y desconecte los cables</block>
   <block id="f0a27e85bc9ef3c5c7eea2de322f0f3c" category="list-text">Compruebe que las interfaces del clúster han migrado correctamente:</block>
@@ -4612,4 +4606,15 @@
   <block id="325c324b922ed6e1b216f99766068e43" category="list-text">[[step18]]En el switch de cluster CS1, apague los puertos conectados a los puertos de cluster de los nodos.</block>
   <block id="427c15bca394e9d3b5f203c35b96c743" category="inline-link">Los puertos 10GbE de un switch de clúster Cisco 3132Q no se conectan</block>
   <block id="20f0f9c709341c54050214259fc6c790" category="admonition">Para conocer los pasos sobre cómo conectar sus puertos 10GbE después de una actualización de RCF, consulte el artículo de la base de conocimientos<block ref="917fe6fdad3ed920883f4190398d0805" category="inline-link-rx"></block>.</block>
+  <block id="bc2be245d88ec44ff572954ca52f5e47" category="list-text">Repita los pasos 7 a 15 en el interruptor CS1.</block>
+  <block id="756f5b45c94a8929404edacf08b1bf8c" category="paragraph">Si alguna de las LIF de clúster no ha vuelto a sus puertos raíz, revierte manualmente:<block ref="af44897f72b682aae5fc0db1bf98e52d" prefix=" " category="inline-code"></block></block>
+  <block id="e459e50e2d5bebb928139aa0e4ce09ac" category="list-text">Compruebe el estado de los puertos del nodo de almacenamiento:</block>
+  <block id="266daf0ca11ec57d9d3cb7598fd930b3" category="paragraph"><block ref="d14f00174ffa33ec8f559ffde7a52484" prefix="" category="inline-code"></block></block>
+  <block id="cc689ef0feeba424bc4f0e37875d33b3" category="paragraph"><block ref="364a6d106eff03491354bfdab6856a69" prefix="" category="inline-code"></block></block>
+  <block id="a2d242366fa878251941b37993d9c788" category="list-text">Migre los LIF asociados con el segundo switch CN1610 que tiene previsto sustituir:</block>
+  <block id="bac3eff3de1438929f64e35c9c1d753e" category="paragraph"><block ref="44d01163c6b63fd73868a8216bae200c" prefix="" category="inline-code"></block></block>
+  <block id="bc83504dbf5dda25d37f158b52b6802c" category="paragraph"><block ref="1ae08a2455b8010c97a491c02e58e474" prefix="" category="inline-code"></block></block>
+  <block id="d71c484dda1d9ad3392c9e1a47d3f9d8" category="paragraph">Los puertos eth1/31 y eth1/32 deben indicar (P), lo cual significa que ambos puertos ISL están activos en el puerto-canal.</block>
+  <block id="e2163aa514dd6f969019af7f51eb5403" category="paragraph"><block ref="ba8401ca8d9063944fa4c23801539873" prefix="" category="inline-code"></block></block>
+  <block id="2744015fafc5955101dabee4165aca61" category="admonition">Solo son compatibles los switches validados por NetApp (pedidos a través de NetApp).</block>
 </blocks>

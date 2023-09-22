@@ -106,9 +106,9 @@ El mensaje de AutoSupport notifica al soporte técnico de esta tarea de mantenim
 ====
 En el ejemplo siguiente se muestra cuántas interfaces de interconexión de clúster se han configurado en cada nodo para cada switch de interconexión de clúster:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::> network device-discovery show
+cluster::> *network device-discovery show*
             Local  Discovered
 Node        Port   Device              Interface        Platform
 ----------- ------ ------------------- ---------------- ----------------
@@ -137,9 +137,9 @@ n2         /cdp
 ====
 En el ejemplo siguiente se muestran los atributos de puerto de red en los nodos n1 y n2:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network port show –role cluster
+cluster::*> *network port show –role cluster*
   (network port show)
 Node: n1
                                                                        Ignore
@@ -173,9 +173,9 @@ e0d       Cluster      Cluster          up   9000  auto/10000 -        -
 ====
 En el ejemplo siguiente se muestra la información general sobre todas las LIF del clúster, incluidos sus puertos actuales:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface show -role cluster
+cluster::*> *network interface show -role cluster*
  (network interface show)
             Logical    Status     Network            Current       Current Is
 Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
@@ -202,9 +202,9 @@ Cluster
 ====
 En el siguiente ejemplo se muestran los switches de clúster activos:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> system cluster-switch show
+cluster::*> *system cluster-switch show*
 
 Switch                        Type               Address         Model
 ----------------------------- ------------------ --------------- ---------------
@@ -257,7 +257,7 @@ Para encontrar la versión correcta, consulte la _ONTAP 8.x o posterior página 
 
 . Migre los LIF asociados con el segundo switch Nexus 5596 que se va a reemplazar:
 +
-`network interface migrate -vserver Cluster -lif _lif-name_ -source-node _source-node-name_ – destination-node _node-name_ -destination-port _destination-port-name_`
+`network interface migrate -vserver _vserver-name_ -lif _lif-name_ -source-node _source-node-name_ - destination-node _node-name_ -destination-port _destination-port-name_`
 
 +
 .Muestra el ejemplo
@@ -265,16 +265,16 @@ Para encontrar la versión correcta, consulte la _ONTAP 8.x o posterior página 
 ====
 El ejemplo siguiente muestra las LIF que se están migrando para los nodos n1 y n2; la migración de LIF se debe realizar en todos los nodos:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface migrate -vserver Cluster -lif n1_clus2 -source-node n1 –
-destination-node n1 -destination-port e0a
-cluster::*> network interface migrate -vserver Cluster -lif n1_clus3 -source-node n1 –
-destination-node n1 -destination-port e0d
-cluster::*> network interface migrate -vserver Cluster -lif n2_clus2 -source-node n2 –
-destination-node n2 -destination-port e0a
-cluster::*> network interface migrate -vserver Cluster -lif n2_clus3 -source-node n2 –
-destination-node n2 -destination-port e0d
+cluster::*> *network interface migrate -vserver Cluster -lif n1_clus2 -source-node n1 -
+destination-node n1 -destination-port e0a*
+cluster::*> *network interface migrate -vserver Cluster -lif n1_clus3 -source-node n1 -
+destination-node n1 -destination-port e0d*
+cluster::*> *network interface migrate -vserver Cluster -lif n2_clus2 -source-node n2 -
+destination-node n2 -destination-port e0a*
+cluster::*> *network interface migrate -vserver Cluster -lif n2_clus3 -source-node n2 -
+destination-node n2 -destination-port e0d*
 ----
 ====
 . Compruebe el estado del clúster:
@@ -287,9 +287,9 @@ destination-node n2 -destination-port e0d
 ====
 En el ejemplo siguiente se muestra el estado actual de cada clúster:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface show -role cluster
+cluster::*> *network interface show -role cluster*
  (network interface show)
             Logical    Status     Network            Current       Current Is
 Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
@@ -322,13 +322,12 @@ Cluster
 ====
 Los siguientes comandos apagan los puertos especificados en n1 y n2, pero los puertos deben estar apagados en todos los nodos:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-
-cluster::*> network port modify -node n1 -port e0b -up-admin false
-cluster::*> network port modify -node n1 -port e0c -up-admin false
-cluster::*> network port modify -node n2 -port e0b -up-admin false
-cluster::*> network port modify -node n2 -port e0c -up-admin false
+cluster::*> *network port modify -node n1 -port e0b -up-admin false*
+cluster::*> *network port modify -node n1 -port e0c -up-admin false*
+cluster::*> *network port modify -node n2 -port e0b -up-admin false*
+cluster::*> *network port modify -node n2 -port e0c -up-admin false*
 ----
 ====
 . Hacer ping a las interfaces remotas del clúster y realizar una comprobación del servidor RPC:
@@ -341,9 +340,9 @@ cluster::*> network port modify -node n2 -port e0c -up-admin false
 ====
 En el siguiente ejemplo se muestra el nodo n1 con alas y el estado RPC indicado posteriormente:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> cluster ping-cluster -node n1
+cluster::*> *cluster ping-cluster -node n1*
 Host is n1
 Getting addresses from network interface table...
 Cluster n1_clus1 n1		e0a	10.10.0.1
@@ -383,7 +382,7 @@ Detected 1500 byte MTU on 16 path(s):
 Larger than PMTU communication succeeds on 16 path(s)
 RPC status:
 4 paths up, 0 paths down (tcp check)
-4 paths up, 0 paths down (udp check
+4 paths up, 0 paths down (udp check)
 ----
 ====
 . Apague ISL 41 a 48 en CL1, el switch Nexus 5596 activo con Cisco `shutdown` comando.
@@ -396,13 +395,13 @@ Para obtener más información acerca de los comandos de Cisco, consulte la guí
 ====
 En el ejemplo siguiente se muestran los ISL 41 a 48 apagados en el switch Nexus 5596 CL1:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-(CL1)# configure
-(CL1)(Config)# interface e1/41-48
-(CL1)(config-if-range)# shutdown
-(CL1)(config-if-range)# exit
-(CL1)(Config)# exit
+(CL1)# *configure*
+(CL1)(Config)# *interface e1/41-48*
+(CL1)(config-if-range)# *shutdown*
+(CL1)(config-if-range)# *exit*
+(CL1)(Config)# *exit*
 (CL1)#
 ----
 ====
@@ -416,21 +415,20 @@ Para obtener más información acerca de los comandos de Cisco, consulte la guí
 ====
 En el siguiente ejemplo, se muestra una configuración de ISL temporal entre CL1 y C2:
 
-[source, nolinebreak]
+[listing, subs="+quotes"]
 ----
-
-C2# configure
-C2(config)# interface port-channel 2
-C2(config-if)# switchport mode trunk
-C2(config-if)# spanning-tree port type network
-C2(config-if)# mtu 9216
-C2(config-if)# interface breakout module 1 port 24 map 10g-4x
-C2(config)# interface e1/24/1-4
-C2(config-if-range)# switchport mode trunk
-C2(config-if-range)# mtu 9216
-C2(config-if-range)# channel-group 2 mode active
-C2(config-if-range)# exit
-C2(config-if)# exit
+C2# *configure*
+C2(config)# *interface port-channel 2*
+C2(config-if)# *switchport mode trunk*
+C2(config-if)# *spanning-tree port type network*
+C2(config-if)# *mtu 9216*
+C2(config-if)# *interface breakout module 1 port 24 map 10g-4x*
+C2(config)# *interface e1/24/1-4*
+C2(config-if-range)# *switchport mode trunk*
+C2(config-if-range)# *mtu 9216*
+C2(config-if-range)# *channel-group 2 mode active*
+C2(config-if-range)# *exit*
+C2(config-if)# *exit*
 ----
 ====
 . En todos los nodos, quite todos los cables conectados al switch CL2 Nexus 5596.
@@ -451,13 +449,13 @@ Para obtener más información acerca de los comandos de Cisco, consulte la guí
 ====
 El ejemplo siguiente muestra los puertos ISL 45 a 48 que se están poniendo en marcha:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-(CL1)# configure
-(CL1)(Config)# interface e1/45-48
-(CL1)(config-if-range)# no shutdown
-(CL1)(config-if-range)# exit
-(CL1)(Config)# exit
+(CL1)# *configure*
+(CL1)(Config)# *interface e1/45-48*
+(CL1)(config-if-range)# *no shutdown*
+(CL1)(config-if-range)# *exit*
+(CL1)(Config)# *exit*
 (CL1)#
 ----
 ====
@@ -471,10 +469,9 @@ Para obtener más información acerca de los comandos de Cisco, consulte la guí
 ====
 En el siguiente ejemplo, se muestran los puertos eth1/45 a eth1/48 con el significado de (P), lo que significa que los puertos ISL se encuentran `up` en el puerto-canal.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-
-CL1# show port-channel summary
+CL1# *show port-channel summary*
 Flags: D - Down         P - Up in port-channel (members)
        I - Individual   H - Hot-standby (LACP only)
        s - Suspended    r - Module-removed
@@ -501,12 +498,12 @@ Group Port-        Type   Protocol  Member Ports
 ====
 En el siguiente ejemplo, se muestran los puertos especificados que se están up en los nodos n1 y n2:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network port modify -node n1 -port e0b -up-admin true
-cluster::*> network port modify -node n1 -port e0c -up-admin true
-cluster::*> network port modify -node n2 -port e0b -up-admin true
-cluster::*> network port modify -node n2 -port e0c -up-admin true
+cluster::*> *network port modify -node n1 -port e0b -up-admin true*
+cluster::*> *network port modify -node n1 -port e0c -up-admin true*
+cluster::*> *network port modify -node n2 -port e0b -up-admin true*
+cluster::*> *network port modify -node n2 -port e0c -up-admin true*
 ----
 ====
 . En todos los nodos, revierte todos los LIF de interconexión del clúster migrados conectados a C2:
@@ -519,12 +516,12 @@ cluster::*> network port modify -node n2 -port e0c -up-admin true
 ====
 En el ejemplo siguiente se muestran los LIF de clúster migrados que se han revertido a sus puertos principales:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface revert -vserver Cluster -lif n1_clus2
-cluster::*> network interface revert -vserver Cluster -lif n1_clus3
-cluster::*> network interface revert -vserver Cluster -lif n2_clus2
-cluster::*> network interface revert -vserver Cluster -lif n2_clus3
+cluster::*> *network interface revert -vserver Cluster -lif n1_clus2*
+cluster::*> *network interface revert -vserver Cluster -lif n1_clus3*
+cluster::*> *network interface revert -vserver Cluster -lif n2_clus2*
+cluster::*> *network interface revert -vserver Cluster -lif n2_clus3*
 ----
 ====
 . Verifique que todos los puertos de interconexión de clúster ahora se reviertan a su origen:
@@ -539,7 +536,7 @@ En el ejemplo siguiente se muestra que las LIF en clus2 se han revertido a sus p
 
 [listing]
 ----
-cluster::*> network interface show -role cluster
+cluster::*> *network interface show -role cluster*
 (network interface show)
             Logical    Status     Network            Current       Current Is
 Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
@@ -566,9 +563,9 @@ Cluster
 ====
 En el siguiente ejemplo se muestra el resultado del anterior `network port modify` comando, comprobando que todas las interconexiones del clúster lo son `up`:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network port show -role cluster
+cluster::*> *network port show -role cluster*
   (network port show)
 Node: n1
                                                                        Ignore
@@ -602,9 +599,9 @@ e0d       Cluster      Cluster          up   9000  auto/10000 -        -
 ====
 En el siguiente ejemplo se muestra el nodo n1 con alas y el estado RPC indicado posteriormente:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> cluster ping-cluster -node n1
+cluster::*> *cluster ping-cluster -node n1*
 Host is n1
 Getting addresses from network interface table...
 Cluster n1_clus1 n1		e0a	10.10.0.1
@@ -649,7 +646,8 @@ RPC status:
 ====
 . En cada nodo del clúster, migre las interfaces asociadas con el primer switch Nexus 5596, CL1, que se sustituirá:
 +
-`network interface migrate -vserver Cluster -lif _lif-name_ -source-node _source-node-name_ - destination-node _destination-node-name_ -destination-port _destination-port-name_`
+`network interface migrate -vserver _vserver-name_ -lif _lif-name_ -source-node _source-node-name_
+-destination-node _destination-node-name_ -destination-port _destination-port-name_`
 
 +
 .Muestra el ejemplo
@@ -657,17 +655,16 @@ RPC status:
 ====
 En el ejemplo siguiente se muestran los puertos o las LIF que se están migrando en los nodos n1 y n2:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-
-cluster::*> network interface migrate -vserver Cluster -lif n1_clus1 -source-node n1 -
-destination-node n1 -destination-port e0b
-cluster::*> network interface migrate -vserver Cluster -lif n1_clus4 -source-node n1 -
-destination-node n1 -destination-port e0c
-cluster::*> network interface migrate -vserver Cluster -lif n2_clus1 -source-node n2 -
-destination-node n2 -destination-port e0b
-cluster::*> network interface migrate -vserver Cluster -lif n2_clus4 -source-node n2 -
-destination-node n2 -destination-port e0c
+cluster::*> *network interface migrate -vserver Cluster -lif n1_clus1 -source-node n1 -
+destination-node n1 -destination-port e0b*
+cluster::*> *network interface migrate -vserver Cluster -lif n1_clus4 -source-node n1 -
+destination-node n1 -destination-port e0c*
+cluster::*> *network interface migrate -vserver Cluster -lif n2_clus1 -source-node n2 -
+destination-node n2 -destination-port e0b*
+cluster::*> *network interface migrate -vserver Cluster -lif n2_clus4 -source-node n2 -
+destination-node n2 -destination-port e0c*
 ----
 ====
 . Compruebe el estado del clúster:
@@ -680,9 +677,9 @@ destination-node n2 -destination-port e0c
 ====
 El siguiente ejemplo muestra que las LIF de clúster necesarias se han migrado a puertos de clúster adecuados alojados en el switch de clúster, C2:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface show
+cluster::*> *network interface show*
 
             Logical    Status     Network            Current       Current Is
 Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
@@ -711,13 +708,12 @@ Cluster
 ====
 En el ejemplo siguiente se muestran los puertos especificados que se están apagando en los nodos n1 y n2:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-
-cluster::*> network port modify -node n1 -port e0a -up-admin false
-cluster::*> network port modify -node n1 -port e0d -up-admin false
-cluster::*> network port modify -node n2 -port e0a -up-admin false
-cluster::*> network port modify -node n2 -port e0d -up-admin false
+cluster::*> *network port modify -node n1 -port e0a -up-admin false*
+cluster::*> *network port modify -node n1 -port e0d -up-admin false*
+cluster::*> *network port modify -node n2 -port e0a -up-admin false*
+cluster::*> *network port modify -node n2 -port e0d -up-admin false*
 ----
 ====
 . Apague ISL 24, 31 y 32 en el interruptor activo 3232C C2.
@@ -730,17 +726,16 @@ Para obtener más información acerca de los comandos de Cisco, consulte la guí
 ====
 El ejemplo siguiente muestra que los ISL se están cerrando:
 
-[source, noline]
+[listing, subs="+quotes"]
 ----
-
-C2# configure
-C2(Config)# interface e1/24/1-4
-C2(config-if-range)# shutdown
-C2(config-if-range)# exit
-C2(config)# interface 1/31-32
-C2(config-if-range)# shutdown
-C2(config-if-range)# exit
-C2(config-if)# exit
+C2# *configure*
+C2(Config)# *interface e1/24/1-4*
+C2(config-if-range)# *shutdown*
+C2(config-if-range)# *exit*
+C2(config)# *interface 1/31-32*
+C2(config-if-range)# *shutdown*
+C2(config-if-range)# *exit*
+C2(config-if)# *exit*
 C2#
 ----
 ====
@@ -762,19 +757,18 @@ Para obtener más información acerca de los comandos de Cisco, consulte la guí
 ====
 En el ejemplo siguiente se muestra la configuración del puerto m24 que se está restaurando utilizando los comandos de Cisco correspondientes:
 
-[source, nolinebreak]
+[listing, subs="+quotes"]
 ----
-
 C2# configure
-C2(config)# no interface breakout module 1 port 24 map 10g-4x
-C2(config)# no interface port-channel 2
-C2(config-if)# int e1/24
-C2(config-if)# description 40GbE Node Port
-C2(config-if)# spanning-tree port type edge
-C2(config-if)# spanning-tree bpduguard enable
-C2(config-if)# mtu 9216
-C2(config-if-range)# exit
-C2(config)# exit
+C2(config)# *no interface breakout module 1 port 24 map 10g-4x*
+C2(config)# *no interface port-channel 2*
+C2(config-if)# *int e1/24*
+C2(config-if)# *description 40GbE Node Port*
+C2(config-if)# *spanning-tree port type edge*
+C2(config-if)# *spanning-tree bpduguard enable*
+C2(config-if)# *mtu 9216*
+C2(config-if-range)# *exit*
+C2(config)# *exit*
 C2# copy running-config startup-config
 [########################################] 100%
 Copy Complete.
@@ -790,9 +784,8 @@ Para obtener más información acerca de los comandos de Cisco, consulte la guí
 ====
 En el siguiente ejemplo se muestran los comandos de Cisco `switchname configure` Se sube en el switch 3232C C2:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-
 C2# configure
 C2(config)# interface ethernet 1/31-32
 C2(config-if-range)# no shutdown
