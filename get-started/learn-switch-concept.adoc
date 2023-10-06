@@ -16,7 +16,7 @@ NetApp ofrece clúster, almacenamiento y switches compartidos que proporcionan c
 Los switches de «front-end» proporcionan conectividad al almacenamiento host, mientras que los switches de clúster de «back-end» proporcionan conexiones entre dos o más controladoras de NetApp.
 
 
-NOTE: Solo son compatibles los switches validados por NetApp (pedidos a través de NetApp).
+NOTE: Solo se admiten switches back-end validados por NetApp (solicitados a NetApp).
 
 
 

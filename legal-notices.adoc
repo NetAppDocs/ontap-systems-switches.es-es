@@ -40,11 +40,3 @@ link:https://www.netapp.com/pdf.html?item=/media/11887-patentspage.pdf["https://
 == Política de privacidad
 
 link:https://www.netapp.com/company/legal/privacy-policy/["https://www.netapp.com/company/legal/privacy-policy/"^]
-
-
-
-== Código abierto
-
-Los archivos de notificación proporcionan información sobre los derechos de autor y las licencias de terceros que se utilizan en software de NetApp.
-
-https://library.netapp.com/ecm/ecm_download_file/ECMP12475945["Aviso relativo a las bandejas de discos"]
