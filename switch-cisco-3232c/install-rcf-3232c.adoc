@@ -260,7 +260,7 @@ cluster1::*>
 +
 `show running-config`
 
-. Limpie la configuración del interruptor cs2 y realice una configuración básica.
+. Limpie la configuración del interruptor CS2 y reinicie el interruptor.
 +
 
 CAUTION: Al actualizar o aplicar una nueva RCF, debe borrar los ajustes del conmutador y realizar la configuración básica. Debe estar conectado al puerto de la consola de serie del switch para volver a configurar el switch.
@@ -280,7 +280,7 @@ Warning: This command will erase the startup-configuration.
 Do you wish to proceed anyway? (y/n)  [n]  *y*
 ----
 ====
-.. Reinicie el conmutador:
+.. Reinicie el switch:
 +
 .Muestra el ejemplo
 [%collapsible]
@@ -295,6 +295,7 @@ Are you sure you would like to reset the system? (y/n) *y*
 ====
 
 
+. Realice una configuración básica del interruptor. Consulte link:setup-switch.html["Configure el switch del clúster 3232C"] para obtener más detalles.
 . Copie el RCF en el bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP. Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referencia de comandos NX-OS de Cisco Nexus serie 3000"^] guías.
 +
 .Muestra el ejemplo
@@ -602,8 +603,6 @@ cluster1::*>
 ----
 cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true*
 ----
-
-
 . Compruebe que los puertos del switch conectados a los puertos del clúster estén activos.
 +
 .Muestra el ejemplo
