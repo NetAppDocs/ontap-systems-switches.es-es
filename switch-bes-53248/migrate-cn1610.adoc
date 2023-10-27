@@ -441,8 +441,8 @@ node1      /cdp
 +
 [listing, subs="+quotes"]
 ----
-cs2# *show interface brief*
-cs2# *show cdp neighbors*
+cs2# *show port all*
+cs2# *show isdp neighbors*
 ----
 . En el switch de clúster CL1, apague los puertos conectados a los puertos de clúster de los nodos.
 +
@@ -555,8 +555,8 @@ node2      /cdp
 +
 [listing, subs="+quotes"]
 ----
-cs1# *show interface brief*
-cs1# *show cdp neighbors*
+cs1# *show port all*
+cs1# *show isdp neighbors*
 ----
 . Compruebe que el ISL entre CS1 y CS2 aún está operativo:
 +

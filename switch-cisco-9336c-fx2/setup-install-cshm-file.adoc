@@ -1,0 +1,68 @@
+---
+permalink: switch-cisco-9336c-fx2/setup-install-cshm-file.html 
+sidebar: sidebar 
+keywords: 'install, applicable, configuration, file, cluster, switch, health, monitor, nexus, ontap, install the cluster switch health monitor (csm) configuration file for 92300yc switches - cisco nexus 9336c-fx2' 
+summary: Puede usar este procedimiento para instalar el archivo de configuración correspondiente para la supervisión de estado del switch del clúster de los switches de clúster Nexus 92300YC. 
+---
+= Instale el archivo de configuración del monitor de estado del switch (SHM) del clúster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga este procedimiento para instalar el archivo de configuración correspondiente para la supervisión de estado del switch (SHM) del clúster de los switches de clúster Nexus 9336C-FX2.
+
+.Lo que necesitará
+Antes de configurar SHM para los switches de clúster 9336C-FX2, asegúrese de que el clúster ONTAP esté activo y en funcionamiento.
+
+
+NOTE: También debe habilitar SSH para usar todas las funciones disponibles en SHM.
+
+.Pasos
+. Descargue el archivo zip de configuración de SHM del clúster en función de la versión de ONTAP correspondiente. Este archivo está disponible en https://mysupport.netapp.com/NOW/cgi-bin/software/["Descarga de software de NetApp"^] página.
++
+.. En la página de descarga de software, seleccione *Switch Health Monitor Configuration Files*
+.. Seleccione Plataforma = *ONTAP* y seleccione *Ir!*
+.. En la página Cambiar archivos de configuración del monitor de estado para ONTAP, seleccione *Ver y descargar*
+.. En la página Archivos de configuración del monitor de estado del conmutador para ONTAP > Descripción, seleccione *Descargar* para el modelo de conmutador de clúster aplicable, por ejemplo: *Cisco Nexus 9336C-FX2*
+.. En la página Contrato de licencia de usuario final, seleccione *Aceptar*
+.. En la página Cambiar archivos de configuración del monitor de estado para ONTAP > Descargar, seleccione el archivo de configuración aplicable, por ejemplo, *cisco_nexus_9336C-FX2.zip*
+
+
+. Cargue el archivo zip correspondiente en su servidor Web interno donde la dirección IP es X.X.X.X.
++
+Para una dirección IP de servidor web interno de 192.168.2.20 y suponiendo que existe un directorio /usr/download, puede cargar su archivo zip a su servidor web usando scp:
+
++
+[listing]
+----
+% scp Cisco_Nexus_9336C-FX2.zip admin@192.168.2.20:/usr/download/Cisco_Nexus_9336C-FX2.zip
+----
+. Acceda a la configuración de modo avanzado desde uno de los sistemas ONTAP en el clúster:
++
+`set-privilege advanced`
+
++
+[listing]
+----
+cluster1::> set -privilege advanced
+----
+. Ejecute el comando switch health monitor configure `system cluster-switch configure-health-monitor -node * -package-url X.X.X.X/location_to_download_zip_file`:
++
+[listing]
+----
+cluster1::> system cluster-switch configure-health-monitor -node * -package-url 192.168.2.20/usr/download/Cisco_Nexus_9336C-FX2.zip
+----
+. Compruebe que el resultado del comando contiene la cadena de texto "paquete descargado procesado correctamente". Si se produce un error, póngase en contacto con el soporte de NetApp.
+. Ejecute el comando `system cluster-switch show` En el sistema ONTAP y asegúrese de que los switches del clúster se detectan con el campo supervisado establecido en «Verdadero».
++
+[listing]
+----
+cluster1::> system cluster-switch show
+----
++
+
+NOTE: Si en algún momento vuelve a una versión anterior de ONTAP, deberá instalar de nuevo el archivo de configuración de SHM para habilitar SHM de los conmutadores de clúster 9336C-FX2.
+
+
