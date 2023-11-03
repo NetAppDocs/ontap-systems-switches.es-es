@@ -23,6 +23,9 @@ Asegúrese de que:
 
 
 
+NOTE: Si está cambiando la velocidad de puerto de los puertos de los clústeres de e0a y e1a en sistemas AFF A800 o AFF C800, puede observar que se están recibiendo paquetes con formato incorrecto tras la conversión de velocidad. Consulte  https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1570339["Error 1570339"^] Y el artículo de la base de conocimientos https://kb.netapp.com/onprem/ontap/hardware/CRC_errors_on_T6_ports_after_converting_from_40GbE_to_100GbE["Errores de CRC en puertos T6 después de convertir de 40GbE a 100GbE"^] para obtener orientación.
+
+
 
 == Migrar los switches
 
