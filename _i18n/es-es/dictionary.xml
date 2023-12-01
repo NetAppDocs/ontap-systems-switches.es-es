@@ -1066,7 +1066,6 @@
   <block id="ca367c184753913f5878d59c9da5f868" category="list-text">n1_clus1 es la primera interfaz lógica del clúster (LIF) conectada al switch del clúster 1 (CL1 o C1) para el nodo n1.</block>
   <block id="cb8530ce77ebbb88d9f5df75175a3bcd" category="list-text">n1_clus2 es la primera LIF del clúster que está conectada al switch de clúster 2 (CL2 o C2) para el nodo n1.</block>
   <block id="0f2b91bef7159f7575ef5d238859132a" category="list-text">n1_clus3 es la segunda LIF conectada al switch de clúster 2 (CL2 o C2) para el nodo n1.</block>
-  <block id="eb29e2026f68e263827bc6648e470d91" category="list-text">n1_clusal 4 es la segunda LIF conectada al switch de clúster 1 (CL1 o C1) para el nodo n1. Los nodos son n1, n2, n3 y n4.</block>
   <block id="599e429de04ef19f05e05c80158f2130" category="paragraph">Los ejemplos de este procedimiento utilizan cuatro nodos:</block>
   <block id="2e5f4bd73780ee0d4f1673a1a4718af2" category="list-text">Dos nodos utilizan cuatro puertos de interconexión de clúster de 10 GbE: E0a, e0b, e0c y e0d.</block>
   <block id="d07ea0336757dc6c738f1426bdf8deba" category="list-text">Los otros dos nodos utilizan dos cables de fibra de interconexión de clúster de 40/100 GbE: e4a y e4e.</block>
@@ -1672,7 +1671,6 @@
   <block id="e7f4ab45950498df235454e086acfca4" category="paragraph">Introduzca el número de bits de clave de 1024-2048.</block>
   <block id="903eb4ad98b740ebeb449655751eb804" category="paragraph"><block ref="92ff606cd08828782a7061b88d8a96a2" category="inline-link-macro-rx"></block>.</block>
   <block id="52b4047fc43b6917cd24a0ee369e839c" category="summary">Puede instalar el RCF después de configurar el conmutador Nexus 3232C por primera vez.también puede utilizar este procedimiento para actualizar la versión de RCF.</block>
-  <block id="5a5a12d4dbaeac060e4d6b7c5760ca7c" category="paragraph">Siga este procedimiento para instalar el RCF después de configurar el interruptor Nexus 3232C por primera vez. También puede utilizar este procedimiento para actualizar la versión de RCF.</block>
   <block id="10d146c112c5b50595149d6af52fe222" category="list-text"><block ref="f29158c7335be7b7fe0a46dd82de6ed4" category="inline-link-macro-rx"></block> Consulte la tabla de compatibilidad del conmutador para conocer las versiones ONTAP y RCF admitidas. Tenga en cuenta que puede haber dependencias de comandos entre la sintaxis del comando en el RCF y la que se encuentra en las versiones de NX-OS.</block>
   <block id="1504cf88a17b3708e24bb6d08d1219aa" category="list-text">Limpie la configuración. Este paso requiere una conexión de consola al conmutador.</block>
   <block id="eb22df33c22805be63e48e35c956a5be" category="paragraph">En este ejemplo se muestra el uso de TFTP para copiar un RCF al bootflash del conmutador cs2:</block>
@@ -2975,7 +2973,6 @@
   <block id="9486f276b196ea9042dc3f0bfb576743" category="summary">La actualización de switches de clúster BES-53248 comienza con la preparación de la controladora para la actualización, la instalación del software EFOS, las licencias y el archivo de configuración de referencia \(RCF\). Tras la instalación, puede restaurar la configuración de la controladora en un entorno de actualización no disruptiva \(NDU\) y de operación no disruptiva \(NDO\).</block>
   <block id="9302ce88c481ebfe72d64373c7b0d0e5" category="doc">Actualice el switch de clúster BES-53248</block>
   <block id="db3a43c92e9a5ccc39b5fabb1bd97719" category="paragraph">Siga estos pasos para actualizar el switch de clúster BES-53248.</block>
-  <block id="ca46577f8687df3ceb14eb4b66cfa89e" category="paragraph">Este procedimiento se aplica a un clúster en funcionamiento y permite un entorno de actualizaciones no disruptivas (NDU) y operaciones no disruptivas (NDO).</block>
   <block id="8ac36f1d8b0fc917225a100d2cd4a4c3" category="paragraph">Antes de instalar el software EFOS, las licencias y el archivo RCF en un switch de clúster BES-53248 de NetApp existente, asegúrese de que:</block>
   <block id="8e95d65cfa987ac59e9edd2e01c3a5f8" category="list-text">El clúster es un clúster en funcionamiento completo (sin mensajes de registro de errores u otros problemas).</block>
   <block id="39268a4fe5b4dbf6e58a5a1147276955" category="list-text">El clúster no contiene ninguna tarjeta de interfaz de red (NIC) del clúster defectuosa.</block>
@@ -4668,4 +4665,9 @@ Para obtener información actual sobre compatibilidad, consulte<block ref="f6aa3
   <block id="2672a0c9ba5986c403c26e013c160859" category="list-text">Compruebe que los nodos de clúster están en las VLAN de clúster correctas utilizando los siguientes comandos:</block>
   <block id="89706bbdab62cd83048f38305d846f95" category="paragraph"><block ref="7d4adecb4116bbfb7ed1130103f872a7" prefix="" category="inline-code"></block></block>
   <block id="12bc122b0d9a4c902fdf52bfcc13ddc2" category="paragraph"><block ref="c01eca2c804c6a35b8aa8d87eceefe5d" prefix="" category="inline-code"></block></block>
+  <block id="5cb232b7121572a8cd994eb78f5bf42e" category="inline-link">Cómo preparar ONTAP para una actualización del switch de clúster</block>
+  <block id="2c6ae2b5ab15a868c020423af475ce29" category="paragraph">Este procedimiento se aplica a un clúster en funcionamiento y permite un entorno de actualizaciones no disruptivas (NDU) y operaciones no disruptivas (NDO). Consulte el artículo de la base de conocimientos<block ref="af19c072276b7cd7ef0c29b032a9fe34" category="inline-link-rx"></block>.</block>
+  <block id="3bf967e4da79afd8ac10997dbbfb40be" category="paragraph">Siga este procedimiento para instalar el RCF después de configurar el interruptor Nexus 3232C por primera vez.</block>
+  <block id="ce8d24a452c1c94c4680d7ce098325a9" category="inline-link">Cómo borrar la configuración en un switch de interconexión de Cisco manteniendo la conectividad remota</block>
+  <block id="e5f3c3d2c754cc48938d50b1782093ac" category="paragraph">También puede utilizar este procedimiento para actualizar la versión de RCF. Consulte el artículo de la base de conocimientos<block ref="c3cf8dee5fd4e009c0e2b38bfb97fe4d" category="inline-link-rx"></block> Para obtener más información al actualizar el RCF.</block>
 </blocks>

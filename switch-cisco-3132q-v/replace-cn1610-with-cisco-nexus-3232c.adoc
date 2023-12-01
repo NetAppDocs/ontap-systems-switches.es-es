@@ -39,7 +39,8 @@ Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo
 * n1_clus1 es la primera interfaz lógica del clúster (LIF) conectada al switch del clúster 1 (CL1 o C1) para el nodo n1.
 * n1_clus2 es la primera LIF del clúster que está conectada al switch de clúster 2 (CL2 o C2) para el nodo n1.
 * n1_clus3 es la segunda LIF conectada al switch de clúster 2 (CL2 o C2) para el nodo n1.
-* n1_clusal 4 es la segunda LIF conectada al switch de clúster 1 (CL1 o C1) para el nodo n1. Los nodos son n1, n2, n3 y n4.
+* n1_clusal 4 es la segunda LIF conectada al switch de clúster 1 (CL1 o C1) para el nodo n1.
+* Los nodos son n1, n2, n3 y n4.
 * El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Descarga del archivo de configuración de referencia del conmutador de red de clúster Cisco®"^] página.
 
 
@@ -137,7 +138,7 @@ En el ejemplo siguiente se muestran los atributos de puerto de red en un sistema
 
 [listing]
 ----
-cluster::*> network port show -role cluster
+cluster::*> network port show -role Cluster
        (network port show)
 
 Node: n1
@@ -171,7 +172,7 @@ En el ejemplo siguiente se muestra la información general acerca de todas las L
 
 [listing]
 ----
-cluster::*> network interface show -role cluster
+cluster::*> network interface show -role Cluster
        (network interface show)
 
          Logical    Status      Network        Current  Current  Is
@@ -293,7 +294,7 @@ En el siguiente ejemplo se muestra el resultado del anterior `network interface 
 
 [listing]
 ----
-cluster::*> network interface show -role cluster
+cluster::*> network interface show -role Cluster
        (network interface show)
 
          Logical    Status      Network         Current  Current  Is
@@ -576,10 +577,10 @@ cluster::*> network port modify -node n2 -port e0c -up-admin true
 ====
 [listing]
 ----
-cluster::*> network interface revert -vserver cluster -lif n1_clus2
-cluster::*> network interface revert -vserver cluster -lif n1_clus3
-cluster::*> network interface revert -vserver cluster -lif n2_clus2
-cluster::*> network interface revert -vserver cluster -lif n2_clus3
+cluster::*> network interface revert -vserver Cluster -lif n1_clus2
+cluster::*> network interface revert -vserver Cluster -lif n1_clus3
+cluster::*> network interface revert -vserver Cluster -lif n2_clus2
+cluster::*> network interface revert -vserver Cluster -lif n2_clus3
 ----
 ====
 . Compruebe que todos los puertos de interconexión de clúster se hayan revertido a sus puertos principales:
@@ -625,7 +626,7 @@ En el siguiente ejemplo se muestra el resultado del anterior `network port modif
 
 [listing]
 ----
-cluster::*> network port show -role cluster
+cluster::*> network port show -role Cluster
        (network port show)
 
 Node: n1
@@ -717,14 +718,10 @@ En el ejemplo siguiente se muestran los puertos o las LIF que se están migrando
 
 [listing]
 ----
-cluster::*> network interface migrate -vserver cluster -lif n1_clus1 -source-node n1
--destination-node n1 -destination-port e0b
-cluster::*> network interface migrate -vserver cluster -lif n1_clus4 -source-node n1
--destination-node n1 -destination-port e0c
-cluster::*> network interface migrate -vserver cluster -lif n2_clus1 -source-node n2
--destination-node n2 -destination-port e0b
-cluster::*> network interface migrate -vserver cluster -lif n2_clus4 -source-node n2
--destination-node n2 -destination-port e0c
+cluster::*> network interface migrate -vserver Cluster -lif n1_clus1 -destination-node n1 -destination-port e0b
+cluster::*> network interface migrate -vserver Cluster -lif n1_clus4 -destination-node n1 -destination-port e0c
+cluster::*> network interface migrate -vserver Cluster -lif n2_clus1 -destination-node n2 -destination-port e0b
+cluster::*> network interface migrate -vserver Cluster -lif n2_clus4 -destination-node n2 -destination-port e0c
 ----
 ====
 . Compruebe el estado del clúster:
@@ -739,7 +736,7 @@ El siguiente ejemplo muestra que las LIF de clúster necesarias se han migrado a
 
 [listing]
 ----
-cluster::*> network interface show -role cluster
+cluster::*> network interface show -role Cluster
        (network interface show)
 
          Logical    Status      Network        Current  Current  Is
@@ -918,7 +915,7 @@ En el siguiente ejemplo se comprueba que todos los puertos de interconexión de 
 
 [listing]
 ----
-cluster::*> network port show -role cluster
+cluster::*> network port show -role Cluster
        (network port show)
 
 Node: n1
@@ -954,10 +951,10 @@ El ejemplo siguiente muestra cómo revertir las LIF del clúster migradas a sus 
 
 [listing]
 ----
-cluster::*> network interface revert -vserver cluster -lif n1_clus1
-cluster::*> network interface revert -vserver cluster -lif n1_clus4
-cluster::*> network interface revert -vserver cluster -lif n2_clus1
-cluster::*> network interface revert -vserver cluster -lif n2_clus4
+cluster::*> network interface revert -vserver Cluster -lif n1_clus1
+cluster::*> network interface revert -vserver Cluster -lif n1_clus4
+cluster::*> network interface revert -vserver Cluster -lif n2_clus1
+cluster::*> network interface revert -vserver Cluster -lif n2_clus4
 ----
 ====
 . Compruebe que la interfaz se encuentra ahora en casa:
@@ -972,7 +969,7 @@ En el ejemplo siguiente se muestra el estado de las interfaces de interconexión
 
 [listing]
 ----
-cluster::*> network interface show -role cluster
+cluster::*> network interface show -role Cluster
        (network interface show)
 
          Logical    Status      Network        Current  Current  Is
@@ -1127,7 +1124,7 @@ e4e   cluster   cluster    up    9000  auto/40000     -        -
 ----
 [listing]
 ----
-cluster::*> network interface show -role cluster
+cluster::*> network interface show -role Cluster
        (network interface show)
 
          Logical    Status      Network        Current  Current  Is
@@ -1203,8 +1200,8 @@ El siguiente ejemplo muestra cómo quitar los switches CN1610:
 [listing]
 ----
 
-cluster::> system cluster-switch delete –device CL1
-cluster::> system cluster-switch delete –device CL2
+cluster::> system cluster-switch delete -device CL1
+cluster::> system cluster-switch delete -device CL2
 ----
 ====
 . Configure cluster clus1 y clus4 para `-auto-revert` en cada nodo y confirme:

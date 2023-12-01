@@ -13,7 +13,7 @@ summary: 'La actualización de switches de clúster BES-53248 comienza con la pr
 [role="lead"]
 Siga estos pasos para actualizar el switch de clúster BES-53248.
 
-Este procedimiento se aplica a un clúster en funcionamiento y permite un entorno de actualizaciones no disruptivas (NDU) y operaciones no disruptivas (NDO).
+Este procedimiento se aplica a un clúster en funcionamiento y permite un entorno de actualizaciones no disruptivas (NDU) y operaciones no disruptivas (NDO). Consulte el artículo de la base de conocimientos https://kb.netapp.com/onprem/ontap/hardware/How_to_prepare_ONTAP_for_a_cluster_switch_upgrade["Cómo preparar ONTAP para una actualización del switch de clúster"^].
 
 
 
