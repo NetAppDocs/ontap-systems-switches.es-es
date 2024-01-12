@@ -34,264 +34,264 @@ La definición de puerto de ejemplo de cada par de conmutadores es la siguiente:
  a| 
 1
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
  a| 
 1
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
 
 
 
  a| 
 2
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
  a| 
 2
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
 
 
 
  a| 
 3
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
  a| 
 3
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
 
 
 
  a| 
 4
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
  a| 
 4
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
 
 
 
  a| 
 5
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
  a| 
 5
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
 
 
 
  a| 
 6
  a| 
-4 x 10 G/40 G/100 Gnode
+4 x 10 GbE/4 GbE o nodo 40/100GbE
  a| 
 6
  a| 
-4 x 10 G/40 G/100 Gnode
+4 x 10 GbE/4 GbE o nodo 40/100GbE
 
 
 
  a| 
 7
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
  a| 
 7
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
 
 
 
  a| 
 8
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
  a| 
 8
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
 
 
 
  a| 
 9
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
  a| 
 9
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
 
 
 
  a| 
 10
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
  a| 
 10
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
 
 
 
  a| 
 11
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
  a| 
 11
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
 
 
 
  a| 
 12
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
  a| 
 12
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
 
 
 
  a| 
 13
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
  a| 
 13
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
 
 
 
  a| 
 14
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
  a| 
 14
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
 
 
 
  a| 
 15
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
  a| 
 15
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
 
 
 
  a| 
 16
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
  a| 
 16
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
 
 
 
  a| 
 17
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
  a| 
 17
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
 
 
 
  a| 
 18
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
  a| 
 18
  a| 
-4 nodos 10 G/40 G/100 G
+4 x 10 GbE/4 GbE o nodo 40/100GbE
 
 
 
  a| 
 19
  a| 
-Nodo 19 DE 40 G/100 G
+19 nodos 40g/100GbE
  a| 
 19
  a| 
-Nodo 19 DE 40 G/100 G
+19 nodos 40g/100GbE
 
 
 
  a| 
 20
  a| 
-Nodo 20 DE 40 G/100 G
+20 nodos 40g/100GbE
  a| 
 20
  a| 
-Nodo 20 DE 40 G/100 G
+20 nodos 40g/100GbE
 
 
 
  a| 
 21
  a| 
-Nodo 21 DE 40 G/100 G
+21 nodos 40g/100GbE
  a| 
 21
  a| 
-Nodo 21 DE 40 G/100 G
+21 nodos 40g/100GbE
 
 
 
  a| 
 22
  a| 
-Nodo 22 DE 40 G/100 G
+22 nodos 40g/100GbE
  a| 
 22
  a| 
-Nodo 22 DE 40 G/100 G
+22 nodos 40g/100GbE
 
 
 
  a| 
 23
  a| 
-Nodo 23 DE 40 G/100 G
+23 nodos 40g/100GbE
  a| 
 23
  a| 
-Nodo 23 DE 40 G/100 G
+23 nodos 40g/100GbE
 
 
 
  a| 
 24
  a| 
-Nodo 24 DE 40 G/100 G
+24 nodos 40g/100GbE
  a| 
 24
  a| 
-Nodo 24 DE 40 G/100 G
+24 nodos 40g/100GbE
 
 
 
@@ -309,22 +309,22 @@ Reservado
  a| 
 31
  a| 
-100G ISL al puerto 31 del switch B.
+100GbE ISL al puerto 31 del switch B
  a| 
 31
  a| 
-ISL DE 100 G para cambiar al puerto 31
+100GbE ISL para conmutar Un puerto 31
 
 
 
  a| 
 32
  a| 
-100G ISL al puerto 32 del switch B.
+100GbE ISL al puerto 32 del switch B
  a| 
 32
  a| 
-ISL DE 100 G para cambiar al puerto 32
+100GbE ISL para conmutar Un puerto 32
 
 |===
 
@@ -571,21 +571,21 @@ Reservado
  a| 
 31
  a| 
-100G ISL al puerto 31 del switch B.
+100GbE ISL al puerto 31 del switch B
  a| 
 31
  a| 
-ISL DE 100 G para cambiar al puerto 31
+100GbE ISL para conmutar Un puerto 31
 
 
 
  a| 
 32
  a| 
-100G ISL al puerto 32 del switch B.
+100GbE ISL al puerto 32 del switch B
  a| 
 32
  a| 
-ISL DE 100 G para cambiar al puerto 32
+100GbE ISL para conmutar Un puerto 32
 
 |===

@@ -98,198 +98,198 @@ La definición de puerto de ejemplo de cada par de conmutadores es la siguiente:
  a| 
 7
  a| 
-4 nodos de 100 GbE 7
+100GbE nodo 7
  a| 
 7
  a| 
-4 nodos de 100 GbE 7
+100GbE nodo 7
 
 
 
  a| 
 8
  a| 
-4 nodos de 100 GbE 8
+100GbE nodo 8
  a| 
 8
  a| 
-4 nodos de 100 GbE 8
+100GbE nodo 8
 
 
 
  a| 
 9
  a| 
-4 nodos de 100 GbE 9
+100GbE nodo 9
  a| 
 9
  a| 
-4 nodos de 100 GbE 9
+100GbE nodo 9
 
 
 
  a| 
 10
  a| 
-4 nodos de 100 GbE 10
+100GbE nodo 10
  a| 
 10
  a| 
-4 nodos de 100 GbE 10
+100GbE nodo 10
 
 
 
  a| 
 11
  a| 
-4 nodos de 100 GbE 11
+100GbE nodo 11
  a| 
 11
  a| 
-4 nodos de 100 GbE 11
+100GbE nodo 11
 
 
 
  a| 
 12
  a| 
-4 nodos de 100 GbE 12
+100GbE nodo 12
  a| 
 12
  a| 
-4 nodos de 100 GbE 12
+100GbE nodo 12
 
 
 
  a| 
 13
  a| 
-4 nodos de 100 GbE 13
+100GbE nodo 13
  a| 
 13
  a| 
-4 nodos de 100 GbE 13
+100GbE nodo 13
 
 
 
  a| 
 14
  a| 
-4 nodos de 100 GbE 14
+100GbE nodo 14
  a| 
 14
  a| 
-4 nodos de 100 GbE 14
+100GbE nodo 14
 
 
 
  a| 
 15
  a| 
-4 nodos de 100 GbE 15
+100GbE nodo 15
  a| 
 15
  a| 
-4 nodos de 100 GbE 15
+100GbE nodo 15
 
 
 
  a| 
 16
  a| 
-4 nodos de 100 GbE 16
+100GbE nodo 16
  a| 
 16
  a| 
-4 nodos de 100 GbE 16
+100GbE nodo 16
 
 
 
  a| 
 17
  a| 
-4 nodos de 100 GbE 17
+100GbE nodo 17
  a| 
 17
  a| 
-4 nodos de 100 GbE 17
+100GbE nodo 17
 
 
 
  a| 
 18
  a| 
-4 nodos de 100 GbE 18
+100GbE nodo 18
  a| 
 18
  a| 
-4 nodos de 100 GbE 18
+100GbE nodo 18
 
 
 
  a| 
 19
  a| 
-4 nodos de 100 GbE 19
+100GbE nodo 19
  a| 
 19
  a| 
-4 nodos de 100 GbE 19
+100GbE nodo 19
 
 
 
  a| 
 20
  a| 
-4 nodos de 100 GbE 20
+100GbE nodo 20
  a| 
 20
  a| 
-4 nodos de 100 GbE 20
+100GbE nodo 20
 
 
 
  a| 
 21
  a| 
-4 nodos de 100 GbE 21
+100GbE nodo 21
  a| 
 21
  a| 
-4 nodos de 100 GbE 21
+100GbE nodo 21
 
 
 
  a| 
 22
  a| 
-4 nodos de 100 GbE 22
+100GbE nodo 22
  a| 
 22
  a| 
-4 nodos de 100 GbE 22
+100GbE nodo 22
 
 
 
  a| 
 23
  a| 
-4 nodos de 100 GbE 23
+100GbE nodo 23
  a| 
 23
  a| 
-4 nodos de 100 GbE 23
+100GbE nodo 23
 
 
 
  a| 
 24
  a| 
-4 nodos de 100 GbE 24
+100GbE nodo 24
  a| 
 24
  a| 
-4 nodos de 100 GbE 24
+100GbE nodo 24
 
 
 
@@ -307,22 +307,22 @@ Reservado
  a| 
 35
  a| 
-100G ISL al puerto 35 del switch B.
+100GbE ISL al puerto 35 del switch B
  a| 
 35
  a| 
-ISL DE 100 G para cambiar al puerto 35
+100GbE ISL para conmutar Un puerto 35
 
 
 
  a| 
 36
  a| 
-100G ISL al puerto 36 del switch B.
+100GbE ISL al puerto 36 del switch B
  a| 
 36
  a| 
-ISL DE 100 G para cambiar al puerto 36
+100GbE ISL para conmutar Un puerto 36
 
 |===
 
@@ -566,22 +566,22 @@ Reservado
  a| 
 35
  a| 
-100G ISL al puerto 35 del switch B.
+100GbE ISL al puerto 35 del switch B
  a| 
 35
  a| 
-ISL DE 100 G para cambiar al puerto 35
+100GbE ISL para conmutar Un puerto 35
 
 
 
  a| 
 36
  a| 
-100G ISL al puerto 36 del switch B.
+100GbE ISL al puerto 36 del switch B
  a| 
 36
  a| 
-ISL DE 100 G para cambiar al puerto 36
+100GbE ISL para conmutar Un puerto 36
 
 |===
 Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obtener más información sobre los puertos de switch.
