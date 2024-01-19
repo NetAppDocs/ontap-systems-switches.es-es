@@ -98,198 +98,198 @@ La definición de puerto de ejemplo de cada par de conmutadores es la siguiente:
  a| 
 7
  a| 
-100GbE nodo 7
+7 nodos 40/100GbE
  a| 
 7
  a| 
-100GbE nodo 7
+7 nodos 40/100GbE
 
 
 
  a| 
 8
  a| 
-100GbE nodo 8
+8 nodos 40/100GbE
  a| 
 8
  a| 
-100GbE nodo 8
+8 nodos 40/100GbE
 
 
 
  a| 
 9
  a| 
-100GbE nodo 9
+9 nodos 40/100GbE
  a| 
 9
  a| 
-100GbE nodo 9
+9 nodos 40/100GbE
 
 
 
  a| 
 10
  a| 
-100GbE nodo 10
+10 nodos 40/100GbE
  a| 
 10
  a| 
-100GbE nodo 10
+10 nodos 40/100GbE
 
 
 
  a| 
 11
  a| 
-100GbE nodo 11
+11 nodos 40/100GbE
  a| 
 11
  a| 
-100GbE nodo 11
+11 nodos 40/100GbE
 
 
 
  a| 
 12
  a| 
-100GbE nodo 12
+12 nodos 40/100GbE
  a| 
 12
  a| 
-100GbE nodo 12
+12 nodos 40/100GbE
 
 
 
  a| 
 13
  a| 
-100GbE nodo 13
+13 nodos 40/100GbE
  a| 
 13
  a| 
-100GbE nodo 13
+13 nodos 40/100GbE
 
 
 
  a| 
 14
  a| 
-100GbE nodo 14
+14 nodos 40/100GbE
  a| 
 14
  a| 
-100GbE nodo 14
+14 nodos 40/100GbE
 
 
 
  a| 
 15
  a| 
-100GbE nodo 15
+15 nodos 40/100GbE
  a| 
 15
  a| 
-100GbE nodo 15
+15 nodos 40/100GbE
 
 
 
  a| 
 16
  a| 
-100GbE nodo 16
+16 nodos 40/100GbE
  a| 
 16
  a| 
-100GbE nodo 16
+16 nodos 40/100GbE
 
 
 
  a| 
 17
  a| 
-100GbE nodo 17
+17 nodos 40/100GbE
  a| 
 17
  a| 
-100GbE nodo 17
+17 nodos 40/100GbE
 
 
 
  a| 
 18
  a| 
-100GbE nodo 18
+18 nodos 40/100GbE
  a| 
 18
  a| 
-100GbE nodo 18
+18 nodos 40/100GbE
 
 
 
  a| 
 19
  a| 
-100GbE nodo 19
+19 nodos 40/100GbE
  a| 
 19
  a| 
-100GbE nodo 19
+19 nodos 40/100GbE
 
 
 
  a| 
 20
  a| 
-100GbE nodo 20
+20 nodos 40/100GbE
  a| 
 20
  a| 
-100GbE nodo 20
+20 nodos 40/100GbE
 
 
 
  a| 
 21
  a| 
-100GbE nodo 21
+21 nodos 40/100GbE
  a| 
 21
  a| 
-100GbE nodo 21
+21 nodos 40/100GbE
 
 
 
  a| 
 22
  a| 
-100GbE nodo 22
+22 nodos 40/100GbE
  a| 
 22
  a| 
-100GbE nodo 22
+22 nodos 40/100GbE
 
 
 
  a| 
 23
  a| 
-100GbE nodo 23
+23 nodos 40/100GbE
  a| 
 23
  a| 
-100GbE nodo 23
+23 nodos 40/100GbE
 
 
 
  a| 
 24
  a| 
-100GbE nodo 24
+24 nodos 40/100GbE
  a| 
 24
  a| 
-100GbE nodo 24
+24 nodos 40/100GbE
 
 
 

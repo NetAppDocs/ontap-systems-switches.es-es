@@ -39,7 +39,6 @@ Compruebe que la configuración cumple los siguientes requisitos:
 ** Un clúster de NetApp redundante y completamente funcional mediante switches NetApp CN1610.
 ** Conectividad de gestión y acceso mediante consola a los switches NetApp CN1610 y a los nuevos.
 ** Todos los LIF del clúster con las LIF del clúster están en sus puertos de inicio.
-** Puertos ISL habilitados y cableados entre los switches NetApp CN1610 y entre los nuevos switches.
 
 
 * Algunos puertos están configurados en los switches Cisco 9336C-FX2 para funcionar a 40GbE o 100GbE Gbps.
@@ -66,6 +65,9 @@ Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo
 
 
 
+
+
+NOTE: Durante este procedimiento no se necesita ningún enlace entre switches (ISL) operativo. Esto se debe a que los cambios en la versión de RCF pueden afectar temporalmente a la conectividad ISL. Para garantizar operaciones de clúster no disruptivas, el siguiente procedimiento migra todas las LIF del clúster al switch de partner operativo mientras realiza los pasos del switch de destino.
 
 
 
