@@ -1,8 +1,8 @@
 ---
-permalink: switch-nvidia-sn2100/install-snmpv3-sn2100-cluster.html 
+permalink: switch-nvidia-sn2100/CSHM_snmpv3.html 
 sidebar: sidebar 
-keywords: sn2100 SN2100 cabling setup, sn2100 switches configuration, cumulus linux os 
-summary: Esta versión incluye soporte para SNMPv3 para la supervisión de registros. 
+keywords: SNMP,SNMPv3,SNMPv3 setup,SN2100 cabling setup,sn2100 switches configuration,cumulus linux os 
+summary: 'SNMPv3 se puede utilizar con el monitor de estado de switch Ethernet (CSHM).' 
 ---
 = Configurar SNMPv3
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Esta versión incluye soporte para SNMPv3 para la supervisión de regis
 
 
 [role="lead"]
-Siga este procedimiento para configurar SNMPv3, que admite la monitorización del estado del switch (CSHM).
+Siga este procedimiento para configurar SNMPv3, que admite la monitorización del estado del switch Ethernet (CSHM).
 
 .Acerca de esta tarea
 Los siguientes comandos configuran un nombre de usuario SNMPv3 en switches NVIDIA SN2100:
@@ -92,7 +92,7 @@ net add/del commands since the last "net commit"
 ================================================
 
 User        Timestamp                   Command
-----------  --------------------------  -----------------------------------------------------------------------------
+----------  --------------------------  -------------------------------------------------------------------------
 SNMPv3User  2020-08-11 00:13:51.826987  net add snmp-server username SNMPv3User auth-md5 <password> encrypt-aes <password>
 
 cumulus@sw1:~$
@@ -136,7 +136,7 @@ Enter privacy protocol password (minimum 8 characters long):
 Enter privacy protocol password again:
 ----
 ====
-. Configure SHM para supervisar con el nuevo usuario SNMPv3:
+. Configure CSHM para monitorizar con el nuevo usuario de SNMPv3:
 +
 `system switch ethernet show-all -device "sw1 (b8:59:9f:09:7c:22)" -instance`
 
@@ -166,7 +166,7 @@ cluster1::*>
 cluster1::*> *system switch ethernet modify -device "sw1 (b8:59:9f:09:7c:22)" -snmp-version SNMPv3 -community-or-username SNMPv3User*
 ----
 ====
-. Compruebe que el número de serie que se va a consultar con el usuario SNMPv3 recién creado es el mismo que se detalla en el paso anterior una vez completado el período de sondeo SHM.
+. Compruebe que el número de serie que se va a consultar con el usuario SNMPv3 recién creado es el mismo que se detalla en el paso anterior una vez que se haya completado el período de sondeo de CSHM.
 +
 `system switch ethernet polling-interval show`
 

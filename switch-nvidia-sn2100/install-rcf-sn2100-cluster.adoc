@@ -20,6 +20,9 @@ Antes de instalar la secuencia de comandos RCF, asegúrese de que en el conmutad
 * Dirección IP, máscara de subred y puerta de enlace predeterminada definida a través de DHCP o configurado manualmente.
 
 
+
+NOTE: Debe especificar un usuario en el RCF (además del usuario administrador) para que se utilice específicamente para la recopilación de registros.
+
 .Versiones actuales de la secuencia de comandos RCF
 Hay dos scripts de RCF disponibles para las aplicaciones de clúster y almacenamiento. Descargar RCFs desde https://mysupport.netapp.com/site/info/nvidia-cluster-switch["aquí"^]. El procedimiento para cada uno es el mismo.
 
