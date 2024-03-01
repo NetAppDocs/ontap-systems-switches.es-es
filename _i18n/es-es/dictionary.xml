@@ -3349,7 +3349,6 @@
   <block id="9284b77324fc2073740e195aa4d8c7bc" category="admonition">Consulte <block ref="81e27480a79c2bb77194c038c9737157" category="inline-link-macro-rx"></block> para obtener advertencias e información adicional. La<block ref="fc1c96ca1130118b28ccd7598f63fe21" category="inline-link-rx"></block> también contiene más información sobre el cableado.</block>
   <block id="73150a01363aed5257939f818ac56b3b" category="list-text">Los archivos de configuración de referencia (RCF) se aplican a los conmutadores</block>
   <block id="da591669df43fec970432be7e05daeb2" category="list-text">Cambie el nivel de privilegio a Advanced, introduzca<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> cuando se le solicite continuar:<block ref="0581d0d071ad835f74bf419081ce5d75" prefix=" " category="inline-code"></block></block>
-  <block id="00bb8074e6bd1737f80dabe96f73b517" category="paragraph">Los siguientes comandos desactivan los puertos orientados al nodo en los switches sw1 y sw2:</block>
   <block id="d334b073010dc4ca86957c663631fa0b" category="paragraph">Cada LIF de clúster debería mostrar el valor true para<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> y que tengan un<block ref="4f21ee5a18672b60f4c01e94e6be9c79" prefix=" " category="inline-code"></block> de<block ref="fc7c1443e5c7b6439706b6132a4c0829" prefix=" " category="inline-code"></block>.</block>
   <block id="000b6bb5cbb57345f81524ec8fea7ef3" category="paragraph">Para la instalación y el mantenimiento del conmutador NVIDIA SN2100, asegúrese de revisar todos los requisitos de configuración.</block>
   <block id="234133fd4f1ed6a8d213d73b1ffcbefe" category="paragraph">Para conocer las directrices de cableado, consulte <block ref="81e27480a79c2bb77194c038c9737157" category="inline-link-macro-rx"></block>.</block>
@@ -4699,4 +4698,21 @@ Para obtener información actual sobre compatibilidad, consulte<block ref="f6aa3
   <block id="b9c519617ddb8983725afb0a6830a2f9" category="paragraph">Elimine el directorio de recopilación de registros anterior y el archivo '.tar' ubicado en<block ref="0793027f48f71fa4fc10baf29d75e685" prefix=" " category="inline-code"></block> en el interruptor.</block>
   <block id="c2d06740bdd189b6a9e5c66037c2fca6" category="list-text">Compruebe que el número de serie que se va a consultar con el usuario SNMPv3 recién creado es el mismo que se detalla en el paso anterior una vez que se haya completado el período de sondeo de CSHM.</block>
   <block id="d185f7c4f8a7ee7fcc5143d7f639a45b" category="sidebar">Configure SNMPv3 para la supervisión</block>
+  <block id="c7afd9396f393d27ad260ca9f7d80ada" category="open-title">Cumulus Linux 4,4.x</block>
+  <block id="bac0749492396eefc62e79ed342a7d3e" category="paragraph">Los siguientes comandos muestran que los puertos ISL están activos en los switches sw1 y SW2:</block>
+  <block id="66d5df919df19776cddfe95690c8746e" category="list-text">Deshabilite todos los puertos orientados al nodo (no puertos ISL) en los dos switches de clúster nuevos sw1 y SW2.</block>
+  <block id="c9a508dfd4f34896db766a11271dc586" category="paragraph"><block ref="1b1eb164bd3711517ce965d9f4b868f3" prefix="" category="inline-code"></block></block>
+  <block id="d1642411fbcc528de43c89473d1874f0" category="paragraph">Los ejemplos siguientes muestran que los puertos ISL están activos en los switches sw1 y SW2:</block>
+  <block id="60d52c8e3908ebe64553a928f2fdda93" category="list-text">[[step3]] Verifique que todos los puertos del clúster estén activos:</block>
+  <block id="b13b891b5f6c1e4e43eb705e0d6bf621" category="list-text">[[step8]] En el switch sw1, habilite todos los puertos orientados al nodo.</block>
+  <block id="b2ce337c562b364c2196d79d035a80be" category="paragraph">Los siguientes comandos habilitan todos los puertos orientados al nodo del switch sw1.</block>
+  <block id="99c6ee6ba3b6a27c26e8de9f62b5d314" category="list-text">[[STEP]] En el switch sw1, verifique que todos los puertos estén activos:</block>
+  <block id="8eb64f1011cfe4148b4473d10a71897c" category="list-text">[[step9]] En el switch sw1, verifique que todos los puertos estén activos:</block>
+  <block id="e946daf9cc878bba9a13ef46326d57c1" category="list-text">[[step10]] Verifique que todos los puertos del clúster estén activos:</block>
+  <block id="3242eb8d02460a3fc00c17f0baedbafe" category="list-text">[[step14]] En el switch SW2, habilite todos los puertos orientados al nodo.</block>
+  <block id="a914c91810b28287a708a0c3ee0dfa60" category="list-text">[[step15]] En el switch SW2, verifique que todos los puertos estén activos:</block>
+  <block id="eccb174f59c7d1789337c7c4b0eb3c26" category="list-text">[[step16]] En ambos conmutadores sw1 y SW2, verifique que ambos nodos tengan cada uno una conexión a cada conmutador:</block>
+  <block id="3d49c6a8040af00423280443bbe5d05f" category="paragraph"><block ref="913a5e09220539ba22f04cc8f2d2fe80" prefix="" category="inline-code"></block></block>
+  <block id="9d6600c74c6f65eef63f8fe8e301ffef" category="paragraph">Los siguientes ejemplos muestran los resultados adecuados para los switches sw1 y SW2:</block>
+  <block id="3510e8dd2306d7a2623d6253e5ee079b" category="list-text">[[step17]] Muestra información sobre los dispositivos de red detectados en el cluster:</block>
 </blocks>
