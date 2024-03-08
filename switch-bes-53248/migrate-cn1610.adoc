@@ -98,11 +98,13 @@ Este procedimiento cubre el siguiente caso:
 * El clúster comienza con dos nodos conectados a dos switches de clúster CN1610.
 * El conmutador CN1610 CL2 se sustituye por el conmutador BES-53248 cs2:
 +
+** Apague los puertos de los nodos del clúster. Todos los puertos deben apagarse simultáneamente para evitar la inestabilidad del clúster.
 ** Desconecte los cables de todos los puertos del clúster de todos los nodos conectados a CL2 y, a continuación, utilice cables admitidos para volver a conectar los puertos al nuevo switch del clúster cs2.
 
 
 * El conmutador CN1610 CL1 se sustituye por el conmutador BES-53248 cs1:
 +
+** Apague los puertos de los nodos del clúster. Todos los puertos deben apagarse simultáneamente para evitar la inestabilidad del clúster.
 ** Desconecte los cables de todos los puertos del clúster de todos los nodos conectados a CL1 y, a continuación, utilice cables admitidos para volver a conectar los puertos al nuevo switch del clúster cs1.
 
 
@@ -342,11 +344,8 @@ cluster1::*>
 ----
 cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
 ----
-. En el switch de clúster CL2, apague los puertos conectados a los puertos de clúster de los nodos:
+. En el switch de clúster CL2, apague los puertos conectados a los puertos de clúster de los nodos para conmutar las LIF de clúster:
 +
-.Muestra el ejemplo
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 (CL2)# *configure*
@@ -356,8 +355,7 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert fals
 (CL2)(Config)# *exit*
 (CL2)#
 ----
-====
-. Compruebe que las LIF del clúster han migrado a los puertos alojados en el switch de clúster CL1. Esto puede tardar unos segundos.
+. Compruebe que las LIF del clúster han conmutado al nodo de respaldo a los puertos alojados en el switch del clúster CL1. Esto puede tardar unos segundos.
 +
 `network interface show -vserver Cluster`
 
@@ -450,14 +448,14 @@ node1      /cdp
             e0b    cs2                       0/1               BES-53248
 ----
 ====
-. Confirme que las conexiones de los puertos del switch sean correctas desde la perspectiva del switch CS2 mediante los comandos:
+. Confirme que las conexiones de puertos del switch sean correctas desde la perspectiva del switch CS2:
 +
 [listing, subs="+quotes"]
 ----
 cs2# *show port all*
 cs2# *show isdp neighbors*
 ----
-. En el switch de clúster CL1, apague los puertos conectados a los puertos de clúster de los nodos.
+. En el switch de clúster CL1, apague los puertos conectados a los puertos de clúster de los nodos para conmutar las LIF de clúster:
 +
 [listing, subs="+quotes"]
 ----
@@ -469,9 +467,9 @@ cs2# *show isdp neighbors*
 (CL1)#
 ----
 +
-Todos los LIF del clúster se mueven al switch CS2.
+Todos los LIF del clúster realizan la conmutación al respaldo al switch CS2.
 
-. Comprobar que las LIF del clúster han migrado a los puertos alojados en el switch cs2. Esto puede tardar unos segundos:
+. Compruebe que los LIF de clúster han conmutado al nodo de respaldo a los puertos alojados en el switch CS2. Esto puede tardar unos segundos:
 +
 `network interface show -vserver Cluster`
 
@@ -564,7 +562,7 @@ node2      /cdp
             e0b    cs2                       0/2               BES-53248
 ----
 ====
-. Confirme que las conexiones de los puertos del switch sean correctas desde la perspectiva del switch CS1 mediante los comandos:
+. Confirme que las conexiones de puertos del switch sean correctas desde la perspectiva del switch CS1:
 +
 [listing, subs="+quotes"]
 ----
@@ -711,11 +709,7 @@ RPC status:
 2 paths up, 0 paths down (udp check)
 ----
 ====
-. Cree una contraseña para la función de recopilación de registros de monitor de estado del switch Ethernet.
-+
-
-IMPORTANT: Para habilitar la función de recopilación de registros, debe ejecutar ONTAP 9.10.1P15, 9.11.1P12 o 9.12.1 y versiones posteriores, y EFOS 3.8.0.2 y versiones posteriores.
-
+. Para configurar la recopilación de registros, ejecute el siguiente comando para cada conmutador. Se le pedirá que introduzca el nombre del switch, el nombre de usuario y la contraseña para la recopilación de registros.
 +
 `system switch ethernet log setup-password`
 
@@ -749,7 +743,7 @@ Enter the password: *<enter switch password>*
 Enter the password again: *<enter switch password>*
 ----
 ====
-. Habilite la función de recopilación de registros del monitor de estado del switch Ethernet:
+. Para iniciar la recopilación de registros, ejecute el siguiente comando, sustituyendo EL DISPOSITIVO por el conmutador utilizado en el comando anterior. Esto inicia ambos tipos de recopilación de registros: Los registros detallados de *Support* y una recopilación horaria de datos *Periódicos*.
 +
 `system switch ethernet log modify -device _<switch-name>_ -log-request true`
 

@@ -51,7 +51,24 @@ image::../media/Initial_setup.png[Configuración inicial del switch]
 .Acerca de esta tarea
 El procedimiento requiere el uso de tanto comandos de la ONTAP como de https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Switches de la serie Nexus 9000"^] Comandos; los comandos de ONTAP se utilizan, a menos que se indique lo contrario.
 
-Durante este procedimiento no se necesita ningún enlace entre switches (ISL) operativo. Esto se debe a que los cambios en la versión de RCF pueden afectar temporalmente a la conectividad ISL. Para garantizar operaciones de clúster no disruptivas, el siguiente procedimiento migra todas las LIF del clúster al switch de partner operativo mientras realiza los pasos del switch de destino.
+Este procedimiento cubre el siguiente caso:
+
+* El interruptor CS2 se reemplaza por el interruptor CS2-NUEVO primero.
++
+** Apague los puertos de los nodos del clúster. Todos los puertos deben apagarse simultáneamente para evitar la inestabilidad del clúster.
+** Después, el cableado entre los nodos y CS2 se desconecta del CS2 y se vuelve a conectar a CS2 nuevo.
+
+
+* El interruptor CS1 se reemplaza por el interruptor CS1-NUEVO.
++
+** Apague los puertos de los nodos del clúster. Todos los puertos deben apagarse simultáneamente para evitar la inestabilidad del clúster.
+** Después, el cableado entre los nodos y CS1 se desconecta del CS1 y se vuelve a conectar a CS1 nuevo.
+
+
+
+
+
+NOTE: Durante este procedimiento no se necesita ningún enlace entre switches (ISL) operativo. Esto se debe a que los cambios en la versión de RCF pueden afectar temporalmente a la conectividad ISL. Para garantizar operaciones de clúster no disruptivas, el siguiente procedimiento migra todas las LIF del clúster al switch de partner operativo mientras realiza los pasos del switch de destino.
 
 
 
@@ -228,26 +245,16 @@ cs2                         cluster-network     10.233.205.93   N5K-C5596UP
 
 . Deshabilite la reversión automática en las LIF del clúster.
 +
-.Muestra el ejemplo
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
-----
-====
-. En el switch del clúster cs2, apague los puertos conectados a los puertos del clúster de los nodos:
+`network interface modify -vserver Cluster -lif * -auto-revert false`
+
+. En el switch de clúster CS2, apague los puertos conectados a los puertos de clúster de los nodos para conmutar las LIF de clúster:
 +
-.Muestra el ejemplo
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cs2(config)# *interface eth1/1-1/2*
 cs2(config-if-range)# *shutdown*
 ----
-====
-. Comprobar que las LIF del clúster han migrado a los puertos alojados en el switch del clúster cs1. Esto puede tardar unos segundos.
+. Compruebe que las LIF del clúster han conmutado al nodo de respaldo a los puertos alojados en el switch del clúster CS1. Esto puede tardar unos segundos.
 +
 `network interface show -vserver Cluster`
 
@@ -351,14 +358,14 @@ node2      /cdp
 +
 Compruebe que los puertos del clúster movidos ven al conmutador cs2-new como vecino.
 
-. Confirme las conexiones del puerto del conmutador desde la perspectiva del conmutador cs2-new:
+. Confirme las conexiones de puertos del switch desde la perspectiva del switch CS2-new:
 +
 [listing, subs="+quotes"]
 ----
 cs2-new# *show interface brief*
 cs2-new# *show cdp neighbors*
 ----
-. En el switch de clúster cs1, apague los puertos conectados a los puertos del clúster de los nodos. En el ejemplo siguiente se utiliza el resultado del ejemplo de interfaz del paso 7.
+. En el switch de clúster CS1, apague los puertos conectados a los puertos de clúster de los nodos para conmutar las LIF de clúster. En el ejemplo siguiente se utiliza el resultado del ejemplo de interfaz del paso 7.
 +
 [listing, subs="+quotes"]
 ----
@@ -368,7 +375,7 @@ cs1(config-if-range)# *shutdown*
 +
 Todos los LIF del clúster se moverán al switch cs2-new.
 
-. Compruebe que las LIF del clúster han migrado a los puertos alojados en el switch cs2-new. Esto puede tardar unos segundos:
+. Compruebe que los LIF del clúster han conmutado al nodo de respaldo en los puertos alojados en el switch CS2-new. Esto puede tardar unos segundos:
 +
 `network interface show -vserver Cluster`
 
@@ -471,17 +478,13 @@ node2      /cdp
 +
 Compruebe que los puertos del clúster movidos ven al switch cs1-new como vecino.
 
-. Confirme las conexiones del puerto del conmutador desde la perspectiva del conmutador cs1-new:
+. Confirme las conexiones de puertos del switch desde la perspectiva del switch CS1-new:
 +
-.Muestra el ejemplo
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cs1-new# *show interface brief*
 cs1-new# *show cdp neighbors*
 ----
-====
 . Compruebe que el ISL entre cs1-new y cs2-new siga operativo:
 +
 `show port-channel summary`
@@ -531,14 +534,8 @@ Group Port-       Type     Protocol  Member Ports
 
 . Habilite la reversión automática en las LIF del clúster.
 +
-.Muestra el ejemplo
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true*
-----
-====
+`network interface modify -vserver Cluster -lif * -auto-revert true`
+
 . Compruebe que las LIF del clúster han vuelto a sus puertos raíz (esto puede tardar un minuto):
 +
 `network interface show -vserver Cluster`
