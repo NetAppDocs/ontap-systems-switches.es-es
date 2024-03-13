@@ -10,7 +10,7 @@ summary: Utilice las imágenes de cableado para completar el cableado entre las 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -42,7 +42,9 @@ Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obtener m
 
 Si desea documentar las plataformas compatibles, debe rellenar la hoja de datos de cableado en blanco utilizando la hoja de datos de cableado de muestra completada como guía.
 
-La definición de puerto de ejemplo de cada par de conmutadores es la siguiente:image:cabling_worksheet.jpg["Hoja de trabajo para el cableado"]
+La definición de puerto de ejemplo de cada par de conmutadores es la siguiente:
+
+image:cabling_worksheet.jpg["Hoja de trabajo para el cableado"]
 
 Donde:
 
