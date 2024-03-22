@@ -1,8 +1,8 @@
 ---
-permalink: switch-cisco-3132q-v/CSHM_log_collection.html 
+permalink: switch-cisco-92300/CSHM_log_collection.html 
 sidebar: sidebar 
-keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation 
-summary: La función de recogida de registros de control de estado del switch de clúster se utiliza para recoger archivos de registro relacionados con el switch en ONTAP. Debe asegurarse de haber configurado el entorno usando la CLI del switch de clúster 92300YC como se detalla aquí. 
+keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation,92300YC Cisco setup,92300YC switches configuration,NX-OS 
+summary: 'La función de recogida de registros del monitor de estado del switch Ethernet (CSHM) se utiliza para recoger registros de clústeres o switches de red de almacenamiento en ONTAP.' 
 ---
 = Recopilación de registro de supervisión del estado del switch Ethernet
 :allow-uri-read: 
@@ -11,17 +11,10 @@ summary: La función de recogida de registros de control de estado del switch de
 
 
 [role="lead"]
-Es posible usar la función de recopilación de registros para recoger archivos de registro relacionados con switches en ONTAP.
-
 El monitor de estado del switch Ethernet (CSHM) es responsable de garantizar el estado operativo de los conmutadores de red del clúster y de almacenamiento y de recopilar registros del switch para fines de depuración. Este procedimiento lo guía a través del proceso de configuración e inicio de la recopilación de registros detallados de *Soporte* desde el switch e inicia una recopilación por hora de datos *Periódicos* que es recopilada por AutoSupport.
 
-.Antes de empezar
-* Compruebe que ha configurado su entorno mediante el conmutador de clúster de Cisco 3132Q-V *CLI*.
-* La monitorización del estado del interruptor debe estar activada para el interruptor. Verifique esto asegurándose de que el `Is Monitored:` el campo se establece en *true* en la salida del `system switch ethernet show` comando.
-
-
 .Pasos
-. Cree una contraseña para la función de recogida de registros de monitor de estado del switch Ethernet:
+. Para configurar la recopilación de registros, ejecute el siguiente comando para cada conmutador. Se le pedirá que introduzca el nombre del switch, el nombre de usuario y la contraseña para la recopilación de registros.
 +
 `system switch ethernet log setup-password`
 
@@ -79,7 +72,7 @@ Enabling cluster switch log collection.
 ----
 ====
 +
-Espere 10 minutos y compruebe que se complete la recogida de registros:
+Espere 10 minutos y compruebe que se complete la recopilación de registros:
 
 +
 `system switch ethernet log show`
@@ -90,7 +83,7 @@ CAUTION: Si alguno de estos comandos devuelve un error o si la recogida de regis
 
 
 
-.Resolución de problemas
+.Solucionar problemas
 Si se encuentra con alguno de los siguientes estados de error informados por la función de recopilación de registros (visible en la salida de `system switch ethernet log show`), pruebe los pasos de depuración correspondientes:
 
 |===

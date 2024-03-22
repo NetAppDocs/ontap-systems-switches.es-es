@@ -1,7 +1,7 @@
 ---
-permalink: switch-bes-53248/CSHM_snmpv3.html 
+permalink: switch-cisco-92300/CSHM_snmpv3.html 
 sidebar: sidebar 
-keywords: SNMP,SNMPv3,SNMPv3 setup,BES-53248 Broadcom setup,BES-3248 switches configuration,EFOS 
+keywords: SNMP,SNMPv3,SNMPv3 setup,Cisco setup,Cisco switches configuration,NX-OS 
 summary: 'SNMPv3 se puede utilizar con el monitor de estado de switch Ethernet (CSHM).' 
 ---
 = Configurar SNMPv3
@@ -14,14 +14,14 @@ summary: 'SNMPv3 se puede utilizar con el monitor de estado de switch Ethernet (
 Siga este procedimiento para configurar SNMPv3, que admite la monitorización del estado del switch Ethernet (CSHM).
 
 .Acerca de esta tarea
-Los siguientes comandos configuran un nombre de usuario SNMPv3 en los conmutadores Broadcom BES-53248:
+Los siguientes comandos configuran un nombre de usuario SNMPv3 en switches Cisco 92300YC:
 
 * Para *sin autenticación*:
-`snmp-server user SNMPv3UserNoAuth NETWORK-OPERATOR noauth`
+`snmp-server user _SNMPv3_USER_ NoAuth`
 * Para *autenticación MD5/SHA*:
-`snmp-server user SNMPv3UserAuth NETWORK-OPERATOR [auth-md5|auth-sha]`
+`snmp-server user _SNMPv3_USER_ auth [md5|sha] _AUTH-PASSWORD_`
 * Para autenticación *MD5/SHA con cifrado AES/DES*:
-`snmp-server user SNMPv3UserAuthEncrypt NETWORK-OPERATOR [auth-md5|auth-sha] [priv-aes128|priv-des]`
+`snmp-server user _SNMPv3_USER_ AuthEncrypt  auth [md5|sha] _AUTH-PASSWORD_ priv aes-128 _PRIV-PASSWORD_`
 
 
 El siguiente comando configura un nombre de usuario SNMPv3 en el lado ONTAP:
@@ -33,7 +33,7 @@ El siguiente comando establece el nombre de usuario SNMPv3 con CSHM:
 .Pasos
 . Configure el usuario SNMPv3 en el conmutador para que utilice autenticación y cifrado:
 +
-`show snmp status`
+`show snmp user`
 
 +
 .Muestra el ejemplo
@@ -41,14 +41,27 @@ El siguiente comando establece el nombre de usuario SNMPv3 con CSHM:
 ====
 [listing, subs="+quotes"]
 ----
-(sw1)(Config)# *snmp-server user <username> network-admin auth-md5 <password> priv-aes128 <password>*
+(sw1)(Config)# *snmp-server user SNMPv3User auth md5 <auth_password> priv aes-128 <priv_password>*
 
-(cs1)(Config)# *show snmp user snmp*
+(sw1)(Config)# *show snmp user*
 
-     Name            Group Name      Auth Priv
-                                     Meth Meth    Remote Engine ID
------------------ ------------------ ---- ------ -------------------------
-<username>        network-admin      MD5  AES128 8000113d03d8c497710bee
+-----------------------------------------------------------------------------
+                              SNMP USERS
+-----------------------------------------------------------------------------
+
+User              Auth            Priv(enforce)   Groups          acl_filter
+----------------- --------------- --------------- --------------- -----------
+admin             md5             des(no)         network-admin
+SNMPv3User        md5             aes-128(no)     network-operator
+
+-----------------------------------------------------------------------------
+     NOTIFICATION TARGET USERS (configured  for sending V3 Inform)
+-----------------------------------------------------------------------------
+
+User              Auth               Priv
+----------------- ------------------ ------------
+
+(sw1)(Config)#
 ----
 ====
 . Configure el usuario SNMPv3 en el lado ONTAP:
@@ -61,6 +74,8 @@ El siguiente comando establece el nombre de usuario SNMPv3 con CSHM:
 ====
 [listing, subs="+quotes"]
 ----
+cluster1::*> *system switch ethernet modify -device "sw1 (b8:59:9f:09:7c:22)" -is-monitoring-enabled-admin true*
+
 cluster1::*> *security login create -user-or-group-name <username> -application snmp -authentication-method usm -remote-switch-ipaddress 10.231.80.212*
 
 Enter the authoritative entity's EngineID [remote EngineID]:
@@ -88,18 +103,17 @@ Enter privacy protocol password again:
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *system switch ethernet show-all -device "sw1 (b8:59:9f:09:7c:22)" -instance*
+cluster1::*> *system switch ethernet show-all -device "sw1" -instance*
 
                                    Device Name: sw1
-                                    IP Address: 10.228.136.24
+                                    IP Address: 10.231.80.212
                                   SNMP Version: SNMPv2c
                                  Is Discovered: true
-DEPRECATED-Community String or SNMPv3 Username: -
-           Community String or SNMPv3 Username: cshm1!
-                                  Model Number: BES-53248
+   SNMPv2c Community String or SNMPv3 Username: cshm1!
+                                  Model Number: N9K-C92300YC
                                 Switch Network: cluster-network
-                              Software Version: 3.9.0.2
-                     Reason For Not Monitoring: None  *<---- should display this if SNMP settings are valid*
+                              Software Version: Cisco Nexus Operating System (NX-OS) Software, Version 9.3(7)
+                     Reason For Not Monitoring: None  *<---- displays when SNMP settings are valid*
                       Source Of Switch Version: CDP/ISDP
                                 Is Monitored ?: true
                    Serial Number of the Device: QTFCU3826001C
@@ -107,6 +121,7 @@ DEPRECATED-Community String or SNMPv3 Username: -
 
 cluster1::*>
 cluster1::*> *system switch ethernet modify -device "sw1" -snmp-version SNMPv3 -community-or-username <username>*
+cluster1::*>
 ----
 ====
 . Compruebe que el número de serie que se va a consultar con el usuario SNMPv3 recién creado es el mismo que se detalla en el paso anterior después de que se haya completado el período de sondeo de CSHM.
@@ -123,20 +138,22 @@ cluster1::*> *system switch ethernet polling-interval show*
          Polling Interval (in minutes): 5
 
 cluster1::*> *system switch ethernet show-all -device "sw1" -instance*
+
                                    Device Name: sw1
-                                    IP Address: 10.228.136.24
+                                    IP Address: 10.231.80.212
                                   SNMP Version: SNMPv3
                                  Is Discovered: true
-DEPRECATED-Community String or SNMPv3 Username: -
-           Community String or SNMPv3 Username: <username>
-                                  Model Number: BES-53248
+   SNMPv2c Community String or SNMPv3 Username: SNMPv3User
+                                  Model Number: N9K-C92300YC
                                 Switch Network: cluster-network
-                              Software Version: 3.9.0.2
-                     Reason For Not Monitoring: None  *<---- should display this if SNMP settings are valid*
+                              Software Version: Cisco Nexus Operating System (NX-OS) Software, Version 9.3(7)
+                     Reason For Not Monitoring: None  *<---- displays when SNMP settings are valid*
                       Source Of Switch Version: CDP/ISDP
                                 Is Monitored ?: true
                    Serial Number of the Device: QTFCU3826001C
                                    RCF Version: v1.8X2 for Cluster/HA/RDMA
+
+cluster1::*>
 ----
 ====
 
