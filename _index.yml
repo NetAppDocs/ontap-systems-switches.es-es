@@ -1,9 +1,9 @@
 ---
 indexpage:
-  lead: NetApp ofrece clúster, almacenamiento y switches compartidos para proporcionar
-    conectividad entre el almacenamiento de host y dos o más controladoras AFF/FAS,
-    lo que le permite mover datos e interfaces de red sin interrupciones a través
-    de su infraestructura de almacenamiento.
+  lead: NetApp ofrece clústeres, almacenamiento y switches compartidos para proporcionar
+    conectividad entre el almacenamiento de hosts y dos o más controladoras NetApp,
+    lo que permite mover datos y interfaces de red de forma no disruptiva en toda
+    la infraestructura de almacenamiento.
   tiles:
   - title: Manos a la obra
     links:
@@ -25,7 +25,7 @@ indexpage:
       url: "/overview-eod.html"
   - title: Documentos de ONTAP relacionados
     links:
-    - title: Sistemas de hardware AFF/FAS
+    - title: Sistemas de hardware de ONTAP
       url: https://docs.netapp.com/us-en/ontap-systems/index.html
     - title: Software ONTAP
       url: https://docs.netapp.com/us-en/ontap/index.html

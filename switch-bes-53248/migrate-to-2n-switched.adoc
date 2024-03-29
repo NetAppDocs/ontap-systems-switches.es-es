@@ -53,6 +53,12 @@ La https://hwu.netapp.com/Home/Index["_Hardware Universe_ de NetApp"^] Contiene 
 * Cualquier personalización del sitio (SMTP, SNMP y SSH) se configura en los nuevos switches.
 
 
+.Restricciones de velocidad del grupo de puertos
+* Los puertos 48 10/25GbE (SFP28/SFP+) se combinan en 12 grupos de 4 puertos de la siguiente manera: Puertos 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44 y 45-48.
+* La velocidad del puerto SFP28/SFP+ debe ser la misma (10 GbE o 25 GbE) en todos los puertos del grupo de 4 puertos.
+* Si las velocidades de un grupo de 4 puertos son diferentes, los puertos del switch no funcionarán correctamente.
+
+
 
 
 == Migre al entorno del clúster
@@ -123,7 +129,7 @@ En el siguiente ejemplo se muestra que los puertos 1 a 16 que están orientados 
 (cs1)(Interface 0/1-0/16)# *exit*
 (cs1)(Config)# *exit*
 ----
-. Verifique que el ISL y los puertos físicos en el ISL entre los dos conmutadores BES-53248 cs1 y cs2 sean *up*:
+. Compruebe que el ISL y los puertos físicos en el ISL entre los dos switches BES-53248 CS1 y CS2 están activos:
 +
 `show port-channel`
 
@@ -131,7 +137,7 @@ En el siguiente ejemplo se muestra que los puertos 1 a 16 que están orientados 
 .Muestra el ejemplo
 [%collapsible]
 ====
-En el siguiente ejemplo se muestra que los puertos ISL están *up* en el switch cs1:
+El siguiente ejemplo muestra que los puertos ISL están activos en el switch cs1:
 
 [listing, subs="+quotes"]
 ----
@@ -154,7 +160,7 @@ Ports  Timeout       Speed      Active
        partner/long
 (cs1) #
 ----
-El siguiente ejemplo muestra que los puertos ISL están *up* en el conmutador cs2:
+El siguiente ejemplo muestra que los puertos ISL están activos en el switch cs2:
 
 [listing, subs="+quotes"]
 ----
@@ -215,12 +221,9 @@ cs2            0/55     176       R            BES-53248   0/55
 cs2            0/56     176       R            BES-53248   0/56
 ----
 ====
-. Compruebe que todos los puertos del clúster estén "activos":
+. Compruebe que todos los puertos del clúster estén activos:
 +
 `network port show -ipspace Cluster`
-
-+
-Cada puerto debe mostrar "up" para `Link` y "saludable" para `Health Status`.
 
 +
 .Muestra el ejemplo
@@ -247,9 +250,9 @@ e0a       Cluster      Cluster          up   9000  auto/10000 healthy
 e0b       Cluster      Cluster          up   9000  auto/10000 healthy
 ----
 ====
-. Compruebe que todos los LIF del clúster estén «activos» y operativos: `network interface show -vserver Cluster`
+. Compruebe que todas las LIF del clúster estén en funcionamiento:
 +
-Cada LIF de clúster debería mostrar «true» para `Is Home` y que tengan un `Status Admin/Oper` de "arriba/arriba"
+`network interface show -vserver Cluster`
 
 +
 .Muestra el ejemplo
@@ -259,14 +262,14 @@ Cada LIF de clúster debería mostrar «true» para `Is Home` y que tengan un `S
 ----
 cluster1::*> *network interface show -vserver Cluster*
 
-            Logical    Status     Network            Current       Current Is
-Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
------------ ---------- ---------- ------------------ ------------- ------- -----
+            Logical      Status     Network            Current       Current Is
+Vserver     Interface    Admin/Oper Address/Mask       Node          Port    Home
+----------- ------------ ---------- ------------------ ------------- ------- -----
 Cluster
-            node1_clus1  up/up    169.254.209.69/16  node1         e0a     true
-            node1_clus2  up/up    169.254.49.125/16  node1         e0b     true
-            node2_clus1  up/up    169.254.47.194/16  node2         e0a     true
-            node2_clus2  up/up    169.254.19.183/16  node2         e0b     true
+            node1_clus1  up/up      169.254.209.69/16  node1         e0a     true
+            node1_clus2  up/up      169.254.49.125/16  node1         e0b     true
+            node2_clus1  up/up      169.254.47.194/16  node2         e0a     true
+            node2_clus2  up/up      169.254.19.183/16  node2         e0b     true
 ----
 ====
 . Deshabilite la reversión automática en las LIF del clúster.
@@ -293,7 +296,36 @@ El siguiente ejemplo muestra que los puertos 1 a 16 están habilitados en el con
 (cs1)(Interface 0/1-0/16)# *exit*
 (cs1)(Config)# *exit*
 ----
-. Compruebe que todas las LIF del clúster estén en funcionamiento, operativas y se muestren como `true` para `Is Home`:
+. Compruebe que todos los puertos del clúster estén activos:
++
+`network port show -ipspace Cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node2
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+----
+====
+. Compruebe que todas las LIF del clúster estén en funcionamiento:
 +
 `network interface show -vserver Cluster`
 
@@ -301,8 +333,6 @@ El siguiente ejemplo muestra que los puertos 1 a 16 están habilitados en el con
 .Muestra el ejemplo
 [%collapsible]
 ====
-En el ejemplo siguiente, se muestra que todas las LIF están activas en los nodos 1 y 2, y eso `Is Home` los resultados son `true`:
-
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface show -vserver Cluster*
@@ -311,9 +341,9 @@ cluster1::*> *network interface show -vserver Cluster*
 Vserver  Interface    Admin/Oper Address/Mask       Node        Port    Home
 -------- ------------ ---------- ------------------ ----------- ------- ----
 Cluster
-         node1_clus1  up/up      169.254.209.69/16  node1       e0a     true
+         node1_clus1  up/up      169.254.209.69/16  node1       e0a     false
          node1_clus2  up/up      169.254.49.125/16  node1       e0b     true
-         node2_clus1  up/up      169.254.47.194/16  node2       e0a     true
+         node2_clus1  up/up      169.254.47.194/16  node2       e0a     false
          node2_clus2  up/up      169.254.19.183/16  node2       e0b     true
 ----
 ====
@@ -352,7 +382,7 @@ El siguiente ejemplo muestra que los puertos 1 a 16 están habilitados en el con
 (cs2)(Interface 0/1-0/16)# *exit*
 (cs2)(Config)# *exit*
 ----
-. Compruebe que todos los puertos del clúster están *up*:
+. Compruebe que todos los puertos del clúster estén activos:
 +
 `network port show -ipspace Cluster`
 
@@ -360,8 +390,6 @@ El siguiente ejemplo muestra que los puertos 1 a 16 están habilitados en el con
 .Muestra el ejemplo
 [%collapsible]
 ====
-En el siguiente ejemplo, se muestra que todos los puertos del clúster están *up* en los nodos 1 y 2:
-
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network port show -ipspace Cluster*
@@ -417,8 +445,6 @@ NOTE: Esto puede tardar varios minutos en completarse.
 .Muestra el ejemplo
 [%collapsible]
 ====
-En el ejemplo siguiente, se muestra que todas las LIF están activas en los nodos 1 y 2, y eso `Is Home` los resultados son `true`:
-
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface show -vserver Cluster*
@@ -588,4 +614,4 @@ Para obtener más información, consulte: https://kb.netapp.com/Advice_and_Troub
 
 
 .El futuro
-Una vez finalizada la migración, es posible que tenga que instalar el archivo de configuración necesario para admitir el Monitor de estado del conmutador de clúster (CSHM) para los switches de clúster BES-53248. Consulte link:configure-health-monitor.html["Instale el archivo de configuración del Monitor de estado del conmutador de clúster (CSHM)"] y.. link:configure-log-collection.html["Habilite la función de recogida de registros"].
+Una vez finalizada la migración, es posible que necesite instalar el archivo de configuración necesario para admitir el monitor de estado del switch Ethernet (CSHM) para los switches de cluster BES-53248. Consulte link:CSHM_log_collection.html["Habilite la recogida de registros"].

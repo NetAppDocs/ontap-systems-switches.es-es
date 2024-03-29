@@ -1,0 +1,56 @@
+---
+permalink: switch-cisco-9336c-fx2/cabling-considerations-9336c-fx2.html 
+sidebar: sidebar 
+keywords: 9336c-fx2 cabling setup, 9336c-fx2 switches configuration, nx-os 
+summary: Antes de configurar el switch Cisco 9336C-FX2, revise la siguiente información. 
+---
+= Revise las consideraciones sobre el cableado y la configuración
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de configurar el switch Cisco 9336C-FX2, revise las siguientes consideraciones.
+
+
+
+== Compatibilidad con los puertos NVIDIA CX6, CX6-DX y Ethernet de CX7 Gb
+
+Si se conecta un puerto de switch a un controlador ONTAP mediante los puertos NIC NVIDIA ConnectX-6 (CX6), ConnectX-6 Dx (CX6-DX) o ConnectX-7 (CX7), debe codificar de forma fija la velocidad del puerto del switch.
+
+[listing, subs="+quotes"]
+----
+(cs1)(config)# interface Ethernet1/19
+*For 100GbE speed:*
+(cs1)(config-if)# *speed 100000*
+*For 40GbE speed:*
+(cs1)(config-if)# *speed 40000*
+(cs1)(config-if)# no negotiate auto
+(cs1)(config-if)# exit
+(cs1)(config)# exit
+*Save the changes:*
+(cs1)# *copy running-config startup-config*
+----
+Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para obtener más información sobre los puertos de switch.
+
+
+
+== 25GbE Requisitos de FEC
+
+
+
+=== Puertos FAS2820 e0a/e0b
+
+Los puertos FAS2820 e0a y e0b requieren cambios de configuración de FEC para el enlace con puertos de switch 9336C-FX2.
+Para los puertos de switch e0a y e0b, la configuración fec se establece en `rs-cons16`.
+
+[listing, subs="+quotes"]
+----
+(cs1)(config)# interface Ethernet1/8-9
+(cs1)(config-if-range)# *fec rs-cons16*
+(cs1)(config-if-range)# exit
+(cs1)(config)# exit
+*Save the changes:*
+(cs1)# *copy running-config startup-config*
+----
