@@ -344,7 +344,7 @@ Cluster  node2_clus2   e0b       true
 ----
 ====
 +
-Si alguna de las LIF de clúster no ha vuelto a sus puertos raíz, revierte manualmente:
+Si alguna LIFS de cluster no ha regresado a sus puertos de directorio raíz, revierta manualmente desde el nodo local:
 
 +
 `network interface revert -vserver Cluster -lif _lif_name_`

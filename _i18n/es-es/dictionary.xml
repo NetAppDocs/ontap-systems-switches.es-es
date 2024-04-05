@@ -109,7 +109,6 @@
   <block id="87598d75b81250b6e8c0b27babdd90e5" category="list-text">Compruebe que todas las LIF son Home. Esto puede tardar unos segundos.</block>
   <block id="e602723d0e5f9bdd1222eae8ea457289" category="paragraph"><block ref="c3b05a86918302a773f398302b53b622" prefix="" category="inline-code"></block></block>
   <block id="038dfaef435585ad7a241ece49eb90ca" category="paragraph">Los LIF se han revertido si la columna “es de inicio” es<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>, como se muestra para<block ref="bd152ff09f603987e4c87a156b246966" prefix=" " category="inline-code"></block> y..<block ref="e136e422a5bae645f7cdf8ea4cf1a818" prefix=" " category="inline-code"></block> en el siguiente ejemplo:</block>
-  <block id="ca781b2f6ba431222707604fe0989dc1" category="paragraph">Si alguna de las LIF de clúster no ha vuelto a sus puertos raíz, revierte manualmente:</block>
   <block id="31d2e20cefb76721dace23dfd9a35896" category="paragraph"><block ref="28a65537759ae55070780c50a3b3b9a6" prefix="" category="inline-code"></block></block>
   <block id="aeb90980ffc18e4c949766c382d409d4" category="list-text">Compruebe el estado del clúster de los nodos desde la consola del sistema de cualquier nodo:</block>
   <block id="494cb4f7976c64f111b74e9089d5bbd5" category="paragraph"><block ref="639161158d7426b3865ce9c5a6f648b3" prefix="" category="inline-code"></block></block>
@@ -4773,4 +4772,11 @@ Image:../media/FEC_copper_table.jpg[25G puertos con cables de cobre]</block>
   <block id="e039aa1be61543fd84f1c4eb5d3e9f6b" category="sidebar">Sistemas de hardware de ONTAP</block>
   <block id="9d07d8327ebc12554e974699f677fdb7" category="sidebar">Documentos de switch para hardware de ONTAP</block>
   <block id="1be807f8d70b208f4d04b385b1c81765" category="sidebar">Migre a switches de dos nodos</block>
+  <block id="baeb2b9edd2060971ec4838ea0641d18" category="paragraph">Si alguna LIFS de cluster no ha regresado a sus puertos de directorio raíz, revierta manualmente desde el nodo local:</block>
+  <block id="b6dd8221599de3110a6be11272b8d643" category="summary">Antes de configurar el switch Cisco 3232C, revise la siguiente información.</block>
+  <block id="855541c4370cb556c283600de9f0d1df" category="paragraph">Antes de configurar el switch Cisco 3232C, revise las siguientes consideraciones.</block>
+  <block id="249c296c1de730eddbe0ead3fe930200" category="summary">Antes de configurar el switch Cisco 92300YC, revise la siguiente información.</block>
+  <block id="709ea8965bb4964023cd6e82df0d3c62" category="paragraph">Antes de configurar el switch Cisco 92300YC, revise las siguientes consideraciones.</block>
+  <block id="ae721238017915904e94acd87eddf78c" category="summary">Antes de configurar el switch Cisco 3132Q-V, revise la siguiente información.</block>
+  <block id="eae32a8cbb7853bbc6b25138f2911afa" category="paragraph">Antes de configurar su switch Cisco 3132Q-V, revise las siguientes consideraciones.</block>
 </blocks>
