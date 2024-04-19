@@ -621,12 +621,6 @@ cluster1::*>
 ----
 ====
 . Repita los pasos del 1 al 10 en el interruptor cs1.
-
-
-
-
-=== Paso 3: Reiniciar y verificar la configuración
-
 . Habilite la reversión automática en las LIF del clúster.
 +
 .Muestra el ejemplo
@@ -639,15 +633,17 @@ cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert True
 ====
 . Reinicie el interruptor cs1. Para activar las LIF de clúster y revertir a sus puertos raíz, haga lo siguiente. Es posible ignorar los eventos "puertos de clúster inactivos" que se informan en los nodos mientras se reinicia el switch.
 +
-.Muestra el ejemplo
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cs1# *reload*
 This command will reboot the system. (y/n)?  [n] *y*
 ----
-====
+
+
+
+
+=== Paso 3: Verificar la configuración
+
 . Compruebe que los puertos del switch conectados a los puertos del clúster estén activos.
 +
 `show interface brief | grep up`

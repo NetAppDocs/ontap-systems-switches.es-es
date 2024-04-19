@@ -49,7 +49,7 @@ NOTE: Para ello, es necesario utilizar tanto comandos de la ONTAP como comandos 
 
 === Paso 1: Compruebe el estado de los switches y los puertos
 
-. Si se habilita AutoSupport en este clúster, elimine la creación automática de casos invocando un mensaje de AutoSupport:
+. Si AutoSupport está habilitado, elimine la creación automática de casos invocando un mensaje de AutoSupport:
 `system node autosupport invoke -node * -type all - message MAINT=xh`
 +
 _x_ es la duración de la ventana de mantenimiento en horas.
@@ -119,7 +119,7 @@ node2
                    e7b  ENET  storage    100 enabled  online        30
 ----
 ====
-. Compruebe que no haya problemas de switch de almacenamiento o cableado con el clúster:
+. Compruebe que no haya problemas en cableado o switch de almacenamiento:
 +
 `system health alert show -instance`
 
@@ -352,9 +352,9 @@ Module       Image                  Running-Version(pri:alt)           New-Versi
 
 
 Switch will be reloaded for disruptive upgrade.
-Do you want to continue with the installation (y/n)?  [n]  y
+Do you want to continue with the installation (y/n)?  [n] *y*
 input string too long
-Do you want to continue with the installation (y/n)?  [n] y
+Do you want to continue with the installation (y/n)?  [n] *y*
 
 Install is in progress, please wait.
 
@@ -482,7 +482,7 @@ S1
     Version Source: CDP
 
 S2
-                            storage-network    172.17.227.6     NX3232C
+                            storage-network    172.17.227.6    NX3232C
      Serial Number: FOC220443LZ
       Is Monitored: true
             Reason: None
