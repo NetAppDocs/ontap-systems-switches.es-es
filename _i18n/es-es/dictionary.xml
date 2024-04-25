@@ -3458,7 +3458,6 @@
   <block id="be6163ad0c362d632b28f98dea1fdaaa" category="paragraph">Todos los puertos del clúster que se movieron deben estar en funcionamiento.</block>
   <block id="e0b5dd148b27eba7b37861e24a42cd95" category="list-text">Compruebe la información de cercanía en los puertos de clúster:</block>
   <block id="d0141bcaf704f75f043a7384708a3131" category="paragraph">Compruebe que los puertos del clúster movidos ven al conmutador cs2-new como vecino.</block>
-  <block id="8c61118abc6e9e30fd4469d362e96e00" category="paragraph">Todos los LIF del clúster se moverán al switch cs2-new.</block>
   <block id="cddcb87f9d8427437485fbaad0309f0d" category="list-text">Confirme el estado de las conexiones de red movidas a cs1-new:</block>
   <block id="2a5fc0afbcb2299e24c73a909b297e93" category="paragraph">Compruebe que los puertos del clúster movidos ven al switch cs1-new como vecino.</block>
   <block id="800c1c0a764eb859a7e53df87ed00481" category="list-text">Compruebe que el ISL entre cs1-new y cs2-new siga operativo:</block>
@@ -4695,10 +4694,8 @@ El monitor de estado del switch Ethernet (CSHM) es responsable de garantizar el 
   <block id="415f7d338cb2daf9bc58ecb9861e7a38" category="list-text">Después, el cableado entre los nodos y CS2 se desconecta del CS2 y se vuelve a conectar a CS2 nuevo.</block>
   <block id="4c583a66e2c7985bcc194e39f55ceea5" category="list-text">El interruptor CS1 se reemplaza por el interruptor CS1-NUEVO.</block>
   <block id="e36cd913095fb9e4f8b81c803f89930b" category="list-text">Después, el cableado entre los nodos y CS1 se desconecta del CS1 y se vuelve a conectar a CS1 nuevo.</block>
-  <block id="c541a676ea1012971e3e092cd0c456bb" category="list-text">En el switch de clúster CS2, apague los puertos conectados a los puertos de clúster de los nodos para conmutar las LIF de clúster:</block>
   <block id="3e504b88532082c592970766665ca3a1" category="list-text">Compruebe que las LIF del clúster han conmutado al nodo de respaldo a los puertos alojados en el switch del clúster CS1. Esto puede tardar unos segundos.</block>
   <block id="501db48c47898b7316de60a2bcbe9a16" category="list-text">Confirme las conexiones de puertos del switch desde la perspectiva del switch CS2-new:</block>
-  <block id="4b9f132828deb041b404e712b378ac77" category="list-text">En el switch de clúster CS1, apague los puertos conectados a los puertos de clúster de los nodos para conmutar las LIF de clúster. En el ejemplo siguiente se utiliza el resultado del ejemplo de interfaz del paso 7.</block>
   <block id="32172ed3b8d9ced5da325e5230b7981b" category="list-text">Compruebe que los LIF del clúster han conmutado al nodo de respaldo en los puertos alojados en el switch CS2-new. Esto puede tardar unos segundos:</block>
   <block id="85e04ff5dd770cff5dbbe435ea94a7dd" category="list-text">Confirme las conexiones de puertos del switch desde la perspectiva del switch CS1-new:</block>
   <block id="784542320767d69b7e7fc2bfeb64a5b4" category="list-text">En el switch de clúster CL2, apague los puertos conectados a los puertos de clúster de los nodos para conmutar las LIF de clúster:</block>
@@ -4780,4 +4777,11 @@ Image:../media/FEC_copper_table.jpg[25G puertos con cables de cobre]</block>
   <block id="eae32a8cbb7853bbc6b25138f2911afa" category="paragraph">Antes de configurar su switch Cisco 3132Q-V, revise las siguientes consideraciones.</block>
   <block id="e3e32349be8562dbe95d6af1fcba4bbe" category="list-text">Si AutoSupport está habilitado, elimine la creación automática de casos invocando un mensaje de AutoSupport:<block ref="80cae18d0d871afff6b1bcabf727d6da" prefix=" " category="inline-code"></block></block>
   <block id="abd1e059b59ee3b3be9267c9c1319923" category="list-text">Compruebe que no haya problemas en cableado o switch de almacenamiento:</block>
+  <block id="54be17cb6ddfe931b6d4ca0454c7bcc8" category="admonition">Al deshabilitar la reversión automática se garantiza que ONTAP solo conmute a través de los LIF del clúster cuando los puertos del switch se apagen más adelante.</block>
+  <block id="3947ff32e82f86e7176dc28b3ee33db0" category="list-text">En el conmutador de clúster CS2, apague los puertos conectados a los puertos de clúster de *todos* los nodos para conmutar por error las LIF de clúster:</block>
+  <block id="022c00ee7f7e6672d82cc079623d6e22" category="list-text">En el conmutador de clúster CS1, apague los puertos conectados a los puertos de clúster de *todos* los nodos para conmutar por error las LIF de clúster.</block>
+  <block id="e6eb1709bc8131372d63990293ab75f8" category="paragraph">Todos los LIF del clúster conmutan al nodo de respaldo en el switch CS2 nuevo.</block>
+  <block id="af7a19b4dbadf7641102bf88598cfd8b" category="paragraph">+
+El monitor de estado del switch Ethernet (CSHM) es responsable de garantizar el estado operativo de los conmutadores de red del clúster y de almacenamiento y de recopilar registros del switch para fines de depuración. Este procedimiento lo guía a través del proceso de configuración e inicio de la recopilación de registros detallados de *Soporte* desde el switch e inicia una recopilación por hora de datos *Periódicos* que es recopilada por AutoSupport.</block>
+  <block id="a13c9d4c750715a8b993a3fec916189f" category="list-text">Se debe especificar el usuario para la recopilación de registros cuando se aplica el archivo de configuración de referencia (RCF). De forma predeterminada, este usuario se establece en _admin_. Si desea utilizar un usuario diferente, debe especificarlo en la sección *# SHM User*s del RCF.</block>
 </blocks>

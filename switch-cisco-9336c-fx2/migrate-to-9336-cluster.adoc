@@ -258,7 +258,11 @@ cs2                         cluster-network     10.233.205.93   N5K-C5596UP
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
-. En el switch de clúster CS2, apague los puertos conectados a los puertos de clúster de los nodos para conmutar las LIF de clúster:
++
+
+NOTE: Al deshabilitar la reversión automática se garantiza que ONTAP solo conmute a través de los LIF del clúster cuando los puertos del switch se apagen más adelante.
+
+. En el conmutador de clúster CS2, apague los puertos conectados a los puertos de clúster de *todos* los nodos para conmutar por error las LIF de clúster:
 +
 [listing, subs="+quotes"]
 ----
@@ -376,7 +380,7 @@ Compruebe que los puertos del clúster movidos ven al conmutador cs2-new como ve
 cs2-new# *show interface brief*
 cs2-new# *show cdp neighbors*
 ----
-. En el switch de clúster CS1, apague los puertos conectados a los puertos de clúster de los nodos para conmutar las LIF de clúster. En el ejemplo siguiente se utiliza el resultado del ejemplo de interfaz del paso 7.
+. En el conmutador de clúster CS1, apague los puertos conectados a los puertos de clúster de *todos* los nodos para conmutar por error las LIF de clúster.
 +
 [listing, subs="+quotes"]
 ----
@@ -384,7 +388,7 @@ cs1(config)# *interface eth1/1-1/2*
 cs1(config-if-range)# *shutdown*
 ----
 +
-Todos los LIF del clúster se moverán al switch cs2-new.
+Todos los LIF del clúster conmutan al nodo de respaldo en el switch CS2 nuevo.
 
 . Compruebe que los LIF del clúster han conmutado al nodo de respaldo en los puertos alojados en el switch CS2-new. Esto puede tardar unos segundos:
 +
