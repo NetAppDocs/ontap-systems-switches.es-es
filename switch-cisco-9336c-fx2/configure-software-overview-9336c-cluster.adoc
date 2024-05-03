@@ -11,11 +11,11 @@ summary: Descripción general de la configuración de software de los switches d
 
 
 [role="lead"]
-Para instalar y configurar el software de un switch Cisco Nexus 9336C-FX2, siga estos pasos:
+Para instalar y configurar el software para un switch Cisco Nexus 9336C-FX2 y para instalar o actualizar el archivo de configuración de referencia (RCF), siga estos pasos:
 
 . link:install-nxos-overview-9336c-cluster.html["Prepárese para instalar el software NX-OS y RCF"].
 . link:install-nxos-software-9336c-cluster.html["Instale el software NX-OS"].
-. link:install-nxos-rcf-9336c-cluster.html["Instalación del archivo de configuración de referencia (RCF)"].
+. link:install-nxos-rcf-9336c-cluster.html["Instalar o actualizar el archivo de configuración de referencia (RCF)"].
 +
 Instale el RCF después de configurar por primera vez el conmutador Nexus 9336C-FX2. También puede utilizar este procedimiento para actualizar la versión de RCF.
 

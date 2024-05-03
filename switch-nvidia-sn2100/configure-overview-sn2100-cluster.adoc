@@ -43,7 +43,11 @@ Puede instalar Cumulus Linux (CL) OS cuando el conmutador esté ejecutando Cumul
 +
 Hay dos secuencias de comandos RCF disponibles para las aplicaciones de almacenamiento y agrupación en clúster. El procedimiento para cada uno es el mismo.
 
-. link:install-snmpv3-sn2100-cluster.html["Configure SNMPv3 para la recopilación de registros del conmutador"].
+. link:CSHM_log_collection.html["Habilite la recogida de registros"].
++
+Utilice esta función para recopilar archivos de registro relacionados con el conmutador en ONTAP.
+
+. link:CSHM_snmpv3.html["Configure SNMPv3 para la supervisión"].
 +
 Esta versión incluye soporte para SNMPv3 para la recopilación de registros de conmutación y para la supervisión del estado del conmutador (SHM).
 

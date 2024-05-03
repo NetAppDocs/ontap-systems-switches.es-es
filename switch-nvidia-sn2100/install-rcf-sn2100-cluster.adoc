@@ -605,4 +605,4 @@ sw2                         cluster-network    10.233.205.91    MSN2100-CB2RC
 --
 ====
 .El futuro
-link:install-snmpv3-sn2100-cluster.html["Configurar la recopilación de registros del switch"].
+link:CSHM_log_collection.html["Habilite la recogida de registros"]

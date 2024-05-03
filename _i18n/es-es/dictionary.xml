@@ -2202,20 +2202,14 @@
   <block id="0e20b420112310f5c09a775e13d5ec63" category="paragraph">Puede instalar el RCF después de configurar por primera vez el conmutador Nexus 9336C-FX2. También puede utilizar este procedimiento para actualizar la versión de RCF.</block>
   <block id="a321cd8baf442bb2bd9aee451d86f068" category="paragraph">Antes de comenzar, complete el procedimiento en <block ref="cd3d2c6d0c8a0c43f0a0e10375ad6bbc" category="inline-link-macro-rx"></block>.</block>
   <block id="ea4cd01e183524e8bbb487095fe3c5d9" category="list-text">El archivo RCF actual.</block>
-  <block id="37470b1d6f660940951d8750617086de" category="paragraph">Los ejemplos de este procedimiento utilizan dos nodos. Estos nodos utilizan dos puertos de interconexión de clúster de 10 GbE en los puertos e0a y e0b. Consulte<block ref="e98f5e4074ae8b028a5791870586403d" category="inline-link-rx"></block> para verificar los puertos de clúster correctos en sus plataformas.</block>
-  <block id="440845b85a76fb369b328d5783d80025" category="admonition">Antes de instalar una nueva versión de software del conmutador y RCF, debe borrar los ajustes del conmutador y realizar la configuración básica. Debe estar conectado al conmutador mediante la consola serie. Esta tarea restablece la configuración de la red de gestión.</block>
   <block id="2d0ac6e4c3a1c97979e887d423ec0f95" category="section-title">Paso 1: Prepare la instalación</block>
   <block id="4877628f2f5c2ea44515bef28ca09a0b" category="list-text">Compruebe que todos los puertos del clúster están *up* con un estado correcto:</block>
   <block id="0e6faba2ce2d4a2a73875d111bfcdded" category="list-text">Comprobar que las LIF del clúster han migrado a los puertos alojados en el switch del clúster cs1. Esto puede tardar unos segundos.</block>
   <block id="c32a2c4a7520ad02a1a78600f2a6b3bd" category="admonition">Al actualizar o aplicar una nueva RCF, debe borrar los ajustes del conmutador y realizar la configuración básica. Debe estar conectado al conmutador mediante la consola serie para borrar la configuración del conmutador.</block>
   <block id="ace72d025aa2c5badb322c055f22cb6b" category="inline-link">Referencia de comandos NX-OS de Cisco Nexus serie 9000</block>
-  <block id="280f0e29cdb68937737865cc2fb4331a" category="list-text">Copie el RCF en el bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP. Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en<block ref="dba0e49fdfeab9433bb71da6c505aa34" category="inline-link-rx"></block> guías.</block>
   <block id="3f6787ea7175edfe255a564e4a1b6b07" category="paragraph">Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en<block ref="dba0e49fdfeab9433bb71da6c505aa34" category="inline-link-rx"></block> guías.</block>
-  <block id="3c136715e1c82a016578b9b336ea8ac1" category="paragraph">En este ejemplo se muestra el archivo RCF<block ref="5f4fa6cd54278b4d7a194c1bbdef65ea" prefix=" " category="inline-code"></block> instalación en el conmutador cs2:</block>
   <block id="1eeb76faaf7865130ddbd3d06c8e02d0" category="list-text">Examine el resultado del banner desde el<block ref="6d53824b9996e36fd31937e922967215" prefix=" " category="inline-code"></block> comando. Debe leer y seguir estas instrucciones para asegurarse de que la configuración y el funcionamiento del interruptor son correctos.</block>
-  <block id="751ae8e5b1f665d84208a0d929c57d52" category="list-text">Reinicie el interruptor cs2. Puede ignorar los eventos «'cluster ports down'» notificados en los nodos mientras se reinicia el switch.</block>
   <block id="ef1ee64e66c476fc0def572853f98a6d" category="paragraph">En el ejemplo siguiente se utiliza el resultado del ejemplo de interfaz:</block>
-  <block id="31ec2342f350b363afaee03f3ba95d8b" category="list-text">Reinicie el interruptor cs1. Para activar las LIF de clúster y revertir a sus puertos raíz, haga lo siguiente. Puede ignorar los eventos «'cluster ports down'» notificados en los nodos mientras se reinicia el switch.</block>
   <block id="28f363620ef0b78f100aebcc28cca7da" category="list-text">Compruebe que los puertos del switch conectados a los puertos del clúster son *up*.</block>
   <block id="de0a8871c3bcf443ddffc22efcb2c00f" category="doc">Migrar desde una configuración conmutada con almacenamiento de conexión directa</block>
   <block id="2ac9f40bb0d0883c7db89ef5c430d1d5" category="paragraph">Puede migrar desde una configuración con switch con almacenamiento de conexión directa agregando dos nuevos switches compartidos.</block>
@@ -3311,11 +3305,9 @@
   <block id="e4476de08c6bf6f2b86938c20b3510bf" category="summary">Asegúrese de que los siguientes elementos están disponibles en el conmutador antes de instalar la secuencia de comandos RCF</block>
   <block id="144a8e89f9c38ca949aede4fe56c2cb7" category="list-text">Copie la secuencia de comandos de la pitón de RCF en el conmutador.</block>
   <block id="39e77b4f608ccea6c3163df34d07da19" category="paragraph">La secuencia de comandos RCF completa los pasos enumerados en el ejemplo anterior.</block>
-  <block id="58706c101ce23f0143df35c3d5877993" category="paragraph"><block ref="792bc5f76cd953c88762d75870189559" category="inline-link-macro-rx"></block>.</block>
   <block id="2e48063923d7005a1d5b4c086c0a902a" category="summary">El switch NVIDIA SN2100 es un switch Ethernet de 10/25/40/100 GbE que ejecuta Cumulus Linux. El switch SN2100 presta servicio a aplicaciones de clúster y almacenamiento de ONTAP 9.10.1 en diferentes pares de switches.</block>
   <block id="17bac2b43f841c260ed0b0ae5bac894f" category="paragraph">NVIDIA SN2100 es un switch de clúster que permite crear clústeres de ONTAP con más de dos nodos.</block>
   <block id="78a3145f7f81ea095cdce342b0eeb83a" category="list-text"><block ref="d4a90f7cd2b65eac1430336cfe2ee64b" category="inline-link-macro-rx"></block>.</block>
-  <block id="730c2f2b2335ad619f1d2f8616c9d744" category="paragraph">Las instrucciones están disponibles en la documentación de NVIDIA.</block>
   <block id="280f95118eded8b0219c276178c30e97" category="list-text"><block ref="5e0473d3f7899dd064d2b0943ad87ca5" category="inline-link-macro-rx"></block>.</block>
   <block id="b8cd88654eafece50754fca964cba8a1" category="paragraph">Siga los procedimientos de cableado si dispone de un sistema en el que las bandejas de unidades NS224 deban cablearse como almacenamiento conectado a switch (no como almacenamiento de conexión directa).</block>
   <block id="1b634b8feab38e3bbd4e434301816457" category="list-text"><block ref="1b634b8feab38e3bbd4e434301816457" category="inline-link-macro-rx"></block></block>
@@ -3364,7 +3356,6 @@
   <block id="9afb7413a60c1522b30e3750d33eba86" category="doc">Descripción general y requisitos: Switches NVIDIA SN2100</block>
   <block id="515ffb6be2470ab747f049a501eb9867" category="summary">Descripción general de la configuración de software de los switches de clúster Cisco Nexus 9336C-FX2</block>
   <block id="516362c97fc00136adc7a7ad2b7ad6da" category="doc">Flujo de trabajo de instalación de software para los switches de clúster Cisco Nexus 9336C-FX2</block>
-  <block id="2ba90e9a33582c6d96c2d00c0ddf0ea5" category="paragraph">Para instalar y configurar el software de un switch Cisco Nexus 9336C-FX2, siga estos pasos:</block>
   <block id="97a8a7ac4811fc17c5e935133726b9b2" category="list-text"><block ref="ac6f2160356afb2413aaa23f35f53bc6" category="inline-link-macro-rx"></block>.</block>
   <block id="c708c2593bcd41581b44e90e9da63a0a" category="list-text"><block ref="0370fdc61d5498b1c37c4960eb5bef3d" category="inline-link-macro-rx"></block>.</block>
   <block id="10e3581692b8c6e1da3364026ad637f0" category="list-text"><block ref="1112ea12139746af7574c945e24cdc23" category="inline-link-macro-rx"></block>.</block>
@@ -3553,7 +3544,6 @@
   <block id="b3fa8a5642e5f1a67bdf890f1dbce7c0" category="paragraph">4 nodos de 100 GbE 24</block>
   <block id="518abc8c44cf185f93fa7670dddfcf31" category="paragraph">25 hasta 34</block>
   <block id="1dcfb07dc80ddc7f9df74317a5f57319" category="doc">Requisitos de documentación de los switches Cisco Nexus 9336C-FX2</block>
-  <block id="af9a958e62c3b5f2c0fb3c441adc9b39" category="paragraph">Puede instalar el archivo de configuración de referencia (RCF) después de configurar por primera vez el conmutador Nexus 9336C-FX2. También puede utilizar este procedimiento para actualizar la versión de RCF.</block>
   <block id="456a5c90687a021221cc54821a27d7f4" category="paragraph">La sustitución de un switch Nexus 9336C-FX2 defectuoso en una red de clúster es un procedimiento no disruptivo (NDU).</block>
   <block id="6f523f9e785067d3925b0aec1c87ae91" category="list-text">Switch de sustitución Nexus 9336C-FX2:</block>
   <block id="22886c387dcbb159cf76a09acea002be" category="list-text">Todos los puertos de enlace entre switches (ISL) deben estar deshabilitados en los puertos 1/35 y 1/36.</block>
@@ -4287,7 +4277,6 @@
   <block id="ec5ea2f0318e4d906c296f5576b9c026" category="list-text">[[step6]]Si suprimió la creación automática de casos, vuelva a activarla llamando a un mensaje AutoSupport:<block ref="9ac424c0d7b432975df36a19daf50c9c" prefix=" " category="inline-code"></block></block>
   <block id="0429fa776d68090e46718ac7e32390ef" category="admonition">Para EFOS versión 3.10.0.3 y posterior, utilice el comando<block ref="c09633a606c51a161b16f8bf38f5ebb1" prefix=" " category="inline-code"></block>.</block>
   <block id="2df26e386d021172b261bcb47e157019" category="list-text">Limpie la configuración:</block>
-  <block id="f306e2be0abd8aabfa0b014c372bbac8" category="list-text">Repita los pasos 4 a 11 en el interruptor CS1.</block>
   <block id="256be937ef390f7d6dd71ad092869119" category="admonition">Para ONTAP 9.8 y versiones posteriores, utilice el comando<block ref="c57378c3b3bb81c6b42a2b31a30ddda7" prefix=" " category="inline-code"></block>.</block>
   <block id="393a5f0f5f1f070aac964741815cca76" category="doc">Sustituya los switches del clúster Broadcom BES-53248 por conexiones sin switches</block>
   <block id="a2ba7bf1b1a10d50fd13725865eabc47" category="list-text">Pruebe la función de recopilación de registros de conmutación:</block>
@@ -4784,4 +4773,92 @@ Image:../media/FEC_copper_table.jpg[25G puertos con cables de cobre]</block>
   <block id="af7a19b4dbadf7641102bf88598cfd8b" category="paragraph">+
 El monitor de estado del switch Ethernet (CSHM) es responsable de garantizar el estado operativo de los conmutadores de red del clúster y de almacenamiento y de recopilar registros del switch para fines de depuración. Este procedimiento lo guía a través del proceso de configuración e inicio de la recopilación de registros detallados de *Soporte* desde el switch e inicia una recopilación por hora de datos *Periódicos* que es recopilada por AutoSupport.</block>
   <block id="a13c9d4c750715a8b993a3fec916189f" category="list-text">Se debe especificar el usuario para la recopilación de registros cuando se aplica el archivo de configuración de referencia (RCF). De forma predeterminada, este usuario se establece en _admin_. Si desea utilizar un usuario diferente, debe especificarlo en la sección *# SHM User*s del RCF.</block>
+  <block id="11a42d3d6a2e579a381b3f9fcb7ec792" category="paragraph">Directiva no resuelta en &lt;stdin&gt; - Include:../_include/install-rcf-software-9336c.adoc[]</block>
+  <block id="69a3b5b5b3e87ce1bcae2811d815d9de" category="paragraph"><block ref="69a3b5b5b3e87ce1bcae2811d815d9de" category="inline-link-macro-rx"></block></block>
+  <block id="7091e2c750a185300a6b16e37ae123f6" category="paragraph">Las instrucciones están disponibles en la documentación de NVIDIA.</block>
+  <block id="894989f86e54fb4105389f59b2f248db" category="list-text"><block ref="c4cd7ec23f215e2259f91b6eb6e7cbc1" category="inline-link-macro-rx"></block>.</block>
+  <block id="537e4a57b26f325406ead3c055f368d4" category="doc">Paso 1: Instale el RCF en los interruptores</block>
+  <block id="64375c1eb0a39c01e2fa4b38e4b977d5" category="paragraph">Asegúrese de lo siguiente:</block>
+  <block id="88c6fb51a79a63370991d585551ed93a" category="list-text">Una conexión de consola al interruptor. La conexión de la consola es opcional si tiene acceso remoto al conmutador.</block>
+  <block id="348c7d4dfd461435fb7a2de071510321" category="list-text">El switch CS1 y el switch CS2 se encienden y la configuración inicial del switch se ha completado (la dirección IP de gestión y SSH está configurado)</block>
+  <block id="5ca63eb3f2c620d1c6aec7910b16345c" category="list-text">Se ha instalado la versión deseada de NX-OS.</block>
+  <block id="02253812baf9079d763add569de5466d" category="list-text">Las conexiones ISL entre los switches están conectadas.</block>
+  <block id="4f9d99e1896d0aa94a4ea56a61e0b5d7" category="list-text">Los puertos del clúster de nodos de ONTAP no están conectados.</block>
+  <block id="0563712f84d63c04e1bcecca2a31a5df" category="list-text">Inicie sesión en el switch CS1 mediante SSH o mediante una consola de serie.</block>
+  <block id="5bbf59ef7905b487a457d2cb4ffc731b" category="list-text">Copie el RCF al bootflash del switch CS1 usando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP.</block>
+  <block id="e50ba1fce28410003473ea665c3f69a1" category="paragraph">Este ejemplo muestra que TFTP se está utilizando para copiar un RCF al bootflash en el switch CS1:</block>
+  <block id="7dd3ebbd2a9cb0ef43e6dfe425bf3368" category="paragraph">En este ejemplo se muestra el archivo RCF<block ref="5f4fa6cd54278b4d7a194c1bbdef65ea" prefix=" " category="inline-code"></block> se está instalando en el interruptor cs1:</block>
+  <block id="1d46b4d726541133306aadb791fbac06" category="paragraph"><block ref="dfc31c90abcf8c7a53e718b270cdf0aa" prefix="" category="inline-code"></block></block>
+  <block id="b49fe5d89ca32aff6d41fc29d768d68c" category="paragraph">Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en<block ref="dba0e49fdfeab9433bb71da6c505aa34" category="inline-link-rx"></block>.</block>
+  <block id="758d64d19fd5c7f49ed73e0b94a6f13f" category="list-text">Reinicie el interruptor CS1.</block>
+  <block id="c55a2ac1185a6d9fa389abde666b6620" category="paragraph"><block ref="47b50d91942746c6b7da7bcb3a3898ea" prefix="" category="inline-code"></block></block>
+  <block id="d692b83806892fb177d501de252dd5bc" category="paragraph"><block ref="b62877e87bc2393ec2c608f3105d0333" prefix="" category="inline-code"></block></block>
+  <block id="b1c7d54c4a64389501f56df63a9cb2b8" category="list-text">Repita los pasos 1 a 7 en el interruptor CS2.</block>
+  <block id="bdd2caa835c08370cb1ccd414ffee5e1" category="list-text">Conecte los puertos de clúster de todos los nodos del clúster de ONTAP a los switches CS1 y CS2.</block>
+  <block id="40a4ddeef3e9ca8e912f65eb91474da3" category="section-title">Paso 2: Verifique las conexiones del interruptor</block>
+  <block id="1f541b542b1e6f49a912e719b1269f20" category="section-title">Paso 3: Configure el cluster ONTAP</block>
+  <block id="3bd6c54403c6b14aa833a5e72558854a" category="paragraph">NetApp recomienda usar System Manager para configurar clústeres nuevos.</block>
+  <block id="20cc4823ea421f18257cd7f8c12d50c2" category="paragraph">System Manager proporciona un flujo de trabajo sencillo y sencillo para la instalación y la configuración del clúster, incluidas la asignación de una dirección IP de gestión de nodos, la inicialización del clúster, la creación de un nivel local, la configuración de protocolos y el aprovisionamiento del almacenamiento inicial.</block>
+  <block id="16b35791c547ec7b12d2d1bc88d72f59" category="inline-link">Configure ONTAP en un nuevo clúster con System Manager</block>
+  <block id="bf9a81b7716182f88d21f381e05dfa63" category="paragraph">Vaya a.<block ref="76a0ad9e6d9605be893ded0930762dd1" category="inline-link-rx"></block> para obtener instrucciones de configuración.</block>
+  <block id="728be2ff473fb0f0109742292ad9a016" category="doc">Paso 1: Prepárese para la actualización</block>
+  <block id="41fa1e8e8b44ea8a5d6403825283c468" category="paragraph"><block ref="1c2a7e67f41c6ed8d176dc6eb8a9860b" prefix="" category="inline-code"></block></block>
+  <block id="01331faa5c7b890e3c1d22c8c90bb876" category="paragraph"><block ref="b9c7d20b5ee27c55a47abaa412f881aa" prefix="" category="inline-code"></block></block>
+  <block id="01943746f8e7d79449be6fd0bb7a8f46" category="paragraph"><block ref="ecb8ddb693785da7c0a1c7f456dde5ea" prefix="" category="inline-code"></block></block>
+  <block id="b77c6d3e350c043b8f790e806e7bc521" category="list-text">Registre cualquier adición personalizada entre la configuración actual y el archivo RCF en uso (como una configuración SNMP para su organización).</block>
+  <block id="085ebea59269f171d2893f7c9fd27a56" category="list-text">Para NX-OS 10,2 y versiones posteriores, utilice el<block ref="9c370f72db0e0d920841657ac5268365" prefix=" " category="inline-code"></block> Comando para comparar con el archivo RCF guardado en el bootflash.  De lo contrario, utilice una herramienta de comparación/diferencia de tercera parte.</block>
+  <block id="7a1b725f171ccc55c2b6a943c968b20f" category="list-text">Guarde los detalles básicos de la configuración en el archivo write_erase.cfg en el bootflash.</block>
+  <block id="39a62c1e7dfb4ebb50f79d526c4b3b41" category="paragraph"><block ref="a21819917a390159ce4a3fc4cabe324f" prefix="" category="inline-code"></block></block>
+  <block id="e08fd1b6e2dcb2a7248eed4e8ddd7c7b" category="paragraph"><block ref="29620a94cb1ba65f2a65d98c6830535b" prefix="" category="inline-code"></block></block>
+  <block id="6f88c4f0ef85a211d5223ff2604d28e0" category="paragraph"><block ref="39e41c7158b7217359d1d024d442d826" prefix="" category="inline-code"></block></block>
+  <block id="eaa6f7b071ff32e6edcef64256d0871f" category="paragraph"><block ref="ad01ff5bd18b23321f4a5f80b714f692" prefix="" category="inline-code"></block></block>
+  <block id="62fcaa3e0af91f6b966bcf398e3e6086" category="list-text">Ejecute el comando WRITE BORRATE para borrar la configuración guardada actual:</block>
+  <block id="dc6fc35df489bd6bb938c2c7b2d410c5" category="paragraph"><block ref="8b6d14a918e69565b7089260305efbc6" prefix="" category="inline-code"></block></block>
+  <block id="f455f9d17674cb5efba0664c003ad484" category="paragraph"><block ref="7812e68ffa4111ad9046c1ab43dcaf2c" prefix="" category="inline-code"></block></block>
+  <block id="e2288282565e302230f8a37041768ed2" category="paragraph"><block ref="a8fd1d47e1eed37a3bc905f1c0e383a9" prefix="" category="inline-code"></block></block>
+  <block id="459d1bc967bf4f56f677e29979bb87fd" category="list-text">Copie la configuración básica guardada anteriormente en la configuración de inicio.</block>
+  <block id="e2409a8cab7026a9fcbcf9839a3cf49d" category="paragraph"><block ref="eb00d852fdfa84462bda944d2348d9a5" prefix="" category="inline-code"></block></block>
+  <block id="1691d1c0e9b3cc92b3ba388f00d859e2" category="paragraph"><block ref="2dde6c3abd7b2f462a4f2162fae48851" prefix="" category="inline-code"></block></block>
+  <block id="cd05c6b0946147cbb3f39299b8dcdeed" category="paragraph"><block ref="320348c7039a92322f8ae8aa6b9548b3" prefix="" category="inline-code"></block></block>
+  <block id="e90414dab5eca6b338b4136c697db6b5" category="list-text">Cuando se pueda volver a acceder a la dirección IP de administración, inicie sesión en el switch a través de SSH.</block>
+  <block id="c91e8b7706844bcabdc205a7e43be636" category="paragraph">Es posible que necesite actualizar las entradas del archivo host relacionadas con las claves SSH.</block>
+  <block id="22ce77808f11e6ab0287a2c388f17c20" category="list-text">Vuelva a aplicar las adiciones personalizadas identificadas previamente a la configuración del switch.</block>
+  <block id="75d60e24abda3d2be5719b222283e4ab" category="list-text">Después de comprobar que las versiones de RCF, las adiciones personalizadas y la configuración del switch son correctas, copie el archivo running-config en el archivo startup-config.</block>
+  <block id="59a8406e97bc3122bcc4f9fec1cab7c9" category="paragraph"><block ref="e1e291973b667f98a077e4eb6f5aa9ac" prefix="" category="inline-code"></block></block>
+  <block id="a899bc4bde195885d1d8f64046805509" category="paragraph"><block ref="f09b6decdfbfa4d8cb5b241722b9a9e6" prefix="" category="inline-code"></block></block>
+  <block id="c6a89cc6a58761d5abcb1b9cf05f3b99" category="list-text">Reinicie el interruptor CS1. Puede ignorar las alertas de ««monitor de estado del switch del clúster» y los eventos de ««puertos inactivos»» que se notifican en los nodos mientras se reinicia el switch.</block>
+  <block id="9743e816fbdd9c60a2c9c6f91cbe208b" category="list-text">Repita los pasos 1 a 18 en el interruptor CS2.</block>
+  <block id="8e74fc1d82f0252ff302e728b8ef84b7" category="paragraph"><block ref="fefdb12e2547581b07493ad4416e36ba" prefix="" category="inline-code"></block></block>
+  <block id="47de5e0c657f20c6f281aea421f423db" category="section-title">Paso 3: Compruebe la configuración de la red del clúster y el estado del clúster</block>
+  <block id="bf7f666145d20a64bc0df89aff1412b4" category="paragraph">Si alguna LIF de clúster no ha regresado a sus puertos raíz, revertirla manualmente desde el nodo local:</block>
+  <block id="0ce224cf5d247a74b5df5578645cdfb1" category="paragraph"><block ref="33701a452aed8ed903e7f7050b36c9ad" prefix="" category="inline-code"></block></block>
+  <block id="8413afd23c9d43c590d477ddf9c3812c" category="doc">Instalar o actualizar el archivo de configuración de referencia (RCF)</block>
+  <block id="00e3af2dfc61e6af58ff8e0002338734" category="paragraph">Instale el archivo de configuración de referencia (RCF) después de configurar el switch Nexus 9336C-FX2 por primera vez. Actualice su versión de RCF cuando tenga instalada una versión existente del archivo RCF en su conmutador.</block>
+  <block id="6d641e461440ab5c02bc387dd8f88790" category="inline-link-macro">Switches Ethernet de Cisco (NSS)</block>
+  <block id="7e857aa8a0b068cc27d4b48a1e11e878" category="list-text"><block ref="7e857aa8a0b068cc27d4b48a1e11e878" category="inline-link-macro-rx"></block></block>
+  <block id="32559ee483b61b36141f9b9e0f4bbfff" category="paragraph">Consulte la tabla de compatibilidad de switches para conocer las versiones de ONTAP y RCF compatibles en el sitio de soporte de NetApp. Tenga en cuenta que puede haber dependencias de comandos entre la sintaxis del comando en el RCF y la sintaxis encontrada en versiones específicas de NX-OS.</block>
+  <block id="ad0d19783ccfa19f931108b838e4b7e4" category="list-text"><block ref="ad0d19783ccfa19f931108b838e4b7e4" category="inline-link-macro-rx"></block></block>
+  <block id="6b76d59cad5464650213d5b0a1dd84d7" category="paragraph">Consulte las guías de software y actualización correspondientes disponibles en el sitio web de Cisco para obtener documentación completa sobre los procedimientos de actualización y degradación del conmutador Cisco.</block>
+  <block id="8fa9b99093c5cdfb4cebad0008ba3e8d" category="paragraph">En los ejemplos de este procedimiento se utilizan cuatro nodos. Estos nodos utilizan dos puertos de interconexión de clúster de 10 GbE en los puertos e0a y e0b. Consulte<block ref="e98f5e4074ae8b028a5791870586403d" category="inline-link-rx"></block> para verificar los puertos de clúster correctos en sus plataformas.</block>
+  <block id="79509ba15c2970f327dd8610e3b4628c" category="paragraph-title">Comandos utilizados</block>
+  <block id="1ad593dd61af4356ce9ba12d276c4336" category="section-title">Opción 1: Instale el archivo RCF en un nuevo conmutador</block>
+  <block id="d061b4842fee7f503446ba29253d182f" category="paragraph">Instale el archivo de configuración de referencia (RCF) después de configurar el switch Nexus 9336C-FX2 por primera vez.</block>
+  <block id="121f18688d36f2438eb17eb52e61e7e8" category="section-title">Opción 2: Actualice los switches existentes con una nueva versión de RCF</block>
+  <block id="eba0713505eba2aab08d4d6fa9ca2cf7" category="paragraph">Actualice la versión de RCF cuando tenga instalada una versión existente del archivo RCF en los conmutadores operativos.</block>
+  <block id="ddd0020a0684c14dbd50622f84d8917a" category="paragraph">Asegúrese de tener lo siguiente:</block>
+  <block id="28dbd722b252673fdce3f809670e34b8" category="list-text">Si está actualizando la versión de RCF, necesita una configuración de inicio en el RCF que refleje las imágenes de inicio deseadas.</block>
+  <block id="5640915560bc663196a684ebfc6fa2ec" category="admonition">Antes de instalar una nueva versión de software del conmutador y RCF, debe borrar los ajustes del conmutador y realizar la configuración básica. Debe estar conectado al switch mediante la consola serie o haber conservado la información básica de configuración antes de borrar la configuración del switch.</block>
+  <block id="1b49e113d2db8aa6503efc6ca4257925" category="paragraph">Para instalar y configurar el software para un switch Cisco Nexus 9336C-FX2 y para instalar o actualizar el archivo de configuración de referencia (RCF), siga estos pasos:</block>
+  <block id="814af3441f904c14570759e7e53a2eac" category="list-text"><block ref="103347887335950e25df4c7b93bdd950" category="inline-link-macro-rx"></block>.</block>
+  <block id="2d667925d48008850336e0d43e4d4306" category="sidebar">Conmutador del grupo de instrumentos: Broadcom BES-53248</block>
+  <block id="9013a0f95a05b68811cef544c6eea37b" category="sidebar">Switch de cluster: Cisco Nexus 9336C-FX2</block>
+  <block id="ed3dd7f516f69cf573ae79a1781bbcbf" category="sidebar">Switch de clúster: Switch de cluster NVIDIA SN2100</block>
+  <block id="fc01f4074d379d0722eb2fa3b21e6af4" category="sidebar">Switch de almacenamiento: Cisco Nexus 9336C-FX2</block>
+  <block id="caf5170cbc1f4850f6d380c982fa61f9" category="sidebar">Switch de almacenamiento - NVIDIA SN2100</block>
+  <block id="6f738209e5071a9c22c8d336c6dec7a1" category="sidebar">Switch compartido: Cisco Nexus 9336C-FX2</block>
+  <block id="a306bc0f90914bd9715854d664b6505a" category="sidebar">Switch de cluster: Cisco Nexus 3232c</block>
+  <block id="2dc82baa4aac6df7519361c705672faa" category="sidebar">Switch de cluster: Cisco Nexus 3132Q-V.</block>
+  <block id="29f6f46414f36869e8e3f9f19d16b6db" category="sidebar">Switch de cluster: Cisco Nexus 92300YC</block>
+  <block id="22daf846f579c427af282aa33d7c2a7b" category="sidebar">Switch de cluster: NetApp CN1610</block>
+  <block id="c6244de2d0f92f3ce9f4386189743190" category="sidebar">Instale o actualice el archivo de configuración de RCF</block>
 </blocks>
