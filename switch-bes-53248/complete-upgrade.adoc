@@ -1,0 +1,28 @@
+---
+permalink: switch-bes-53248/complete-upgrade.html 
+sidebar: sidebar 
+keywords: BES-53248 switches, upgrade completion, upgrade bes-53248 switch 
+summary: Antes de configurar conmutadores de clúster BES-53248, revise una descripción general del proceso y la nomenclatura. 
+---
+= Complete la actualización del conmutador de clúster BES-53248
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga estos pasos para completar la actualización de los switches de clúster BES-54328, según corresponda.
+
+. link:configure-ssh.html["Habilite SSH en switches de clúster BES-53248"].
++
+Si utiliza las funciones de Cluster Switch Health Monitor (CSHM) y de recopilación de registros, habilite SSH en los switches.
+
+. link:configure-log-collection.html["Habilite la función de recogida de registros"].
++
+Utilice esta función para recopilar archivos de registro relacionados con el conmutador en ONTAP.
+
+. link:CSHM_snmpv3.html["Configure SNMPv3 para la supervisión"].
++
+Si utiliza la función Cluster Switch Health Monitor (CSHM), configure SNMPv3, que admite la supervisión de estado del switch Ethernet (CSHM).
+
+

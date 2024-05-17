@@ -31,20 +31,22 @@ entries:
     url: "/switch-bes-53248/configure-licenses.html"
   - title: Instale el archivo de configuración RCF
     url: "/switch-bes-53248/configure-install-rcf.html"
-  - title: Habilite SSH
+  - title: Active SSH para la recopilación de registros
     url: "/switch-bes-53248/configure-ssh.html"
   - title: Habilite la recogida de registros
     url: "/switch-bes-53248/CSHM_log_collection.html"
   - title: Configure SNMPv3 para la supervisión
     url: "/switch-bes-53248/CSHM_snmpv3.html"
-- title: Actualice los switches
+- title: Interruptor de actualización
   pdf-filename: Upgrade_switches_bes53248
   entries:
   - title: Información general de la actualización
     url: "/switch-bes-53248/upgrade-switch-overview.html"
-  - title: Actualice el interruptor
-    url: "/switch-bes-53248/replace-upgrade.html"
-  - title: Verificar la configuración de actualización
+  - title: Actualice la versión de EFOS
+    url: "/switch-bes-53248/upgrade-efos-software.html"
+  - title: Actualice la versión de RCF
+    url: "/switch-bes-53248/upgrade-rcf.html"
+  - title: Verifique el clúster tras la actualización
     url: "/switch-bes-53248/replace-verify.html"
 - title: Migrar switches
   pdf-filename: Migrate_SWITERS_bes53248

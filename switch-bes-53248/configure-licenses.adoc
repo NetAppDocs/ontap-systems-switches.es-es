@@ -531,4 +531,4 @@ exit
 NOTE: Para los puertos de alta velocidad entre 0/49 y 0/54 inclusive, quite el comentario de cada puerto pero sólo descomente una línea *velocidad* en el RCF para cada uno de estos puertos, ya sea: *Velocidad 100G full-duplex* o *velocidad 40G full-duplex* como se muestra en el ejemplo. Para puertos de baja velocidad entre 0/17 y 0/48 incluidos, quite la Marca de comentario de toda la sección de 8 puertos cuando se haya activado una licencia apropiada.
 
 .El futuro
-link:configure-install-rcf.html["Instalación del archivo de configuración de referencia (RCF)"].
+link:configure-install-rcf.html["Instalación del archivo de configuración de referencia (RCF)"] o. link:upgrade-rcf.html["Actualice el RCF"].
