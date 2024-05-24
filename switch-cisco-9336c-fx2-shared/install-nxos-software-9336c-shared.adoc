@@ -22,8 +22,25 @@ Antes de comenzar, complete el procedimiento en link:prepare-nxos-rcf-9336c-shar
 .Lo que necesitará
 * Una copia de seguridad actual de la configuración del switch.
 * Un clúster en pleno funcionamiento (sin errores en los registros o problemas similares).
-* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Página del switch Cisco Ethernet"^]. Consulte en la tabla de compatibilidad del switch las versiones ONTAP y NX-OS compatibles.
-* Guías de software y actualización adecuadas disponibles en el sitio web de Cisco para los procedimientos de actualización y degradación de switches de Cisco. Consulte https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Switches Cisco Nexus serie 9000"^].
+
+
+.Documentación sugerida
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Página del switch Cisco Ethernet"^]
++
+Consulte en la tabla de compatibilidad del switch las versiones ONTAP y NX-OS compatibles.
+
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-guides-list.html["Guías de actualización y degradación de software"^]
++
+Consulte las guías de software y actualización correspondientes disponibles en el sitio web de Cisco para obtener documentación completa sobre los procedimientos de actualización y degradación del conmutador Cisco.
+
+* link:https://www.cisco.com/c/dam/en/us/td/docs/dcn/tools/nexus-9k3k-issu-matrix/index.html["Matriz de ISSU y actualización de Cisco Nexus 9000 y 3000"^]
++
+Proporciona información sobre actualización/degradación disruptiva para software Cisco NX-OS en los switches de la serie Nexus 9000
+en función de tus versiones actuales y objetivo.
+
++
+En la página, selecciona *Actualización disruptiva* y selecciona tu versión actual y la versión de destino de la lista desplegable.
+
 
 
 .Acerca de los ejemplos
@@ -45,30 +62,27 @@ Para ello, es necesario utilizar tanto comandos de la ONTAP como comandos de la 
 . Conecte el switch de clúster a la red de gestión.
 . Utilice el comando ping para verificar la conectividad con el servidor que aloja el software NX-OS y el RCF.
 +
-.Muestra el ejemplo
-[%collapsible]
-====
 Este ejemplo verifica que el switch puede llegar al servidor en la dirección IP 172.19.2.1:
 
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cs2# ping 172.19.2.1
+cs2# *ping 172.19.2.1*
 Pinging 172.19.2.1 with 0 bytes of data:
 
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
-====
 . Copie las imágenes del software NX-OS y EPLD en el switch Nexus 9336C-FX2.
 +
 .Muestra el ejemplo
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2# copy sftp: bootflash: vrf management
-Enter source filename: /code/nxos.9.3.5.bin
-Enter hostname for the sftp server: 172.19.2.1
-Enter username: user1
+cs2# *copy sftp: bootflash: vrf management*
+Enter source filename: */code/nxos.9.3.5.bin*
+Enter hostname for the sftp server: *172.19.2.1*
+Enter username: *user1*
 
 Outbound-ReKey for 172.19.2.1:22
 Inbound-ReKey for 172.19.2.1:22
@@ -82,11 +96,10 @@ Copy complete, now saving to disk (please wait)...
 Copy complete.
 
 
-cs2# copy sftp: bootflash: vrf management
-
-Enter source filename: /code/n9000-epld.9.3.5.img
-Enter hostname for the sftp server: 172.19.2.1
-Enter username: user1
+cs2# *copy sftp: bootflash: vrf management*
+Enter source filename: */code/n9000-epld.9.3.5.img*
+Enter hostname for the sftp server: *172.19.2.1*
+Enter username: *user1*
 
 Outbound-ReKey for 172.19.2.1:22
 Inbound-ReKey for 172.19.2.1:22
@@ -108,9 +121,9 @@ Copy complete.
 .Muestra el ejemplo
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2# show version
+cs2# *show version*
 Cisco Nexus Operating System (NX-OS) Software
 TAC support: http://www.cisco.com/tac
 Copyright (C) 2002-2020, Cisco and/or its affiliates.
@@ -171,9 +184,9 @@ La instalación del archivo de imagen hace que se cargue cada vez que se reinici
 .Muestra el ejemplo
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2# install all nxos bootflash:nxos.9.3.5.bin
+cs2# *install all nxos bootflash:nxos.9.3.5.bin*
 
 Installer will perform compatibility check first. Please wait.
 Installer is forced disruptive
@@ -215,7 +228,7 @@ Module   Image    Running-Version(pri:alt                  New-Version         U
 
 Switch will be reloaded for disruptive upgrade.
 
-Do you want to continue with the installation (y/n)? [n] y
+Do you want to continue with the installation (y/n)? [n] *y*
 
 Install is in progress, please wait.
 
@@ -243,9 +256,9 @@ Finishing the upgrade, switch will reboot in 10 seconds.
 .Muestra el ejemplo
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2# show version
+cs2# *show version*
 
 Cisco Nexus Operating System (NX-OS) Software
 TAC support: http://www.cisco.com/tac
@@ -300,9 +313,9 @@ Active Package(s):
 .Muestra el ejemplo
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2# show version module 1 epld
+cs2# *show version module 1 epld*
 
 EPLD Device                     Version
 ---------------------------------------
@@ -314,7 +327,7 @@ GEM  FPGA                        0x2
 GEM  FPGA                        0x2
 GEM  FPGA                        0x2
 
-cs2# install epld bootflash:n9000-epld.9.3.5.img module 1
+cs2# *install epld bootflash:n9000-epld.9.3.5.img module 1*
 Compatibility check:
 Module        Type         Upgradable        Impact   Reason
 ------  ------------------ ----------------- --------- -----
@@ -329,7 +342,7 @@ Module  Type   EPLD              Running-Version   New-Version  Upg-Required
      1  SUP    MI FPGA2          0x02              0x02         No
 The above modules require upgrade.
 The switch will be reloaded at the end of the upgrade
-Do you want to continue (y/n) ?  [n] y
+Do you want to continue (y/n) ?  [n] *y*
 
 Proceeding to upgrade Modules.
 
@@ -348,12 +361,9 @@ Module 1 EPLD upgrade is successful.
 ====
 . Tras reiniciar el conmutador, vuelva a iniciar sesión y compruebe que la nueva versión de EPLD se ha cargado correctamente.
 +
-.Muestra el ejemplo
-[%collapsible]
-====
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2# show version module 1 epld
+cs2# *show version module 1 epld*
 
 EPLD Device                     Version
 ---------------------------------------
@@ -365,7 +375,6 @@ GEM  FPGA                        0x2
 GEM  FPGA                        0x2
 GEM  FPGA                        0x2
 ----
-====
 . Repita los pasos 1 a 8 para instalar el software NX-OS en el interruptor CS1.
 
 

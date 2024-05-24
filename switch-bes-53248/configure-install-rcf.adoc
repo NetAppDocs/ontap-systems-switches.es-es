@@ -432,7 +432,12 @@ Are you sure you would like to reset the system? (y/n) *y*
 .. Vuelva a iniciar sesión en el switch usando SSH para completar la instalación de RCF.
 
 
-. Si se han instalado licencias de puerto adicionales en el switch, debe modificar el RCF para configurar los puertos adicionales con licencia. Consulte link:configure-licenses.html#activate-newly-licensed-ports["Activar puertos con licencia nueva"^] para obtener más detalles.
+. Tenga en cuenta lo siguiente:
++
+.. Si se han instalado licencias de puerto adicionales en el switch, debe modificar el RCF para configurar los puertos adicionales con licencia. Consulte link:configure-licenses.html#activate-newly-licensed-ports["Activar puertos con licencia nueva"] para obtener más detalles.
+.. Registre las personalizaciones realizadas en el RCF anterior y aplíquelas al nuevo RCF. Por ejemplo, configurar las velocidades de los puertos o el modo FEC de codificación fija.
+
+
 . Copie el RCF en el bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP.
 +
 Este ejemplo muestra SFTP que se está utilizando para copiar un RCF al bootflash del switch CS2:
