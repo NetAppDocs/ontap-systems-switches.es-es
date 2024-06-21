@@ -19,6 +19,7 @@ Siga estos pasos para sustituir un switch Nexus 9336C-FX2 defectuoso en una red 
 
 Antes de realizar la sustitución del interruptor, asegúrese de que:
 
+* Ha verificado el número de serie del interruptor para asegurarse de que se sustituye el interruptor correcto.
 * En el clúster y la infraestructura de red existentes:
 +
 ** El clúster existente se ha verificado como completamente funcional, con al menos un switch de clúster completamente conectado.

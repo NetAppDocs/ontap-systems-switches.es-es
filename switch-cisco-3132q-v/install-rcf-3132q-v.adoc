@@ -21,7 +21,7 @@ Siga este procedimiento para instalar el RCF después de configurar por primera 
 * Una copia de seguridad actual de la configuración del switch.
 * Un clúster en pleno funcionamiento (sin errores en los registros o problemas similares).
 * El archivo de configuración de referencia actual (RCF).
-* Una conexión de consola al conmutador, necesaria para instalar el RCF. Este requisito es opcional si ha utilizado el artículo de la base de conocimientos https://kb.netapp.com/on-prem/Switches/Broadcom-KBs/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración en un switch de interconexión Broadcom mientras se mantiene la conectividad remota"] para borrar la configuración, de antemano.
+* Cuando se instala el RCF, se requiere una conexión de consola al interruptor. Este requisito es opcional si ha utilizado el artículo de la base de conocimientos https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración en un switch de interconexión de Cisco manteniendo la conectividad remota"^] para borrar la configuración, de antemano.
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet de Cisco"^]. Consulte la tabla de compatibilidad del conmutador para conocer las versiones ONTAP y RCF admitidas. Tenga en cuenta que puede haber dependencias de comandos entre la sintaxis del comando en el RCF y la que se encuentra en las versiones de NX-OS.
 * https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Switches Cisco Nexus serie 3000"^]. Consulte las guías de actualización y software adecuadas disponibles en el sitio web de Cisco para obtener documentación completa sobre los procedimientos de actualización y degradación de switches de Cisco.
 
@@ -268,7 +268,7 @@ cluster1::*>
 . Limpie la configuración del interruptor cs2 y realice una configuración básica.
 +
 
-CAUTION: Al actualizar o aplicar una nueva RCF, debe borrar los ajustes del conmutador y realizar la configuración básica. Debe estar conectado al puerto de la consola de serie del switch para volver a configurar el switch. Este requisito es opcional si ha utilizado el artículo de la base de conocimientos https://kb.netapp.com/on-prem/Switches/Broadcom-KBs/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración en un switch de interconexión Broadcom mientras se mantiene la conectividad remota"] para borrar la configuración, de antemano.
+WARNING: Al actualizar o aplicar una nueva RCF, debe borrar los ajustes del conmutador y realizar la configuración básica. * Debe estar conectado al puerto de consola serie del switch para configurar el switch de nuevo. Sin embargo, este requisito es opcional si ha utilizado el artículo de la base de conocimientos https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración en un switch de interconexión de Cisco manteniendo la conectividad remota"^] para borrar la configuración, de antemano.
 
 +
 .. Limpie la configuración:
@@ -411,7 +411,7 @@ NOTE: Para conocer los pasos sobre cómo conectar sus puertos 10GbE después de 
 
 . Después de comprobar que las versiones de RCF y los ajustes del switch son correctos, copie el archivo running-config en el archivo startup-config.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referencia de comandos NX-OS de Cisco Nexus serie 3000"] guías.
+Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referencia de comandos NX-OS de Cisco Nexus serie 3000"^] guías.
 
 +
 .Muestra el ejemplo

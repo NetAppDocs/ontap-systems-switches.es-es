@@ -17,7 +17,7 @@ Los switches de clúster de NetApp CN1610 para un clúster de ONTAP a los switch
 
 == Revise los requisitos
 
-Debe estar al tanto de cierta información de configuración, conexiones de puertos y requisitos de cableado cuando reemplaza los switches de clúster NetApp CN1610 por los switches de clústeres Cisco 9336C-FX2.
+Debe estar al tanto de cierta información de configuración, conexiones de puertos y requisitos de cableado cuando reemplaza los switches de clúster NetApp CN1610 por los switches de clústeres Cisco 9336C-FX2. Verifique también el número de serie del conmutador para asegurarse de que se migra el conmutador correcto.
 
 .Switches compatibles
 Se admiten los siguientes switches de clúster:

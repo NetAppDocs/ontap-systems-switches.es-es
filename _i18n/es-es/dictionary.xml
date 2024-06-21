@@ -1293,7 +1293,6 @@
   <block id="2a4c49daad6f24fc930342baa230202a" category="list-text">El banner de RCF</block>
   <block id="f867470f4d681a0d1ba65ec5afb71681" category="list-text">La configuración del nodo y el puerto</block>
   <block id="f84dbe517c4cab37d96220b08c6a7430" category="list-text">Después de comprobar que las versiones de RCF y los ajustes del switch son correctos, copie el archivo running-config en el archivo startup-config.</block>
-  <block id="f1e487b54b162363f351d5d209fc59ac" category="paragraph">Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en<block ref="a793a8dbe6bab2f66743aaacba3b8ce6" category="inline-link-rx"></block> guías.</block>
   <block id="b1d94c7c371efbe2b9e14f1fcde6d912" category="list-text">Reinicie el interruptor cs2. Es posible ignorar los eventos "puertos de clúster inactivos" que se informan en los nodos mientras se reinicia el switch.</block>
   <block id="05287537d898f5a1b2d701a759380d28" category="list-text">Aplique el mismo RCF y guarde la configuración en ejecución por segunda vez.</block>
   <block id="8fdae5a227344a83423005f83a057331" category="list-text">Compruebe que los puertos del clúster estén en buen estado en todos los nodos del clúster:</block>
@@ -4325,7 +4324,6 @@
   <block id="0f2a4526602865cc9158a56028bf97de" category="summary">Puede migrar switches de clúster NetApp CN1610 de forma no disruptiva para un clúster ONTAP a los switches de red de clúster Cisco Nexus 9336C-FX2.</block>
   <block id="4732368f30b7afd2065dc4cc0c57584f" category="doc">Migrar de un switch de clúster NetApp CN1610 a un switch de clúster Cisco 9336C-FX2</block>
   <block id="c8fc8239bd9ec37b7c36847589d5c8a0" category="paragraph">Los switches de clúster de NetApp CN1610 para un clúster de ONTAP a los switches de clúster de Cisco 9336C-FX2. Se trata de un procedimiento no disruptivo.</block>
-  <block id="b6bd832f0692f49d1480e52df106a51f" category="paragraph">Debe estar al tanto de cierta información de configuración, conexiones de puertos y requisitos de cableado cuando reemplaza los switches de clúster NetApp CN1610 por los switches de clústeres Cisco 9336C-FX2.</block>
   <block id="059d31543d448499bd1a9c454a8d1ebb" category="list-text">Cisco 9336C-FX2</block>
   <block id="3cb2d5707cdf5f5290ac6608ce8b5278" category="paragraph">Compruebe que la configuración cumple los siguientes requisitos:</block>
   <block id="6195676dbe2277e0d3edb2d8c3a50b2e" category="list-text">Los switches de cluster Cisco 9336C-FX2 están configurados y funcionan con la versión correcta de NX-OS instalada con el archivo de configuración de referencia (RCF) aplicado.</block>
@@ -4931,8 +4929,6 @@ Restablezca el interruptor a los valores predeterminados de fábrica y aplique e
   <block id="f35806549fff4250f43cb0acde28b920" category="list-text">Reinicie el conmutador y verifique que la configuración en ejecución sea correcta.</block>
   <block id="7271f66e0cb527adb71302d7377910b7" category="list-text">[[step21]]Repita los pasos 1 a 20 en el interruptor CS1.</block>
   <block id="9b241cba96d2cafd3c0f5c9f7bf12560" category="list-text">. Compruebe que las LIF del clúster han vuelto a su puerto de inicio:</block>
-  <block id="de4042aa676f131e04bcf7d15edc5af9" category="list-text">Una conexión de consola al conmutador, necesaria para instalar el RCF. Este requisito es opcional si ha utilizado el artículo de la base de conocimientos<block ref="f179a3654c26841201eb04f568431742" category="inline-link-rx"></block> para borrar la configuración, de antemano.</block>
-  <block id="ced0e2e58f0a61a7676c9c092295acb0" category="admonition">Al actualizar o aplicar una nueva RCF, debe borrar los ajustes del conmutador y realizar la configuración básica. Debe estar conectado al puerto de la consola de serie del switch para volver a configurar el switch. Este requisito es opcional si ha utilizado el artículo de la base de conocimientos<block ref="f179a3654c26841201eb04f568431742" category="inline-link-rx"></block> para borrar la configuración, de antemano.</block>
   <block id="ae0a7918183889538c2a432f5a54afa6" category="sidebar">Interruptor de actualización</block>
   <block id="6bdce5afe823363897535ce22aa832a0" category="sidebar">Actualice la versión de EFOS</block>
   <block id="4dc6f468164162b89152d6960a79b9d0" category="sidebar">Actualice la versión de RCF</block>
@@ -4955,4 +4951,10 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="3ee80345befd8ba67ee5e3200beb2fd8" category="list-text">Si se han instalado licencias de puerto adicionales en el switch, debe modificar el RCF para configurar los puertos adicionales con licencia. Consulte <block ref="029ce138066352981401c2da3f4be7ea" category="inline-link-macro-rx"></block> para obtener más detalles.</block>
   <block id="febb316f33bb4f57154038c792c90fc0" category="list-text">Registre las personalizaciones realizadas en el RCF anterior y aplíquelas al nuevo RCF. Por ejemplo, configurar las velocidades de los puertos o el modo FEC de codificación fija.</block>
   <block id="888174b5389281588448ee75f7ac8835" category="sidebar">Instale o actualice el software NX-OS</block>
+  <block id="a8294f2ff72d57253432505426ab555f" category="list-text">Ha verificado el número de serie del conmutador para asegurarse de que se migra el conmutador correcto.</block>
+  <block id="f4212fffa5e0c42b93f12013fbeaaa93" category="paragraph">Debe estar al tanto de cierta información de configuración, conexiones de puertos y requisitos de cableado cuando reemplaza los switches de clúster NetApp CN1610 por los switches de clústeres Cisco 9336C-FX2. Verifique también el número de serie del conmutador para asegurarse de que se migra el conmutador correcto.</block>
+  <block id="87a5e94476d6bdcbe9c972165d34090a" category="list-text">Ha verificado el número de serie del interruptor para asegurarse de que se sustituye el interruptor correcto.</block>
+  <block id="2d6eb81058fa2415eb5247e2c14c5452" category="inline-link">Cómo borrar la configuración en un switch de interconexión de Cisco manteniendo la conectividad remota</block>
+  <block id="9fa76c217cee95f26808d0c64f43dcda" category="list-text">Cuando se instala el RCF, se requiere una conexión de consola al interruptor. Este requisito es opcional si ha utilizado el artículo de la base de conocimientos<block ref="3e8c2406d6e0211f305d1081c755846f" category="inline-link-rx"></block> para borrar la configuración, de antemano.</block>
+  <block id="83ad3b6efa173a2560e396a36d6ac2f0" category="admonition">Al actualizar o aplicar una nueva RCF, debe borrar los ajustes del conmutador y realizar la configuración básica. * Debe estar conectado al puerto de consola serie del switch para configurar el switch de nuevo. Sin embargo, este requisito es opcional si ha utilizado el artículo de la base de conocimientos<block ref="3e8c2406d6e0211f305d1081c755846f" category="inline-link-rx"></block> para borrar la configuración, de antemano.</block>
 </blocks>

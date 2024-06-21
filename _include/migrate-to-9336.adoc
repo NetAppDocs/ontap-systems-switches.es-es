@@ -8,6 +8,7 @@
 
 Asegúrese de que:
 
+* Ha verificado el número de serie del conmutador para asegurarse de que se migra el conmutador correcto.
 * Algunos de los puertos de los switches Nexus 9336C-FX2 están configurados para funcionar a 10GbE o 40GbE GbE.
 * Se ha planificado, migrado y documentado la conectividad 10GbE y 40GbE desde los nodos a los switches del clúster Nexus 9336C-FX2.
 * El clúster está funcionando completamente (no debería haber errores en los registros o problemas similares).
