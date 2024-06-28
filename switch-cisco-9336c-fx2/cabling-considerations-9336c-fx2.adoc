@@ -54,3 +54,10 @@ Para los puertos de switch e0a y e0b, la configuración fec se establece en `rs-
 *Save the changes:*
 (cs1)# *copy running-config startup-config*
 ----
+
+
+== Los puertos no se enlazan debido a los recursos de TCAM
+
+En el conmutador 9336C-FX2, se agotan los recursos de memoria direccionable de contenido terrestre (TCAM) configurados en la configuración utilizada por el conmutador.
+
+Consulte el artículo de la base de conocimientos https://kb.netapp.com/on-prem/Switches/Cisco-KBs/Ports_do_not_link_up_on_Cisco_Nexus_9336C-FX2_due_to_TCAM_resources["Los puertos no se enlazan en Cisco Nexus 9336C-FX2 debido a recursos de TCAM"^] para obtener información detallada sobre cómo resolver este problema.

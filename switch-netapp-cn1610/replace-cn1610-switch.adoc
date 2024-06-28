@@ -13,6 +13,10 @@ summary: Puede sustituir de forma no disruptiva un switch de clúster de NetApp 
 [role="lead"]
 Siga estos pasos para reemplazar un switch CN1610 de NetApp defectuoso en una red de clúster. Se trata de un procedimiento no disruptivo (NDU).
 
+
+
+== Revise los requisitos
+
 .Lo que necesitará
 Antes de realizar la sustitución del switch, debe haber las siguientes condiciones antes de realizar la sustitución del switch en el entorno actual y en el switch de sustitución del clúster y la infraestructura de red existentes:
 
@@ -21,6 +25,21 @@ Antes de realizar la sustitución del switch, debe haber las siguientes condicio
 * Todas las interfaces lógicas (LIF) del clúster deben estar activas y no se deben haber migrado.
 * El clúster de ONTAP `ping-cluster -node node1` El comando debe indicar que la conectividad básica y la comunicación más grande que la PMTU se han realizado correctamente en todas las rutas.
 
+
+
+
+== Active el registro de la consola
+
+NetApp recomienda encarecidamente que habilite el inicio de sesión de la consola en los dispositivos que esté utilizando y que realice las siguientes acciones al sustituir el conmutador:
+
+* Deje la función AutoSupport habilitada durante el mantenimiento.
+* Active un AutoSupport de mantenimiento antes y después de las tareas de mantenimiento para deshabilitar la creación de casos durante el mantenimiento. Consulte este artículo de la base de conocimientos https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Cómo impedir la creación automática de casos durante las ventanas de mantenimiento programado"^] para obtener más detalles.
+* Habilite el registro de sesiones para cualquier sesión de CLI. Para obtener instrucciones sobre cómo activar el registro de sesiones, consulte la sección «Salida de sesión de registro» de este artículo de la base de conocimientos https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Cómo configurar PuTTY para una conectividad óptima con sistemas ONTAP"^].
+
+
+
+
+== Sustituya el interruptor
 
 .Acerca de esta tarea
 Debe ejecutar el comando para migrar una LIF de clúster desde el nodo donde se aloja la LIF del clúster.

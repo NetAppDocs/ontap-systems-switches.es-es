@@ -43,6 +43,17 @@ Cualquier personalización de sitio anterior, como STP, SNMP y SSH, se copian al
 
 
 
+== Active el registro de la consola
+
+NetApp recomienda encarecidamente que habilite el inicio de sesión de la consola en los dispositivos que esté utilizando y que realice las siguientes acciones al sustituir el conmutador:
+
+* Deje la función AutoSupport habilitada durante el mantenimiento.
+* Active un AutoSupport de mantenimiento antes y después de las tareas de mantenimiento para deshabilitar la creación de casos durante el mantenimiento. Consulte este artículo de la base de conocimientos https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Cómo impedir la creación automática de casos durante las ventanas de mantenimiento programado"^] para obtener más detalles.
+* Habilite el registro de sesiones para cualquier sesión de CLI. Para obtener instrucciones sobre cómo activar el registro de sesiones, consulte la sección «Salida de sesión de registro» de este artículo de la base de conocimientos https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Cómo configurar PuTTY para una conectividad óptima con sistemas ONTAP"^].
+
+
+
+
 == Si quiere más información
 
 * https://mysupport.netapp.com/["Sitio de soporte de NetApp"^]

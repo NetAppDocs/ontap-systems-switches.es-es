@@ -3956,7 +3956,6 @@
   <block id="ce140d6d1921435e3df40a72b6d032f4" category="sidebar">Migrar desde switches CN1610</block>
   <block id="ac0586dfb2126d95d9be6378c5f70512" category="sidebar">Migrar del clúster sin switches a clúster con switches</block>
   <block id="703c0fedc12db69e340d7c2f3de0d764" category="sidebar">Sustituya los interruptores</block>
-  <block id="4e8b0737e5a683e7ada812ad2005b768" category="sidebar">Sustituir los interruptores CN3132Q-V.</block>
   <block id="88af8e6a19edbffd16db05ce4d139e3f" category="sidebar">Migrar desde el switch de clúster CN1610</block>
   <block id="c40e2faa3e9cd894cbecfcf038ffe999" category="sidebar">Migrar desde el switch de clúster Cisco Nexus 5596</block>
   <block id="ae5073b7cedbbc7111f9e806343efc7e" category="sidebar">Migre desde un clúster sin switches de dos nodos</block>
@@ -4957,4 +4956,16 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="2d6eb81058fa2415eb5247e2c14c5452" category="inline-link">Cómo borrar la configuración en un switch de interconexión de Cisco manteniendo la conectividad remota</block>
   <block id="9fa76c217cee95f26808d0c64f43dcda" category="list-text">Cuando se instala el RCF, se requiere una conexión de consola al interruptor. Este requisito es opcional si ha utilizado el artículo de la base de conocimientos<block ref="3e8c2406d6e0211f305d1081c755846f" category="inline-link-rx"></block> para borrar la configuración, de antemano.</block>
   <block id="83ad3b6efa173a2560e396a36d6ac2f0" category="admonition">Al actualizar o aplicar una nueva RCF, debe borrar los ajustes del conmutador y realizar la configuración básica. * Debe estar conectado al puerto de consola serie del switch para configurar el switch de nuevo. Sin embargo, este requisito es opcional si ha utilizado el artículo de la base de conocimientos<block ref="3e8c2406d6e0211f305d1081c755846f" category="inline-link-rx"></block> para borrar la configuración, de antemano.</block>
+  <block id="bf2e41df1fe93346157f93aa59a48dd6" category="section-title">Active el registro de la consola</block>
+  <block id="a1f2e4cbaec8fa16860e427a059b89aa" category="paragraph">NetApp recomienda encarecidamente que habilite el inicio de sesión de la consola en los dispositivos que esté utilizando y que realice las siguientes acciones al sustituir el conmutador:</block>
+  <block id="7a15fb36e18a42514f358533c9af4dae" category="list-text">Deje la función AutoSupport habilitada durante el mantenimiento.</block>
+  <block id="c0aa3599fdcfc9e5e35fab592ea612f0" category="inline-link">SU92: Cómo impedir la creación automática de casos durante las ventanas de mantenimiento programado</block>
+  <block id="5c0d62310efa13f4e4c4ae41a7330f95" category="list-text">Active un AutoSupport de mantenimiento antes y después de las tareas de mantenimiento para deshabilitar la creación de casos durante el mantenimiento. Consulte este artículo de la base de conocimientos<block ref="9889375293ffeecac54c58b8cad125b2" category="inline-link-rx"></block> para obtener más detalles.</block>
+  <block id="fb42fce84a1f5a648367e2e027a6c941" category="inline-link">Cómo configurar PuTTY para una conectividad óptima con sistemas ONTAP</block>
+  <block id="1d01c6e5d28fb955441f4f9d1b4678b7" category="list-text">Habilite el registro de sesiones para cualquier sesión de CLI. Para obtener instrucciones sobre cómo activar el registro de sesiones, consulte la sección «Salida de sesión de registro» de este artículo de la base de conocimientos<block ref="969f6e4e41456399a13556dea44fc607" category="inline-link-rx"></block>.</block>
+  <block id="05e512c6037fe1bb54e099238cc8ce62" category="section-title">Los puertos no se enlazan debido a los recursos de TCAM</block>
+  <block id="f45e0e2e020e174164fe5413760ef4e4" category="paragraph">En el conmutador 9336C-FX2, se agotan los recursos de memoria direccionable de contenido terrestre (TCAM) configurados en la configuración utilizada por el conmutador.</block>
+  <block id="50c3c6ae36d53e402b88d9a6222029a0" category="inline-link">Los puertos no se enlazan en Cisco Nexus 9336C-FX2 debido a recursos de TCAM</block>
+  <block id="293da448e2520766812e980a00821699" category="paragraph">Consulte el artículo de la base de conocimientos<block ref="882efca0483fcef9d53236590b1d74e9" category="inline-link-rx"></block> para obtener información detallada sobre cómo resolver este problema.</block>
+  <block id="73f7e96895a0ddf72a3e199ac5ae2247" category="sidebar">Sustituya los interruptores de 3132Q V.</block>
 </blocks>
