@@ -47,7 +47,7 @@ Nodos de puertos de clúster 40/100GbE
  a| 
 swp15-16
  a| 
-Puertos de enlace entre switches (ISL) 40/100GbE
+100GbE puertos de enlace entre switches (ISL)
 
 |===
 Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para obtener más información sobre los puertos de switch.
