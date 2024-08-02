@@ -123,7 +123,7 @@ Responda con *no*. El valor predeterminado es no
 Responda con *sí*. El valor predeterminado es yes.
 
 
-NOTE: Se recomienda SSH cuando se utilice el Monitor de estado del conmutador de clúster (CSHM) para sus funciones de recopilación de registros. También se recomienda SSHv2 para mejorar la seguridad.
+NOTE: Se recomienda SSH cuando se utiliza Ethernet Switch Health Monitor (CSHM) para sus funciones de recopilación de registros. También se recomienda SSHv2 para mejorar la seguridad.
 
 
 

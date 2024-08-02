@@ -472,3 +472,6 @@ Configuration Saved!
 ====
 . Repita los pasos anteriores para instalar el RCF en el otro interruptor, cs1.
 
+
+.El futuro
+link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"]

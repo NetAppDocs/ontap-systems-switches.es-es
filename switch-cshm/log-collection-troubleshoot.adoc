@@ -1,0 +1,57 @@
+---
+permalink: switch-cshm/log-collection-troubleshoot.html 
+sidebar: sidebar 
+keywords: cshm, cluster, storage, switch logs, debugging, collection 
+summary: Puede utilizar los comandos proporcionados aquí para.... 
+---
+= Solución de problemas de recopilación de registros
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si encuentra alguno de los siguientes estados de error indicados por la función de recopilación de registros (visibles en la salida del `system switch ethernet log show` comando), intente los pasos de depuración correspondientes:
+
+|===
+
+
+| *Estado de error de recopilación de registros* | *Resolución* 
+
+
+ a| 
+*Las claves RSA no están presentes*
+ a| 
+Vuelva a generar las claves SSH de ONTAP.
+
+
+
+ a| 
+*Error de contraseña de cambio*
+ a| 
+Verifique las credenciales, pruebe la conectividad SSH y vuelva a generar las claves SSH de ONTAP. Revise la documentación del switch o póngase en contacto con el soporte de NetApp para obtener instrucciones.
+
+
+
+ a| 
+*Las claves ECDSA no están presentes para FIPS*
+ a| 
+Si el modo FIPS está activado, es necesario generar claves ECDSA en el conmutador antes de volver a intentarlo.
+
+
+
+ a| 
+*Registro preexistente encontrado*
+ a| 
+Elimine el archivo de recopilación de registros anterior del conmutador.
+
+
+
+ a| 
+*Error de registro de volcado del interruptor*
+ a| 
+Asegúrese de que el usuario del conmutador tiene permisos de recopilación de registros. Consulte los requisitos previos anteriores.
+
+|===
+
+NOTE: Si los detalles de la resolución no funcionan, póngase en contacto con el soporte de NetApp.

@@ -1,0 +1,20 @@
+---
+permalink: switch-cshm/monitor-troubleshoot.html 
+sidebar: sidebar 
+keywords: cshm, cluster, storage, switch logs, debugging, collection 
+summary: Puede utilizar los siguientes comandos... 
+---
+= Solucionar problemas de alertas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Las alertas se generan si se detecta un fallo, un riesgo o una condición crítica en un switch Ethernet de su clúster.
+
+Si hay alertas activas, el estado del sistema informa del estado Degradado del clúster. Las alertas emitidas incluyen la información que necesita para responder al estado del sistema degradado.
+
+Para ver las alertas de control de estado del switch Ethernet disponibles, ejecute el comando: `system health alert definition show -monitor ethernet-switch`
+
+Consulte el artículo de la base de conocimientos https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Cluster_Switch_Health_Monitor_CSHM_Alert_Resolution_Guide["Guía de resolución de alertas del monitor de estado del switch"^] para obtener información detallada sobre la resolución avanzada de las alertas.

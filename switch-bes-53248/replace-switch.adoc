@@ -400,4 +400,4 @@ cs1          0/56    179         R             BES-53248   0/56
 
 
 .El futuro
-Consulte link:configure-log-collection.html["Habilite la función de recogida de registros"] en el caso de los pasos necesarios para habilitar la recogida del registro del switch de estado del clúster utilizado para recoger archivos de registro relacionados con el switch.
+link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"].

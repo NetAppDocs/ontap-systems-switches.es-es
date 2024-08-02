@@ -95,7 +95,7 @@ Responda con *sí*. El valor predeterminado es yes.
 
 +
 
-NOTE: Se recomienda SSH cuando se utilice el Monitor de estado del conmutador de clúster (CSHM) para sus funciones de recopilación de registros. También se recomienda SSHv2 para mejorar la seguridad.
+NOTE: Se recomienda SSH cuando se utiliza Ethernet Switch Health Monitor (CSHM) para sus funciones de recopilación de registros. También se recomienda SSHv2 para mejorar la seguridad.
 
 .. [[step14]]Introduzca el tipo de clave SSH que desea generar (dsa/rsa/rsa1). El valor predeterminado es rsa.
 .. Introduzca el número de bits de clave (1024- 2048).

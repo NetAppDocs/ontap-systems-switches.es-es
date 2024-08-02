@@ -11,7 +11,7 @@ summary: 'SSH es un requisito cuando se utilizan las funciones de recopilación 
 
 
 [role="lead"]
-Si utiliza las funciones de Cluster Switch Health Monitor (CSHM) y de recopilación de registros, debe generar las claves SSH y, a continuación, habilitar SSH en los switches de clúster.
+Si utiliza las funciones de recogida de registros y el monitor de estado del switch Ethernet (CSHM), debe generar las claves SSH y, a continuación, habilitar SSH en los switches del clúster.
 
 .Pasos
 . Compruebe que SSH está desactivado:
@@ -119,4 +119,4 @@ SCP server Administrative Mode: ............... Enabled
 
 
 .El futuro
-link:CSHM_log_collection.html["Habilite la recogida de registros"].
+link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"].

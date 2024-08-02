@@ -265,3 +265,6 @@ storage::*>
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
+
+.El futuro
+link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"].

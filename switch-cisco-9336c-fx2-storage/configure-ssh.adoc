@@ -1,0 +1,118 @@
+---
+permalink: switch-cisco-9336c-fx2-storage/configure-ssh.html 
+sidebar: sidebar 
+keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, bes, enable ssh on 9336c-fx2 cluster switches - 9336c-fx2 switches 
+summary: 'SSH es un requisito cuando se utilizan las funciones de recopilación de registros y Monitor de estado del conmutador de clúster \(CSHM\). Para habilitar SSH en los switches de clúster Cisco 9336C-FX2, primero debe generar las claves SSH y, a continuación, habilitar SSH.' 
+---
+= Habilitar SSH en switches de almacenamiento Cisco 9336C-FX2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si utiliza las funciones de recogida de registros y el monitor de estado del switch Ethernet (CSHM), debe generar las claves SSH y, a continuación, habilitar SSH en los switches del clúster.
+
+.Pasos
+. Compruebe que SSH está desactivado:
++
+`show ip ssh`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(switch)# *show ip ssh*
+
+SSH Configuration
+
+Administrative Mode: .......................... Disabled
+SSH Port: ..................................... 22
+Protocol Level: ............................... Version 2
+SSH Sessions Currently Active: ................ 0
+Max SSH Sessions Allowed: ..................... 5
+SSH Timeout (mins): ........................... 5
+Keys Present: ................................. DSA(1024) RSA(1024) ECDSA(521)
+Key Generation In Progress: ................... None
+SSH Public Key Authentication Mode: ........... Disabled
+SCP server Administrative Mode: ............... Disabled
+----
+====
+. Genere las claves SSH:
++
+`crypto key generate`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(switch)# *config*
+
+(switch) (Config)# *crypto key generate rsa*
+
+Do you want to overwrite the existing RSA keys? (y/n): *y*
+
+
+(switch) (Config)# *crypto key generate dsa*
+
+Do you want to overwrite the existing DSA keys? (y/n): *y*
+
+
+(switch) (Config)# *crypto key generate ecdsa 521*
+
+Do you want to overwrite the existing ECDSA keys? (y/n): *y*
+
+(switch) (Config)# *aaa authorization commands "noCmdAuthList" none*
+(switch) (Config)# *exit*
+(switch)# *ip ssh server enable*
+(switch)# *ip scp server enable*
+(switch)# *ip ssh pubkey-auth*
+(switch)# *write mem*
+
+This operation may take a few minutes.
+Management interfaces will not be available during this time.
+Are you sure you want to save? (y/n) *y*
+
+Config file 'startup-config' created successfully.
+
+Configuration Saved!
+----
+====
+. Reinicie el switch:
++
+`reload`
+
+. Compruebe que SSH está habilitado:
++
+`show ip ssh`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(switch)# *show ip ssh*
+
+SSH Configuration
+
+Administrative Mode: .......................... Enabled
+SSH Port: ..................................... 22
+Protocol Level: ............................... Version 2
+SSH Sessions Currently Active: ................ 0
+Max SSH Sessions Allowed: ..................... 5
+SSH Timeout (mins): ........................... 5
+Keys Present: ................................. DSA(1024) RSA(1024) ECDSA(521)
+Key Generation In Progress: ................... None
+SSH Public Key Authentication Mode: ........... Enabled
+SCP server Administrative Mode: ............... Enabled
+----
+====
+
+
+.El futuro
+link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"].

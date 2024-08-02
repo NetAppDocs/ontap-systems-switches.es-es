@@ -1068,4 +1068,4 @@ system node autosupport invoke -node * -type all -message MAINT=END
 
 
 .El futuro
-link:configure-ssh.html["Active SSH para la recopilación de registros"].
+link:configure-ssh.html["Habilite SSH"].

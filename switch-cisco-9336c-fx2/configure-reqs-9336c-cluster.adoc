@@ -25,6 +25,9 @@ Desde ONTAP 9.9.1, puede utilizar los switches Cisco Nexus 9336C-FX2 para combin
 Si desea crear clústeres de ONTAP con más de dos nodos, necesita dos switches de red compatibles.
 
 
+NOTE: El monitor de estado del switch Ethernet no admite ONTAP 9.13.1P8 y versiones anteriores y 9.14.1P3 y anteriores o NX-OS versión 10,3(4a)(M).
+
+
 
 == Requisitos de configuración
 

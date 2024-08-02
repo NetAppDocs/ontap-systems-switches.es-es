@@ -21,10 +21,4 @@ Puede instalar Cumulus Linux (CL) OS cuando el conmutador esté ejecutando Cumul
 +
 Hay dos secuencias de comandos RCF disponibles para las aplicaciones de almacenamiento y agrupación en clúster. El procedimiento para cada uno es el mismo.
 
-. link:install-snmpv3-sn2100-cluster.html["Configure SNMPv3 para la recopilación de registros del conmutador"].
-+
-Esta versión incluye soporte para SNMPv3 para la recopilación de registros de conmutación y para la supervisión del estado del conmutador (SHM).
 
-
-
-Los procedimientos utilizan Network Command Line Utility (NCLU), que es una interfaz de línea de comandos que garantiza que Cumulus Linux sea totalmente accesible para todos. El comando net es la utilidad contenedora que se utiliza para ejecutar acciones desde un terminal.

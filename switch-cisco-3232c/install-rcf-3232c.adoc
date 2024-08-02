@@ -758,3 +758,6 @@ RPC status:
 ----
 ====
 
+
+.El futuro
+link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"]

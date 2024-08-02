@@ -14,70 +14,19 @@ summary: Descripción general de la configuración de software de los switches d
 Para instalar y configurar el software para un switch Cisco Nexus 9336C-FX2 y para instalar o actualizar el archivo de configuración de referencia (RCF), siga estos pasos:
 
 . link:install-nxos-overview-9336c-cluster.html["Prepárese para instalar el software NX-OS y RCF"].
-. link:install-nxos-software-9336c-cluster.html["Instale el software NX-OS"].
-. link:install-nxos-rcf-9336c-cluster.html["Instalar o actualizar el archivo de configuración de referencia (RCF)"].
 +
-Instale el RCF después de configurar por primera vez el conmutador Nexus 9336C-FX2. También puede utilizar este procedimiento para actualizar la versión de RCF.
+Se deben instalar el software Cisco NX-OS y los archivos de configuración de referencia (RCF) en los switches de clúster de Cisco Nexus 9336C-FX2.
 
+. link:install-nxos-software-9336c-cluster.html["Instale o actualice el software NX-OS"].
 +
-.Configuraciones de RCF disponibles
-En la siguiente tabla se describen los CFR disponibles para diferentes configuraciones. Seleccione el RCF aplicable a su configuración.
+Descargue e instale o actualice el software NX-OS en el switch de clúster Cisco Nexus 9336C-FX2.
 
+. link:install-nxos-rcf-9336c-cluster.html["Instale o actualice el RCF"].
 +
-Si quiere más información sobre el uso de VLAN y puertos específicos, consulte el banner y la sección de notas importantes de su RCF.
+Instale o actualice el RCF después de configurar por primera vez el switch Cisco Nexus 9336C-FX2. También puede utilizar este procedimiento para actualizar la versión de RCF.
 
+. link:configure-ssh.html["Habilite SSH"].
 +
-[cols="1,2"]
-|===
-| Nombre de RCF | Descripción 
+Si utiliza el monitor de estado del switch Ethernet (CSHM) y las funciones de recopilación de registros, habilite SSH en los switches.
 
-
- a| 
-2-Cluster-HA-Breakout
- a| 
-Admite dos clústeres ONTAP con al menos ocho nodos, incluidos los nodos que utilizan puertos compartidos Cluster+HA.
-
-
-
- a| 
-4-Cluster-HA-Breakout
- a| 
-Admite cuatro clústeres ONTAP con al menos cuatro nodos, incluidos los nodos que utilizan puertos compartidos Cluster+HA.
-
-
-
- a| 
-1-Cluster-HA
- a| 
-Todos los puertos están configurados para 40/100GbE. Admite el tráfico de clúster/alta disponibilidad compartido en los puertos. Necesario para los sistemas AFF A320, AFF A250 y FAS500f. Además, todos los puertos se pueden utilizar como puertos de clúster dedicados.
-
-
-
- a| 
-1-Cluster-HA-Breakout
- a| 
-Los puertos se configuran para 4 puertos de separación de 10 GbE, 4 GbE (RCF 1,6+ en switches 100GbE) y 40/100GbE. Admite el tráfico compartido de clúster/alta disponibilidad en los puertos para los nodos que utilizan puertos de clúster/alta disponibilidad compartidos: Sistemas AFF A320, AFF A250 y FAS500f. Además, todos los puertos se pueden utilizar como puertos de clúster dedicados.
-
-
-
- a| 
-Cluster-HA-Storage
- a| 
-Los puertos se configuran para 40/100GbE para clúster+HA, 4 puertos de separación de 10 GbE para clúster y 4 GbE para clúster+HA, y 100GbE para cada par de alta disponibilidad de almacenamiento.
-
-
-
- a| 
-Clúster
- a| 
-Dos variantes de RCF con diferentes asignaciones de 4 puertos 10 GbE (breakout) y de puertos 40/100GbE. Todos los nodos FAS/AFF son compatibles, excepto para los sistemas AFF A320, AFF A250 y FAS500f.
-
-
-
- a| 
-Reducida
- a| 
-Todos los puertos se configuran para conexiones de almacenamiento NVMe de 100GbE Gb.
-
-|===
 

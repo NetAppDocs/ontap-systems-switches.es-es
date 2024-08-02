@@ -614,4 +614,4 @@ Para obtener más información, consulte: https://kb.netapp.com/Advice_and_Troub
 
 
 .El futuro
-Una vez finalizada la migración, es posible que necesite instalar el archivo de configuración necesario para admitir el monitor de estado del switch Ethernet (CSHM) para los switches de cluster BES-53248. Consulte link:CSHM_log_collection.html["Habilite la recogida de registros"].
+link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"].

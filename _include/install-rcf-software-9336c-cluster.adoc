@@ -356,3 +356,6 @@ NetApp recomienda usar System Manager para configurar clústeres nuevos.
 System Manager proporciona un flujo de trabajo sencillo y sencillo para la instalación y la configuración del clúster, incluidas la asignación de una dirección IP de gestión de nodos, la inicialización del clúster, la creación de un nivel local, la configuración de protocolos y el aprovisionamiento del almacenamiento inicial.
 
 Vaya a. https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configure ONTAP en un nuevo clúster con System Manager"] para obtener instrucciones de configuración.
+
+.El futuro
+link:../switch-cisco-9336c-fx2-storage/configure-ssh.html["Habilite SSH"].

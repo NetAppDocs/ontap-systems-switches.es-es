@@ -506,48 +506,7 @@ Total entries displayed: 4
 ====
 
 
-. [[step15]]habilite la función de recopilación de registros del monitor de estado del switch Ethernet para recopilar archivos de registro relacionados con el conmutador, utilizando los siguientes comandos:
-+
-** `system switch ethernet log setup password`
-** `system switch ethernet log enable-collection`
-+
-.Muestra el ejemplo
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *system switch ethernet log setup-password*
-Enter the switch name: <return>
-The switch name entered is not recognized.
-Choose from the following list:
-*sh1*
-*sh2*
-cluster1::*> *system switch ethernet log setup-password*
-Enter the switch name: *sh1*
-RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
-Do you want to continue? {y|n}::[n] *y*
-Enter the password: <enter switch password>
-Enter the password again: <enter switch password>
-cluster1::*> *system switch ethernet log setup-password*
-Enter the switch name: *sh2*
-RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
-Do you want to continue? {y|n}:: [n] *y*
-Enter the password: <enter switch password>
-Enter the password again: <enter switch password>
-cluster1::*> system  switch ethernet log enable-collection
-Do you want to enable cluster log collection for all nodes in the cluster? y|n}: [n] *y*
-Enabling cluster switch log collection.
-cluster1::*>
-----
-====
-
-
-
-
-
-NOTE: Si alguno de estos comandos devuelve un error, póngase en contacto con el soporte de NetApp.
-
-. [[step16]]mueva los puertos de almacenamiento del interruptor sh2 antiguo al nuevo interruptor news2.
+. [[step15]]mueva los puertos de almacenamiento del interruptor sh2 antiguo al nuevo interruptor news2.
 . Compruebe que el almacenamiento conectado al par de alta disponibilidad 1 y que el switch compartido news2 esté en buen estado.
 . Compruebe que el almacenamiento conectado al par de alta disponibilidad 2 y que el switch compartido news2 esté en buen estado:
 +
@@ -578,7 +537,7 @@ node2
 ====
 
 
-. [[step19]]Compruebe que las estanterías estén cableadas correctamente:
+. [[step18]]Compruebe que las estanterías estén cableadas correctamente:
 +
 `storage shelf port show -fields remote- device,remote-port`
 
@@ -604,10 +563,13 @@ shelf id remote-port  remote-device
 ====
 
 
-. [[step20]]retire el interruptor sh2 antiguo.
+. [[step19]]retire el interruptor sh2 antiguo.
 . Repita estos pasos para el interruptor sh1 y el interruptor nuevo1.
 . Si ha suprimido la creación automática de casos, rehabilitarla invocando un mensaje de AutoSupport:
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
+
+.El futuro
+link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"].

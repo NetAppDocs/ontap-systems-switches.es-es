@@ -1,5 +1,5 @@
 ---
-permalink: switch-nvidia-sn2100/sn2100-overview.html 
+permalink: switch-nvidia-sn2100-storage/sn2100-overview.html 
 sidebar: sidebar 
 keywords: nvidia SN2100 switches 
 summary: Para la instalación y el mantenimiento del conmutador NVIDIA SN2100, asegúrese de revisar todos los requisitos y la documentación recomendada. 

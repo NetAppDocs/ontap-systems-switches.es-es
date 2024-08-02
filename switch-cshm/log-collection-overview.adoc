@@ -1,0 +1,16 @@
+---
+permalink: switch-cshm/log-collection-overview.html 
+sidebar: sidebar 
+keywords: cshm, cluster, storage, switch logs, debugging, collection 
+summary: Puede utilizar los comandos proporcionados.... 
+---
+= Descripción general de la recopilación de registros
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Al configurar la recogida de registros, es posible habilitar una recogida horaria de datos periódicos recogidos por AutoSupport, y solicitar registros de soporte detallados.
+
+Consulte link:config-log-collection.html["Configure la recopilación de registros"] para obtener más información.
