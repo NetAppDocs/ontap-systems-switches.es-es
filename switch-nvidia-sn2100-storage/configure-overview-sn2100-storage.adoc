@@ -43,6 +43,10 @@ Puede instalar Cumulus Linux (CL) OS cuando el conmutador esté ejecutando Cumul
 +
 Hay dos secuencias de comandos RCF disponibles para las aplicaciones de almacenamiento y agrupación en clúster.
 
+. link:setup-install-cshm-file.html["Instale el archivo CSHM"].
++
+Puede instalar el archivo de configuración correspondiente para la supervisión del estado del switch Ethernet de los switches de clúster de NVIDIA.
+
 
 
 

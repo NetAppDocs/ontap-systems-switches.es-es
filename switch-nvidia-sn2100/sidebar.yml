@@ -38,6 +38,8 @@ entries:
     url: "/switch-nvidia-sn2100/upgrade-cl-version.html"
   - title: Instale la secuencia de comandos RCF
     url: "/switch-nvidia-sn2100/install-rcf-sn2100-cluster.html"
+  - title: Instale el archivo CSHM
+    url: "/switch-nvidia-sn2100/setup-install-cshm-file.html"
 - title: Migrar switches
   pdf-filename: Migrate_SWITERS_sn2100
   entries:

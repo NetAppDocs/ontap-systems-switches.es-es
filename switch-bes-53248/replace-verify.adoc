@@ -93,3 +93,6 @@ node2                true    true          false
 ----
 ====
 
+
+.El futuro
+link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"].

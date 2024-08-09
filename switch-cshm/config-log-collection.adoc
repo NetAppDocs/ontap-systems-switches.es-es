@@ -234,5 +234,5 @@ cluster1::*> *system switch ethernet log show -instance*
 
 CAUTION: Si la función de recopilación de registros informa de algún estado de error (visible en la salida de `system switch ethernet log show`), consulte link:log-collection-troubleshoot.html["Solución de problemas de recopilación de registros"] para obtener más información.
 
-|===
-|===
+.El futuro
+link:config-snmpv3.html["Configure SNMPv3 (opcional)"].
