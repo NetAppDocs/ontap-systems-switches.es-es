@@ -190,7 +190,7 @@ UP     swp4      100G  9216   Trunk/L2                     Master: bridge(UP)
 
 --
 ====
-Consulte https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["Este KB"^] para obtener más detalles.
+Consulte el artículo de la base de conocimientos https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["El switch SN2100 no se puede conectar mediante cables de cobre de 40/100GbE"^] para obtener más información.
 
 En Cumulus Linux 4,4.2, las conexiones de cobre no son compatibles con los switches SN2100 con X1151A NIC, X1146A NIC o 100GbE puertos integrados. Por ejemplo:
 

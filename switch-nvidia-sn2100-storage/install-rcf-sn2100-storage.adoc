@@ -106,6 +106,7 @@ La secuencia de comandos RCF completa los pasos indicados anteriormente.
 
 NOTE: Para cualquier problema de script de Python de RCF que no se pueda corregir, póngase en contacto con https://mysupport.netapp.com/["Soporte de NetApp"^] para obtener ayuda.
 
+. Vuelva a aplicar las personalizaciones anteriores a la configuración del conmutador. Consulte la link:cabling-considerations-sn2100-storage.html["Revise las consideraciones sobre el cableado y la configuración"] para obtener información detallada sobre cualquier cambio adicional necesario.
 . Verificar la configuración tras el reinicio:
 +
 `net show interface all`

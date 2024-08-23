@@ -113,6 +113,7 @@ NOTE: En el paso 3 *Actualizar el archivo MOTD* anterior, el comando `cat /etc/m
 
 NOTE: Para cualquier problema de script de Python de RCF que no se pueda corregir, póngase en contacto con https://mysupport.netapp.com/["Soporte de NetApp"^] para obtener ayuda.
 
+. Vuelva a aplicar las personalizaciones anteriores a la configuración del conmutador. Consulte la link:cabling-considerations-sn2100-cluster.html["Revise las consideraciones sobre el cableado y la configuración"] para obtener información detallada sobre cualquier cambio adicional necesario.
 . Verificar la configuración tras el reinicio:
 +
 [listing, subs="+quotes"]
@@ -204,7 +205,7 @@ swp16      100G   BondMember  sw14                    swp16
 ----
 . Compruebe el estado de los puertos del clúster en el clúster.
 +
-.. Compruebe que los puertos e0d están en buen estado y en todos los nodos del clúster:
+.. Compruebe que los puertos del clúster estén en buen estado en todos los nodos del clúster:
 +
 [listing, subs="+quotes"]
 ----
@@ -370,6 +371,7 @@ admin@sw1:mgmt:~$ cat /etc/issue
 
 NOTE: Para cualquier problema de script de Python de RCF que no se pueda corregir, póngase en contacto con https://mysupport.netapp.com/["Soporte de NetApp"^] para obtener ayuda.
 
+. Vuelva a aplicar las personalizaciones anteriores a la configuración del conmutador. Consulte la link:cabling-considerations-sn2100-cluster.html["Revise las consideraciones sobre el cableado y la configuración"] para obtener información detallada sobre cualquier cambio adicional necesario.
 . Verificar la configuración tras el reinicio:
 +
 [listing, subs="+quotes"]
@@ -540,7 +542,7 @@ swp16      100G   BondMember  sw2                      sw
 ----
 . Compruebe el estado de los puertos del clúster en el clúster.
 +
-.. Compruebe que los puertos e0d están en buen estado y en todos los nodos del clúster:
+.. Compruebe que los puertos del clúster estén en buen estado en todos los nodos del clúster:
 +
 [listing, subs="+quotes"]
 ----

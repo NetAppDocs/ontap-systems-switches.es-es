@@ -339,6 +339,7 @@ La salida varía en función de la configuración del sitio. Compruebe la config
 
 
 
+. Vuelva a aplicar las personalizaciones anteriores a la configuración del conmutador. Consulte la link:cabling-considerations-92300.html["Revise las consideraciones sobre el cableado y la configuración"] para obtener información detallada sobre cualquier cambio adicional necesario.
 . Después de comprobar que las versiones de RCF y los ajustes del switch son correctos, copie el archivo running-config en el archivo startup-config.
 +
 Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Switches Cisco Nexus serie 9000"^] guías.

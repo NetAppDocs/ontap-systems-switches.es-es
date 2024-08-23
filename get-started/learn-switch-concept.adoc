@@ -33,7 +33,7 @@ Los switches de clúster permiten crear clústeres de ONTAP con más de dos nodo
 
 == Switches de almacenamiento
 
-Los switches de almacenamiento le permiten enrutar datos entre servidores y matrices de almacenamiento en una red DE área de almacenamiento (SAN). Los switches de clúster admitidos por NetApp incluyen:
+Los switches de almacenamiento le permiten enrutar datos entre servidores y matrices de almacenamiento en una red DE área de almacenamiento (SAN). Algunos de los switches de almacenamiento compatibles con NetApp son:
 
 * Cisco Nexus 9336C-FX2
 * NVIDIA SN2100
