@@ -359,4 +359,4 @@ System Manager proporciona un flujo de trabajo sencillo y sencillo para la insta
 Vaya a. https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configure ONTAP en un nuevo clúster con System Manager"] para obtener instrucciones de configuración.
 
 .El futuro
-link:configure-ssh.html["Habilite SSH"].
+link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"].

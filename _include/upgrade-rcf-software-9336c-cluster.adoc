@@ -162,6 +162,10 @@ cluster1::*>
 +
 `cs1(config-if-range)# *shutdown*`
 
++
+
+CAUTION: Asegúrese de cerrar * todos * puertos de clúster conectados para evitar cualquier problema de conexión de red. Consulte el artículo de la base de conocimientos https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["Nodo fuera de quórum al migrar LIF de clúster durante la actualización del sistema operativo del switch"^] para obtener más información.
+
 . Compruebe que las LIF del clúster han conmutado al nodo de respaldo a los puertos alojados en el switch del clúster CS1. Esto puede tardar unos segundos.
 +
 `network interface show -role cluster`
@@ -842,4 +846,4 @@ RPC status:
 
 
 .El futuro
-link:../switch-cisco-9336c-fx2-storage/configure-ssh.html["Habilite SSH"].
+link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"].
