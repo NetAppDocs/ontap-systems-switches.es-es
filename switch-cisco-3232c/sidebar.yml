@@ -33,6 +33,8 @@ entries:
     url: "/switch-cisco-3232c/install-nx-os-software-3232c.html"
   - title: Instale el archivo de configuración RCF
     url: "/switch-cisco-3232c/install-rcf-3232c.html"
+  - title: Compruebe la configuración de SSH
+    url: "/switch-cisco-3232c/configure-ssh-keys.html"
 - title: Migrar switches
   pdf-filename: Migrate_SWITERS_3232c
   entries:

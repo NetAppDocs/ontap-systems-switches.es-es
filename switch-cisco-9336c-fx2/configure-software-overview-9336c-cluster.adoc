@@ -25,8 +25,8 @@ Descargue e instale o actualice el software NX-OS en el switch de clúster Cisco
 +
 Instale o actualice el RCF después de configurar por primera vez el switch Cisco Nexus 9336C-FX2. También puede utilizar este procedimiento para actualizar la versión de RCF.
 
-. link:configure-ssh.html["Habilite SSH"].
+. link:configure-ssh-keys.html["Generar claves SSH"].
 +
-Si utiliza el monitor de estado del switch Ethernet (CSHM) y las funciones de recopilación de registros, habilite SSH en los switches.
+Si utiliza el monitor de estado del switch Ethernet (CSHM) y las funciones de recopilación de registros, genere claves SSH en los switches.
 
 

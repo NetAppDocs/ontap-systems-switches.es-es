@@ -11,7 +11,7 @@ summary: Antes de configurar los conmutadores NVIDIA SN2100, revise la descripci
 
 
 [role="lead"]
-NVIDIA SN2100 es un switch de almacenamiento que permite enrutar datos entre servidores y cabinas de almacenamiento en una red de área de almacenamiento (SAN).
+El NVIDIA SN2100 es un switch Ethernet que le permite cambiar datos entre controladoras y bandejas de discos.
 
 
 

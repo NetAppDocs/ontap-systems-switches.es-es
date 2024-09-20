@@ -11,7 +11,7 @@ summary: Descripción general de la instalación y la configuración de los swit
 
 
 [role="lead"]
-El switch de almacenamiento Cisco Nexus 9336C-FX2 forma parte de la plataforma Cisco Nexus 9000 y se puede instalar en un armario rack de sistemas de NetApp. Los switches de almacenamiento le permiten enrutar datos entre servidores y matrices de almacenamiento en una red DE área de almacenamiento (SAN).
+El switch Cisco Nexus 9336C-FX2 forma parte de la plataforma Cisco Nexus 9000 y se puede instalar en un armario para el sistema NetApp. Nexus 9336C-FX2 es un switch Ethernet que le permite cambiar datos entre controladoras y bandejas de discos.
 
 
 

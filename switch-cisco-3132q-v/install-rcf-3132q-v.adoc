@@ -790,4 +790,4 @@ RPC status:
 
 
 .El futuro
-link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"]
+link:configure-ssh-keys.html["Compruebe la configuración de SSH"].

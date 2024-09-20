@@ -17,9 +17,9 @@ El monitor de estado del switch Ethernet (CSHM) es responsable de garantizar el 
 
 [NOTE]
 ====
-. Vuelva a generar las teclas ssh en el interruptor, según las instrucciones del proveedor.
-. Regenerar las teclas ssh en el lado de ONTAP mediante `debug system regenerate-systemshell-key-pair`
-. Volver a ejecutar la rutina de configuración de la recopilación de registros mediante `system switch ethernet log setup-password`
+. Vuelva a generar las claves SSH en el switch siguiendo las instrucciones del proveedor.
+. Regenerar claves SSH en ONTAP mediante `debug system regenerate-systemshell-key-pair`
+. Volver a ejecutar la rutina de configuración de la recogida de registros con `system switch ethernet log setup-password` el comando
 
 
 ====
@@ -29,8 +29,10 @@ El monitor de estado del switch Ethernet (CSHM) es responsable de garantizar el 
 
 * El usuario debe tener acceso a los comandos de cambio `show` . Si no están disponibles, cree un nuevo usuario y otorgue los permisos necesarios al usuario.
 * La monitorización del estado del interruptor debe estar activada para el interruptor. Verifique esto asegurándose de que el `Is Monitored:` el campo se establece en *true* en la salida del `system switch ethernet show` comando.
-* Para los switches NVIDIA, el usuario para la recopilación de registros debe tener permiso para ejecutar los comandos de recopilación de registros sin mostrar una solicitud de contraseña. Para permitir este uso, ejecute el comando:
-`echo '<username> ALL = NOPASSWD: /usr/cumulus/bin/cl-support, /usr/sbin/csmgrctl' | sudo EDITOR='tee -a' visudo -f /etc/sudoers.d/cumulus`
+* Para la recopilación de registros de soporte con conmutadores NVIDIA, se debe permitir que _user_ para la recopilación de registros ejecute `cl-support` el comando sin tener que proporcionar una contraseña. Para permitir este uso, ejecute el comando:
++
+`echo '_<user>_ ALL = NOPASSWD: /usr/cumulus/bin/cl-support' | sudo EDITOR='tee -a' visudo -f /etc/sudoers.d/cumulus`
+
 
 
 
