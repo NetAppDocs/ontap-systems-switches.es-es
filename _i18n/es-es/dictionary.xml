@@ -5041,4 +5041,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="c1433b541d8d99faed86a93460cb0bad" category="list-text">Para la recopilación de registros de soporte con conmutadores NVIDIA, se debe permitir que _user_ para la recopilación de registros ejecute<block ref="c85737d6a0d20328583b59ea7320a5ef" prefix=" " category="inline-code"></block> el comando sin tener que proporcionar una contraseña. Para permitir este uso, ejecute el comando:</block>
   <block id="a0379ee208b1ca86b0ce11e60c0e73eb" category="paragraph"><block ref="83e3f80a08612b0113ac48e3b9a3432e" prefix="" category="inline-code"></block></block>
   <block id="d97cf4e1b3c59ab22fc281643864890d" category="paragraph">El NVIDIA SN2100 es un switch Ethernet que le permite cambiar datos entre controladoras y bandejas de discos.</block>
+  <block id="68cbc1ccd652f8f281a11d07040f5054" category="inline-link">Configurar la seguridad de red con FIPS</block>
+  <block id="ee73a5b7bde1ac3826492824ed56415e" category="admonition">Al habilitar FIPS, debe cambiar el bitcount a 256 en el conmutador mediante el comando<block ref="e945b32dfeddd45c02f47f82f234232f" prefix=" " category="inline-code"></block>. Consulte<block ref="4ed77aafc2157fac88ce3125b253884f" category="inline-link-rx"></block> para obtener más información.</block>
 </blocks>
