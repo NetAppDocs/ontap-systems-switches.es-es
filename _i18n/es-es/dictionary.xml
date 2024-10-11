@@ -5043,4 +5043,10 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="d97cf4e1b3c59ab22fc281643864890d" category="paragraph">El NVIDIA SN2100 es un switch Ethernet que le permite cambiar datos entre controladoras y bandejas de discos.</block>
   <block id="68cbc1ccd652f8f281a11d07040f5054" category="inline-link">Configurar la seguridad de red con FIPS</block>
   <block id="ee73a5b7bde1ac3826492824ed56415e" category="admonition">Al habilitar FIPS, debe cambiar el bitcount a 256 en el conmutador mediante el comando<block ref="e945b32dfeddd45c02f47f82f234232f" prefix=" " category="inline-code"></block>. Consulte<block ref="4ed77aafc2157fac88ce3125b253884f" category="inline-link-rx"></block> para obtener más información.</block>
+  <block id="7a43f267b45d16f3e9b7113b1665a8ef" category="list-text">Todos los LIF de clúster conmutan al nuevo switch CS2-new.</block>
+  <block id="a200958f285bc9634331308217aef6e8" category="list-text">Todos los LIF de clúster conmutan al nuevo switch CS1-new.</block>
+  <block id="866e23be3750652ebc7235f85b035f6b" category="admonition">Durante este procedimiento no se necesita ningún enlace entre switches (ISL) operativo. Esto se debe a que los cambios en la versión de RCF pueden afectar temporalmente a la conectividad ISL. Para garantizar operaciones de clúster no disruptivas, el siguiente procedimiento conmuta por error todos los LIF de clúster al switch operativo asociado mientras realiza los pasos en el switch de destino.</block>
+  <block id="936b3180f1af844d99a2935c0f8f1407" category="paragraph">Al deshabilitar la reversión automática para este procedimiento, los LIF del clúster no volverán a moverse automáticamente a su puerto principal. Permanecen en el puerto actual mientras continúa funcionando.</block>
+  <block id="8cfe0e3d8ad280ac0655595fef97d183" category="list-text">Todos los LIF de clúster conmutan al nuevo switch CS2.</block>
+  <block id="7f59c84a99e8340f8584b604b173e044" category="list-text">Todos los LIF de clúster conmutan al nuevo switch CS1.</block>
 </blocks>

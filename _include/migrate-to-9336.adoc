@@ -57,19 +57,27 @@ Este procedimiento cubre el siguiente caso:
 * El interruptor CS2 se reemplaza por el interruptor CS2-NUEVO primero.
 +
 ** Apague los puertos de los nodos del clúster. Todos los puertos deben apagarse simultáneamente para evitar la inestabilidad del clúster.
++
+*** Todos los LIF de clúster conmutan al nuevo switch CS2-new.
+
+
 ** Después, el cableado entre los nodos y CS2 se desconecta del CS2 y se vuelve a conectar a CS2 nuevo.
 
 
 * El interruptor CS1 se reemplaza por el interruptor CS1-NUEVO.
 +
 ** Apague los puertos de los nodos del clúster. Todos los puertos deben apagarse simultáneamente para evitar la inestabilidad del clúster.
++
+*** Todos los LIF de clúster conmutan al nuevo switch CS1-new.
+
+
 ** Después, el cableado entre los nodos y CS1 se desconecta del CS1 y se vuelve a conectar a CS1 nuevo.
 
 
 
 
 
-NOTE: Durante este procedimiento no se necesita ningún enlace entre switches (ISL) operativo. Esto se debe a que los cambios en la versión de RCF pueden afectar temporalmente a la conectividad ISL. Para garantizar operaciones de clúster no disruptivas, el siguiente procedimiento migra todas las LIF del clúster al switch de partner operativo mientras realiza los pasos del switch de destino.
+NOTE: Durante este procedimiento no se necesita ningún enlace entre switches (ISL) operativo. Esto se debe a que los cambios en la versión de RCF pueden afectar temporalmente a la conectividad ISL. Para garantizar operaciones de clúster no disruptivas, el siguiente procedimiento conmuta por error todos los LIF de clúster al switch operativo asociado mientras realiza los pasos en el switch de destino.
 
 
 
@@ -245,6 +253,9 @@ cs2                         cluster-network     10.233.205.93   N5K-C5596UP
 
 
 . Deshabilite la reversión automática en las LIF del clúster.
++
+Al deshabilitar la reversión automática para este procedimiento, los LIF del clúster no volverán a moverse automáticamente a su puerto principal. Permanecen en el puerto actual mientras continúa funcionando.
+
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
