@@ -581,7 +581,7 @@ Puede utilizar el `network interface check cluster-connectivity` comando para in
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* Espere varios segundos antes de ejecutar el comando show para mostrar los detalles.
+*NOTA:* Espere varios segundos antes de ejecutar el `show` comando para mostrar los detalles.
 
 [listing, subs="+quotes"]
 ----

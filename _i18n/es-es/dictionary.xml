@@ -76,7 +76,6 @@
   <block id="101ead84905a0da72281347a2d3e5846" category="paragraph"><block ref="3c9df67ecefdc0250ea054cef3d4555b" prefix="" category="inline-code"></block></block>
   <block id="d4475e3da8fe61fab11f25995297f76e" category="paragraph">La columna “dispositivo detectado” debe ser el nombre del conmutador de clúster al que está conectado el puerto.</block>
   <block id="917f78c98a8af8b85b002bccf27ea287" category="paragraph">En el siguiente ejemplo se muestra que los puertos de clúster «e0a» y «e0b» están conectados correctamente a los switches del clúster «cs1» y «cs2».</block>
-  <block id="fad8bc8bd6f8c2ecbc098cd96431ebde" category="list-text">Compruebe la conectividad del clúster:</block>
   <block id="8373a0e3c0b4dc721962528833224ea1" category="paragraph"><block ref="6d931e460f3e419ca5bc874e47132b6d" prefix="" category="inline-code"></block></block>
   <block id="1715d07a24988d9207de94794a6f01cc" category="list-text">Compruebe que el clúster esté en buen estado:</block>
   <block id="e477c0774c6014b5173ffa6810d512ab" category="paragraph"><block ref="484f24f8e4da80a1185aa63fa1d5fc08" prefix="" category="inline-code"></block></block>
@@ -92,8 +91,6 @@
   <block id="e9ec4835d23694aed9844bcf9e7e87ea" category="list-text">La opción de red de clúster sin switch desde la transición<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block> para<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>. Esto puede tardar hasta 45 segundos. Confirme que la opción sin switches está establecida en<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>:</block>
   <block id="0bd1c8991d4969dac07a0c2f2dde50b5" category="paragraph"><block ref="778e21ba71aea2ec90976c8b829e4357" prefix="" category="inline-code"></block></block>
   <block id="c412aebcb1566f8e5e0323f2afe60d0e" category="paragraph">En el siguiente ejemplo se muestra que el clúster sin switch está habilitado:</block>
-  <block id="6d1b5eebdb14196ce07c51c623533431" category="list-text">Compruebe que la red de clúster no se haya interrumpido:</block>
-  <block id="f643d26da1df28bcffc5c5067726246b" category="list-text">Configure la configuración sin switches para los puertos del grupo 2.</block>
   <block id="863e48e1ab590a3004febd635c0c772c" category="admonition">Para evitar posibles problemas de red, debe desconectar los puertos del grupo 2 y volver a conectarlos lo antes posible, por ejemplo, *en menos de 20 segundos*.</block>
   <block id="29f9df63556e07a416ddabb7ae9e6ad1" category="list-text">Desconecte todos los cables de los puertos del grupo 2 al mismo tiempo.</block>
   <block id="f7107cbf076f0517cc09ef7864ab4721" category="paragraph">En el ejemplo siguiente, los cables se han desconectado del puerto "e0b" en cada nodo y el tráfico del clúster continúa por la conexión directa entre los puertos "e0a":</block>
@@ -113,8 +110,6 @@
   <block id="aeb90980ffc18e4c949766c382d409d4" category="list-text">Compruebe el estado del clúster de los nodos desde la consola del sistema de cualquier nodo:</block>
   <block id="494cb4f7976c64f111b74e9089d5bbd5" category="paragraph"><block ref="639161158d7426b3865ce9c5a6f648b3" prefix="" category="inline-code"></block></block>
   <block id="90d334e25f499d80506823cb341c39d7" category="paragraph">En el siguiente ejemplo se muestra épsilon en ambos nodos que desee<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block>:</block>
-  <block id="26ba805ccb9566fb36369f48374b79c8" category="list-text">Confirme la conectividad entre los puertos del clúster:</block>
-  <block id="a76aa36cc43767185eb24bf3e6381bdb" category="paragraph"><block ref="a12fdc96dc49a3d64afa69d8bb631cbf" prefix="" category="inline-code"></block></block>
   <block id="05a9e5b7c0c83c8a1b0da673e6e07f22" category="list-text">Si ha suprimido la creación automática de casos, rehabilitarla invocando un mensaje de AutoSupport:</block>
   <block id="824a761c1584c25f025a384b7b387c56" category="paragraph"><block ref="9ac424c0d7b432975df36a19daf50c9c" prefix="" category="inline-code"></block></block>
   <block id="80d36ab56a8b4968677781946e7d302a" category="inline-link-macro">Artículo de la base de conocimientos de NetApp 1010449: Cómo impedir la creación automática de casos durante las ventanas de mantenimiento programado</block>
@@ -174,8 +169,6 @@
   <block id="300c4a8af362f43878948de70117255e" category="paragraph">Cada LIF debería mostrarse arriba/arriba<block ref="4f21ee5a18672b60f4c01e94e6be9c79" prefix=" " category="inline-code"></block> y fiel para<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block>.</block>
   <block id="3dc587636ea58bb39b951053c233b58b" category="list-text">Los puertos de clúster de cada nodo están conectados a los switches de clúster existentes de la siguiente manera (desde la perspectiva de los nodos) mediante el comando:<block ref="628dcb12513dedee012c3c686cf33a79" prefix=" " category="inline-code"></block></block>
   <block id="866e9195c3f1e53c818cc1513b132bbc" category="list-text">Los puertos y los switches del clúster se conectan de la siguiente manera (desde la perspectiva de los switches) mediante el comando:<block ref="cdf610401d84a31ec0b35a9530629e42" prefix=" " category="inline-code"></block></block>
-  <block id="d897cc0b3682ab01fb074cad614e3d87" category="list-text">Compruebe que la red de clúster tiene conectividad completa mediante el comando:<block ref="67b370e4ed014395d701d60f8f886608" prefix=" " category="inline-code"></block></block>
-  <block id="9e23ccbda503c8dd0fa60d4057a41702" category="list-text">En el switch c2, apague los puertos conectados a los puertos de clúster de los nodos.</block>
   <block id="aba8d89ac417a82d843ceaf3c6ac2faa" category="list-text">Mueva los puertos del clúster de nodos desde el conmutador c2 antiguo al nuevo conmutador sw2, utilizando el cableado apropiado que admite NVIDIA SN2100.</block>
   <block id="c1823cd6c866c4f070a5323fbfabc525" category="list-text">Los puertos de clúster de cada nodo ahora están conectados a los switches de clúster del siguiente modo, desde la perspectiva de los nodos:</block>
   <block id="203a7f618c9b080eaa78a5e38ccd907d" category="list-text">En el switch sw2, compruebe que todos los puertos del clúster de nodos estén activos:<block ref="fba42a2ccc46f0a6204709f144e648ff" prefix=" " category="inline-code"></block></block>
@@ -282,8 +275,6 @@
   <block id="919d51229fc43c7cbcab8157603ecee7" category="paragraph">El resultado falso en el ejemplo siguiente muestra que las opciones de configuración están deshabilitadas:</block>
   <block id="e8978c1a15c252dab8545f7df961d887" category="list-text">Compruebe el estado de los miembros del nodo en el clúster:</block>
   <block id="00786e5e7924c0ff19f6286d0cfea575" category="paragraph">En el siguiente ejemplo se muestra información sobre el estado y la elegibilidad de los nodos en el clúster:</block>
-  <block id="cd21dfc849bb9ea2aa764a739849b964" category="list-text">Asegúrese de que la red de clúster tenga conectividad completa:</block>
-  <block id="35f01ed40b6310feec062211ce126c2d" category="paragraph"><block ref="67b370e4ed014395d701d60f8f886608" prefix="" category="inline-code"></block></block>
   <block id="b76e651d2878af6de8e2d66f88169399" category="list-text">Habilite la función de recogida de registros de control de estado del switch Ethernet para recopilar archivos de registro relacionados con el switch mediante los comandos:</block>
   <block id="8761a71b0c01f0356000c0994d4fb203" category="paragraph"><block ref="36ac3c1f3bae8142b5d110fb906ba03e" prefix="" category="inline-code"></block> y..<block ref="ff5aaae616b6f326cad680284f32b588" prefix=" " category="inline-code"></block></block>
   <block id="2f5a71a01aead6e90af425024624aa8b" category="paragraph">Seguido de:</block>
@@ -749,8 +740,6 @@
   <block id="a06f69669c864cc0902a5e544ee247bc" category="paragraph"><block ref="5a2357a985889803fc9ad4bba1f860e2" prefix="" category="inline-code"></block></block>
   <block id="8eaf3d59876911ccca6dc5bdc347ee06" category="list-text">Mostrar información acerca de las LIF:</block>
   <block id="28d7612827f82272affeaf30e405e24a" category="paragraph"><block ref="7af866342cc7e87972580d7b709d8820" prefix="" category="inline-code"></block></block>
-  <block id="e73ca78de91a85725d7897c5caaeeb3e" category="list-text">Haga ping en las LIF de clúster remoto:</block>
-  <block id="b28871024a61db436088d8a57f04935d" category="list-text">Compruebe que el<block ref="9f1b7141f09f19c4e33409646aef43cf" prefix=" " category="inline-code"></block> El comando está habilitado en todos los LIF de clúster:</block>
   <block id="e4490c39e3c7c690b2b28793dd430b44" category="paragraph"><block ref="d268e7bf124a9f74e2dbe2e0127d951b" prefix="" category="inline-code"></block></block>
   <block id="f62cbeef79975f2a60c9a80145b7741c" category="inline-link-macro">Instale el software NX-OS</block>
   <block id="bd599a74c6b6bb0488a3ffe28b84d972" category="paragraph"><block ref="fc3a2bdf8893a6559328b7345e1a1c31" category="inline-link-macro-rx"></block>.</block>
@@ -944,9 +933,6 @@
   <block id="acd1d1d2ce5a2970e1b46fb53b75ad44" category="list-text">Apague los puertos de interconexión de clúster que estén conectados físicamente al switch CL2:</block>
   <block id="b1dfc19976d0fe683db7ddf19294007c" category="paragraph"><block ref="c41d3983ecd2badd54b3bb9658675080" prefix="" category="inline-code"></block></block>
   <block id="74d7543cdff44d4d4d6b9c31a44929fd" category="paragraph">En este ejemplo, se muestran los puertos especificados que se están apagando en todos los nodos:</block>
-  <block id="6a7c10099f41c6e223cef671ebb76146" category="list-text">Hacer ping a las interfaces remotas del clúster y realizar una comprobación del servidor RPC:</block>
-  <block id="0c93dd1c3bc740b534dc19a4612c4120" category="paragraph"><block ref="1ab036f1d4c42e6635eba8a8774bbfc9" prefix="" category="inline-code"></block></block>
-  <block id="4547e743de7a4493e60ec5a14011f213" category="list-text">Apague los puertos 1/31 y 1/32 de CL1 y el interruptor Nexus 3132Q-V activo:</block>
   <block id="1136531f8e26fab6ed3aa68ddd63c6cf" category="paragraph"><block ref="5924f03a95ee6f7277e5bdd1e81b8fdc" prefix="" category="inline-code"></block></block>
   <block id="7ed6ad166541eaeed2eb44050a4369b4" category="paragraph">En este ejemplo, se muestran los puertos ISL 1/31 y 1/32 que se están apagando en el switch CL1:</block>
   <block id="80ab93e3822e7ed7a0bd76c9ee9103bb" category="section-title">Paso 2: Configurar puertos</block>
@@ -1077,9 +1063,6 @@
   <block id="4dcbeb6667fd808ff27ae4150e7a8909" category="list-text">Compruebe el estado del clúster:</block>
   <block id="653081b7951ce57e5013f6673c162a3c" category="paragraph">En el siguiente ejemplo se muestra el resultado del anterior<block ref="b25040194b5c780d571a8835507279e9" prefix=" " category="inline-code"></block> comando:</block>
   <block id="e2b1bfb579bd8470a604887ff8ca68d3" category="paragraph">Los siguientes comandos apagan los puertos especificados en n1 y n2, pero los puertos deben estar apagados en todos los nodos:</block>
-  <block id="1951e47d1525c6b1dfbe9f52df91cc7f" category="list-text">Haga ping a las interfaces remotas del clúster y, a continuación, realice una comprobación del servidor de llamadas de procedimiento remoto:</block>
-  <block id="85c96d16aebcae293f2d70dbbf9cb1d0" category="paragraph">En el ejemplo siguiente se muestra cómo hacer ping a las interfaces de clúster remoto:</block>
-  <block id="82214ffaae0abeffe761517344159444" category="list-text">Apague los puertos ISL 13 a 16 en el switch CN1610 activo CL1:</block>
   <block id="20fca188f9df647063b0798615526c99" category="paragraph">En el siguiente ejemplo, se muestra cómo apagar los puertos ISL 13 a 16 en el switch CN1610 CL1:</block>
   <block id="8d9520a7db10148df2c9a1262cf4055a" category="list-text">Cree un ISL temporal entre CL1 y C2:</block>
   <block id="abf1c60f9d26f9c51258947dd5ef15d2" category="paragraph">En el siguiente ejemplo se crea un ISL temporal entre CL1 (puertos 13-16) y C2 (puertos e1/24/1-4):</block>
@@ -1104,8 +1087,6 @@
   <block id="04a71721cc14af4dc68825f2e3d76615" category="paragraph">En el ejemplo siguiente se muestra que las LIF de clus2 se revierten a sus puertos raíz, y se muestra que las LIF se revierten correctamente si el estado de los puertos de la columna "puerto actual" es de<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> En la columna "es de inicio". Si el valor es Home<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block>, Entonces el LIF no se revierte.</block>
   <block id="f9d6a6a75483c0ffe08b0dea9565ef0c" category="list-text">Compruebe que todos los puertos del clúster estén conectados:</block>
   <block id="dcb7a70ab238d0bb14fdd66bc67dea3f" category="paragraph">En el siguiente ejemplo se muestra el resultado del anterior<block ref="c41d3983ecd2badd54b3bb9658675080" prefix=" " category="inline-code"></block> comando, comprobando que todas las interconexiones del clúster lo son<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block>:</block>
-  <block id="c88bbeb32e8a86a6536b0c77fe7f1ec8" category="list-text">Haga ping a las interfaces remotas del clúster y, a continuación, realice una comprobación del servidor de llamadas de procedimiento remoto:</block>
-  <block id="00327de917059c9e935218cad8596953" category="list-text">En cada nodo del clúster, migre las interfaces asociadas al primer switch CL1 CN1610 que se sustituirá:</block>
   <block id="129a1c42491e08989734008419845f67" category="paragraph">En el ejemplo siguiente se muestran los puertos o las LIF que se están migrando en los nodos n1 y n2:</block>
   <block id="0559fa6d8467bdb0870358a693b8fb6a" category="list-text">Compruebe el estado del clúster:</block>
   <block id="d5b2f7aa370fad391ca6629152489753" category="paragraph">El siguiente ejemplo muestra que las LIF de clúster necesarias se han migrado a los puertos de clúster correspondientes alojados en el switch de clúster C2:</block>
@@ -1132,7 +1113,6 @@
   <block id="42f427229de718255616b52d13a2ec50" category="paragraph">El ejemplo siguiente muestra cómo revertir las LIF del clúster migradas a sus puertos principales:</block>
   <block id="48080b25b0f8ce17d4598aea7dbbc6cb" category="list-text">Compruebe que la interfaz se encuentra ahora en casa:</block>
   <block id="9fff40b9c7a12070faa3809a040494f9" category="paragraph">En el ejemplo siguiente se muestra el estado de las interfaces de interconexión del clúster es<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> y..<block ref="7510f0cdc8fdc222ee844ed5b7a9d8cf" prefix=" " category="inline-code"></block> para n1 y n2:</block>
-  <block id="9337d28b60d4b0252c3592ab024c6fc9" category="list-text">Expanda el clúster añadiendo nodos a los switches de clúster Nexus 3132Q-V.</block>
   <block id="d06b10417bc355c0e14c53d8eae6e76e" category="paragraph">En los siguientes ejemplos se muestran los nodos n3 y n4 con puertos de clúster de 40 GbE conectados a los puertos e1/7 y e1/8, respectivamente en los dos switches de cluster Nexus 3132Q-V y ambos nodos se han Unido al cluster. Los puertos de interconexión de clúster de 40 GbE utilizados son e4a y e4e.</block>
   <block id="7600489ac65e7f2d69df5731f63b9999" category="list-text">Extraiga los interruptores CN1610 sustituidos si no se retiran automáticamente:</block>
   <block id="7e742ccdfe23c1184022b4bc3a971881" category="paragraph">El siguiente ejemplo muestra cómo quitar los switches CN1610:</block>
@@ -1187,7 +1167,6 @@
   <block id="21ac417b713f0b8db45ffff0c3af14dd" category="paragraph">Ejecute este comando desde cada nodo local.</block>
   <block id="3bf33ab1d6946b3f24d2516e6072bbfb" category="list-text">Compruebe la migración de las interfaces del clúster:</block>
   <block id="e43adf663d10e04de01cdb70dba1ea3f" category="list-text">Apague los puertos de clúster clus1 LIF en ambos nodos:</block>
-  <block id="df920baf118cae8ed08bc0e67c930632" category="list-text">Desconecte el cable del e4a del nodo n1.</block>
   <block id="656098cc9fb2598274636e89bfda9deb" category="paragraph">Puede consultar la configuración en ejecución y conectar el primer puerto de 40 GbE en el conmutador C1 (puerto 1/7 en este ejemplo) a e4a en n1 usando el cableado compatible en Nexus 3132Q-V.</block>
   <block id="916b11220f3f30d08ed357610e9a0f88" category="admonition">Al volver a conectar cualquier cable a un nuevo switch de clúster de Cisco, los cables utilizados deben ser de fibra o de cableado compatible con Cisco.</block>
   <block id="1cd2a4b2269a32389e020110b6c528c4" category="list-text">Desconecte el cable del e4a del nodo n2.</block>
@@ -1321,7 +1300,6 @@
   <block id="3765c5d59205afeccadd8e5bd55e38e9" category="paragraph">Para encontrar la versión correcta, consulte la _ONTAP 8.x o posterior página de descarga del conmutador de red de clúster_.</block>
   <block id="dd3fa644952a65f1f6502b594da8056e" category="list-text">Migre los LIF asociados con el segundo switch Nexus 5596 que se va a reemplazar:</block>
   <block id="f5532c44fa87b73888e57560b15f09ab" category="paragraph">El siguiente ejemplo muestra n1 y n2, pero la migración de LIF debe realizarse en todos los nodos:</block>
-  <block id="3deecfe62c85f26f915232658c689130" category="list-text">Apague los puertos ISL 41 a 48 en el switch activo Nexus 5596 CL1:</block>
   <block id="609bda8dbabe0a84f343b546e3d7a65a" category="paragraph">En el siguiente ejemplo, se muestra cómo apagar los puertos ISL 41 a 48 en el switch Nexus 5596 CL1:</block>
   <block id="cd40e6280d7c588dd322df9d4c9bd367" category="paragraph">Si va a sustituir un Nexus 5010 o 5020, especifique los números de puerto adecuados para ISL.</block>
   <block id="74bb8188e949e71bcfef0fd8d38fa91b" category="list-text">Cree un ISL temporal entre CL1 y C2.</block>
@@ -1344,7 +1322,6 @@
   <block id="9e34505e95067067c4258419479733a1" category="paragraph">En el ejemplo siguiente se muestra que las LIF en clus2 se han revertido a sus puertos raíz y se muestra que las LIF se han revertido correctamente si los puertos de la columna de puerto actual tienen el estado de<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> en la<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> columna. Si la<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> el valor es<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block>, El LIF no se ha revertido.</block>
   <block id="b0522263b2b188ed6c32b8d81c7f9286" category="list-text">Compruebe que los puertos del clúster están conectados:</block>
   <block id="14860c40af5b70801e3ca603e17cb1ae" category="paragraph">En el siguiente ejemplo se muestra el resultado del anterior<block ref="c41d3983ecd2badd54b3bb9658675080" prefix=" " category="inline-code"></block> comando, comprobando que todas las interconexiones del clúster lo son<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block>:</block>
-  <block id="f4df801f902ead90a2bade04e26cac42" category="list-text">En cada nodo del clúster, migre las interfaces asociadas con el primer switch Nexus 5596, CL1, que se sustituirá:</block>
   <block id="29d3d66101e62951d378ea2e5a755eef" category="paragraph">El siguiente ejemplo muestra que las LIF de clúster necesarias se han migrado a puertos de clúster adecuados alojados en el switch de clúster C2:</block>
   <block id="b7504e51bec148bae865f23a95894f3d" category="list-text">En todos los nodos, apague los puertos de nodo que estén conectados a CL1:</block>
   <block id="f1a61336765f82c643fb26938f79ed9c" category="paragraph">En el ejemplo siguiente se muestran los puertos especificados que se están apagando en los nodos n1 y n2:</block>
@@ -1377,8 +1354,6 @@
   <block id="8cf2672ea5c13bbf0de6052b20c338ef" category="doc">Preparar la instalación del software NX-OS y del archivo de configuración de referencia (RCF)</block>
   <block id="8df6d09a602fca4aa18fe9e0b5e94fd4" category="list-text">Si se habilita AutoSupport en este clúster, elimine la creación automática de casos invocando un mensaje de AutoSupport:<block ref="d4f081f8f7b730c426160bfa9617a56a" prefix=" " category="inline-code"></block></block>
   <block id="4abcd2a6fe57e9f246dd326cae0ddb1b" category="list-text">Mostrar información acerca de las LIF:<block ref="7af866342cc7e87972580d7b709d8820" prefix=" " category="inline-code"></block></block>
-  <block id="8e7dcc2f49cf13de0316cb76b4708706" category="list-text">Haga ping en las LIF de clúster remoto:<block ref="1e494d7a0d114db00b18964bfb9147db" prefix=" " category="inline-code"></block></block>
-  <block id="916ba5b1774eaf295926db30f3bad132" category="list-text">Compruebe que el<block ref="9f1b7141f09f19c4e33409646aef43cf" prefix=" " category="inline-code"></block> El comando está habilitado en todos los LIF de clúster:<block ref="d268e7bf124a9f74e2dbe2e0127d951b" prefix=" " category="inline-code"></block></block>
   <block id="6077ced278f43e53de7e35b83fc92b34" category="summary">Puede utilizar este procedimiento para instalar el software NX-OS en el switch de clúster Nexus 3232C.</block>
   <block id="1e911e6d5a391609c15beff6a4f8c37f" category="inline-link-macro">Página del switch Cisco Ethernet</block>
   <block id="0a444d29f1db9e9c818ae5dc2b30ac82" category="list-text"><block ref="f29158c7335be7b7fe0a46dd82de6ed4" category="inline-link-macro-rx"></block>. Consulte en la tabla de compatibilidad del switch las versiones ONTAP y NX-OS compatibles.</block>
@@ -1422,9 +1397,6 @@
   <block id="9c79613f94322b9249048fe262f0baea" category="section-title">Paso 2: Sustituya el interruptor del grupo CL2 por C2</block>
   <block id="e95612c7ef671203cc282ce38a48bdb4" category="paragraph"><block ref="fdb936507a9dbe73b5c4b16108a324e6" prefix="" category="inline-code"></block></block>
   <block id="58e4c812934a7909bf27428e713ee5c1" category="paragraph">En el ejemplo siguiente se muestran los cuatro puertos de interconexión de clúster que se están apagando para los nodos n1 y n2:</block>
-  <block id="c08886eaed359b5e123b95c056c6e19b" category="paragraph"><block ref="1e494d7a0d114db00b18964bfb9147db" prefix="" category="inline-code"></block></block>
-  <block id="9868b1da05b1c2bf12a9e340575945d0" category="paragraph">En el siguiente ejemplo se muestra el nodo n1 con alas y el estado RPC indicado posteriormente:</block>
-  <block id="105dcee6d5ae30eca10110db38214b1e" category="list-text">Apague los puertos ISL 13 a 16 en el conmutador CL1 CN1610 activo con el comando correspondiente.</block>
   <block id="c85dd9d6940aa0e75d535ed7c652ac2d" category="inline-link">Referencias de comandos NX-OS de Cisco Nexus serie 3000</block>
   <block id="3bcb6265d2b333d5385a2b86485d24df" category="paragraph">Para obtener más información acerca de los comandos de Cisco, consulte las guías que se enumeran en<block ref="ea38293a052c78dce084d149b79f50b3" category="inline-link-rx"></block>.</block>
   <block id="06b942f634ce75ef69a38ebe9aa1d02c" category="paragraph">En el siguiente ejemplo, se muestran los puertos ISL 13 a 16 apagados en el switch CN1610 CL1:</block>
@@ -1449,7 +1421,6 @@
   <block id="386d284ecaa6da535d99bb1c1cbb11be" category="paragraph"><block ref="4d6db104973096a8f422d762f72d5019" prefix="" category="inline-code"></block></block>
   <block id="b8a4de3ff3e0b344f01b67d0cad65e75" category="paragraph">En el ejemplo siguiente se muestra que las LIF en clus2 se revierten a sus puertos raíz; las LIF se revierten correctamente si el estado de los puertos de la columna "puerto actual" es<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> En la columna "es de inicio". Si el valor "es de casa" es<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block>, Entonces el LIF no se revierte.</block>
   <block id="4446d664533aa4c635e4457adb44fc66" category="paragraph">En el siguiente ejemplo, se muestra el resultado de verificar que todas las interconexiones del clúster sean<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block>:</block>
-  <block id="f8d208c1f437dafdcc22eba9eebccb38" category="list-text">Migre las LIF asociadas con el primer switch CL1 CN1610:</block>
   <block id="502a7ea7de47db18cb4d391cdc1c745e" category="paragraph"><block ref="e3b59667988659c950426714ec77861c" prefix="" category="inline-code"></block></block>
   <block id="4f654572a7a10c77f8cac19eb51cd80c" category="paragraph">Debe migrar cada LIF del clúster de forma individual a los puertos de clúster adecuados alojados en el switch del clúster C2, como se muestra en el ejemplo siguiente:</block>
   <block id="80ba2298ea2e8bd12acd9eb6839d255c" category="section-title">Paso 3: Sustituya el interruptor del grupo de instrumentos CL1 por C1</block>
@@ -1472,8 +1443,6 @@
   <block id="a200c052ea88ce45ca5da5c961c95cd2" category="section-title">Paso 4: Complete el procedimiento</block>
   <block id="53df53d4b9649d9b2a5ab348bc614229" category="paragraph"><block ref="fa6e1d1bde7406e301eb5451453f52d0" prefix="" category="inline-code"></block></block>
   <block id="7bfca154df7416f9baa3531ebe91c06a" category="paragraph">En el ejemplo siguiente se muestra el estado de las interfaces de interconexión del clúster es<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> Y "es Home" para los nodos n1 y n2:</block>
-  <block id="c8cd62d32eeff74bd4e4085156642109" category="paragraph"><block ref="9e1fb31e56a5a6b23a53159fb353b6be" prefix="" category="inline-code"></block></block>
-  <block id="684b2e790316879de4577bb080c72bf3" category="list-text">Expanda el clúster añadiendo nodos a los switches de clúster Nexus 3232C.</block>
   <block id="212c45c6e98833f0aea3bc1164020ecf" category="paragraph">En los siguientes ejemplos se muestran los nodos n3 y n4 con puertos de clúster de 40 GbE conectados a los puertos e1/7 y e1/8, respectivamente, en los dos switches de clúster Nexus 3232C. Ambos nodos están Unidos al clúster. Los puertos de interconexión de clúster de 40 GbE utilizados son e4a y e4e.</block>
   <block id="26f6491fcc908bd549c7f4064a11e2b0" category="paragraph"><block ref="fa49d5ecd63dc0afeae5cdf40805aaa2" prefix="" category="inline-code"></block></block>
   <block id="00145d7363dbe1c988b2f36e4a46e418" category="paragraph">Debe eliminar ambos dispositivos individualmente, como se muestra en el siguiente ejemplo:</block>
@@ -1502,7 +1471,6 @@
   <block id="75f25895ca6e2ae979bdd258523b64d8" category="paragraph">Consulte la página __ONTAP 8.x o posterior Archivos de configuración de referencia de switches de red de administración y clúster__ Descargar y, a continuación, haga clic en la versión adecuada.</block>
   <block id="23cd51d657266665ae8f8c9d2a2ae14f" category="paragraph">El ejemplo siguiente muestra las LIF que se están migrando para los nodos n1 y n2; la migración de LIF se debe realizar en todos los nodos:</block>
   <block id="fb0f753ded9498a080196f8272f79423" category="paragraph">En el ejemplo siguiente se muestra el estado actual de cada clúster:</block>
-  <block id="72611877ce7fbffb44381c1c62a69cd8" category="list-text">Apague ISL 41 a 48 en CL1, el switch Nexus 5596 activo con Cisco<block ref="5924f03a95ee6f7277e5bdd1e81b8fdc" prefix=" " category="inline-code"></block> comando.</block>
   <block id="df3b3a025572a660a134a45b54c2ec44" category="paragraph">Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en<block ref="ea38293a052c78dce084d149b79f50b3" category="inline-link-rx"></block>.</block>
   <block id="c66e3aa8ea0ac093e4c0a3cf3a2362e7" category="paragraph">En el ejemplo siguiente se muestran los ISL 41 a 48 apagados en el switch Nexus 5596 CL1:</block>
   <block id="e611d5576e653114c65a96a266ece602" category="list-text">Cree un ISL temporal entre CL1 y C2 con los comandos de Cisco correspondientes.</block>
@@ -1832,8 +1800,6 @@
   <block id="b02cd310686a37dfef491f23f468fd28" category="list-text">[[paso3]]en el nuevo switch, inicie sesión como administrador y apague todos los puertos que se conectarán a las interfaces del clúster de nodos (puertos 1/1 a 1/34). Si el interruptor que desea sustituir no funciona y está apagado, vaya a. <block ref="a4882b71f5935aea43154f35b1a6d350" category="inline-xref-macro-rx"></block>. Los LIF de los nodos del clúster ya deberían haber realizado la conmutación al otro puerto del clúster para cada nodo.</block>
   <block id="2400f4c6ea942e602ee72f34c92149fb" category="list-text">[[step4]]Compruebe que todas las LIF del clúster tengan la reversión automática habilitada.</block>
   <block id="77c477176f23eee3a054860c86ade8ee" category="paragraph"><block ref="3dc4656499b962a12e176f61ea51ff38" prefix="" category="inline-code"></block></block>
-  <block id="351f5135225bc1aa8573399c24aaee63" category="list-text">[[step5]]Compruebe que todas las LIF del clúster puedan comunicarse:</block>
-  <block id="9a240210c2eead6e36900d78bed7eef4" category="paragraph"><block ref="6719f40a90253c4646383ef86ccea791" prefix="" category="inline-code"></block></block>
   <block id="01327bf2293f5b2888e56a1495b8ffa5" category="list-text">[[step6]]cierre los puertos ISL 1/35 y 1/36 en el switch Nexus 9336C-FX2 sh1.</block>
   <block id="e81924e502449ac3559ac6842e5fc9a4" category="list-text">[[step7]]retire todos los cables del conmutador Nexus 9336C-FX2 sh2 y, a continuación, conéctelos a los mismos puertos del conmutador Nexus C9336C-FX2 news2.</block>
   <block id="4f93e9535cb45064d78404c6ed6ed904" category="list-text">Traiga los puertos ISLs 1/35 y 1/36 entre los conmutadores sh1 y news2 y, a continuación, verifique el estado de funcionamiento del canal de puerto.</block>
@@ -1847,7 +1813,6 @@
   <block id="b926ce3dbb7009689ed024c9ea8aba02" category="paragraph">Los siguientes comandos devuelven la LIF no1_clus2 del nodo 1 al puerto de inicio e3a y muestran información acerca de las LIF de ambos nodos. La creación del primer nodo se realiza correctamente si la columna is Home es *true* para ambas interfaces de clúster y muestran las asignaciones de puertos correctas, en este ejemplo e3a y e3b en el nodo 1.</block>
   <block id="1d559f001e58c1d63e11be4f19b5484b" category="list-text">[[step11]]Mostrar información sobre los nodos de un clúster:</block>
   <block id="53c275e60a3964cc951d091cfc9d800d" category="list-text">[[step12]]Compruebe que todos los puertos físicos del clúster estén activos:</block>
-  <block id="d9c7fb52065c9f285a012f315313eb5e" category="list-text">[[step13]]Compruebe que todas las LIF del clúster puedan comunicarse:</block>
   <block id="9354d16e8675ab0de41f89b86b5aae21" category="list-text">[[step14]]confirme la siguiente configuración de red del clúster:</block>
   <block id="da9b9083935bcd0e31bcb793c35eec52" category="list-text">Compruebe que el almacenamiento conectado al par de alta disponibilidad 1 y que el switch compartido news2 esté en buen estado.</block>
   <block id="c11677f97d3ee2a98d058ccf0190a185" category="list-text">Compruebe que el almacenamiento conectado al par de alta disponibilidad 2 y que el switch compartido news2 esté en buen estado:</block>
@@ -2285,7 +2250,6 @@
   <block id="75f5ca2695f30fa3987540c3aa6c3b02" category="list-text">Los nombres de nodo son cluster1-01 y cluster1-02.</block>
   <block id="9ffdf3ff45071667f2b0aadc7de3c8d9" category="list-text">Los nombres de las LIF de clúster son cluster1-01_clus1 y cluster1-01_clus2 para cluster1-01 y cluster1-02_clus1 y cluster1-02_clus2 para cluster1-02.</block>
   <block id="28a53e17dbed56e3e939f59daaad8359" category="list-text">Si se habilita AutoSupport en este clúster, elimine la creación automática de casos invocando un mensaje de AutoSupport:<block ref="d4f081f8f7b730c426160bfa9617a56a" prefix=" " category="inline-code"></block></block>
-  <block id="f640804165fe8b3014b443db071bd7c2" category="list-text">Compruebe que el comando de reversión automática está habilitado en todas las LIF del clúster:</block>
   <block id="40c8bcb7b41278de1855e3b933f3d74e" category="list-text">Para ONTAP 9.8 y versiones posteriores, habilite la función de recogida de registros de control de estado del switch Ethernet para recopilar archivos de registro relacionados con el switch, mediante los comandos:</block>
   <block id="2a2f2abd2aac82163594256c2482aac7" category="list-text">Para las versiones 9.5P16, 9.6P12 y 9.7P10 de ONTAP y versiones posteriores de parches, habilite la función de recopilación de registros del monitor de estado del switch Ethernet para recopilar archivos de registro relacionados con el switch mediante los comandos:</block>
   <block id="4d17ac80e3b613f4f1e738899b7885ec" category="paragraph"><block ref="bbe141170e1456bfc88d5bf7571880dd" prefix="" category="inline-code"></block> y..<block ref="abefab8d02f9c0ef8226a4fcf49448a1" prefix=" " category="inline-code"></block></block>
@@ -2334,8 +2298,6 @@
   <block id="58665a6b8c7ef44525f1c47106f6a5f7" category="list-text">[[step21]]Compruebe que la configuración del almacenamiento del par de alta disponibilidad 1 (y del par de alta disponibilidad 2) sea correcta y esté libre de errores:</block>
   <block id="13982e86db6e34f25fefc25b6bdc9157" category="list-text">[[step22]]Compruebe que los ajustes están desactivados:</block>
   <block id="fc62df36a7229b3d62a69029133e4bad" category="list-text">[[step23]]Compruebe el estado de los miembros del nodo en el clúster:</block>
-  <block id="424f5bb3c0f9a5e7519b727f4bbfec8a" category="list-text">[[step24]]Asegúrese de que la red de clúster tiene conectividad completa:</block>
-  <block id="57cbdf7660ff8108b68333b5cdd82f80" category="list-text">[[step25]]vuelva a cambiar el nivel de privilegio a admin:</block>
   <block id="8e2930bcf2c872a7120bbe73b8779424" category="section-title">Paso 2: Configurar el conmutador compartido</block>
   <block id="cee31e17ff4073484e137ee2159131bd" category="list-text">Compruebe que los puertos del nodo de almacenamiento estén en buen estado y estén operativos:</block>
   <block id="c7f29a8717b9bbffee0430b5ba54c983" category="list-text">Mueva los puertos de la ruta B del par de alta disponibilidad 1 y NSM224 al intervalo de puertos sh2 11-22.</block>
@@ -2432,7 +2394,6 @@
   <block id="110c695d96cf5ad96f14ba25bfd860f2" category="list-text">En el nuevo switch, inicie sesión como administrador y apague todos los puertos que se conectarán a las interfaces de clúster de nodos (puertos 1/1 a 1/64).</block>
   <block id="65b12adbef5ea1ca868cfd0f85c4ee86" category="paragraph">Si el interruptor que va a sustituir no funciona y está apagado, vaya al paso 4. Los LIF de los nodos del clúster ya deberían haber realizado la conmutación al otro puerto del clúster para cada nodo.</block>
   <block id="09f3237a21e153d832b3546f85186cbc" category="list-text">Compruebe que todas las LIF del clúster tengan la reversión automática habilitada:</block>
-  <block id="eb7580a8ac3bae2040e96931950a989f" category="list-text">Compruebe que todas las LIF del clúster pueden comunicarse:</block>
   <block id="566992671ef338b9a51fdc8643a29803" category="list-text">Apague los puertos ISL 1/65 y 1/66 en el switch Nexus 92300YC cs1:</block>
   <block id="bcdc1c149628bee1646511fc29cd7407" category="list-text">Retire todos los cables del switch Nexus 92300YC cs2 y, a continuación, conéctelos a los mismos puertos del switch Nexus 92300YC newcs2.</block>
   <block id="2975370bf83bdfdcc1f7c7bc49f1e4a2" category="list-text">Traiga los puertos ISL 1/65 y 1/66 entre los switches cs1 y newcs2 y, a continuación, verifique el estado de operación del canal de puerto.</block>
@@ -2499,7 +2460,6 @@
   <block id="e74ba48b87be882bffe68906351b713a" category="list-text">Compruebe que la reversión automática está habilitada en todas las LIF del clúster:</block>
   <block id="4485f5ea819522aa200ca55acefcd1bc" category="list-text">Compruebe que los puertos del clúster de cada nodo están conectados a los switches de clúster existentes de la siguiente manera (desde la perspectiva de los nodos) mediante el comando:</block>
   <block id="8bd9607443f1bca8467a9888834fc1ef" category="list-text">Compruebe que los puertos y los switches del clúster están conectados de la siguiente manera (desde la perspectiva de los switches) mediante el comando:</block>
-  <block id="99905a9acf063a85c4bbaa70f4455984" category="list-text">Compruebe que la red de clúster tiene conectividad completa mediante el comando:</block>
   <block id="990838b9b76e69aee53a16fbaf6802e0" category="list-text">Configurar un ISL temporal en los puertos cs1en e1/41-48, entre c1 y cs1.</block>
   <block id="48df2fb4a9556ac37edec166e7e858f9" category="paragraph">El siguiente ejemplo muestra cómo se configura el nuevo ISL en c1 y cs1:</block>
   <block id="2aa6bce99f388363decd09b81d00eb7d" category="list-text">Quite los cables ISL de los puertos e1/41-48 de c2 y conecte los cables a los puertos e1/41-48 en cs1.</block>
@@ -2512,7 +2472,6 @@
   <block id="27781c87d25f863e4d8141fb97e91e1d" category="list-text">Elimine el ISL temporal entre cs1 y c1.</block>
   <block id="2bac625f6ecebcbbf1a1ec0ca242d0a4" category="section-title">Paso 3: Complete la migración</block>
   <block id="8b46c589466074f9f6f08c5ac2e65338" category="list-text">Compruebe la configuración final del clúster:</block>
-  <block id="9a82d0edb58bbaaf806da2f174490820" category="list-text">Compruebe que la red de clúster tiene conectividad completa:</block>
   <block id="1f564e4f556cdb31888a8f9f8ba59571" category="summary">El software Cisco NX-OS y los archivos de configuración de referencia \(RCF\) deben estar instalados en los switches de clúster Cisco Nexus 92300YC.</block>
   <block id="ae8c66ff76ef76693dc8d62308ae1423" category="list-text">Guías de software y actualización adecuadas, disponibles en<block ref="8cf592c671d256b1fe33924853db0b89" category="inline-link-rx"></block>.</block>
   <block id="f4d1ac17d0cb4df9361eeca5fae62585" category="paragraph">Para ello, es necesario utilizar tanto comandos de la ONTAP como comandos de la serie Cisco Nexus 9000; los comandos de la ONTAP se usan a menos que se indique lo contrario. Los resultados del comando pueden variar en función de las diferentes versiones de ONTAP.</block>
@@ -2712,7 +2671,6 @@
   <block id="8939c03fb033b2c9a57e27fdec9078a0" category="list-text">Compruebe que los puertos e0d están en buen estado y en todos los nodos del clúster:<block ref="7fcda764b68d3ee8ce2b37f3a72bab05" prefix=" " category="inline-code"></block></block>
   <block id="de5961cc4ba4008f669b392dba74a8da" category="list-text">Compruebe que el ISL entre cs1 y cs2 funciona:<block ref="2f9f4462a41014889ceaf0991f774466" prefix=" " category="inline-code"></block></block>
   <block id="97283617aa91dff9f5c3768547ba0d7c" category="list-text">Compruebe que las LIF del clúster han vuelto a su puerto de inicio:<block ref="7af866342cc7e87972580d7b709d8820" prefix=" " category="inline-code"></block></block>
-  <block id="0ecc223c2f66f6abde60759dd3185d04" category="list-text">Haga ping en las interfaces de clúster remoto para verificar la conectividad:<block ref="6d931e460f3e419ca5bc874e47132b6d" prefix=" " category="inline-code"></block></block>
   <block id="16d074a2c9c574f7e8d9dbc312b16d88" category="summary">Antes de configurar conmutadores de clúster BES-53248, revise una descripción general del proceso y la nomenclatura.</block>
   <block id="5898eff5c659f32cf3b2f42bd746d0c5" category="inline-link-macro">Instale el software del EFOS</block>
   <block id="0ac27d8c913a06ae10bafaf9b4fd01d6" category="list-text"><block ref="1233ecfc62f0bed40d830afa17eec2c7" category="inline-link-macro-rx"></block>. Descargue e instale el software Ethernet Fabric OS (EFOS) en el switch de clúster BES-53248.</block>
@@ -3455,10 +3413,7 @@
   <block id="13eb284b1114b0425a52000374a7582a" category="inline-xref-macro">Configurar un nuevo switch Cisco Nexus 9336C-FX2</block>
   <block id="7d29c84b792500b8d62a1ffe7f3361a3" category="paragraph"><block ref="7d29c84b792500b8d62a1ffe7f3361a3" category="inline-xref-macro-rx"></block></block>
   <block id="7b5239f3a5575bedd1afcb0d613f5b2d" category="list-text">Compruebe que todas las LIF del clúster tengan la reversión automática habilitada:<block ref="d268e7bf124a9f74e2dbe2e0127d951b" prefix=" " category="inline-code"></block></block>
-  <block id="b20219b8e5862f90d99ed9d31b9cbaf4" category="list-text">Compruebe que todas las LIF del clúster pueden comunicarse:<block ref="1ab036f1d4c42e6635eba8a8774bbfc9" prefix=" " category="inline-code"></block></block>
-  <block id="2956a3c58e1e9e09d89c37630ad846c1" category="list-text">Apague los puertos ISL 1/35 y 1/36 en el switch Nexus 9336C-FX2 cs1:</block>
   <block id="53d1c480648d5fee79ba8e20445cc89c" category="list-text">Verifique que el puerto e0b esté activo en todos los nodos:<block ref="806e77180744176b26f561b001a7b17f" prefix=" " category="inline-code"></block></block>
-  <block id="b8fcfd0b86837de6abae197ea7ce1e77" category="list-text">Confirme la siguiente configuración de red del clúster:<block ref="838c4deb1e9c47dcd4c44b6e40276467" prefix=" " category="inline-code"></block></block>
   <block id="4d828a1e41bcb63a1848cf4d73b10ce0" category="list-text">Para ONTAP 9.8 y versiones posteriores, habilite la función de recogida de registros de control de estado del switch Ethernet para recopilar archivos de registro relacionados con el switch, mediante los comandos:<block ref="36ac3c1f3bae8142b5d110fb906ba03e" prefix=" " category="inline-code"></block> y..<block ref="ff5aaae616b6f326cad680284f32b588" prefix=" " category="inline-code"></block></block>
   <block id="4aba6d241d93fefaee83fcbcb1bcdd18" category="list-text">Para las versiones 9.5P16, 9.6P12 y 9.7P10 de ONTAP y versiones posteriores de parches, habilite la función de recopilación de registros del monitor de estado del switch Ethernet para recopilar archivos de registro relacionados con el switch mediante los comandos:<block ref="bbe141170e1456bfc88d5bf7571880dd" prefix=" " category="inline-code"></block> y..<block ref="abefab8d02f9c0ef8226a4fcf49448a1" prefix=" " category="inline-code"></block></block>
   <block id="5d9de0e2f02eef0f18faf016853f64f1" category="paragraph">Puede migrar switches de clústeres Cisco antiguos para un clúster ONTAP a switches de red de almacenamiento Cisco Nexus 9336C-FX2. Este procedimiento no es disruptivo.</block>
@@ -3579,8 +3534,6 @@
   <block id="751035e5db88d172e881299c202d9b13" category="paragraph"><block ref="ddf400f1cb6b8b9330ed6c79c508123c" prefix="" category="inline-code"></block></block>
   <block id="7585f91db102237924371a7e706740ac" category="list-text">Compruebe que las LIF de puerto del clúster funcionan correctamente:</block>
   <block id="ad2c2b5612ae219cdefade565a2878a4" category="paragraph">El ejemplo siguiente muestra que las LIF son<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> En los nodos 1 y 2, y los resultados de la columna "es Home" son<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>:</block>
-  <block id="975034487eab4a8e96e8e6d1c65f8552" category="list-text">Haga ping en los puertos del clúster para verificar la conectividad de clúster:</block>
-  <block id="a1f783c83c4d98e6eb5a7c79625862d7" category="paragraph">El resultado del comando debe mostrar conectividad entre todos los puertos del clúster.</block>
   <block id="e0df9b6d81ca33097eec79779bd43356" category="summary">Antes de configurar switches CN1610 de NetApp, revise la descripción general del procedimiento.</block>
   <block id="f5ca659dbf9eed113878cfe56b55083e" category="doc">Descripción general de la instalación y la configuración de los switches CN1610 de NetApp</block>
   <block id="28ac547a5861eb0133365ef1626fd95e" category="paragraph">El CN1610 es un switch de capa 2 gestionado con alto ancho de banda que proporciona puertos SFP+ (Small Form-factor Pluggable Plus) de 16 10 gigabits.</block>
@@ -3792,8 +3745,6 @@
   <block id="a04a550528162e05ce99957d8bcaedf1" category="admonition">Los siguientes comandos de modificación y migración de los pasos 10 a 13 se deben realizar desde el nodo local.</block>
   <block id="341290705782dd24b9948684702337d7" category="list-text">Compruebe que todos los puertos del clúster lo sean<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block>:</block>
   <block id="e46a14518d3f20a82a8ea86aa3e1a91b" category="admonition">Para las versiones 8.3 y posteriores, se debe utilizar el siguiente comando:<block ref="76be4589a0f314371f336c42f473092c" prefix=" " category="inline-code"></block></block>
-  <block id="1506e8a32c89125ba0188cab7beb0fb3" category="paragraph">El resultado del comando muestra la conectividad entre todos los puertos del clúster.</block>
-  <block id="a9fdf49653825d5a49c2d40f6431dcad" category="list-text">Migre clus1 al puerto e2a de la consola de cada nodo:</block>
   <block id="159ba467749aba2dcf746508bf149877" category="paragraph">En el siguiente ejemplo, se muestra el proceso de migración de clus1 al puerto e2a en los nodos 1 y 2:</block>
   <block id="a06d76059f0a519a64519b90a1dc32fa" category="admonition">Para las versiones 8.3 y posteriores, se debe utilizar el siguiente comando:<block ref="3dff2bb172157fa699b52c962c80e9d7" prefix=" " category="inline-code"></block></block>
   <block id="17c163c5f3cf27f9ab7909ef8b7a260f" category="list-text">Compruebe que la migración tuvo lugar:</block>
@@ -3833,7 +3784,6 @@
   <block id="ab82a872caf9232ddfeadcda79360235" category="admonition">Para la versión 8.3 y posteriores, los comandos son:<block ref="ac7106bdc982c3fa89050955e2f93f08" prefix=" " category="inline-code"></block> y..<block ref="5e0de59e1ff870bef783f8dc91f2088b" prefix=" " category="inline-code"></block></block>
   <block id="7a8f791edf07ab23985fcd68cfdd3ed6" category="section-title">Paso 3: Completar la configuración</block>
   <block id="0f6a263c930f026250dc80aee9d05738" category="list-text">Compruebe que se muestran todas las interfaces<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> En la columna "es de inicio":</block>
-  <block id="0f8ff5228b430fcf43b89da43ffa7d18" category="list-text">Compruebe que ambos nodos tienen dos conexiones a cada switch:</block>
   <block id="7d510ed73956b5df449722fc30f548c8" category="paragraph"><block ref="5300819d7d7e3d6993508c34b25e015b" prefix="" category="inline-code"></block></block>
   <block id="4ea8faad6b3f550eb586fe8a6e127d47" category="list-text">Deshabilite la configuración de dos nodos sin switch en ambos nodos mediante el comando Advanced Privilege:</block>
   <block id="f3bfe82b35272b9d6cd5e99a1930d66a" category="paragraph"><block ref="f4c4b4bcf8fade11f2bb6f27f2086ed6" prefix="" category="inline-code"></block></block>
@@ -4366,7 +4316,6 @@
   <block id="111cada5d22121a7e11aef39f4aca355" category="list-text">En el switch de clúster CS2, saque los puertos conectados a los puertos de clúster de los nodos.</block>
   <block id="427c15bca394e9d3b5f203c35b96c743" category="inline-link">Los puertos 10GbE de un switch de clúster Cisco 3132Q no se conectan</block>
   <block id="20f0f9c709341c54050214259fc6c790" category="admonition">Para conocer los pasos sobre cómo conectar sus puertos 10GbE después de una actualización de RCF, consulte el artículo de la base de conocimientos<block ref="917fe6fdad3ed920883f4190398d0805" category="inline-link-rx"></block>.</block>
-  <block id="bc2be245d88ec44ff572954ca52f5e47" category="list-text">Repita los pasos 7 a 15 en el interruptor CS1.</block>
   <block id="756f5b45c94a8929404edacf08b1bf8c" category="paragraph">Si alguna de las LIF de clúster no ha vuelto a sus puertos raíz, revierte manualmente:<block ref="af44897f72b682aae5fc0db1bf98e52d" prefix=" " category="inline-code"></block></block>
   <block id="e459e50e2d5bebb928139aa0e4ce09ac" category="list-text">Compruebe el estado de los puertos del nodo de almacenamiento:</block>
   <block id="266daf0ca11ec57d9d3cb7598fd930b3" category="paragraph"><block ref="d14f00174ffa33ec8f559ffde7a52484" prefix="" category="inline-code"></block></block>
@@ -4521,7 +4470,6 @@ Para obtener información actual sobre compatibilidad, consulte<block ref="f6aa3
   <block id="64ea4acdf8f09e3b62f8764dea1b5bf4" category="list-text">Después, el cableado entre los nodos y C2 se desconecta del C2 y se vuelve a conectar al SW2.</block>
   <block id="5f115706079e667394e9c5fb609142bb" category="list-text">El interruptor C1 se reemplaza por el interruptor sw1.</block>
   <block id="1b42870c5bc0619ec4b57583bfec41e7" category="list-text">Después, el cableado entre los nodos y C1 se desconecta del C1 y se vuelve a conectar al sw1.</block>
-  <block id="9c4f6f5aa4e55eb8ce92eee32e66b7cd" category="list-text">En el switch C2, apague los puertos conectados a los puertos de clúster de los nodos para conmutar las LIF de clúster.</block>
   <block id="670028f02a4239fb83dfde9087341e1c" category="list-text">En el switch C1, apague los puertos conectados a los puertos de clúster de los nodos para conmutar las LIF de clúster.</block>
   <block id="3e10fab2ffa4ef18685db0df5ee45e84" category="list-text">Los puertos de clúster de cada nodo están conectados a los switches de clúster existentes de la siguiente manera (desde la perspectiva de los nodos):</block>
   <block id="c51f636604f29f6f814bde48e4fd4671" category="list-text">Los switches y los puertos de clúster están conectados de la siguiente manera (desde la perspectiva de los switches):</block>
@@ -4543,7 +4491,6 @@ Para obtener información actual sobre compatibilidad, consulte<block ref="f6aa3
   <block id="e9505b73caa990829220fedbb878ef68" category="list-text">El interruptor C2 se reemplaza primero por el interruptor CS2.</block>
   <block id="39bba2bddb2bf527b701828442a18b5e" category="list-text">Después, el cableado entre los nodos y C2 se desconecta del C2 y se vuelve a conectar al CS2.</block>
   <block id="6fa86324fabffaee853e6eeee2824329" category="list-text">El interruptor C1 se reemplaza por el interruptor CS1.</block>
-  <block id="9f4f9b4efa8b2eb74b227e6e2a18f872" category="list-text">En el switch C2, apague los puertos conectados a los puertos de clúster de los nodos para conmutar las LIF de clúster.</block>
   <block id="54c071b600d8be038e07b18d66329aa7" category="list-text">En el switch C1, apague los puertos conectados a los puertos de clúster de los nodos para conmutar las LIF de clúster.</block>
   <block id="5965a3db7e52c18148f117f0240c1e3f" category="paragraph"><block ref="5965a3db7e52c18148f117f0240c1e3f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="6a5dd15f930e244dadfd412b53dd1ac0" category="paragraph">Mediante la reutilización de los switches de almacenamiento, los switches de almacenamiento del par de alta disponibilidad 1 se convierten en los switches compartidos.
@@ -4913,8 +4860,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="0ca3ca41c2905b8f6347613ad99abeda" category="paragraph">Siga los procedimientos preliminares para preparar la instalación del software Cisco NX-OS y los archivos de configuración de referencia (RCF).</block>
   <block id="146fe7ba55f154a00f7fdd5bc0bc3b7f" category="paragraph">Instale o actualice el software NX-OS en el switch de clúster Nexus 9336C-FX2.</block>
   <block id="c2682a02fa235bb20233662aeba236ad" category="paragraph">Instale o actualice el RCF después de configurar el switch Nexus 9336C-FX2 por primera vez. También puede utilizar este procedimiento para actualizar la versión de RCF.</block>
-  <block id="b98c51d6f722172518f1e38267bc1da4" category="inline-link-macro">Habilite SSH en los switches de clúster Nexus 9336C-FX2</block>
-  <block id="ec348def7634a5754cf9d62e8bca7f24" category="list-text"><block ref="853bcb6b647712eac9646e8ede049d7b" category="inline-link-macro-rx"></block>.</block>
   <block id="5f7b61b5cf8ee335e4fdf4eb2e2191b2" category="paragraph">Los puertos se configuran para 40/100GbE para clúster+HA, 4 puertos separados de 10 GbE para clúster y 4 GbE para clúster+HA, y 100GbE para cada par de alta disponibilidad de almacenamiento.</block>
   <block id="d30ea82d7096609f0aea87ef848f7ebd" category="paragraph">Para instalar y configurar software para un switch compartido Cisco Nexus 9336C-FX2, siga estos pasos:</block>
   <block id="e495f3ec8dabfce7925d7c5053f55cbb" category="inline-link-macro">Instale el interruptor en un armario NetApp</block>
@@ -5030,9 +4975,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="720c3ddeb84772ef2bbfeba7b1d17a28" category="paragraph"><block ref="df8bbc4b7a2a07f02d567d56129471ab" prefix="" category="inline-code"></block></block>
   <block id="3a88a5741f799dc33a61b15c6f06ef77" category="summary">SSH es un requisito cuando se utilizan las funciones de recopilación de registros y Monitor de estado del conmutador de clúster \(CSHM\). Para habilitar SSH en los switches de clúster Cisco 3232C, primero debe generar las claves SSH y, a continuación, habilitar SSH.</block>
   <block id="1ea468ba4330d1b99a20149c0e78b4ed" category="summary">SSH es un requisito cuando se utilizan las funciones de recopilación de registros y Monitor de estado del conmutador de clúster \(CSHM\). Para habilitar SSH en los switches de clúster Cisco 92300YC, primero debe generar las claves SSH y, a continuación, habilitar SSH.</block>
-  <block id="6740010e0f06e1b4faea70ce1b3a4a76" category="inline-link-macro">Generar claves SSH</block>
-  <block id="c49d0af5a081eb64111a489cb2120d97" category="list-text"><block ref="52338aab140ac2dbc56c2c83d6349939" category="inline-link-macro-rx"></block>.</block>
-  <block id="f12f5027a3dbb2bbb22c5b1ca34d79d7" category="paragraph">Si utiliza el monitor de estado del switch Ethernet (CSHM) y las funciones de recopilación de registros, genere claves SSH en los switches.</block>
   <block id="2e3301a364286013b9b29237fa347bb1" category="summary">SSH es un requisito cuando se utilizan las funciones de recopilación de registros y Monitor de estado del conmutador de clúster \(CSHM\). Para habilitar SSH en los switches de clúster Cisco 9336c-FX2, primero se deben generar las claves SSH y, a continuación, se debe habilitar SSH.</block>
   <block id="243847a87ff7e0cb67ee578c74d8ad1c" category="paragraph">El switch Cisco Nexus 9336C-FX2 forma parte de la plataforma Cisco Nexus 9000 y se puede instalar en un armario para el sistema NetApp. Nexus 9336C-FX2 es un switch Ethernet que le permite cambiar datos entre controladoras y bandejas de discos.</block>
   <block id="81f0d5b127adfd87f50ce10bc85e1e65" category="list-text">Vuelva a generar las claves SSH en el switch siguiendo las instrucciones del proveedor.</block>
@@ -5049,4 +4991,51 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="936b3180f1af844d99a2935c0f8f1407" category="paragraph">Al deshabilitar la reversión automática para este procedimiento, los LIF del clúster no volverán a moverse automáticamente a su puerto principal. Permanecen en el puerto actual mientras continúa funcionando.</block>
   <block id="8cfe0e3d8ad280ac0655595fef97d183" category="list-text">Todos los LIF de clúster conmutan al nuevo switch CS2.</block>
   <block id="7f59c84a99e8340f8584b604b173e044" category="list-text">Todos los LIF de clúster conmutan al nuevo switch CS1.</block>
+  <block id="450c144a370eb64ad7b2fb87b5e08ccd" category="paragraph">*NOTA:* Espere varios segundos antes de ejecutar el<block ref="a7dd12b1dab17d25467b0b0a4c8d4a92" prefix=" " category="inline-code"></block> comando para mostrar los detalles.</block>
+  <block id="1abee7895e26b219393999144625cf43" category="list-text">[[step7]] Vuelva a cambiar el nivel de privilegio a admin:</block>
+  <block id="7a073ea5ec2a763ddf5a0385781ed626" category="list-text">[[step6]] Verifique que el comando de reversión automática esté habilitado en todas las LIF de clúster:</block>
+  <block id="2d7cd36455daea92f172ede16d765aae" category="list-text">[[step7]] Verifique que el clúster esté en buen estado:</block>
+  <block id="acdfe379cf0ed5868b119418e7d41b82" category="list-text">[[step11]] Configure la configuración sin switch para los puertos del grupo 2.</block>
+  <block id="a2f7ec2dd8feebc2c1e30e5f859d4497" category="list-text">[[step6]] Si suprimió la creación automática de casos, vuelva a activarlo invocando un mensaje de AutoSupport:</block>
+  <block id="2f3040f570b3d77425ad0bf50fc7985c" category="list-text">[[step6]]vuelva a cambiar el nivel de privilegio a admin:</block>
+  <block id="4e4f70ba52e8cb595faa069991c5a9f4" category="list-text">[[step5]]Si suprimió la creación automática de casos, vuelva a activarla llamando a un mensaje AutoSupport:</block>
+  <block id="c97fddef37af781b99f2bb564a90861d" category="list-text">[[step9]]vuelva a cambiar el nivel de privilegio a admin:</block>
+  <block id="991d705309210a9623a3f1d994c15150" category="list-text">[[step10]]Apague los puertos ISL 41 a 48 en el switch Nexus 5596 activo CL1:</block>
+  <block id="86134d7d31c06aa0711aee6c64ddd4f3" category="list-text">[[step12]]En cada nodo del cluster, migre las interfaces asociadas con el primer switch Nexus 5596, CL1, para ser reemplazado:</block>
+  <block id="bbb276c46604db63ed55340efd9fdca4" category="list-text">[[step7]]Amplía el cluster agregando nodos a los switches de cluster Nexus 3132Q-V.</block>
+  <block id="5a941b8418c4fe0b34b15c50aa26a877" category="list-text">[[step10]]Desconecte el cable de E4A en el nodo n1.</block>
+  <block id="654e3d51643a619895e470f1d55bc3ba" category="list-text">[[step2]]Si suprimió la creación automática de casos, vuelva a activarla llamando a un mensaje AutoSupport:</block>
+  <block id="8b7a1c5ca569b4edf87d12744a873c02" category="list-text">[[step6]]Verifique que el<block ref="9f1b7141f09f19c4e33409646aef43cf" prefix=" " category="inline-code"></block> comando esté habilitado en todas las LIF de clúster:</block>
+  <block id="2599d5f1ece8078590877d15b717f346" category="list-text">[[step9]]Apague los puertos 1/31 y 1/32 en CL1 y el conmutador Nexus 3132Q-V activo:</block>
+  <block id="e24c0f89ee0b0fb577ecce66e38a9e4d" category="list-text">[[step10]] Apague los puertos ISL 13 a 16 en el switch CN1610 activo CL1:</block>
+  <block id="8401a156e54d36682ab941dd51ed3e9d" category="list-text">[[step12]] En cada nodo del cluster, migre las interfaces asociadas al primer switch CN1610 CL1, para ser reemplazadas:</block>
+  <block id="a1362b00e7776e62ab541ebf090bf150" category="list-text">Repita los pasos 7 a 17 en el interruptor CS1.</block>
+  <block id="09c97f0f4f7a646915b2abf749bc1d6f" category="list-text">[[step3]] Apague los puertos ISL 13 a 16 en el conmutador CN1610 activo CL1 con el comando apropiado.</block>
+  <block id="e2ad2b2cb346f8abd448d557881c7dd5" category="list-text">[[step16]] Migre las LIF asociadas al primer switch de CN1610 CL1:</block>
+  <block id="e542ca85e220af35c4b3a82c0642077a" category="list-text">[[step4]] Ampliar el clúster agregando nodos a los switches de clúster Nexus 3232C.</block>
+  <block id="0dee5df137b8161e82554818a557ccc2" category="list-text">[[step3]] Apague los ISLs 41 a 48 en CL1, el switch Nexus 5596 activo, utilizando el comando Cisco<block ref="5924f03a95ee6f7277e5bdd1e81b8fdc" prefix=" " category="inline-code"></block>.</block>
+  <block id="36cdf08b85e5feb55a70e6066970eb64" category="list-text">[[step15]] En cada nodo del cluster, migre las interfaces asociadas con el primer switch Nexus 5596, CL1, para ser reemplazado:</block>
+  <block id="5744be7d661c6ac9679e21ca3f4dfaeb" category="list-text">[[step29]] Ampliar el clúster agregando nodos a los switches de clúster Nexus 3232C.</block>
+  <block id="d05ecee4a6b0d861bcd1b9258b8245ca" category="list-text">[[step4]] Desconecte el cable de E4A en el nodo n1.</block>
+  <block id="cc5ebab0ee641c8983f3228b4974ade1" category="list-text">[[step16]] Si suprimió la creación automática de casos, vuelva a activarlo llamando a un mensaje AutoSupport:</block>
+  <block id="b18c2181f3eba90bca1c7f88f8586e11" category="list-text">[[step6]]Verifique que el<block ref="9f1b7141f09f19c4e33409646aef43cf" prefix=" " category="inline-code"></block> comando esté habilitado en todas las LIF de clúster:<block ref="d268e7bf124a9f74e2dbe2e0127d951b" prefix=" " category="inline-code"></block></block>
+  <block id="2ddf49eb6c3fafb7644444a8f6985876" category="list-text">[[step8]] Si suprimió la creación automática de casos, vuelva a activarlo invocando un mensaje de AutoSupport:</block>
+  <block id="22265ef643cb758bbeafeae6b9005960" category="list-text">[[step3]] Si suprimió la creación automática de casos, vuelva a activarlo invocando un mensaje de AutoSupport:</block>
+  <block id="f7e86b0278da2d0f23dfd04e64f68478" category="list-text">[[step2]] Confirme la siguiente configuración de red de cluster:</block>
+  <block id="cb9e3eca5ee8f7c34a9beb30eb78e80e" category="inline-link-macro">Verificar la configuración de SSH en los switches de clúster Nexus 9336C-FX2</block>
+  <block id="9d35e90712940df4e7dd724e3a99eb05" category="list-text"><block ref="174530f10d1b6584efbd4bb64a5325d0" category="inline-link-macro-rx"></block>.</block>
+  <block id="1de33421daf77940fdd8929e277ba937" category="paragraph">Si utiliza el monitor de estado del switch Ethernet (CSHM) y las funciones de recopilación de registros, compruebe que SSH está habilitado en los switches.</block>
+  <block id="51ad33f87e9af3baac880cb70771fe46" category="list-text">[[step5]] En el switch C2, apague los puertos conectados a los puertos de cluster de los nodos para conmutar las LIF de cluster.</block>
+  <block id="09b863ebe2485d0260db2694f545c132" category="doc">Migre de un switch Cisco antiguo a un switch Nexus 9336C-FX2 de Cisco</block>
+  <block id="52f52fe5595841a94d975238199fecfa" category="list-text">[[step25]] Vuelva a cambiar el nivel de privilegio a admin:</block>
+  <block id="0804eaf4e04da57f4e0f01d9ed605047" category="list-text">[[step5]] Verifique la conectividad de las interfaces del cluster remoto:</block>
+  <block id="1113f8069f1bf162e58048e7da3b5e76" category="list-text">[[step13]] Verifique la conectividad de las interfaces del cluster remoto:</block>
+  <block id="8024b8439487d862ebc200f269b3fd06" category="list-text">[[step6]] Apague los puertos ISL 1/35 y 1/36 en el switch Nexus 9336C-FX2 CS1:</block>
+  <block id="179cedfc35b7060884a77fceb9fb4188" category="list-text">[[step14]] Confirme la siguiente configuración de red de cluster:<block ref="838c4deb1e9c47dcd4c44b6e40276467" prefix=" " category="inline-code"></block></block>
+  <block id="ed6ec01ef9cf24a0e109957a15ef2abc" category="list-text">[[step10]] Migrar clus1 al puerto E2A en la consola de cada nodo:</block>
+  <block id="8454a3a0cd1d8a969c0433bdbb3e8b5f" category="list-text">[[step3]] Verifique que ambos nodos tengan dos conexiones a cada switch:</block>
+  <block id="0e18e00d28d8ccbabfbea2b32f607774" category="list-text">[[step6]] Vuelva a cambiar el nivel de privilegio a admin:</block>
+  <block id="ff518749d3663227de48008bfca511bb" category="list-text">[[step5]] En el switch C2, apague los puertos conectados a los puertos de cluster de los nodos para conmutar las LIF de cluster.</block>
+  <block id="c47f8dc188da37844fcf13bca92e64bd" category="list-text">[[step8]] Habilite la función de recopilación de registros del monitor de estado del switch Ethernet para recopilar archivos de registro relacionados con el switch, utilizando los comandos:</block>
+  <block id="d2370f0d6957d5e8b2747d5a02f35221" category="list-text">[[step8]] En el switch C2, apague los puertos conectados a los puertos del cluster de los nodos.</block>
 </blocks>
