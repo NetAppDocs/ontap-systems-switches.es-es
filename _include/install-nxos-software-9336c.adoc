@@ -49,9 +49,11 @@ Para ello, es necesario utilizar tanto comandos de la ONTAP como comandos de la 
 . Conecte el switch de clúster a la red de gestión.
 . Utilice el comando ping para verificar la conectividad con el servidor que aloja el software NX-OS y el RCF.
 +
+.Muestra el ejemplo
+[%collapsible]
+====
 Este ejemplo verifica que el switch puede llegar al servidor en la dirección IP 172.19.2.1:
 
-+
 [listing, subs="+quotes"]
 ----
 cs2# *ping 172.19.2.1*
@@ -59,6 +61,150 @@ Pinging 172.19.2.1 with 0 bytes of data:
 
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
+====
+. Muestre los puertos del clúster en cada nodo que están conectados a los switches de clúster:
++
+`network device-discovery show`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  --------------
+cluster1-01/cdp
+            e0a    cs1                       Ethernet1/7       N9K-C9336C-FX2
+            e0d    cs2                       Ethernet1/7       N9K-C9336C-FX2
+cluster1-02/cdp
+            e0a    cs1                       Ethernet1/8       N9K-C9336C-FX2
+            e0d    cs2                       Ethernet1/8       N9K-C9336C-FX2
+cluster1-03/cdp
+            e0a    cs1                       Ethernet1/1/1     N9K-C9336C-FX2
+            e0b    cs2                       Ethernet1/1/1     N9K-C9336C-FX2
+cluster1-04/cdp
+            e0a    cs1                       Ethernet1/1/2     N9K-C9336C-FX2
+            e0b    cs2                       Ethernet1/1/2     N9K-C9336C-FX2
+cluster1::*>
+----
+====
+. Compruebe el estado administrativo y operativo de cada puerto del clúster.
++
+.. Compruebe que todos los puertos del clúster están *up* con un estado correcto:
++
+`network port show -role cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -role cluster*
+
+Node: cluster1-01
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
+
+Node: cluster1-02
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
+8 entries were displayed.
+
+Node: cluster1-03
+
+   Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: cluster1-04
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+cluster1::*>
+----
+====
+.. Compruebe que todas las interfaces del clúster (LIF) están en el puerto de inicio:
++
+`network interface show -role cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -role cluster*
+            Logical            Status     Network           Current      Current Is
+Vserver     Interface          Admin/Oper Address/Mask      Node         Port    Home
+----------- ------------------ ---------- ----------------- ------------ ------- ----
+Cluster
+            cluster1-01_clus1  up/up     169.254.3.4/23     cluster1-01  e0a     true
+            cluster1-01_clus2  up/up     169.254.3.5/23     cluster1-01  e0d     true
+            cluster1-02_clus1  up/up     169.254.3.8/23     cluster1-02  e0a     true
+            cluster1-02_clus2  up/up     169.254.3.9/23     cluster1-02  e0d     true
+            cluster1-03_clus1  up/up     169.254.1.3/23     cluster1-03  e0a     true
+            cluster1-03_clus2  up/up     169.254.1.1/23     cluster1-03  e0b     true
+            cluster1-04_clus1  up/up     169.254.1.6/23     cluster1-04  e0a     true
+            cluster1-04_clus2  up/up     169.254.1.7/23     cluster1-04  e0b     true
+8 entries were displayed.
+cluster1::*>
+----
+====
+.. Compruebe que el clúster muestra información de ambos switches de clúster:
++
+`system cluster-switch show -is-monitoring-enabled-operational true`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- --------------
+cs1                         cluster-network    10.233.205.90    N9K-C9336C-FX2
+     Serial Number: FOCXXXXXXGD
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(5)
+    Version Source: CDP
+
+cs2                         cluster-network    10.233.205.91    N9K-C9336C-FX2
+     Serial Number: FOCXXXXXXGS
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(5)
+    Version Source: CDP
+cluster1::*>
+----
+====
+
+
+. Deshabilite la reversión automática en las LIF del clúster. Los LIF de clúster conmutan al switch del clúster asociado y permanecen allí mientras realiza el procedimiento de actualización en el switch de destino:
++
+`network interface modify -vserver Cluster -lif * -auto-revert false`
+
 . Copie las imágenes del software NX-OS y EPLD en el switch Nexus 9336C-FX2.
 +
 .Muestra el ejemplo
@@ -199,15 +345,15 @@ Notifying services about system upgrade.
 
 
 Compatibility check is done:
-Module  bootable       Impact     Install-type  Reason
-------  --------  --------------- ------------  ------
-  1       yes      disruptive         reset     default upgrade is not hitless
+Module  Bootable  Impact          Install-type  Reason
+------  --------  --------------- ------------  ---------
+  1     yes       Disruptive      Reset         Default upgrade is not hitless
 
 
 
 Images will be upgraded according to following table:
 
-Module   Image    Running-Version(pri:alt                  New-Version         Upg-Required
+Module   Image    Running-Version(pri:alt)                 New-Version         Upg-Required
 ------- --------- ---------------------------------------- ------------------- ------------
   1      nxos     9.3(4)                                   9.3(5)                  yes
   1      bios     v08.37(01/28/2020):v08.23(09/23/2015)    v08.38(05/29/2020)      yes
@@ -316,8 +462,8 @@ GEM  FPGA                        0x2
 
 cs2# *install epld bootflash:n9000-epld.9.3.5.img module 1*
 Compatibility check:
-Module        Type         Upgradable        Impact   Reason
-------  ------------------ ----------------- --------- -----
+Module        Type         Upgradable        Impact    Reason
+------  ------------------ ----------------- --------- -----------
      1         SUP         Yes       disruptive  Module Upgradable
 
 Retrieving EPLD versions.... Please wait.
@@ -348,6 +494,9 @@ Module 1 EPLD upgrade is successful.
 ====
 . Tras reiniciar el conmutador, vuelva a iniciar sesión y compruebe que la nueva versión de EPLD se ha cargado correctamente.
 +
+.Muestra el ejemplo
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cs2# *show version module 1 epld*
@@ -362,5 +511,171 @@ GEM  FPGA                        0x2
 GEM  FPGA                        0x2
 GEM  FPGA                        0x2
 ----
-. Repita los pasos 1 a 8 para instalar el software NX-OS en el interruptor CS1.
+====
+. Compruebe el estado de los puertos del clúster en el clúster.
++
+.. Compruebe que los puertos del clúster estén en buen estado en todos los nodos del clúster:
++
+`network port show -role cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -role cluster*
+
+Node: cluster1-01
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: cluster1-02
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: cluster1-03
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
+
+Node: cluster1-04
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
+8 entries were displayed.
+----
+====
+.. Compruebe el estado del switch del clúster.
++
+`network device-discovery show -protocol cdp`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol cdp*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------- --------------
+cluster1-01/cdp
+            e0a    cs1                       Ethernet1/7       N9K-C9336C-FX2
+            e0d    cs2                       Ethernet1/7       N9K-C9336C-FX2
+cluster01-2/cdp
+            e0a    cs1                       Ethernet1/8       N9K-C9336C-FX2
+            e0d    cs2                       Ethernet1/8       N9K-C9336C-FX2
+cluster01-3/cdp
+            e0a    cs1                       Ethernet1/1/1     N9K-C9336C-FX2
+            e0b    cs2                       Ethernet1/1/1     N9K-C9336C-FX2
+cluster1-04/cdp
+            e0a    cs1                       Ethernet1/1/2     N9K-C9336C-FX2
+            e0b    cs2                       Ethernet1/1/2     N9K-C9336C-FX2
+
+cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- --------------
+cs1                         cluster-network    10.233.205.90    N9K-C9336C-FX2
+     Serial Number: FOCXXXXXXGD
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(5)
+    Version Source: CDP
+
+cs2                         cluster-network    10.233.205.91    N9K-C9336C-FX2
+     Serial Number: FOCXXXXXXGS
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(5)
+    Version Source: CDP
+
+2 entries were displayed.
+----
+Puede observar la siguiente salida en la consola del conmutador cs1 dependiendo de la versión RCF cargada previamente en el conmutador:
+
+[listing]
+----
+2020 Nov 17 16:07:18 cs1 %$ VDC-1 %$ %STP-2-UNBLOCK_CONSIST_PORT: Unblocking port port-channel1 on VLAN0092. Port consistency restored.
+2020 Nov 17 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_PEER: Blocking port-channel1 on VLAN0001. Inconsistent peer vlan.
+2020 Nov 17 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_LOCAL: Blocking port-channel1 on VLAN0092. Inconsistent local vlan.
+----
+====
+
+
+. Compruebe que el clúster esté en buen estado:
++
+`cluster show`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+Node                 Health   Eligibility   Epsilon
+-------------------- -------- ------------- -------
+cluster1-01          true     true          false
+cluster1-02          true     true          false
+cluster1-03          true     true          true
+cluster1-04          true     true          false
+4 entries were displayed.
+cluster1::*>
+----
+====
+. Repita los pasos 6 a 13 para instalar el software NX-OS en el interruptor CS1.
+. Habilite la reversión automática en las LIF del clúster.
++
+`network interface modify -vserver Cluster -lif * -auto-revert true`
+
+. Compruebe que las LIF del clúster han vuelto a su puerto de inicio:
++
+`network interface show -role cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -role cluster*
+            Logical            Status     Network            Current             Current Is
+Vserver     Interface          Admin/Oper Address/Mask       Node                Port    Home
+----------- ------------------ ---------- ------------------ ------------------- ------- ----
+Cluster
+            cluster1-01_clus1  up/up      169.254.3.4/23     cluster1-01         e0d     true
+            cluster1-01_clus2  up/up      169.254.3.5/23     cluster1-01         e0d     true
+            cluster1-02_clus1  up/up      169.254.3.8/23     cluster1-02         e0d     true
+            cluster1-02_clus2  up/up      169.254.3.9/23     cluster1-02         e0d     true
+            cluster1-03_clus1  up/up      169.254.1.3/23     cluster1-03         e0b     true
+            cluster1-03_clus2  up/up      169.254.1.1/23     cluster1-03         e0b     true
+            cluster1-04_clus1  up/up      169.254.1.6/23     cluster1-04         e0b     true
+            cluster1-04_clus2  up/up      169.254.1.7/23     cluster1-04         e0b     true
+8 entries were displayed.
+cluster1::*>
+----
+====
++
+Si alguna LIF de clúster no ha regresado a sus puertos raíz, revertirla manualmente desde el nodo local:
+
++
+`network interface revert -vserver Cluster -lif <lif_name>`
+
 
