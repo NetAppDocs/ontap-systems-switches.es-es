@@ -4076,7 +4076,6 @@
   <block id="b211f67e6e9195c32683368a53542802" category="paragraph">Este ejemplo muestra SFTP que se está utilizando para copiar un RCF al bootflash del switch CS2:</block>
   <block id="c77174e35b7f7fc235a87561809ad614" category="list-text">Examine el resultado del banner desde el<block ref="db837131dc56fab41bddc52d5aff8865" prefix=" " category="inline-code"></block> comando. Debe leer y seguir estas instrucciones para asegurarse de que la configuración y el funcionamiento del interruptor son correctos.</block>
   <block id="420b545896cb1c9b03dbccd44bf33f86" category="list-text">En el switch, compruebe que los puertos adicionales con licencia aparecen después de aplicar el RCF:</block>
-  <block id="e23c199f14d9e7bf9dbb9da03bf726a2" category="list-text">Reinicie el interruptor cs1. Para activar las LIF de clúster y revertir a sus puertos raíz, haga lo siguiente. Es posible ignorar los eventos de “puertos de clúster inactivos” que se informan en los nodos mientras se reinicia el switch.</block>
   <block id="6285269d7b8b003aed53cad1f3d13717" category="list-text">Mueva todos los cables de conexión de nodos del clúster del switch CS2 antiguo al nuevo switch de CS2 nuevos.</block>
   <block id="f8e1e48a80ce2fac4d53a95f1f1ffd18" category="paragraph">* Cables de conexión de nodo de clúster movidos al switch CS2-new*</block>
   <block id="e07ca5d2322ee212c9dcb668e9db443a" category="image-alt">Los cables de conexión de nodo de clúster se mueven al switch CS2 nuevo</block>
@@ -5059,4 +5058,21 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="c509ae209503be0a774ac204f0f2dc91" category="paragraph">4 nodos de 100 GbE 35</block>
   <block id="f992d2e7f110147780c9ce8e305e4981" category="paragraph">4 nodos de 100 GbE 36</block>
   <block id="cb02ea2e8f595e77e5e6585ac0421c1a" category="paragraph">Obtenga más información sobre los nuevos switches para los sistemas FAS y AFF. Para obtener información adicional sobre el interruptor, consulte la<block ref="341c1c8afc925d24c41903215e7d4958" category="inline-link-rx"></block>.</block>
+  <block id="d217db6e5c9fe01778df762ef953150e" category="inline-link-macro">Instale el archivo de configuración de referencia (RCF) y el archivo de licencia</block>
+  <block id="6503ea0189c5cfc2f7fbdef509813892" category="admonition">Para EFOS 3,12 y posterior, siga los pasos de instalación en <block ref="2875012234c5bc616da894d0cc04d2b5" category="inline-link-macro-rx"></block>.</block>
+  <block id="138707357e50e83ca9a6f1bf487a4c4b" category="paragraph">Compruebe que los siguientes elementos están en su lugar:</block>
+  <block id="f3f5793bcca1ebb5ebbd53986eeb7aa2" category="admonition">Antes de instalar una nueva versión de software de switch y RCF, utilice el artículo de la base de conocimientos<block ref="18b4271d2bf70dbfb01e42cb4850cea6" category="inline-link-rx"></block> . Si debe borrar completamente los ajustes del switch, deberá volver a realizar la configuración básica. Debe estar conectado al switch mediante la consola de serie, ya que el borrado completo de la configuración restablece la configuración de la red de gestión.</block>
+  <block id="760a43dbe67e92dafc9be460c7ec7a71" category="open-title">EFOS versión 3,12.x y posterior</block>
+  <block id="b901c25333441ff036da53fab081d9f0" category="list-text">Compruebe que el script se ha descargado y guardado con el nombre de archivo que le ha proporcionado:</block>
+  <block id="c996550fa25e7bc14821abd9c8d23ed7" category="open-title">El resto de las versiones de EFOS</block>
+  <block id="cbaf87b69b101c8da09eb66a7e118196" category="list-text">Examine el resultado del banner en<block ref="db837131dc56fab41bddc52d5aff8865" prefix=" " category="inline-code"></block> el comando. Debe leer y seguir estas instrucciones para verificar la configuración y el funcionamiento correctos del interruptor.</block>
+  <block id="d8b62ff42020df981e759bfaae3ea683" category="list-text">Reinicie el interruptor CS1. Esto activa las LIF del clúster para que reviertan a sus puertos iniciales. Es posible ignorar los eventos de “puertos de clúster inactivos” que se informan en los nodos mientras se reinicia el switch.</block>
+  <block id="44b28482ab8476e86718a1ca5ff60e37" category="paragraph">A partir de EFOS 3.12.0.1, puede instalar el archivo de configuración de referencia (RCF) y el archivo de licencia después de configurar el conmutador de cluster BES-53248.</block>
+  <block id="9a155684dd1562ffdaa25731d825bbe9" category="admonition">Los puertos Sall se configuran al instalar el RCF, pero es necesario instalar la licencia para activar los puertos configurados.</block>
+  <block id="fbec2ebb075cb19757cff7017cb93af5" category="list-text">El RCF actual, disponible en la<block ref="b4c2fb45a290e6214474529bd84dd3bc" category="inline-link-rx"></block> página.</block>
+  <block id="4456b97c43334b2054b59141ede95e7a" category="list-text">Copie el RCF en el bootflash del switch CS2 usando uno de los siguientes protocolos de transferencia: FTP, HTTP, TFTP, SFTP o SCP.</block>
+  <block id="f33dd0ad3ffde0d7eeaba1d3a85f7205" category="paragraph">Este ejemplo muestra HTTP que se está utilizando para copiar un RCF al bootflash en el switch CS2:</block>
+  <block id="7bbcf8e324817b180739b7f7d821945a" category="list-text">En el interruptor, compruebe que se han realizado los cambios:</block>
+  <block id="a84263d893b250f940f2cfa8e599b7e2" category="list-text">[[step21]]En el switch de cluster CS1, apague los puertos conectados a los puertos de cluster de los nodos.</block>
+  <block id="5bd6c874b20210387cbc3fd552b0e8bc" category="sidebar">Instale RCF y el archivo de licencia para EFOS 3,12 y posterior</block>
 </blocks>

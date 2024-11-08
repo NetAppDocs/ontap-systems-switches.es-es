@@ -14,6 +14,9 @@ summary: El modelo base de switch de clúster BES-53248 tiene licencia para 16 p
 El modelo base de switch de clúster BES-53248 tiene licencia para 16 puertos de 10 GbE o 25 GbE y dos puertos de 100 GbE. Puede añadir puertos nuevos si compra más licencias.
 
 
+CAUTION: Para EFOS 3,12 y posterior, siga los pasos de instalación en link:efos-install-rcf-license-file.html["Instale el archivo de configuración de referencia (RCF) y el archivo de licencia"].
+
+
 
 == Revisar las licencias disponibles
 
