@@ -14,7 +14,7 @@ summary: 'Puede instalar el archivo de configuración de referencia (RCF) despu�
 A partir de EFOS 3.12.0.1, puede instalar el archivo de configuración de referencia (RCF) y el archivo de licencia después de configurar el conmutador de cluster BES-53248.
 
 
-CAUTION: Los puertos Sall se configuran al instalar el RCF, pero es necesario instalar la licencia para activar los puertos configurados.
+CAUTION: Todos los puertos se configuran al instalar el RCF, pero es necesario instalar la licencia para activar los puertos configurados.
 
 
 
