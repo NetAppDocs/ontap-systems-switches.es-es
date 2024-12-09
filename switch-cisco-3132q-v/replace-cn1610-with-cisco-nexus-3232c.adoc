@@ -41,14 +41,14 @@ Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo
 * n1_clus3 es la segunda LIF conectada al switch de clúster 2 (CL2 o C2) para el nodo n1.
 * n1_clusal 4 es la segunda LIF conectada al switch de clúster 1 (CL1 o C1) para el nodo n1.
 * Los nodos son n1, n2, n3 y n4.
-* El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Descarga del archivo de configuración de referencia del conmutador de red de clúster Cisco®"^] página.
+* El número de puertos de 10 GbE y 40 GbE se define en los archivos de configuración de referencia (RFC) disponibles en https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Descarga del archivo de configuración de referencia del conmutador de red de clúster Cisco®"^] la página.
 
 
 .Acerca de los ejemplos
 Los ejemplos de este procedimiento utilizan cuatro nodos:
 
 * Dos nodos utilizan cuatro puertos de interconexión de clúster de 10 GbE: E0a, e0b, e0c y e0d.
-* Los otros dos nodos utilizan dos cables de fibra de interconexión de clúster de 40/100 GbE: e4a y e4e.
+* Los otros dos nodos utilizan dos cables de fibra de interconexión de clúster de 40 GbE: e4a y e4e.
 
 
 La link:https://hwu.netapp.com/["Hardware Universe"^] tiene información acerca de los cables de fibra de clúster en las plataformas.

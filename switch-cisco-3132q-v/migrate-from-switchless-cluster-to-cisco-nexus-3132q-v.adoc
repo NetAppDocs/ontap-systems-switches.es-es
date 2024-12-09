@@ -24,13 +24,13 @@ Asegúrese de comprender los requisitos de cableado y las conexiones de puertos 
 * La link:https://hwu.netapp.com/["Hardware Universe"^] Contiene información sobre el cableado compatible con los switches Nexus 3132Q-V:
 +
 ** Los nodos con conexiones de clúster de 10 GbE requieren módulos ópticos QSFP con cables de fibra de cable multiconector o cables de cobre QSFP a SFP+.
-** Los nodos con conexiones de clúster de 40/100 GbE requieren módulos ópticos QSFP/QSFP28 compatibles con cables de fibra o cables de conexión directa de cobre QSFP/QSFP28.
+** Los nodos con conexiones a clúster de 40 GbE requieren módulos ópticos QSFP/QSFP28 compatibles con cables de fibra o cables de conexión directa de cobre QSFP/QSFP28.
 ** Los switches de clúster utilizan el cableado ISL adecuado: 2 cables de conexión directa de cobre o fibra QSFP28.
 
 
-* En Nexus 3132Q-V, puede utilizar puertos QSFP como Ethernet de 40/100 GB o modos Ethernet de 4 x10 GB.
+* En Nexus 3132Q-V, puede operar puertos QSFP como modos Ethernet de 40 Gb o Ethernet de 4 x10 Gb.
 +
-De forma predeterminada, hay 32 puertos en el modo Ethernet de 40/100 GB. Estos puertos Ethernet de 40 GB están numerados en una convención de nomenclatura de 2 tubos. Por ejemplo, el segundo puerto Ethernet de 40 GB está numerado como 1/2. El proceso de cambiar la configuración de Ethernet de 40 GB a Ethernet de 10 GB se denomina _breakout_ y el proceso de cambiar la configuración de Ethernet de 10 GB a Ethernet de 40 GB se denomina _breakin_. Cuando se rompe un puerto Ethernet de 40/100 GB en puertos Ethernet de 10 GB, los puertos resultantes se numeran mediante una convención de nomenclatura de 3 tubos. Por ejemplo, los puertos de arranque del segundo puerto Ethernet de 40/100 GB están numerados como 1/2/1, 1/2/2, 1/2/3, 1/2/4.
+De manera predeterminada, hay 32 puertos en el modo Ethernet de 40 Gb. Estos puertos Ethernet de 40 GB están numerados en una convención de nomenclatura de 2 tubos. Por ejemplo, el segundo puerto Ethernet de 40 GB está numerado como 1/2. El proceso de cambiar la configuración de Ethernet de 40 GB a Ethernet de 10 GB se denomina _breakout_ y el proceso de cambiar la configuración de Ethernet de 10 GB a Ethernet de 40 GB se denomina _breakin_. Cuando divide un puerto Ethernet de 40 Gb en puertos Ethernet de 10 Gb, los puertos resultantes se numeran mediante una convención de nomenclatura de 3 tuplas. Por ejemplo, los puertos de arranque del segundo puerto Ethernet de 40 GB están numerados como 1/2/1, 1/2/2, 1/2/3 y 1/2/4.
 
 * En el lado izquierdo de Nexus 3132Q-V se encuentra un conjunto de cuatro puertos SFP+ multiplexados al primer puerto QSFP.
 +
@@ -39,11 +39,11 @@ De forma predeterminada, el RCF está estructurado para utilizar el primer puert
 +
 Puede hacer que cuatro puertos SFP+ estén activos en lugar de un puerto QSFP para Nexus 3132Q-V mediante el `hardware profile front portmode sfp-plus` comando. Del mismo modo, se puede restablecer Nexus 3132Q-V para utilizar un puerto QSFP en lugar de cuatro puertos SFP+ mediante el `hardware profile front portmode qsfp` comando.
 
-* Asegúrese de configurar algunos de los puertos en Nexus 3132Q-V para que funcionen a 10 GbE o 40/100 GbE.
+* Asegúrese de configurar algunos puertos de Nexus 3132Q-V para funcionar a 10 GbE o 40 GbE.
 +
 Puede extraer los primeros seis puertos en modo 4x10 GbE mediante el `interface breakout module 1 port 1-6 map 10g-4x` comando. De forma similar, puede volver a agrupar los primeros seis puertos QSFP+ de la configuración de cable mediante el `no interface breakout module 1 port 1-6 map 10g-4x` comando.
 
-* El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Descarga del archivo de configuración de referencia del switch de red de clúster de Cisco ®"^] página.
+* El número de puertos de 10 GbE y 40 GbE se define en los archivos de configuración de referencia (RFC) disponibles en https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Descarga del archivo de configuración de referencia del switch de red de clúster de Cisco ®"^] la página.
 
 
 .Lo que necesitará
@@ -67,7 +67,7 @@ La link:http://mysupport.netapp.com/NOW/download/software/cm_switches/["Switches
 
 
 
-Además, debe planificar, migrar y leer la documentación necesaria sobre conectividad de 10 GbE y 40/100 GbE desde los nodos a los switches de clúster Nexus 3132Q-V.
+Además, debe planificar, migrar y leer la documentación necesaria sobre la conectividad de 10 GbE y 40 GbE desde los nodos a los switches de clústeres Nexus 3132Q-V.
 
 
 
@@ -82,7 +82,7 @@ Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo
 
 [NOTE]
 ====
-Los ejemplos de este procedimiento utilizan dos nodos, cada uno utilizando dos puertos de interconexión de clúster de 40/100 GbE e4a y e4e. La link:https://hwu.netapp.com/["Hardware Universe"^] tiene detalles acerca de los puertos de clúster en las plataformas.
+En los ejemplos de este procedimiento, se utilizan dos nodos, cada uno usando dos puertos E4A y E4E de Cluster Interconnect de 40 GbE. El link:https://hwu.netapp.com/["Hardware Universe"^] tiene detalles sobre los puertos de clúster en las plataformas.
 
 ====
 .Acerca de esta tarea
@@ -92,7 +92,7 @@ Este procedimiento cubre los siguientes escenarios:
 * n1_clus2 es la primera LIF del clúster que se conecta al switch de clúster C2 del nodo n1.
 * n2_clus1 es la primera LIF de clúster que se conecta al switch de clúster C1 para el nodo n2.
 * n2_clus2 es la segunda LIF del clúster que se conecta al switch de clúster C2 del nodo n2.
-* El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Descarga del archivo de configuración de referencia del switch de red de clúster de Cisco ®"^] página.
+* El número de puertos de 10 GbE y 40 GbE se define en los archivos de configuración de referencia (RFC) disponibles en https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Descarga del archivo de configuración de referencia del switch de red de clúster de Cisco ®"^] la página.
 
 
 [NOTE]

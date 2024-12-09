@@ -45,6 +45,9 @@ El monitor de estado del switch Ethernet (CSHM) es responsable de garantizar el 
 --
 . Para configurar la recopilación de registros, ejecute el siguiente comando para cada conmutador. Se le pedirá que introduzca el nombre del switch, el nombre de usuario y la contraseña para la recopilación de registros.
 +
+*NOTA:* Si responde `y` a la solicitud de especificación del usuario, asegúrese de que el usuario tiene los permisos necesarios como se describe en <<Antes de empezar>> .
+
++
 [source, cli]
 ----
 system switch ethernet log setup-password
@@ -111,6 +114,9 @@ system switch ethernet log show
 .ONTAP 9.15.1 y versiones posteriores
 --
 . Para configurar la recopilación de registros, ejecute el siguiente comando para cada conmutador. Se le pedirá que introduzca el nombre del switch, el nombre de usuario y la contraseña para la recopilación de registros.
++
+*NOTA:* Si responde `y` a la solicitud de especificación del usuario, asegúrese de que el usuario tiene los permisos necesarios como se describe en <<Antes de empezar>>.
+
 +
 [source, cli]
 ----
