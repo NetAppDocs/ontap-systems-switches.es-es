@@ -1,0 +1,249 @@
+---
+permalink: switch-cisco-3232c/migrate-from-switchless-prepare-to-migrate.html 
+sidebar: sidebar 
+keywords: cisco 3232c, cluster switches 
+summary: Puede utilizar switches Cisco Nexus 3232C como switches de clúster en su clúster AFF o FAS. 
+---
+= Prepárese para la migración desde clústeres de dos nodos sin switch a clústeres con switches de dos nodos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga estos pasos para preparar su clúster sin switch de dos nodos para migrar a un clúster con switches de dos nodos que incluya switches de red de clústeres Nexus 3232C de Cisco.
+
+.Pasos
+. Si se habilita AutoSupport en este clúster, elimine la creación automática de casos invocando un mensaje de AutoSupport:
++
+`system node autosupport invoke -node * -type all - message MAINT=xh`
+
++
+_x_ es la duración de la ventana de mantenimiento en horas.
+
++
+[NOTE]
+====
+El mensaje de AutoSupport notifica al soporte técnico de esta tarea de mantenimiento para que la creación automática de casos se suprima durante la ventana de mantenimiento.
+
+====
+. Determine el estado administrativo u operativo de cada interfaz de clúster:
++
+.. Mostrar los atributos del puerto de red:
++
+`network port show -role cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster::*> *network port show -role cluster*
+  (network port show)
+Node: n1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- -----
+e4a       Cluster      Cluster          up   9000 auto/40000  -
+e4e       Cluster      Cluster          up   9000 auto/40000  -        -
+Node: n2
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- -----
+e4a       Cluster      Cluster          up   9000 auto/40000  -
+e4e       Cluster      Cluster          up   9000 auto/40000  -
+4 entries were displayed.
+----
+====
+.. Muestra información sobre las interfaces lógicas y sus nodos principales designados:
++
+`network interface show -role cluster`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster::*> *network interface show -role cluster*
+ (network interface show)
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ---
+Cluster
+            n1_clus1   up/up      10.10.0.1/24       n1            e4a     true
+            n1_clus2   up/up      10.10.0.2/24       n1            e4e     true
+            n2_clus1   up/up      10.10.0.3/24       n2            e4a     true
+            n2_clus2   up/up      10.10.0.4/24       n2            e4e     true
+
+4 entries were displayed.
+----
+====
+.. Compruebe que la detección de clústeres sin switch esté habilitada mediante el comando de privilegio avanzado:
++
+`network options detect-switchless-cluster show``
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+El resultado en el ejemplo siguiente muestra que la detección de clústeres sin switch está habilitada:
+
+[listing, subs="+quotes"]
+----
+cluster::*> *network options detect-switchless-cluster show*
+Enable Switchless Cluster Detection: true
+----
+====
+
+
+. Verifique que los RCF e imagen adecuados estén instalados en los nuevos conmutadores 3232C y realice las personalizaciones necesarias del sitio, como agregar usuarios, contraseñas y direcciones de red.
++
+Debe preparar ambos switches en este momento. Si necesita actualizar el software RCF e Image, debe seguir estos pasos:
+
++
+.. Vaya a la página _Cisco Ethernet Switches_ del sitio de soporte de NetApp.
++
+http://support.netapp.com/NOW/download/software/cm_switches/["Switches Ethernet de Cisco"^]
+
+.. Anote el conmutador y las versiones de software necesarias en la tabla de esa página.
+.. Descargue la versión adecuada de RCF.
+.. Seleccione *CONTINUAR* en la página *Descripción*, acepte el contrato de licencia y, a continuación, siga las instrucciones de la página *Descargar* para descargar el RCF.
+.. Descargue la versión adecuada del software Image.
++
+https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Página de descarga del archivo de configuración de referencia del switch de red de Cisco Cluster y Management"^]
+
+
+
+. Seleccione *CONTINUAR* en la página *Descripción*, acepte el contrato de licencia y, a continuación, siga las instrucciones de la página *Descargar* para descargar el RCF.
+. En los switches Nexus 3232C C1 y C2, deshabilite todos los puertos C1 y C2 que están orientados al nodo, pero no deshabilite los puertos ISL e1/31-32.
++
+Para obtener más información sobre los comandos de Cisco, consulte la siguiente lista en la https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el siguiente ejemplo, se muestran los puertos 1 a 30 deshabilitados en los switches del clúster Nexus 3232C C1 y C2 utilizando una configuración compatible con RCF `NX3232_RCF_v1.0_24p10g_24p100g.txt`:
+
+[listing, subs="+quotes"]
+----
+C1# copy running-config startup-config
+[########################################] 100% Copy complete.
+C1# configure
+C1(config)# int e1/1/1-4,e1/2/1-4,e1/3/1-4,e1/4/1-4,e1/5/1-4,e1/6/1-4,e1/7-30
+C1(config-if-range)# shutdown
+C1(config-if-range)# exit
+C1(config)# exit
+C2# copy running-config startup-config
+[########################################] 100% Copy complete.
+C2# configure
+C2(config)# int e1/1/1-4,e1/2/1-4,e1/3/1-4,e1/4/1-4,e1/5/1-4,e1/6/1-4,e1/7-30
+C2(config-if-range)# shutdown
+C2(config-if-range)# exit
+C2(config)# exit
+----
+====
+. Conecte los puertos 1/31 y 1/32 de C1 a los mismos puertos de C2 utilizando el cableado compatible.
+. Compruebe que los puertos ISL están operativos en C1 y C2:
++
+`show port-channel summary`
+
++
+Para obtener más información sobre los comandos de Cisco, consulte la siguiente lista en la https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+El siguiente ejemplo muestra Cisco `show port-channel summary` Comando que se utiliza para verificar que los puertos ISL están operativos en C1 y C2:
+
+[listing, subs="+quotes"]
+----
+C1# *show port-channel summary*
+Flags: D - Down         P - Up in port-channel (members)
+       I - Individual   H - Hot-standby (LACP only)        s - Suspended    r - Module-removed
+       S - Switched     R - Routed
+       U - Up (port-channel)
+       M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+      Port-
+Group Channel      Type   Protocol  Member Ports
+-------------------------------------------------------------------------------
+1     Po1(SU)      Eth    LACP      Eth1/31(P)   Eth1/32(P)
+
+C2# show port-channel summary
+Flags: D - Down         P - Up in port-channel (members)
+       I - Individual   H - Hot-standby (LACP only)        s - Suspended    r - Module-removed
+       S - Switched     R - Routed
+       U - Up (port-channel)
+       M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+
+Group Port-        Type   Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)      Eth    LACP      Eth1/31(P)   Eth1/32(P)
+----
+====
+. Muestra la lista de dispositivos vecinos en el conmutador.
++
+Para obtener más información sobre los comandos de Cisco, consulte la siguiente lista en la https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el siguiente ejemplo se muestra el comando Cisco `show cdp neighbors` se utiliza para mostrar los dispositivos vecinos en el conmutador:
+
+[listing, subs="+quotes"]
+----
+C1# *show cdp neighbors*
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,                   s - Supports-STP-Dispute
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+C2                 Eth1/31        174    R S I s     N3K-C3232C  Eth1/31
+C2                 Eth1/32        174    R S I s     N3K-C3232C  Eth1/32
+Total entries displayed: 2
+C2# show cdp neighbors
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,                   s - Supports-STP-Dispute
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+C1                 Eth1/31        178    R S I s     N3K-C3232C  Eth1/31
+C1                 Eth1/32        178    R S I s     N3K-C3232C  Eth1/32
+Total entries displayed: 2
+----
+====
+. Muestre la conectividad de puerto del clúster en cada nodo:
++
+`network device-discovery show`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+En el siguiente ejemplo se muestra la conectividad de puerto de clúster mostrada para una configuración de clúster de dos nodos sin switch:
+
+[listing, subs="+quotes"]
+----
+cluster::*> *network device-discovery show*
+            Local  Discovered
+Node        Port   Device              Interface        Platform
+----------- ------ ------------------- ---------------- ----------------
+n1         /cdp
+            e4a    n2                  e4a              FAS9000
+            e4e    n2                  e4e              FAS9000
+n2         /cdp
+            e4a    n1                  e4a              FAS9000
+            e4e    n1                  e4e              FAS9000
+----
+====
+
+
+.El futuro
+link:migrate-from-switchless-configure-ports.html["Configure los puertos"].

@@ -1,10 +1,39 @@
-= Paso 1: Prepárese para la actualización
+---
+permalink: switch-cisco-9336c-fx2/upgrade-rcf-software-9336c-cluster.html 
+sidebar: sidebar 
+keywords: install rcf, cisco switches 
+summary: Puede instalar el RCF después de configurar por primera vez el conmutador Nexus 9336C-FX2.también puede utilizar este procedimiento para actualizar la versión de RCF. 
+---
+= Actualizar archivo de configuración de referencia (RCF)
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Actualice la versión de RCF cuando tenga instalada una versión existente del archivo RCF en los conmutadores operativos.
+
+.Antes de empezar
+Asegúrese de tener lo siguiente:
+
+* Una copia de seguridad actual de la configuración del switch.
+* Un clúster en pleno funcionamiento (sin errores en los registros o problemas similares).
+* El RCF actual.
+* Si está actualizando la versión de RCF, necesita una configuración de inicio en el RCF que refleje las imágenes de inicio deseadas.
++
+Si necesita cambiar la configuración de arranque para reflejar las imágenes de arranque actuales, debe hacerlo antes de volver a aplicar el RCF para que se cree una instancia de la versión correcta en futuros reinicios.
 
 
 
 
-=== Paso 1: Prepárese para la actualización
+NOTE: Durante este procedimiento no se necesita ningún enlace entre switches (ISL) operativo. Esto se debe a que los cambios en la versión de RCF pueden afectar temporalmente a la conectividad ISL. Para garantizar operaciones de clúster no disruptivas, el siguiente procedimiento migra todas las LIF del clúster al switch de partner operativo mientras realiza los pasos del switch de destino.
+
+
+CAUTION: Antes de instalar una nueva versión de software del conmutador y RCF, debe borrar los ajustes del conmutador y realizar la configuración básica. Debe estar conectado al switch mediante la consola serie o haber conservado la información básica de configuración antes de borrar la configuración del switch.
+
+
+
+== Paso 1: Prepárese para la actualización
 
 . Muestre los puertos del clúster en cada nodo que están conectados a los switches de clúster:
 +
@@ -153,7 +182,7 @@ cluster1::*>
 
 
 
-=== Paso 2: Configurar puertos
+== Paso 2: Configurar puertos
 
 . En el switch de clúster cs1, apague los puertos conectados a los puertos del clúster de los nodos.
 +
@@ -509,7 +538,7 @@ cluster1::*>
 
 
 
-=== Paso 3: Compruebe la configuración de la red del clúster y el estado del clúster
+== Paso 3: Compruebe la configuración de la red del clúster y el estado del clúster
 
 . Compruebe que los puertos del switch conectados a los puertos del clúster son *up*.
 +

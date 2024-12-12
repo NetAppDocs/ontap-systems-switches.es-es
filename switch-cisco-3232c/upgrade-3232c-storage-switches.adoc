@@ -17,7 +17,7 @@ Siga estos pasos para actualizar el software Cisco NX-OS y los archivos de confi
 
 == Revise los requisitos
 
-.Lo que necesitará
+.Antes de empezar
 Asegúrese de que existen las siguientes condiciones antes de actualizar el software NX-OS y los RCF del switch de almacenamiento:
 
 * El conmutador funciona completamente (no debe haber errores en los registros o problemas similares).
@@ -186,8 +186,6 @@ Cuando compruebe la salida para verificar que tiene el RCF correcto, asegúrese 
 ** El banner de RCF
 ** La configuración del nodo y el puerto
 ** Personalizaciones
-
-
 +
 La salida varía en función de la configuración del sitio. Compruebe la configuración del puerto y consulte las notas de versión para conocer los cambios específicos del RCF que haya instalado.
 
@@ -242,6 +240,8 @@ S2#
 +
 
 NOTE: Al aplicar el RCF por primera vez, se espera el mensaje *ERROR: Error al escribir los comandos VSH* y se puede ignorar.
+
+
 
 . Después de verificar que las versiones de software y los ajustes del switch son correctos, copie el `running-config` en la `startup-config` Archivo en el interruptor S2.
 +

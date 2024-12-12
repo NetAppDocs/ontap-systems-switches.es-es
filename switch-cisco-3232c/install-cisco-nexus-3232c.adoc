@@ -13,7 +13,7 @@ summary: Puede instalar el switch Cisco Nexus 3232C y el panel de paso a través
 [role="lead"]
 En función de la configuración, quizás necesite instalar el switch del clúster Cisco Nexus 3232C y el panel de paso a través de una cabina de NetApp con los soportes estándar que se incluyen con el switch.
 
-.Lo que necesitará
+.Antes de empezar
 * Los requisitos iniciales de preparación, el contenido del kit y las precauciones de seguridad del link:http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus3000/hw/installation/guide/b_n3000_hardware_install_guide.html["Guía de instalación de hardware de Cisco Nexus serie 3000"^].
 * Para cada interruptor, los ocho tornillos 10-32 ó 12-24 y las tuercas de pinza para montar los soportes y rieles deslizantes en los postes del armario delantero y trasero.
 * Kit de guías estándar de Cisco para instalar el switch en un armario de NetApp.

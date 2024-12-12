@@ -17,11 +17,8 @@ Si tiene un clúster _sin switch_ de dos nodos, puede migrar a un clúster _swit
 
 == Revise los requisitos
 
-.Requisitos de migración
-Antes de la migración, asegúrese de revisarla link:migrate-requirements-3232c.html["Requisitos de migración"].
-
-.Lo que necesitará
-Asegúrese de que:
+.Antes de empezar
+Compruebe las siguientes instalaciones y conexiones:
 
 * Los puertos están disponibles para las conexiones de nodos. Los switches de clúster utilizan los puertos de enlace entre switches (ISL) e1/31-32.
 * Tiene los cables adecuados para las conexiones del clúster:
@@ -50,10 +47,6 @@ Los dos nodos deben estar conectados y funcionar en un valor de clúster sin swi
 
 
 
-
-
-== Migrar los switches
-
 .Acerca de los ejemplos
 Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:
 
@@ -77,7 +70,7 @@ Para ello, es necesario utilizar tanto comandos de la ONTAP como comandos de la 
 ====
 
 
-=== Paso 1: Mostrar y migrar puertos físicos y lógicos
+== Paso 1: Mostrar y migrar puertos físicos y lógicos
 
 . Si se habilita AutoSupport en este clúster, elimine la creación automática de casos invocando un mensaje de AutoSupport:
 +
@@ -330,7 +323,7 @@ cluster::*> *network interface migrate -vserver cluster -lif n2_clus1 -source-no
 
 
 
-=== Paso 2: Apague las LIF reasignadas y desconecte los cables
+== Paso 2: Apague las LIF reasignadas y desconecte los cables
 
 . Compruebe que las interfaces del clúster han migrado correctamente:
 +
@@ -445,7 +438,7 @@ Puede consultar la configuración en ejecución y conectar el primer puerto de 4
 
 
 
-=== Paso 3: Habilite los puertos del clúster
+== Paso 3: Habilite los puertos del clúster
 
 . Desconecte el cable del e4a del nodo n2.
 +
@@ -561,7 +554,7 @@ Cluster
 
 
 
-=== Paso 4: Habilite las LIF reasignadas
+== Paso 4: Habilite las LIF reasignadas
 
 . Muestre la conectividad de puerto del clúster en cada nodo:
 +

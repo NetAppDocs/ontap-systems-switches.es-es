@@ -20,7 +20,7 @@ Siga este procedimiento para sustituir un switch Cisco Nexus 3132Q-V defectuoso 
 .Requisitos de switch
 Revise la link:switch-requirements.html["Requisitos para sustituir los switches de clúster Cisco Nexus 3132Q-V."].
 
-.Lo que necesitará
+.Antes de empezar
 * La configuración de clúster y red existente tiene:
 +
 ** La infraestructura de clúster Nexus 3132Q-V es redundante y completamente funcional en ambos switches.

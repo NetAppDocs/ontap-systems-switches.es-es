@@ -29,14 +29,17 @@ Para conocer las directrices de cableado, consulte link:cabling-considerations-s
 
 El conmutador NVIDIA SN2100 es un conmutador 10/25/40/100GbE que ejecuta Cumulus Linux. El conmutador admite lo siguiente:
 
-* ONTAP 9.10.1P3.
+* ONTAP 9.10.1P3 y versiones posteriores
 +
-El switch SN2100 sirve a las aplicaciones de clúster y almacenamiento de ONTAP 9.10.1P3 sobre diferentes pares de switches.
+El switch de SN2100 proporciona aplicaciones de clúster y almacenamiento en ONTAP 9.10.1P3 y versiones posteriores en diferentes pares de switches.
 
-* Versión de Cumulus Linux (CL) OS.
+* Versiones de sistema operativo Cumulus Linux (CL)
 +
-Para descargar el software SN2100 Cumulus de NVIDIA, debe tener credenciales de inicio de sesión para acceder al portal de soporte empresarial de NVIDIA. Consulte el artículo de la base de conocimientos https://kb.netapp.com/onprem/Switches/Nvidia/How_To_Register_With_NVIDIA_For_Enterprise_Support_Portal_Access["Cómo registrarse con NVIDIA para el acceso al portal de soporte empresarial"^].
-Para obtener información actual sobre compatibilidad, consulte https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Switches Ethernet de NVIDIA"^] página de información.
+** Las versiones específicas de CL están cualificadas y son compatibles con NetApp. Para obtener información de compatibilidad actual, consulte la link:https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Información sobre switches Ethernet de NVIDIA"^] página o el link:https://hwu.netapp.com["Hardware Universe de NetApp"^].
+** Para descargar el software SN2100 Cumulus de NVIDIA, debe tener credenciales de inicio de sesión para acceder al portal de soporte empresarial de NVIDIA. Consulte el artículo de la base de conocimientos https://kb.netapp.com/onprem/Switches/Nvidia/How_To_Register_With_NVIDIA_For_Enterprise_Support_Portal_Access["Cómo registrarse con NVIDIA para el acceso al portal de soporte empresarial"^] .
+
+
+
 
 * Puede instalar Cumulus Linux cuando el conmutador esté ejecutando Cumulus Linux o ONIE.
 

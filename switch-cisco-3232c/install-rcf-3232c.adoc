@@ -19,7 +19,7 @@ También puede utilizar este procedimiento para actualizar la versión de RCF. C
 
 == Revise los requisitos
 
-.Lo que necesitará
+.Antes de empezar
 * Una copia de seguridad actual de la configuración del switch.
 * Un clúster en pleno funcionamiento (sin errores en los registros o problemas similares).
 * El archivo de configuración de referencia actual (RCF).

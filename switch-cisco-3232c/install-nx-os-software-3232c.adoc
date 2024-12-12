@@ -17,7 +17,7 @@ Puede utilizar este procedimiento para instalar el software NX-OS en el switch d
 
 == Revise los requisitos
 
-.Lo que necesitará
+.Antes de empezar
 * Una copia de seguridad actual de la configuración del switch.
 * Un clúster en pleno funcionamiento (sin errores en los registros o problemas similares).
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Página del switch Cisco Ethernet"^]. Consulte en la tabla de compatibilidad del switch las versiones ONTAP y NX-OS compatibles.

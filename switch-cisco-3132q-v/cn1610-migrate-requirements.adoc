@@ -1,0 +1,91 @@
+---
+permalink: switch-cisco-3132q-v/cn1610-migrate-requirements.html 
+sidebar: sidebar 
+keywords: install, cisco nexus 3132q-v switch, 
+summary: Antes de configurar los switches Nexus 3132q-v de Cisco, revise la descripción general del proceso y la nomenclatura. 
+---
+= Requisitos de migración
+:allow-uri-read: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los switches Cisco Nexus 3132Q-V se pueden utilizar como switches de clúster en su clúster AFF o FAS. Los switches de clúster permiten crear clústeres de ONTAP con más de dos nodos.
+
+[NOTE]
+====
+Para ello, es necesario utilizar tanto comandos de la ONTAP como comandos de la serie Cisco Nexus 3000; los comandos de la ONTAP se usan a menos que se indique lo contrario.
+
+====
+Para obtener más información, consulte:
+
+* http://support.netapp.com/NOW/download/software/cm_switches_ntap/["Página de descripción de NetApp CN1601 y CN1610"^]
+* http://support.netapp.com/NOW/download/software/cm_switches/["Página de descripción de Cisco Ethernet Switch"^]
+* http://hwu.netapp.com["Hardware Universe"^]
+
+
+
+
+== Requisitos del CN1610
+
+Se admiten los siguientes switches de clúster:
+
+* CN1610 de NetApp
+* Cisco Nexus 3132Q-V
+
+
+Los switches de clúster admiten las siguientes conexiones de nodo:
+
+* NetApp CN1610: Puertos 0/1 a 0/12 (10 GbE)
+* Cisco Nexus 3132Q-V: Puertos e1/1-30 (40/100 GbE)
+
+
+Los switches de clúster utilizan los siguientes puertos de enlace entre switches (ISL):
+
+* NetApp CN1610: Puertos 0/13 a 0/16 (10 GbE)
+* Cisco Nexus 3132Q-V: Puertos e1/31-32 (40/100 GbE)
++
+La link:https://hwu.netapp.com/["Hardware Universe"^] Contiene información sobre el cableado compatible con los switches Nexus 3132Q-V:
+
+* Los nodos con conexiones de clúster de 10 GbE requieren cables de fibra óptica QSFP a SFP+ o cables de cobre QSFP a SFP+
+* Los nodos con conexiones de clúster de 40/100 GbE requieren módulos ópticos QSFP/QSFP28 admitidos con cables de fibra óptica o cables de conexión directa de cobre QSFP/QSFP28
+
+
+El cableado ISL adecuado es el siguiente:
+
+* Comenzando: Para CN1610 a CN1610 (SFP+ a SFP+), cuatro cables de conexión directa o fibra óptica SFP+
+* Provisional: Para CN1610 a Nexus 3132Q-V (QSFP a cuatro SFP+), un cable de fibra óptica o cobre QSFP a SFP+
+* Final: Para Nexus 3132Q-V a Nexus 3132Q-V (QSFP28 a QSFP28), dos cables de conexión directa de cobre o fibra óptica QSFP28
+
+
+Los cables twinax de NetApp no son compatibles con los switches Cisco Nexus 3132Q-V.
+
+Si su configuración actual del CN1610 utiliza cables twinax de NetApp para conexiones clúster-nodo-switch o conexiones ISL y quiere seguir utilizando twinax en su entorno, debe procurar los cables twinax de Cisco. Como alternativa, puede utilizar cables de fibra óptica para las conexiones ISL y las conexiones cluster-nodo-switch.
+
+.Acerca de los ejemplos utilizados
+En los ejemplos de este procedimiento, se describen el reemplazo de switches CN1610 por Cisco switches Nexus 3132Q-V. Puede usar estos pasos (con modificaciones) para otros switches Cisco más antiguos.
+
+El procedimiento también utiliza la siguiente nomenclatura de conmutación y nodo:
+
+* Los resultados del comando pueden variar en función de las diferentes versiones de ONTAP.
+* Los CN1610 interruptores que se van a sustituir son *CL1* y *CL2*.
+* Los switches Nexus 3132Q-V para reemplazar los interruptores CN1610 son *C1* y *C2*.
+* *n1_clus1* es la primera interfaz lógica de clúster (LIF) conectada al conmutador de clúster 1 (CL1 o C1) para el nodo *n1*.
+* *n1_clus2* es el primer LIF de clúster conectado al conmutador de clúster 2 (CL2 o C2) para el nodo *n1*.
+* *n1_clus3* es el segundo LIF conectado al conmutador de cluster 2 (CL2 o C2) para el nodo *n1*.
+* *n1_clus4* es el segundo LIF conectado al conmutador de cluster 1 (CL1 o C1) para el nodo *n1*.
+* El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Descarga del archivo de configuración de referencia del conmutador de red de clúster Cisco®"^] página.
+* Los nodos son *n1*, *n2*, *n3* y *n4*.
+
+
+Los ejemplos de este procedimiento utilizan cuatro nodos:
+
+* Dos nodos utilizan cuatro puertos de interconexión de clúster de 10 GbE: *e0a*, *e0b*, *e0c* y *e0d*.
+* Los otros dos nodos utilizan dos puertos de interconexión de clúster de 40 GbE: *E4A* y *E4E*.
++
+En link:https://hwu.netapp.com/["Hardware Universe"^] la se muestran los puertos de clúster reales de las plataformas.
+
+
+
+.El futuro
+link:cn5596-prepare-to-migrate.html["Prepare la migración"].
