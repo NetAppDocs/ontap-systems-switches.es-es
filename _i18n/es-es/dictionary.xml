@@ -1231,7 +1231,6 @@
   <block id="b6ec5ccd50e4a92a636c1dc432c89581" category="admonition">Los nodos del clúster pueden tardar hasta 5 minutos en informar en buen estado.</block>
   <block id="3c2f18bff391de44b747dd09d73e5d27" category="list-text">En el switch de clúster cs1, apague los puertos conectados a los puertos del clúster de los nodos.</block>
   <block id="50f3bfc2fb822fc9657969a594a33322" category="list-text">Comprobar que las LIF del clúster han migrado a los puertos alojados en el switch cs2. Esto puede tardar unos segundos.</block>
-  <block id="442f3bc68fd4ab1c760b482d02f7ca71" category="list-text">Repita los pasos del 1 al 10 en el interruptor cs1.</block>
   <block id="9baf7dc8ac289c210d4e50f17e9a797c" category="list-text">Habilite la reversión automática en las LIF del clúster.</block>
   <block id="53a0bfa393247902d9ea8fedde7e8132" category="list-text">Reinicie el interruptor cs1. Para activar las LIF de clúster y revertir a sus puertos raíz, haga lo siguiente. Es posible ignorar los eventos "puertos de clúster inactivos" que se informan en los nodos mientras se reinicia el switch.</block>
   <block id="9e9f720a4be60634e28d3a445f01d250" category="list-text">Compruebe que los puertos del switch conectados a los puertos del clúster estén activos.</block>
@@ -3286,7 +3285,6 @@
   <block id="71c348679ba0f5e78ca75e0fe9d0d2c9" category="list-text"><block ref="9b0c8f45dcf821cab50389f012ecc68f" category="inline-link-macro-rx"></block>.</block>
   <block id="b7f670881100cb5015f24ab017668ff1" category="list-text"><block ref="1310b35f96fb7b8136de7cec708b0834" category="inline-link-macro-rx"></block>.</block>
   <block id="61c7408c0e623b660a741b6b2c143251" category="paragraph">Antes de comenzar, complete el procedimiento en <block ref="16a9a5fa8979bab3106e7aad0dfd20d9" category="inline-link-macro-rx"></block>.</block>
-  <block id="afe6bd84cf9f314186e891843eba49cc" category="paragraph"><block ref="41aae7f405e62aa01d791efeede3f9c2" category="inline-link-macro-rx"></block>.</block>
   <block id="d7d7b6e95f5eaa4aa737a8655d363044" category="doc">Instale el switch de almacenamiento 9336C-FX2</block>
   <block id="bdf48d2f813a309e3cc3ed06809298fd" category="paragraph">Siga este procedimiento para instalar el switch de almacenamiento Cisco Nexus 9336C-FX2.</block>
   <block id="a9f489f685a75f04be9a5cd27fff516b" category="list-text">Completado <block ref="5a3227d5bec623ce7f962d3727d7312f" category="inline-link-macro-rx"></block>.</block>
@@ -5185,4 +5183,15 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="6697bf1c75a0d4d8868afeab04858bc3" category="sidebar">Upgrade_switches_3232C</block>
   <block id="253d101ba7a8a0f1e24c1a3b13a1b5b5" category="sidebar">Install_UPGRADE_rcf</block>
   <block id="2b8efdb0e77054ffe22b4bfb75564155" category="sidebar">Instale o actualice la descripción general de RCF</block>
+  <block id="b6503bc6a2e6ede86368a60473711626" category="list-text">Repita los pasos del 1 al 11 en el interruptor cs1.</block>
+  <block id="604f0b8e46b056f4f2f05bb3ea87a5a7" category="inline-link-macro">Instale RCF</block>
+  <block id="f398a91a8a2500b4ebd90095482c2638" category="paragraph"><block ref="032b77b792344ea711cbb6f8f0bfe3cc" category="inline-link-macro-rx"></block>.</block>
+  <block id="ea6719e8ba4a5a7aea0b4185afc5408b" category="summary">Puede instalar el RCF después de configurar el switch de almacenamiento Nexus 9336C-FX2 por primera vez. También puede utilizar este procedimiento para actualizar la versión de RCF.</block>
+  <block id="fc3ebe0c41be566a2062e99eee81c6ba" category="paragraph">Instale el archivo de configuración de referencia (RCF) después de configurar el switch de almacenamiento Nexus 9336C-FX2 por primera vez.</block>
+  <block id="0d54a8a99337a48199414ba38d122135" category="list-text">El switch CS1 y el switch CS2 se encienden y la configuración inicial del switch se ha completado (la dirección IP de gestión y SSH está configurada).</block>
+  <block id="f1de50ac922202c9581e806906499ae8" category="paragraph">Este ejemplo muestra el RCF<block ref="fcd688c0fb8c0256c7fc0b5ca2fd673d" prefix=" " category="inline-code"></block> que se está instalando en el switch CS1:</block>
+  <block id="a697c9a980376d3a62210b2b53d5b0b8" category="list-text">Examine el resultado del banner en<block ref="6d53824b9996e36fd31937e922967215" prefix=" " category="inline-code"></block> el comando. Debe leer y seguir estas instrucciones para garantizar la configuración y el funcionamiento correctos del interruptor.</block>
+  <block id="b0d1465a243b273a8f71d6084fd2c12c" category="list-text">Compruebe que el RCF es la versión más reciente correcta:</block>
+  <block id="7fd5f97719ed93b62ce57a2401ebb179" category="list-text">Después de comprobar que las versiones de RCF y la configuración del switch son correctas, copie el archivo running-config en el archivo startup-config:</block>
+  <block id="f7b017d791fb57f4bbb1b2ce01659ed8" category="paragraph">System Manager de proporciona un flujo de trabajo sencillo y sencillo para la instalación y la configuración del clúster, incluidas la asignación de una dirección IP de gestión de nodos, la inicialización del clúster, la creación de un nivel local, la configuración de protocolos y el aprovisionamiento del almacenamiento inicial.</block>
 </blocks>
