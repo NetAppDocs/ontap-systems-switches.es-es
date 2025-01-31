@@ -16,5 +16,4 @@ Para instalar y configurar software para un switch compartido Cisco Nexus 9336C-
 . link:prepare-nxos-rcf-9336c-shared.html["Prepare la instalación de NX-OS y RCF"].
 . link:install-nxos-software-9336c-shared.html["Instale el software NX-OS"].
 . link:install-nxos-rcf-9336c-shared.html["Instale el RCF"].
-. link:configure-ssh.html["Habilite SSH"].
 

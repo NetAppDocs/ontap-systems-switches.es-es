@@ -694,4 +694,4 @@ Si alguna LIF de clúster no ha regresado a sus puertos raíz, revertirla manual
 
 
 .El futuro
-link:install-nxos-rcf-9336c-shared.html["Instale el archivo de configuración RCF"]
+link:install-nxos-rcf-9336c-shared.html["Instale el RCF"].
