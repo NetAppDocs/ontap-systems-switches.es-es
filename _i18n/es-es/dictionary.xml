@@ -4707,7 +4707,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="c76d1ab1bab3f2bc0c89856d8d6e3d40" category="paragraph">Siga este procedimiento para configurar SNMPv3 para su conmutador específico, que es compatible con CSHM.</block>
   <block id="5fb3828593766d454e79a0dcf52fed9d" category="paragraph">Los siguientes comandos se utilizan para configurar un nombre de usuario SNMPv3 en los conmutadores *Broadcom*, *Cisco* y *NVIDIA*:</block>
   <block id="77f3beca20fcd78f77236507e8d9b4af" category="open-title">Switches Broadcom</block>
-  <block id="89fe808c6ef5fe301085b5abe4406d35" category="paragraph">Configure un OPERADOR DE RED DE nombre de usuario SNMPv3 en los conmutadores Broadcom BES-53248.</block>
   <block id="c59df2c71925eefec8dc03aa685125c8" category="list-text">Para *sin autenticación*:</block>
   <block id="4c58055d9b16c25c354c591188cb27ae" category="list-text">Para *autenticación MD5/SHA*:</block>
   <block id="b00500f501ccb5c8ab2313d810b6ff29" category="list-text">Para autenticación *MD5/SHA con cifrado AES/DES*:</block>
@@ -5193,4 +5192,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="9129459f5b5477d59e1fbb13abc9bbd4" category="admonition">Antes de instalar una nueva versión de software del conmutador y RCF, debe borrar los ajustes del conmutador y realizar la configuración básica. Debe estar conectado al switch mediante la consola serie o haber conservado la información básica de configuración antes de borrar la configuración del switch.</block>
   <block id="4c4876d5d981da2e6943a052d93bb189" category="list-text">Para NX-OS 10,2 y posterior, utilice el<block ref="9c370f72db0e0d920841657ac5268365" prefix=" " category="inline-code"></block> comando para comparar con el archivo RCF guardado en el bootflash. De lo contrario, utilice una herramienta de comparación o de diferencia de terceros.</block>
   <block id="0a306731a6993e7a08026ab2d7ca2d97" category="paragraph">Es posible que necesite actualizar las entradas del archivo host relacionadas con las claves SSH.</block>
+  <block id="8b4a2ab0394283209f67c0b0e8ca9f94" category="list-text">Para la recopilación de registros con switches Broadcom y Cisco, se debe crear un nuevo usuario en el switch para cada configuración con la recopilación de registros habilitada. Estos switches no admiten varias claves SSH para el mismo usuario. Cualquier configuración de recopilación de registros adicional realizada sobrescribe las claves SSH preexistentes para el usuario.</block>
+  <block id="1d768064a88b1cd8a98efaa14d7f9949" category="paragraph">Configure un nombre de usuario SNMPv3 SNMPv3_USER en los conmutadores Broadcom BES-53248.</block>
 </blocks>
