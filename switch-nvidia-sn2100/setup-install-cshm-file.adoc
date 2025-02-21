@@ -11,8 +11,12 @@ summary: Puede utilizar este procedimiento para instalar el archivo de configura
 
 
 [role="lead"]
-Siga este procedimiento para instalar el archivo de configuración correspondiente para la supervisión del estado del switch Ethernet de los switches de clúster NVIDIA. Los modelos admitidos son:
+Siga este procedimiento para instalar el archivo de configuración correspondiente para la supervisión del estado del switch Ethernet de los switches de clúster NVIDIA.
 
+Los modelos admitidos son:
+
+* MSN2100-CB2FC
+* MSN2100-CB2RC
 * X190006-PE
 * X190006-PI
 
@@ -27,6 +31,33 @@ Si su modelo sigue mostrando *OTHER* después de aplicar el archivo de configura
 
 * Asegúrese de que el clúster de ONTAP esté en funcionamiento.
 * Active SSH para utilizar todas las funciones disponibles en CSHM.
+* Borre el `/mroot/etc/cshm_nod/nod_sign/` directorio en todos los nodos:
++
+.. Entra en el infierno:
++
+`system node run -node <name>`
+
+.. Cambiar a privilegio avanzado:
++
+`priv set advanced`
+
+.. Enumere los archivos de configuración en el `/etc/cshm_nod/nod_sign` directorio. Si el directorio existe y contiene archivos de configuración, enumera los nombres de archivo.
++
+`ls /etc/cshm_nod/nod_sign`
+
+.. Elimine todos los archivos NOD correspondientes a sus modelos de switch conectados.
++
+Si no está seguro, elimine todos los archivos NOD para los modelos compatibles enumerados anteriormente y, a continuación, descargue e instale los archivos NOD más recientes para esos mismos modelos.
+
++
+`rm /etc/cshm_nod/nod_sign/<filename>`
+
+.. Confirme que los archivos NOD eliminados ya no están en el directorio:
++
+`ls /etc/cshm_nod/nod_sign`
+
+
+
 
 
 .Pasos
@@ -44,15 +75,19 @@ Si su modelo sigue mostrando *OTHER* después de aplicar el archivo de configura
 ====
 .ONTAP 9.15.1 y versiones posteriores
 --
-* X190006-PE.zip
-* X190006-PI.zip
+* MSN2100-CB2FC-v1.4.zip
+* MSN2100-CB2RC-v1.4.zip
+* X190006-PE-v1.4.zip
+* X190006-PI-v1.4.zip
 
 
 --
 .ONTAP 9.11.1 a 9.14.1
 --
-* X190006-PE_PRIOR_9.15.1.zip
-* X190006-PI_PRIOR_9.15.1.zip
+* MSN2100-CB2FC_PRIOR_R9.15.1-v1.4.zip
+* MSN2100-CB2RC_PRIOR_R9.15.1-v1.4.zip
+* X190006-PE_PRIOR_9.15.1-v1.4.zip
+* X190006-PI_PRIOR_9.15.1-v1.4.zip
 
 
 --
@@ -66,7 +101,7 @@ Si su modelo sigue mostrando *OTHER* después de aplicar el archivo de configura
 +
 [listing, subs="+quotes"]
 ----
-cluster1::> *system cluster-switch configure-health-monitor -node * -package-url 192.168.2.20/usr/download/_[filename.zip]_*
+cluster1::> *system cluster-switch configure-health-monitor -node * -package-url http://192.168.2.20/usr/download/_[filename.zip]_*
 ----
 . Compruebe que el resultado del comando termine con el siguiente texto para su versión de ONTAP:
 
