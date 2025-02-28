@@ -15,7 +15,8 @@ Asegúrese de que:
 * La personalización inicial de los switches Cisco Nexus 9336C-FX2 finaliza para que:
 +
 ** Los switches 9336C-FX2 ejecutan la versión de software recomendada más reciente.
-** Los archivos de configuración de referencia (RCF) se han aplicado a los conmutadores.
+** Confirme que los archivos de configuración de referencia (RFC) se han aplicado por completo a cualquier switch nuevo antes de migrar las LIF a los nuevos switches.
+** Compruebe las configuraciones de funcionamiento e inicio en ambos switches antes de cambiar el tráfico de red.
 ** La personalización de cualquier sitio, como DNS, NTP, SMTP, SNMP, Y SSH, se configuran en los nuevos switches.
 
 

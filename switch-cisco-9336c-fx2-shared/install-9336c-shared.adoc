@@ -25,7 +25,7 @@ Siga estas instrucciones para configurar los switches compartidos Cisco Nexus 93
 .Pasos
 . Monte en rack los switches, las controladoras y las bandejas de almacenamiento NVMe NS224.
 +
-Consulte https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-sw-9336c-install-cabinet/GUID-92287262-E7A6-4A62-B159-7F148097B33B.html["Instrucciones de la estantería"] Para obtener más información sobre cómo montar en rack el switch en un armario NetApp.
+Consulte el link:../switch-cisco-9336c-fx2/install-switch-and-passthrough-panel-9336c-cluster.html["Instrucciones de la estantería"] para obtener información sobre cómo montar en rack el switch en un armario NetApp.
 
 . Encienda los switches, las controladoras y las bandejas de almacenamiento NVMe NS224.
 

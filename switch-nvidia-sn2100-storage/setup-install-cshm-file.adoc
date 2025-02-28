@@ -43,14 +43,14 @@ Si su modelo sigue mostrando *OTHER* después de aplicar el archivo de configura
 +
 `ls /etc/cshm_nod/nod_sign`
 
-.. Elimine todos los archivos NOD correspondientes a sus modelos de switch conectados.
+.. Elimine todos los archivos de configuración correspondientes a los modelos de switch conectados.
 +
-Si no está seguro, elimine todos los archivos NOD para los modelos compatibles enumerados anteriormente y, a continuación, descargue e instale los archivos NOD más recientes para esos mismos modelos.
+Si no está seguro, elimine todos los archivos de configuración de los modelos compatibles enumerados anteriormente y, a continuación, descargue e instale los archivos de configuración más recientes para esos mismos modelos.
 
 +
 `rm /etc/cshm_nod/nod_sign/<filename>`
 
-.. Confirme que los archivos NOD eliminados ya no están en el directorio:
+.. Confirme que los archivos de configuración eliminados ya no están en el directorio:
 +
 `ls /etc/cshm_nod/nod_sign`
 
