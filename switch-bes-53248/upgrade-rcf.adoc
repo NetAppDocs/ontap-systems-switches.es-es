@@ -426,6 +426,7 @@ Configuration Saved!
 (cs2)# *reload*
 Are you sure you would like to reset the system? (y/n) *y*
 ----
+.. Vuelva a iniciar sesión en el switch usando SSH para completar la instalación de RCF.
 
 
 . Tenga en cuenta lo siguiente:
@@ -434,11 +435,78 @@ Are you sure you would like to reset the system? (y/n) *y*
 .. Registre las personalizaciones realizadas en el RCF anterior y aplíquelas al nuevo RCF. Por ejemplo, configurar las velocidades de los puertos o el modo FEC de codificación fija.
 
 
+
+
+[role="tabbed-block"]
+====
+.EFOS versión 3,12.x y posterior
+--
 . Copie el RCF en el bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP.
 +
 Este ejemplo muestra SFTP que se está utilizando para copiar un RCF al bootflash del switch CS2:
 
+
+
+[listing, subs="+quotes"]
+----
+(cs2)# *copy sftp://172.19.2.1/BES-53248-RCF-v1.9-Cluster-HA.txt
+nvram:reference-config*
+Remote Password:**
+Mode........................................... TFTP
+Set Server IP.................................. 172.19.2.1
+Path........................................... //tmp/
+Filename....................................... BES-53248_RCF_v1.9-Cluster-HA.txt
+Data Type...................................... Config Script
+Destination Filename........................... BES-53248_RCF_v1.9-Cluster-HA.scr
+Management access will be blocked for the duration of the transfer
+Are you sure you want to start? (y/n) *y*
+TFTP Code transfer starting...
+File transfer operation completed successfully.
+----
+. Compruebe que el script se ha descargado y guardado con el nombre de archivo que le ha proporcionado:
 +
+`script list`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *script list*
+
+Configuration Script Name                  Size(Bytes)  Date of Modification
+-----------------------------------------  -----------  --------------------
+Reference-config.scr                       2680         2024 05 31 21:54:22
+2 configuration script(s) found.
+2042 Kbytes free.
+----
+. Aplique el script al conmutador:
++
+`script apply`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *script apply reference-config.scr*
+
+Are you sure you want to apply the configuration script? (y/n) *y*
+
+The system has unsaved changes.
+Would you like to save them now? (y/n) *y*
+Config file 'startup-config' created successfully.
+Configuration Saved!
+
+Configuration script 'BES-53248_RCF_v1.9-Cluster-HA.scr' applied.
+----
+
+
+--
+.El resto de las versiones de EFOS
+--
+. Copie el RCF en el bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP.
++
+Este ejemplo muestra SFTP que se está utilizando para copiar un RCF al bootflash del switch CS2:
+
+
+
 [listing, subs="+quotes"]
 ----
 (cs2)# *copy sftp://172.19.2.1/tmp/BES-53248_RCF_v1.9-Cluster-HA.txt
@@ -460,9 +528,6 @@ File transfer operation completed successfully.
 `script list`
 
 +
-.Muestra el ejemplo
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 (cs2)# *script list*
@@ -473,15 +538,11 @@ BES-53248_RCF_v1.9-Cluster-HA.scr          2241         2020 09 30 05:41:00
 
 1 configuration script(s) found.
 ----
-====
 . Aplique el script al conmutador:
 +
 `script apply`
 
 +
-.Muestra el ejemplo
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 (cs2)# *script apply BES-53248_RCF_v1.9-Cluster-HA.scr*
@@ -495,8 +556,11 @@ Configuration Saved!
 
 Configuration script 'BES-53248_RCF_v1.9-Cluster-HA.scr' applied.
 ----
+
+
+--
 ====
-. Examine el resultado del banner desde el `show clibanner` comando. Debe leer y seguir estas instrucciones para asegurarse de que la configuración y el funcionamiento del interruptor son correctos.
+. [[step11]]Examine la salida del banner desde el `show clibanner` comando. Debe leer y seguir estas instrucciones para asegurarse de que la configuración y el funcionamiento del interruptor son correctos.
 +
 `show clibanner`
 
@@ -1042,7 +1106,7 @@ RPC status:
 ----
 --
 ====
-. [[step6]]vuelva a cambiar el nivel de privilegio a admin:
+. Vuelva a cambiar el nivel de privilegio a admin:
 +
 [source, cli]
 ----
