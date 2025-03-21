@@ -1,16 +1,7 @@
----
-permalink: switch-cshm/config-log-collection.html 
-sidebar: sidebar 
-keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation 
-summary: 'La función de recogida de registros del monitor de estado del switch Ethernet (CSHM) se utiliza para recoger registros de clústeres o switches de red de almacenamiento en ONTAP.' 
----
-= Configure la recopilación de registros
+= Antes de empezar
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
-[role="lead"]
 El monitor de estado del switch Ethernet (CSHM) es responsable de garantizar el estado operativo de los conmutadores de red del clúster y de almacenamiento y de recopilar registros del switch para fines de depuración. Este procedimiento lo guía a través del proceso de configuración de la recopilación, solicitando registros detallados de *Soporte* y habilitando una recopilación por hora de datos *Periódicos* que es recopilada por AutoSupport.
 
 *NOTA:* Si habilita el modo FIPS, debe completar lo siguiente:
@@ -240,8 +231,3 @@ cluster1::*> *system switch ethernet log show -instance*
 
 --
 ====
-
-CAUTION: Si la función de recopilación de registros informa de algún estado de error (visible en la salida de `system switch ethernet log show`), consulte link:log-collection-troubleshoot.html["Solución de problemas de recopilación de registros"] para obtener más información.
-
-.El futuro
-link:config-snmpv3.html["Configure SNMPv3 (opcional)"].

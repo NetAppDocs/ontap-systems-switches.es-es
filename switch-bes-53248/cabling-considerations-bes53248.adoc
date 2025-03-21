@@ -68,12 +68,11 @@ Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para obtener 
 == Requisitos de FEC
 
 * Para ver los puertos 25G con cables de cobre, consulte la siguiente tabla para obtener más detalles.
-
-
++
 Si el lado del controlador es de `auto`, El lado del interruptor está ajustado a FEC 25G.
 
 +
-Image:../media/FEC_copper_table.jpg[25G puertos con cables de cobre]
+image::../media/FEC_copper_table.jpg[Puertos 25g con cables de cobre]
 
 * Para los puertos 25G con cables de fibra óptica, consulte la siguiente tabla para obtener más información:
 +
