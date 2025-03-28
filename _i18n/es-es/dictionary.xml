@@ -486,13 +486,9 @@
   <block id="efe6750a163af17e0e2f647d97ffba88" category="list-text">Habilite la función de recogida de registros de control de estado del switch Ethernet para recopilar archivos de registro relacionados con el switch mediante los comandos:<block ref="36ac3c1f3bae8142b5d110fb906ba03e" prefix=" " category="inline-code"></block> y..<block ref="ff5aaae616b6f326cad680284f32b588" prefix=" " category="inline-code"></block></block>
   <block id="d921e67200afe4871cf4670f84d9ecd6" category="list-text">Si ha suprimido la creación automática de casos, vuelva a habilitarla invocando un mensaje de AutoSupport:<block ref="9ac424c0d7b432975df36a19daf50c9c" prefix=" " category="inline-code"></block></block>
   <block id="5a5096484954db754c9fdc1d20f50720" category="summary">Siga este procedimiento para instalar la secuencia de comandos RCF.</block>
-  <block id="3722090c5c0b0496759b23b1db5566cd" category="doc">Instale la secuencia de comandos RCF</block>
-  <block id="2123b47f46a6b2a44de513e0c343098f" category="paragraph">Antes de instalar la secuencia de comandos RCF, asegúrese de que en el conmutador se encuentran disponibles las siguientes opciones:</block>
   <block id="90bd80eefde443be8809a3edf64f7ef2" category="list-text">Dirección IP, máscara de subred y puerta de enlace predeterminada definida a través de DHCP o configurado manualmente.</block>
   <block id="3dd056f4d7006839605c6bd4a990b087" category="paragraph-title">Versiones actuales de la secuencia de comandos RCF</block>
   <block id="526990b43ff7cafabc1a3c5dda4e8c9b" category="paragraph">Hay dos secuencias de comandos RCF disponibles para las aplicaciones de almacenamiento y agrupación en clúster. El procedimiento para cada uno es el mismo.</block>
-  <block id="d43ffd29b9c1918eacb74ce61ab9c93d" category="list-text">Agrupación: *MSN2100-RCF-v1.8-Cluster*</block>
-  <block id="85948408e24eaebde36ef1a070afa259" category="list-text">Almacenamiento: *MSN2100-RCF-v1.8-Storage*</block>
   <block id="47a90a8bc6531c96684b95f438b570ff" category="admonition">El siguiente procedimiento de ejemplo muestra cómo descargar y aplicar el script RCF para los switches de clúster.</block>
   <block id="8e7538255f1b89e8cb901d939793795e" category="admonition">El resultado de ejemplo de comando utiliza la dirección IP de gestión del switch 10.233.204.71, la máscara de red 255.255.254.0 y la pasarela predeterminada 10.233.204.1.</block>
   <block id="cba289d19a283a01be4ec7d5598b25e8" category="list-text">Mostrar las interfaces disponibles en el interruptor SN2100:</block>
@@ -5231,4 +5227,15 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="1422bf436bfd810c807aacf3aab99615" category="paragraph">Después de configurar los switches e instalar el software requerido, acceda a las instrucciones de instalación y configuración para el modelo de plataforma de sistemas ONTAP y complete la configuración del sistema.</block>
   <block id="ce85a54726781b89fe08c28de38285c0" category="paragraph">Después de instalar y configurar las controladoras y los switches de los sistemas ONTAP, debe completar la configuración del almacenamiento en ONTAP. Acceda a las siguientes instrucciones de acuerdo con la configuración de la implementación.</block>
   <block id="674426100287eb3a5e16cf5705c524ea" category="image-alt">Puertos 25g con cables de cobre</block>
+  <block id="ec65012ad6ac37ed9d5b425acfa4cdea" category="doc">Instale o actualice el script Reference Configuration File (RCF)</block>
+  <block id="60db3c5b6db09c40831f96fad7f5b5c4" category="paragraph">Siga este procedimiento para instalar o actualizar el script RCF.</block>
+  <block id="a26beebaedce14e4e55b90d7a8d895f4" category="paragraph">Antes de instalar o actualizar la secuencia de comandos RCF, asegúrese de que los siguientes elementos están disponibles en el conmutador:</block>
+  <block id="3a0aebe04bfa1f6aaf965b9c027512bc" category="open-title">Cumulus Linux 5.4.0</block>
+  <block id="9ec751f6f6fe23e217638410987b5aab" category="open-title">Cumulus Linux 5.11.0</block>
+  <block id="2340bc2649383727b40f4420d1b47844" category="doc">Actualice el script Reference Configuration File (RCF)</block>
+  <block id="8ab41648ed191efe1d9524e2535c7f4d" category="paragraph">Siga este procedimiento para actualizar el script RCF.</block>
+  <block id="b3be7362d2d8f250dc5fcbfaf784efd0" category="paragraph">Antes de actualizar la secuencia de comandos RCF, asegúrese de que están disponibles los siguientes elementos en el conmutador:</block>
+  <block id="997f5023d76908d72d993d6b09390a5e" category="doc">Instale o actualice el script RCF</block>
+  <block id="7baa7758ed49797651dc1e276762ae15" category="list-text">Agrupación en clúster: *MSN2100-RCF-v1._x_-Cluster*</block>
+  <block id="dd584ffba0b7534139645967bf24df84" category="sidebar">Instale o actualice el script RCF</block>
 </blocks>

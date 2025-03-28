@@ -4,17 +4,17 @@ sidebar: sidebar
 keywords: install rcf script, python script, sn2100 SN2100 switches, cumulus 
 summary: Siga este procedimiento para instalar la secuencia de comandos RCF. 
 ---
-= Instale la secuencia de comandos RCF
+= Instale o actualice el script RCF
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga este procedimiento para instalar la secuencia de comandos RCF.
+Siga este procedimiento para instalar o actualizar el script RCF.
 
 .Lo que necesitará
-Antes de instalar la secuencia de comandos RCF, asegúrese de que en el conmutador se encuentran disponibles las siguientes opciones:
+Antes de instalar o actualizar la secuencia de comandos RCF, asegúrese de que los siguientes elementos están disponibles en el conmutador:
 
 * Cumulus Linux 4.4.3 está instalado.
 * Dirección IP, máscara de subred y puerta de enlace predeterminada definida a través de DHCP o configurado manualmente.
@@ -23,8 +23,8 @@ Antes de instalar la secuencia de comandos RCF, asegúrese de que en el conmutad
 .Versiones actuales de la secuencia de comandos RCF
 Hay dos secuencias de comandos RCF disponibles para las aplicaciones de almacenamiento y agrupación en clúster. El procedimiento para cada uno es el mismo.
 
-* Agrupación: *MSN2100-RCF-v1.8-Cluster*
-* Almacenamiento: *MSN2100-RCF-v1.8-Storage*
+* Agrupación en clúster: *MSN2100-RCF-v1._x_-Cluster*
+* Almacenamiento: *MSN2100-RCF-v1._x_-Almacenamiento*
 
 
 
