@@ -29,7 +29,12 @@ El monitor de estado del switch Ethernet (CSHM) es responsable de garantizar el 
 
 * El usuario debe tener acceso a los comandos de cambio `show` . Si no están disponibles, cree un nuevo usuario y otorgue los permisos necesarios al usuario.
 * La monitorización del estado del interruptor debe estar activada para el interruptor. Verifique esto asegurándose de que el `Is Monitored:` el campo se establece en *true* en la salida del `system switch ethernet show` comando.
-* Para la recopilación de registros con switches de Broadcom y Cisco, se debe crear un usuario nuevo en el switch de cada configuración del clúster con la recopilación de registros habilitada. Estos switches no admiten varias claves SSH para el mismo usuario. Cualquier configuración de recopilación de registros adicional realizada sobrescribe las claves SSH preexistentes para el usuario.
+* Para la recopilación de registros con switches Broadcom y Cisco:
++
+** Los usuarios deben tener Privileges de administrador de red.
+** Se debe crear un usuario nuevo en el switch de cada configuración del clúster con la recopilación de registros habilitada. Estos switches no admiten varias claves SSH para el mismo usuario. Cualquier configuración de recopilación de registros adicional realizada sobrescribe las claves SSH preexistentes para el usuario.
+
+
 * Para la recopilación de registros de soporte con conmutadores NVIDIA, se debe permitir que _user_ para la recopilación de registros ejecute `cl-support` el comando sin tener que proporcionar una contraseña. Para permitir este uso, ejecute el comando:
 +
 `echo '_<user>_ ALL = NOPASSWD: /usr/cumulus/bin/cl-support' | sudo EDITOR='tee -a' visudo -f /etc/sudoers.d/cumulus`

@@ -13,6 +13,8 @@ summary: Puede instalar el RCF después de configurar el conmutador Nexus 92300Y
 [role="lead"]
 Puede instalar el RCF después de configurar el conmutador Nexus 92300YC por primera vez. También puede utilizar este procedimiento para actualizar la versión de RCF.
 
+Consulte el artículo de la base de conocimientos link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración en un switch de interconexión de Cisco manteniendo la conectividad remota"^]para obtener más información al instalar o actualizar su RCF.
+
 .Acerca de esta tarea
 Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:
 
