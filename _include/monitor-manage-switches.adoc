@@ -1,0 +1,47 @@
+= Cree una entrada de conmutador para que ONTAP pueda supervisarla
+:allow-uri-read: 
+
+
+
+
+== Cree una entrada de conmutador para que ONTAP pueda supervisarla
+
+Utilice `system switch ethernet create` el comando para configurar y activar manualmente la supervisión de un switch Ethernet especificado. Esto es útil si ONTAP no agrega el conmutador automáticamente, o si ya eliminó el conmutador y desea volver a agregarlo.
+
+[source, cli]
+----
+system switch ethernet create -device DeviceName -address 1.2.3.4 -snmp-version SNMPv2c -community-or-username cshm1! -model NX3132V -type cluster-network
+----
+Un ejemplo típico es agregar un conmutador llamado [DeviceName], con la dirección IP 1,2.3,4, y las credenciales SNMPv2c establecidas en *cshm1!*. Utilice `-type storage-network` en lugar de `-type cluster-network` si va a configurar un switch de almacenamiento.
+
+
+
+== Desactive la supervisión sin eliminar el conmutador
+
+Si desea pausar o detener la supervisión de un determinado conmutador, pero aún así conservarlo para una supervisión futura, modifique su `is-monitoring-enabled-admim` parámetro en lugar de eliminarlo.
+
+Por ejemplo:
+
+[source, cli]
+----
+system switch ethernet modify -device DeviceName -is-monitoring-enabled-admin false
+----
+Esto le permite conservar los detalles del switch y la configuración sin generar nuevas alertas o nuevas detecciones.
+
+
+
+== Retire un interruptor que ya no necesite
+
+Se utiliza `system switch ethernet delete` para eliminar un interruptor que se ha desconectado o que ya no es necesario:
+
+[source, cli]
+----
+system switch ethernet delete -device DeviceName
+----
+De manera predeterminada, este comando solo se ejecuta correctamente si ONTAP no detecta actualmente el switch a través de CDP o LLDP. Para quitar un conmutador detectado, utilice el `-force` parámetro:
+
+[source, cli]
+----
+system switch ethernet delete -device DeviceName -force
+----
+Cuando `-force` se utiliza, el interruptor puede volver a añadirse automáticamente si ONTAP lo detecta de nuevo.

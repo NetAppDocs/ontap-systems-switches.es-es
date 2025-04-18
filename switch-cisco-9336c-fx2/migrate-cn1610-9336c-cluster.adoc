@@ -313,6 +313,10 @@ RPC status:
 ====
 . [[step5]] En el switch C2, apague los puertos conectados a los puertos de cluster de los nodos para conmutar las LIF de cluster.
 +
+
+CAUTION: No intente migrar manualmente las LIF de clúster.
+
++
 [listing, subs="+quotes"]
 ----
 (C2)# *configure*

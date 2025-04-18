@@ -19,6 +19,10 @@ entries:
   entries:
   - title: Información general de la comprobación del estado
     url: "/switch-cshm/monitor-overview.html"
+  - title: Gestione la supervisión del switch
+    url: "/switch-cshm/monitor-manage.html"
+  - title: Compruebe la supervisión del interruptor
+    url: "/switch-cshm/monitor-verify.html"
   - title: Solucionar problemas de alertas
     url: "/switch-cshm/monitor-troubleshoot.html"
 - title: Recopilación de registros
