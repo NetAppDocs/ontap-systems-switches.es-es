@@ -151,11 +151,11 @@ Los siguientes comandos desactivan los puertos orientados al nodo en los switche
 ----
 cumulus@sw1:~$ *nv set interface swp1s0-3,swp2s0-3,swp3-14 link state down*
 cumulus@sw1:~$ *nv config apply*
-cumulus@sw1:~$ *nv save*
+cumulus@sw1:~$ *nv config save*
 
 cumulus@sw2:~$ *nv set interface swp1s0-3,swp2s0-3,swp3-14 link state down*
 cumulus@sw2:~$ *nv config apply*
-cumulus@sw2:~$ *nv save*
+cumulus@sw2:~$ *nv config save*
 ----
 . Compruebe que el ISL y los puertos físicos del ISL entre los dos switches SN2100 sw1 y sw2 están en los puertos swp15 y swp16:
 +

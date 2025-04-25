@@ -3835,7 +3835,6 @@
   <block id="5e7f834bb6ce37fe7786c30951681705" category="list-text">Compruebe que la versión de Cumulus Linux es 4.4.3:<block ref="98f5dff8534e8c39673b544f567273e7" prefix=" " category="inline-code"></block></block>
   <block id="d3197ab8aed6376fa7796149e9bb5d76" category="paragraph">El instalador inicia la descarga. Escriba *y* cuando se le solicite.</block>
   <block id="0d5b4669d0f67490dffe38df0a47c207" category="list-text">La instalación se inicia automáticamente y aparecen las siguientes opciones de pantalla de GRUB. * No* realice ninguna selección.</block>
-  <block id="caf789a40cb327fa8f64258a010c13e0" category="list-text">Compruebe que la versión de Cumulus Linux es 5,4:<block ref="9fcc1ae85aac3dbd490f575cf5eb3d52" prefix=" " category="inline-code"></block></block>
   <block id="ebf243f9c791c52799ecfef9dba7e609" category="doc">Sustituya los switches de clúster CN1610 de NetApp por conexiones sin switches</block>
   <block id="261de3e636d4ab259e73f4993ea87a6a" category="sidebar">Actualice la versión de Cumulus Linux</block>
   <block id="f854d13ce34c20dd774e2f26c0bcbec7" category="paragraph">Para comprobar si su versión de EFOS cumple con FIPS o no cumple con FIPS, utilice<block ref="861d2504fbcbe4985de13f1d87bfc483" prefix=" " category="inline-code"></block> comando. En los siguientes ejemplos, *ip_switch_A1* está utilizando EFOS compatible con FIPS y *ip_switch_A2* está utilizando EFOS no compatible con FIPS.</block>
@@ -5275,4 +5274,12 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="7d446387be9f1d7a1583327a693c81a1" category="paragraph">El monitor de estado del switch Ethernet (CSHM) intenta monitorizar automáticamente los conmutadores que detecta; sin embargo, es posible que la supervisión no se realice automáticamente si los conmutadores no están configurados correctamente. Debe verificar que el monitor de estado esté correctamente configurado para supervisar los switches.</block>
   <block id="a6227aae637a0baad0de1335f2d71396" category="sidebar">Gestione la supervisión del switch</block>
   <block id="5c46a4758dcc5f666eee202daef67af4" category="sidebar">Compruebe la supervisión del interruptor</block>
+  <block id="41cda86775eebf53199061928eb39a74" category="list-text">Instale Cumulus Linux 5.4.0:</block>
+  <block id="a731c9953cb3178b61fd688f2c10ea64" category="list-text">Compruebe que la versión de Cumulus Linux es 5,4.0:<block ref="9fcc1ae85aac3dbd490f575cf5eb3d52" prefix=" " category="inline-code"></block></block>
+  <block id="7fe163201519200ade1c23cd052b6611" category="paragraph">Cuando inicia sesión en el conmutador por primera vez, requiere el nombre de usuario/contraseña de *cumulus*/*cumulus* con<block ref="d338b3f0f405eb5e51c8cc1e5ca66f02" prefix=" " category="inline-code"></block> Privileges.</block>
+  <block id="b133f5ec9f6f691880079c684d878177" category="list-text">Instale Cumulus Linux 5.11.0:</block>
+  <block id="528379fa0d040e8e6455094df07828d8" category="list-text">Compruebe que la versión de Cumulus Linux es 5.11.0:</block>
+  <block id="f90f747e373fe6ad78e15dd0d320ce66" category="paragraph"><block ref="9fcc1ae85aac3dbd490f575cf5eb3d52" prefix="" category="inline-code"></block></block>
+  <block id="fd5f0f669932a550ea7400efc749cfc5" category="list-text">Compruebe que cada nodo tenga una conexión con cada switch:</block>
+  <block id="2d3e15002e9f668635d184afe49a634e" category="paragraph">Consulte<block ref="9fa647797c0e0305f4f3b2116b6db003" category="inline-link-rx"></block> para obtener más información.</block>
 </blocks>
