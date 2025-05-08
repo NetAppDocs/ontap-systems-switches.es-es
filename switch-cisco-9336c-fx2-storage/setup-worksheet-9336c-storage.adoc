@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: document, support, platform, complete, blank, cabling, worksheet, guide, cisco, nexus, cisco nexus 9336c-fx2 cabling worksheet - cisco nexus 9336-fx2 
 summary: Si desea documentar las plataformas compatibles, debe rellenar la hoja de datos de cableado en blanco utilizando la hoja de datos de cableado de muestra completada como guía. 
 ---
-= Rellene la hoja de trabajo del cableado Cisco Nexus 9336C-FX2
+= Complete la hoja de datos de cableado de Nexus 9336C-FX2 o 9336C-FX2-T de Cisco
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,9 +15,15 @@ Si desea documentar las plataformas compatibles, descargue un PDF de esta págin
 
 La hoja de cálculo de cableado de ejemplo proporciona ejemplos de asignaciones de puertos recomendadas desde los switches a las controladoras. La hoja de datos en blanco proporciona una plantilla que puede utilizar para configurar su clúster.
 
+* <<Hoja de trabajo para el cableado de muestras 9336C-FX2>>
+* <<Hoja de trabajo para el cableado en blanco 9336C-FX2>>
+* <<Hoja de datos para el cableado de muestras 9336C-FX2-T (12 puertos)>>
+* <<Hoja de datos para el cableado en blanco de 9336C-FX2-T (12 puertos)>>
 
 
-== Hoja de trabajo para el cableado de muestra
+
+
+== Hoja de trabajo para el cableado de muestras 9336C-FX2
 
 La definición de puerto de ejemplo de cada par de conmutadores es la siguiente:
 
@@ -437,7 +443,7 @@ La definición de puerto de ejemplo de cada par de conmutadores es la siguiente:
 |===
 
 
-== Hoja de trabajo de cableado en blanco
+== Hoja de trabajo para el cableado en blanco 9336C-FX2
 
 Puede utilizar la hoja de datos de cableado vacía para documentar las plataformas que se admiten como nodos de un clúster. La sección _Cluster Connections_ del https://hwu.netapp.com["Hardware Universe"^] define los puertos de clúster que utiliza la plataforma.
 
@@ -769,3 +775,249 @@ Puede utilizar la hoja de datos de cableado vacía para documentar las plataform
  a| 
 
 |===
+
+
+== Hoja de datos para el cableado de muestras 9336C-FX2-T (12 puertos)
+
+La definición de puerto de ejemplo de cada par de conmutadores es la siguiente:
+
+[cols="1,3,1,3"]
+|===
+2+| Switch de clúster a 2+| Switch del clúster B 
+
+
+| Puerto del switch | Uso de nodos y puertos | Puerto del switch | Uso de nodos y puertos 
+
+
+ a| 
+1
+ a| 
+4 nodos de 100 GbE 1
+ a| 
+1
+ a| 
+4 nodos de 100 GbE 1
+
+
+
+ a| 
+2
+ a| 
+4 nodos de 100 GbE 2
+ a| 
+2
+ a| 
+4 nodos de 100 GbE 2
+
+
+
+ a| 
+3
+ a| 
+4 nodos de 100 GbE 3
+ a| 
+3
+ a| 
+4 nodos de 100 GbE 3
+
+
+
+ a| 
+4
+ a| 
+4 nodos de 100 GbE 4
+ a| 
+4
+ a| 
+4 nodos de 100 GbE 4
+
+
+
+ a| 
+5
+ a| 
+4 nodos de 100 GbE 5
+ a| 
+5
+ a| 
+4 nodos de 100 GbE 5
+
+
+
+ a| 
+6
+ a| 
+4 nodos de 100 GbE 6
+ a| 
+6
+ a| 
+4 nodos de 100 GbE 6
+
+
+
+ a| 
+7
+ a| 
+4 nodos de 100 GbE 7
+ a| 
+7
+ a| 
+4 nodos de 100 GbE 7
+
+
+
+ a| 
+8
+ a| 
+4 nodos de 100 GbE 8
+ a| 
+8
+ a| 
+4 nodos de 100 GbE 8
+
+
+
+ a| 
+9
+ a| 
+4 nodos de 100 GbE 9
+ a| 
+9
+ a| 
+4 nodos de 100 GbE 9
+
+
+
+ a| 
+10
+ a| 
+4 nodos de 100 GbE 10
+ a| 
+10
+ a| 
+4 nodos de 100 GbE 10
+
+
+
+ a| 
+11 a 36
+ a| 
+Requiere licencia
+ a| 
+11 hasta 36
+ a| 
+Requiere licencia
+
+|===
+
+
+== Hoja de datos para el cableado en blanco de 9336C-FX2-T (12 puertos)
+
+Puede utilizar la hoja de datos de cableado vacía para documentar las plataformas que se admiten como nodos de un clúster.
+
+[cols="1, 1, 1, 1"]
+|===
+2+| Switch de clúster a 2+| Switch del clúster B 
+
+
+ a| 
+1
+ a| 
+ a| 
+1
+ a| 
+
+
+
+ a| 
+2
+ a| 
+ a| 
+2
+ a| 
+
+
+
+ a| 
+3
+ a| 
+ a| 
+3
+ a| 
+
+
+
+ a| 
+4
+ a| 
+ a| 
+4
+ a| 
+
+
+
+ a| 
+5
+ a| 
+ a| 
+5
+ a| 
+
+
+
+ a| 
+6
+ a| 
+ a| 
+6
+ a| 
+
+
+
+ a| 
+7
+ a| 
+ a| 
+7
+ a| 
+
+
+
+ a| 
+8
+ a| 
+ a| 
+8
+ a| 
+
+
+
+ a| 
+9
+ a| 
+ a| 
+9
+ a| 
+
+
+
+ a| 
+10
+ a| 
+ a| 
+10
+ a| 
+
+
+
+ a| 
+11 hasta 36
+ a| 
+Requiere licencia
+ a| 
+11 hasta 36
+ a| 
+Requiere licencia
+
+|===
+Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obtener más información sobre los puertos de switch.

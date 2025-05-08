@@ -13,7 +13,16 @@ summary: Descripción general de la configuración de software de los switches d
 [role="lead"]
 Para instalar y configurar el software para un switch de almacenamiento Cisco Nexus 9336C-FX2, siga estos pasos:
 
-. link:install-nxos-overview-9336c-storage.html["Prepare la instalación de NX-OS y RCF"].
-. link:install-nxos-software-9336c-storage.html["Instale el software NX-OS"].
-. link:install-rcf-software-9336c-storage.html["Instale el archivo de configuración RCF"].
+. link:install-nxos-overview-9336c-storage.html["Prepárese para instalar o actualizar NX-OS y RCF"].
++
+Los archivos de configuración de referencia y el software del sistema operativo Cisco NX deben instalarse en los switches de almacenamiento Nexus 9336C-FX2 de Cisco.
+
+. link:install-nxos-software-9336c-storage.html["Instale o actualice el software NX-OS"].
++
+Descargue e instale o actualice el software NX-OS en el switch de almacenamiento Nexus 9336C-FX2 de Cisco.
+
+. link:install-rcf-software-9336c-storage.html["Instale o actualice el archivo de configuración de RCF"].
++
+Instale o actualice el RCF después de configurar por primera vez el switch de almacenamiento Nexus 9336C-FX2 de Cisco. También puede utilizar este procedimiento para actualizar la versión de RCF.
+
 

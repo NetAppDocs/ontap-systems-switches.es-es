@@ -3236,11 +3236,8 @@
   <block id="5d9de0e2f02eef0f18faf016853f64f1" category="paragraph">Puede migrar switches de clústeres Cisco antiguos para un clúster ONTAP a switches de red de almacenamiento Cisco Nexus 9336C-FX2. Este procedimiento no es disruptivo.</block>
   <block id="67d5e20869589f0918ed05c9043d464e" category="doc">Requisitos de configuración de los switches de almacenamiento Cisco Nexus 9336C-FX2</block>
   <block id="f7e805a3990d48e19a46ec4fde6da923" category="doc">Requisitos de documentación de los switches de almacenamiento Cisco Nexus 9336C-FX2</block>
-  <block id="3400393cfec64dc64502f39cb4a4af0a" category="doc">Los componentes y números de pieza de los switches de almacenamiento Cisco Nexus 9336C-FX2</block>
   <block id="28bf994f815d27dac3c1004bf80f120f" category="summary">Descripción general de la configuración de software de los switches de almacenamiento Cisco Nexus 9336C-FX2</block>
   <block id="f9e6915ed9211156a642e6217fe3d08c" category="doc">Flujo de trabajo de instalación de software para los switches de almacenamiento Cisco Nexus 9336C-FX2</block>
-  <block id="04d079026b4a7b63a084b7ab24426723" category="list-text"><block ref="16a9a5fa8979bab3106e7aad0dfd20d9" category="inline-link-macro-rx"></block>.</block>
-  <block id="71c348679ba0f5e78ca75e0fe9d0d2c9" category="list-text"><block ref="9b0c8f45dcf821cab50389f012ecc68f" category="inline-link-macro-rx"></block>.</block>
   <block id="61c7408c0e623b660a741b6b2c143251" category="paragraph">Antes de comenzar, complete el procedimiento en <block ref="16a9a5fa8979bab3106e7aad0dfd20d9" category="inline-link-macro-rx"></block>.</block>
   <block id="d7d7b6e95f5eaa4aa737a8655d363044" category="doc">Instale el switch de almacenamiento 9336C-FX2</block>
   <block id="bdf48d2f813a309e3cc3ed06809298fd" category="paragraph">Siga este procedimiento para instalar el switch de almacenamiento Cisco Nexus 9336C-FX2.</block>
@@ -4381,7 +4378,6 @@ Para los puertos de switch e0a y e0b, la configuración fec se establece en<bloc
   <block id="5640915560bc663196a684ebfc6fa2ec" category="admonition">Antes de instalar una nueva versión de software del conmutador y RCF, debe borrar los ajustes del conmutador y realizar la configuración básica. Debe estar conectado al switch mediante la consola serie o haber conservado la información básica de configuración antes de borrar la configuración del switch.</block>
   <block id="1b49e113d2db8aa6503efc6ca4257925" category="paragraph">Para instalar y configurar el software para un switch Cisco Nexus 9336C-FX2 y para instalar o actualizar el archivo de configuración de referencia (RCF), siga estos pasos:</block>
   <block id="2d667925d48008850336e0d43e4d4306" category="sidebar">Conmutador del grupo de instrumentos: Broadcom BES-53248</block>
-  <block id="fc01f4074d379d0722eb2fa3b21e6af4" category="sidebar">Switch de almacenamiento: Cisco Nexus 9336C-FX2</block>
   <block id="caf5170cbc1f4850f6d380c982fa61f9" category="sidebar">Switch de almacenamiento - NVIDIA SN2100</block>
   <block id="6f738209e5071a9c22c8d336c6dec7a1" category="sidebar">Switch compartido: Cisco Nexus 9336C-FX2</block>
   <block id="a306bc0f90914bd9715854d664b6505a" category="sidebar">Switch de cluster: Cisco Nexus 3232c</block>
@@ -5098,8 +5094,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="253d101ba7a8a0f1e24c1a3b13a1b5b5" category="sidebar">Install_UPGRADE_rcf</block>
   <block id="2b8efdb0e77054ffe22b4bfb75564155" category="sidebar">Instale o actualice la descripción general de RCF</block>
   <block id="b6503bc6a2e6ede86368a60473711626" category="list-text">Repita los pasos del 1 al 11 en el interruptor cs1.</block>
-  <block id="604f0b8e46b056f4f2f05bb3ea87a5a7" category="inline-link-macro">Instale RCF</block>
-  <block id="f398a91a8a2500b4ebd90095482c2638" category="paragraph"><block ref="032b77b792344ea711cbb6f8f0bfe3cc" category="inline-link-macro-rx"></block>.</block>
   <block id="ea6719e8ba4a5a7aea0b4185afc5408b" category="summary">Puede instalar el RCF después de configurar el switch de almacenamiento Nexus 9336C-FX2 por primera vez. También puede utilizar este procedimiento para actualizar la versión de RCF.</block>
   <block id="fc3ebe0c41be566a2062e99eee81c6ba" category="paragraph">Instale el archivo de configuración de referencia (RCF) después de configurar el switch de almacenamiento Nexus 9336C-FX2 por primera vez.</block>
   <block id="0d54a8a99337a48199414ba38d122135" category="list-text">El switch CS1 y el switch CS2 se encienden y la configuración inicial del switch se ha completado (la dirección IP de gestión y SSH está configurada).</block>
@@ -5131,7 +5125,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="701f1b96f3c7f1e9d631ebd244cb5751" category="list-text">[[STEP_10]]Mueva todos los cables de conexión de nodo de clúster del antiguo conmutador CS2 al nuevo conmutador CS2-new.</block>
   <block id="e443d0981e8ed96d62afd1a1990bd924" category="list-text"><block ref="e1c53d78ceb09f1d765f98cd902707bb" category="inline-link-macro-rx"></block>.</block>
   <block id="dbe9b3c650ae4dca2117921c884a54d2" category="paragraph"><block ref="dbe9b3c650ae4dca2117921c884a54d2" category="inline-link-macro-rx"></block></block>
-  <block id="04809177ba282c138a7aa6bfb72e2303" category="list-text"><block ref="a01edf94205db0a19942e0d6099d8722" category="inline-link-macro-rx"></block>.</block>
   <block id="4e83c3d43e8660c85f2e2b6e1374c91c" category="inline-link">Descarga del software NVIDIA SN2100</block>
   <block id="618905d758007147320232ab81a98bf3" category="paragraph">Hay dos scripts de RCF disponibles para las aplicaciones de clúster y almacenamiento. Descargar RCFs de<block ref="5baf2e10c7d5342617f6966efa0bb2fe" category="inline-link-rx"></block> la página. El procedimiento para cada uno es el mismo.</block>
   <block id="ad1d45bcb656bf91a079869a2361d735" category="open-title">Cumulus Linux 5,4</block>
@@ -5282,4 +5275,26 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="f90f747e373fe6ad78e15dd0d320ce66" category="paragraph"><block ref="9fcc1ae85aac3dbd490f575cf5eb3d52" prefix="" category="inline-code"></block></block>
   <block id="fd5f0f669932a550ea7400efc749cfc5" category="list-text">Compruebe que cada nodo tenga una conexión con cada switch:</block>
   <block id="2d3e15002e9f668635d184afe49a634e" category="paragraph">Consulte<block ref="9fa647797c0e0305f4f3b2116b6db003" category="inline-link-rx"></block> para obtener más información.</block>
+  <block id="bbcb5718db64a8649c57a997d2183a81" category="doc">Componentes y números de pieza para Cisco switches de almacenamiento Nexus 9336C-FX2 y 9336C-FX2-T.</block>
+  <block id="666618fc10fce8f3b4f820a79b261925" category="paragraph">Para la instalación y el mantenimiento de switches de almacenamiento Nexus 9336C-FX2 y 9336C-FX2-T de Cisco, asegúrese de revisar la lista de componentes y números de pieza.</block>
+  <block id="bcf1c9a6a953488392920f911a4c6e27" category="paragraph">En la siguiente tabla, se enumeran el número de pieza y la descripción de los switches de almacenamiento 9336C-FX2 y 9336C-FX2-T, los ventiladores y las fuentes de alimentación:</block>
+  <block id="6aea76bb63b89b76edb29df0b9ec6a5c" category="paragraph">Para activar más de 12 puertos en su switch de almacenamiento Cisco Nexus 9336C-FX-T, debe comprar una licencia inteligente de Cisco. Las licencias inteligentes de Cisco se administran a través de cuentas inteligentes de Cisco.</block>
+  <block id="486f6cef9658a94ea0e8481d338c8731" category="inline-link-macro">Prepárese para instalar o actualizar NX-OS y RCF</block>
+  <block id="cf4832dd28d118309d2f6c0876305046" category="list-text"><block ref="e5f492b430e8de7875c503f2b852cd3a" category="inline-link-macro-rx"></block>.</block>
+  <block id="705b6850dddbfe6b367ca004cdb81e84" category="paragraph">Los archivos de configuración de referencia y el software del sistema operativo Cisco NX deben instalarse en los switches de almacenamiento Nexus 9336C-FX2 de Cisco.</block>
+  <block id="a6a461c906e8688722889f2c90a05dc6" category="list-text"><block ref="6dc839faa17719bf6b40745660551f1b" category="inline-link-macro-rx"></block>.</block>
+  <block id="70063dc155fa44f702c217b40ef8728d" category="paragraph">Descargue e instale o actualice el software NX-OS en el switch de almacenamiento Nexus 9336C-FX2 de Cisco.</block>
+  <block id="8a02ca115681b126dca577f1f6f131d2" category="inline-link-macro">Instale o actualice el archivo de configuración de RCF</block>
+  <block id="fa9c04836ba5db2ddb9b054eaadde9fb" category="list-text"><block ref="57ef8950ea8b8ce917fe71b18539d249" category="inline-link-macro-rx"></block>.</block>
+  <block id="acad94fe6722949aaca018960b96e0c5" category="paragraph">Instale o actualice el RCF después de configurar por primera vez el switch de almacenamiento Nexus 9336C-FX2 de Cisco. También puede utilizar este procedimiento para actualizar la versión de RCF.</block>
+  <block id="a143b24cc23f6618527f9d83f617bfbb" category="paragraph">Configure el switch de almacenamiento Nexus 9336C-FX2 de Cisco.</block>
+  <block id="438daf8c6636a41fd3ae27035a449b5e" category="paragraph">Instale o actualice el software NX-OS en el switch de almacenamiento Nexus 9336C-FX2.</block>
+  <block id="0da3cc28f42ccf09143f2cd285547a2a" category="doc">Prepárese para instalar o actualizar el software NX-OS y RCF</block>
+  <block id="7246a16d8a655c05a2c1f478efbf9e66" category="inline-link-macro">Instalar o actualizar RCF</block>
+  <block id="223e0b1e9b4b36b5a5ac5856c9d2b263" category="paragraph"><block ref="54d6784a897a7a3dfd3c9197dcd4475c" category="inline-link-macro-rx"></block>.</block>
+  <block id="c41f329c2fc325ce101685a7ff1c2b6c" category="doc">Instale o actualice el archivo de configuración de referencia</block>
+  <block id="78fdfe1b105d9f6ad1f515d29394fcd3" category="paragraph">11 a 36</block>
+  <block id="20eed5f0dc87e5058308718e45381220" category="paragraph">11 hasta 36</block>
+  <block id="000bf48a29e422b515b1396c1aac3f2c" category="paragraph">Puede utilizar la hoja de datos de cableado vacía para documentar las plataformas que se admiten como nodos de un clúster.</block>
+  <block id="af9181560cc346780cf6974ca9209401" category="sidebar">Switch de almacenamiento: Nexus 9336C-FX2 o 9336C-FX2-T de Cisco</block>
 </blocks>
