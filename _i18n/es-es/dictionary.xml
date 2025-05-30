@@ -3034,7 +3034,6 @@
   <block id="ed312396f5e29fbaef2e7ca8c0d4ba24" category="paragraph">Los LIF de los nodos del clúster ya deberían haber realizado la conmutación al otro puerto del clúster para cada nodo.</block>
   <block id="dc7cbbd12569ee34a303efcc2144c3cd" category="paragraph"><block ref="76c2debb2eab1cd32b18bd3cb1e927ba" prefix="" category="inline-code"></block></block>
   <block id="4aaaac13f30d8fbefcfbb3e31606aa24" category="list-text">Apague los puertos ISL swp15 y swp16 en el conmutador SN2100 sw1.</block>
-  <block id="1e3aa7ec0312557863e948b7ed8ae901" category="paragraph">+ el siguiente ejemplo muestra que los puertos ISL están activos en el switch nsw2:</block>
   <block id="edbff14541725a88fdfe9357e39df1e9" category="list-text">Compruebe que el puerto<block ref="969d430598a257671bdf944480e4d46b" prefix=" " category="inline-code"></block> está activo en todos los nodos:</block>
   <block id="017b98ea9ee2c66de5b1317a31211689" category="list-text">Compruebe que todos los puertos de clúster del nodo estén activos:</block>
   <block id="a38ceeb006478442a9d71fea4faa1bec" category="list-text">Compruebe que la red de clúster esté en buen estado.</block>
@@ -3816,14 +3815,12 @@
   <block id="d62448073473e6946178f647bcbfbf0e" category="paragraph">Complete el siguiente procedimiento para actualizar la versión de Cumulus Linux según sea necesario.</block>
   <block id="0fc8a779fbe2ae3a05240b53435f18cf" category="admonition">Cada vez que se actualiza Cumulus Linux, se borra y reconstruye toda la estructura del sistema de archivos. La configuración existente se borrará. Debe guardar y registrar la configuración del switch antes de actualizar Cumulus Linux.</block>
   <block id="0d151e82f107d3039ec4952c010d46c4" category="admonition">La contraseña predeterminada para la cuenta de usuario de cumulus es *cumulus*. La primera vez que inicie sesión en Cumulus Linux, debe cambiar esta contraseña predeterminada. Debe actualizar todos los scripts de automatización antes de instalar una imagen nueva. Cumulus Linux proporciona opciones de línea de comandos para cambiar automáticamente la contraseña predeterminada durante el proceso de instalación.</block>
-  <block id="324fe5adbd1d84e1635133b2f3572f6d" category="open-title">De Cumulus Linux 4,4.x a Cumulus Linux 5.x</block>
   <block id="6e86c333c0b662bb6dee3495ec26ec21" category="list-text">Compruebe la versión actual de Cumulus Linux y los puertos conectados:</block>
   <block id="a034a19ca9c1623f94c8f52b386d5a41" category="list-text">Cambie la contraseña:</block>
   <block id="d853eef2a857cbfcf5b1ef1abe8db17e" category="list-text">Compruebe la versión de Cumulus Linux:<block ref="9fcc1ae85aac3dbd490f575cf5eb3d52" prefix=" " category="inline-code"></block></block>
   <block id="985599684d8f5a06353d35110138f1b2" category="list-text">Cambie el nombre de host:</block>
   <block id="0e991c1ef237b6e2304639c4e67230ec" category="list-text">Cierre la sesión e inicie sesión en el conmutador de nuevo para ver el nombre del conmutador actualizado en el prompt:</block>
   <block id="9452c986bddec0ffc4c1e4393d954d4a" category="list-text">Establezca la dirección IP:</block>
-  <block id="b0255cc355effdccf079c37dfed7930c" category="open-title">De Cumulus Linux 5.x a Cumulus Linux 5.x</block>
   <block id="65a9f174ce483d8b53a1a174dc734625" category="list-text">Descargue la imagen de Cumulux Linux 5.4.0:</block>
   <block id="ae9c690e9fad2f5c57259599dd4505b1" category="list-text">Cierre la sesión y vuelva a iniciar sesión en el conmutador para ver el nombre del conmutador actualizado en el prompt:</block>
   <block id="db20376829e65eac071b27b68736377d" category="paragraph">Cluster Switch, NVIDIA SN2100, 16PT 100GbE, PTSX</block>
@@ -4548,7 +4545,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="65c65b976cfab8bcc3a5fa282181ca5b" category="paragraph">Siga este procedimiento para instalar el archivo de configuración correspondiente para la supervisión del estado del switch Ethernet de los switches de clúster NVIDIA. Los modelos admitidos son:</block>
   <block id="164a0cea1831b06a7fa67aab2e9a5d98" category="admonition">Este procedimiento de instalación se aplica a ONTAP 9.10.1 y versiones posteriores.</block>
   <block id="dd7fa1380804217cf2f3af00bb585752" category="list-text">Verifique que necesita descargar el archivo de configuración ejecutando<block ref="db3929a8e897b02a87f7f4bc42f38fc1" prefix=" " category="inline-code"></block> y comprobando si se muestra *OTHER* para su modelo.</block>
-  <block id="3953f2c946249817a198b9dd2d604aa4" category="paragraph">Si su modelo sigue mostrando *OTHER* después de aplicar el archivo de configuración, póngase en contacto con el servicio de asistencia técnica de NetApp.</block>
   <block id="294206f940bbd4f3ec7f79996b76c616" category="list-text">Asegúrese de que el clúster de ONTAP esté en funcionamiento.</block>
   <block id="c2c0a6bc429d35a2d508307c899f4398" category="list-text">Active SSH para utilizar todas las funciones disponibles en CSHM.</block>
   <block id="0cfea6e2910f570cd17c24fb74c90378" category="inline-link">Switches Ethernet de NVIDIA</block>
@@ -4614,8 +4610,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="2ded3ff3862adfc6f54d2a2f3ebf1147" category="paragraph">*NOTA:* Si habilita el modo FIPS, debe completar lo siguiente:</block>
   <block id="ca243f374acfb56a77236e0d30935f7f" category="list-text">El usuario debe tener acceso a los comandos de cambio<block ref="a7dd12b1dab17d25467b0b0a4c8d4a92" prefix=" " category="inline-code"></block> . Si no están disponibles, cree un nuevo usuario y otorgue los permisos necesarios al usuario.</block>
   <block id="098a6be90d7d0f41999537981c29585d" category="open-title">ONTAP 9.14.1 y anteriores</block>
-  <block id="bec82052a92013a93a38547be5743fc2" category="list-text">Para solicitar la recopilación de registros de soporte y activar la recopilación periódica, ejecute el siguiente comando. Esto inicia ambos tipos de recopilación de registros: Los registros detallados<block ref="db5eb84117d06047c97c9a0191b5fffe" prefix=" " category="inline-code"></block> y una recogida de datos por hora<block ref="cdcc32a064503184053bd2018d1c0e7e" prefix=" " category="inline-code"></block> .</block>
-  <block id="d35634a11eab667045ca1f93a9aae3e4" category="list-text">Activar Recopilación Periódica de Log:</block>
   <block id="679c69dadfb9ebf6a73c6cb1e48f610e" category="list-text">Solicitar recogida de registros de soporte:</block>
   <block id="9c7ca9d82e20f27a701fcb23071651ef" category="list-text">Para ver todos los detalles de la recogida de registros, incluida la habilitación, el mensaje de estado, la marca de hora y el nombre de archivo anteriores de la recogida periódica, el estado de la solicitud, el mensaje de estado, y la marca de hora y el nombre de archivo anteriores de la recogida de soporte, utilice lo siguiente:</block>
   <block id="da28641e557d1527788801659dc81fd5" category="inline-link-macro">Solución de problemas de recopilación de registros</block>
@@ -4626,10 +4620,7 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="ec5440e4cc2d261dc76dac84e641c0ab" category="list-text"><block ref="ec5440e4cc2d261dc76dac84e641c0ab" category="inline-link-macro-rx"></block></block>
   <block id="5b62a4b03175f138ff64effec2560ed7" category="summary">Puede utilizar este procedimiento para configurar SNMPv3 para su conmutador específico, que admite la monitorización de estado de conmutador Ethernet (CSHM).</block>
   <block id="7e26b49f49bdf462799729889a55fd9a" category="doc">Opcional: Configure SNMPv3 para su switch</block>
-  <block id="476d803e2d152b994f42b3899dd8b1eb" category="paragraph">SNMP se utiliza para supervisar los switches. El monitor de estado del switch Ethernet (CSHM) utiliza SNMP para supervisar el estado y el rendimiento del clúster y los switches de almacenamiento. De forma predeterminada, SNMPv2c se configura automáticamente a través del archivo de configuración de referencia (RCF).</block>
-  <block id="8e55417d823d2c594db1981ae6621e55" category="paragraph">SNMPv3 es más seguro que SNMPv2 porque introduce características de seguridad robustas como la autenticación, el cifrado y la integridad de los mensajes, que protegen contra el acceso no autorizado y garantizan la confidencialidad y la integridad de los datos durante la transmisión.</block>
   <block id="1451684986f1c945fdb4e4f2a8b904be" category="admonition">SNMPv3 solo es compatible con ONTAP 9.12.1 y versiones posteriores.</block>
-  <block id="c76d1ab1bab3f2bc0c89856d8d6e3d40" category="paragraph">Siga este procedimiento para configurar SNMPv3 para su conmutador específico, que es compatible con CSHM.</block>
   <block id="5fb3828593766d454e79a0dcf52fed9d" category="paragraph">Los siguientes comandos se utilizan para configurar un nombre de usuario SNMPv3 en los conmutadores *Broadcom*, *Cisco* y *NVIDIA*:</block>
   <block id="77f3beca20fcd78f77236507e8d9b4af" category="open-title">Switches Broadcom</block>
   <block id="c59df2c71925eefec8dc03aa685125c8" category="list-text">Para *sin autenticación*:</block>
@@ -4639,8 +4630,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="760c6e9b6b587e6f977e0e7116b69f45" category="paragraph">El siguiente comando establece el nombre de usuario SNMPv3 con CSHM:</block>
   <block id="250f3098aa37d3a08b48b8157db8a62e" category="open-title">Switches Cisco</block>
   <block id="0fdfed50bdfb7a964741d7f6016dd332" category="paragraph">Configure un nombre de usuario SNMPv3_USER de SNMPv3 en switches Cisco 9336C-FX2:</block>
-  <block id="e1df47a492be7a2e244ccb9b079d5cf3" category="open-title">NVIDIA: CLI 5,4</block>
-  <block id="108965fef02b86b124e7f3d9a56db931" category="paragraph">Configure un nombre de usuario SNMPv3 SNMPv3_USER en los switches NVIDIA SN2100 que ejecutan CLI 5,4:</block>
   <block id="1c76d98a8c6bdaf19a0c6e69ecd5d74b" category="doc">Descripción general del monitor de estado del switch</block>
   <block id="5c1a7fd59da01d98a9fa4672044477e2" category="summary">Puede utilizar los comandos proporcionados....</block>
   <block id="28498a71a5aca6b62e077f2dc8cf0ccb" category="doc">Descripción general de la recopilación de registros</block>
@@ -4840,7 +4829,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="7db58b1ced05f0a1e8e0257017cd6c5b" category="list-text">Aplique el script python de RCF *MSN2100-RCF-v1._x_-Cluster-HA-Breakout-LLDP*.</block>
   <block id="11b037d97237564e7d301df86420a468" category="inline-link">Instalación de una nueva imagen de Cumulus Linux</block>
   <block id="ab12f4d1e56479a81a361f6109b978de" category="paragraph">Consulte<block ref="63da15f7ab7ce2a7550fdbf1e5e5d879" category="inline-link-rx"></block> para obtener más información.</block>
-  <block id="43622a7160f0cabed379e73776c14454" category="list-text">Descargue la imagen de Cumulux Linux 5.x:tmp</block>
   <block id="855b205ca9b9bd2b02453dbd19fc65b7" category="list-text">Los ejemplos de este procedimiento emplean cuatro nodos: Dos nodos utilizan cuatro puertos de interconexión de clúster de 10 GbE: E0a, e0b, e0c y e0d. Los otros dos nodos utilizan dos puertos de interconexión de clúster de 40 GbE: e4a y e4e. En <block ref="cbfe825e8e02458e2eef3cd048612d7d" category="inline-link-macro-rx"></block> la se muestran los puertos de clúster reales de las plataformas.</block>
   <block id="66f3f703ef307f85603b46a4acbb712b" category="list-text">El número de puertos de 10 GbE y 40 GbE se define en los archivos de configuración de referencia (RFC) disponibles en<block ref="cce23acfce4c9bc9bb74fd35873aedf2" category="inline-link-rx"></block> la página.</block>
   <block id="9f71b0536f9236a6977f9a70d6395a33" category="list-text">Los nodos con conexiones a clúster de 40 GbE requieren módulos ópticos QSFP/QSFP28 compatibles con cables de fibra o cables de conexión directa de cobre QSFP/QSFP28.</block>
@@ -4868,7 +4856,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="a79e81ac0a0322d06f217ec1313f9c2b" category="list-text">En los switches Nexus 3132Q-V, puede operar puertos QSFP/QSFP28 como modos Ethernet de 40 Gb o Ethernet de 4x 10 Gb.</block>
   <block id="427172b130a849e724ec686d49e97727" category="list-text">Debe haber configurado algunos de los puertos de los switches Nexus 3132Q-V para ejecutarse a 10 GbE o 40 GbE.</block>
   <block id="57d432809175e2b2a95b3c3c1aeaabb9" category="paragraph">Puede dividir los primeros seis puertos en modo 4x10 GbE con el<block ref="08aac397a11274cd898dfbb3a635cf19" prefix=" " category="inline-code"></block> comando. Del mismo modo, puede reagrupar los primeros seis puertos QSFP+ de la configuración _breakout_ mediante el<block ref="9437e02f9ec4a8d602d396abd2c360b4" prefix=" " category="inline-code"></block> comando.</block>
-  <block id="c66ba47352d59b54f3a4b52ed5c4acb4" category="paragraph">*NOTA:* Si responde<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> a la solicitud de especificación del usuario, asegúrese de que el usuario tiene los permisos necesarios como se describe en <block ref="c36e4b8d8c2789dd7986c4af4bd3d942" category="inline-xref-macro-rx"></block> .</block>
   <block id="921a23933bb7a508423ca6a0ad00bfd3" category="paragraph">*NOTA:* Si responde<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> a la solicitud de especificación del usuario, asegúrese de que el usuario tiene los permisos necesarios como se describe en <block ref="c36e4b8d8c2789dd7986c4af4bd3d942" category="inline-xref-macro-rx"></block>.</block>
   <block id="4071b2d290eb3b1857c92068de31aa78" category="summary">Puede utilizar switches Nexus 3132q-v de Cisco como switches de clúster en su clúster AFF o FAS.</block>
   <block id="b62fecd2daa19a4b26cb97fb72713787" category="doc">Complete la migración de los switches CN1610 a los switches Nexus 3132Q-V.</block>
@@ -5113,8 +5100,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="4c4876d5d981da2e6943a052d93bb189" category="list-text">Para NX-OS 10,2 y posterior, utilice el<block ref="9c370f72db0e0d920841657ac5268365" prefix=" " category="inline-code"></block> comando para comparar con el archivo RCF guardado en el bootflash. De lo contrario, utilice una herramienta de comparación o de diferencia de terceros.</block>
   <block id="0a306731a6993e7a08026ab2d7ca2d97" category="paragraph">Es posible que necesite actualizar las entradas del archivo host relacionadas con las claves SSH.</block>
   <block id="89fe808c6ef5fe301085b5abe4406d35" category="paragraph">Configure un OPERADOR DE RED DE nombre de usuario SNMPv3 en los conmutadores Broadcom BES-53248.</block>
-  <block id="97e3bfa41185c29b8e204545b638d532" category="open-title">NVIDIA: CLI 5,11</block>
-  <block id="3a5cc736f1918e798338d9e890393631" category="paragraph">Configure un nombre de usuario SNMPv3 SNMPv3_USER en los switches NVIDIA SN2100 que ejecutan CLI 5,11:</block>
   <block id="01fabc1436d158d1079e5aac28e9fdc4" category="list-text">[[step_4]]Deshabilite la reversión automática en las LIF del clúster.</block>
   <block id="5b7bd3025678f1b622b4cfd0f4313991" category="inline-xref">Paso. 10</block>
   <block id="4ea7139be4dc5337c4d5a24c536b310e" category="list-text">Si las LIF de clúster han conmutado al switch CS1 y el estado del clúster es bueno, vaya a <block ref="1d8bc3843ab5c78170d8cf97ded2a73f" category="inline-xref-macro-rx"></block>. Si algunos LIF del clúster no están en buen estado o el clúster está en mal estado, puede revertir la conectividad al switch CS2 de la siguiente manera:</block>
@@ -5130,8 +5115,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="ccd8680433ee6ee996cb1f0a2ae6fb85" category="admonition">Las excepciones enumeradas no afectan al rendimiento y se pueden ignorar de forma segura.</block>
   <block id="a8b6e34450406e412ecb8d40596d9a8d" category="open-title">Cumulus Linux 5,11</block>
   <block id="554b50c45dae7ea0e30a60829694ee3a" category="admonition">Aunque<block ref="8a444a43bdf534c0c6338bb7809659b3" prefix=" " category="inline-code"></block> se utiliza en el ejemplo, puede utilizar su método preferido de transferencia de archivos.</block>
-  <block id="9cb95d38203cf6445dec8201a9a5b8df" category="paragraph">Siga este procedimiento para instalar el archivo de configuración correspondiente para la supervisión del estado del switch Ethernet de los switches de clúster NVIDIA.</block>
-  <block id="118235a8412030b4348eaf7beb295e9a" category="paragraph">Los modelos admitidos son:</block>
   <block id="4439fd91d84b3562f1b65b6624b8e4af" category="list-text">MSN2100-CB2FC</block>
   <block id="95457e019d4e34bf1527cfc720276bde" category="list-text">MSN2100-CB2RC</block>
   <block id="0a7c753e8699d579b1dd4105b9e6b566" category="list-text">Borre el<block ref="8be5dd683a73b3d7c1a85aa778b3c099" prefix=" " category="inline-code"></block> directorio en todos los nodos:</block>
@@ -5297,4 +5280,43 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="000bf48a29e422b515b1396c1aac3f2c" category="paragraph">Puede utilizar la hoja de datos de cableado vacía para documentar las plataformas que se admiten como nodos de un clúster.</block>
   <block id="af9181560cc346780cf6974ca9209401" category="sidebar">Switch de almacenamiento: Nexus 9336C-FX2 o 9336C-FX2-T de Cisco</block>
   <block id="d35b203e8fe0144f812f95e477dfc8ac" category="paragraph"><block ref="d35b203e8fe0144f812f95e477dfc8ac" category="inline-link-macro-rx"></block></block>
+  <block id="8922abf783ebcd2485e871d83f810001" category="paragraph">*NOTA:* Si responde *y* a la solicitud de especificación del usuario, asegúrese de que el usuario tenga los permisos necesarios como se describe en <block ref="c36e4b8d8c2789dd7986c4af4bd3d942" category="inline-xref-macro-rx"></block> .</block>
+  <block id="0af41f793380f36203c150e88680ae0d" category="admonition">Para CL 5.11.1, cree el usuario *cumulus* y responda *y* al siguiente mensaje: ¿Desea especificar un usuario distinto de admin para la recopilación de registros? {y|n}: *y*</block>
+  <block id="9516895d06a737348108b47f990aebff" category="list-text">[[paso 2]]Habilitar la recopilación periódica de registros:</block>
+  <block id="86433b1c6cd2dfe18ff408f3c045d2d1" category="list-text">[[paso 2]] Para solicitar la recopilación de registros de soporte y habilitar la recopilación periódica, ejecute el siguiente comando. Esto inicia ambos tipos de recopilación de registros: Los registros detallados<block ref="db5eb84117d06047c97c9a0191b5fffe" prefix=" " category="inline-code"></block> y una recogida de datos por hora<block ref="cdcc32a064503184053bd2018d1c0e7e" prefix=" " category="inline-code"></block> .</block>
+  <block id="e43f0bacec59589637fec825db76ae04" category="list-text">ONTAP 9.13.1P12, 9.14.1P9, 9.15.1P5, 9.16.1 y versiones posteriores solucionan estos dos problemas:</block>
+  <block id="b0dd8ee150ec6ec9cbd4e76f7441983f" category="inline-link-macro">Para la monitorización del estado de ONTAP de los conmutadores Cisco, es posible que aún se vea tráfico SNMPv2 después de cambiar a SNMPv3 para la monitorización.</block>
+  <block id="f51d6ba5c14f0f9f7e1e94040870b36a" category="list-text"><block ref="f51d6ba5c14f0f9f7e1e94040870b36a" category="inline-link-macro-rx"></block></block>
+  <block id="703ad3e359e69f75421f8e8fdf1c4374" category="inline-link-macro">Alertas de ventilador y de alimentación de interruptores falsos positivos cuando se producen fallos de SNMP</block>
+  <block id="972989a7e914db02b9462470b520ed9e" category="list-text"><block ref="972989a7e914db02b9462470b520ed9e" category="inline-link-macro-rx"></block></block>
+  <block id="f1d85c8d2abe8fba947527035ed0f381" category="list-text">Después de esperar el período de sondeo de CSHM, verifique que el número de serie esté completo para el conmutador Ethernet.</block>
+  <block id="05918726f836c344025fecbcf0275f1b" category="open-title">NVIDIA - CL 5.4.0</block>
+  <block id="c19095c0c8945d1d4e4e73ec7a11354c" category="paragraph">Configure un nombre de usuario SNMPv3 SNMPv3_USER en los conmutadores NVIDIA SN2100 que ejecutan CLI 5.4.0:</block>
+  <block id="cd12738ab621b27db86ca1b02e9d118c" category="open-title">NVIDIA - CL 5.11.0</block>
+  <block id="1d478fc1ce1613a790d5d77707c188f6" category="paragraph">Configure un nombre de usuario SNMPv3 SNMPv3_USER en los conmutadores NVIDIA SN2100 que ejecutan CLI 5.11.0:</block>
+  <block id="7d479c867c18b975b78a81ba6c500ec3" category="paragraph">Conmutador de clúster y almacenamiento Cisco Nexus 9336C-FX2-T de 12 puertos 10/25/40/100 GbE (X190212-CS-PE y X190212-CS-PI)</block>
+  <block id="89e4c9dc7a888c7298069f7a0907a0ae" category="paragraph">Admite configuraciones de clúster de 10/25/40/100 GbE y configuraciones de almacenamiento de 100 GbE (almacenamiento conectado a conmutador).</block>
+  <block id="5e702c967ba07c588e80787874b7d19d" category="paragraph">Para configurar la supervisión del estado del conmutador Ethernet en los conmutadores Ethernet NVIDIA, siga este procedimiento.</block>
+  <block id="4d6e856387f9dc1d4c04534d7e8abc6b" category="paragraph">Estas instrucciones se aplican si los conmutadores NVIDIA X190006-PE y X190006-PI no se detectan correctamente, lo que se puede confirmar ejecutando <block ref="db3929a8e897b02a87f7f4bc42f38fc1" prefix=" " category="inline-code"></block> y comprobar si se muestra *OTRO* para su modelo. Para identificar el modelo de su conmutador NVIDIA, busque el número de pieza con el comando <block ref="eca133854d2cdb8697246596d25a5eb3" prefix=" " category="inline-code"></block> para NVIDIA CL 5.8 y anteriores o <block ref="28b95eb6cef78e03af3129f8108edf3e" prefix=" " category="inline-code"></block> para versiones posteriores.</block>
+  <block id="d63c11f73a289e709f02f89a7fd9bc50" category="paragraph">Estos pasos también se recomiendan si desea que la monitorización del estado y la recopilación de registros funcionen correctamente al usar NVIDIA CL 5.11.x con las siguientes versiones de ONTAP. Si bien la monitorización del estado y la recopilación de registros podrían seguir funcionando sin estos pasos, seguirlos garantiza que todo funcione correctamente.</block>
+  <block id="22ade9a0f286817cb6e7960fb4e222fa" category="list-text">9.10.1P20, 9.11.1P18, 9.12.1P16, 9.13.1P8, 9.14.1, 9.15.1 y versiones de parches posteriores</block>
+  <block id="486e5bfc1a37635afcdd9af389c406cc" category="list-text">Habilite SSH en el conmutador para utilizar todas las funciones disponibles en CSHM.</block>
+  <block id="beecd060af34d32d93c47b39c7723bb9" category="paragraph">Proporciona información sobre actualizaciones o desactualizaciones disruptivas para el software Cisco NX-OS en los conmutadores Nexus serie 9000 en función de sus versiones actuales y futuras.</block>
+  <block id="0f81363c5be126efb261f8dcd99f371f" category="paragraph">Para configurar un sistema ONTAP, necesita los siguientes documentos para su versión del sistema operativo de <block ref="6f42080c8f875d77e25baa15189a0ef0" category="inline-link-rx"></block> .</block>
+  <block id="1c10f160ae9b8c4d78cec8e05f3c3a4e" category="paragraph">SNMP se utiliza para supervisar los switches. La monitorización mediante SNMPv3 se configura siguiendo este procedimiento.</block>
+  <block id="b243d3b653e3e0bac6ab3be1bf2318bf" category="paragraph">El monitor de estado del switch Ethernet (CSHM) utiliza SNMP para supervisar el estado y el rendimiento del clúster y los switches de almacenamiento. De forma predeterminada, SNMPv2c se configura automáticamente a través del archivo de configuración de referencia (RCF). SNMPv3 es más seguro que SNMPv2 porque introduce características de seguridad robustas como la autenticación, el cifrado y la integridad de los mensajes, que protegen contra el acceso no autorizado y garantizan la confidencialidad y la integridad de los datos durante la transmisión.</block>
+  <block id="539f41729af62dae66a48e9619426286" category="list-text">Utilice el <block ref="df911f0151f9ef021d410b4be5060972" prefix=" " category="inline-code"></block> Comando para verificar la conectividad con el servidor que aloja Cumulus Linux y el RCF.</block>
+  <block id="0fbbad4e5350fbac341a075f41a5c28a" category="list-text">Si está actualizando su RCF, debe deshabilitar la reversión automática para este paso.</block>
+  <block id="1bdb02bb5a3beb73663730bb20fc1c76" category="list-text">Si acaba de actualizar su versión de Cumulus Linux, no necesita deshabilitar la reversión automática para este paso porque ya está deshabilitada.</block>
+  <block id="2768f3b6b437ed39538e52b6e83f011b" category="list-text">Repita los pasos 1 a 14 en el segundo interruptor.</block>
+  <block id="c9968f92aa55be49e85602936643e367" category="list-text">Verifique que todos los LIF del clúster tengan la reversión automática deshabilitada:</block>
+  <block id="946e7e341f9fdba2f077d93298bb5db9" category="paragraph"><block ref="e2bf42f02b2b81e10f05db8c043a2a89" prefix="" category="inline-code"></block></block>
+  <block id="e35e1d0babb539d1b337602fdcf898ce" category="list-text">[[step2]] Vuelva a cambiar el nivel de privilegio a admin:</block>
+  <block id="9a06646ee494bf67708a4bc06e71dbeb" category="open-title">Cumulus Linux 4.4.x a Cumulus Linux 5.4.0</block>
+  <block id="5dcfe2540f77c16760c1eaf0b8d7567a" category="list-text">Utilice el comando ping para verificar la conectividad con el servidor que aloja Cumulus Linux y el RCF.</block>
+  <block id="b71e5782145577531702a84f68699019" category="open-title">Cumulus Linux 5.x a Cumulus Linux 5.4.0</block>
+  <block id="607ce262227aceccd2c5daca045a80dc" category="open-title">Cumulus Linux 5.4.0 a Cumulus Linux 5.11.0</block>
+  <block id="1793733c3fd6ed243dfcb1cd45582f6e" category="list-text">Descargue la imagen de Cumulux Linux 5.11.0:</block>
+  <block id="3b17e95301e3d2dffb102ceff49ecd86" category="list-text">Cierre sesión y vuelva a iniciar sesión en el conmutador para ver el nombre del conmutador actualizado en el mensaje:</block>
+  <block id="7c7a0b76c488baaa82c48a846faa8727" category="paragraph"><block ref="0d353ea2e4037b21b3bb06f2b69f1c6c" category="inline-link-macro-rx"></block>.</block>
 </blocks>

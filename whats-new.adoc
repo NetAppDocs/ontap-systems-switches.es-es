@@ -23,6 +23,15 @@ Obtenga más información sobre los nuevos switches para los sistemas FAS y AFF.
 
 
  a| 
+Conmutador de clúster y almacenamiento Cisco Nexus 9336C-FX2-T de 12 puertos 10/25/40/100 GbE (X190212-CS-PE y X190212-CS-PI)
+ a| 
+Admite configuraciones de clúster de 10/25/40/100 GbE y configuraciones de almacenamiento de 100 GbE (almacenamiento conectado a conmutador).
+ a| 
+ONTAP 9.10.1
+
+
+
+ a| 
 Switch NVIDIA de 16 puertos (X190006-PE y X190006-PI) de 100GbE Gb
  a| 
 Compatibilidad con switch de interconexión de clúster y switch de almacenamiento NVIDIA SN2100, incluida la compatibilidad con configuraciones IP de MetroCluster.

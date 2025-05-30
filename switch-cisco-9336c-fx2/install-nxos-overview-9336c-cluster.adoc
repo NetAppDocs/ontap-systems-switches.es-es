@@ -11,6 +11,24 @@ summary: 'Se deben instalar el software Cisco NX-OS y los archivos de configurac
 [role="lead"]
 Antes de instalar el software NX-OS y el archivo de configuración de referencia (RCF), siga este procedimiento.
 
+.Documentación sugerida
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Página del switch Cisco Ethernet"^]
++
+Consulte en la tabla de compatibilidad del switch las versiones ONTAP y NX-OS compatibles.
+
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-guides-list.html["Guías de actualización y degradación de software"^]
++
+Consulte las guías de software y actualización correspondientes disponibles en el sitio web de Cisco para obtener documentación completa sobre los procedimientos de actualización y degradación del conmutador Cisco.
+
+* link:https://www.cisco.com/c/dam/en/us/td/docs/dcn/tools/nexus-9k3k-issu-matrix/index.html["Matriz de ISSU y actualización de Cisco Nexus 9000 y 3000"^]
++
+Proporciona información sobre actualizaciones o desactualizaciones disruptivas para el software Cisco NX-OS en los conmutadores Nexus serie 9000 en función de sus versiones actuales y futuras.
+
++
+En la página, selecciona *Actualización disruptiva* y selecciona tu versión actual y la versión de destino de la lista desplegable.
+
+
+
 .Acerca de los ejemplos
 Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:
 
@@ -211,7 +229,7 @@ cluster1::*> *network interface show -vserver Cluster -fields auto-revert*
 
           Logical
 Vserver   Interface           Auto-revert
---------- ––––––-------------- ------------
+--------- ------------------- ------------
 Cluster
           cluster1-01_clus1   true
           cluster1-01_clus2   true
