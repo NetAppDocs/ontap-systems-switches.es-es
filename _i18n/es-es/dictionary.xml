@@ -1976,7 +1976,6 @@
   <block id="0925e4232463ea030f73ee2bbdc7e256" category="list-text">Compruebe que el almacenamiento conectado al par de alta disponibilidad 1, el switch de almacenamiento B sea correcto:</block>
   <block id="ba22e161ba175c3d6824e6b50ef5221a" category="list-text">Compruebe que la configuración de red conmutada sea válida:</block>
   <block id="d002eea8f83f99bafbbc5f36440edd41" category="summary">Puede instalar el RCF después de configurar por primera vez el conmutador Nexus 9336C-FX2.también puede utilizar este procedimiento para actualizar la versión de RCF.</block>
-  <block id="0e20b420112310f5c09a775e13d5ec63" category="paragraph">Puede instalar el RCF después de configurar por primera vez el conmutador Nexus 9336C-FX2. También puede utilizar este procedimiento para actualizar la versión de RCF.</block>
   <block id="a321cd8baf442bb2bd9aee451d86f068" category="paragraph">Antes de comenzar, complete el procedimiento en <block ref="cd3d2c6d0c8a0c43f0a0e10375ad6bbc" category="inline-link-macro-rx"></block>.</block>
   <block id="2d0ac6e4c3a1c97979e887d423ec0f95" category="section-title">Paso 1: Prepare la instalación</block>
   <block id="4877628f2f5c2ea44515bef28ca09a0b" category="list-text">Compruebe que todos los puertos del clúster están *up* con un estado correcto:</block>
@@ -2768,9 +2767,7 @@
   <block id="fa1cada3dcf72cd1845a9b13f721353f" category="list-text">En la consola, configure los ajustes de serie del lado del host:</block>
   <block id="5774edcf06cc50000de075fa347fa292" category="list-text">Inicie sesión en el conmutador como<block ref="21232f297a57a5a743894a0e4a801fc3" prefix=" " category="inline-code"></block> Y pulse *Intro* cuando se le solicite una contraseña. El nombre predeterminado del conmutador es *enrutamiento*. Introduzca, en el aviso del<block ref="208f156d4a803025c284bb595a7576b4" prefix=" " category="inline-code"></block>. Esto le permite acceder al modo EXEC privilegiado para la configuración del switch.</block>
   <block id="b51993b6b7e3ea50c17952db42c3a543" category="list-text">Cambie el nombre del conmutador a *cs2*.</block>
-  <block id="c04ce9c1c44c5e07bf7a73e79811a429" category="list-text">Para configurar una dirección IP estática, utilice<block ref="be61298f670927dc76b9ef87aec3538b" prefix=" " category="inline-code"></block>,<block ref="0b1b9820b62e4a0d7f72c76456845979" prefix=" " category="inline-code"></block>, y.<block ref="a14092a0fca1bb648cb5a74d7dfe7995" prefix=" " category="inline-code"></block> comandos como se muestra en el ejemplo.</block>
   <block id="ed37a6a8028dc06785735d8c0a7178b4" category="paragraph">el puerto de servicio está configurado para utilizar DHCP de forma predeterminada. La dirección IP, la máscara de subred y la dirección de puerta de enlace predeterminada se asignan automáticamente.</block>
-  <block id="433c21332379db77320fe7a821073bdc" category="list-text">Compruebe los resultados con el comando:</block>
   <block id="054f736f28a6918e0571caad3b5d1440" category="paragraph"><block ref="16e8f72947d7ec600259a2f0b5896bd0" prefix="" category="inline-code"></block></block>
   <block id="afac0a52c83984bf1020f56dd9df720f" category="list-text">Configure el dominio y el servidor de nombres:</block>
   <block id="46180f667842fa1595248c425401bc35" category="paragraph"><block ref="e2d5a00791bce9a01f99bc6fd613a39d" prefix="" category="inline-code"></block></block>
@@ -5040,7 +5037,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="a631ed2f01f0a384874d92ecdaee2d1c" category="paragraph">Configure su clúster de dos nodos sin switches para migrarlo a un clúster con switches de dos nodos.</block>
   <block id="5f9610f3409d9abe96cc344156486c5e" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="4c0a19683ab4dd37cd0517d25639fa78" category="inline-link-macro-rx"></block></block>
   <block id="e796841df950e342f76a5b538574f5f6" category="paragraph">Complete la migración a un clúster con switches de dos nodos.</block>
-  <block id="e4ff582cba38e556dc88b3e74baf1ec1" category="paragraph">Directiva no resuelta en &lt;stdin&gt; - Include:../_include/install-rcf-software-9336c-cluster.adoc[]</block>
   <block id="1ececed2a569720ced41e9cd50d7b238" category="list-text">El switch CS1 y el switch CS2 se encienden y la configuración inicial del switch se ha completado (la dirección IP de gestión y SSH está configurado).</block>
   <block id="c3109b36f2c8edda93835ccefa0e4dc3" category="doc">Instale o actualice la descripción general del archivo de configuración de referencia (RCF)</block>
   <block id="6d7b8066e6c7166408cb61e68a705e7f" category="list-text">Los nombres de los dos interruptores Cisco son *CS1* y *CS2*.</block>
@@ -5319,4 +5315,9 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="1793733c3fd6ed243dfcb1cd45582f6e" category="list-text">Descargue la imagen de Cumulux Linux 5.11.0:</block>
   <block id="3b17e95301e3d2dffb102ceff49ecd86" category="list-text">Cierre sesión y vuelva a iniciar sesión en el conmutador para ver el nombre del conmutador actualizado en el mensaje:</block>
   <block id="7c7a0b76c488baaa82c48a846faa8727" category="paragraph"><block ref="0d353ea2e4037b21b3bb06f2b69f1c6c" category="inline-link-macro-rx"></block>.</block>
+  <block id="fc6063e37d3407a7d76fabb59f7a96a3" category="list-text">Para configurar una dirección de administración IPv4 o IPv6 estática para el puerto de servicio del conmutador:</block>
+  <block id="42a9137a05a60eb752dcdf982e717626" category="open-title">IPv4</block>
+  <block id="fdb7cb8f657426e7c409bfd6d1a36ce4" category="open-title">IPv6</block>
+  <block id="eac292441a720b0a0f4b67dcb9db6398" category="list-text">[[paso 7]]Verifique los resultados usando el comando:</block>
+  <block id="c946088bdd01d4ceb54099911c69adbe" category="admonition">La cantidad de puertos mostrados varía según la cantidad de nodos del clúster.</block>
 </blocks>

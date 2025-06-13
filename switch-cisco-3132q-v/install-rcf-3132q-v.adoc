@@ -206,9 +206,17 @@ Asegúrese de que la reversión automática esté deshabilitada después de ejec
 +
 [listing, subs="+quotes"]
 ----
+cs2> *enable*
+cs2# *configure*
 cs2(config)# *interface eth1/1/1-2,eth1/7-8*
 cs2(config-if-range)# *shutdown*
+cs2(config-if-range)# *exit*
+cs2# *exit*
 ----
++
+
+NOTE: La cantidad de puertos mostrados varía según la cantidad de nodos del clúster.
+
 . Comprobar que los puertos del clúster han migrado a los puertos alojados en el switch cs1 del clúster. Esto puede tardar unos segundos.
 +
 `network interface show -vserver Cluster`
@@ -570,10 +578,18 @@ NOTE: Los nodos del clúster pueden tardar hasta 5 minutos en informar en buen e
 ====
 [listing, subs="+quotes"]
 ----
+cs1> *enable*
+cs1# *configure*
 cs1(config)# *interface eth1/1/1-2,eth1/7-8*
 cs1(config-if-range)# *shutdown*
+cs1(config-if-range)# *exit*
+cs1# *exit*
 ----
 ====
++
+
+NOTE: La cantidad de puertos mostrados varía según la cantidad de nodos del clúster.
+
 . Comprobar que las LIF del clúster han migrado a los puertos alojados en el switch cs2. Esto puede tardar unos segundos.
 +
 `network interface show -vserver Cluster`

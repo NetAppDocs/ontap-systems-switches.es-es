@@ -66,25 +66,40 @@ Password:
 (Routing)# *hostname cs2*
 (cs2)#
 ----
-. Para configurar una dirección IP estática, utilice `serviceport protocol`, `network protocol`, y. `serviceport ip` comandos como se muestra en el ejemplo.
-+
+. Para configurar una dirección de administración IPv4 o IPv6 estática para el puerto de servicio del conmutador:
+
+
+[role="tabbed-block"]
+====
+.IPv4
+--
 el puerto de servicio está configurado para utilizar DHCP de forma predeterminada. La dirección IP, la máscara de subred y la dirección de puerta de enlace predeterminada se asignan automáticamente.
 
-+
 [listing, subs="+quotes"]
 ----
 (cs2)# *serviceport protocol none*
 (cs2)# *network protocol none*
-(cs2)# *serviceport ip ipaddr netmask gateway*
+(cs2)# *serviceport ip <ip-address> <netmask> <gateway>*
 ----
-. Compruebe los resultados con el comando:
+--
+.IPv6
+--
+el puerto de servicio está configurado para utilizar DHCP de forma predeterminada. La dirección IP, la máscara de subred y la dirección de puerta de enlace predeterminada se asignan automáticamente.
+
+[listing, subs="+quotes"]
+----
+(cs2)# *serviceport protocol none*
+(cs2)# *network protocol none*
+(cs2)# *serviceport ipv6 <address>*
+(cs2)# *serviceport ipv6 <gateway>*
+----
+--
+====
+. [[paso 7]]Verifique los resultados usando el comando:
 +
 `show serviceport`
 
 +
-.Muestra el ejemplo
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 (cs2)# *show serviceport*
@@ -100,7 +115,6 @@ Configured IPv6 Protocol....................... None
 IPv6 AutoConfig Mode........................... Disabled
 Burned In MAC Address.......................... D8:C4:97:71:12:3C
 ----
-====
 . Configure el dominio y el servidor de nombres:
 +
 [source, cli]
