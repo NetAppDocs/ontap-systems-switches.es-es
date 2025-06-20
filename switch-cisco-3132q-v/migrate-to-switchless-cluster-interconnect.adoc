@@ -11,6 +11,19 @@ summary: Puede migrar desde un clúster con una red de clúster conmutada a uno 
 
 
 [role="lead"]
+En ONTAP 9.3 y versiones posteriores, puede migrar de un clúster con una red de clúster conmutada a uno donde dos nodos están conectados directamente.
+
+[NOTE]
+====
+NetApp recomienda que actualice su versión de ONTAP antes de continuar con la operación de clúster conmutado a sin conmutadores para los conmutadores Cisco Nexus 3132Q-V.
+
+En la siguiente sección, se ofrecen más detalles:
+
+* link:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU540["SU540: Los errores de NIC de Chelsio T6 provocan el apagado del sistema al actualizar de conmutadores de red de 40G a 100G"^]
+* link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_panic_after_migration_from_switched_to_switchless_cluster["Pánico en el nodo después de la migración de un clúster conmutado a uno sin conmutador"^]
+
+
+====
 Puede migrar desde un clúster con una red de clúster conmutada a uno donde dos nodos están conectados directamente para ONTAP 9.3 y versiones posteriores.
 
 
