@@ -40,6 +40,23 @@ SSH Public Key Authentication Mode: ........... Disabled
 SCP server Administrative Mode: ............... Disabled
 ----
 ====
++
+Si SSH no está deshabilitado, deshabilítelo de la siguiente manera:
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(switch)# *ip ssh server disable*
+(switch)# *ip scp server disable*
+----
+====
++
+
+WARNING: Asegúrese de deshabilitar SSH antes de modificar las claves, de lo contrario, se informará una advertencia en el conmutador.
+
 . Genere las claves SSH:
 +
 `crypto key generate`
@@ -82,10 +99,6 @@ Config file 'startup-config' created successfully.
 Configuration Saved!
 ----
 ====
-+
-
-WARNING: Asegúrese de que SSH esté deshabilitado antes de modificar las claves de lo contrario, se notifica una advertencia en el switch.
-
 . Cifrar las claves SSH (solo para *FIPS-mode*):
 +
 
@@ -167,4 +180,4 @@ SCP server Administrative Mode: ............... Enabled
 
 
 .El futuro
-link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"].
+link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"]

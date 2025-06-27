@@ -4149,7 +4149,6 @@
   <block id="88948f2b657a3c9e5eec3736dcca6cdf" category="paragraph">100GbE ISL para conmutar Un puerto 35</block>
   <block id="56299051abd1af0cbe5dbee773fed3d5" category="paragraph">100GbE ISL al puerto 36 del switch B</block>
   <block id="5e596a6e5f0ffe0604d651cde90e34f0" category="paragraph">100GbE ISL para conmutar Un puerto 36</block>
-  <block id="b6deba442a3eaadb05f02285eb6e8113" category="admonition">Asegúrese de que SSH esté deshabilitado antes de modificar las claves de lo contrario, se notifica una advertencia en el switch.</block>
   <block id="19d577c8c5ac871bd4528e45b94e3215" category="paragraph">7 nodos 40/100GbE</block>
   <block id="6eabf22260c7ae80ec5e2274e9c4f09e" category="paragraph">8 nodos 40/100GbE</block>
   <block id="bea5a6b9eaf26fd0f9b528724d800b60" category="paragraph">9 nodos 40/100GbE</block>
@@ -5327,4 +5326,8 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="de7ffa00f75520afd4312c03db0da03c" category="list-text"><block ref="de7ffa00f75520afd4312c03db0da03c" category="inline-link-macro-rx"></block></block>
   <block id="c409f8a3c1a31991297c71a6ef92dff2" category="inline-link-macro">Pánico en el nodo después de la migración de un clúster conmutado a uno sin conmutador</block>
   <block id="55f49c71e99a86d3514c015252eee468" category="list-text"><block ref="55f49c71e99a86d3514c015252eee468" category="inline-link-macro-rx"></block></block>
+  <block id="a9a5bde505ea573688279b9aed85b83d" category="paragraph">Si SSH no está deshabilitado, deshabilítelo de la siguiente manera:</block>
+  <block id="1991f73b95765ab4d1861d2717ed45f2" category="admonition">Asegúrese de deshabilitar SSH antes de modificar las claves, de lo contrario, se informará una advertencia en el conmutador.</block>
+  <block id="5046b85a70c9d571be19e2a0283d236b" category="admonition">En el paso 3 *Actualización del archivo MOTD* anterior, el comando <block ref="633fe61df4a2e20028fd063d6108557f" prefix=" " category="inline-code"></block> se ejecuta. Esto le permite verificar el nombre del archivo RCF, la versión de RCF, los puertos que se deben utilizar y otra información importante en el banner de RCF.</block>
+  <block id="1767f5d7b100e3d4d6c5fea66216a39c" category="admonition">En el paso 3 *Actualización del archivo MOTD* anterior, se ejecuta el comando `cat /etc/issue.net. Esto le permite verificar el nombre del archivo RCF, la versión de RCF, los puertos que se deben utilizar y otra información importante en el banner de RCF.</block>
 </blocks>

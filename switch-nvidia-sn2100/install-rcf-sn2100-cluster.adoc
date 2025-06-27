@@ -407,7 +407,7 @@ La secuencia de comandos RCF completa los pasos enumerados en el ejemplo anterio
 
 +
 
-NOTE: En el paso 3 *Actualizar el archivo MOTD* anterior, el comando `cat /etc/issue` se ejecuta. Esto le permite verificar el nombre del archivo RCF, la versión de RCF, los puertos que se deben utilizar y otra información importante en el banner de RCF.
+NOTE: En el paso 3 *Actualización del archivo MOTD* anterior, el comando  `cat /etc/issue.net` se ejecuta. Esto le permite verificar el nombre del archivo RCF, la versión de RCF, los puertos que se deben utilizar y otra información importante en el banner de RCF.
 
 +
 Por ejemplo:
@@ -415,7 +415,7 @@ Por ejemplo:
 +
 [listing]
 ----
-admin@sw1:mgmt:~$ cat /etc/issue
+admin@sw1:mgmt:~$ cat /etc/issue.net
 ******************************************************************************
 *
 * NetApp Reference Configuration File (RCF)
@@ -773,7 +773,7 @@ La secuencia de comandos RCF completa los pasos enumerados en el ejemplo anterio
 
 +
 
-NOTE: En el paso 3 *Actualizar el archivo MOTD* anterior, el comando `cat /etc/issue` se ejecuta. Esto le permite verificar el nombre del archivo RCF, la versión de RCF, los puertos que se deben utilizar y otra información importante en el banner de RCF.
+NOTE: En el paso 3 *Actualización del archivo MOTD* anterior, se ejecuta el comando `cat /etc/issue.net. Esto le permite verificar el nombre del archivo RCF, la versión de RCF, los puertos que se deben utilizar y otra información importante en el banner de RCF.
 
 +
 Por ejemplo:
@@ -781,7 +781,7 @@ Por ejemplo:
 +
 [listing]
 ----
-admin@sw1:mgmt:~$ cat /etc/issue
+admin@sw1:mgmt:~$ cat /etc/issue.net
 ******************************************************************************
 *
 * NetApp Reference Configuration File (RCF)
