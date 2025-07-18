@@ -11,7 +11,7 @@ summary: Revise la descripción general del software.
 
 
 [role="lead"]
-Para instalar y configurar inicialmente el software para un conmutador de clúster BES-53248, siga estos pasos:
+Para instalar y configurar el software para un conmutador de clúster BES-53248, siga estos pasos:
 
 . link:configure-efos-software.html["Instale el software del EFOS"].
 +
@@ -28,5 +28,9 @@ Instale o actualice el RCF en el conmutador de clúster BES-53248 y, a continuac
 . link:configure-ssh.html["Habilite SSH en switches de clúster BES-53248"].
 +
 Si utiliza el monitor de estado del switch Ethernet (CSHM) y las funciones de recopilación de registros, habilite SSH en los switches.
+
+. link:reset-switch-bes-53248.html["Restablecer el interruptor a los valores predeterminados de fábrica"].
++
+Borre la configuración del conmutador de clúster BES-53248.
 
 

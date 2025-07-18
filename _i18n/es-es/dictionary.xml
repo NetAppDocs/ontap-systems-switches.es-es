@@ -2739,7 +2739,6 @@
   <block id="26e197685e29b3f6ea5c61a20464ee66" category="paragraph">Kit de rieles para montaje en rack Ozeki 4 post 19"</block>
   <block id="d007743863da413e0445811c05d574db" category="summary">Revise la descripción general del software.</block>
   <block id="93d9f7b647768c2633a5b9f8a68e2b52" category="doc">Flujo de trabajo de instalación de software para conmutadores BES-53248</block>
-  <block id="6dd4b5e58bd32b079e19b1dda5c2f1bc" category="paragraph">Para instalar y configurar inicialmente el software para un conmutador de clúster BES-53248, siga estos pasos:</block>
   <block id="62d8b9841abbee3c8d144371f887a783" category="list-text"><block ref="1233ecfc62f0bed40d830afa17eec2c7" category="inline-link-macro-rx"></block>.</block>
   <block id="fd280d62f276e98d2c1156b6a7cd8932" category="paragraph">Descargue e instale el software Ethernet Fabric OS (EFOS) en el switch de clúster BES-53248.</block>
   <block id="a9ec10177705d18bc441b79924a01204" category="list-text"><block ref="0f9f654882514557e57b19641aa7b563" category="inline-link-macro-rx"></block>.</block>
@@ -5207,7 +5206,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="7baa7758ed49797651dc1e276762ae15" category="list-text">Agrupación en clúster: *MSN2100-RCF-v1._x_-Cluster*</block>
   <block id="dd584ffba0b7534139645967bf24df84" category="sidebar">Instale o actualice el script RCF</block>
   <block id="40b03f9635c63b20aade0ff8145eafb8" category="list-text">Para la recopilación de registros con switches Broadcom y Cisco:</block>
-  <block id="89f1dd995a5c07ea1e13abc5993d9d59" category="list-text">Los usuarios deben tener Privileges de administrador de red.</block>
   <block id="60f743043272b873831b17c5e7290445" category="list-text">Se debe crear un usuario nuevo en el switch de cada configuración del clúster con la recopilación de registros habilitada. Estos switches no admiten varias claves SSH para el mismo usuario. Cualquier configuración de recopilación de registros adicional realizada sobrescribe las claves SSH preexistentes para el usuario.</block>
   <block id="63229fc9218a5e1a57243ce033e91a3b" category="paragraph">Consulte el artículo de la base de conocimientos <block ref="862bab57a4acfb616afcae48c16f2cfe" category="inline-link-macro-rx"></block>para obtener más información al instalar o actualizar su RCF.</block>
   <block id="26552c2532e5b34c96d8cef5f736c6ff" category="paragraph">Consulte el artículo de la base de conocimientos <block ref="862bab57a4acfb616afcae48c16f2cfe" category="inline-link-macro-rx"></block>para obtener más información al instalar el RCF.</block>
@@ -5339,4 +5337,19 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="255946ce0bdffe025ba4bdaa710146e6" category="list-text">Verifique que el archivo write_erase.cfg se complete como se esperaba:</block>
   <block id="c8608e8042094ff03aff5d73acbce651" category="paragraph"><block ref="aa69f627a489063557f4707be7ba43f0" prefix="" category="inline-code"></block></block>
   <block id="90b56b330f7736518fea2723b6853482" category="list-text">Repita los pasos 1 a 20 en el interruptor CS2.</block>
+  <block id="fb945b959f6754639fad6c6e9e9469b9" category="list-text">El usuario local debe tener privilegios de administrador de red.</block>
+  <block id="47547bd96a2d76e2174e671baccc263a" category="paragraph">Para instalar y configurar el software para un conmutador de clúster BES-53248, siga estos pasos:</block>
+  <block id="7a81f2c0648b303fec3fe1081158d0e3" category="inline-link-macro">Restablecer el interruptor a los valores predeterminados de fábrica</block>
+  <block id="842f57c662529f95b306feb653984af0" category="list-text"><block ref="6356dc79de453379cf58db845e7c3b08" category="inline-link-macro-rx"></block>.</block>
+  <block id="585a6fd0f28eaade2a16ccaba1bb9b0d" category="paragraph">Borre la configuración del conmutador de clúster BES-53248.</block>
+  <block id="b879f523acbbe3c8d6ea83060443367e" category="doc">Restablecer el conmutador de clúster BES-53248 a los valores predeterminados de fábrica</block>
+  <block id="7515349dce34258a6f65c5f9b6b0bc58" category="paragraph">Para restablecer el conmutador de clúster BES-53248 a los valores predeterminados de fábrica, debe borrar la configuración del conmutador BES-53248.</block>
+  <block id="cf8c4cbc63a2e42b70c4b4beddd2e366" category="list-text">Debe estar conectado al conmutador mediante la consola serie.</block>
+  <block id="55b0c310e4703cc82f05f8c44c9d0d39" category="list-text">Esta tarea restablece la configuración de la red de gestión.</block>
+  <block id="eceb40fbe3a93ae0c766b186cce3cba4" category="list-text">Cambiar al símbolo del sistema elevado.</block>
+  <block id="8045e733034738065ca77d531de9666f" category="list-text">Borrar la configuración de inicio.</block>
+  <block id="91f81f9cd1a23a248e317b6b22a84ce3" category="paragraph"><block ref="1fb554759d9d32d450daa4da09330114" prefix="" category="inline-code"></block></block>
+  <block id="671537f32d06de75a977dc3008daeff5" category="admonition">Si el sistema pregunta si desea guardar la configuración no guardada o modificada antes de volver a cargar el conmutador, seleccione *no*.</block>
+  <block id="01abea5f71122f7491f5d67a54692187" category="list-text">[[paso 4]] Espere a que el conmutador se recargue y luego inicie sesión en el conmutador.</block>
+  <block id="3298c6d813bb0262584ca3882273ff2a" category="paragraph">El usuario predeterminado es “admin” y no se establece ninguna contraseña. Se muestra un símbolo del sistema similar a lo siguiente:</block>
 </blocks>

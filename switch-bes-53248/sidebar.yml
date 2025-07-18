@@ -37,6 +37,8 @@ entries:
     url: "/switch-bes-53248/configure-install-rcf.html"
   - title: Active SSH para la recopilación de registros
     url: "/switch-bes-53248/configure-ssh.html"
+  - title: Restablecer el interruptor a los valores predeterminados de fábrica
+    url: "/switch-bes-53248/reset-switch-bes-53248.html"
 - title: Interruptor de actualización
   pdf-filename: Upgrade_switches_bes53248
   entries:

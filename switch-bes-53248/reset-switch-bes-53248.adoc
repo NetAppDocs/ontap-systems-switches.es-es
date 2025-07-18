@@ -1,0 +1,59 @@
+---
+permalink: switch-bes-53248/reset-switch-bes-53248.html 
+sidebar: sidebar 
+keywords: BES-53248 reset switch to factory defaults, BES-53248 switches configuration, efos 
+summary: Antes de configurar el conmutador Broadcom BES-53248, revise la siguiente información. 
+---
+= Restablecer el conmutador de clúster BES-53248 a los valores predeterminados de fábrica
+:allow-uri-read: 
+
+
+[role="lead"]
+Para restablecer el conmutador de clúster BES-53248 a los valores predeterminados de fábrica, debe borrar la configuración del conmutador BES-53248.
+
+.Acerca de esta tarea
+* Debe estar conectado al conmutador mediante la consola serie.
+* Esta tarea restablece la configuración de la red de gestión.
+
+
+.Pasos
+. Cambiar al símbolo del sistema elevado.
++
+[listing, subs="+quotes"]
+----
+(cs2)> *enable*
+(cs2)#
+----
+. Borrar la configuración de inicio.
++
+`erase startup-config`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *erase startup-config*
+
+Are you sure you want to clear the configuration? (y/n) *y*
+----
+. Reinicie el conmutador.
++
+[listing, subs="+quotes"]
+----
+(cs2)# *reload*
+Are you sure you would like to reset the system? (y/n) *y*
+----
+
+
+
+NOTE: Si el sistema pregunta si desea guardar la configuración no guardada o modificada antes de volver a cargar el conmutador, seleccione *no*.
+
+. [[paso 4]] Espere a que el conmutador se recargue y luego inicie sesión en el conmutador.
++
+El usuario predeterminado es “admin” y no se establece ninguna contraseña. Se muestra un símbolo del sistema similar a lo siguiente:
+
++
+[listing]
+----
+(Routing)>
+----
+
