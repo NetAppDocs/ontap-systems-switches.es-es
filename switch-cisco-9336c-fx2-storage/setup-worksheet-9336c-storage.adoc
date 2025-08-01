@@ -1021,3 +1021,6 @@ Requiere licencia
 
 |===
 Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obtener más información sobre los puertos de switch.
+
+.¿Qué sigue?
+link:install-9336c-storage.html["Instale el interruptor"].

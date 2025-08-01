@@ -13,16 +13,26 @@ summary: Descripción general de la configuración de software o los switches NV
 [role="lead"]
 Para instalar y configurar el software para un conmutador NVIDIA SN2100, siga estos pasos:
 
-. link:install-cumulus-mode-sn2100-cluster.html["Instale Cumulus Linux en modo Cumulus"] o. link:install-onie-mode-sn2100-cluster.html["Instale Cumulus Linux en modo ONIE"].
-+
-Puede instalar Cumulus Linux (CL) OS cuando el conmutador esté ejecutando Cumulus Linux o ONIE.
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:configure-sn2100-cluster.html["Configure el switch"]
+[role="quick-margin-para"]
+Configurar el conmutador NVIDIA SN2100.
 
-. link:install-rcf-sn2100-cluster.html["Instale la secuencia de comandos del archivo de configuración de referencia (RCF)"].
-+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"]link:install-cumulus-mode-sn2100-cluster.html["Instale Cumulus Linux en modo Cumulus"]
+[role="quick-margin-para"]
+Puede instalar el sistema operativo Cumulus Linux (CL) cuando el conmutador ejecuta Cumulus Linux.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"]link:install-onie-mode-sn2100-cluster.html["Instale Cumulus Linux en modo ONIE"]
+[role="quick-margin-para"]
+Como alternativa, puede instalar el sistema operativo Cumulus Linux (CL) cuando el conmutador ejecuta Cumulus Linux en modo ONIE.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:upgrade-cl-version.html["Actualice su versión de Cumulus Linux, según sea necesario"]
+[role="quick-margin-para"]
+Puede actualizar su sistema operativo Cumulus Linux (CL) según sea necesario.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:install-rcf-sn2100-cluster.html["Instale o actualice el script Reference Configuration File (RCF)"]
+[role="quick-margin-para"]
 Hay dos secuencias de comandos RCF disponibles para las aplicaciones de almacenamiento y agrupación en clúster. El procedimiento para cada uno es el mismo.
 
-. link:setup-install-cshm-file.html["Instale el archivo CSHM"].
-+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]link:setup-install-cshm-file.html["Instale el archivo CSHM"]
+[role="quick-margin-para"]
 Puede instalar el archivo de configuración correspondiente para la supervisión del estado del switch Ethernet de los switches de clúster de NVIDIA.
-
-

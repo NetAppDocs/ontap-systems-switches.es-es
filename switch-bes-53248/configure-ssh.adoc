@@ -180,4 +180,4 @@ SCP server Administrative Mode: ............... Enabled
 
 
 .El futuro
-link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"]
+link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"].

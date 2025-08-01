@@ -5,7 +5,7 @@ entries:
 - title: Descripción general
   pdf-filename: Descripción general_92300yc
   entries:
-  - title: Información general de configuración
+  - title: Inicio rápido
     url: "/switch-cisco-92300/install-overview-cisco-92300.html"
   - title: Requisitos de configuración
     url: "/switch-cisco-92300/configure-reqs-92300.html"
@@ -18,15 +18,23 @@ entries:
 - title: Instale el hardware
   pdf-filename: Install_hardware_92300yc
   entries:
+  - title: Flujo de trabajo de instalación de hardware
+    url: "/switch-cisco-92300/install-hardware-workflow.html"
   - title: Complete la hoja de cálculo de cableado
     url: "/switch-cisco-92300/setup-worksheet-92300yc.html"
-  - title: Configurar el switch
-    url: "/switch-cisco-92300/configure-install-initial.html"
+  - title: Instale el interruptor
+    url: "/switch-cisco-92300/install-switch-92300yc.html"
+  - title: Instale el switch en el armario de NetApp
+    url: "/switch-cisco-92300/install-switch-netapp-cabinet-92300yc.html"
   - title: Revisar el cableado y la configuración
     url: "/switch-cisco-92300/cabling-considerations-92300.html"
 - title: Configurar el software
   pdf-filename: Configure_SOFTWARE_92300yc
   entries:
+  - title: Flujo de trabajo de instalación del software
+    url: "/switch-cisco-92300/configure-software-overview-92300-cluster.html"
+  - title: Configure el switch
+    url: "/switch-cisco-92300/configure-install-initial.html"
   - title: Prepare la instalación de NX-OS y RCF
     url: "/switch-cisco-92300/install-nxos-overview.html"
   - title: Instale NX-OS

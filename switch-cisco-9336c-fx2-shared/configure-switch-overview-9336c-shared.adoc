@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: BES-53248 switches, initial installation, configure switch-cisco-9336c-fx2 switch 
 summary: Descripción general de la instalación y la configuración de los switches compartidos Cisco Nexus 9336C-FX2 
 ---
-= Descripción general de la instalación y la configuración de los switches compartidos Cisco Nexus 9336C-FX2
+= Flujo de trabajo de instalación y configuración para conmutadores compartidos Cisco Nexus 9336C-FX2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,29 +13,16 @@ summary: Descripción general de la instalación y la configuración de los swit
 [role="lead"]
 El switch compartido Cisco Nexus 9336C-FX2 forma parte de la plataforma Cisco Nexus 9000 y se puede instalar en un armario rack de sistema de NetApp. Los switches compartidos permiten combinar la funcionalidad de clúster y almacenamiento en una configuración de switch compartido, ya que admiten el uso de archivos de configuración de referencia de almacenamiento y clúster compartidos.
 
+Siga estos pasos de flujo de trabajo para instalar y configurar sus conmutadores Cisco 9336C-FX2.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:configure-reqs-9336c-shared.html["Revisar los requisitos de configuración"]
+[role="quick-margin-para"]
+Revise los requisitos de configuración para el conmutador compartido 9336C-FX2.
 
-== Información general de configuración inicial
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"]link:components-9336c-shared.html["Revise los componentes y números de pieza"]
+[role="quick-margin-para"]
+Revise los componentes y números de pieza del conmutador compartido 9336C-FX2.
 
-Para configurar un switch Cisco Nexus 9336C-FX2 en sistemas que ejecutan ONTAP, siga estos pasos:
-
-. link:cable-9336c-shared.html["Complete la hoja de cálculo de cableado"].
-. link:install-9336c-shared.html["Instale el interruptor"].
-. link:setup-and-configure-9336c-shared.html["Configure el switch"].
-. link:install-switch-and-passthrough-panel-9336c-shared.html["Instale el interruptor en un armario NetApp"].
-. link:prepare-nxos-rcf-9336c-shared.html["Prepárese para instalar NX-OS y RCF"].
-. link:install-nxos-software-9336c-shared.html["Instale el software NX-OS"].
-. link:install-nxos-rcf-9336c-shared.html["Instale el archivo de configuración RCF"].
-. link:configure-ssh.html["Habilite SSH"].
-
-
-
-
-== Información adicional
-
-Antes de iniciar la instalación o el mantenimiento, asegúrese de revisar lo siguiente:
-
-* link:configure-reqs-9336c-shared.html["Requisitos de configuración"]
-* link:components-9336c-shared.html["Componentes y números de pieza"]
-* link:required-documentation-9336c-shared.html["Documentación requerida"]
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"]link:required-documentation-9336c-shared.html["Revisar la documentación requerida"]
+[role="quick-margin-para"]
+Revise la documentación específica del conmutador y del controlador para configurar sus conmutadores 9336C-FX2 y el clúster ONTAP .

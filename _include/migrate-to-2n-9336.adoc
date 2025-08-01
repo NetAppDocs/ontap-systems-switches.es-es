@@ -6,7 +6,9 @@
 
 == Revise los requisitos
 
-.Lo que necesitará
+.Antes de empezar
+Asegúrese de tener lo siguiente:
+
 * Para la configuración de dos nodos sin switch:
 +
 ** La configuración sin switch de dos nodos está correctamente configurada y funciona.

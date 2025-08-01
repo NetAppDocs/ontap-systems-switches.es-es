@@ -13,7 +13,9 @@ summary: Puede instalar el switch Cisco Nexus 9336C-FX2 y el panel de paso a tra
 [role="lead"]
 En función de la configuración existente, es posible que tenga que instalar el switch Cisco Nexus 9336C-FX2 y el panel de paso a través en un armario de NetApp. Con el interruptor se incluyen soportes estándar.
 
-.Lo que necesitará
+.Antes de empezar
+Asegúrese de tener lo siguiente:
+
 * Para cada interruptor, debe suministrar los ocho tornillos 10-32 ó 12-24 y tuercas de abrazadera para montar los soportes y rieles deslizantes en los postes del armario delantero y trasero.
 * Debe utilizar el kit de raíl estándar de Cisco para instalar el switch en un armario NetApp.
 

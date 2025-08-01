@@ -249,4 +249,4 @@ Configuration Saved!
 
 
 .El futuro
-link:configure-efos-software.html["Instale el software del EFOS"]
+link:configure-efos-software.html["Instale el software del EFOS"].

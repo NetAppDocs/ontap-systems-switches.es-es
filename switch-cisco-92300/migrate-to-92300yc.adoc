@@ -20,7 +20,9 @@ NOTE: Una vez finalizada la migración, es posible que necesite instalar el arch
 
 == Revise los requisitos
 
-.Lo que necesitará
+.Antes de empezar
+Asegúrese de tener lo siguiente:
+
 * Un clúster existente totalmente funcional.
 * Conectividad de 10 GbE y 40 GbE desde los nodos a los switches de clúster Nexus 92300YC
 * Todos los puertos del clúster están en estado up para garantizar operaciones no disruptivas.

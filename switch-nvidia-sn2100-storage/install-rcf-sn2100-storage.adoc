@@ -13,7 +13,7 @@ summary: Siga este procedimiento para instalar la secuencia de comandos RCF.
 [role="lead"]
 Siga este procedimiento para instalar o actualizar el script RCF.
 
-.Lo que necesitará
+.Antes de empezar
 Antes de instalar o actualizar la secuencia de comandos RCF, asegúrese de que los siguientes elementos están disponibles en el conmutador:
 
 * Cumulus Linux 4.4.3 está instalado.

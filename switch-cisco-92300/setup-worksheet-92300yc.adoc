@@ -1365,3 +1365,5 @@ ISL al puerto 66 del switch B.
 ISL para cambiar al puerto 66
 
 |===
+.¿Qué sigue?
+link:install-switch-92300yc.html["Instale el interruptor"] .

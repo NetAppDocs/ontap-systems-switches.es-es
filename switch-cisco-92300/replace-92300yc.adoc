@@ -17,7 +17,7 @@ La sustitución de un switch Nexus 92300YC defectuoso en una red de clúster es 
 
 == Revise los requisitos
 
-.Lo que necesitará
+.Antes de empezar
 Antes de realizar la sustitución del interruptor, asegúrese de que:
 
 * En el clúster y la infraestructura de red existentes:

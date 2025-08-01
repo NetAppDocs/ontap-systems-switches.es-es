@@ -43,3 +43,6 @@ El switch de SN2100 proporciona aplicaciones de clúster y almacenamiento en ONT
 
 * Puede instalar Cumulus Linux cuando el conmutador esté ejecutando Cumulus Linux o ONIE.
 
+
+.El futuro
+link:components-sn2100-cluster.html["Componentes y números de pieza"] .

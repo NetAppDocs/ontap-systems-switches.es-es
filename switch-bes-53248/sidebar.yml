@@ -5,7 +5,7 @@ entries:
 - title: Descripción general
   pdf-filename: Descripción general_bes53248
   entries:
-  - title: Información general de configuración
+  - title: Inicio rápido
     url: "/switch-bes-53248/configure-new-switch-overview.html"
   - title: Requisitos de configuración
     url: "/switch-bes-53248/configure-reqs-bes53248.html"
@@ -16,10 +16,10 @@ entries:
 - title: Instale el hardware
   pdf-filename: Install_hardware_bes53248
   entries:
-  - title: Instalar el interruptor
+  - title: Flujo de trabajo de instalación de hardware
+    url: "/switch-bes-53248/install-hardware-workflow.html"
+  - title: Instale el interruptor
     url: "/switch-bes-53248/install-hardware-bes53248.html"
-  - title: Configurar el switch
-    url: "/switch-bes-53248/configure-install-initial.html"
   - title: Revisar el cableado y la configuración
     url: "/switch-bes-53248/cabling-considerations-bes-53248.html"
 - title: Configurar el software
@@ -27,7 +27,9 @@ entries:
   entries:
   - title: Flujo de trabajo de instalación del software
     url: "/switch-bes-53248/configure-software-overview-bes53248.html"
-  - title: Instalar el software de EFOS
+  - title: Configure el switch
+    url: "/switch-bes-53248/configure-install-initial.html"
+  - title: Instale el software del EFOS
     url: "/switch-bes-53248/configure-efos-software.html"
   - title: Instale RCF y el archivo de licencia para EFOS 3,12 y posterior
     url: "/switch-bes-53248/efos-install-rcf-license-file.html"
@@ -39,10 +41,10 @@ entries:
     url: "/switch-bes-53248/configure-ssh.html"
   - title: Restablecer el interruptor a los valores predeterminados de fábrica
     url: "/switch-bes-53248/reset-switch-bes-53248.html"
-- title: Interruptor de actualización
+- title: Actualizar el conmutador
   pdf-filename: Upgrade_switches_bes53248
   entries:
-  - title: Información general de la actualización
+  - title: Actualizar el flujo de trabajo
     url: "/switch-bes-53248/upgrade-switch-overview.html"
   - title: Actualice la versión de EFOS
     url: "/switch-bes-53248/upgrade-efos-software.html"
@@ -50,14 +52,14 @@ entries:
     url: "/switch-bes-53248/upgrade-rcf.html"
   - title: Verifique el clúster tras la actualización
     url: "/switch-bes-53248/replace-verify.html"
-- title: Migrar switches
+- title: Migrar los switches
   pdf-filename: Migrate_SWITERS_bes53248
   entries:
   - title: Migrar desde switches CN1610
     url: "/switch-bes-53248/migrate-cn1610.html"
   - title: Migre a switches de dos nodos
     url: "/switch-bes-53248/migrate-to-2n-switched.html"
-- title: Sustituya los interruptores
+- title: Reemplace los interruptores
   pdf-filename: Reemplace_SWITERS_bes53248
   entries:
   - title: Requisitos de sustitución

@@ -38,7 +38,9 @@ Revise las siguientes directrices:
 * Si tiene un clúster de dos nodos existente que utiliza switches de interconexión de clúster y ejecuta ONTAP 9.3 o una versión posterior, puede reemplazar los switches por conexiones directas de vuelta a atrás entre los nodos.
 
 
-.Lo que necesitará
+.Antes de empezar
+Asegúrese de tener lo siguiente:
+
 * Un clúster en buen estado que consta de dos nodos conectados por switches de clúster. Los nodos deben ejecutar la misma versión de ONTAP.
 * Cada nodo con el número requerido de puertos de clúster dedicados, que proporcionan conexiones redundantes de interconexión de clúster para admitir la configuración de su sistema. Por ejemplo, hay dos puertos redundantes para un sistema con dos puertos de Cluster Interconnect dedicados en cada nodo.
 

@@ -1,0 +1,30 @@
+---
+permalink: switch-cisco-9336c-fx2/install-hardware-workflow.html 
+sidebar: sidebar 
+keywords: witches, initial installation, configure switch-cisco-9336c-fx2 switch 
+summary: Antes de configurar los conmutadores de clúster Cisco Nexus 9336C-FX2, revise la descripción general de la configuración. 
+---
+= Flujo de trabajo de instalación de hardware para conmutadores Cisco Nexus 9336C-FX2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para instalar y configurar el hardware de un conmutador de clúster 9336C-FX2, siga estos pasos:
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:setup-worksheet-9336c-cluster.html["Complete la hoja de trabajo de cableado"]
+[role="quick-margin-para"]
+La hoja de cálculo de cableado de ejemplo proporciona ejemplos de asignaciones de puertos recomendadas desde los switches a las controladoras. La hoja de datos en blanco proporciona una plantilla que puede utilizar para configurar su clúster.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"]link:install-switch-9336c-cluster.html["Instale el interruptor"]
+[role="quick-margin-para"]
+Instale el interruptor 9336C-FX2.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"]link:install-switch-and-passthrough-panel-9336c-cluster.html["Instale el interruptor en un armario NetApp"]
+[role="quick-margin-para"]
+Instale el conmutador 9336C-FX2 y el panel de paso en un gabinete NetApp según sea necesario.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:install-switch-and-passthrough-panel-9336c-cluster.html["Revisar el cableado y la configuración"]
+[role="quick-margin-para"]
+Revise el soporte para los puertos Ethernet de NVIDIA , los requisitos de FEC de 25 GbE y la información sobre los recursos de TCAM.

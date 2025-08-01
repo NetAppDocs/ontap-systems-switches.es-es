@@ -13,7 +13,7 @@ summary: 'Sustitución de un conmutador de almacenamiento NVIDIA SN2100 defectuo
 [role="lead"]
 Puede sustituir un conmutador de almacenamiento NVIDIA SN2100 defectuoso. Se trata de un procedimiento no disruptivo.
 
-.Lo que necesitará
+.Antes de empezar
 Antes de instalar el software Cumulus y los RCF en un conmutador de almacenamiento NVIDIA SN2100, asegúrese de que:
 
 * Su sistema puede admitir los switches de almacenamiento NVIDIA SN2100.

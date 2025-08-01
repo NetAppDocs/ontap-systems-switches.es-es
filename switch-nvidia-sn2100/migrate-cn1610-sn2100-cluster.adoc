@@ -28,7 +28,7 @@ Se admiten los siguientes switches de clúster:
 
 Para obtener más información acerca de los puertos admitidos y sus configuraciones, consulte https://hwu.netapp.com/["Hardware Universe"^].
 
-.Lo que necesitará
+.Antes de empezar
 Compruebe que cumple los siguientes requisitos para la configuración:
 
 * El clúster existente está correctamente configurado y funcionando.

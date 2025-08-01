@@ -19,7 +19,9 @@ Antes de comenzar, complete el procedimiento en link:install-nxos-overview-9336c
 
 == Revise los requisitos
 
-.Lo que necesitará
+.Antes de empezar
+Asegúrese de tener lo siguiente:
+
 * Una copia de seguridad actual de la configuración del switch.
 * Un clúster en pleno funcionamiento (sin errores en los registros o problemas similares).
 
@@ -694,4 +696,4 @@ Si alguna LIF de clúster no ha regresado a sus puertos raíz, revertirla manual
 
 
 .El futuro
-link:install-upgrade-rcf-overview-cluster.html["Instalar o actualizar el archivo de configuración de referencia (RCF)"]
+link:install-upgrade-rcf-overview-cluster.html["Instalar o actualizar el archivo de configuración de referencia (RCF)"] .

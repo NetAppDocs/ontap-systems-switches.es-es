@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: sn2100 SN2100 switches setup, sn2100 SN2100 switches install, cumulus linux 
 summary: Antes de configurar los conmutadores NVIDIA SN2100, revise la descripción general del procedimiento. 
 ---
-= Descripción general del proceso de configuración de los switches de almacenamiento NVIDIA SN2100
+= Flujo de trabajo de instalación y configuración para conmutadores NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,49 +13,24 @@ summary: Antes de configurar los conmutadores NVIDIA SN2100, revise la descripci
 [role="lead"]
 El NVIDIA SN2100 es un switch Ethernet que le permite cambiar datos entre controladoras y bandejas de discos.
 
+Siga estos pasos de flujo de trabajo para instalar y configurar sus conmutadores SN2100.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:configure-reqs-sn2100-storage.html["Revisar los requisitos de configuración"]
+[role="quick-margin-para"]
+Revise los requisitos de configuración para el conmutador de almacenamiento SN2100.
 
-== Información general de configuración inicial
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"]link:components-sn2100-storage.html["Revise los componentes y números de pieza"]
+[role="quick-margin-para"]
+Revise los componentes y números de pieza del conmutador de almacenamiento SN2100.
 
-Para configurar un conmutador NVIDIA SN2100 en sistemas que ejecuten ONTAP, siga estos pasos:
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"]link:required-documentation-sn2100-storage.html["Revisar la documentación requerida"]
+[role="quick-margin-para"]
+Revise la documentación específica del conmutador y del controlador para configurar sus conmutadores SN2100 y el clúster ONTAP .
 
-. link:install-hardware-sn2100-storage.html["Instale la tornillería del conmutador NVIDIA SN2100"].
-+
-Las instrucciones están disponibles en la _NVIDIA Switch Installation Guide_.
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:install-hardware-workflow.html["Instale el hardware"]
+[role="quick-margin-para"]
+Instale el hardware del interruptor.
 
-. link:configure-sn2100-storage.html["Configure el switch"].
-+
-Las instrucciones están disponibles en la documentación de NVIDIA.
-
-. link:cabling-considerations-sn2100-storage.html["Revise las consideraciones sobre el cableado y la configuración"].
-+
-Revise los requisitos para las conexiones ópticas, el adaptador QSA y la velocidad del puerto de conmutación.
-
-. link:install-cable-shelves-sn2100-storage.html["Conecte el cable de las bandejas NS224 como almacenamiento conectado al conmutador"].
-+
-Siga estos procedimientos si dispone de un sistema en el que las bandejas de unidades NS224 deban cablearse como almacenamiento conectado a switch (no como almacenamiento de conexión directa).
-
-. link:install-cumulus-mode-sn2100-storage.html["Instale Cumulus Linux en modo Cumulus"] o. link:install-onie-mode-sn2100-storage.html["Instale Cumulus Linux en modo ONIE"].
-+
-Puede instalar Cumulus Linux (CL) OS cuando el conmutador esté ejecutando Cumulus Linux o ONIE.
-
-. link:install-rcf-sn2100-storage.html["Instale la secuencia de comandos del archivo de configuración de referencia"].
-+
-Hay dos secuencias de comandos RCF disponibles para las aplicaciones de almacenamiento y agrupación en clúster.
-
-. link:setup-install-cshm-file.html["Instale el archivo CSHM"].
-+
-Puede instalar el archivo de configuración correspondiente para la supervisión del estado del switch Ethernet de los switches de clúster de NVIDIA.
-
-
-
-
-
-== Información adicional
-
-Antes de iniciar la instalación o el mantenimiento, asegúrese de revisar lo siguiente:
-
-* link:configure-reqs-sn2100-storage.html["Requisitos de configuración"]
-* link:components-sn2100-storage.html["Componentes y números de pieza"]
-* link:required-documentation-sn2100-storage.html["Documentación requerida"]
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-software-sn2100-storage.html["Configurar el software"]
+[role="quick-margin-para"]
+Configurar el software del conmutador.

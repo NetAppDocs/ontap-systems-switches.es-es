@@ -17,7 +17,9 @@ Si tiene sistemas FAS22xx en un clúster sin switch de dos nodos existente en el
 
 == Revise los requisitos
 
-.Lo que necesitará
+.Antes de empezar
+Asegúrese de tener lo siguiente:
+
 * Dos conexiones de clúster para migrar desde una configuración sin switch a una configuración con switch.
 * El clúster está en buen estado y consta de dos nodos conectados con conectividad de back-to-back.
 * Los nodos ejecutan ONTAP 8.2 o una versión posterior.

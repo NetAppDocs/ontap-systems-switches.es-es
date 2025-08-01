@@ -19,7 +19,9 @@ El proceso de migración funciona para todos los nodos utilizando puertos óptic
 
 == Revise los requisitos
 
-.Lo que necesitará
+.Antes de empezar
+Asegúrese de tener lo siguiente:
+
 * Para la configuración de dos nodos sin switch:
 +
 ** La configuración sin switch de dos nodos está correctamente configurada y funciona.

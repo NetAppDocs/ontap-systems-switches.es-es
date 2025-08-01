@@ -24,8 +24,8 @@ Se admiten los siguientes switches de almacenamiento:
 * Consulte https://hwu.netapp.com/["Hardware Universe"^] para obtener toda la información de los puertos compatibles y sus configuraciones.
 
 
-.Lo que necesitará
-Asegúrese de que:
+.Antes de empezar
+Asegúrese de tener lo siguiente:
 
 * El clúster existente está configurado y funciona correctamente.
 * Todos los puertos de almacenamiento están en estado up para garantizar operaciones no disruptivas.

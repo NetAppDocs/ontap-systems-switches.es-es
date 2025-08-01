@@ -42,3 +42,5 @@ En la tabla siguiente se enumeran el número de pieza y la descripción del swit
 
 | X-NXA-FAN-65CFM-PI | N9K-9336C 65CFM, flujo de aire de entrada lateral de la lumbrera 
 |===
+.¿Qué sigue?
+link:required-documentation-9336c-shared.html["Documentación requerida"] .

@@ -31,3 +31,6 @@ Necesita la siguiente información de red para todas las configuraciones de los 
 
 
 Consulte la https://hwu.netapp.com["Hardware Universe"^] para obtener la información más reciente.
+
+.¿Qué sigue?
+link:required-documentation-3132q.html["Documentación requerida"] .

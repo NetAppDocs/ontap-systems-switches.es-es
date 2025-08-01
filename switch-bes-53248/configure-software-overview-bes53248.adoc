@@ -13,24 +13,26 @@ summary: Revise la descripción general del software.
 [role="lead"]
 Para instalar y configurar el software para un conmutador de clúster BES-53248, siga estos pasos:
 
-. link:configure-efos-software.html["Instale el software del EFOS"].
-+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:configure-install-initial.html["Configure el switch"]
+[role="quick-margin-para"]
+Configurar el conmutador de clúster BES-53248.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"]link:configure-efos-software.html["Instale el software del EFOS"]
+[role="quick-margin-para"]
 Descargue e instale el software Ethernet Fabric OS (EFOS) en el switch de clúster BES-53248.
 
-. link:configure-licenses.html["Instale licencias para switches de clúster BES-53248"].
-+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"]link:configure-licenses.html["Instale licencias para switches de clúster BES-53248"]
+[role="quick-margin-para"]
 Opcionalmente, añada nuevos puertos comprando e instalando más licencias. El modelo de base de switches tiene licencia para 16 puertos de 10 GbE o 25 GbE y dos puertos de 100 GbE.
 
-. link:configure-install-rcf.html["Instalación del archivo de configuración de referencia (RCF)"].
-+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:configure-install-rcf.html["Instalación del archivo de configuración de referencia (RCF)"]
+[role="quick-margin-para"]
 Instale o actualice el RCF en el conmutador de clúster BES-53248 y, a continuación, compruebe los puertos para obtener una licencia adicional después de aplicar el RCF.
 
-. link:configure-ssh.html["Habilite SSH en switches de clúster BES-53248"].
-+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-ssh.html["Habilite SSH en switches de clúster BES-53248"]
+[role="quick-margin-para"]
 Si utiliza el monitor de estado del switch Ethernet (CSHM) y las funciones de recopilación de registros, habilite SSH en los switches.
 
-. link:reset-switch-bes-53248.html["Restablecer el interruptor a los valores predeterminados de fábrica"].
-+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]link:reset-switch-bes-53248.html["Restablecer el interruptor a los valores predeterminados de fábrica"]
+[role="quick-margin-para"]
 Borre la configuración del conmutador de clúster BES-53248.
-
-

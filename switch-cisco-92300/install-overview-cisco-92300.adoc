@@ -4,32 +4,33 @@ sidebar: sidebar
 keywords: install, cisco nexus 92300 switch, 
 summary: Antes de configurar los switches Cisco Nexus 92300, revise una descripción general del proceso y la nomenclatura. 
 ---
-= Información general de la instalación y configuración para switches Cisco Nexus 92300YC
+= Flujo de trabajo de instalación y configuración para conmutadores Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Antes de configurar los switches Cisco Nexus 92300YC, revise la descripción general del procedimiento.
+Los conmutadores Cisco Nexus 92300YC se pueden utilizar como conmutadores de clúster en su clúster AFF o FAS .  Los conmutadores de clúster le permiten crear clústeres ONTAP con más de dos nodos.
 
-Para configurar inicialmente un switch Cisco Nexus 92300YC en sistemas que ejecutan ONTAP, siga estos pasos:
+Siga estos pasos de flujo de trabajo para instalar y configurar su conmutador Cisco Nexus 92300YC.
 
-. link:setup-worksheet-92300yc.html["Complete la hoja de trabajo para el cableado Cisco Nexus 92300YC"]. La hoja de cálculo de cableado de ejemplo proporciona ejemplos de asignaciones de puertos recomendadas desde los switches a las controladoras. La hoja de datos en blanco proporciona una plantilla que puede utilizar para configurar su clúster.
-. link:configure-install-initial.html["Configure el switch Cisco Nexus 92300YC"]. Configure y configure el switch Cisco Nexus 92300YC.
-. link:install-nxos-overview.html["Preparar la instalación del software NX-OS y del archivo de configuración de referencia (RCF)"]. Prepare la instalación del software NX-OS y del archivo de configuración de referencia (RCF).
-. link:install-nxos-software.html["Instale el software NX-OS"]. Instale el software NX-OS en el switch Nexus 92300YC. NX-OS es un sistema operativo de red para la serie Nexus de switches Ethernet y la serie MDS de switches de red de área de almacenamiento Fibre Channel (FC) proporcionados por Cisco Systems.
-. link:install-the-rcf-file.html["Instalación del archivo de configuración de referencia (RCF)"]. Instale el RCF después de configurar por primera vez el interruptor Nexus 92300YC. También puede utilizar este procedimiento para actualizar la versión de RCF.
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:configure-reqs-92300.html["Requisitos de configuración"]
+[role="quick-margin-para"]
+Revise los requisitos de configuración para el conmutador de clúster 92300YC.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"]link:required-documentation-92300.html["Documentación requerida"]
+[role="quick-margin-para"]
+Revise la documentación específica del conmutador y del controlador para configurar sus conmutadores 92300YC y el clúster ONTAP .
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"]link:smart-call-home-92300.html["Requisitos de Smart Call Home"]
+[role="quick-margin-para"]
+Revise los requisitos de la función Cisco Smart Call Home, que se utiliza para monitorear los componentes de hardware y software de su red.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:install-hardware-workflow.html["Instale el hardware"]
+[role="quick-margin-para"]
+Instale el hardware del interruptor.
 
-== Información adicional
-
-Antes de iniciar la instalación o el mantenimiento, asegúrese de revisar lo siguiente:
-
-* link:configure-reqs-92300.html["Requisitos de configuración"]
-* link:components-92300.html["Componentes y números de pieza"]
-* link:required-documentation-92300.html["Documentación requerida"]
-* link:smart-call-home-92300.html["Requisitos de Smart Call Home"]
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-software-overview-92300-cluster.html["Configurar el software"]
+[role="quick-margin-para"]
+Configurar el software del conmutador.

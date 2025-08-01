@@ -1,0 +1,30 @@
+---
+permalink: switch-cisco-92300/install-hardware-workflow.html 
+sidebar: sidebar 
+keywords: switches, initial installation, configure switch-cisco-92300yc switch 
+summary: Antes de configurar los conmutadores de clúster Cisco Nexus 92300YC, revise la descripción general de la configuración. 
+---
+= Flujo de trabajo de instalación de hardware para conmutadores Cisco Nexus 92300YC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para instalar y configurar el hardware de un conmutador de clúster 92300YC, siga estos pasos:
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:setup-worksheet-92300yc.html["Complete la hoja de trabajo de cableado"]
+[role="quick-margin-para"]
+La hoja de cálculo de cableado de ejemplo proporciona ejemplos de asignaciones de puertos recomendadas desde los switches a las controladoras. La hoja de datos en blanco proporciona una plantilla que puede utilizar para configurar su clúster.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"]link:install-switch-92300yc.html["Instale el interruptor"]
+[role="quick-margin-para"]
+Instale el interruptor 92300YC.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"]link:install-switch-netapp-cabinet-92300yc.html["Instale el interruptor en un armario NetApp"]
+[role="quick-margin-para"]
+Instale el conmutador 92300YC y el panel de paso en un gabinete NetApp según sea necesario.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:cabling-considerations-92300.html["Revisar el cableado y la configuración"]
+[role="quick-margin-para"]
+Revise el soporte para puertos Ethernet NVIDIA .

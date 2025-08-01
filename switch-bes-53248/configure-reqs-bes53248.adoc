@@ -80,3 +80,6 @@ Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obtener m
 * Si compra licencias adicionales, consulte link:configure-licenses.html["Activar puertos de licencias nuevas"] para obtener detalles sobre cómo activarlos.
 * Si SSH está activo, debe volver a habilitarlo manualmente después de ejecutar el comando `erase startup-config` y reiniciando el interruptor.
 
+
+.¿Qué sigue?
+link:components-bes53248.html["Componentes y números de pieza"] .

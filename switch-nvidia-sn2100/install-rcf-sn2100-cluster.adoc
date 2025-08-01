@@ -13,7 +13,7 @@ summary: Asegúrese de que los siguientes elementos están disponibles en el con
 [role="lead"]
 Siga este procedimiento para instalar o actualizar el script RCF.
 
-.Lo que necesitará
+.Antes de empezar
 Antes de instalar o actualizar la secuencia de comandos RCF, asegúrese de que los siguientes elementos están disponibles en el conmutador:
 
 * Está instalado Cumulus Linux. Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para las versiones compatibles.

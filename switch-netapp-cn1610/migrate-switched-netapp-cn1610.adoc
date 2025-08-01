@@ -17,7 +17,9 @@ Si ya dispone de un entorno de clúster sin switches de dos nodos, puede migrar 
 
 == Revise los requisitos
 
-.Lo que necesitará
+.Antes de empezar
+Asegúrese de tener lo siguiente:
+
 En el caso de una configuración sin switch de dos nodos, asegúrese de que:
 
 * La configuración sin switch de dos nodos está correctamente configurada y funciona.

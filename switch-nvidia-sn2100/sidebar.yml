@@ -6,7 +6,7 @@ entries:
 - title: Descripción general
   pdf-filename: Descripción general_sn2100
   entries:
-  - title: Información general de configuración
+  - title: Inicio rápido
     url: "/switch-nvidia-sn2100/configure-overview-sn2100-cluster.html"
   - title: Requisitos de configuración
     url: "/switch-nvidia-sn2100/configure-reqs-sn2100-cluster.html"
@@ -17,10 +17,10 @@ entries:
 - title: Instale el hardware
   pdf-filename: Install_hardware_sn2100
   entries:
-  - title: Instalar el interruptor
+  - title: Flujo de trabajo de instalación de hardware
+    url: "/switch-nvidia-sn2100/install-hardware-workflow.html"
+  - title: Instale el interruptor
     url: "/switch-nvidia-sn2100/install-hardware-sn2100-cluster.html"
-  - title: Configurar el switch
-    url: "/switch-nvidia-sn2100/configure-sn2100-cluster.html"
   - title: Revisar el cableado y la configuración
     url: "/switch-nvidia-sn2100/cabling-considerations-sn2100-cluster.html"
   - title: Conecte el cable de las bandejas NS224
@@ -30,6 +30,8 @@ entries:
   entries:
   - title: Flujo de trabajo de instalación del software
     url: "/switch-nvidia-sn2100/configure-software-overview-sn2100-cluster.html"
+  - title: Configure el switch
+    url: "/switch-nvidia-sn2100/configure-sn2100-cluster.html"
   - title: Instale Cumulus Linux en modo Cumulus
     url: "/switch-nvidia-sn2100/install-cumulus-mode-sn2100-cluster.html"
   - title: Instale Cumulus Linux en modo ONIE
@@ -40,7 +42,7 @@ entries:
     url: "/switch-nvidia-sn2100/install-rcf-sn2100-cluster.html"
   - title: Instale el archivo CSHM
     url: "/switch-nvidia-sn2100/setup-install-cshm-file.html"
-- title: Migrar switches
+- title: Migrar los switches
   pdf-filename: Migrate_SWITERS_sn2100
   entries:
   - title: Migrar desde switches de clúster CN1610
@@ -49,7 +51,7 @@ entries:
     url: "/switch-nvidia-sn2100/migrate-cisco-sn2100-cluster-switch.html"
   - title: Migre a un clúster de dos nodos con switches
     url: "/switch-nvidia-sn2100/migrate-2n-switched-sn2100-cluster.html"
-- title: Sustituya los interruptores
+- title: Reemplace los interruptores
   pdf-filename: Reemplace_SWITERS_sn2100
   entries:
   - title: Sustituya el switch del clúster

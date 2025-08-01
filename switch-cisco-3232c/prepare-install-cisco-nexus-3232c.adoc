@@ -226,4 +226,4 @@ Cluster
 
 
 .El futuro
-link:install-nx-os-software-3232c.html["Instale el software NX-OS"]
+link:install-nx-os-software-3232c.html["Instale el software NX-OS"] .

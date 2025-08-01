@@ -1,0 +1,53 @@
+---
+permalink: switch-cisco-3132q-v/install-switch-3132qv.html 
+sidebar: sidebar 
+keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 3132q-v 
+summary: Siga este procedimiento para instalar el conmutador Cisco Nexus 3132Q-V. 
+---
+= Instalar el interruptor del grupo 3132Q-V
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga este procedimiento para instalar y configurar el conmutador Cisco Nexus 3132Q-V.
+
+.Antes de empezar
+Asegúrese de tener lo siguiente:
+
+* Acceso a un servidor HTTP, FTP o TFTP en el sitio de instalación para descargar las versiones correspondientes del NX-OS y del archivo de configuración de referencia (RCF).
+* La versión aplicable de NX-OS, descargada del https://software.cisco.com/download/home["Descarga de software de Cisco"^] página.
+* Las licencias aplicables, la información de configuración y red, y los cables.
+* Terminadolink:setup_worksheet_3132q.html["hojas de datos para el cableado"] .
+* Los RCF de red de gestión y red de clúster de NetApp aplicables descargados del sitio de soporte de NetApp en http://mysupport.netapp.com/["mysupport.netapp.com"^]. Todos los switches de red de gestión y red de clúster de Cisco llegan con la configuración predeterminada de fábrica de Cisco. Estos conmutadores también tienen la versión actual del software NX-OS pero no tienen cargados los RCF.
+* link:required-documentation-3132q.html["Documentación necesaria sobre el switch y ONTAP"] .
+
+
+.Pasos
+. Monte en rack la red del clúster y los switches de red de gestión y las controladoras.
++
+[cols="1,2"]
+|===
+| Si está instalando... | Realice lo siguiente... 
+
+
+ a| 
+Cisco Nexus 9336C-FX2 en un armario de sistemas de NetApp
+ a| 
+Consulte la guía _instalación de un switch de clúster Cisco Nexus 3132Q-V y panel de paso a través en un armario de NetApp_ para obtener instrucciones sobre cómo instalar el switch en un armario de NetApp.
+
+
+
+ a| 
+Equipo en un bastidor de Telco
+ a| 
+Consulte los procedimientos proporcionados en las guías de instalación del hardware del switch y las instrucciones de instalación y configuración de NetApp.
+
+|===
+. Conecte los cables de la red de clústeres y los switches de red de gestión a las controladoras mediante las hojas de trabajo de cableado completadas.
+. Encienda la red de clúster y los switches de red de gestión y las controladoras.
+
+
+.El futuro
+Opcionalmente, puedeslink:install-cisco-nexus-3132qv.html["Instalar un conmutador Cisco Nexus 3132Q-V en un gabinete NetApp"] .  De lo contrario, vaya alink:cabling-considerations-3132q-v.html["Revisar el cableado y la configuración"] .

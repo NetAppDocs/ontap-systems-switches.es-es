@@ -19,7 +19,9 @@ Antes de comenzar, complete el procedimiento en link:prepare-nxos-rcf-9336c-shar
 
 == Revise los requisitos
 
-.Lo que necesitará
+.Antes de empezar
+Asegúrese de tener lo siguiente:
+
 * Una copia de seguridad actual de la configuración del switch.
 * Un clúster en pleno funcionamiento (sin errores en los registros o problemas similares).
 

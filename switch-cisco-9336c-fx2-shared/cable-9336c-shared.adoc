@@ -69,3 +69,6 @@ Donde:
 * 100G ISL al puerto 35 del switch B.
 * 100G ISL al puerto 36 del switch B.
 
+
+.¿Qué sigue?
+link:install-9336c-shared.html["Instale el interruptor"].

@@ -140,4 +140,4 @@ DISTRIB_DESCRIPTION=*"Cumulus Linux 4.4.3”*
 
 
 .El futuro
-link:install-rcf-sn2100-storage.html["Instale la secuencia de comandos RCF"].
+link:install-rcf-sn2100-storage.html["Instale o actualice el script RCF"] .

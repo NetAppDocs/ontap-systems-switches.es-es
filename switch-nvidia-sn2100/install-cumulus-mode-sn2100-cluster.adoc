@@ -16,7 +16,9 @@ Siga este procedimiento para instalar Cumulus Linux (CL) OS cuando el conmutador
 
 NOTE: Cumulus Linux (CL) OS se puede instalar ya sea cuando el conmutador ejecuta Cumulus Linux o ONIE (consulte link:install-onie-mode-sn2100-cluster.html["Instale EN modo ONIE"]).
 
-.Lo que necesitará
+.Antes de empezar
+Asegúrese de tener lo siguiente:
+
 * Conocimientos de Linux de nivel intermedio.
 * Estar familiarizado con la edición de texto básica, los permisos de archivos UNIX y la supervisión de procesos. Una variedad de editores de texto están preinstalados, incluyendo `vi` y.. `nano`.
 * Acceso a un shell de Linux o UNIX. Si ejecuta Windows, utilice un entorno Linux como herramienta de línea de comandos para interactuar con Cumulus Linux.

@@ -13,7 +13,9 @@ summary: Siga este procedimiento para instalar el switch Cisco Nexus 9336C-FX2.
 [role="lead"]
 Siga este procedimiento para configurar y configurar el switch Cisco Nexus 9336C-FX2.
 
-.Lo que necesitará
+.Antes de empezar
+Asegúrese de tener lo siguiente:
+
 * Acceso a un servidor HTTP, FTP o TFTP en el sitio de instalación para descargar las versiones correspondientes del NX-OS y del archivo de configuración de referencia (RCF).
 * La versión aplicable de NX-OS, descargada del https://software.cisco.com/download/home["Descarga de software de Cisco"^] página.
 * Las licencias aplicables, la información de configuración y red, y los cables.
@@ -48,4 +50,4 @@ Consulte los procedimientos proporcionados en las guías de instalación del har
 
 
 .El futuro
-Vaya a. link:setup-switch-9336c-cluster.html["Configure el switch Cisco Nexus 9336C-FX2"].
+Opcionalmente, puedeslink:install-switch-and-passthrough-panel-9336c-cluster.html["Instale un switch Cisco Nexus 9336C-FX2 en un armario de NetApp"] .  De lo contrario, vaya alink:cabling-considerations-9336c-fx2.html["Revisar el cableado y la configuración"] .

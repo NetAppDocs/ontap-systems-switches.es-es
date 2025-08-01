@@ -17,7 +17,9 @@ Al instalar el software FASTPATH en los switches de NetApp, debe comenzar la act
 
 == Revise los requisitos
 
-.Lo que necesitará
+.Antes de empezar
+Asegúrese de tener lo siguiente:
+
 * Una copia de seguridad actual de la configuración del switch.
 * Un clúster que funciona completamente (sin errores en los registros y sin tarjetas de interfaz de red (NIC) del clúster defectuosas o problemas similares).
 * Conexiones de puerto completamente funcionales en el switch de clúster.

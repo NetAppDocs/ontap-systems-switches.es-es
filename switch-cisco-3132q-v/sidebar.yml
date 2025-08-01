@@ -5,7 +5,7 @@ entries:
 - title: Descripción general
   pdf-filename: Descripción general_3132q-v
   entries:
-  - title: Información general de configuración
+  - title: Inicio rápido
     url: "/switch-cisco-3132q-v/install-overview-cisco-3132qv.html"
   - title: Requisitos de configuración
     url: "/switch-cisco-3132q-v/configure-reqs-3132q.html"
@@ -16,10 +16,12 @@ entries:
 - title: Instale el hardware
   pdf-filename: Hardware_de_instalación_3132q-v
   entries:
+  - title: Flujo de trabajo de instalación de hardware
+    url: "/switch-cisco-3132q-v/install-hardware-workflow.html"
   - title: Complete la hoja de cálculo de cableado
     url: "/switch-cisco-3132q-v/setup_worksheet_3132q.html"
-  - title: Configurar el switch
-    url: "/switch-cisco-3132q-v/setup-switch.html"
+  - title: Instale el interruptor
+    url: "/switch-cisco-3132q-v/install-switch-3132qv.html"
   - title: Instale el switch en el armario de NetApp
     url: "/switch-cisco-3132q-v/install-cisco-nexus-3132qv.html"
   - title: Revisar el cableado y la configuración
@@ -27,6 +29,10 @@ entries:
 - title: Configurar el software
   pdf-filename: Configure_SOFTWARE_3132q-v
   entries:
+  - title: Flujo de trabajo de instalación del software
+    url: "/switch-cisco-3132q-v/configure-software-overview-3132q-v-cluster.html"
+  - title: Configurar el switch
+    url: "/switch-cisco-3132q-v/setup-switch.html"
   - title: Prepare la instalación de NX-OS y RCF
     url: "/switch-cisco-3132q-v/prepare-install-cisco-nexus-3132q.html"
   - title: Instale el software NX-OS

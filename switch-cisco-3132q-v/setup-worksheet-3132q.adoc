@@ -589,3 +589,5 @@ Reservado
 40 G de ISL para cambiar al puerto 32
 
 |===
+.¿Qué sigue?
+link:install-switch-3132qv.html["Instale el interruptor"] .

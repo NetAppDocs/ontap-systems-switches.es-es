@@ -589,3 +589,5 @@ Reservado
 100GbE ISL para conmutar Un puerto 32
 
 |===
+.¿Qué sigue?
+link:install-switch-3232c.html["Instale el interruptor"] .
