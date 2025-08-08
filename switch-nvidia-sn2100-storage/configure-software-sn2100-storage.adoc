@@ -32,3 +32,7 @@ Hay dos secuencias de comandos RCF disponibles para las aplicaciones de almacena
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:setup-install-cshm-file.html["Instale el archivo CSHM"]
 [role="quick-margin-para"]
 Puede instalar el archivo de configuración correspondiente para la supervisión del estado del switch Ethernet de los switches de clúster de NVIDIA.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]link:reset-switch-sn2100-storage.html["Restablecer el interruptor a los valores predeterminados de fábrica"]
+[role="quick-margin-para"]
+Borre la configuración del interruptor de almacenamiento SN2100.

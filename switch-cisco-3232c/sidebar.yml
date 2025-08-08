@@ -41,6 +41,8 @@ entries:
     url: "/switch-cisco-3232c/install-rcf-3232c.html"
   - title: Compruebe la configuración de SSH
     url: "/switch-cisco-3232c/configure-ssh-keys.html"
+  - title: Restablecer el interruptor a los valores predeterminados de fábrica
+    url: "/switch-cisco-3232c/reset-switch-3232c.html"
 - title: Migrar switches
   pdf-filename: Migrate_switches_3232C
   entries:

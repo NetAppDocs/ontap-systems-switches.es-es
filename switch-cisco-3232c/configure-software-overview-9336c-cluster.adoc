@@ -32,3 +32,7 @@ Instale el RCF después de configurar el conmutador Cisco 3232C por primera vez.
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-ssh-keys.html["Compruebe la configuración de SSH"]
 [role="quick-margin-para"]
 Verifique que SSH esté habilitado en los conmutadores para usar el Monitor de estado del conmutador Ethernet (CSHM) y las funciones de recopilación de registros.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]link:reset-switch-3232c.html["Restablecer el interruptor a los valores predeterminados de fábrica"]
+[role="quick-margin-para"]
+Borre la configuración del interruptor del grupo 3232C.

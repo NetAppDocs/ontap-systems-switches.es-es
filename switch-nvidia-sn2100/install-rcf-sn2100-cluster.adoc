@@ -23,6 +23,22 @@ Antes de instalar o actualizar la secuencia de comandos RCF, asegúrese de que l
 
 NOTE: Debe especificar un usuario en el RCF (además del usuario administrador) para que se utilice específicamente para la recopilación de registros.
 
+.Configuraciones del cliente
+Están disponibles las siguientes categorías de configuración de referencia:
+
+[cols="1,2"]
+|===
+
+
+| Clúster | En los puertos configurados para una conexión de 4 x 10 GbE, un puerto está configurado para una conexión de 4 x 25 GbE y los otros puertos están configurados para 40/100 GbE.  Admite tráfico de clúster/HA compartido en puertos para nodos que utilizan puertos de clúster/HA compartidos.  Consulte la tabla de plataformas en el artículo de la Base de conocimientos https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/What_AFF_ASA_and_FAS_platforms_use_shared_Cluster_and_HA_Ethernet_ports["¿Qué plataformas AFF, ASA y FAS utilizan puertos Ethernet de alta disponibilidad y de clúster compartidos?"^] .  Todos los puertos también pueden utilizarse como puertos de clúster dedicados. 
+
+
+ a| 
+Reducida
+ a| 
+Todos los puertos configurados para conexiones de almacenamiento NVMe de 100 GbE.
+
+|===
 .Versiones actuales de la secuencia de comandos RCF
 Hay dos scripts de RCF disponibles para las aplicaciones de clúster y almacenamiento. Descargar RCFs de https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Descarga del software NVIDIA SN2100"^] la página. El procedimiento para cada uno es el mismo.
 
