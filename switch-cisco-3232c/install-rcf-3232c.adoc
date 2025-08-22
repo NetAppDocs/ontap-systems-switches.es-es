@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install, rcf 
 summary: Puede instalar el RCF después de configurar el conmutador Nexus 3232C por primera vez.también puede utilizar este procedimiento para actualizar la versión de RCF. 
 ---
-= Instalación del archivo de configuración de referencia (RCF)
+= Instalar o actualizar el archivo de configuración de referencia (RCF)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -262,42 +262,62 @@ cluster1::*>
 +
 `show running-config`
 
-. Limpie la configuración del interruptor CS2 y reinicie el interruptor.
+. Registre cualquier adición personalizada entre la configuración en ejecución actual y el archivo RCF en uso.
+. Guarde los detalles básicos de la configuración en el archivo write_erase.cfg en el bootflash.
 +
 
-CAUTION: Al actualizar o aplicar una nueva RCF, debe borrar los ajustes del conmutador y realizar la configuración básica. Debe estar conectado al puerto de la consola de serie del switch para volver a configurar el switch.
+NOTE: Al actualizar o aplicar un nuevo RCF, debe borrar la configuración del interruptor y realizar la configuración básica.  Debe estar conectado al puerto de consola serie del conmutador para configurar el conmutador nuevamente.
 
 +
-.. Limpie la configuración:
+`cs2# show run | section "switchname" > bootflash:write_erase.cfg`
+
 +
-.Muestra el ejemplo
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-(cs2)# *write erase*
+`cs2# show run | section "hostname" >> bootflash:write_erase.cfg`
 
-Warning: This command will erase the startup-configuration.
-
-Do you wish to proceed anyway? (y/n)  [n]  *y*
-----
-====
-.. Reinicie el switch:
 +
-.Muestra el ejemplo
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-(cs2)# *reload*
+`cs2# show run | i "username admin password" >> bootflash:write_erase.cfg`
 
-Are you sure you would like to reset the system? (y/n) *y*
++
+`cs2# show run | section "vrf context management" >> bootflash:write_erase.cfg`
 
-----
-====
++
+`cs2# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
 
+. Para la versión 1.12 y posteriores de RCF, ejecute los siguientes comandos:
++
+`cs2# echo "hardware access-list tcam region racl-lite 512" > bootflash:write_erase.cfg`
 
-. Realice una configuración básica del interruptor. Consulte link:setup-switch.html["Configure el switch del clúster 3232C"] para obtener más detalles.
++
+`cs2# echo "hardware access-list tcam region qos 256" >> bootflash:write_erase.cfg`
+
++
+Consulte el artículo de la base de conocimientos https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración en un switch de interconexión de Cisco manteniendo la conectividad remota"^] Para más detalles.
+
+. Verifique que el archivo write_erase.cfg se complete como se esperaba:
++
+`show file bootflash:write_erase.cfg`
+
+. Emitir el `write erase` Comando para borrar la configuración guardada actual:
++
+`cs2# *write erase*`
+
++
+`Warning: This command will erase the startup-configuration.`
+
++
+`Do you wish to proceed anyway? (y/n)  [n] *y*`
+
+. Copie la configuración básica guardada anteriormente en la configuración de inicio.
++
+`cs2# *copy write_erase.cfg startup-config*`
+
+. Reinicie el conmutador:
++
+`cs2# *reload*`
+
++
+`This command will reboot the system. (y/n)?  [n] *y*`
+
 . Copie el RCF en el bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP. Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referencia de comandos NX-OS de Cisco Nexus serie 3000"^] guías.
 +
 .Muestra el ejemplo
@@ -599,7 +619,7 @@ cluster1-04          true     true          false
 cluster1::*>
 ----
 ====
-. Repita los pasos 7 a 17 en el interruptor CS1.
+. Repita los pasos 7 a 20 en el interruptor cs1.
 . Habilite la reversión automática en las LIF del clúster.
 +
 [listing, subs="+quotes"]
