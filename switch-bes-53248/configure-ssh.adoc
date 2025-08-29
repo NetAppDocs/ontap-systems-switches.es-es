@@ -41,8 +41,7 @@ SCP server Administrative Mode: ............... Disabled
 ----
 ====
 +
-Si SSH no está deshabilitado, deshabilítelo de la siguiente manera:
-
+** Si SSH no está deshabilitado, deshabilítelo de la siguiente manera:
 +
 .Muestra el ejemplo
 [%collapsible]
@@ -57,7 +56,9 @@ Si SSH no está deshabilitado, deshabilítelo de la siguiente manera:
 
 WARNING: Asegúrese de deshabilitar SSH antes de modificar las claves, de lo contrario, se informará una advertencia en el conmutador.
 
-. Genere las claves SSH:
+
+
+. En el modo de configuración, genere las claves SSH:
 +
 `crypto key generate`
 
@@ -82,13 +83,45 @@ Do you want to overwrite the existing DSA keys? (y/n): *y*
 (switch) (Config)# *crypto key generate ecdsa 521*
 
 Do you want to overwrite the existing ECDSA keys? (y/n): *y*
+----
+====
+. En el modo de configuración, configure la autorización AAA para la recopilación de registros de ONTAP :
++
+`aaa authorization commands "noCmdAuthList" none`
 
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
 (switch) (Config)# *aaa authorization commands "noCmdAuthList" none*
 (switch) (Config)# *exit*
+----
+====
+. Vuelva a habilitar SSH/SCP.
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
 (switch)# *ip ssh server enable*
 (switch)# *ip scp server enable*
 (switch)# *ip ssh pubkey-auth*
-(switch)# *write mem*
+----
+====
+. Guarde estos cambios en la configuración de inicio:
++
+`write memory`
+
++
+.Muestra el ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(switch)# *write memory*
 
 This operation may take a few minutes.
 Management interfaces will not be available during this time.
@@ -135,8 +168,8 @@ Do you want to continue? (y/n): *y*
 
 Config file 'startup-config' created successfully.
 
-(switch) (Config)# end
-(switch)# write memory
+(switch) (Config)# *end*
+(switch)# *write memory*
 
 This operation may take a few minutes.
 Management interfaces will not be available during this time.

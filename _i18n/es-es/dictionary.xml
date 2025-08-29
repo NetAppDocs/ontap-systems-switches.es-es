@@ -500,21 +500,13 @@
   <block id="6ae4d8bf3ebde7936b05c2fe894d7ada" category="admonition">La contraseña predeterminada para la cuenta de usuario de cumulus es *cumulus*. La primera vez que inicie sesión en Cumulus Linux, debe cambiar esta contraseña predeterminada. Asegúrese de actualizar cualquier secuencia de comandos de automatización antes de instalar una nueva imagen. Cumulus Linux proporciona opciones de línea de comandos para cambiar automáticamente la contraseña predeterminada durante el proceso de instalación.</block>
   <block id="ed4bb13420682d03565e592a54ec52c0" category="list-text">Inicie sesión en el switch.</block>
   <block id="0dc40761c6c698e59be5abb0f871de2e" category="paragraph">La primera vez que inicia sesión en el conmutador requiere nombre de usuario/contraseña de *cumulus*/*cumulus* con<block ref="d338b3f0f405eb5e51c8cc1e5ca66f02" prefix=" " category="inline-code"></block> privilegios.</block>
-  <block id="9e6b336700c1d2e767e05525b2b57ef3" category="list-text">Compruebe la versión de Cumulus Linux:</block>
-  <block id="cbb09f555687650b38fcf6ac05ce4978" category="paragraph"><block ref="518227d11c3d0b4ad2468e4272be661a" prefix="" category="inline-code"></block></block>
   <block id="2667c65a518ae8fb280dc9f6a61de3c5" category="list-text">Configure el nombre de host, la dirección IP, la máscara de subred y la puerta de enlace predeterminada. El nuevo nombre de host solo se inicia después de reiniciar la sesión de la consola/SSH.</block>
   <block id="62b623b92c382746efee9767d590d86c" category="admonition">Un switch Cumulus Linux proporciona al menos un puerto de administración Ethernet dedicado llamado<block ref="a1a5b3d22e82bbd6f878d26feacc2c7d" prefix=" " category="inline-code"></block>. Esta interfaz se utiliza específicamente para la gestión fuera de banda. De forma predeterminada, la interfaz de gestión utiliza DHCPv4 para la direccionamiento.</block>
   <block id="91dcca4278a428afbccb2f118d523e13" category="admonition">No utilice caracteres de subrayado (_), apóstrofe (') o no ASCII en el nombre de host.</block>
   <block id="5e82a0b4b15e3bfeac2a57b4a294a39c" category="paragraph">Este comando modifica ambos<block ref="a69c84a628c199bc14f166b95b055c4a" prefix=" " category="inline-code"></block> y..<block ref="ad942c725cd0cae65ca4c63717ec464c" prefix=" " category="inline-code"></block> archivos.</block>
   <block id="81ed2a4b4b4f78c31401892f676d00f6" category="list-text">Confirme que se han actualizado el nombre de host, la dirección IP, la máscara de subred y la puerta de enlace predeterminada.</block>
-  <block id="6c42fa7e4c3302fb56f4374e70b97fc2" category="list-text">Configure la zona horaria con el modo interactivo NTP.</block>
-  <block id="3f13db29081af25b57d3e76ea324a03b" category="list-text">En un terminal, ejecute el comando siguiente:</block>
-  <block id="83d1563d45527134091bdab8d6e5072d" category="list-text">Siga las opciones del menú en pantalla para seleccionar el área geográfica y la región.</block>
-  <block id="fe0f6a5f9b992c1eea817100a2c1c148" category="list-text">Para establecer la zona horaria de todos los servicios y daemons, reinicie el conmutador.</block>
-  <block id="61d6aab01fc093c66c1e769d05c39812" category="list-text">Compruebe que la fecha y la hora del interruptor son correctas y que se actualizan si es necesario.</block>
   <block id="9a828cf107e0b55e82b0e52b871aa982" category="paragraph">El instalador inicia la descarga. Escriba *y* cuando se le solicite.</block>
   <block id="b64202cf747d1cf1ed877a2b16051b9b" category="list-text">Reinicie el conmutador NVIDIA SN2100:</block>
-  <block id="9f4f33c5c40ac522549c3e58d187e0a0" category="list-text">La instalación se inicia automáticamente y aparecen las siguientes pantallas de GRUB. Hacer *no* realizar selecciones:</block>
   <block id="0356af5b3daf1c5f334184d547ba7462" category="list-text">Cumulus-Linux GNU/Linux</block>
   <block id="a64ef5ea949c8d49f35a27151295f942" category="list-text">ONIE: Instalar el sistema operativo</block>
   <block id="e0fb005ad468c2c6da5d94ae5ee83311" category="list-text">CUMULUS-INSTALL</block>
@@ -2589,7 +2581,6 @@
   <block id="3d7b67107ab62f1ba7647d7f71e21e7d" category="paragraph">_Cómo añadir licencias de puerto adicionales para el conmutador BES-53248 compatible con Broadcom_</block>
   <block id="b1e6a082f60aae6bd5b63862087e8984" category="paragraph">Proporciona información detallada sobre cómo agregar licencias de puerto. Vaya a la<block ref="652dcea6ca57beb1d11dc2f4bb08f5a8" category="inline-link-rx"></block>.</block>
   <block id="e90d5ac1532bae79aa9f467efd13168c" category="summary">SSH es un requisito cuando se utilizan las funciones de recopilación de registros y Monitor de estado del conmutador de clúster \(CSHM\). Para habilitar SSH en los switches de clúster BES-53248, primero debe generar las claves SSH y, a continuación, habilitar SSH.</block>
-  <block id="59ed8d797343a87748211be365bd1d90" category="list-text">Genere las claves SSH:</block>
   <block id="2986030ac2a2c3716611c3a1bcc0c093" category="paragraph"><block ref="0b8cf6b3656c259d9957a92e154a9d52" prefix="" category="inline-code"></block></block>
   <block id="83a0e3bf9dd48caad05146cc29f81e6b" category="list-text">Compruebe que SSH está habilitado:</block>
   <block id="ddf98c782f1bf15e46a4c740b56426ff" category="paragraph"><block ref="031cb810fe7e12b44d30ad57badb18f9" prefix="" category="inline-code"></block></block>
@@ -3565,7 +3556,6 @@
   <block id="6bb3008abc00d2a0fe4d634f0b89831e" category="list-text">Puede instalar Cumulus Linux cuando el conmutador esté ejecutando Cumulus Linux o ONIE.</block>
   <block id="8f77c20cd9bd8afa1521eb15ea44a8ef" category="list-text">Cumulus Linux 4.4.3 está instalado.</block>
   <block id="2da5e3ee5bdcbc1a5443b42db962c1bb" category="list-text">Instale Cumulus Linux 4.4.3:</block>
-  <block id="d639f69fd7b303cd7aefe025e7d76848" category="list-text">Compruebe que la versión de Cumulus Linux es 4.4.3:</block>
   <block id="4a4b6084f06cc45c6f17ae2aa9bd4dc4" category="inline-link">Descarga de software de Cisco</block>
   <block id="0a6aaed7ba5c231511f7822eac6c4607" category="list-text">La versión aplicable de NX-OS, descargada del<block ref="f823faeecc1cbb37f2d732cc29c07d86" category="inline-link-rx"></block> página.</block>
   <block id="b27df45c7b9d2b8ac8126550ac4038eb" category="list-text">Compruebe la versión de los switches de red del clúster y, si es necesario, descargue la versión del software compatible con NetApp en los switches de la<block ref="f823faeecc1cbb37f2d732cc29c07d86" category="inline-link-rx"></block> página.</block>
@@ -5588,4 +5578,12 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="bc19795a1e2342c4b6ced06c4d40bf1f" category="paragraph"><block ref="06ea8c0ad9680ca72f21fb9acf4190a7" prefix="" category="inline-code"></block></block>
   <block id="c0203a2fdd4f105bd33b18aba6317c1b" category="paragraph"><block ref="13a92d9b51e90b702df63253eaabc9ad" prefix="" category="inline-code"></block></block>
   <block id="473d16af00e46c61faa5f7ae956e2c65" category="paragraph"><block ref="02a3315103301dc60f71538670f8e63e" prefix="" category="inline-code"></block></block>
+  <block id="a857d7fbcfec4b7266d8ae96e74feaff" category="list-text">En el modo de configuración, genere las claves SSH:</block>
+  <block id="e7a2f981aa0484adea9bedbd78c1087b" category="list-text">En el modo de configuración, configure la autorización AAA para la recopilación de registros de ONTAP :</block>
+  <block id="4f4336771d0733889f26dc02ed32b5b4" category="paragraph"><block ref="160edba9b79d23472e05dab56e0f0cfa" prefix="" category="inline-code"></block></block>
+  <block id="558547888dbf1ed9cea97d962f5a635c" category="list-text">Vuelva a habilitar SSH/SCP.</block>
+  <block id="a2c7fa8f383a047f3591230c9b0234c9" category="list-text">Guarde estos cambios en la configuración de inicio:</block>
+  <block id="7411e9f163d9baab36b5ebc3f80bda73" category="admonition">Mientras<block ref="8a444a43bdf534c0c6338bb7809659b3" prefix=" " category="inline-code"></block> En el ejemplo se utiliza, puede utilizar su método preferido de transferencia de archivos, por ejemplo, SFTP, HTTPS o FTP.</block>
+  <block id="5b9b8dea15de063806f0306fe78872c8" category="admonition">A pesar de<block ref="8a444a43bdf534c0c6338bb7809659b3" prefix=" " category="inline-code"></block> En el ejemplo se utiliza, puede utilizar su método preferido de transferencia de archivos, por ejemplo, SFTP, HTTPS o FTP.</block>
+  <block id="bea4eb9c3f61f6fc9076a215ac1173fe" category="paragraph"><block ref="c1b3921cc8c2b4b51a888d2dc803623c" category="inline-link-macro-rx"></block> .</block>
 </blocks>
