@@ -4,7 +4,7 @@ permalink: switch-cisco-9336c-fx2/required-documentation-9336c-cluster.html
 keywords: shared storage cluster switch 
 summary: En lo que respecta a la instalación y el mantenimiento de los switches Cisco Nexus 9336C-FX2, asegúrese de revisar la documentación específica de los switches y la controladora para configurar sus switches Cisco 9336-FX2 y su clúster ONTAP. 
 ---
-= Requisitos de documentación de los switches Cisco Nexus 9336C-FX2
+= Requisitos de documentación para los conmutadores Cisco Nexus 9336C-FX2 y 9336C-FX2-T
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,13 +14,13 @@ summary: En lo que respecta a la instalación y el mantenimiento de los switches
 
 
 [role="lead"]
-En lo que respecta a la instalación y el mantenimiento de los switches Cisco Nexus 9336C-FX2, asegúrese de revisar la documentación específica de los switches y la controladora para configurar sus switches Cisco 9336-FX2 y su clúster ONTAP.
+Para la instalación y el mantenimiento de los conmutadores Cisco Nexus 9336C-FX2 y 9336C-FX2-T, asegúrese de revisar la documentación específica del conmutador y del controlador para configurar los conmutadores Cisco 9336-FX2 y el clúster ONTAP .
 
 
 
 == Documentación de los switches
 
-Para configurar los switches Cisco Nexus 9336C-FX2, necesita la siguiente documentación del https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Compatibilidad con los switches Cisco Nexus serie 9000"^] página:
+Para configurar los conmutadores Cisco Nexus 9336C-FX2 y 9336C-FX2-T, necesita la siguiente documentación del sitio web: https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Compatibilidad con los switches Cisco Nexus serie 9000"^] página:
 
 [cols="1,2"]
 |===
@@ -134,6 +134,6 @@ Describe las FRU asociadas al armario del sistema 42U, y proporciona instruccion
  a| 
 link:install-switch-and-passthrough-panel-9336c-cluster.html["Instale un switch Cisco 9336-FX2 en un armario de NetApp"^]
  a| 
-Describe cómo instalar un switch Cisco Nexus 9336C-FX2 en un armario de cuatro parantes de NetApp.
+Describe cómo instalar los conmutadores Cisco Nexus 9336C-FX2 y 9336C-FX2-T en un gabinete NetApp de cuatro postes.
 
 |===

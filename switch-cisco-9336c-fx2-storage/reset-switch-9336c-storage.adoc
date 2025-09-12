@@ -4,12 +4,12 @@ sidebar: sidebar
 keywords: 9336C-FX2 reset switch to factory defaults, 9336C-FX2 switches configuration, efos 
 summary: Antes de configurar su conmutador Cisco Nexus 9336C-FX2, revise la siguiente información. 
 ---
-= Restablecer el conmutador de almacenamiento 9336C-FX2 a los valores predeterminados de fábrica
+= Restablecer los conmutadores de almacenamiento 9336C-FX2 y 9336C-FX2-T a los valores predeterminados de fábrica
 :allow-uri-read: 
 
 
 [role="lead"]
-Para restablecer el interruptor de almacenamiento 9336C-FX2 a los valores predeterminados de fábrica, debe borrar la configuración del interruptor 9336C-FX2.
+Para restablecer los interruptores de almacenamiento 9336C-FX2 y 9336C-FX2-T a los valores predeterminados de fábrica, debe borrar las configuraciones de los interruptores 9336C-FX2 y 9336C-FX2-T.
 
 .Acerca de esta tarea
 * Debe estar conectado al conmutador mediante la consola serie.

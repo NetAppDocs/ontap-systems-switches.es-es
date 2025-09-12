@@ -112,7 +112,7 @@ N9K-9336C 65CFM, flujo de aire de entrada lateral de la lumbrera
 |===
 
 
-== Licencias inteligentes de Cisco
+== Licencias inteligentes de Cisco solo para puertos 9336C-FX2-T
 
 Para activar más de 12 puertos en su conmutador de clúster Cisco Nexus 9336C-FX-T, debe comprar una licencia inteligente de Cisco. Las licencias inteligentes de Cisco se administran a través de cuentas inteligentes de Cisco.
 
@@ -124,4 +124,4 @@ Para activar más de 12 puertos en su conmutador de clúster Cisco Nexus 9336C-F
 NOTE: Una vez que haya adquirido su licencia Smart, instale el RCF adecuado para habilitar y configurar todos los 36 puertos disponibles para su uso.
 
 .¿Qué sigue?
-link:required-documentation-9336c-cluster.html["Documentación requerida"] .
+Después de haber confirmado sus componentes y números de pieza, revise ellink:required-documentation-9336c-cluster.html["documentación requerida"] .

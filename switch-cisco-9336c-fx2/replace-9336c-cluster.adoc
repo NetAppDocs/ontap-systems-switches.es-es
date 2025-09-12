@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: replacing, replace, defective, nexus, switch, cluster, network, nondisruptive, procedure, ndu, replace a cisco nexus 9336c-fx2 cluster switch - cisco nexus 9336c-fx2 
 summary: 'La sustitución de un switch Nexus 9336C-FX2 defectuoso en una red de clúster es un procedimiento no disruptivo \(NDU\).' 
 ---
-= Sustituya un switch de clúster Cisco Nexus 9336C-FX2
+= Reemplazar los conmutadores de clúster Cisco Nexus 9336C-FX2 y 9336C-FX2-T
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga estos pasos para sustituir un switch Nexus 9336C-FX2 defectuoso en una red de clúster. Este es un procedimiento no disruptivo (NDU).
+Siga estos pasos para reemplazar los conmutadores Nexus 9336C-FX2 y 9336C-FX2-T defectuosos en una red de clúster. Este es un procedimiento no disruptivo (NDU).
 
 
 
@@ -618,4 +618,4 @@ Total entries displayed: 4
 
 
 .El futuro
-link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"].
+Después de haber reemplazado los interruptores,link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"] .

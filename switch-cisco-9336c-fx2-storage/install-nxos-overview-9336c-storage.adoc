@@ -225,4 +225,4 @@ Cluster
 
 
 .El futuro
-link:install-nxos-software-9336c-storage.html["Instale o actualice el software NX-OS"].
+Una vez que se haya preparado para instalar el software NX-OS y RCF, debelink:install-nxos-software-9336c-storage.html["instalar o actualizar el software NX-OS"] .

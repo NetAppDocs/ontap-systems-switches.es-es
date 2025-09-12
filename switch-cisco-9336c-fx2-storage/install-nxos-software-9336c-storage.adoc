@@ -11,7 +11,7 @@ summary: Puede utilizar este procedimiento para instalar el software NX-OS en el
 
 
 [role="lead"]
-Siga este procedimiento para instalar el software NX-OS en el switch de clúster Nexus 9336C-FX2.
+Siga este procedimiento para instalar el software NX-OS en los conmutadores Nexus 9336C-FX2 y 9336C-FX2-T.
 
 Antes de comenzar, complete el procedimiento en link:install-nxos-overview-9336c-storage.html["Prepare la instalación de NX-OS y RCF"].
 
@@ -696,4 +696,4 @@ Si alguna LIF de clúster no ha regresado a sus puertos raíz, revertirla manual
 
 
 .El futuro
-link:install-rcf-software-9336c-storage.html["Instalar o actualizar RCF"].
+Después de haber instalado o actualizado el software NX-OS,link:install-rcf-software-9336c-storage.html["instalar o actualizar el RCF"] .

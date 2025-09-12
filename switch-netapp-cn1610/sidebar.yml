@@ -2,7 +2,7 @@
 section: switch-netapp-cn1610
 title: CN1610 de NetApp
 entries:
-- title: Descripción general
+- title: Manos a la obra
   pdf-filename: Descripción general_cn1610
   url: "/switch-netapp-cn1610/switch-overview-cn1610.html"
 - title: Flujo de trabajo de instalación y configuración

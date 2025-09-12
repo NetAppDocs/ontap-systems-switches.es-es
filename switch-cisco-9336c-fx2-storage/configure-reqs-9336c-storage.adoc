@@ -4,7 +4,7 @@ permalink: /switch-cisco-9336c-fx2-storage/configure-reqs-9336c-storage.html
 keywords: shared storage cluster switch 
 summary: Desde ONTAP 9.9.1, puede utilizar los switches Cisco Nexus 9336C-FX2 para combinar las funciones de almacenamiento y clúster en un escenario de switch compartido. 
 ---
-= Requisitos de configuración de los switches de almacenamiento Cisco Nexus 9336C-FX2
+= Requisitos de configuración para los conmutadores de almacenamiento Cisco Nexus 9336C-FX2 y 9336C-FX2-T
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,16 +14,32 @@ summary: Desde ONTAP 9.9.1, puede utilizar los switches Cisco Nexus 9336C-FX2 pa
 
 
 [role="lead"]
-En lo que respecta a la instalación y el mantenimiento de los switches Cisco Nexus 9336C-FX2, asegúrese de revisar los requisitos de configuración y red.
+Para la instalación y el mantenimiento de los conmutadores Cisco Nexus 9336C-FX2 y 9336C-FX2-T, asegúrese de revisar la configuración y los requisitos de red.
 
 
 
 == Soporte de ONTAP
 
+[role="tabbed-block"]
+====
+.ONTAP 9.9.1 y versiones posteriores
+--
 Desde ONTAP 9.9.1, puede utilizar los switches Cisco Nexus 9336C-FX2 para combinar la funcionalidad de almacenamiento y clúster en una configuración de switch compartido.
 
 Si desea crear clústeres de ONTAP con más de dos nodos, necesita dos switches de red compatibles.
 
+
+NOTE: El monitor de estado del switch Ethernet no admite ONTAP 9.13.1P8 y versiones anteriores y 9.14.1P3 y anteriores o NX-OS versión 10,3(4a)(M).
+
+--
+.ONTAP 9.10.1 y posteriores
+--
+Además, a partir de ONTAP 9.10.1, puede utilizar los conmutadores Cisco Nexus 9336C-FX2-T para combinar la funcionalidad de almacenamiento y clúster en una configuración de conmutador compartido.
+
+Si desea crear clústeres de ONTAP con más de dos nodos, necesita dos switches de red compatibles.
+
+--
+====
 
 
 == Requisitos de configuración
@@ -47,4 +63,4 @@ Necesita la siguiente información de red para todas las configuraciones de los 
 Para obtener más información acerca de la configuración inicial del switch, consulte la siguiente guía: https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Guía de instalación y actualización de Cisco Nexus 9336C-FX2"].
 
 .¿Qué sigue?
-link:components-9336c-storage.html["Componentes y números de pieza"] .
+Después de revisar los requisitos de configuración, puede confirmar sulink:components-9336c-storage.html["componentes y números de pieza"] .

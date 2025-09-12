@@ -11,7 +11,7 @@ summary: Puede instalar el RCF después de configurar el switch de almacenamient
 
 
 [role="lead"]
-Instale el archivo de configuración de referencia (RCF) después de configurar el switch de almacenamiento Nexus 9336C-FX2 por primera vez.
+Debe instalar el archivo de configuración de referencia (RCF) después de configurar los conmutadores de almacenamiento Nexus 9336C-FX2 y 9336C-FX2-T por primera vez.
 
 Consulte el artículo de la base de conocimientos link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración en un switch de interconexión de Cisco manteniendo la conectividad remota"^]para obtener más información al instalar el RCF.
 
@@ -118,7 +118,7 @@ La salida varía en función de la configuración del sitio. Compruebe la config
 
 . Para la versión 1.12 y posteriores de RCF, ejecute los siguientes comandos:
 +
-`cs1# echo "hardware access-list tcam region ing-racl 1024" > bootflash:write_erase.cfg`
+`cs1# echo "hardware access-list tcam region ing-racl 1024" >> bootflash:write_erase.cfg`
 
 +
 `cs1# echo "hardware access-list tcam region egr-racl 1024" >> bootflash:write_erase.cfg`
@@ -480,4 +480,4 @@ System Manager de proporciona un flujo de trabajo sencillo y sencillo para la in
 Vaya a. https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configure ONTAP en un nuevo clúster con System Manager"] para obtener instrucciones de configuración.
 
 .El futuro
-link:configure-ssh-keys.html["Compruebe la configuración de SSH"]
+Después de haber instalado o actualizado su RCF,link:configure-ssh-keys.html["verificar la configuración de SSH"]

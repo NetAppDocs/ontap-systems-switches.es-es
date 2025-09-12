@@ -11,7 +11,7 @@ summary: 'SSH es un requisito cuando se utilizan las funciones de recopilación 
 
 
 [role="lead"]
-Instale el archivo de configuración de referencia (RCF) después de configurar el switch Nexus 9336C-FX2 por primera vez. Actualice su versión de RCF cuando tenga instalada una versión existente del archivo RCF en su conmutador.
+Instale el archivo de configuración de referencia (RCF) después de configurar los conmutadores Nexus 9336C-FX2 y 9336C-FX2-T por primera vez. Actualiza tu versión RCF cuando tienes una versión existente del archivo RCF instalado en tu conmutador.
 
 Consulte el artículo de la base de conocimientos link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración en un switch de interconexión de Cisco manteniendo la conectividad remota"^]para obtener más información al instalar o actualizar su RCF.
 
@@ -104,4 +104,4 @@ Para obtener información detallada sobre las configuraciones de RCF disponibles
 Para ello, es necesario utilizar tanto comandos de la ONTAP como comandos de la serie Cisco Nexus 9000; los comandos de la ONTAP se usan a menos que se indique lo contrario.
 
 .El futuro
-link:install-rcf-software-9336c-cluster.html["Instale el RCF"] o link:upgrade-rcf-software-9336c-cluster.html["Actualice su RCF"].
+Después de haber revisado el procedimiento de instalación o actualización de RCF,link:install-rcf-software-9336c-cluster.html["instalar el RCF"] olink:upgrade-rcf-software-9336c-cluster.html["Mejora tu RCF"] según sea necesario.

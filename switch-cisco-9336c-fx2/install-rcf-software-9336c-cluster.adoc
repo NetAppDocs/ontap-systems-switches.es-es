@@ -11,7 +11,7 @@ summary: Puede instalar el RCF después de configurar por primera vez el conmuta
 
 
 [role="lead"]
-Instale el archivo de configuración de referencia (RCF) después de configurar el switch Nexus 9336C-FX2 por primera vez.
+Instale el archivo de configuración de referencia (RCF) después de configurar los conmutadores Nexus 9336C-FX2 y 9336C-FX2-T por primera vez.
 
 .Antes de empezar
 Compruebe las siguientes instalaciones y conexiones:
@@ -137,7 +137,7 @@ La salida varía en función de la configuración del sitio. Compruebe la config
 
 . Para la versión 1.12 y posteriores de RCF, ejecute los siguientes comandos:
 +
-`cs1# echo "hardware access-list tcam region ing-racl 1024" > bootflash:write_erase.cfg`
+`cs1# echo "hardware access-list tcam region ing-racl 1024" >> bootflash:write_erase.cfg`
 
 +
 `cs1# echo "hardware access-list tcam region egr-racl 1024" >> bootflash:write_erase.cfg`
@@ -398,4 +398,4 @@ System Manager proporciona un flujo de trabajo sencillo y sencillo para la insta
 Vaya a. https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configure ONTAP en un nuevo clúster con System Manager"] para obtener instrucciones de configuración.
 
 .El futuro
-link:configure-ssh-keys.html["Compruebe la configuración de SSH"].
+Después de haber instalado el RCF,link:configure-ssh-keys.html["verificar la configuración de SSH"] .

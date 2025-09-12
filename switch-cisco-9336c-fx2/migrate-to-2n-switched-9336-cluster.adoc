@@ -11,7 +11,7 @@ summary: Si ya tiene un entorno de clúster sin switches de dos nodos, puede mig
 
 
 [role="lead"]
-Si tiene un entorno de clúster _sin switch_ de dos nodos existente, puede migrar a un entorno de clúster _con switches_ de dos nodos mediante los switches Cisco Nexus 9336C-FX2.
+Si tiene un entorno de clúster _sin conmutador_ de dos nodos existente, puede migrar a un entorno de clúster _conmutado_ de dos nodos utilizando los conmutadores Cisco Nexus 9336C-FX2 y 9336C-FX2-T.
 
 El proceso de migración funciona para todos los nodos utilizando puertos ópticos o Twinax, pero no es compatible con este switch si los nodos utilizan puertos RJ45 DE 10 GB BASE-T integrados para los puertos de red de clúster.
 
@@ -629,4 +629,4 @@ RPC status:
 
 
 .El futuro
-link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"].
+Después de haber migrado sus conmutadores,link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"] .

@@ -882,4 +882,4 @@ Requiere licencia
 Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obtener más información sobre los puertos de switch.
 
 .¿Qué sigue?
-link:install-switch-9336c-cluster.html["Instale el interruptor"].
+Después de haber completado las hojas de trabajo de cableado,link:install-switch-9336c-cluster.html["instalar el interruptor"] .

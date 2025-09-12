@@ -4,19 +4,19 @@ sidebar: sidebar
 keywords: replacing, replace, defective, nexus, switch, cluster, network, nondisruptive, procedure, ndu, replace a cisco nexus 9336c-fx2 cluster switch - cisco nexus 9336c-fx2 
 summary: 'La sustitución de un switch Nexus 9336C-FX2 defectuoso en una red de clúster es un procedimiento no disruptivo \(NDU\).' 
 ---
-= Sustituya un switch de almacenamiento Cisco Nexus 9336C-FX2
+= Reemplace los conmutadores de almacenamiento Cisco Nexus 9336C-FX2 y 9336C-FX2-T
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Es posible sustituir un switch Nexus 9336C-FX2 defectuoso en una red de clúster. Se trata de un procedimiento no disruptivo.
+Puede reemplazar los conmutadores Nexus 9336C-FX2 y 9336C-FX2-T defectuosos en una red de clúster. Este es un procedimiento que no produce interrupciones.
 
 .Antes de empezar
-Antes de instalar el software NX-OS y los RCF en un switch de almacenamiento Cisco Nexus 9336C-FX2, asegúrese de que:
+Antes de instalar el software NX-OS y los RCF en los conmutadores de almacenamiento Cisco Nexus 9336C-FX2 y 9336C-FX2-T, asegúrese de lo siguiente:
 
-* Su sistema es compatible con los switches de almacenamiento Cisco Nexus 9336C-FX2.
+* Su sistema puede admitir los conmutadores de almacenamiento Cisco Nexus 9336C-FX2 y 9336C-FX2-T.
 * Ha consultado la tabla de compatibilidad de switches de la página Cisco Ethernet Switch para ver las versiones ONTAP, NX-OS y RCF compatibles.
 * Ha hecho referencia a las guías de software y actualización adecuadas disponibles en el sitio web de Cisco.
 
@@ -267,4 +267,4 @@ storage::*>
 
 
 .El futuro
-link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"].
+Después de haber reemplazado los interruptores,link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"] .

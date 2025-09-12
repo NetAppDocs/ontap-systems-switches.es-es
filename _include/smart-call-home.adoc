@@ -2,9 +2,9 @@
 :allow-uri-read: 
 
 
-Smart Call Home supervisa los componentes de hardware y software de su red. Cuando se produce una configuración de sistema crítica, genera una notificación basada en correo electrónico y genera una alerta a todos los destinatarios que están configurados en el perfil de destino. Para utilizar Smart Call Home, debe configurar un conmutador de red de clúster para comunicarse mediante correo electrónico con el sistema Smart Call Home. Además, puede configurar opcionalmente el conmutador de red de clúster para aprovechar la función integrada de soporte Smart Call Home de Cisco.
+Smart Call Home monitorea los componentes de hardware y software de su red. Cuando ocurre una configuración crítica del sistema, se genera una notificación por correo electrónico y se envía una alerta a todos los destinatarios configurados en su perfil de destino.
 
-Antes de poder utilizar Smart Call Home, tenga en cuenta las siguientes consideraciones:
+Antes de utilizar Smart Call Home, tenga en cuenta los siguientes requisitos:
 
 * Debe haber un servidor de correo electrónico.
 * El switch debe tener conectividad IP con el servidor de correo electrónico.

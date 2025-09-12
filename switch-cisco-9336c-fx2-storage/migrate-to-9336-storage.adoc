@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: migrating to a cluster with Cisco Nexus 9336C-FX2 cluster switches, how to migrate 
 summary: Puede migrar switches de clúster Cisco antiguos de forma no disruptiva para un clúster ONTAP a switches de red de clústeres Cisco Nexus 9336C-FX2. 
 ---
-= Migre desde un switch de Cisco antiguo a un switch de clúster Cisco Nexus 9336C-FX2
+= Migrar de conmutadores Cisco más antiguos a conmutadores Cisco Nexus 9336C-FX2 y 9336C-FX2-T
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Puede migrar switches de clústeres Cisco antiguos para un clúster ONTAP a switches de red de almacenamiento Cisco Nexus 9336C-FX2. Este procedimiento no es disruptivo.
+Puede migrar conmutadores Cisco más antiguos para un clúster ONTAP a conmutadores de red de almacenamiento Cisco Nexus 9336C-FX2 y 9336C-FX2-T. Este es un procedimiento que no produce interrupciones.
 
 
 
@@ -711,4 +711,4 @@ RPC status:
 
 
 .El futuro
-link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"].
+Después de haber migrado los conmutadores,link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"] .

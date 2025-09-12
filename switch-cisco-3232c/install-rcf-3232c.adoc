@@ -285,7 +285,7 @@ NOTE: Al actualizar o aplicar un nuevo RCF, debe borrar la configuración del in
 
 . Para la versión 1.12 y posteriores de RCF, ejecute los siguientes comandos:
 +
-`cs2# echo "hardware access-list tcam region racl-lite 512" > bootflash:write_erase.cfg`
+`cs2# echo "hardware access-list tcam region racl-lite 512" >> bootflash:write_erase.cfg`
 
 +
 `cs2# echo "hardware access-list tcam region qos 256" >> bootflash:write_erase.cfg`

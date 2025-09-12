@@ -4,26 +4,27 @@ sidebar: sidebar
 keywords: migrate cluster Cisco Nexus 9336C-FX2 cluster switches cn1610 
 summary: Puede migrar switches de clúster NetApp CN1610 de forma no disruptiva para un clúster ONTAP a los switches de red de clúster Cisco Nexus 9336C-FX2. 
 ---
-= Migrar de un switch de clúster NetApp CN1610 a un switch de clúster Cisco 9336C-FX2
+= Migrar de los conmutadores de clúster NetApp CN1610 a los conmutadores de clúster Cisco 9336C-FX2 y 9336C-FX2-T
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Los switches de clúster de NetApp CN1610 para un clúster de ONTAP a los switches de clúster de Cisco 9336C-FX2. Se trata de un procedimiento no disruptivo.
+Puede migrar conmutadores de clúster CN1610 de NetApp para un clúster ONTAP a conmutadores de clúster Cisco 9336C-FX2 y 9336C-FX2-T. Este es un procedimiento que no produce interrupciones.
 
 
 
 == Revise los requisitos
 
-Debe estar al tanto de cierta información de configuración, conexiones de puertos y requisitos de cableado cuando reemplaza los switches de clúster NetApp CN1610 por los switches de clústeres Cisco 9336C-FX2. Verifique también el número de serie del conmutador para asegurarse de que se migra el conmutador correcto.
+Debe tener en cuenta cierta información de configuración, conexiones de puertos y requisitos de cableado cuando reemplace los conmutadores de clúster NetApp CN1610 con conmutadores de clúster Cisco 9336C-FX2 y 9336C-FX2-T. También debe verificar el número de serie del conmutador para asegurarse de que se migre el conmutador correcto.
 
 .Switches compatibles
 Se admiten los siguientes switches de clúster:
 
 * CN1610 de NetApp
 * Cisco 9336C-FX2
+* Cisco 9336C-FX2-T
 
 
 Para obtener más información acerca de los puertos admitidos y sus configuraciones, consulte https://hwu.netapp.com/["Hardware Universe"^].
@@ -33,7 +34,7 @@ Compruebe que la configuración cumple los siguientes requisitos:
 
 * El clúster existente está correctamente configurado y funcionando.
 * Todos los puertos de clúster se encuentran en el estado *up* para garantizar operaciones no disruptivas.
-* Los switches de cluster Cisco 9336C-FX2 están configurados y funcionan con la versión correcta de NX-OS instalada con el archivo de configuración de referencia (RCF) aplicado.
+* Los conmutadores de clúster Cisco 9336C-FX2 y 9336C-FX2-T están configurados y funcionando con la versión correcta de NX-OS instalada con el archivo de configuración de referencia (RCF) aplicado.
 * La configuración de red del clúster existente tiene lo siguiente:
 +
 ** Un clúster de NetApp redundante y completamente funcional mediante switches NetApp CN1610.
@@ -41,8 +42,8 @@ Compruebe que la configuración cumple los siguientes requisitos:
 ** Todos los LIF del clúster con las LIF del clúster están en sus puertos de inicio.
 
 
-* Algunos puertos están configurados en los switches Cisco 9336C-FX2 para funcionar a 40GbE o 100GbE Gbps.
-* Ha planificado, migrado y documentado conectividad 40GbE y 100GbE desde los nodos a los switches de clúster Cisco 9336C-FX2.
+* Algunos de los puertos están configurados en los conmutadores Cisco 9336C-FX2 y 9336C-FX2-T para funcionar a 40 GbE o 100 GbE.
+* Ha planificado, migrado y documentado la conectividad de 40 GbE y 100 GbE desde los nodos a los conmutadores de clúster Cisco 9336C-FX2 y 9336C-FX2-T.
 
 
 
@@ -325,7 +326,7 @@ CAUTION: No intente migrar manualmente las LIF de clúster.
 (C2)(Interface 0/1-0/12)# *exit*
 (C2)(Config)# *exit*
 ----
-. Mueva los puertos de clúster de nodos del switch antiguo C2 al nuevo switch CS2 mediante el cableado adecuado compatible con Cisco 9336C-FX2.
+. Mueva los puertos del clúster de nodos del antiguo conmutador C2 al nuevo conmutador cs2, utilizando el cableado adecuado compatible con Cisco 9336C-FX2 y 9336C-FX2-T.
 . Mostrar los atributos del puerto de red:
 +
 `network port show -ipspace Cluster`
@@ -409,7 +410,7 @@ Cluster
 (C1)(Interface 0/1-0/12)# *exit*
 (C1)(Config)# *exit*
 ----
-. Mueva los puertos de clúster de nodos del switch antiguo C1 al nuevo switch CS1 mediante el cableado adecuado compatible con Cisco 9336C-FX2.
+. Mueva los puertos del clúster de nodos del antiguo conmutador C1 al nuevo conmutador cs1, utilizando el cableado adecuado compatible con Cisco 9336C-FX2 y 9336C-FX2-T.
 . Compruebe la configuración final del clúster:
 +
 `network port show -ipspace Cluster`
@@ -562,4 +563,4 @@ Cluster
 
 
 .El futuro
-link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"].
+Después de haber migrado sus conmutadores,link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"] .
