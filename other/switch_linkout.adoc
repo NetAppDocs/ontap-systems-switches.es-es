@@ -1,5 +1,5 @@
 ---
-permalink: other/switch-linkout.html 
+permalink: other/switch_linkout.html 
 sidebar: sidebar 
 keywords: cisco, Nexus 5596, CN1601 
 summary: Puede utilizar estos enlaces para otros modelos de switch. 
@@ -10,7 +10,8 @@ summary: Puede utilizar estos enlaces para otros modelos de switch.
 :imagesdir: ../media/
 
 
-Puede usar estos enlaces para buscar documentación de modelos anteriores de clústeres y switches stprage. Los vínculos lo llevan a otro sitio de documentación.
+[role="lead"]
+Puede utilizar estos enlaces para encontrar documentación de modelos anteriores de clústeres y conmutadores de almacenamiento.  Los enlaces le llevarán a un sitio de documentación diferente.
 
 * https://mysupport.netapp.com/documentation/docweb/index.html?productID=62376&language=en-US["Cisco Nexus 5596"]
 * https://mysupport.netapp.com/documentation/docweb/index.html?productID=62373&language=en-USNetApp["CN1601"]

@@ -35,7 +35,7 @@ Para la configuración del switch de clúster CN1610:
 * Hay acceso de la consola a los switches de clúster.
 * Las conexiones de switch a nodo CN1610 y de switch a switch utilizan cables de fibra óptica o twinax.
 +
-La https://hwu.netapp.com/["Hardware Universe"^] contiene más información sobre el cableado.
+Ellink:https://hwu.netapp.com/["Hardware Universe"^] Contiene más información sobre el cableado.
 
 * Los cables de enlace entre switches (ISL) se conectan a los puertos 13 a 16 en los dos switches CN1610.
 * Se ha completado la personalización inicial de los dos switches CN1610.
@@ -45,10 +45,10 @@ Cualquier personalización anterior del sitio, como SMTP, SNMP y SSH, se debe co
 
 
 .Información relacionada
-* http://hwu.netapp.com["Hardware Universe"^]
-* http://support.netapp.com/NOW/download/software/cm_switches_ntap/["Página de descripción de NetApp CN1601 y CN1610"^]
-* https://library.netapp.com/ecm/ecm_download_file/ECMP1118645["Guía de instalación y configuración de switches CN1601 y CN1610"^]
-* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["Artículo de la base de conocimientos de NetApp 1010449: Cómo impedir la creación automática de casos durante las ventanas de mantenimiento programado"^]
+* link:http://hwu.netapp.com["Hardware Universe"^]
+* link:https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["NetApp CN1601 y CN1610"]
+* link:https://library.netapp.com/ecm/ecm_download_file/ECMP1118645["Configuración y configuración de los conmutadores CN1601 y CN1610"^]
+* link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["Artículo de la base de conocimientos de NetApp 1010449: Cómo impedir la creación automática de casos durante las ventanas de mantenimiento programado"^]
 
 
 
@@ -64,7 +64,7 @@ Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de nodo y 
 * La `cluster::*>` prompt indica el nombre del clúster.
 * Los puertos de clúster que se utilizan en este procedimiento son e1a y e2a.
 +
-La https://hwu.netapp.com/["Hardware Universe"^] contiene la información más reciente acerca de los puertos del clúster reales para las plataformas.
+Ellink:https://hwu.netapp.com/["Hardware Universe"^] Contiene la información más reciente sobre los puertos de clúster reales para sus plataformas.
 
 
 

@@ -262,8 +262,8 @@ cluster1::*>
 +
 `show running-config`
 
-. Registre cualquier adición personalizada entre la configuración en ejecución actual y el archivo RCF en uso.
-. Guarde los detalles básicos de la configuración en el archivo write_erase.cfg en el bootflash.
+. Registre cualquier adición personalizada entre la actual `running-config` y el archivo RCF en uso.
+. Guarde los detalles básicos de configuración en `write_erase.cfg` archivo en el bootflash.
 +
 
 NOTE: Al actualizar o aplicar un nuevo RCF, debe borrar la configuración del interruptor y realizar la configuración básica.  Debe estar conectado al puerto de consola serie del conmutador para configurar el conmutador nuevamente.
@@ -291,9 +291,9 @@ NOTE: Al actualizar o aplicar un nuevo RCF, debe borrar la configuración del in
 `cs2# echo "hardware access-list tcam region qos 256" >> bootflash:write_erase.cfg`
 
 +
-Consulte el artículo de la base de conocimientos https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración en un switch de interconexión de Cisco manteniendo la conectividad remota"^] Para más detalles.
+Consulte el artículo de la base de conocimientoslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración en un switch de interconexión de Cisco manteniendo la conectividad remota"^] Para más detalles.
 
-. Verifique que el archivo write_erase.cfg se complete como se esperaba:
+. Verificar que el `write_erase.cfg` El archivo se completa como se esperaba:
 +
 `show file bootflash:write_erase.cfg`
 
@@ -309,7 +309,7 @@ Consulte el artículo de la base de conocimientos https://kb.netapp.com/on-prem/
 
 . Copie la configuración básica guardada anteriormente en la configuración de inicio.
 +
-`cs2# *copy write_erase.cfg startup-config*`
+`cs2# *copy bootflash:write_erase.cfg startup-config*`
 
 . Reinicie el conmutador:
 +
@@ -318,7 +318,7 @@ Consulte el artículo de la base de conocimientos https://kb.netapp.com/on-prem/
 +
 `This command will reboot the system. (y/n)?  [n] *y*`
 
-. Copie el RCF en el bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP. Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referencia de comandos NX-OS de Cisco Nexus serie 3000"^] guías.
+. Copie el RCF al bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP.  Para obtener más información sobre los comandos de Cisco , consulte la guía correspondiente enlink:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referencia de comandos NX-OS de Cisco Nexus serie 3000"^] guías.
 +
 .Muestra el ejemplo
 [%collapsible]
@@ -337,7 +337,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . Aplique el RCF descargado anteriormente al flash de inicio.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referencia de comandos NX-OS de Cisco Nexus serie 3000"^] guías.
+Para obtener más información sobre los comandos de Cisco , consulte la guía correspondiente enlink:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referencia de comandos NX-OS de Cisco Nexus serie 3000"^] guías.
 
 +
 .Muestra el ejemplo
@@ -619,7 +619,7 @@ cluster1-04          true     true          false
 cluster1::*>
 ----
 ====
-. Repita los pasos 7 a 20 en el interruptor cs1.
+. Repita los pasos 7 a 23 en el interruptor cs1.
 . Habilite la reversión automática en las LIF del clúster.
 +
 [listing, subs="+quotes"]

@@ -7,7 +7,7 @@ summary: Switches EOD para sistemas FAS y AFF.
 = Fin de la disponibilidad
 :allow-uri-read: 
 :icons: font
-:imagesdir: ../media/
+:imagesdir: ./media/
 
 
 [role="lead"]

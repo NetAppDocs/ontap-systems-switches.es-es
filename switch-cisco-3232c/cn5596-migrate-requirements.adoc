@@ -19,8 +19,8 @@ Para ello, es necesario utilizar tanto comandos de la ONTAP como comandos de la 
 ====
 Para obtener más información, consulte:
 
-* http://support.netapp.com/NOW/download/software/cm_switches/["Página de descripción de Cisco Ethernet Switch"^]
-* http://hwu.netapp.com["Hardware Universe"^]
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^]
+* link:http://hwu.netapp.com["Hardware Universe"^]
 
 
 
@@ -81,7 +81,7 @@ Puede dividir los primeros seis puertos en modo 4x10 GbE mediante el `interface 
 
 ====
 * Ha realizado la planificación, la migración y lea la documentación requerida sobre conectividad de 10 GbE y 40/100 GbE desde los nodos a los switches de clúster de Nexus 3232C.
-* Las versiones ONTAP y NX-OS compatibles con este procedimiento son en la link:http://support.netapp.com/NOW/download/software/cm_switches/.html["Página Cisco Ethernet Switches"^].
+* Las versiones de ONTAP y NX-OS compatibles con este procedimiento se encuentran enlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^] .
 
 
 .Acerca de los ejemplos utilizados
@@ -96,7 +96,7 @@ El procedimiento también utiliza la siguiente nomenclatura de conmutación y no
 * *n1_clus2* es el primer LIF de clúster conectado al conmutador de clúster 2 (CL2 o C2) para el nodo *n1*.
 * *n1_clus3* es el segundo LIF conectado al conmutador de cluster 2 (CL2 o C2) para el nodo *n1*.
 * *n1_clus4* es el segundo LIF conectado al conmutador de cluster 1 (CL1 o C1) para el nodo *n1*.
-* El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Descarga del archivo de configuración de referencia del conmutador de red de clúster Cisco®"^] página.
+* La cantidad de puertos de 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en el sitio web.link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Descarga del archivo de configuración de referencia del conmutador de red de clúster Cisco®"^] .
 * Los nodos son *n1*, *n2*, *n3* y *n4*.
 
 

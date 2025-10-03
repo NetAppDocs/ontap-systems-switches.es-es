@@ -33,7 +33,7 @@ Instale los switches en el rack o armario. Acceda a las siguientes instrucciones
  a| 
 .Switches de almacenamiento
 * link:../switch-cisco-9336c-fx2-storage/install-9336c-storage.html["Instale el switch Cisco Nexus 9336C-FX2"]
-* link:../switch-nvidia-sn2100/install-hardware-sn2100-storage.html["Instale el conmutador NVIDIA SN2100"]
+* link:../switch-nvidia-sn2100-storage/install-hardware-sn2100-storage.html["Instale el conmutador NVIDIA SN2100"]
 
  a| 
 .Switches compartidos
@@ -78,7 +78,7 @@ Las instrucciones de instalación y configuración de los sistemas ONTAP incluye
  a| 
 .Switches de almacenamiento
 * link:../switch-cisco-9336c-fx2-storage/setup-worksheet-9336c-storage.html["Conecte el switch Cisco Nexus 9336C-FX2"]
-* link:../switch-nvidia-sn2100/cabling-considerations-sn2100-storage.html["Cable del conmutador NVIDIA SN2100"]
+* link:../switch-nvidia-sn2100-storage/cabling-considerations-sn2100-storage.html["Cable del conmutador NVIDIA SN2100"]
 
  a| 
 .Switches compartidos
@@ -104,7 +104,7 @@ Realice una configuración inicial de los switches. Acceda a las siguientes inst
  a| 
 .Switches de almacenamiento
 * link:../switch-cisco-9336c-fx2-storage/setup-switch-9336c-storage.html["Configurar el switch Cisco Nexus 9336C-FX2"]
-* link:../switch-nvidia-sn2100/configure-sn2100-storage.html["Configurar el conmutador NVIDIA SN2100"]
+* link:../switch-nvidia-sn2100-storage/configure-sn2100-storage.html["Configurar el conmutador NVIDIA SN2100"]
 
  a| 
 .Switches compartidos
@@ -130,7 +130,7 @@ Para instalar y configurar el software en el conmutador, siga el flujo de trabaj
  a| 
 .Switches de almacenamiento
 * link:../switch-cisco-9336c-fx2-storage/configure-software-overview-9336c-storage.html["Instale el software del switch Cisco Nexus 9336C-FX2"]
-* link:../switch-nvidia-sn2100/configure-software-sn2100-storage.html["Instale el software para el conmutador NVIDIA SN2100"]
+* link:../switch-nvidia-sn2100-storage/configure-software-sn2100-storage.html["Instale el software para el conmutador NVIDIA SN2100"]
 
  a| 
 .Switches compartidos

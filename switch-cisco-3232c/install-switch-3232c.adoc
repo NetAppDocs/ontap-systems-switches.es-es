@@ -19,7 +19,7 @@ Asegúrese de tener lo siguiente:
 * Acceso a un servidor HTTP, FTP o TFTP en el sitio de instalación para descargar las versiones correspondientes del NX-OS y del archivo de configuración de referencia (RCF).
 * La versión aplicable de NX-OS, descargada del https://software.cisco.com/download/home["Descarga de software de Cisco"^] página.
 * Las licencias aplicables, la información de configuración y red, y los cables.
-* Terminadolink:setup-worksheet-3232c.html["hojas de datos para el cableado"] .
+* Terminadolink:setup_worksheet_3232c.html["hojas de datos para el cableado"] .
 * Los RCF de red de gestión y red de clúster de NetApp aplicables descargados del sitio de soporte de NetApp en http://mysupport.netapp.com/["mysupport.netapp.com"^]. Todos los switches de red de gestión y red de clúster de Cisco llegan con la configuración predeterminada de fábrica de Cisco. Estos conmutadores también tienen la versión actual del software NX-OS pero no tienen cargados los RCF.
 * link:required-documentation-3232c.html["Documentación necesaria sobre el switch y ONTAP"] .
 

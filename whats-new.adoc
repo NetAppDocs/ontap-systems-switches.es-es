@@ -7,7 +7,7 @@ summary: Obtenga más información sobre los nuevos switches para los sistemas F
 = Novedades para los switches
 :allow-uri-read: 
 :icons: font
-:imagesdir: ../media/
+:imagesdir: ./media/
 
 
 [role="lead"]

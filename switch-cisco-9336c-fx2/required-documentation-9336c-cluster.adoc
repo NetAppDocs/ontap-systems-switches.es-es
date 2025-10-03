@@ -10,7 +10,7 @@ summary: En lo que respecta a la instalación y el mantenimiento de los switches
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

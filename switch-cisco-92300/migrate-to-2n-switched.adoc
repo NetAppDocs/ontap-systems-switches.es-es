@@ -18,13 +18,15 @@ El procedimiento que utilice dependerá de si tiene dos puertos de red de clúst
 La mayoría de los sistemas requieren dos puertos de red de clúster dedicados en cada controladora.
 
 
-NOTE: Una vez finalizada la migración, es posible que necesite instalar el archivo de configuración necesario para admitir el Monitor de estado del conmutador de clúster (CSHM) para los conmutadores de clúster 92300YC. Consultelink:setup-install-cshm-file.html["Instalación del monitor de estado del interruptor del clúster (CSHM)"].
+NOTE: Una vez completada la migración, es posible que necesite instalar el archivo de configuración necesario para admitir el Monitor de estado del conmutador de clúster (CSHM) para los conmutadores de clúster 92300YC. Ver link:../switch-cshm/cshm-overview.html["Monitoreo del estado del conmutador (CSHM)"] .
 
 
 
 == Revise los requisitos
 
-.Lo que necesitará
+.Antes de empezar
+Asegúrese de tener lo siguiente:
+
 En el caso de una configuración sin switch de dos nodos, asegúrese de que:
 
 * La configuración sin switch de dos nodos está correctamente configurada y funciona.

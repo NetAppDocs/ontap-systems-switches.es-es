@@ -47,7 +47,7 @@ En este procedimiento, el panel de limpieza se instalará en U40.
 ... Centre el panel verticalmente para evitar intrusiones en el espacio adyacente del bastidor y, a continuación, apriete los tornillos.
 ... Inserte los conectores hembra de ambos cables puente de 48 pulgadas desde la parte posterior del panel y a través del conjunto del cepillo.
 +
-image::../media/cisco_9148_jumper_cords.gif[cables de puente cisco 9148]
+image::../media/cisco_9148_jumper_cords.gif[]
 
 +
 _(1) conector hembra del cable puente._
@@ -62,14 +62,14 @@ _(1) conector hembra del cable puente._
 +
 image::../media/3132q_front_bracket.gif[soporte delantero]
 
-.. Repita el paso <<SUBSTEP_9F2E2DDAEE084FE5853D1A6C6D945941,2 a>> con el otro soporte de montaje en bastidor delantero en el otro lado del interruptor.
+.. Repita el paso 2a con el otro soporte de montaje en bastidor delantero en el otro lado del interruptor.
 .. Instale el soporte de montaje en bastidor trasero en el chasis del interruptor.
-.. Repita el paso <<SUBSTEP_53A502380D6D4F058F62ED5ED5FC2000,2c>> con el otro soporte de montaje en bastidor trasero en el otro lado del interruptor.
+.. Repita el paso 2c con el otro soporte de montaje en rack trasero en el otro lado del interruptor.
 
 
 . Instale las tuercas de abrazadera en las ubicaciones de los orificios cuadrados de los cuatro postes de IEA.
 +
-image::../media/ru_locations_for_3132q_v.gif[ubicaciones ru para 3132q v]
+image::../media/ru_locations_for_3132q_v.gif[]
 
 +
 Los dos conmutadores 9336C-FX2 siempre se montarán en la parte superior 2U del armario RU41 y 42.
@@ -78,7 +78,7 @@ Los dos conmutadores 9336C-FX2 siempre se montarán en la parte superior 2U del 
 +
 .. Coloque el primer raíl deslizante en la Marca RU42 en la parte posterior del poste trasero izquierdo, inserte los tornillos con el tipo de rosca correspondiente y, a continuación, apriete los tornillos con los dedos.
 +
-image::../media/3132q_v_slider_rails.gif[rieles deslizantes 3132q v.]
+image::../media/3132q_v_slider_rails.gif[]
 
 +
 _(1) mientras desliza suavemente el raíl deslizante, alinéelo con los orificios de los tornillos del rack._
@@ -86,8 +86,8 @@ _(1) mientras desliza suavemente el raíl deslizante, alinéelo con los orificio
 +
 _(2) apriete los tornillos de las guías deslizantes a los postes del armario._
 
-.. Repita el paso <<SUBSTEP_81651316D3F84964A76BC80A9DE48C0E,4a>> para el poste trasero derecho.
-.. Repita los pasos <<SUBSTEP_81651316D3F84964A76BC80A9DE48C0E,4a>> y.. <<SUBSTEP_593967A423024594B9A41A04703DC458,4b>> En las ubicaciones del RU41 en el armario.
+.. Repita el paso 4a para el poste trasero derecho.
+.. Repita los pasos 4a y 4b en las ubicaciones RU41 del armario.
 
 
 . Instale el interruptor en el armario.
@@ -108,13 +108,13 @@ _(2) deslice suavemente el interruptor hasta que los soportes de montaje del bas
 
 .. Conecte el interruptor al armario.
 +
-image::../media/3132q_attaching.gif[conexión 3132q]
+image::../media/3132q_attaching.gif[]
 
 +
 _(1) con una persona sujetando la parte delantera del chasis, la otra persona debe apretar completamente los cuatro tornillos traseros a los postes del armario._
 
 .. Con el chasis apoyado ahora sin ayuda, apriete completamente los tornillos delanteros a los postes.
-.. Repita los pasos <<SUBSTEP_4F538C8C55E34C5FB5D348391088A0FE,5a>> por <<SUBSTEP_EB8FE2FED2CA4120B709CC753C0F50FC,5c>> Para el segundo interruptor en la ubicación RU42.
+.. Repita los pasos 5a a 5c para el segundo interruptor en la ubicación RU42.
 +
 
 NOTE: Al utilizar el interruptor completamente instalado como soporte, no es necesario mantener la parte delantera del segundo interruptor durante el proceso de instalación.

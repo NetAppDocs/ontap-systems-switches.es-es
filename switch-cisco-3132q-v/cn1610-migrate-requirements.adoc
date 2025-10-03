@@ -19,8 +19,8 @@ Para ello, es necesario utilizar tanto comandos de la ONTAP como comandos de la 
 ====
 Para obtener más información, consulte:
 
-* http://support.netapp.com/NOW/download/software/cm_switches_ntap/["Página de descripción de NetApp CN1601 y CN1610"^]
-* http://support.netapp.com/NOW/download/software/cm_switches/["Página de descripción de Cisco Ethernet Switch"^]
+* https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["Página de descripción de NetApp CN1601 y CN1610"^]
+* https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Página de descripción de Cisco Ethernet Switch"^]
 * http://hwu.netapp.com["Hardware Universe"^]
 
 

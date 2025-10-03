@@ -21,7 +21,7 @@ Si desea crear clústeres de ONTAP con más de dos nodos, necesita dos switches 
 
 El conmutador NVIDIA SN2100 (X190006/X190106) se instala en el armario de conmutadores doble/único NVIDIA con los soportes estándar que se incluyen con el conmutador.
 
-Para conocer las directrices de cableado, consulte link:cabling-considerations-sn2100-cluster.html["Consideraciones sobre el cableado y la configuración"].
+Para conocer las pautas de cableado, consultelink:cabling-considerations-sn2100-storage.html["Consideraciones sobre el cableado y la configuración"] .
 
 
 

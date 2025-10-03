@@ -24,8 +24,8 @@ La http://hwu.netapp.com["Hardware Universe"^] proporciona información completa
 
 La configuración de red existente debe tener las siguientes características:
 
-* Asegúrese de que se han completado todos los pasos de solución de problemas para confirmar que es necesario sustituir el interruptor.
-* Debe haber conectividad de gestión en ambos switches.
+* Complete todos los pasos de solución de problemas para confirmar que necesita reemplazar su interruptor.
+* Asegúrese de que exista conectividad de administración en ambos conmutadores.
 +
 
 NOTE: Asegúrese de que se han completado todos los pasos de solución de problemas para confirmar que es necesario sustituir el interruptor.
@@ -35,7 +35,7 @@ NOTE: Asegúrese de que se han completado todos los pasos de solución de proble
 El conmutador NVIDIA SN2100 de repuesto debe tener las siguientes características:
 
 * La conectividad de la red de gestión es funcional.
-* El acceso de la consola al interruptor de sustitución está en su lugar.
+* Puedes acceder al interruptor de reemplazo usando la consola.
 * La imagen apropiada del sistema operativo RCF y Cumulus se carga en el conmutador.
 * Se ha completado la personalización inicial del conmutador.
 
@@ -63,7 +63,7 @@ _x_ es la duración de la ventana de mantenimiento en horas.
 +
 `set -privilege advanced`
 
-. Compruebe el estado de los puertos del nodo de almacenamiento para asegurarse de que exista conexión al switch de almacenamiento S1:
+. Verifique el estado de salud de los puertos del nodo de almacenamiento para confirmar la conexión al conmutador de almacenamiento S1:
 +
 `storage port show -port-type ENET`
 

@@ -21,7 +21,7 @@ Para restablecer el interruptor de almacenamiento SN2100 a los valores predeterm
 
 
 
-NOTE: Para obtener más información sobre la instalación de Cumulus Linux, consultelink:configure-software-overview-sn2100-cluster.html["Flujo de trabajo de instalación de software para los switches NVIDIA SN2100"] .
+NOTE: Para obtener más información sobre la instalación de Cumulus Linux, consultelink:configure-software-sn2100-storage.html["Flujo de trabajo de instalación de software para los switches NVIDIA SN2100"] .
 
 .Pasos
 [role="tabbed-block"]

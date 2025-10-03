@@ -10,7 +10,7 @@ summary: En lo que respecta a la instalación y el mantenimiento de los switches
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -34,7 +34,7 @@ Para configurar los switches compartidos Cisco Nexus 9336C-FX2, consulte https:/
 | link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Índice principal de referencia de comandos Cisco Nexus serie 9000 NX-OS"] | Proporciona vínculos a las diferentes referencias de comandos proporcionadas por Cisco. 
 
 
-| link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/sw/mib/quickreference/b_Cisco_Nexus_7000_Series_and_9000_Series_NX-OS_MIB_Quick_Reference.html["Referencia de MIBs de Cisco Nexus 9000"] | Describe los archivos de la base de datos de información de gestión (MIB) para los switches Nexus 9000. 
+| link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/sw/mib/reference/MIBRef.html["Referencia de MIBs de Cisco Nexus 9000"] | Describe los archivos de la base de datos de información de gestión (MIB) para los switches Nexus 9000. 
 
 
 | link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-system-message-guides-list.html["Referencia de mensajes del sistema Nexus serie 9000 NX-OS"] | Describe los mensajes del sistema de los switches Cisco Nexus serie 9000, los que son informativos y otros que podrían ayudar a diagnosticar problemas con los enlaces, el hardware interno o el software del sistema. 

@@ -42,7 +42,7 @@ En este procedimiento, el panel de limpieza se instalará en U40.
 .. Centre el panel verticalmente para evitar intrusiones en el espacio adyacente del bastidor y, a continuación, apriete los tornillos.
 .. Inserte los conectores hembra de ambos cables puente de 48 pulgadas desde la parte posterior del panel y a través del conjunto del cepillo.
 +
-image::../media/cisco_9148_jumper_cords.gif[cables de puente cisco 9148]
+image::../media/cisco_9148_jumper_cords.gif[]
 
 +
 _(1) conector hembra del cable puente._
@@ -62,7 +62,7 @@ image::../media/3132q_front_bracket.gif[soporte delantero]
 
 . Instale las tuercas de abrazadera en las ubicaciones de los orificios cuadrados de los cuatro postes de IEA.
 +
-image::../media/ru_locations_for_3132q_v.gif[ubicaciones ru para 3132q v]
+image::../media/ru_locations_for_3132q_v.gif[]
 
 +
 Los dos interruptores 3132Q-V siempre se montarán en la parte superior 2U del armario RU41 y 42.
@@ -71,7 +71,7 @@ Los dos interruptores 3132Q-V siempre se montarán en la parte superior 2U del a
 +
 .. Coloque el primer raíl deslizante en la Marca RU42 en la parte posterior del poste trasero izquierdo, inserte los tornillos con el tipo de rosca correspondiente y, a continuación, apriete los tornillos con los dedos.
 +
-image::../media/3132q_v_slider_rails.gif[rieles deslizantes 3132q v.]
+image::../media/3132q_v_slider_rails.gif[]
 
 +
 _(1) mientras desliza suavemente el raíl deslizante, alinéelo con los orificios de los tornillos del rack._
@@ -101,7 +101,7 @@ _(2) deslice suavemente el interruptor hasta que los soportes de montaje del bas
 
 .. Conecte el interruptor al armario.
 +
-image::../media/3132q_attaching.gif[conexión 3132q]
+image::../media/3132q_attaching.gif[]
 
 +
 _(1) con una persona sujetando la parte delantera del chasis, la otra persona debe apretar completamente los cuatro tornillos traseros a los postes del armario._

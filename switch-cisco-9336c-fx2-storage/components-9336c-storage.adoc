@@ -10,7 +10,7 @@ summary: Desde ONTAP 9.9.1, puede utilizar los switches Cisco Nexus 9336C-FX2 pa
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

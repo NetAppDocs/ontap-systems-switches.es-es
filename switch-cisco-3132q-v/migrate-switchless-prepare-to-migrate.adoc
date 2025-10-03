@@ -89,7 +89,7 @@ Cluster
 Debe preparar ambos switches en este momento. Si necesita actualizar el software RCF e Image, debe seguir estos pasos:
 
 +
-.. Vaya a la link:http://support.netapp.com/NOW/download/software/cm_switches/["Switches Ethernet de Cisco"^] En el sitio de soporte de NetApp.
+.. Ir alink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^] en el sitio de soporte de NetApp .
 .. Anote el conmutador y las versiones de software necesarias en la tabla de esa página.
 .. Descargue la versión adecuada de RCF.
 .. Seleccione *CONTINUAR* en la página *Descripción*, acepte el contrato de licencia y, a continuación, siga las instrucciones de la página *Descargar* para descargar el RCF.

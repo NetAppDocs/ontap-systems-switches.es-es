@@ -25,7 +25,7 @@ Revise la link:switch-requirements.html["Requisitos para sustituir los switches 
 +
 ** La infraestructura de clúster Nexus 3132Q-V es redundante y completamente funcional en ambos switches.
 +
-La link:http://support.netapp.com/NOW/download/software/cm_switches/["Switch Ethernet de Cisco"^] Page tiene las últimas versiones RCF y NX-OS en sus switches.
+link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Switch Ethernet de Cisco"^]tiene las últimas versiones de RCF y NX-OS para sus conmutadores.
 
 ** Todos los puertos del clúster están en la `up` estado.
 ** La conectividad de gestión existe en ambos switches.
@@ -40,7 +40,7 @@ La link:http://support.netapp.com/NOW/download/software/cm_switches/["Switch Eth
 ** Se ha completado la personalización inicial del conmutador.
 
 
-* http://hwu.netapp.com["Hardware Universe"^]
+* link:http://hwu.netapp.com["Hardware Universe"^]
 
 
 
@@ -50,8 +50,8 @@ La link:http://support.netapp.com/NOW/download/software/cm_switches/["Switch Eth
 NetApp recomienda encarecidamente que habilite el inicio de sesión de la consola en los dispositivos que esté utilizando y que realice las siguientes acciones al sustituir el conmutador:
 
 * Deje la función AutoSupport habilitada durante el mantenimiento.
-* Active un AutoSupport de mantenimiento antes y después de las tareas de mantenimiento para deshabilitar la creación de casos durante el mantenimiento. Consulte este artículo de la base de conocimientos https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Cómo impedir la creación automática de casos durante las ventanas de mantenimiento programado"^] para obtener más detalles.
-* Habilite el registro de sesiones para cualquier sesión de CLI. Para obtener instrucciones sobre cómo activar el registro de sesiones, consulte la sección «Salida de sesión de registro» de este artículo de la base de conocimientos https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Cómo configurar PuTTY para una conectividad óptima con sistemas ONTAP"^].
+* Active un AutoSupport de mantenimiento antes y después del mantenimiento para deshabilitar la creación de casos durante la duración del mantenimiento.  Consulte este artículo de la base de conocimientoslink:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Cómo impedir la creación automática de casos durante las ventanas de mantenimiento programado"^] Para más detalles.
+* Habilitar el registro de sesiones para cualquier sesión CLI.  Para obtener instrucciones sobre cómo habilitar el registro de sesiones, revise la sección "Registro de salida de sesión" en este artículo de la base de conocimientos.link:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Cómo configurar PuTTY para una conectividad óptima con sistemas ONTAP"^] .
 
 
 
@@ -67,7 +67,7 @@ Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo
 * n1_clus2 es la primera LIF del clúster conectada al switch de clúster CL2 o C2 para el nodo n1.
 * n1_clus3 es la segunda LIF conectada al switch de clúster C2 para el nodo n1.
 * n1_clusal 4 es la segunda LIF conectada al switch de clúster CL1, para el nodo n1.
-* El número de puertos de 10 GbE y 40 GbE se define en los archivos de configuración de referencia (RFC) disponibles en link:https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Descarga del archivo de configuración de referencia del conmutador de red de clúster Cisco®"^]la página.
+* La cantidad de puertos de 10 GbE y 40 GbE se define en los archivos de configuración de referencia (RCF) disponibles enlink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Descarga del archivo de configuración de referencia del conmutador de red de clúster Cisco®"^] .
 * Los nodos son n1, n2, n3 y n4. - Los ejemplos de este procedimiento emplean cuatro nodos: Dos nodos utilizan cuatro puertos de interconexión de clúster de 10 GB: E0a, e0b, e0c y e0d. Los otros dos nodos utilizan dos puertos de interconexión de clúster de 40 GB: e4a y e4e. Consulte link:https://hwu.netapp.com/["Hardware Universe"^] para los puertos del clúster reales en las plataformas.
 
 
@@ -261,7 +261,7 @@ CL2                          cluster-network   10.10.1.102      NX3132V
 Debe preparar el interruptor de sustitución en este momento. Si necesita actualizar el RCF y la imagen, debe seguir estos pasos:
 
 +
-.. En el sitio de soporte de NetApp, vaya a link:http://support.netapp.com/NOW/download/software/cm_switches/["Switch Ethernet de Cisco"^] página.
+.. En el sitio de soporte de NetApp , consultelink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch/["Switches Ethernet de Cisco"^] .
 .. Anote el conmutador y las versiones de software necesarias en la tabla de esa página.
 .. Descargue la versión adecuada del RCF.
 .. Haga clic en *CONTINUAR* en la página *Descripción*, acepte el contrato de licencia y, a continuación, siga las instrucciones de la página *Descargar* para descargar el RCF.
@@ -577,8 +577,8 @@ cluster::*> network interface revert -vserver Cluster -lif n1_clus2
 cluster::*> network interface revert -vserver Cluster -lif n1_clus3
 cluster::*> network interface revert -vserver Cluster -lif n2_clus2
 cluster::*> network interface revert -vserver Cluster -lif n2_clus3
-Cluster::*> network interface revert –vserver Cluster –lif n3_clus2
-Cluster::*> network interface revert –vserver Cluster –lif n4_clus2
+cluster::*> network interface revert -vserver Cluster -lif n3_clus2
+cluster::*> network interface revert -vserver Cluster -lif n4_clus2
 ----
 ====
 . Compruebe que los puertos de interconexión de clúster ahora se han revertido a su origen:
@@ -624,7 +624,7 @@ Cluster
 ====
 [listing]
 ----
-cluster::*> network port show –role cluster
+cluster::*> network port show -role cluster
   (network port show)
 Node: n1
                                                                        Ignore
