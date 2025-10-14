@@ -1,0 +1,51 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9332d-gx2b/reset-switch-9332d.html 
+keywords: reset switch factory defaults 
+summary: Restablezca el interruptor 9332D-GX2B a sus valores predeterminados de fábrica. 
+---
+= Restablecer el interruptor 9332D-GX2B a los valores predeterminados de fábrica
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para restablecer el interruptor 9332D-GX2B a los valores predeterminados de fábrica, debe borrar la configuración del interruptor 9332D-GX2B.
+
+.Acerca de esta tarea
+* Debe estar conectado al conmutador mediante la consola serie.
+* Esta tarea restablece la configuración de la red de gestión.
+
+
+.Pasos
+. Borrar la configuración existente:
++
+`write erase`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *write erase*
+
+Warning: This command will erase the startup-configuration.
+Do you wish to proceed anyway? (y/n) [n] *y*
+----
+. Recargue el software del conmutador:
++
+`reload`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *reload*
+
+This command will reboot the system. (y/n)? [n] *y*
+----
++
+El sistema se reinicia y entra en el asistente de configuración.  Durante el arranque, si recibe el mensaje “¿Desea cancelar el aprovisionamiento automático y continuar con la configuración normal?”  (sí/no)[n]”, debe responder *sí* para continuar.
+
+

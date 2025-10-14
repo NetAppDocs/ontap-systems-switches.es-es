@@ -1,0 +1,47 @@
+---
+indexpage:
+  title: Conmutadores de sistemas AFX
+  summary: Utilice los documentos de este sitio para instalar, configurar y mantener
+    sus conmutadores de sistemas AFX para implementaciones de clústeres ONTAP .
+  keywords: AFX systems switches, cisco nexus switches, cluster switches, ontap clusters
+  lead: Los conmutadores de sistemas AFX le permiten crear clústeres ONTAP con más
+    de dos nodos.  Estos conmutadores de plataforma Cisco Nexus 9000 proporcionan
+    la base para soluciones de interconexión de clústeres escalables en entornos NetApp
+    ONTAP .
+  tiles:
+  - title: Manos a la obra
+    links:
+    - title: Cisco Nexus 9332D-GX2B
+      url: "../switch-cisco-9332d-gx2b/configure-switch-overview-9332d-cluster.html"
+    - title: Cisco Nexus 9364D-GX2A
+      url: "../switch-cisco-9364d-gx2a/configure-switch-overview-9364d-cluster.html"
+  - title: Instalar y configurar conmutadores AFX
+    links:
+    - title: Instalar el hardware del conmutador 9332D-GX2B
+      url: "../switch-cisco-9332d-gx2b/install-hardware.html"
+    - title: Instalar el hardware del conmutador 9364D-GX2A
+      url: "../switch-cisco-9364d-gx2a/install-hardware.html"
+    - title: Configurar el software del conmutador 9332D-GX2B
+      url: "../switch-cisco-9332d-gx2b/configure-software-overview-9332d-cluster.html"
+    - title: Configurar el software del conmutador 9364D-GX2A
+      url: "../switch-cisco-9364d-gx2a/configure-software-overview-9364d-cluster.html"
+  - title: Mantener los interruptores AFX
+    links:
+    - title: Reemplace el interruptor 9332D-GX2B
+      url: "../switch-cisco-9332d-gx2b/replace-9332d-cluster.html"
+    - title: Reemplace el interruptor 9364D-GX2A
+      url: "../switch-cisco-9364d-gx2a/replace-9364d-cluster.html"
+    - title: Restablecer el interruptor 9332D-GX2B a los valores predeterminados de
+        fábrica
+      url: "../switch-cisco-9332d-gx2b/reset-switch-9332d.html"
+    - title: Restablecer el interruptor 9364D-GX2A a los valores predeterminados de
+        fábrica
+      url: "../switch-cisco-9364d-gx2a/reset-switch-9364d.html"
+  - title: Documentación relacionada
+    links:
+    - title: Sistemas de hardware de ONTAP
+      url: https://docs.netapp.com/us-en/ontap-systems/index.html
+    - title: Documentación de conmutadores de clúster
+      url: "../index.html"
+    - title: Monitoreo del estado del conmutador
+      url: "../switch-cshm/config-overview.html"

@@ -1,0 +1,45 @@
+---
+section: switch-cisco-9332d-gx2b
+title: Cisco Nexus 9332D-GX2B
+entries:
+- title: Manos a la obra
+  pdf-filename: Descripción general_9332d-gx2b
+  entries:
+  - title: Inicio rápido
+    url: "/switch-cisco-9332d-gx2b/configure-switch-overview-9332d-cluster.html"
+  - title: Detalles del puerto del conmutador
+    url: "/switch-cisco-9332d-gx2b/configure-setup-ports-9332d.html"
+  - title: Documentación requerida
+    url: "/switch-cisco-9332d-gx2b/required-documentation-9332d-cluster.html"
+  - title: Requisitos de Smart Call Home
+    url: "/switch-cisco-9332d-gx2b/smart-call-9332d-cluster.html"
+- title: Instale el hardware
+  url: "/switch-cisco-9332d-gx2b/install-hardware.html"
+  pdf-filename: Instalar_hardware_9332d-gx2b
+- title: Configurar el software
+  pdf-filename: Configurar_software_9332d-gx2b
+  entries:
+  - title: Configurar el flujo de trabajo del software
+    url: "/switch-cisco-9332d-gx2b/configure-software-overview-9332d-cluster.html"
+  - title: Configure el switch
+    url: "/switch-cisco-9332d-gx2b/setup-switch-9332d-cluster.html"
+  - title: Prepare la instalación de NX-OS y RCF
+    url: "/switch-cisco-9332d-gx2b/install-nxos-overview-9332d-cluster.html"
+  - title: Instale o actualice el software NX-OS
+    url: "/switch-cisco-9332d-gx2b/install-nxos-software-9332d-cluster.html"
+  - title: Instale o actualice el RCF
+    pdf-filename: Install_UPGRADE_rcf
+    entries:
+    - title: Instale o actualice la descripción general de RCF
+      url: "/switch-cisco-9332d-gx2b/install-upgrade-rcf-overview-cluster.html"
+    - title: Instale el RCF
+      url: "/switch-cisco-9332d-gx2b/install-rcf-software-9332d-cluster.html"
+    - title: Actualice su versión de RCF
+      url: "/switch-cisco-9332d-gx2b/upgrade-rcf-software-9332d-cluster.html"
+  - title: Verificar que SSH esté habilitado
+    url: "/switch-cisco-9332d-gx2b/configure-ssh-keys.html"
+  - title: Restablecer el interruptor a los valores predeterminados de fábrica
+    url: "/switch-cisco-9332d-gx2b/reset-switch-9332d.html"
+- title: Reemplace el interruptor 9332D-GX2B
+  pdf-filename: Reemplazar_interruptores_9332d-gx2b
+  url: "/switch-cisco-9332d-gx2b/replace-9332d-cluster.html"

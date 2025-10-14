@@ -4,7 +4,9 @@
 
 Smart Call Home monitorea los componentes de hardware y software de su red. Cuando ocurre una configuración crítica del sistema, se genera una notificación por correo electrónico y se envía una alerta a todos los destinatarios configurados en su perfil de destino.
 
-Antes de utilizar Smart Call Home, tenga en cuenta los siguientes requisitos:
+Smart Call Home monitorea los componentes de hardware y software de su red. Cuando ocurre una configuración crítica del sistema, se genera una notificación por correo electrónico y se envía una alerta a todos los destinatarios configurados en su perfil de destino.
+
+Antes de poder utilizar Smart Call Home, tenga en cuenta los siguientes requisitos:
 
 * Debe haber un servidor de correo electrónico.
 * El switch debe tener conectividad IP con el servidor de correo electrónico.

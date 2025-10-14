@@ -1,6 +1,17 @@
-= Revise los requisitos
+---
+permalink: switch-cisco-9364d-gx2a/migrate-to-9364d-cluster.html 
+sidebar: sidebar 
+keywords: migrating to a cluster with Cisco Nexus 9364d-gx2a cluster switches, how to migrate 
+summary: Puede migrar conmutadores de clúster Cisco más antiguos y sin interrupciones para un clúster ONTAP a conmutadores de red de clúster Cisco Nexus 9364d-gx2a. 
+---
+= Migrar de un conmutador Cisco antiguo a un conmutador Cisco Nexus 9364D-GX2A
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
+
+[role="lead"]
+Puede realizar una migración sin interrupciones desde un conmutador de clúster Cisco más antiguo a un conmutador de red de clúster Cisco Nexus 9364D-GX2A.
 
 
 

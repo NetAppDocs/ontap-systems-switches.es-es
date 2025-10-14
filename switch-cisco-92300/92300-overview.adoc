@@ -100,7 +100,7 @@ Describe cómo migrar desde entornos que utilizan switches Cisco anteriores a en
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/migrate-to-92300yc-overview.html["_Migre de un Cisco Switch antiguo a un Cisco Nexus 92300YC Switch_"^]
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/migrate-to-92300yc.html["_Migre de un Cisco Switch antiguo a un Cisco Nexus 92300YC Switch_"^]
  a| 
 Describe el procedimiento para reemplazar un switch Cisco antiguo con un switch de clúster Cisco Nexus 92300YC.
 

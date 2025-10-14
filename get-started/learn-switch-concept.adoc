@@ -4,19 +4,29 @@ sidebar: sidebar
 keywords:  
 summary: Obtenga más información sobre clústeres, almacenamiento y switches compartidos. 
 ---
-= Obtenga más información sobre clústeres, almacenamiento y switches compartidos
+= Obtenga información sobre los sistemas AFX, clúster, almacenamiento y conmutadores compartidos
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-NetApp ofrece clúster, almacenamiento y switches compartidos que proporcionan comunicaciones internas con la capacidad de mover datos e interfaces de red sin interrupciones por todo el clúster.
+NetApp ofrece sistemas AFX, clústeres, almacenamiento y conmutadores compartidos que brindan comunicaciones internas con la capacidad de mover datos e interfaces de red sin interrupciones en todo el clúster.
 
 Los switches de «front-end» proporcionan conectividad al almacenamiento host, mientras que los switches de clúster de «back-end» proporcionan conexiones entre dos o más controladoras de NetApp.
 
 
 NOTE: Solo se admiten switches back-end validados por NetApp (solicitados a NetApp).
+
+
+
+== Conmutadores de sistemas AFX
+
+Los conmutadores de sistemas AFX le permiten crear conmutadores de red rápidos, energéticamente eficientes y que ahorran espacio.  Su pequeño tamaño y alta densidad de puertos los hacen ideales para manejar redes grandes.  Los puertos admiten diferentes velocidades y se pueden dividir en múltiples conexiones.  Los conmutadores de sistemas AFX compatibles con NetApp incluyen:
+
+* Cisco Nexus 9332D-GX2B
+* Cisco Nexus 9364D-GX2A
+
 
 
 

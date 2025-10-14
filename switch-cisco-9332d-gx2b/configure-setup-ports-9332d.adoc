@@ -1,0 +1,36 @@
+---
+permalink: switch-cisco-9332d-gx2b/configure-setup-ports-9332d.html 
+sidebar: sidebar 
+keywords: switches, initial installation, ports, configure switch-cisco-9332d-gx2b switch 
+summary: Detalles del puerto para los conmutadores Cisco Nexus 9332D-GX2B 
+---
+= Detalles del puerto para los conmutadores Cisco Nexus 9332D-GX2B
+:allow-uri-read: 
+
+
+[role="lead"]
+El conmutador Cisco Nexus 9332D-GX2B es parte de la plataforma Cisco Nexus 9000.  Los conmutadores del sistema AFX le permiten crear clústeres ONTAP con más de dos nodos.
+
+
+
+== Detalles del puerto del Cisco Nexus 9332D-GX2B
+
+[cols="1,2"]
+|===
+| Puertos | Descripción 
+
+
+ a| 
+Ethernet1/1/1-4 a Ethernet1/30/1-4
+ a| 
+Modo 4x100GbE para conexiones de clúster, alta disponibilidad y almacenamiento
+
+
+
+ a| 
+Ethernet1/31, Ethernet1/32
+ a| 
+400GbE ISL
+
+|===
+Ver el https://hwu.netapp.com["Hardware Universe"^] para obtener detalles de los puertos utilizados por la plataforma.

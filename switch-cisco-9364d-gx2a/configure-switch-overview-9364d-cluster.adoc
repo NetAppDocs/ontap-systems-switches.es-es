@@ -1,0 +1,34 @@
+---
+permalink: switch-cisco-9364d-gx2a/configure-switch-overview-9364d-cluster.html 
+sidebar: sidebar 
+keywords: switches, initial installation, configure 9364d-gx2ab switch 
+summary: Descripción general de la instalación y configuración de los conmutadores de clúster Cisco Nexus 9364d-gx2a 
+---
+= Flujo de trabajo de instalación y configuración para los conmutadores Cisco 9364D-GX2A
+:allow-uri-read: 
+
+
+[role="lead"]
+El conmutador Cisco 9364D-GX2A es parte de la plataforma Cisco Nexus 9000.  Los conmutadores de sistemas AFX le permiten crear clústeres ONTAP con más de dos nodos.
+
+Siga estos pasos de flujo de trabajo para instalar y configurar sus conmutadores Cisco 9364D-GX2A.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:configure-setup-ports-9364d.html["Revisar los detalles del puerto del conmutador"]
+[role="quick-margin-para"]
+Revise los detalles del puerto del conmutador Cisco 9364D-GX2A.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"]link:required-documentation-9364d-cluster.html["Revisar la documentación requerida"]
+[role="quick-margin-para"]
+Revise la documentación específica del conmutador y del controlador para configurar sus conmutadores 9364D-GX2A y el clúster ONTAP .
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"]link:smart-call-9364d-cluster.html["Revisar los requisitos de Smart Call Home"]
+[role="quick-margin-para"]
+Revise los requisitos de la función Cisco Smart Call Home, que se utiliza para monitorear los componentes de hardware y software de su red.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:install-hardware.html["Instale el hardware"]
+[role="quick-margin-para"]
+Instale el hardware del interruptor.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-software-overview-9364d-cluster.html["Configurar el software"]
+[role="quick-margin-para"]
+Configurar el software del conmutador.
