@@ -449,7 +449,7 @@ Are you sure you would like to reset the system? (y/n) *y*
 ====
 .EFOS versión 3,12.x y posterior
 --
-. Copie el RCF en el bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP.
+. Copie el RCF al bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: HTTP, HTTPS, FTP, TFTP, SFTP o SCP.
 +
 Este ejemplo muestra SFTP que se está utilizando para copiar un RCF al bootflash del switch CS2:
 
@@ -508,7 +508,7 @@ Configuration script 'reference-config.scr' applied.
 --
 .El resto de las versiones de EFOS
 --
-. Copie el RCF en el bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP.
+. Copie el RCF al bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: HTTP, HTTPS, FTP, TFTP, SFTP o SCP.
 +
 Este ejemplo muestra SFTP que se está utilizando para copiar un RCF al bootflash del switch CS2:
 

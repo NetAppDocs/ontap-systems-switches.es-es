@@ -1,0 +1,36 @@
+---
+indexpage:
+  title: Switches compartidos
+  summary: Utilice la documentación de este sitio para instalar, configurar y mantener
+    sus conmutadores compartidos para implementaciones de clústeres ONTAP .
+  keywords: shared switches, cisco nexus switches, cluster switches, ontap clusters
+  lead: Los conmutadores compartidos le permiten crear clústeres ONTAP con más de
+    dos nodos. Estos conmutadores de plataforma Cisco Nexus 9000 proporcionan la base
+    para soluciones de interconexión de clústeres escalables en entornos NetApp ONTAP
+    .
+  tiles:
+  - title: Manos a la obra
+    links:
+    - title: Cisco Nexus 9336C-FX2
+      url: "../switch-cisco-9336c-fx2-shared/configure-switch-overview-9336c-shared.html"
+  - title: Instalar y configurar conmutadores compartidos
+    links:
+    - title: Instalar el hardware del conmutador 9336C-FX2
+      url: "../switch-cisco-9336c-fx2-shared/install-hardware-workflow.html"
+    - title: Configurar el software del conmutador 9336C-FX2
+      url: "../switch-cisco-9336c-fx2-shared/configure-software-overview-9336c-shared.html"
+  - title: Mantener conmutadores compartidos
+    links:
+    - title: Reemplace el interruptor 9336C-FX2
+      url: "../switch-cisco-9336c-fx2-shared/replace-9336c-fx2-shared.html"
+    - title: Restablecer el interruptor 9336C-FX2 a los valores predeterminados de
+        fábrica
+      url: "../switch-cisco-9336c-fx2-shared/reset-switch-9336c-shared.html"
+  - title: Documentación relacionada
+    links:
+    - title: Sistemas de hardware de ONTAP
+      url: https://docs.netapp.com/us-en/ontap-systems/index.html
+    - title: Documentación de conmutadores de clúster
+      url: "../index.html"
+    - title: Monitoreo del estado del conmutador
+      url: "../switch-cshm/config-overview.html"
