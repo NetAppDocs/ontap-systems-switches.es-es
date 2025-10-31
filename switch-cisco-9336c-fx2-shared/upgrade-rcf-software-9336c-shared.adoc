@@ -922,4 +922,4 @@ RPC status:
 --
 ====
 .El futuro
-link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"].
+Después de actualizar el RCF, puedes link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"].

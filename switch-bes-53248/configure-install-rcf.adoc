@@ -1169,4 +1169,4 @@ system node autosupport invoke -node * -type all -message MAINT=END
 
 
 .El futuro
-link:configure-ssh.html["Habilite SSH"].
+Una vez instalado RCF, puedes link:configure-ssh.html["habilitar SSH"].

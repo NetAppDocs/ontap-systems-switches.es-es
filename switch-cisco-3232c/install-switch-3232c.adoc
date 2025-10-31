@@ -50,4 +50,4 @@ Consulte los procedimientos proporcionados en las guías de instalación del har
 
 
 .El futuro
-Opcionalmente, puedeslink:install-cisco-nexus-3232c.html["Instalar un conmutador Cisco Nexus 3223C en un gabinete NetApp"] .  De lo contrario, vaya alink:cabling-considerations-3232c.html["Revisar el cableado y la configuración"] .
+Opcionalmente, puedes link:install-cisco-nexus-3232c.html["Instalar un conmutador Cisco Nexus 3223C en un gabinete NetApp"]. De lo contrario, vaya a link:cabling-considerations-3232c.html["revisar el cableado y la configuración"].

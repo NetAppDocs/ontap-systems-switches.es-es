@@ -61,4 +61,4 @@ Kit de rieles, profundidad corta de un único conmutador NVIDIA
 NOTE: Consulte la documentación de NVIDIA para obtener más información acerca de https://docs.nvidia.com/networking/display/sn2000pub/Installation["Instalación del kit de rieles y interruptor SN2100"^].
 
 .El futuro
-link:required-documentation-sn2100-cluster.html["Documentación requerida"] .
+Después de confirmar los componentes y los números de pieza, revise el link:required-documentation-sn2100-cluster.html["documentación requerida"].

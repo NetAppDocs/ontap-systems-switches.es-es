@@ -571,3 +571,6 @@ Para obtener más información, consulte link:https://kb.netapp.com/Advice_and_T
 `set -privilege admin`
 
 
+
+.El futuro
+Después de haber reemplazado los interruptores, puedes link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"].

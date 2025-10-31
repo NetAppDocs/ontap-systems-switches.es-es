@@ -580,4 +580,4 @@ Si alguna LIF de clúster no ha regresado a sus puertos raíz, revertirla manual
 
 
 .El futuro
-link:install-rcf-3132q-v.html["Instalación del archivo de configuración de referencia (RCF)"].
+Una vez instalado el software NX-OS, podrá link:install-upgrade-rcf-overview-3132q-v.html["instalar o actualizar el archivo de configuración de referencia (RCF)"].

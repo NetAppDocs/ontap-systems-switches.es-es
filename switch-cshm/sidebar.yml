@@ -12,7 +12,7 @@ entries:
     url: "/switch-cshm/config-overview.html"
   - title: Configure la recopilación de registros
     url: "/switch-cshm/config-log-collection.html"
-  - title: 'Opcional: Configure SNMPv3'
+  - title: Configure SNMPv3 (opcional)
     url: "/switch-cshm/config-snmpv3.html"
 - title: Compruebe el estado del interruptor
   pdf-filename: Monitor_SWITCH_HEALTH

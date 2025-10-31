@@ -45,4 +45,4 @@ El switch de SN2100 proporciona aplicaciones de clúster y almacenamiento en ONT
 
 
 .El futuro
-link:components-sn2100-cluster.html["Componentes y números de pieza"] .
+Después de revisar los requisitos de configuración, puede confirmar su link:components-sn2100-cluster.html["componentes y números de pieza"].

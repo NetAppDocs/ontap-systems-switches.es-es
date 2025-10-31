@@ -136,4 +136,4 @@ NOTE: Si su modelo sigue mostrando *OTHER* después de aplicar el archivo de con
 Ver el https://docs.netapp.com/us-en/ontap-cli/system-switch-ethernet-configure-health-monitor.html["Monitor de estado de configuración Ethernet del conmutador del sistema"^] Comando para más detalles.
 
 .El futuro
-link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"].
+Después de haber instalado el archivo CSHM, usted link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"].

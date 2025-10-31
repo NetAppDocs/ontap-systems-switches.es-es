@@ -95,4 +95,4 @@ node2                true    true          false
 
 
 .El futuro
-link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"].
+Una vez que haya confirmado la actualización de su software EFOS o RCF, podrá link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"].

@@ -219,4 +219,4 @@ NOTE: Si no guarda la configuración en esta fase, ninguno de los cambios se apl
 
 
 .El futuro
-link:prepare-install-cisco-nexus-3232c.html["Prepare la instalación de NX-OS y RCF"].
+Después de haber configurado tus interruptores, link:prepare-install-cisco-nexus-3232c.html["Prepárese para instalar NX-OS y RCF."].

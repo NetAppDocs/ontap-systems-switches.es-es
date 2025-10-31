@@ -249,4 +249,4 @@ Configuration Saved!
 
 
 .El futuro
-link:configure-efos-software.html["Instale el software del EFOS"].
+Una vez que hayas configurado tus interruptores, podrás link:configure-efos-software.html["Instale el software EFOS"].

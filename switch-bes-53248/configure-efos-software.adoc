@@ -426,4 +426,4 @@ El conmutador se reinicia sin aplicar ninguna configuración y se restablece a l
 
 
 .¿Qué sigue?
-link:configure-licenses.html["Instale licencias"] .
+Una vez instalado el software EFOS, podrá link:configure-licenses.html["Instala tus licencias"].

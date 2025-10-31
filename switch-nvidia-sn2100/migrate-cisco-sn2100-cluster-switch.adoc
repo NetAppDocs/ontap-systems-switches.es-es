@@ -561,4 +561,4 @@ Cluster
 
 
 .El futuro
-link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"].
+Después de haber migrado sus conmutadores,link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"] .

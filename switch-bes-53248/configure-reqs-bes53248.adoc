@@ -82,4 +82,4 @@ Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obtener m
 
 
 .¿Qué sigue?
-link:components-bes53248.html["Componentes y números de pieza"] .
+Después de revisar los requisitos de configuración, puede confirmar su link:components-bes53248.html["componentes y números de pieza"].

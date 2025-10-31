@@ -71,4 +71,4 @@ Donde:
 
 
 .¿Qué sigue?
-link:install-9336c-shared.html["Instale el interruptor"].
+Una vez que hayas completado tus hojas de trabajo de cableado, podrás link:install-9336c-shared.html["instalar el interruptor"].

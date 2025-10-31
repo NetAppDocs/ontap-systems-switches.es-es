@@ -50,4 +50,4 @@ Consulte los procedimientos proporcionados en las guías de instalación del har
 
 
 .El futuro
-Opcionalmente, puedeslink:install-cisco-nexus-3132qv.html["Instalar un conmutador Cisco Nexus 3132Q-V en un gabinete NetApp"] .  De lo contrario, vaya alink:cabling-considerations-3132q-v.html["Revisar el cableado y la configuración"] .
+Opcionalmente, puedes link:install-cisco-nexus-3132qv.html["Instalar un conmutador Cisco Nexus 3132Q-V en un gabinete NetApp"]. De lo contrario, puedes link:cabling-considerations-3132q-v.html["revisar el cableado y la configuración"] requisitos.

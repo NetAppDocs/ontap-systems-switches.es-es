@@ -590,4 +590,4 @@ Reservado
 
 |===
 .¿Qué sigue?
-link:install-switch-3232c.html["Instale el interruptor"] .
+Después de haber completado tus hojas de trabajo de cableado, tú link:install-switch-3232c.html["instalar el interruptor"].

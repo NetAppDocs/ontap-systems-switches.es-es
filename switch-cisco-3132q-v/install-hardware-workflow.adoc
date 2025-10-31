@@ -13,7 +13,7 @@ summary: Antes de configurar los conmutadores de clúster Cisco Nexus 3132Q-V, r
 [role="lead"]
 Para instalar y configurar el hardware de un conmutador de clúster 3132Q-V, siga estos pasos:
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:setup_worksheet_3132q.html["Complete la hoja de trabajo de cableado"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:setup-worksheet-3132q.html["Complete la hoja de trabajo de cableado"]
 [role="quick-margin-para"]
 La hoja de cálculo de cableado de ejemplo proporciona ejemplos de asignaciones de puertos recomendadas desde los switches a las controladoras. La hoja de datos en blanco proporciona una plantilla que puede utilizar para configurar su clúster.
 

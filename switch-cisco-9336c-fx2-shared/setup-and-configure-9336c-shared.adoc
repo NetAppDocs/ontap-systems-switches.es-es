@@ -136,4 +136,4 @@ NOTE: Si no guarda la configuración en esta fase, ninguno de los cambios se apl
 
 
 .El futuro
-link:prepare-nxos-rcf-9336c-shared.html["Prepare la instalación de NX-OS y RCF"].
+Una vez que hayas configurado tus interruptores, podrás link:prepare-nxos-rcf-9336c-shared.html["Prepárese para instalar NX-OS y RCF"].

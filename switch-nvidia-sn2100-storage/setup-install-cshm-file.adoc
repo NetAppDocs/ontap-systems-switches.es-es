@@ -134,4 +134,4 @@ cluster1::> *system switch ethernet show*
 
 
 .El futuro
-link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"].
+Después de haber instalado el archivo CSHM, usted link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"].

@@ -442,4 +442,4 @@ swp6       100G   Trunk/L2  SHFFG1826000102        e0b
 
 
 .El futuro
-link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"].
+Después de haber migrado sus conmutadores,link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"] .

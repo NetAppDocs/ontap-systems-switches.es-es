@@ -307,3 +307,6 @@ cluster1::*>
 ----
 ====
 
+
+.El futuro
+Después de migrar tus switches, puedes link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"].

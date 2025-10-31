@@ -751,4 +751,4 @@ cluster::*> system node autosupport invoke -node * -type all -message MAINT=END
 
 
 .El futuro
-link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"].
+Después de migrar tus switches, puedes link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"].

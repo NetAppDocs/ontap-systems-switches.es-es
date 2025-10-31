@@ -24,4 +24,4 @@ https://hwu.netapp.com/["Hardware Universe de NetApp"^]
 
 
 .El futuro
-link:configure-sn2100-cluster.html["Configure el switch"].
+Después de haber cableado tus estantes, link:configure-sn2100-cluster.html["configurar el conmutador"].

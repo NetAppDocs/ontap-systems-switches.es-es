@@ -198,7 +198,6 @@
   <block id="b9017574c175e97b1d6c5e950a79e4c7" category="list-text">AFF A320 en los puertos e0g y e0h</block>
   <block id="b1e03e9ce1f7041c2da53fa42cd21af3" category="paragraph">Para resolver este problema, haga lo siguiente:</block>
   <block id="3d9882663c241e5e6078e7d90137ebc4" category="inline-link-macro">Conecte el cable de las bandejas NS224 como almacenamiento conectado al conmutador</block>
-  <block id="106f56409094e8675dc6d648c4e5ab5d" category="paragraph"><block ref="9a00636def01671b999a7c1df59762ff" category="inline-link-macro-rx"></block>.</block>
   <block id="af0741a63009a71666c8a00c5279b401" category="summary">Si ya dispone de un entorno de clúster sin switches de dos nodos, puede migrar a un entorno de clústeres con switches de dos nodos mediante switches NVIDIA SN2100 para permitir el escalado más allá de los dos nodos del clúster.</block>
   <block id="47da18a30b9fcd2d1294cf032080276b" category="doc">Migre a un clúster con switches de dos nodos con switches de clúster NVIDIA SN2100</block>
   <block id="27803f93d64ef714eff37b87b316c9a1" category="paragraph">El procedimiento que utilice dependerá de si tiene dos puertos de red de clúster dedicados en cada controladora o un único puerto de clúster de cada controladora. El proceso documentado funciona para todos los nodos utilizando puertos ópticos o Twinax, pero no es compatible con este switch si los nodos utilizan puertos 10GBASE-T RJ45 integrados para los puertos de red del clúster.</block>
@@ -583,7 +582,6 @@
   <block id="fae0bfa2a533f948ea8bab875acb2ef9" category="paragraph">La instalación del archivo de imagen hace que se cargue cada vez que se reinicia el conmutador.</block>
   <block id="8f5d4c5edc1ac35d440165e075268f86" category="list-text">Compruebe la nueva versión del software NX-OS una vez que se haya reiniciado el switch:</block>
   <block id="2ad05b5c21ff6c71199a379622544a42" category="inline-link-macro">Instalación del archivo de configuración de referencia (RCF)</block>
-  <block id="ced2c729b002b1db52a54a7e9056ae20" category="paragraph"><block ref="a230254c929e1946d5af4ce09f0d3fb2" category="inline-link-macro-rx"></block>.</block>
   <block id="d986ed9d4c8a95f299636380e9b4371b" category="summary">Para la instalación y el mantenimiento del switch Cisco Nexus 3132Q-V, asegúrese de revisar los requisitos de red y configuración</block>
   <block id="8d41ecb75735e9a1894abf605fc11add" category="doc">Requisitos de configuración para switches Cisco Nexus 3132Q-V.</block>
   <block id="4d491e2d573f8607664bd3d97fb9c4d5" category="paragraph">Para la instalación y el mantenimiento del switch Cisco Nexus 3132Q-V, asegúrese de revisar los requisitos de red y configuración.</block>
@@ -658,7 +656,6 @@
   <block id="d51ed7f10b5732d6e9ec975c89648212" category="list-text">Compruebe las opciones de configuración que ha realizado en la pantalla que aparece al final de la instalación y asegúrese de guardar la configuración.</block>
   <block id="70399670eb37f7ebf7bbd91e15766e17" category="inline-link">Switches Ethernet de Cisco</block>
   <block id="0d5a52d62bb26b9e7ae6a509e4469dc1" category="inline-link-macro">Prepare la instalación de NX-OS y RCF</block>
-  <block id="83855999b3308477760994ec497ea43a" category="paragraph"><block ref="12fd8f733c82b6251ce762993bfda2b0" category="inline-link-macro-rx"></block>.</block>
   <block id="dd7ac721959b4aaa170786e82881ae7b" category="summary">Deben instalarse los archivos de configuración de referencia y el software Cisco NX-OS (RCF) en los switches de clúster Cisco Nexus 3132Q-V.</block>
   <block id="ccdb01c4cd8e253f3a70d7d150d9bc95" category="paragraph">Antes de instalar el software NX-OS y el archivo de configuración de referencia (RCF), siga este procedimiento.</block>
   <block id="29b5c9f7c3e370b92a6acd04f777cd76" category="paragraph">Los ejemplos de este procedimiento utilizan dos nodos. Estos nodos utilizan dos puertos de interconexión de clúster de 10 GbE<block ref="922c556baf6272bffc4fa28b2e9a0bbc" prefix=" " category="inline-code"></block> y..<block ref="22fe67c2e87caff18249cf1804bbeaad" prefix=" " category="inline-code"></block>.</block>
@@ -676,7 +673,6 @@
   <block id="28d7612827f82272affeaf30e405e24a" category="paragraph"><block ref="7af866342cc7e87972580d7b709d8820" prefix="" category="inline-code"></block></block>
   <block id="e4490c39e3c7c690b2b28793dd430b44" category="paragraph"><block ref="d268e7bf124a9f74e2dbe2e0127d951b" prefix="" category="inline-code"></block></block>
   <block id="f62cbeef79975f2a60c9a80145b7741c" category="inline-link-macro">Instale el software NX-OS</block>
-  <block id="bd599a74c6b6bb0488a3ffe28b84d972" category="paragraph"><block ref="fc3a2bdf8893a6559328b7345e1a1c31" category="inline-link-macro-rx"></block>.</block>
   <block id="2857ff7a9c9a45ee36f0e4dc38b4d3a4" category="summary">Debe conocer determinada información de configuración, las conexiones de puertos y los requisitos de cableado cuando sustituye los switches de clúster Cisco Nexus 3132Q-V.</block>
   <block id="077662abda369797cf161b3c680959fa" category="doc">Requisitos para sustituir los switches de clúster Cisco Nexus 3132Q-V.</block>
   <block id="b626c24802c9c9fd81b149f1462a9392" category="paragraph">Asegúrese de comprender los requisitos de configuración, las conexiones de puertos y los requisitos de cableado al sustituir los switches de clúster.</block>
@@ -1442,7 +1438,6 @@
   <block id="3f78f0799975521235b2bb917acb7e24" category="list-text">Conecte los cables de la red de clústeres y los switches de red de gestión a las controladoras mediante las hojas de trabajo de cableado completadas.</block>
   <block id="081cec44dcb55858c91c17808a56de55" category="paragraph">Introduzca la contraseña para el administrador.</block>
   <block id="e7f4ab45950498df235454e086acfca4" category="paragraph">Introduzca el número de bits de clave de 1024-2048.</block>
-  <block id="903eb4ad98b740ebeb449655751eb804" category="paragraph"><block ref="92ff606cd08828782a7061b88d8a96a2" category="inline-link-macro-rx"></block>.</block>
   <block id="52b4047fc43b6917cd24a0ee369e839c" category="summary">Puede instalar el RCF después de configurar el conmutador Nexus 3232C por primera vez.también puede utilizar este procedimiento para actualizar la versión de RCF.</block>
   <block id="10d146c112c5b50595149d6af52fe222" category="list-text"><block ref="f29158c7335be7b7fe0a46dd82de6ed4" category="inline-link-macro-rx"></block> Consulte la tabla de compatibilidad del conmutador para conocer las versiones ONTAP y RCF admitidas. Tenga en cuenta que puede haber dependencias de comandos entre la sintaxis del comando en el RCF y la que se encuentra en las versiones de NX-OS.</block>
   <block id="eb22df33c22805be63e48e35c956a5be" category="paragraph">En este ejemplo se muestra el uso de TFTP para copiar un RCF al bootflash del conmutador cs2:</block>
@@ -1645,15 +1640,12 @@
   <block id="c99d140356a40ad59a42b6a0463510af" category="list-text">Repita estos pasos para el interruptor sh1 y el interruptor nuevo1.</block>
   <block id="aa31f7677652c2fea1d778b59293da53" category="summary">Descripción general de la configuración de software de los switches compartidos Cisco Nexus 9336C-FX2</block>
   <block id="3a43f2b6e73a7e4209395e71b6dff7d0" category="doc">Flujo de trabajo de instalación de software para switches compartidos Cisco Nexus 9336C-FX2</block>
-  <block id="1e672cb0691529b9dab89394f7a5f58c" category="list-text"><block ref="f9b2ed845567b21857ae5d0479088ab0" category="inline-link-macro-rx"></block>.</block>
   <block id="e0f95538095f3006db4ec3d4d022f616" category="summary">Descripción general de la instalación y la configuración de los switches compartidos Cisco Nexus 9336C-FX2</block>
   <block id="c4081cf1ddd1a31c8c993d369968dbdb" category="paragraph">El switch compartido Cisco Nexus 9336C-FX2 forma parte de la plataforma Cisco Nexus 9000 y se puede instalar en un armario rack de sistema de NetApp. Los switches compartidos permiten combinar la funcionalidad de clúster y almacenamiento en una configuración de switch compartido, ya que admiten el uso de archivos de configuración de referencia de almacenamiento y clúster compartidos.</block>
   <block id="5ac09e984471f320b2e8920ece32b03d" category="inline-link-macro">Complete la hoja de cálculo de cableado</block>
   <block id="46e7e5cd9eac445088b34742b48c3e78" category="paragraph">Utilice las imágenes de cableado para completar el cableado entre las controladoras y los switches.</block>
   <block id="ef44963f41cab6cd9db7a1c9e6197076" category="inline-link-macro">Instale el interruptor</block>
-  <block id="fd5531349e673e037070aacc3a802f37" category="list-text"><block ref="2d5ab056fce0957a1995d7dbefe2460c" category="inline-link-macro-rx"></block>.</block>
   <block id="d33665f1bbad937646d20fe1a9b8ace8" category="inline-link-macro">Instale el switch en el armario de NetApp</block>
-  <block id="cdb75160db01dcaff8578367832cc1a8" category="list-text"><block ref="cd3d2c6d0c8a0c43f0a0e10375ad6bbc" category="inline-link-macro-rx"></block>.</block>
   <block id="bbb9faab95e3e9af13430c6529221602" category="summary">Puede utilizar este procedimiento para instalar el software NX-OS en el switch de clúster Nexus 9336C-FX2.</block>
   <block id="21f31f792b72c310b4fd5aa9c2e35835" category="paragraph">Siga este procedimiento para instalar el software NX-OS en el switch compartido Nexus 9336C-FX2.</block>
   <block id="454d8bacc17503d670940b88fdf44b2a" category="inline-link">Switches Cisco Nexus serie 9000</block>
@@ -2445,7 +2437,6 @@
   <block id="26e197685e29b3f6ea5c61a20464ee66" category="paragraph">Kit de rieles para montaje en rack Ozeki 4 post 19"</block>
   <block id="d007743863da413e0445811c05d574db" category="summary">Revise la descripción general del software.</block>
   <block id="93d9f7b647768c2633a5b9f8a68e2b52" category="doc">Flujo de trabajo de instalación de software para conmutadores BES-53248</block>
-  <block id="62d8b9841abbee3c8d144371f887a783" category="list-text"><block ref="1233ecfc62f0bed40d830afa17eec2c7" category="inline-link-macro-rx"></block>.</block>
   <block id="fd280d62f276e98d2c1156b6a7cd8932" category="paragraph">Descargue e instale el software Ethernet Fabric OS (EFOS) en el switch de clúster BES-53248.</block>
   <block id="e5e0ceddda654af2c9e3c1386537e4f7" category="paragraph">Opcionalmente, añada nuevos puertos comprando e instalando más licencias. El modelo de base de switches tiene licencia para 16 puertos de 10 GbE o 25 GbE y dos puertos de 100 GbE.</block>
   <block id="88045e5af7830d69afafc3e6e7a9cf86" category="summary">Puede utilizar este procedimiento para realizar la instalación inicial del conmutador de clúster BES-53248.</block>
@@ -2630,7 +2621,6 @@
   <block id="b53f6b592c12fd5937d7b72a3bcbfcfb" category="list-text">Pulse la tecla *Esc* en la pantalla GNU GRUB para interrumpir el proceso de arranque normal, seleccione *ONIE* y pulse *Intro*.</block>
   <block id="bb8165c1c0d8416da1e318e1c0f54603" category="list-text">En la siguiente pantalla, seleccione *ONIE: Install OS*.</block>
   <block id="673b183eae1d985d3373995f15978e5b" category="inline-link-macro">Instale la secuencia de comandos del archivo de configuración de referencia (RCF)</block>
-  <block id="8dcb8ce87423e2f4276589483a457d92" category="paragraph"><block ref="464fe9c0adfef54cfb4c6fe21ef12b08" category="inline-link-macro-rx"></block>.</block>
   <block id="65b0458ae1a5a43752e6cbb805a3b583" category="paragraph">Puede migrar switches de clúster de Cisco para un clúster de ONTAP a switches de clúster NVIDIA SN2100. Se trata de un procedimiento no disruptivo.</block>
   <block id="33806aa6b2596f4dc9c0d6c51708410c" category="paragraph">Debe conocer determinada información de configuración, las conexiones de puertos y los requisitos de cableado cuando sustituya algunos switches de clúster Cisco anteriores por switches de clúster NVIDIA SN2100. Consulte <block ref="d007e33ffeb91af7b1ca0d25ce622b32" category="inline-link-macro-rx"></block>.</block>
   <block id="076d47cab592b8ca647fb50c8ed1ae91" category="paragraph">Para obtener más información acerca de los puertos admitidos y sus configuraciones, consulte<block ref="a9613e1dbacf145285c45df4264fe797" category="inline-link-rx"></block> .</block>
@@ -2650,7 +2640,6 @@
   <block id="69fe2bd920008d1b6c35f9baad74d4f1" category="inline-link">Cableado de bandejas de unidades NS224 conectadas a switch</block>
   <block id="1d60ae449462450e67f46eb89e1c693c" category="paragraph"><block ref="1d60ae449462450e67f46eb89e1c693c" category="inline-link-rx"></block></block>
   <block id="551d30a8d4eb4a668b69a7293c7a7b96" category="section-title">Adaptador QSA</block>
-  <block id="95014a22727b6c60eefe66a36ce9ded2" category="paragraph"><block ref="520f63525f898e977d91bb94f9da1129" category="inline-link-macro-rx"></block>.</block>
   <block id="845296543f4c0f8578120a5e5c4e09f2" category="paragraph"><block ref="845296543f4c0f8578120a5e5c4e09f2" category="inline-link-rx"></block></block>
   <block id="a58b8710ff3e173d8d485d0f96fa1c4d" category="paragraph">Describe cómo instalar los switches NVIDIA SN2100.</block>
   <block id="3946a95173cf2872b6b6e8309352d61b" category="inline-link">Guía de cableado de bandeja de unidades NVMe NS224</block>
@@ -2661,7 +2650,6 @@
   <block id="0d6a39d4370d0a5005a4a2e73039bb0b" category="doc">Flujo de trabajo de instalación de software para los switches NVIDIA SN2100</block>
   <block id="c8a27d215bcb482f0471051f67b496b5" category="paragraph">Para instalar y configurar el software para un conmutador NVIDIA SN2100, siga estos pasos:</block>
   <block id="1a8981f50831032975e7c7ab919cf671" category="list-text">Revise la <block ref="d6c0afb29fcb19bc79e093e82e35e6bb" category="inline-link-macro-rx"></block>.</block>
-  <block id="0575b6ffe3df5337cb3759f533fd3151" category="paragraph"><block ref="00e0372232f46e972c663d4404b271c3" category="inline-link-macro-rx"></block>.</block>
   <block id="2eb103c9e878418bac314f3d0a12d9a6" category="paragraph">La tabla siguiente muestra el número de pieza y la descripción de los interruptores SN2100 y los kits de raíles:</block>
   <block id="e4476de08c6bf6f2b86938c20b3510bf" category="summary">Asegúrese de que los siguientes elementos están disponibles en el conmutador antes de instalar la secuencia de comandos RCF</block>
   <block id="144a8e89f9c38ca949aede4fe56c2cb7" category="list-text">Copie la secuencia de comandos de la pitón de RCF en el conmutador.</block>
@@ -3272,7 +3260,6 @@
   <block id="17467de5e625043cda6499d3541a20d4" category="list-text">[[step7]]sustituya el RCF de almacenamiento en el conmutador compartido A por el archivo RCF compartido. Consulte <block ref="2f595b9f03c1eca7e988cc615d685264" category="inline-link-macro-rx"></block> para obtener más detalles.</block>
   <block id="636bbeffec3fc87e3384d539d543afee" category="list-text">[[step13]]sustituya el archivo RCF de almacenamiento en el conmutador compartido B por el archivo RCF compartido. Consulte <block ref="2f595b9f03c1eca7e988cc615d685264" category="inline-link-macro-rx"></block> para obtener más detalles.</block>
   <block id="73cb4c03f2757beb35ad69fd322003be" category="list-text">[[step16]]convierta el par de alta disponibilidad 1 de un clúster sin switches a un clúster con switches. Utilice las asignaciones de puertos del clúster definidas por el RCF compartido. Consulte <block ref="e0b55f136d815f7a36c41fd7fe28e0fd" category="inline-link-macro-rx"></block>para obtener más detalles.</block>
-  <block id="6446fc62a2115815d4bdbe55f18815c1" category="list-text"><block ref="47109c7943148b2a9617cfcb4b49a79f" category="inline-link-macro-rx"></block>.</block>
   <block id="7f81bc06b8e7a4bfd515767a4b4385fe" category="list-text">[[step6]]sustituya el RCF de almacenamiento en el conmutador compartido A por el archivo RCF compartido. Consulte <block ref="2f595b9f03c1eca7e988cc615d685264" category="inline-link-macro-rx"></block> para obtener más detalles.</block>
   <block id="2b888f1fbb1010b5a426f7a2a88e0914" category="list-text">[[step12]]sustituya el archivo RCF de almacenamiento en el conmutador compartido B por el archivo RCF compartido. Consulte <block ref="2f595b9f03c1eca7e988cc615d685264" category="inline-link-macro-rx"></block> para obtener más detalles.</block>
   <block id="8ddcfbe457d5db5e61625624a6a20b33" category="list-text">[[paso16]]migre la red del clúster desde los switches del clúster existentes a los switches compartidos mediante el procedimiento de sustitución del switch y el RCF compartido. El nuevo conmutador compartido A es "cs1". El nuevo conmutador compartido B es "cs2". Consulte <block ref="79be7ff3aee9976e13251b5a88fadf5c" category="inline-link-macro-rx"></block> y.. <block ref="2f595b9f03c1eca7e988cc615d685264" category="inline-link-macro-rx"></block> para obtener más detalles.</block>
@@ -3927,8 +3914,6 @@ El conmutador se reinicia sin aplicar ninguna configuración y se restablece a l
   <block id="322cf54023dcfab56a26576123959d58" category="inline-link-macro">Active SSH para la recopilación de registros</block>
   <block id="7b0ac22c525a61eb6a12e2267bf6ddea" category="doc">Compruebe la red de cluster ONTAP después de una actualización del software EFOS o RCF de los switches de cluster BES-53248</block>
   <block id="45f43daecf76cec34b1fa9cb5925aa48" category="paragraph">Puede utilizar los siguientes comandos para verificar el estado de la red de clúster de ONTAP después de una actualización del software EFOS o RCF para los switches de clúster BES-53248.</block>
-  <block id="d5c56d6c3abbb7dd20246c17ec16d101" category="inline-link-macro">Actualice el RCF</block>
-  <block id="3ff8146e3852dfcba1cfd255ac4f5576" category="paragraph"><block ref="74dd19c11d43cfa2dd387ecf7d984746" category="inline-link-macro-rx"></block> o. <block ref="885efaf124d7da00a7a60364582f6275" category="inline-link-macro-rx"></block>.</block>
   <block id="18e822da210e93da8992e6b3c462671f" category="open-title">EFOS 3.10.0.3 y posterior</block>
   <block id="85e9fe702698c7a1eb1de4500bc3fca4" category="paragraph">Configure la zona horaria y la sincronización horaria (NTP):</block>
   <block id="3cc87411e9c51d2b281718c8673c3219" category="open-title">EFOS 3.9.0.2 y anteriores</block>
@@ -4043,7 +4028,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="c7ca49e9f550dc9b18f2402f13ad9430" category="list-text">[[step5]]Si suprimió la creación automática de casos, vuelva a activarla llamando a un mensaje AutoSupport:<block ref="9ac424c0d7b432975df36a19daf50c9c" prefix=" " category="inline-code"></block></block>
   <block id="58a19c530e54f6364edd838f35b1830e" category="inline-link-macro">Configure la supervisión de estado del switch</block>
   <block id="d21243682bbd31fa9c0d32d291135394" category="paragraph"><block ref="5b8b393a675dcaaee97c02828356657c" category="inline-link-macro-rx"></block>.</block>
-  <block id="e0ac82c3ba84f3478af53619e7a13dc9" category="paragraph"><block ref="0ad0656927b565ff563d073b0158ec24" category="inline-link-macro-rx"></block>.</block>
   <block id="33446f9dc3d57cc65d0607602cea0067" category="paragraph">Instale o actualice el RCF en el conmutador de clúster BES-53248 y, a continuación, compruebe los puertos para obtener una licencia adicional después de aplicar el RCF.</block>
   <block id="6839871c951e0451fa16484988485a69" category="paragraph">Si utiliza el monitor de estado del switch Ethernet (CSHM) y las funciones de recopilación de registros, habilite SSH en los switches.</block>
   <block id="ace8956d8976d528bf22aab3553d5953" category="paragraph">Si utiliza las funciones de recogida de registros y el monitor de estado del switch Ethernet (CSHM), debe generar las claves SSH y, a continuación, habilitar SSH en los switches del clúster.</block>
@@ -4070,9 +4054,7 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="8ae4eeaa7baed19106cc30ea02483c5e" category="summary">El monitor de estado del switch Ethernet (CSHM) es responsable de garantizar el estado operativo de los conmutadores de red del clúster y de almacenamiento y de recopilar registros del switch para fines de depuración.</block>
   <block id="c4bf003fc396e9ee7d60812f1da24cfe" category="list-text"><block ref="c4bf003fc396e9ee7d60812f1da24cfe" category="inline-link-macro-rx"></block></block>
   <block id="2ae26c52de113e0592fc26619e9e73d1" category="inline-link-macro">Opcional: Configure SNMPv3</block>
-  <block id="ec5440e4cc2d261dc76dac84e641c0ab" category="list-text"><block ref="ec5440e4cc2d261dc76dac84e641c0ab" category="inline-link-macro-rx"></block></block>
   <block id="5b62a4b03175f138ff64effec2560ed7" category="summary">Puede utilizar este procedimiento para configurar SNMPv3 para su conmutador específico, que admite la monitorización de estado de conmutador Ethernet (CSHM).</block>
-  <block id="7e26b49f49bdf462799729889a55fd9a" category="doc">Opcional: Configure SNMPv3 para su switch</block>
   <block id="1451684986f1c945fdb4e4f2a8b904be" category="admonition">SNMPv3 solo es compatible con ONTAP 9.12.1 y versiones posteriores.</block>
   <block id="5fb3828593766d454e79a0dcf52fed9d" category="paragraph">Los siguientes comandos se utilizan para configurar un nombre de usuario SNMPv3 en los conmutadores *Broadcom*, *Cisco* y *NVIDIA*:</block>
   <block id="77f3beca20fcd78f77236507e8d9b4af" category="open-title">Switches Broadcom</block>
@@ -4115,7 +4097,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="08b7ad798c66f1af0fba98a0107b6dfc" category="sidebar">Descripción general de la supervisión del estado del switch</block>
   <block id="6611dff3ec03954421335708f49af79d" category="sidebar">Switch_health_cshm</block>
   <block id="37f6298ed21bb27b583654cebefb4620" category="sidebar">Configure_SWITCH_HEALTH</block>
-  <block id="db15809ae693fa5aa50cb4b40454f055" category="sidebar">Opcional: Configure SNMPv3</block>
   <block id="5bc599259e802db4cd19057399debd0b" category="sidebar">Compruebe el estado del interruptor</block>
   <block id="114c27cb863250ce041d62daae03a69e" category="sidebar">Monitor_SWITCH_HEALTH</block>
   <block id="d4a8473f83e1246e0b3ab08e2034db7c" category="sidebar">Recopilación de registros</block>
@@ -4123,7 +4104,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="d9566e63378c0ff8504c903128e5c6f6" category="inline-link-macro">Configure SNMPv3 (opcional)</block>
   <block id="e2101619626dc7b8ea25749787797515" category="paragraph"><block ref="a294afff18b68f8c1e4f78aeef5ef294" category="inline-link-macro-rx"></block>.</block>
   <block id="96a5ba855b4ee3dba60ecf722a706b29" category="inline-link-macro">Instale el archivo CSHM</block>
-  <block id="54f593b53357d530cce6870c293a0379" category="list-text"><block ref="bc8e6b3d8a605e692bda90d2d873314b" category="inline-link-macro-rx"></block>.</block>
   <block id="446a9723b131c4606a1b6d581fef9f10" category="paragraph">Puede instalar el archivo de configuración correspondiente para la supervisión del estado del switch Ethernet de los switches de clúster de NVIDIA.</block>
   <block id="2cd1b70f79d5acd7ffb2c204f4069175" category="summary">Puede utilizar este procedimiento para instalar el archivo de configuración correspondiente para la supervisión del estado del switch del clúster de switches de almacenamiento de NVIDIA SN2100.</block>
   <block id="d57382f230671f8cd52f47dc80838934" category="paragraph">Si su modelo sigue mostrando *OTHER* después de aplicar el archivo de configuración, póngase en contacto con el servicio de asistencia técnica de NetApp.</block>
@@ -4221,7 +4201,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="28caefed3a29faf45a4d032d5b1006b4" category="inline-link">Notas de la versión de actualización de EPLD, versión 9,3(11)</block>
   <block id="46ddffef0745adf199d35e9bbe4eec40" category="paragraph">Consulte<block ref="a4e876354b2a6a79541beefead7e3974" category="inline-link-rx"></block> para obtener más información.</block>
   <block id="476acca7b2d84d147895203411c05eee" category="list-text">Repita los pasos 6 a 14 en el interruptor CS1.</block>
-  <block id="11e210472a35f336b513b2c57b8cffab" category="paragraph"><block ref="7b1f8572a598b67cece8c82d64948766" category="inline-link-macro-rx"></block>.</block>
   <block id="d80fed14d08f5cc94b5972605f7b1264" category="paragraph">4 nodos de 100 GbE 1</block>
   <block id="f92dbce301746858220367bd16fe3670" category="paragraph">4 nodos de 100 GbE 2</block>
   <block id="b360b026e43659aaec27da3653619648" category="paragraph">4 nodos de 100 GbE 3</block>
@@ -4729,7 +4708,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="607ce262227aceccd2c5daca045a80dc" category="open-title">Cumulus Linux 5.4.0 a Cumulus Linux 5.11.0</block>
   <block id="1793733c3fd6ed243dfcb1cd45582f6e" category="list-text">Descargue la imagen de Cumulux Linux 5.11.0:</block>
   <block id="3b17e95301e3d2dffb102ceff49ecd86" category="list-text">Cierre sesión y vuelva a iniciar sesión en el conmutador para ver el nombre del conmutador actualizado en el mensaje:</block>
-  <block id="7c7a0b76c488baaa82c48a846faa8727" category="paragraph"><block ref="0d353ea2e4037b21b3bb06f2b69f1c6c" category="inline-link-macro-rx"></block>.</block>
   <block id="fc6063e37d3407a7d76fabb59f7a96a3" category="list-text">Para configurar una dirección de administración IPv4 o IPv6 estática para el puerto de servicio del conmutador:</block>
   <block id="42a9137a05a60eb752dcdf982e717626" category="open-title">IPv4</block>
   <block id="fdb7cb8f657426e7c409bfd6d1a36ce4" category="open-title">IPv6</block>
@@ -4767,8 +4745,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="01abea5f71122f7491f5d67a54692187" category="list-text">[[paso 4]] Espere a que el conmutador se recargue y luego inicie sesión en el conmutador.</block>
   <block id="3298c6d813bb0262584ca3882273ff2a" category="paragraph">El usuario predeterminado es “admin” y no se establece ninguna contraseña. Se muestra un símbolo del sistema similar a lo siguiente:</block>
   <block id="01e12de62fa77fda2815719aed8ff892" category="paragraph-title">¿Qué sigue?</block>
-  <block id="d29ee2143986e1790a9cd170344db5a2" category="paragraph"><block ref="30bc59659410cfda61387b34e1612b7c" category="inline-link-macro-rx"></block> .</block>
-  <block id="d7644dedcbfb5c562e4684e77d00a009" category="paragraph"><block ref="cc83c245da410495a294f033719b1669" category="inline-link-macro-rx"></block> .</block>
   <block id="30f6afd41919b41a456c94f0f66fa5d3" category="doc">Flujo de trabajo de instalación y configuración de los conmutadores BES-53248</block>
   <block id="a8707fcc977da1a092531cdd197f8ba9" category="paragraph">Siga estos pasos de flujo de trabajo para instalar y configurar sus conmutadores BES-53248.</block>
   <block id="a83565177e04591255a835fde719da37" category="inline-link-macro">Revisar los requisitos de configuración</block>
@@ -4785,14 +4761,12 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="cc6a7a00f2331df56d127235ab712a53" category="inline-link-macro">Configurar el software</block>
   <block id="09e3ea1c9ed929b9d5ba65aa0e1a2e57" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="cc407d015acb61c0e32d43737b9a7b52" category="inline-link-macro-rx"></block></block>
   <block id="50684e38d3c3e950bc58738bb16d0843" category="paragraph">Configurar el software del conmutador.</block>
-  <block id="e17e6fce1c9267a06663c214d3364910" category="paragraph"><block ref="8b21286de1f0b27e78e54a55a69f517f" category="inline-link-macro-rx"></block> .</block>
   <block id="a37cc2eef24d556279f24156644d2f76" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="b88c299eeb38820fb709454fcd144438" category="inline-link-macro-rx"></block></block>
   <block id="17fc3f3ff88ac99f3928ed20888ee5ad" category="paragraph">Configurar el conmutador de clúster BES-53248.</block>
   <block id="2fdc035f31f6f8e5dc2cc860f7ac2b5e" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="1233ecfc62f0bed40d830afa17eec2c7" category="inline-link-macro-rx"></block></block>
   <block id="d2fbaa7f212d11bb223bcb79e99d25a5" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="0f9f654882514557e57b19641aa7b563" category="inline-link-macro-rx"></block></block>
   <block id="039ac036dd5126741513b6ff02740aa3" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="74dd19c11d43cfa2dd387ecf7d984746" category="inline-link-macro-rx"></block></block>
   <block id="ba4ab00920641dfd5423a47fe9d7f3c9" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="e2b4c4f5313b05dff7c4a02a4e9e0df6" category="inline-link-macro-rx"></block></block>
-  <block id="b072aeefadd5f4debb10448ed0f78d3d" category="paragraph"><block ref="6750c4dc9d2505a8ea19f483ac83a6d9" category="inline-link-macro-rx"></block> .</block>
   <block id="df262d72a3f24d806e5173e9cf649e77" category="doc">Flujo de trabajo de instalación de hardware para conmutadores BES-53248</block>
   <block id="28a0c60fdf5ca57b39720c3a8d882046" category="paragraph">Para instalar y configurar el hardware de un conmutador de clúster BES-53248, siga estos pasos:</block>
   <block id="cf1d9d7a26637db18765ddf010f65be6" category="inline-link-macro">Instalar el hardware del interruptor</block>
@@ -4804,7 +4778,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="e0a521d00ae74b0c84db0c847fddb6ad" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="fea95d28df6c953ffdb2096099ec83e5" category="inline-link-macro-rx"></block></block>
   <block id="96fb740240c8f1bf5739883588c34128" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="b0d7a2164137f2036f3af1efcfb1968f" category="inline-link-macro-rx"></block></block>
   <block id="0c6171d657f447db9f7b65ec421619f2" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="ee9cd451d5dc1debab0286f89e5c8301" category="inline-link-macro-rx"></block></block>
-  <block id="4deb9a9ff2057f7c893692587e556260" category="paragraph"><block ref="3733ea959ea350d46ba403dfe4087bb4" category="inline-link-macro-rx"></block> .</block>
   <block id="926ea8223c35e0974ecfabb2c02ad4ff" category="summary">Descripción general de la configuración del software para los conmutadores de clúster Cisco Nexus 3132Q-V</block>
   <block id="fddd0032cd4149fb7bfea4114a217072" category="doc">Flujo de trabajo de instalación de software para conmutadores de clúster Cisco Nexus 3132Q-V</block>
   <block id="e87559d7fe5ea552cfe4b62d24bc8ae6" category="paragraph">Para instalar y configurar el software de un conmutador Cisco Nexus 3132Q-V e instalar o actualizar el archivo de configuración de referencia (RCF), siga estos pasos:</block>
@@ -4822,7 +4795,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="d4efb0e9c28005734b2cd25f396c4a48" category="doc">Flujo de trabajo de instalación de hardware para conmutadores Cisco Nexus 3132Q-V</block>
   <block id="5f8a048748aa7a1283276d1b0da8b301" category="paragraph">Para instalar y configurar el hardware de un conmutador de clúster 3132Q-V, siga estos pasos:</block>
   <block id="4c915003076a6d86a9620d6756fba2c2" category="inline-link-macro">Complete la hoja de trabajo de cableado</block>
-  <block id="670b8bcb0f55091123c6ed29714c3705" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="53357c7c5c3be35085bc708441ee4e98" category="inline-link-macro-rx"></block></block>
   <block id="1678bed7696215f8954f4b86a7e8545c" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="207ad0352300a36b0c0e92c58f1c94c7" category="inline-link-macro-rx"></block></block>
   <block id="383ec28e4a088a104d47579bdb8c4764" category="paragraph">Instale el interruptor 3132Q-V.</block>
   <block id="9da628940cacc721b9a48c0819528e51" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="1f00ece542bc54197fbab1596f438e3d" category="inline-link-macro-rx"></block></block>
@@ -4844,9 +4816,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="59f8816adc68d17a564a2adcb32f6df2" category="list-text">Terminado<block ref="e253afe6db79a1011e9ed137315b003b" category="inline-link-macro-rx"></block> .</block>
   <block id="0941c5c2195dd31d0727420366f92c3a" category="list-text"><block ref="eb114e7f9419da2ed2795f56bdba3e97" category="inline-link-macro-rx"></block> .</block>
   <block id="0f4ae3cf88771c7467206da3010f8d36" category="inline-link-macro">Instalar un conmutador Cisco Nexus 3132Q-V en un gabinete NetApp</block>
-  <block id="e20ca246755989fe82bdc30b472d4045" category="paragraph">Opcionalmente, puedes<block ref="18420978bb95dbc58537866fa2d7958a" category="inline-link-macro-rx"></block> .  De lo contrario, vaya a<block ref="d0781e7a35581c9e242db456a8edbe98" category="inline-link-macro-rx"></block> .</block>
-  <block id="6f2cc65e666a9e05689591993e20b041" category="paragraph"><block ref="207ad0352300a36b0c0e92c58f1c94c7" category="inline-link-macro-rx"></block> .</block>
-  <block id="f84a74725677310e72a17907322dd85b" category="paragraph"><block ref="1dbca34b24162eb59cc33616a1549705" category="inline-link-macro-rx"></block> .</block>
   <block id="8a621cac0318aad5331388c261fff40d" category="summary">Descripción general de la configuración del software para los conmutadores de clúster Cisco Nexus 3232C</block>
   <block id="d0e2537bdd90951e7c488815de10574a" category="doc">Flujo de trabajo de instalación de software para conmutadores de clúster Cisco Nexus 3232C</block>
   <block id="7b97f12b51fcbcc014add4de101dcc01" category="paragraph">Para instalar y configurar el software de un conmutador Cisco Nexus 3232C e instalar o actualizar el archivo de configuración de referencia (RCF), siga estos pasos:</block>
@@ -4876,9 +4845,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="f66b7080792725ee57ea7f7b02c7d38b" category="doc">Instalar el conmutador de clúster 3232C</block>
   <block id="422598dd3d31832bfe941edd56d7d1bd" category="list-text"><block ref="405e8e3e93d725761176a326f99e4751" category="inline-link-macro-rx"></block> .</block>
   <block id="abdf142c465e75d188665a07134160d1" category="inline-link-macro">Instalar un conmutador Cisco Nexus 3223C en un gabinete NetApp</block>
-  <block id="1e6e456a14b9d3e18e246a85940b6a59" category="paragraph">Opcionalmente, puedes<block ref="2cea7f88b524cc550d065cf33c8d1c58" category="inline-link-macro-rx"></block> .  De lo contrario, vaya a<block ref="76b532b4ae4cf629b8e1a3ede08fd7ff" category="inline-link-macro-rx"></block> .</block>
-  <block id="9dc1ae98b1a9d05149e769f392412112" category="paragraph"><block ref="d35b203e8fe0144f812f95e477dfc8ac" category="inline-link-macro-rx"></block> .</block>
-  <block id="dddd09d86cdbd9ad27e95c11d655ffd2" category="paragraph"><block ref="6fb43cd5c831afd08ed62ea7c301589a" category="inline-link-macro-rx"></block> .</block>
   <block id="ce6bf7cd47eb09b6a69cb1199b0e124b" category="doc">Componentes y números de pieza de los conmutadores Cisco Nexus 92300YC</block>
   <block id="374e26b57d48a3f53edf0eed7b8b9a0a" category="paragraph"><block ref="953b08a76549ddb5339056aaf68e6af4" category="inline-link-macro-rx"></block> .</block>
   <block id="6518e087ea131b7bbb106dea2f0c4eaf" category="paragraph"><block ref="94f89641c24a2c5acf155cedb6b917d3" category="inline-link-macro-rx"></block> .</block>
@@ -4945,8 +4911,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="5420b49f6bb2b4c6cd29f1d04f886142" category="paragraph">Instale el conmutador 9336C-FX2 y el panel de paso en un gabinete NetApp según sea necesario.</block>
   <block id="1a93d578061f1724e84a74106f164f03" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="f31e2218f7cf08b190abb8563911bffd" category="inline-link-macro-rx"></block></block>
   <block id="8608163382dad3a40accd48496936aa9" category="paragraph">Revise el soporte para los puertos Ethernet de NVIDIA , los requisitos de FEC de 25 GbE y la información sobre los recursos de TCAM.</block>
-  <block id="be706a7a12c76624a9ad7568f3b79f1f" category="paragraph"><block ref="c05d7708e583b7d4b251d68f1130d2c6" category="inline-link-macro-rx"></block> .</block>
-  <block id="d91ea354659a63a988e9a43bfe660ac0" category="paragraph"><block ref="ce2926213e4f5e76e8b29ae87f344220" category="inline-link-macro-rx"></block> .</block>
   <block id="e2715c3387d9508dc033488d6e43c425" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="068ae9dc6825f9dcbe393c782d23d120" category="inline-link-macro-rx"></block></block>
   <block id="532d48076326d08b06c875806937e7fd" category="paragraph">Configurar el conmutador compartido 9336C-FX2.</block>
   <block id="876fcd8ffe61bb8affbdbb68b1e10baf" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="a56c4df2c3d1cf8a69dff5f1adb2c643" category="inline-link-macro-rx"></block></block>
@@ -4983,7 +4947,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="e89feb45a019aae43e7072a7606f97d8" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="35e16e47f4129ca15f5a4cfe7b290909" category="inline-link-macro-rx"></block></block>
   <block id="0f2fc5abf269bcd430c8f35e0203b2bd" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="8e341dc1e80127ca0dc2c12db6d0237a" category="inline-link-macro-rx"></block></block>
   <block id="986b831325814d3f0225e51df098b72b" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="d43bf43861b014b2f70de1c12cff1c76" category="inline-link-macro-rx"></block></block>
-  <block id="a7ba132631b64c7d74d24b772aacd919" category="paragraph"><block ref="fc89f8ef8daa08e9ffc121c5d5609d54" category="inline-link-macro-rx"></block> .</block>
   <block id="4e66bc15577ca34b137ec086186da6aa" category="doc">Flujo de trabajo de instalación y configuración para conmutadores NVIDIA SN2100</block>
   <block id="84a9509b45afdd4f172c9e97fb33aeae" category="paragraph">Siga estos pasos de flujo de trabajo para instalar y configurar sus conmutadores NVIDIA SN2100.</block>
   <block id="5f8f57ce76aa4b127e0ea13abdf1345e" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="1d6fb5d005264e31a2bce3661d73104a" category="inline-link-macro-rx"></block></block>
@@ -4993,8 +4956,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="22b898a802e6ecf1efe4fd8447155ff8" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="02de3235c7d60510b0e45690ce72f0ca" category="inline-link-macro-rx"></block></block>
   <block id="de38f5bc18224a904a9da613e9e951b0" category="paragraph">Revise la documentación específica del conmutador y del controlador para configurar sus conmutadores SN2100 y el clúster ONTAP .</block>
   <block id="386ced704d131539551d82f287c24e19" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="f1c1619f8b1ed1d1d5c236b6f88e9555" category="inline-link-macro-rx"></block></block>
-  <block id="0b31070981ebc881be6e243852a30cab" category="paragraph"><block ref="e831ca446f09bd354bf76a86391af038" category="inline-link-macro-rx"></block> .</block>
-  <block id="db0d76db0abfe2ece0fea7cc312897cd" category="paragraph"><block ref="770c77dd441cd3adc4139ccb3c0d491b" category="inline-link-macro-rx"></block>o<block ref="bba3ec5e6ca5e4f48b010488a5229b2c" category="inline-link-macro-rx"></block> .</block>
   <block id="713d4f97a0409024a758cf7996d847d7" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="00e0372232f46e972c663d4404b271c3" category="inline-link-macro-rx"></block></block>
   <block id="476f34e9325d1f5ca4e7f6764f1c37c4" category="paragraph">Configurar el conmutador NVIDIA SN2100.</block>
   <block id="51f9c4931826853711f81f0086b1be28" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="770c77dd441cd3adc4139ccb3c0d491b" category="inline-link-macro-rx"></block></block>
@@ -5006,7 +4967,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="4f5cad90763c2ce535c7e96c7cccdc28" category="paragraph">Puede actualizar su sistema operativo Cumulus Linux (CL) según sea necesario.</block>
   <block id="6644a96995b52c5a8f8a5e5ce0f802e0" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="3d9967042c3cdfc5d68365a8b89192b1" category="inline-link-macro-rx"></block></block>
   <block id="a87966bc5780610e7f2d0b7124159db7" category="paragraph-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block><block ref="bc8e6b3d8a605e692bda90d2d873314b" category="inline-link-macro-rx"></block></block>
-  <block id="a30be21f198530b5b6b8978b4ae21e1f" category="paragraph"><block ref="586358657da9582be98d1a15e5fd7854" category="inline-link-macro-rx"></block> .</block>
   <block id="c7a001e5237d88fee0ed6a186bf5042e" category="summary">Antes de configurar los conmutadores de clúster NVIDIA SN2100, revise la descripción general de la configuración.</block>
   <block id="19613dba5f729ac14e1b40a3e61a1ab9" category="doc">Flujo de trabajo de instalación de hardware para conmutadores NVIDIA SN2100</block>
   <block id="aa93083325d3660d1aed75b314e1270e" category="paragraph">Para instalar y configurar el hardware de un conmutador de clúster SN2100, siga estos pasos:</block>
@@ -5020,16 +4980,12 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="9fe54b1584b269535a10ca9757e0d633" category="paragraph">Revise los componentes y números de pieza del conmutador de almacenamiento SN2100.</block>
   <block id="5c48143a21829dd93210328cf347b174" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="13fcbddd528de4209e7d23a68d1b9854" category="inline-link-macro-rx"></block></block>
   <block id="cf432b832643aab203cf324c0cdd3d2a" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="262cec1150ef38c9ea7540d7ae3a4889" category="inline-link-macro-rx"></block></block>
-  <block id="ed769f33f5e6396a5350c26d00e10952" category="paragraph"><block ref="6f29ea203d7917d9d35a7a8e4664773a" category="inline-link-macro-rx"></block> .</block>
-  <block id="0f017a1e017594e935437ab5c77ea9cf" category="paragraph"><block ref="3041b5118a03f510955dbbcc0f577290" category="inline-link-macro-rx"></block>o<block ref="a2ff852c84f89fa9e1b524e12735250e" category="inline-link-macro-rx"></block> .</block>
   <block id="fcdc3fbb546ffe8444175e226eb7d6d8" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="d639995fde516a3ba2e60963b02aecc1" category="inline-link-macro-rx"></block></block>
   <block id="625b196242864fb625e827a05ba0ca8b" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="3041b5118a03f510955dbbcc0f577290" category="inline-link-macro-rx"></block></block>
   <block id="9d9be89e305913aa4f5fc1db511581ef" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="a2ff852c84f89fa9e1b524e12735250e" category="inline-link-macro-rx"></block></block>
   <block id="a29cf60e6a27ba607f38c03d72584ed6" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="042936408f11a0ab2085068400be81ab" category="inline-link-macro-rx"></block></block>
   <block id="5ec621045cf8b59339b967f20e718f17" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="bc8e6b3d8a605e692bda90d2d873314b" category="inline-link-macro-rx"></block></block>
   <block id="dc6a92646e360d6aebcb4ffde88fdaa1" category="paragraph">Asegúrese de que esté disponible lo siguiente:</block>
-  <block id="d59b6c21553d166822815063268759a9" category="paragraph"><block ref="02bab6a93984b80dbf6d1f4b3c04e68a" category="inline-link-macro-rx"></block> .</block>
-  <block id="0e245f17e1a2edaaad55998a79c7ba51" category="paragraph"><block ref="ec7a39e14153ae248be0af2fdfe579b9" category="inline-link-macro-rx"></block> .</block>
   <block id="9becc6b0b1c7536b40d8c1cc61107fca" category="doc">Flujo de trabajo de instalación de hardware para conmutadores de almacenamiento NVIDIA SN2100</block>
   <block id="aca9675b14d96b37e8250c7e8e7ee607" category="paragraph">Para instalar y configurar el hardware de un conmutador de almacenamiento SN2100, siga estos pasos:</block>
   <block id="928d9ac7d5d1c965d93fe4d3435b9692" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="1fbc6a97823ab47111a560b4ffbc73ac" category="inline-link-macro-rx"></block></block>
@@ -5132,7 +5088,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="a2c7fa8f383a047f3591230c9b0234c9" category="list-text">Guarde estos cambios en la configuración de inicio:</block>
   <block id="7411e9f163d9baab36b5ebc3f80bda73" category="admonition">Mientras<block ref="8a444a43bdf534c0c6338bb7809659b3" prefix=" " category="inline-code"></block> En el ejemplo se utiliza, puede utilizar su método preferido de transferencia de archivos, por ejemplo, SFTP, HTTPS o FTP.</block>
   <block id="5b9b8dea15de063806f0306fe78872c8" category="admonition">A pesar de<block ref="8a444a43bdf534c0c6338bb7809659b3" prefix=" " category="inline-code"></block> En el ejemplo se utiliza, puede utilizar su método preferido de transferencia de archivos, por ejemplo, SFTP, HTTPS o FTP.</block>
-  <block id="bea4eb9c3f61f6fc9076a215ac1173fe" category="paragraph"><block ref="c1b3921cc8c2b4b51a888d2dc803623c" category="inline-link-macro-rx"></block> .</block>
   <block id="00a850fef80958a3c902c0d0b0fc20c4" category="inline-link-macro">configurar la monitorización del estado del conmutador</block>
   <block id="07c675c656e29cd460e1d99b7aa706f4" category="paragraph">Después de haber migrado los conmutadores,<block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block> .</block>
   <block id="549a122380830b4e1927b9e610dcece8" category="paragraph">Smart Call Home monitorea los componentes de hardware y software de su red. Cuando ocurre una configuración crítica del sistema, se genera una notificación por correo electrónico y se envía una alerta a todos los destinatarios configurados en su perfil de destino.</block>
@@ -5345,7 +5300,6 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="0d76d085864e864b6fe18472ceadd96e" category="paragraph">El<block ref="cbfe825e8e02458e2eef3cd048612d7d" category="inline-link-macro-rx"></block> Contiene la información más reciente sobre los puertos de clúster reales para sus plataformas.</block>
   <block id="93f48052b83573c9588c2e2a29f0d2f4" category="list-text"><block ref="bdfe1ecddcd4f86ab15c01ce788e67b1" category="inline-link-macro-rx"></block>describe cómo instalar el software FASTPATH.</block>
   <block id="34a82aa346c0fcde4927e8ace4faeac1" category="list-text"><block ref="916de883b9541163d5e1b0ec103d976a" category="inline-link-macro-rx"></block>Describe cómo instalar RCF.</block>
-  <block id="2761fa8eeeaa9de0cb19156fa8180759" category="paragraph"><block ref="b4874fc318a2d2906865491ec45c2419" category="inline-link-macro-rx"></block> .</block>
   <block id="bb3d2404d1e457b7cb2a94d3022caef9" category="paragraph">Para conocer las pautas de cableado, consulte<block ref="3660d2e2669921395eb817463df6e8d8" category="inline-link-macro-rx"></block> .</block>
   <block id="2793c83561f3221907ce0970e3c21030" category="list-text">Complete todos los pasos de solución de problemas para confirmar que necesita reemplazar su interruptor.</block>
   <block id="867dcc02c6629ff2e444919a943a2054" category="list-text">Asegúrese de que exista conectividad de administración en ambos conmutadores.</block>
@@ -5800,4 +5754,76 @@ en función de tus versiones actuales y objetivo.</block>
   <block id="da3536e3f4767ec4860d848c1b36098e" category="sidebar">Documentación de conmutadores para sistemas de hardware ONTAP</block>
   <block id="d0dfe2145063d5d6960f55dcbfb612c8" category="sidebar">instalar_actualizar_rcf</block>
   <block id="f3b17afc64da773efa83071745456131" category="sidebar">Verificar la configuración de SSH</block>
+  <block id="2fcc83b51658ac7b52256ccd25ac6593" category="paragraph">Una vez que haya confirmado sus componentes y números de pieza, puede revisar el <block ref="898b788ce0d10fbe77260f597aa8c6e0" category="inline-link-macro-rx"></block>.</block>
+  <block id="74af5112ab6cf8732ffe8eba910e2290" category="inline-link-macro">Instala tus licencias</block>
+  <block id="85290349ee32e9f062a4795f3e1e06bb" category="paragraph">Una vez instalado el software EFOS, podrá <block ref="172517aa1fa2cd21dd6fb86167c00f86" category="inline-link-macro-rx"></block>.</block>
+  <block id="8ec519db7b497274ec49e47d1d5805aa" category="inline-link-macro">Instale el software EFOS</block>
+  <block id="1cdfb67cf1efdfc117156b73520a6202" category="paragraph">Una vez que hayas configurado tus interruptores, podrás <block ref="5f8c635ef985b849c8790b2e319cc3c1" category="inline-link-macro-rx"></block>.</block>
+  <block id="4d18a3e221b1f491180309c24ea50bd4" category="inline-link-macro">habilitar SSH</block>
+  <block id="7c4e8f380d6fe0f7b87ed4f313261231" category="paragraph">Una vez instalado RCF, puedes <block ref="e4ca236fba47af149933dade92f0dad2" category="inline-link-macro-rx"></block>.</block>
+  <block id="c8ebf4a179068046dbdbcfb49a4f1dd5" category="inline-link-macro">instalar el archivo de configuración de referencia (RCF)</block>
+  <block id="1505c4fc614b38764c22b241eaa0da89" category="inline-link-macro">actualizar el RCF</block>
+  <block id="d3c28bc24f5e8dd1c938a675301f9dcd" category="paragraph">Una vez instaladas las licencias, puedes <block ref="6caac7e01ed877f3cbe38ea9f059e295" category="inline-link-macro-rx"></block> o <block ref="0ed9a2b66ddf9814b21a0bf59aa0f37b" category="inline-link-macro-rx"></block>.</block>
+  <block id="9d1f74f243e690a09970b31e96cfbf7d" category="paragraph">Después de revisar los requisitos de configuración, puede confirmar su <block ref="205362a34e39f230d5f9e0dfed8a4350" category="inline-link-macro-rx"></block>.</block>
+  <block id="8aff8cebd8b9f73249a04d1015130ff5" category="paragraph">Una vez que hayas habilitado SSH, podrás <block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block>.</block>
+  <block id="804977fd87512d500a4689120af8cf70" category="paragraph">Una vez instalados RCF y el archivo de licencia, puedes <block ref="e4ca236fba47af149933dade92f0dad2" category="inline-link-macro-rx"></block>.</block>
+  <block id="99b9c101b9c51f15009f95c9edaf5a7e" category="paragraph">Una vez que hayas instalado el hardware del switch, podrás <block ref="c501fc5287782c51cee053d084046acf" category="inline-link-macro-rx"></block> requisitos.</block>
+  <block id="30e3b2cfb1c72e5b230d98750db3bf2b" category="paragraph">Después de migrar tus switches, puedes <block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block>.</block>
+  <block id="c79eef3140e00260a78d272576cfba3c" category="paragraph">Después de haber reemplazado los interruptores, puedes <block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block>.</block>
+  <block id="6d8754e81f6011fb9b29f77002c01275" category="paragraph">Una vez que haya confirmado la actualización de su software EFOS o RCF, podrá <block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block>.</block>
+  <block id="afcde3664e37d8f858999ffb7e9d8467" category="paragraph">Después de revisar los requisitos de configuración, puede revisar <block ref="3bfe41df5ada7a5031db91489b512eed" category="inline-link-macro-rx"></block>.</block>
+  <block id="553a821415dc28221ab327b526d188f2" category="paragraph">Una vez que hayas verificado tu configuración SSH, podrás <block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block>.</block>
+  <block id="f7ab4643afdeb874561532068edda37b" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="047e8cec0867aa2536fa544cc6e11acf" category="inline-link-macro-rx"></block></block>
+  <block id="e2dcca837ccd11685f32aea9c011201b" category="paragraph">Una vez instalado el software NX-OS, podrá <block ref="fbf9c4918e420134d4383ce5a14b440d" category="inline-link-macro-rx"></block>.</block>
+  <block id="b6ec1495188cac4c86c841f0ab2f8043" category="paragraph">Una vez instalado RCF, puedes <block ref="9c2eadd0cc07686b4a17c38ca62f4a4c" category="inline-link-macro-rx"></block>.</block>
+  <block id="227aef12ec3020452ced595834ad2e65" category="inline-link-macro">revisar el cableado y la configuración</block>
+  <block id="2a78b7ed86f724cd65058a1dd9259dfa" category="paragraph">Opcionalmente, puedes <block ref="18420978bb95dbc58537866fa2d7958a" category="inline-link-macro-rx"></block>. De lo contrario, puedes <block ref="784e4f3e02f5e19f4a49a1542dbad39c" category="inline-link-macro-rx"></block> requisitos.</block>
+  <block id="9c7e872eafa4ce3bafe48b85e4dccabc" category="inline-link-macro">Instalar el software NX-OS</block>
+  <block id="a83444c24e0333a8d2c26d5a4a4cb369" category="paragraph">Después de haberte preparado para instalar el software NX-OS y RCF, <block ref="d75ac7de135fb381613e594c611e5a43" category="inline-link-macro-rx"></block>.</block>
+  <block id="0955b90a6dd9305ce1c157f3a6535248" category="inline-link-macro">Prepárese para instalar NX-OS y RCF.</block>
+  <block id="1b23eca6bd0e688418119caf9e4cb36b" category="paragraph">Después de haber configurado tus interruptores, <block ref="67415c224bad223c5c0fa6b21bfd239f" category="inline-link-macro-rx"></block>.</block>
+  <block id="ff9a297b40cb610e8b48d97c5b2e8a60" category="paragraph">Después de haber completado tus hojas de trabajo de cableado, tú <block ref="ba9ddce99e2d1f592840436be13feddd" category="inline-link-macro-rx"></block>.</block>
+  <block id="4b0405f5d2ef385bf5dd1ca9741968d4" category="list-text">Al actualizar a la versión 1.12 de RCF o posterior, ejecute los siguientes comandos:</block>
+  <block id="33a0b92f0ebac7efe8736828a29dff1a" category="paragraph">Después de confirmar los requisitos de configuración, revise el <block ref="ebd73c3e74cc4ef5f3b03634c8dd9a01" category="inline-link-macro-rx"></block>.</block>
+  <block id="b3418e071ad0af628321787bdfdb144a" category="paragraph">Después de haber instalado el software NX-OS, usted <block ref="06b5548e8ac5164b226ba17b6e4d1fe4" category="inline-link-macro-rx"></block>.</block>
+  <block id="2e595795ee7d7b27d6013ed4aa1edbe6" category="paragraph">Opcionalmente, puedes <block ref="2cea7f88b524cc550d065cf33c8d1c58" category="inline-link-macro-rx"></block>. De lo contrario, vaya a <block ref="3efd7bbc59a61a74defb48cf3f1c6fa7" category="inline-link-macro-rx"></block>.</block>
+  <block id="738f308f5a85950565ca6768bbd1b6df" category="inline-link-macro">Instalar el software NX-OS</block>
+  <block id="090d6ba973224b58ce14f935b1afaddc" category="paragraph">Después de haberte preparado para instalar el software NX-OS y RCF, <block ref="86658f2b70ba317271005496e806b03c" category="inline-link-macro-rx"></block>.</block>
+  <block id="88fdc99e69a743a1eb164994c319127b" category="paragraph">Después de haber configurado tus interruptores, <block ref="cd06af6a9a8fb3236be1b579437fb58f" category="inline-link-macro-rx"></block>.</block>
+  <block id="b23946ab85420318ad29297bc09065d0" category="paragraph">Después de haber completado tus hojas de trabajo de cableado, tú <block ref="158345103486debcc0cfc10501f464f8" category="inline-link-macro-rx"></block>.</block>
+  <block id="1fc28573c4253eea534a9b0a7346c2ae" category="paragraph">Una vez que hayas completado tus hojas de trabajo de cableado, podrás <block ref="4952d250d292a65a90c0bebba6014799" category="inline-link-macro-rx"></block>.</block>
+  <block id="1ef6eed0ebf9cc7427083a8bd2e14d4b" category="paragraph">Después de confirmar los componentes y los números de pieza, revise el <block ref="df0358fd02066e7e9ccbaff4c1a048a5" category="inline-link-macro-rx"></block>.</block>
+  <block id="3c7137666241068803662df69a2b396f" category="paragraph">Después de revisar los requisitos de configuración, puede confirmar su <block ref="7f669d24d9aef19198d4056386b39684" category="inline-link-macro-rx"></block>.</block>
+  <block id="fe8431277c54167a72c8b61fe4a00ac3" category="paragraph">Una vez instalado RCF, puedes <block ref="5b8b393a675dcaaee97c02828356657c" category="inline-link-macro-rx"></block>.</block>
+  <block id="fe7ed7c52d6e6e2009c6cf35bf3fe240" category="paragraph">Una vez instalado el software NX-OS, podrá <block ref="081d00f96e1fa5769dbf06cd540488d3" category="inline-link-macro-rx"></block>.</block>
+  <block id="0753226c968a573c0f0e13bee0aef3d8" category="paragraph">Una vez que te hayas preparado para instalar el software NX-OS y RCF, podrás <block ref="9b6aa2dad0d0afce300d884800fc9c37" category="inline-link-macro-rx"></block>.</block>
+  <block id="b843d161450c20e0071c16a2c9d56952" category="paragraph">Una vez que hayas configurado tus interruptores, podrás <block ref="746057c05111c8d98d05f7c2aa1f8967" category="inline-link-macro-rx"></block>.</block>
+  <block id="3db6619adb39cede96d0fac5db0dc834" category="paragraph">Después de actualizar el RCF, puedes <block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block>.</block>
+  <block id="a294afff18b68f8c1e4f78aeef5ef294" category="list-text"><block ref="a294afff18b68f8c1e4f78aeef5ef294" category="inline-link-macro-rx"></block></block>
+  <block id="62f22218ea7fb3cf6669cdfdb6c908e0" category="doc">Configure SNMPv3 para su switch (opcional)</block>
+  <block id="f8f4eb0f97707e7f8ebb995321498794" category="inline-link-macro">Cablee los estantes NS224 como almacenamiento conectado al interruptor.</block>
+  <block id="ff22d5f888f5a0913f853ce7392a315e" category="paragraph">Después de revisar los requisitos de cableado y configuración, usted <block ref="9b56153f8288ea213a61283aa51d0b66" category="inline-link-macro-rx"></block>.</block>
+  <block id="21d99f2d550020c5a0b4816423b48ba6" category="paragraph">Después de confirmar los componentes y los números de pieza, revise el <block ref="49a5e49bddaeabf84f2ee5cfa4f2c2f8" category="inline-link-macro-rx"></block>.</block>
+  <block id="e078b89c94c4240cd6dab3e59e8b1f98" category="paragraph">Después de revisar los requisitos de configuración, puede confirmar su <block ref="73d4a57b8c77c4dbdae06c6c07cd9dcc" category="inline-link-macro-rx"></block>.</block>
+  <block id="732e3e82bec2d756529a769494dc70f8" category="inline-link-macro">Instalar Cumulus Linux en modo Cumulus</block>
+  <block id="8043ee61c7f7379917235c3269fed7c9" category="inline-link-macro">Instalar Cumulus Linux en modo ONIE</block>
+  <block id="88e5314f302655cbcf7f227e92429626" category="paragraph">Después de configurar tu switch, <block ref="abc8e2fb5cb0373d7006d768e8dc0bfd" category="inline-link-macro-rx"></block> o <block ref="28a30a7b340666b28d9a4222e714aaf7" category="inline-link-macro-rx"></block>.</block>
+  <block id="255f37e0f64c267cbe1845aba29c7c7c" category="paragraph">Después de haber cableado tus estantes, <block ref="a5a547b7e695aa3612b72d881f169519" category="inline-link-macro-rx"></block>.</block>
+  <block id="81f5064b20459a10b0a452ae24733718" category="inline-link-macro">Instalar el script del archivo de configuración de referencia (RCF).</block>
+  <block id="ed3b40beeb91dc0a99c4580cb378b4b6" category="paragraph">Después de haber instalado Cumulus Linux en modo Cumulus, usted <block ref="83ca9f457d58548616bdf5d734a73df4" category="inline-link-macro-rx"></block>.</block>
+  <block id="482ccd1106eaba7536fd24593f4e76f2" category="paragraph">Después de haber instalado el hardware, usted <block ref="b80562321e7105a297052828d3712cf7" category="inline-link-macro-rx"></block> requisitos.</block>
+  <block id="81b9a3178dc726848b0b45d04848ad99" category="paragraph">Después de haber instalado Cumulus Linux en modo ONIE, usted <block ref="83ca9f457d58548616bdf5d734a73df4" category="inline-link-macro-rx"></block>.</block>
+  <block id="86a6c0bf628510e354b0911c128a4e0e" category="inline-link-macro">instalar el archivo CSHM</block>
+  <block id="4976123a345a946ae994590aa9c2dfa3" category="paragraph">Después de haber instalado RCF, usted <block ref="f3791ff783629f66fe5f05b40418ed92" category="inline-link-macro-rx"></block>.</block>
+  <block id="ff10673c2cf2dcff4a056995095cf432" category="paragraph">Después de haber instalado el archivo CSHM, usted <block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block>.</block>
+  <block id="2c2eb6e2450884003d431faa5248647a" category="inline-link-macro">Instalar o actualizar el script RCF</block>
+  <block id="800f95ad6373c68fc216bece87093f65" category="paragraph">Después de actualizar tu versión de Cumulus Linux, <block ref="ac720c45794c201b5f80c4938224f8dc" category="inline-link-macro-rx"></block>.</block>
+  <block id="548165e58dfad6461a9166d5091e701e" category="paragraph">Después de revisar los requisitos de cableado y configuración, usted <block ref="75b216e283a24f30a49086565a4dd379" category="inline-link-macro-rx"></block>.</block>
+  <block id="3755fc7d8677ebe8f5018b192d76ecee" category="paragraph">Después de confirmar los componentes y los números de pieza, revise el <block ref="439fe3fb46bcc21d34c70ab0497fdf03" category="inline-link-macro-rx"></block>.</block>
+  <block id="e151bfa4f47eb413c8e626e023b54eb2" category="paragraph">Después de revisar los requisitos de configuración, puede confirmar su <block ref="00ac7ae7a02f4d4916cc2e9a0c466e89" category="inline-link-macro-rx"></block>.</block>
+  <block id="abe2721f38aeb4a52b34f031e63cb999" category="paragraph">Después de haber configurado tus interruptores, <block ref="393555469596ca2345e43e80c6e74ba5" category="inline-link-macro-rx"></block> o <block ref="ac50052da6099ecd2d2a2ee1cd713de9" category="inline-link-macro-rx"></block>.</block>
+  <block id="15d61e1a8c8e02ed201c6c136d785267" category="paragraph">Después de haber instalado Cumulus Linux en modo Cumulus, usted <block ref="3acf483c9de841e025c40a5da17bc790" category="inline-link-macro-rx"></block>.</block>
+  <block id="09398bfa676e806eeb6998df2ece8bef" category="paragraph">Después de haber instalado el hardware, usted <block ref="9158e03ff3d3214abbf7c9c47bc446be" category="inline-link-macro-rx"></block> requisitos.</block>
+  <block id="9e54073d137b0a37710654f115f0a5c2" category="paragraph">Después de haber instalado Cumulus Linux en modo ONIE, usted <block ref="3acf483c9de841e025c40a5da17bc790" category="inline-link-macro-rx"></block>.</block>
+  <block id="b659527f486f2e9b0bf097bbf528b934" category="paragraph">Después de haber instalado o actualizado RCF, usted <block ref="f3791ff783629f66fe5f05b40418ed92" category="inline-link-macro-rx"></block>.</block>
 </blocks>

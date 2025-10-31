@@ -35,4 +35,4 @@ El conmutador NVIDIA SN2100 es un conmutador Ethernet de 10/25/40/100 GB que eje
 
 
 .¿Qué sigue?
-link:components-sn2100-storage.html["Componentes y números de pieza"] .
+Después de revisar los requisitos de configuración, puede confirmar su link:components-sn2100-storage.html["componentes y números de pieza"].

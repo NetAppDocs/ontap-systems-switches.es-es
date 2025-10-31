@@ -19,4 +19,4 @@ Para instalar el hardware del BES-53248, consulte la documentación de Broadcom.
 
 
 .El futuro
-link:cabling-considerations-bes-53248.html["Revisar el cableado y la configuración"] .
+Una vez que hayas instalado el hardware del switch, podrás link:cabling-considerations-bes53248.html["revisar el cableado y la configuración"] requisitos.

@@ -211,3 +211,6 @@ sh1 (config)# *exit*
 . Quite los switches de clúster que no se utilicen.
 . Retire los interruptores de almacenamiento que no se utilicen.
 
+
+.El futuro
+Después de migrar tus switches, puedes link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"].
