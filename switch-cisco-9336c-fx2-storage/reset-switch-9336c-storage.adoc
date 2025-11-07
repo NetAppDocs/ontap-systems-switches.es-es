@@ -44,3 +44,6 @@ This command will reboot the system. (y/n)? [n] *y*
 El sistema se reinicia y entra en el asistente de configuración.  Durante el arranque, si recibe el mensaje “¿Desea cancelar el aprovisionamiento automático y continuar con la configuración normal?”  (sí/no)[n]”, debe responder *sí* para continuar.
 
 
+
+.¿Qué sigue?
+Después de reiniciar los interruptores, puedeslink:configure-switch-overview-9336c-storage.html["reconfigurar"] los que necesiten.

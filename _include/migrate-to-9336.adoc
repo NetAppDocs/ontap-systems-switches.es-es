@@ -701,4 +701,4 @@ RPC status:
 
 
 .El futuro
-Después de haber migrado los conmutadores,link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"] .
+Una vez que hayas migrado los switches, podráslink:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"] .

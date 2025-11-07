@@ -76,3 +76,5 @@ Ver NVIDIA https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-51
 
 --
 ====
+.¿Qué sigue?
+Después de reiniciar los interruptores, puedeslink:configure-overview-sn2100-storage.html["reconfigurar"] los que necesiten.

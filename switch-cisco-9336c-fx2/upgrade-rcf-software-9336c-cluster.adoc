@@ -902,4 +902,4 @@ RPC status:
 --
 ====
 .El futuro
-Después de haber actualizado su RCF,link:configure-ssh-keys.html["verificar la configuración de SSH"] .
+Después de actualizar tu RCF, puedeslink:configure-ssh-keys.html["verificar la configuración de SSH"] .

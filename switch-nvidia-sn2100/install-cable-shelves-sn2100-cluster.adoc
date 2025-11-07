@@ -24,4 +24,4 @@ https://hwu.netapp.com/["Hardware Universe de NetApp"^]
 
 
 .El futuro
-Después de haber cableado tus estantes, link:configure-sn2100-cluster.html["configurar el conmutador"].
+Después de haber cableado tus estantes, puedeslink:configure-sn2100-cluster.html["configurar el conmutador"] .

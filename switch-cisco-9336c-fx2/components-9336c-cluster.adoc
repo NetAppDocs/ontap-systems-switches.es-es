@@ -124,4 +124,4 @@ Para activar más de 12 puertos en su conmutador de clúster Cisco Nexus 9336C-F
 NOTE: Una vez que haya adquirido su licencia Smart, instale el RCF adecuado para habilitar y configurar todos los 36 puertos disponibles para su uso.
 
 .¿Qué sigue?
-Después de haber confirmado sus componentes y números de pieza, revise ellink:required-documentation-9336c-cluster.html["documentación requerida"] .
+Una vez que haya confirmado sus componentes y números de pieza, puede revisar el link:required-documentation-9336c-cluster.html["documentación requerida"].

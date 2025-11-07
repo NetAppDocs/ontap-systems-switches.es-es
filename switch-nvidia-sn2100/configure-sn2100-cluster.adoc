@@ -19,4 +19,4 @@ Para configurar el conmutador SN2100, consulte la documentación de NVIDIA.
 
 
 .El futuro
-Después de configurar tu switch, link:install-cumulus-mode-sn2100-cluster.html["Instalar Cumulus Linux en modo Cumulus"] o link:install-onie-mode-sn2100-cluster.html["Instalar Cumulus Linux en modo ONIE"].
+Una vez que hayas configurado tu switch, podráslink:install-cumulus-mode-sn2100-cluster.html["Instalar Cumulus Linux en modo Cumulus"] olink:install-onie-mode-sn2100-cluster.html["Instalar Cumulus Linux en modo ONIE"] .

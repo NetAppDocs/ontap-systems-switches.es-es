@@ -406,4 +406,4 @@ System Manager proporciona un flujo de trabajo sencillo y sencillo para la insta
 Vaya a. https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configure ONTAP en un nuevo clúster con System Manager"] para obtener instrucciones de configuración.
 
 .El futuro
-Una vez instalado RCF, puedes link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"].
+Una vez instalado RCF, puedes link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"].

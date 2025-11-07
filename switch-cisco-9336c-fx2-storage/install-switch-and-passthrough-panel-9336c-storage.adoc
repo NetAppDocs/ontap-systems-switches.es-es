@@ -134,4 +134,4 @@ El puerto de gestión es el puerto superior derecho ubicado en el lado PSU del s
 
 
 .¿Qué sigue?
-Después de haber instalado los conmutadores en el gabinete NetApp ,link:setup-switch-9336c-storage.html["configurar los conmutadores Cisco Nexus 9336C-FX2 y 9336C-FX2-T"] .
+Después de instalar los switches en el armario NetApp , puedeslink:setup-switch-9336c-storage.html["configurar los conmutadores Cisco Nexus 9336C-FX2 y 9336C-FX2-T"] .

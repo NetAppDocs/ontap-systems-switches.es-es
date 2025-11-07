@@ -333,4 +333,4 @@ UP     swp16      100G  9216   BondMember  cs01 (swp16)     Master: cl
 --
 ====
 .El futuro
-Después de revisar los requisitos de cableado y configuración, usted link:install-cable-shelves-sn2100-storage.html["Cablee los estantes NS224 como almacenamiento conectado al interruptor."].
+Después de revisar los requisitos de cableado y configuración, puedeslink:install-cable-shelves-sn2100-storage.html["Cablee los estantes NS224 como almacenamiento conectado al interruptor."] .

@@ -696,4 +696,4 @@ Si alguna LIF de clúster no ha regresado a sus puertos raíz, revertirla manual
 
 
 .El futuro
-Después de haber instalado o actualizado el software NX-OS,link:install-rcf-software-9336c-storage.html["instalar o actualizar el RCF"] .
+Después de instalar o actualizar el software NX-OS, puedelink:install-rcf-software-9336c-storage.html["instalar o actualizar el RCF"] .

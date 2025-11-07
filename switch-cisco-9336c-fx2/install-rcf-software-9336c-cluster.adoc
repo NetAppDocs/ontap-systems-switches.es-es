@@ -150,7 +150,7 @@ Asegúrese de configurar lo siguiente:
 +
 `cs1# show run | section "switchname" >> bootflash:write_erase.cfg`
 
-. Para la versión 1.12 y posteriores de RCF, ejecute los siguientes comandos:
+. Al instalar RCF versión 1.12 o posterior, ejecute los siguientes comandos:
 +
 `cs1# echo "hardware access-list tcam region ing-racl 1024" >> bootflash:write_erase.cfg`
 
@@ -413,4 +413,4 @@ System Manager proporciona un flujo de trabajo sencillo y sencillo para la insta
 Vaya a. https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configure ONTAP en un nuevo clúster con System Manager"] para obtener instrucciones de configuración.
 
 .El futuro
-Después de haber instalado el RCF,link:configure-ssh-keys.html["verificar la configuración de SSH"] .
+Una vez instalado RCF, puedes link:configure-ssh-keys.html["verificar la configuración de SSH"].

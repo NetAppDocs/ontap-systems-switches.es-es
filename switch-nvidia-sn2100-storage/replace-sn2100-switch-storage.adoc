@@ -268,4 +268,4 @@ cluster1::*>
 
 
 .El futuro
-Después de haber reemplazado los interruptores,link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"] .
+Después de haber reemplazado los interruptores, puedes link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"].

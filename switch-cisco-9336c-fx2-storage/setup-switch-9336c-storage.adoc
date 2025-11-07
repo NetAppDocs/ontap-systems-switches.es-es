@@ -192,4 +192,4 @@ NOTE: Si no guarda la configuración en esta fase, ninguno de los cambios se apl
 
 
 .El futuro
-Después de haber configurado sus conmutadores,link:install-nxos-overview-9336c-storage.html["Prepárese para instalar el software NX-OS y RCF"] .
+Una vez que hayas configurado tus interruptores, podrás link:install-nxos-overview-9336c-storage.html["Prepárese para instalar el software NX-OS y RCF"].
