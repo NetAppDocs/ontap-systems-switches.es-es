@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/cable-9336c-shared.html 
 keywords: shared storage cluster switch cable 
-summary: Utilice las imágenes de cableado para completar el cableado entre las controladoras y los switches. 
+summary: Utilice las imágenes de cableado para completar el cableado entre los controladores y los conmutadores. 
 ---
-= Rellene la hoja de trabajo del cableado Cisco Nexus 9336C-FX2
+= Complete la hoja de trabajo de cableado del Cisco Nexus 9336C-FX2
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,60 +14,60 @@ summary: Utilice las imágenes de cableado para completar el cableado entre las 
 
 
 [role="lead"]
-Utilice las siguientes imágenes de cableado para completar el cableado entre las controladoras y los switches.
+Utilice las siguientes imágenes de cableado para completar el cableado entre los controladores y los conmutadores.
 
 
 
-== Almacenamiento de cable NS224 como conectado a conmutador
+== Cable NS224 con almacenamiento conectado al interruptor
 
-Si desea conectar el cable de almacenamiento NS224 como conmutador, siga el diagrama conectado al conmutador:
+Si desea conectar el almacenamiento NS224 a un switch, siga el diagrama de conexión a switch:
 
-image:9336c_image1.jpg["Conectado a interruptor"]
+image:9336c_image1.jpg["Interruptor conectado"]
 
-Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obtener más información sobre los puertos de switch.
+Ver el https://hwu.netapp.com/Switch/Index["Hardware Universe"] Para obtener más información sobre los puertos del switch.
 
 
 
-== Almacenamiento de cable NS224 como conexión directa
+== Cable NS224 de almacenamiento como conexión directa
 
-Si desea conectar mediante cable el almacenamiento NS224 como de conexión directa en lugar de utilizar los puertos de almacenamiento del conmutador compartido, siga el diagrama de conexión directa:
+Si desea conectar el almacenamiento NS224 mediante cable directo en lugar de utilizar los puertos de almacenamiento compartidos del switch, siga el diagrama de conexión directa:
 
 image:9336c_image2.jpg["Conexión directa"]
 
-Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obtener más información sobre los puertos de switch.
+Ver el https://hwu.netapp.com/Switch/Index["Hardware Universe"] Para obtener más información sobre los puertos del switch.
 
 
 
-== Hoja de trabajo del cableado Cisco Nexus 9336C-FX2
+== Hoja de trabajo de cableado de Cisco Nexus 9336C-FX2
 
-Si desea documentar las plataformas compatibles, debe rellenar la hoja de datos de cableado en blanco utilizando la hoja de datos de cableado de muestra completada como guía.
+Si desea documentar las plataformas compatibles, debe completar la hoja de trabajo de cableado en blanco utilizando como guía la hoja de trabajo de cableado de muestra ya completada.
 
-La definición de puerto de ejemplo de cada par de conmutadores es la siguiente:
+La definición de puerto de muestra en cada par de conmutadores es la siguiente:
 
-image:cabling_worksheet.jpg["Hoja de trabajo para el cableado"]
+image:cabling_worksheet.jpg["Hoja de trabajo de cableado"]
 
-Donde:
+Dónde:
 
-* ISL DE 100 G para cambiar al puerto 35
-* ISL DE 100 G para cambiar al puerto 36
-* 100G ISL al puerto 35 del switch B.
-* 100G ISL al puerto 36 del switch B.
+* ISL de 100G al puerto 35 del conmutador A
+* ISL de 100G al puerto 36 del conmutador A
+* 100G ISL al puerto 35 del conmutador B
+* 100G ISL al puerto 36 del conmutador B
 
 
 
 
 == Hoja de trabajo de cableado en blanco
 
-Puede utilizar la hoja de datos de cableado vacía para documentar las plataformas que se admiten como nodos de un clúster. La tabla conexiones de clúster admitidas del Hardware Universe define los puertos de clúster que utiliza la plataforma.
+Puede utilizar la hoja de trabajo de cableado en blanco para documentar las plataformas que se admiten como nodos en un clúster.  La tabla de conexiones de clúster compatibles del Hardware Universe define los puertos de clúster utilizados por la plataforma.
 
 image:blank_cabling_worksheet.jpg["Hoja de trabajo de cableado en blanco"]
 
-Donde:
+Dónde:
 
-* ISL DE 100 G para cambiar al puerto 35
-* ISL DE 100 G para cambiar al puerto 36
-* 100G ISL al puerto 35 del switch B.
-* 100G ISL al puerto 36 del switch B.
+* ISL de 100G al puerto 35 del conmutador A
+* ISL de 100G al puerto 36 del conmutador A
+* 100G ISL al puerto 35 del conmutador B
+* 100G ISL al puerto 36 del conmutador B
 
 
 .¿Qué sigue?

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cisco, nx-os, software, reference, configuration, file, rcf, install, fx2, cluster, switch, install nx-os software and rcfs on cisco nexus 9336-fx2 cluster switches - cisco nexus 9336x-fx2 
 summary: 'El software Cisco NX-OS y los archivos de configuración de referencia (RCF) deben estar instalados en los conmutadores de clúster Cisco Nexus 9332D-GX2B.' 
 ---
-= Prepárese para instalar el software NX-OS y RCF
+= Prepárese para instalar el software NX-OS y RCF.
 :allow-uri-read: 
 
 
@@ -12,7 +12,7 @@ summary: 'El software Cisco NX-OS y los archivos de configuración de referencia
 Antes de instalar el software NX-OS y el archivo de configuración de referencia (RCF), siga este procedimiento.
 
 .Acerca de los ejemplos
-Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:
+Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interruptores y nodos:
 
 * Los nombres de los dos switches de Cisco son cs1 y cs2.
 * Los nombres de los nodos son node1-01, node1-02, node1-03 y node1-04.
@@ -24,29 +24,29 @@ Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo
 ** node1-04_clus1 y node1-04_clus2 para node1-04
 
 
-* La `cluster1::*>` prompt indica el nombre del clúster.
+* El `cluster1::*>` El indicador muestra el nombre del clúster.
 
 
 .Acerca de esta tarea
-Para ello, es necesario utilizar tanto comandos de la ONTAP como comandos de la serie Cisco Nexus 9000; los comandos de la ONTAP se usan a menos que se indique lo contrario.
+El procedimiento requiere el uso de comandos ONTAP y comandos de switches Cisco Nexus serie 9000; se utilizan comandos ONTAP a menos que se indique lo contrario.
 
 .Pasos
-. Si se habilita AutoSupport en este clúster, elimine la creación automática de casos invocando un mensaje de AutoSupport: `system node autosupport invoke -node * -type all -message MAINT=x h`
+. Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=x h`
 +
 donde x es la duración de la ventana de mantenimiento en horas.
 
 +
 
-NOTE: El mensaje de AutoSupport notifica al soporte técnico de esta tarea de mantenimiento para que la creación automática de casos se suprima durante la ventana de mantenimiento.
+NOTE: El mensaje de AutoSupport notifica al soporte técnico sobre esta tarea de mantenimiento para que se suprima la creación automática de casos durante la ventana de mantenimiento.
 
-. Cambie el nivel de privilegio a avanzado, introduciendo *y* cuando se le solicite continuar:
+. Cambie el nivel de privilegio a avanzado, ingresando *y* cuando se le solicite continuar:
 +
 [source, cli]
 ----
 set -privilege advanced
 ----
 +
-El aviso avanzado (`*>`) aparece.
+La solicitud avanzada(`*>` ) aparece.
 
 . Consulta el estado administrativo y operativo de cada puerto.
 +
@@ -59,7 +59,7 @@ El aviso avanzado (`*>`) aparece.
 network device-discovery show -protocol cdp
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -105,7 +105,7 @@ node1-02/cdp
 network port show -ipspace Cluster
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -157,7 +157,7 @@ e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
 network interface show -vserver Cluster
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -189,7 +189,7 @@ Cluster
 `ha interconnect status show -node <node-name>`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -257,7 +257,7 @@ Interconnect Port 1 :
 storage port show -port-type ENET
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -300,7 +300,7 @@ node1-04
 storage shelf port show
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -337,7 +337,7 @@ Shelf ID Module State        Internal?
 storage shelf port show -fields remote-device,remote-port,connector-state
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -372,14 +372,14 @@ shelf id connector-state remote-port    remote-device
 
 . Verificar la conectividad de las interfaces del clúster remoto.
 +
-.. Puedes utilizar el `network interface check cluster-connectivity show` Comando para mostrar los detalles de una verificación de accesibilidad para la conectividad del clúster:
+.. Puedes usar el `network interface check cluster-connectivity show` comando para mostrar los detalles de una comprobación de accesibilidad para la conectividad del clúster:
 +
 [source, cli]
 ----
 network interface check cluster-connectivity show
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -402,12 +402,12 @@ node1-02
 .
 ----
 ====
-.. Alternativamente, puede utilizar el `cluster ping-cluster -node <node-name>` Comando para comprobar la conectividad:
+.. Alternativamente, puede utilizar el `cluster ping-cluster -node <node-name>` comando para comprobar la conectividad:
 +
 `cluster ping-cluster -node <node-name>`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -459,7 +459,7 @@ RPC status:
 network interface show -vserver Cluster -fields auto-revert
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -482,5 +482,5 @@ Cluster node1-04_clus2     true
 ====
 
 
-.El futuro
-Una vez que se haya preparado para instalar el software NX-OS y RCF, debelink:install-nxos-software-9332d-cluster.html["instalar o actualizar el software NX-OS"] .
+.¿Que sigue?
+Después de haberte preparado para instalar el software NX-OS y RCF, link:install-nxos-software-9332d-cluster.html["instalar o actualizar el software NX-OS"].

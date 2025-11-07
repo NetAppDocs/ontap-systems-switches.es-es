@@ -2,29 +2,29 @@
 permalink: switch-cisco-3132q-v/cn5596-migrate-workflow.html 
 sidebar: sidebar 
 keywords: 3132q-v cabling setup, 3132q-v switches configuration, nx-os 
-summary: Antes de configurar el conmutador Cisco 3132q-v, revise la siguiente información. 
+summary: Antes de configurar su switch Cisco 3132q-v, revise la siguiente información. 
 ---
-= Migre de switches Nexus 5596 al flujo de trabajo de switches Nexus 3132Q-V.
+= Flujo de trabajo para migrar de switches Nexus 5596 a switches Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga estos pasos del flujo de trabajo para migrar los switches Cisco Nexus 5596 a los switches Cisco Nexus 3132Q-V.
+Siga estos pasos del flujo de trabajo para migrar sus switches Cisco Nexus 5596 a switches Cisco Nexus 3132Q-V.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:cn5596-migrate-requirements.html["Requisitos de migración"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1"]link:cn5596-migrate-requirements.html["Requisitos de migración"]
 [role="quick-margin-para"]
-Revise los requisitos y la información del switch de ejemplo para el proceso de migración.
+Revise los requisitos y la información de ejemplo del conmutador para el proceso de migración.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"]link:cn5596-prepare-to-migrate.html["Prepare la migración"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"]link:cn5596-prepare-to-migrate.html["Prepárate para la migración"]
 [role="quick-margin-para"]
-Prepare los switches Nexus 5596 para la migración a los switches Nexus 3132Q-V.
+Prepare sus switches Nexus 5596 para la migración a switches Nexus 3132Q-V.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"]link:cn5596-configure-ports.html["Configure los puertos"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"]link:cn5596-configure-ports.html["Configura tus puertos"]
 [role="quick-margin-para"]
 Configure sus puertos para la migración a los nuevos switches Nexus 3132Q-V.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:cn5596-complete-migration.html["Completa la migración"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:cn5596-complete-migration.html["Completa tu migración"]
 [role="quick-margin-para"]
-Complete la migración a los nuevos switches de Nexus 3132Q-V.
+Completa tu migración a los nuevos switches Nexus 3132Q-V.

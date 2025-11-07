@@ -2,27 +2,27 @@
 permalink: switch-cisco-3232c/migrate-from-switchless-configure-ports.html 
 sidebar: sidebar 
 keywords: cisco 3232c, cluster switches 
-summary: Puede utilizar switches Cisco Nexus 3232C como switches de clúster en su clúster AFF o FAS. 
+summary: Puede utilizar los switches Cisco Nexus 3232C como switches de clúster en su clúster AFF o FAS . 
 ---
-= Configure sus puertos para la migración de un clúster de dos nodos sin switch a un clúster de dos nodos con switches
+= Configure sus puertos para la migración de un clúster de dos nodos sin conmutador a un clúster de dos nodos con conmutador.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga estos pasos para configurar los puertos para migrar desde un clúster de dos nodos sin switches a un clúster de dos nodos con switches Nexus 3232C.
+Siga estos pasos para configurar sus puertos para la migración de un clúster de dos nodos sin conmutador a un clúster de dos nodos con conmutador en conmutadores Nexus 3232C.
 
 .Pasos
-. Migre los LIF n1_clus1 y n2_clus1 a los puertos físicos de sus nodos de destino:
+. Migrar las LIF n1_clus1 y n2_clus1 a los puertos físicos de sus nodos de destino:
 +
 `network interface migrate -vserver _vserver-name_ -lif _lif-name_ source-node _source-node-name_ -destination-port _destination-port-name_`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-Debe ejecutar el comando para cada nodo local tal y como se muestra en el ejemplo siguiente:
+Debe ejecutar el comando para cada nodo local como se muestra en el siguiente ejemplo:
 
 [listing, subs="+quotes"]
 ----
@@ -32,15 +32,15 @@ cluster::*> *network interface migrate -vserver cluster -lif n2_clus1 -source-no
 -destination-node n2 -destination-port e4e*
 ----
 ====
-. Compruebe que las interfaces del clúster han migrado correctamente:
+. Verifique que las interfaces del clúster se hayan migrado correctamente:
 +
 `network interface show -role cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-En el siguiente ejemplo, se muestra el estado "is Home" de las LIF n1_clus1 y n2_clus1 se ha convertido en "false" una vez completada la migración:
+El siguiente ejemplo muestra que el estado "Is Home" para las LIF n1_clus1 y n2_clus1 se ha vuelto "falso" después de que se completa la migración:
 
 [listing, subs="+quotes"]
 ----
@@ -57,15 +57,15 @@ Cluster
  4 entries were displayed.
 ----
 ====
-. Apague los puertos del clúster de las LIF n1_clus1 y n2_clus1, que se migraron en el paso 9:
+. Desactive los puertos del clúster para las LIF n1_clus1 y n2_clus1, que se migraron en el paso 9:
 +
 `network port modify -node _node-name_ -port _port-name_ -up-admin false`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-Debe ejecutar el comando para cada puerto tal y como se muestra en el ejemplo siguiente:
+Debe ejecutar el comando para cada puerto como se muestra en el siguiente ejemplo:
 
 [listing, subs="+quotes"]
 ----
@@ -73,22 +73,22 @@ cluster::*> *network port modify -node n1 -port e4a -up-admin false*
 cluster::*> *network port modify -node n2 -port e4a -up-admin false*
 ----
 ====
-. Compruebe la conectividad de las interfaces del clúster remoto:
+. Verifique la conectividad de las interfaces del clúster remoto:
 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.9.1 y versiones posteriores
+.ONTAP 9.9.1 y posteriores
 --
-Puede utilizar el `network interface check cluster-connectivity` comando para iniciar una comprobación de accesibilidad de la conectividad del clúster y, a continuación, muestre los detalles:
+Puedes usar el `network interface check cluster-connectivity` comando para iniciar una comprobación de accesibilidad para la conectividad del clúster y luego mostrar los detalles:
 
-`network interface check cluster-connectivity start` y.. `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`y `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* Espere varios segundos antes de ejecutar el `show` comando para mostrar los detalles.
+*NOTA:* Espere unos segundos antes de ejecutar el programa. `show` comando para mostrar los detalles.
 
 [listing, subs="+quotes"]
 ----
@@ -105,9 +105,9 @@ n2
        3/5/2022 19:21:20 -06:00   n2_clus2         n1_clus2         none
 ----
 --
-.Todos los lanzamientos de ONTAP
+.Todas las versiones de ONTAP
 --
-En todas las versiones de ONTAP, también se puede utilizar el `cluster ping-cluster -node <name>` comando para comprobar la conectividad:
+Para todas las versiones de ONTAP , también puede usar el `cluster ping-cluster -node <name>` comando para comprobar la conectividad:
 
 `cluster ping-cluster -node <name>`
 
@@ -137,23 +137,23 @@ Larger than PMTU communication succeeds on 4 path(s) RPC status:
 ----
 --
 ====
-. [[step5]] Desconecte el cable de E4A en el nodo n1.
+. [[step5]] Desconecta el cable de e4a en el nodo n1.
 +
-Puede consultar la configuración en ejecución y conectar el primer puerto de 40 GbE del switch C1 (puerto 1/7 en este ejemplo) a e4a en la n1 utilizando el cableado compatible con los switches Nexus 3232C.
+Puede consultar la configuración en ejecución y conectar el primer puerto 40 GbE del switch C1 (puerto 1/7 en este ejemplo) a e4a en n1 utilizando el cableado compatible con los switches Nexus 3232C.
 
-. Desconecte el cable del e4a del nodo n2.
+. Desconecta el cable de e4a en el nodo n2.
 +
 Puede consultar la configuración en ejecución y conectar e4a al siguiente puerto 40 GbE disponible en C1, puerto 1/8, utilizando el cableado compatible.
 
 . Habilite todos los puertos orientados al nodo en C1.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte las guías que se enumeran en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos NX-OS de Cisco Nexus serie 3000"^].
+Para obtener más información sobre los comandos de Cisco , consulte las guías que se enumeran en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos de Cisco Nexus serie 3000 NX-OS"^] .
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-En el siguiente ejemplo se muestran los puertos 1 a 30 habilitados en los switches del clúster Nexus 3232C C1 y C2 que utilizan la configuración admitida en RCF `NX3232_RCF_v1.0_24p10g_26p100g.txt`:
+El siguiente ejemplo muestra la habilitación de los puertos del 1 al 30 en los conmutadores de clúster Nexus 3232C C1 y C2 mediante la configuración compatible con RCF. `NX3232_RCF_v1.0_24p10g_26p100g.txt` :
 
 [listing, subs="+quotes"]
 ----
@@ -164,12 +164,12 @@ C1(config-if-range)# *exit*
 C1(config)# *exit*
 ----
 ====
-. Active el primer puerto del clúster, e4a, en cada nodo:
+. Habilite el primer puerto del clúster, e4a, en cada nodo:
 +
 `network port modify -node _node-name_ -port _port-name_ -up-admin true`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -178,12 +178,12 @@ cluster::*> *network port modify -node n1 -port e4a -up-admin true*
 cluster::*> *network port modify -node n2 -port e4a -up-admin true*
 ----
 ====
-. Compruebe que los clústeres estén en ambos nodos:
+. Verifique que los clústeres estén activos en ambos nodos:
 +
 `network port show -role cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -209,15 +209,15 @@ e4e       Cluster      Cluster          up   9000 auto/40000  -
 4 entries were displayed.
 ----
 ====
-. Para cada nodo, revierte todos los LIF de interconexión de clúster migrados:
+. Para cada nodo, revierta todas las LIF de interconexión del clúster migradas:
 +
 `network interface revert -vserver cluster -lif _lif-name_`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-Debe revertir cada LIF a su puerto de inicio de forma individual, como se muestra en el ejemplo siguiente:
+Debe revertir cada LIF a su puerto de origen individualmente, como se muestra en el siguiente ejemplo:
 
 [listing, subs="+quotes"]
 ----
@@ -225,15 +225,15 @@ cluster::*> *network interface revert -vserver cluster -lif n1_clus1*
 cluster::*> *network interface revert -vserver cluster -lif n2_clus1*
 ----
 ====
-. Compruebe que todas las LIF se han revertido a sus puertos principales:
+. Verifique que todos los LIF hayan vuelto a sus puertos de origen:
 +
 `network interface show -role cluster`
 
 +
-La `Is Home` la columna debe mostrar un valor de `true` para todos los puertos enumerados en la `Current Port` columna. Si el valor mostrado es `false`, el puerto no se ha revertido.
+El `Is Home` La columna debe mostrar un valor de `true` para todos los puertos enumerados en el `Current Port` columna.  Si el valor mostrado es `false` , el puerto no se ha revertido.
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -251,12 +251,12 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. Muestre la conectividad de puerto del clúster en cada nodo:
+. Muestra la conectividad del puerto del clúster en cada nodo:
 +
 `network device-discovery show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -273,15 +273,15 @@ n2         /cdp
             e4e    n1                  e4e              FAS9000
 ----
 ====
-. Migre clus2 al puerto e4a de la consola de cada nodo:
+. Migrar clus2 al puerto e4a en la consola de cada nodo:
 +
 `network interface migrate cluster -lif _lif-name_ -source-node _source-node-name_ -destination-node _destination-node-name_ -destination-port _destination-port-name_`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-Debe migrar cada LIF a su puerto de inicio de forma individual, como se muestra en el ejemplo siguiente:
+Debe migrar cada LIF a su puerto de origen individualmente, como se muestra en el siguiente ejemplo:
 
 [listing, subs="+quotes"]
 ----
@@ -291,15 +291,15 @@ cluster::*> *network interface migrate -vserver cluster -lif n2_clus2 -source-no
 -destination-node n2 -destination-port e4a*
 ----
 ====
-. Apague los puertos de clúster clus2 LIF en ambos nodos:
+. Desactive los puertos del clúster clus2 LIF en ambos nodos:
 +
 `network port modify`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-En el ejemplo siguiente se muestran los puertos especificados que se están estableciendo en `false`, apagando los puertos en ambos nodos:
+El siguiente ejemplo muestra los puertos especificados configurados para `false` , cerrando los puertos en ambos nodos:
 
 [listing, subs="+quotes"]
 ----
@@ -307,12 +307,12 @@ cluster::*> *network port modify -node n1 -port e4e -up-admin false*
 cluster::*> *network port modify -node n2 -port e4e -up-admin false*
 ----
 ====
-. Compruebe el estado de LIF del clúster:
+. Verifique el estado del clúster LIF:
 +
 `network interface show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -330,20 +330,20 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. Desconecte el cable del e4e en el nodo n1.
+. Desconecta el cable de e4e en el nodo n1.
 +
-Puede consultar la configuración en ejecución y conectar el primer puerto de 40 GbE del switch C2 (puerto 1/7 en este ejemplo) a e4e en el nodo n1, utilizando el cableado adecuado para el modelo de switch Nexus 3232C.
+Puede consultar la configuración en ejecución y conectar el primer puerto 40 GbE del switch C2 (puerto 1/7 en este ejemplo) a e4e en el nodo n1, utilizando el cableado apropiado para el modelo de switch Nexus 3232C.
 
-. Desconecte el cable del e4e en el nodo n2.
+. Desconecta el cable de e4e en el nodo n2.
 +
-Puede consultar la configuración en ejecución y conectar e4e al siguiente puerto de 40 GbE disponible en C2, puerto 1/8, utilizando el cableado adecuado para el modelo de switch Nexus 3232C.
+Puede consultar la configuración en ejecución y conectar e4e al siguiente puerto 40 GbE disponible en C2, puerto 1/8, utilizando el cableado apropiado para el modelo de conmutador Nexus 3232C.
 
 . Habilite todos los puertos orientados al nodo en C2.
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-En el ejemplo siguiente se muestran los puertos 1 a 30 activados en los switches de clúster C1 y C2 de Nexus 3132Q-V. mediante una configuración compatible con RCF `NX3232C_RCF_v1.0_24p10g_26p100g.txt`:
+El siguiente ejemplo muestra la habilitación de los puertos del 1 al 30 en los conmutadores de clúster Nexus 3132Q-V C1 y C2 mediante una configuración compatible con RCF. `NX3232C_RCF_v1.0_24p10g_26p100g.txt` :
 
 [listing, subs="+quotes"]
 ----
@@ -354,15 +354,15 @@ C2(config-if-range)# *exit*
 C2(config)# *exit*
 ----
 ====
-. Active el segundo puerto del clúster, e4e, en cada nodo:
+. Habilite el segundo puerto del clúster, e4e, en cada nodo:
 +
 `network port modify`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-En el siguiente ejemplo se muestra el segundo puerto e4e del clúster que se está poniendo en marcha en cada nodo:
+El siguiente ejemplo muestra cómo se activa el segundo puerto del clúster e4e en cada nodo:
 
 [listing, subs="+quotes"]
 ----
@@ -370,15 +370,15 @@ cluster::*> *network port modify -node n1 -port e4e -up-admin true*
 cluster::*> *network port modify -node n2 -port e4e -up-admin true*s
 ----
 ====
-. Para cada nodo, revierte todos los LIF de interconexión de clúster migrados:
+. Para cada nodo, revierta todas las LIF de interconexión del clúster migradas:
 +
 `network interface revert`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-En el ejemplo siguiente se muestran los LIF migrados que se han revertido a sus puertos principales.
+El siguiente ejemplo muestra cómo las LIF migradas vuelven a sus puertos de origen.
 
 [listing, subs="+quotes"]
 ----
@@ -388,5 +388,5 @@ cluster::*> *network interface revert -vserver Cluster -lif n2_clus2*
 ====
 
 
-.El futuro
-link:migrate-from-switchless-complete-migration.html["Completa la migración"].
+.¿Que sigue?
+link:migrate-from-switchless-complete-migration.html["Completa tu migración"].

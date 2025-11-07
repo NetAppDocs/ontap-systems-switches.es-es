@@ -2,7 +2,7 @@
 permalink: switch-cisco-9332d-gx2b/smart-call-9332d-cluster.html 
 sidebar: sidebar 
 keywords: cisco smart call,small call home 
-summary: Smart Call Home supervisa los componentes de hardware y software de su red para generar una notificación basada en correo electrónico de las condiciones críticas del sistema. Cuando se produce un evento en el dispositivo, Smart Call Home genera una alerta a todos los destinatarios configurados en el perfil de destino. 
+summary: Smart Call Home monitoriza los componentes de hardware y software de su red para generar una notificación por correo electrónico sobre condiciones críticas del sistema.  Cuando se produce un evento en su dispositivo, Smart Call Home envía una alerta a todos los destinatarios configurados en su perfil de destino. 
 ---
 = Requisitos de Smart Call Home
 :allow-uri-read: 
@@ -19,11 +19,11 @@ Smart Call Home monitorea los componentes de hardware y software de su red. Cuan
 
 Antes de poder utilizar Smart Call Home, tenga en cuenta los siguientes requisitos:
 
-* Debe haber un servidor de correo electrónico.
+* Debe haber un servidor de correo electrónico instalado.
 * El switch debe tener conectividad IP con el servidor de correo electrónico.
-* Se debe configurar el nombre del contacto (contacto del servidor SNMP), el número de teléfono y la dirección de la calle. Esto es necesario para determinar el origen de los mensajes recibidos.
-* Un ID de CCO debe estar asociado con un contrato de servicio Cisco SMARTnet adecuado para su empresa.
-* El servicio Cisco SMARTnet debe estar en su lugar para que el dispositivo se registre.
+* Debe configurarse el nombre del contacto (contacto del servidor SNMP), el número de teléfono y la información de la dirección postal.  Esto es necesario para determinar el origen de los mensajes recibidos.
+* Debe asociarse un ID de CCO con un contrato de servicio Cisco SMARTnet apropiado para su empresa.
+* El servicio Cisco SMARTnet debe estar instalado para que el dispositivo pueda registrarse.
 
 
-La http://www.cisco.com/c/en/us/products/switches/index.html["Sitio de soporte de Cisco"^] Contiene información acerca de los comandos para configurar Smart Call Home.
+El http://www.cisco.com/c/en/us/products/switches/index.html["sitio de soporte de Cisco"^] Contiene información sobre los comandos para configurar Smart Call Home.

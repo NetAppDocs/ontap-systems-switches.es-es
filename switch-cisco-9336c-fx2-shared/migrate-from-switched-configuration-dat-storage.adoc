@@ -14,25 +14,25 @@ summary:
 
 
 [role="lead"]
-Puede migrar desde una configuración con switch con almacenamiento de conexión directa agregando dos nuevos switches compartidos.
+Puede migrar desde una configuración conmutada con almacenamiento de conexión directa agregando dos nuevos conmutadores compartidos.
 
-.Switches compatibles
-Se admiten los siguientes switches:
+.Interruptores compatibles
+Se admiten los siguientes conmutadores:
 
 * Nexus 9336C-FX2
 * Nexus 3232C
 
 
-Las versiones ONTAP y NX-OS compatibles con este procedimiento se encuentran en la página Cisco Ethernet Switches. Consulte https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"].
+Las versiones de ONTAP y NX-OS compatibles con este procedimiento se encuentran en la página de switches Ethernet de Cisco . Ver https://mysupport.netapp.com/site/info/cisco-ethernet-switch["conmutadores Ethernet de Cisco"] .
 
 .Puertos de conexión
-Los switches utilizan los siguientes puertos para conectarse a los nodos:
+Los conmutadores utilizan los siguientes puertos para conectarse a los nodos:
 
 * Nexus 9336C-FX2:
 +
-** Puertos 1- 3: Modo de arranque (4 x 10 G) puertos intra-clúster, int e1/1/1-4, e1/2/1-4, e1/3/1-4
-** Puertos 4- 6: Modo de arranque (4x25G) puertos Intra-Cluster/ha, int e1/4/1-4, e1/5/1-4, e1/6/1-4
-** Puertos 7-34: Puertos intra-clúster/alta disponibilidad de 40 GbE, int e1/7-34
+** Puertos 1-3: Modo Breakout (4x10G) Puertos intraclúster, int e1/1/1-4, e1/2/1-4, e1/3/1-4
+** Puertos 4-6: Modo Breakout (4x25G) Puertos intraclúster/HA, int e1/4/1-4, e1/5/1-4, e1/6/1-4
+** Puertos 7-34: Puertos intraclúster/HA 40/100GbE, int e1/7-34
 
 
 * Nexus 3232C:
@@ -40,62 +40,62 @@ Los switches utilizan los siguientes puertos para conectarse a los nodos:
 ** Puertos 1-30: 10/40/100 GbE
 
 
-* Los switches utilizan los siguientes puertos de enlace entre switches (ISL):
+* Los conmutadores utilizan los siguientes puertos de enlace entre conmutadores (ISL):
 +
-** Puertos E1/35-36: Nexus 9336C-FX2
+** Puertos int e1/35-36: Nexus 9336C-FX2
 ** Puertos e1/31-32: Nexus 3232C
 
 
 
 
-La https://hwu.netapp.com["Hardware Universe"] contiene información sobre el cableado compatible para todos los switches de clúster.
+El https://hwu.netapp.com["Hardware Universe"] Contiene información sobre el cableado compatible para todos los conmutadores del clúster.
 
-.Lo que necesitará
-* Asegúrese de completar las siguientes tareas:
+.Lo que necesitarás
+* Asegúrese de haber completado las siguientes tareas:
 +
-** Se configuraron algunos puertos en los switches Nexus 9336C-FX2 a 100 GbE.
-** Conectividad 100 GbE planificada, migrada y documentada desde nodos a switches Nexus 9336C-FX2.
-** Migre de forma no disruptiva otros switches de clúster Cisco de un clúster ONTAP a los switches de red Cisco Nexus 9336C-FX2.
+** Se configuraron algunos de los puertos de los switches Nexus 9336C-FX2 para que funcionen a 100 GbE.
+** Se planificó, migró y documentó la conectividad 100 GbE desde los nodos a los conmutadores Nexus 9336C-FX2.
+** Migramos sin interrupciones otros switches de clúster de Cisco desde un clúster ONTAP a switches de red Cisco Nexus 9336C-FX2.
 
 
-* La red de switches existente está correctamente configurada y funciona.
-* Todos los puertos se encuentran en el estado *up* para garantizar operaciones no disruptivas.
-* Los switches Nexus 9336C-FX2 están configurados y funcionan con la versión adecuada del archivo de configuración de referencia (RCF) y de NX-OS instalado.
-* La configuración de red existente tiene lo siguiente:
+* La red de conmutación existente está configurada y funcionando correctamente.
+* Todos los puertos están en estado *activo* para garantizar un funcionamiento sin interrupciones.
+* Los switches Nexus 9336C-FX2 están configurados y funcionando con la versión correcta de NX-OS instalada y el archivo de configuración de referencia (RCF) aplicado.
+* La configuración de red existente presenta lo siguiente:
 +
-** Un clúster de NetApp redundante y totalmente funcional mediante switches Cisco anteriores.
-** Conectividad de la administración y acceso de consola a los switches Cisco anteriores y a los nuevos.
-** Todas las LIF del clúster en el estado *up* con las LIF del clúster se encuentran en sus puertos de inicio.
-** Puertos ISL habilitados y cableado entre los otros switches Cisco y entre los nuevos switches.
+** Un clúster NetApp redundante y totalmente funcional que utiliza ambos switches Cisco antiguos.
+** Conectividad de gestión y acceso a la consola tanto para los switches Cisco antiguos como para los nuevos.
+** Todas las LIF del clúster en estado *activo* están en sus puertos de inicio.
+** Puertos ISL habilitados y cableados entre los otros switches de Cisco y entre los nuevos switches.
 
 
 
 
 .Acerca de los ejemplos
-Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:
+Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interruptores y nodos:
 
-* Los switches de clúster existentes de Cisco Nexus 3232C son _c1_ y _c2_.
+* Los switches de clúster Cisco Nexus 3232C existentes son _c1_ y _c2_.
 * Los nuevos switches Nexus 9336C-FX2 son _sh1_ y _sh2_.
-* Los nodos son _1_ y _2_.
-* Las LIF del clúster son _1_clus1_ y _1_clus2_ en el nodo 1, y _2_clus1_ y _2_clus2_ en el nodo 2, respectivamente.
-* El interruptor c2 se sustituye primero por el interruptor sh2 y, a continuación, el interruptor c1 se sustituye por el interruptor sh1.
+* Los nodos son _nodo1_ y _nodo2_.
+* Los LIF del clúster son _node1_clus1_ y _node1_clus2_ en el nodo 1, y _node2_clus1_ y _node2_clus2_ en el nodo 2 respectivamente.
+* El interruptor c2 se reemplaza primero por el interruptor sh2 y luego el interruptor c1 se reemplaza por el interruptor sh1.
 
 
 .Pasos
-. Si se habilita AutoSupport en este clúster, elimine la creación automática de casos invocando un mensaje de AutoSupport:
+. Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=x h`
 
 +
-Donde x es la duración de la ventana de mantenimiento en horas.
+Donde x es la duración del período de mantenimiento en horas.
 
-. Compruebe el estado administrativo y operativo de cada puerto del clúster.
-. Compruebe que todos los puertos del clúster tengan el estado correcto:
+. Verifique el estado administrativo y operativo de cada puerto del clúster.
+. Verifique que todos los puertos del clúster estén activos y en buen estado:
 +
 `network port show –role cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -122,12 +122,12 @@ cluster1::*>
 ====
 
 
-. [[step4]]Compruebe que todas las interfaces de clúster (LIF) estén en el puerto de inicio:
+. [[step4]]Verifique que todas las interfaces del clúster (LIF) estén en el puerto principal:
 +
 `network interface show -role cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -147,12 +147,12 @@ cluster1::*>
 ====
 
 
-. [[step5]]Compruebe que el clúster muestre información de los dos switches del clúster:
+. [[step5]]Verifique que el clúster muestre información para ambos conmutadores del clúster:
 +
 `system cluster-switch show -is-monitoring-enabled-operational true`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -179,9 +179,9 @@ cluster1::*>
 ====
 
 
-. [[step6]]deshabilite la reversión automática en las LIF del clúster.
+. [[step6]]Deshabilitar la reversión automática en los LIF del clúster.
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -191,9 +191,9 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert fals
 ====
 
 
-. [[step7]]apague el interruptor c2.
+. [[step7]]Apague el interruptor c2.
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -206,15 +206,15 @@ c2(config)# *shutdown*
 ====
 
 
-. [[paso8]]Compruebe que las LIF del clúster han migrado a los puertos alojados en el switch del clúster sh1:
+. [[step8]]Verificar que las LIF del clúster se hayan migrado a los puertos alojados en el switch del clúster sh1:
 +
 `network interface show -role cluster`
 
 +
-Esto puede tardar unos segundos.
+Esto podría tardar unos segundos.
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -234,11 +234,11 @@ cluster1::*>
 ====
 
 
-. [[step9]]sustituya el interruptor c2 por el nuevo interruptor sh2 y vuelva a conectar el nuevo interruptor.
-. Compruebe que los puertos están de nuevo en sh2. *Tenga en cuenta* que los LIF siguen en el conmutador c1.
+. [[step9]]Reemplace el interruptor c2 con el nuevo interruptor sh2 y vuelva a cablear el nuevo interruptor.
+. Verifique que los puertos estén de nuevo operativos en sh2.  *Nota*: Los LIF todavía están en el interruptor c1.
 . Apague el interruptor c1.
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -251,9 +251,9 @@ c1(config)# *shutdown*
 ====
 
 
-. [[paso 12]]Compruebe que las LIF del clúster han migrado a los puertos alojados en el switch del clúster sh2. Esto puede tardar unos segundos.
+. [[step12]]Verifique que las LIF del clúster se hayan migrado a los puertos alojados en el switch del clúster sh2. Esto podría tardar unos segundos.
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -273,11 +273,11 @@ cluster1::*>
 ====
 
 
-. [[step13]]sustituya el interruptor c1 por el nuevo interruptor sh1 y vuelva a conectar el nuevo interruptor.
-. Compruebe que los puertos están de nuevo en sh1. *Nota* que los LIF están todavía en el conmutador c2.
-. Habilite la reversión automática en las LIF del clúster:
+. [[step13]]Reemplace el interruptor c1 con el nuevo interruptor sh1 y vuelva a cablear el nuevo interruptor.
+. Verifique que los puertos estén de nuevo operativos en sh1.  *Nota*: Los LIF todavía están en el interruptor c2.
+. Habilitar la reversión automática en los LIF del clúster:
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -287,12 +287,12 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert True
 ====
 
 
-. [[paso16]]Compruebe que el clúster esté en buen estado:
+. [[step16]]Verificar que el clúster esté en buen estado:
 +
 `cluster show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -308,5 +308,5 @@ cluster1::*>
 ====
 
 
-.El futuro
+.¿Que sigue?
 Después de migrar tus switches, puedes link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"].

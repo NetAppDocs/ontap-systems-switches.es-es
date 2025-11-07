@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: switches initial setup,initial setup,efos download 
 summary: Puede utilizar este procedimiento para realizar la instalación inicial del conmutador de clúster BES-53248. 
 ---
-= Configure el conmutador de clúster BES-53248
+= Configurar el conmutador de clúster BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -14,8 +14,8 @@ summary: Puede utilizar este procedimiento para realizar la instalación inicial
 Siga estos pasos para realizar una configuración inicial del conmutador de clúster BES-53248.
 
 .Antes de empezar
-* El hardware está instalado, como se describe en link:install-hardware-bes53248.html["Instale el hardware"].
-* Ha revisado lo siguiente:
+* El hardware se instala según se describe enlink:install-hardware-bes53248.html["Instala el hardware"] .
+* Has revisado lo siguiente:
 +
 ** link:configure-reqs-bes53248.html["Requisitos de configuración"]
 ** link:components-bes53248.html["Componentes y números de pieza"]
@@ -25,31 +25,31 @@ Siga estos pasos para realizar una configuración inicial del conmutador de clú
 
 
 .Acerca de los ejemplos
-Los ejemplos de los procedimientos de configuración utilizan la siguiente nomenclatura de conmutación y nodo:
+Los ejemplos de los procedimientos de configuración utilizan la siguiente nomenclatura de interruptores y nodos:
 
-* Los nombres de los switches de NetApp son `cs1` y.. `cs2`. La actualización se inicia en el segundo conmutador, _cs2._
-* Los nombres de LIF del clúster son `node1_clus1` y.. `node1_clus2` para los nodos 1, y. `node2_clus1` y.. `node2_clus2` para el 2.
+* Los nombres de los switches NetApp son `cs1` y `cs2` .  La actualización comienza en el segundo switch, _cs2._
+* Los nombres de los clústeres LIF son `node1_clus1` y `node1_clus2` para el nodo 1, y `node2_clus1` y `node2_clus2` para el nodo 2.
 * El nombre del espacio IP es Cluster.
-* La `cluster1::>` prompt indica el nombre del clúster.
-* Los puertos del clúster de cada nodo se llaman `e0a` y.. `e0b`. Consulte https://hwu.netapp.com/Home/Index["Hardware Universe de NetApp"^] para los puertos de clúster reales compatibles con la plataforma.
-* Los vínculos entre switches (ISL) compatibles con los switches de NetApp son los puertos 0/55 y 0/56.
-* Las conexiones de nodos compatibles con los switches de NetApp son los puertos 0/1 a 0/16, con licencia predeterminada.
-* En los ejemplos se utilizan dos nodos, pero puede tener hasta 24 nodos en un clúster.
+* El `cluster1::>` El indicador muestra el nombre del clúster.
+* Los puertos del clúster en cada nodo se llaman `e0a` y `e0b` .  Ver el https://hwu.netapp.com/Home/Index["NetApp Hardware Universe"^] para los puertos de clúster reales compatibles con su plataforma.
+* Los enlaces entre conmutadores (ISL) compatibles con los conmutadores NetApp son los puertos 0/55 y 0/56.
+* Las conexiones de nodo compatibles con los switches NetApp son los puertos 0/1 a 0/16 con licencia predeterminada.
+* Los ejemplos utilizan dos nodos, pero puede haber hasta 24 nodos en un clúster.
 
 
 .Pasos
-. Conecte el puerto serie a un host o puerto serie.
-. Conecte el puerto de administración (el puerto de llave RJ-45 en el lado izquierdo del switch) a la misma red en la que se encuentra el servidor TFTP.
-. En la consola, configure los ajustes de serie del lado del host:
+. Conecte el puerto serie a un host o a otro puerto serie.
+. Conecte el puerto de administración (el puerto RJ-45 con forma de llave inglesa en el lado izquierdo del switch) a la misma red donde se encuentra su servidor TFTP.
+. En la consola, configure los ajustes de serie del host:
 +
 ** 115200 baudios
 ** 8 bits de datos
 ** 1 bit de parada
-** paridad: none
-** control de flujo: ninguno
+** paridad: ninguna
+** Control de flujo: ninguno
 
 
-. Inicie sesión en el conmutador como `admin` Y pulse *Intro* cuando se le solicite una contraseña. El nombre predeterminado del conmutador es *enrutamiento*. Introduzca, en el aviso del `enable`. Esto le permite acceder al modo EXEC privilegiado para la configuración del switch.
+. Inicia sesión en el switch como `admin` y pulse *Enter* cuando se le solicite una contraseña.  El nombre del interruptor predeterminado es *routing*.  Cuando se le solicite, ingrese `enable` .  Esto le da acceso al modo EXEC privilegiado para la configuración del switch.
 +
 [listing, subs="+quotes"]
 ----
@@ -59,21 +59,21 @@ Password:
 Password:
 (Routing)#
 ----
-. Cambie el nombre del conmutador a *cs2*.
+. Cambie el nombre del interruptor a *cs2*.
 +
 [listing, subs="+quotes"]
 ----
 (Routing)# *hostname cs2*
 (cs2)#
 ----
-. Para configurar una dirección de administración IPv4 o IPv6 estática para el puerto de servicio del conmutador:
+. Para configurar una dirección IPv4 o IPv6 estática de administración para el puerto de servicio del switch:
 
 
 [role="tabbed-block"]
 ====
 .IPv4
 --
-el puerto de servicio está configurado para utilizar DHCP de forma predeterminada. La dirección IP, la máscara de subred y la dirección de puerta de enlace predeterminada se asignan automáticamente.
+El puerto de servicio está configurado para usar DHCP de forma predeterminada.  La dirección IP, la máscara de subred y la dirección de puerta de enlace predeterminada se asignan automáticamente.
 
 [listing, subs="+quotes"]
 ----
@@ -84,7 +84,7 @@ el puerto de servicio está configurado para utilizar DHCP de forma predetermina
 --
 .IPv6
 --
-el puerto de servicio está configurado para utilizar DHCP de forma predeterminada. La dirección IP, la máscara de subred y la dirección de puerta de enlace predeterminada se asignan automáticamente.
+El puerto de servicio está configurado para usar DHCP de forma predeterminada.  La dirección IP, la máscara de subred y la dirección de puerta de enlace predeterminada se asignan automáticamente.
 
 [listing, subs="+quotes"]
 ----
@@ -95,7 +95,7 @@ el puerto de servicio está configurado para utilizar DHCP de forma predetermina
 ----
 --
 ====
-. [[paso 7]]Verifique los resultados usando el comando:
+. [[step7]]Verifique los resultados utilizando el comando:
 +
 `show serviceport`
 
@@ -115,7 +115,7 @@ Configured IPv6 Protocol....................... None
 IPv6 AutoConfig Mode........................... Disabled
 Burned In MAC Address.......................... D8:C4:97:71:12:3C
 ----
-. Configure el dominio y el servidor de nombres:
+. Configurar el dominio y el servidor de nombres:
 +
 [source, cli]
 ----
@@ -136,9 +136,9 @@ ip name server <server_name>
 
 [role="tabbed-block"]
 ====
-.EFOS 3.10.0.3 y posterior
+.EFOS 3.10.0.3 y versiones posteriores
 --
-Configure la zona horaria y la sincronización horaria (NTP):
+Configurar la zona horaria y la sincronización horaria (NTP):
 
 [source, cli]
 ----
@@ -154,9 +154,9 @@ clock
 (cs2)#
 ----
 --
-.EFOS 3.9.0.2 y anteriores
+.EFOS 3.9.0.2 y versiones anteriores
 --
-Configure la zona horaria y la sincronización horaria (SNTP):
+Configurar la zona horaria y la sincronización horaria (SNTP):
 
 [source, cli]
 ----
@@ -180,7 +180,7 @@ clock
 
 [role="tabbed-block"]
 ====
-.EFOS 3.10.0.3 y posterior
+.EFOS 3.10.0.3 y versiones posteriores
 --
 Configure la hora manualmente.
 
@@ -203,7 +203,7 @@ No time source
 (cs2)#
 ----
 --
-.EFOS 3.9.0.2 y anteriores
+.EFOS 3.9.0.2 y versiones anteriores
 --
 Configure la hora manualmente.
 
@@ -228,7 +228,7 @@ No time source
 ----
 --
 ====
-. [[step11]]Guardar la configuración en ejecución en la configuración de inicio:
+. [[step11]]Guarde la configuración en ejecución en la configuración de inicio:
 +
 `write memory`
 
@@ -248,5 +248,5 @@ Configuration Saved!
 ----
 
 
-.El futuro
+.¿Que sigue?
 Una vez que hayas configurado tus interruptores, podrás link:configure-efos-software.html["Instale el software EFOS"].

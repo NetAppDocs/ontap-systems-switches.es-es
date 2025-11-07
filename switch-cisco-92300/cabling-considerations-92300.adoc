@@ -2,22 +2,22 @@
 permalink: switch-cisco-92300/cabling-considerations-92300.html 
 sidebar: sidebar 
 keywords: 92300YC cabling setup, 92300YC switches configuration, nx-os 
-summary: Antes de configurar el switch Cisco 92300YC, revise la siguiente información. 
+summary: Antes de configurar su conmutador Cisco 92300YC, revise la siguiente información. 
 ---
-= Revise las consideraciones sobre el cableado y la configuración
+= Revisar las consideraciones de cableado y configuración
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Antes de configurar el switch Cisco 92300YC, revise las siguientes consideraciones.
+Antes de configurar su conmutador Cisco 92300YC, revise las siguientes consideraciones.
 
 
 
-== Compatibilidad con los puertos NVIDIA CX6, CX6-DX y Ethernet de CX7 Gb
+== Compatibilidad con puertos Ethernet NVIDIA CX6, CX6-DX y CX7
 
-Si se conecta un puerto de switch a un controlador ONTAP mediante los puertos NIC NVIDIA ConnectX-6 (CX6), ConnectX-6 Dx (CX6-DX) o ConnectX-7 (CX7), debe codificar de forma fija la velocidad del puerto del switch.
+Si conecta un puerto de conmutador a un controlador ONTAP utilizando puertos NIC NVIDIA ConnectX-6 (CX6), ConnectX-6 Dx (CX6-DX) o ConnectX-7 (CX7), debe codificar la velocidad del puerto del conmutador.
 
 [listing, subs="+quotes"]
 ----
@@ -32,4 +32,4 @@ Si se conecta un puerto de switch a un controlador ONTAP mediante los puertos NI
 *Save the changes:*
 (cs1)# *copy running-config startup-config*
 ----
-Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para obtener más información sobre los puertos de switch.
+Ver el https://hwu.netapp.com/Switch/Index["Hardware Universe"^] Para obtener más información sobre los puertos del switch.

@@ -2,31 +2,31 @@
 permalink: switch-cisco-9336c-fx2-storage/configure-ssh-keys.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9336c-fx2 
-summary: 'SSH es un requisito cuando se utilizan las funciones de recopilación de registros y Monitor de estado del conmutador de clúster \(CSHM\). Para habilitar SSH en los switches de clúster Cisco 9336c-FX2, primero se deben generar las claves SSH y, a continuación, se debe habilitar SSH.' 
+summary: 'SSH es un requisito cuando se utilizan el Monitor de estado del conmutador de clúster (CSHM) y las funciones de recopilación de registros. Para habilitar SSH en los conmutadores de clúster Cisco 9336c-fx2, primero genere las claves SSH y luego habilite SSH.' 
 ---
-= Compruebe su configuración SSH
+= Verifique su configuración SSH
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si utiliza la supervisión de estado del switch Ethernet (CSHM) y las funciones de recogida de registros, compruebe que las claves SSH y SSH estén habilitadas en los switches de clústeres.
+Si está utilizando las funciones de monitorización del estado del conmutador Ethernet (CSHM) y recopilación de registros, verifique que SSH y las claves SSH estén habilitadas en los conmutadores del clúster.
 
 .Pasos
-. Compruebe que SSH está habilitado:
+. Verifique que SSH esté habilitado:
 +
 [listing, subs="+quotes"]
 ----
 (switch) *show ssh server*
 ssh version 2 is enabled
 ----
-. Compruebe que las claves SSH estén habilitadas:
+. Verifique que las claves SSH estén habilitadas:
 +
 `show ssh key`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -61,7 +61,7 @@ sshServer              1          enabled
 
 
 
-IMPORTANT: Al habilitar FIPS, debe cambiar el bitcount a 256 en el conmutador mediante el comando `ssh key ecdsa 256 force`. Consulte https://docs.netapp.com/us-en/ontap/networking/configure_network_security_using_federal_information_processing_standards_@fips@.html#enable-fips["Configurar la seguridad de red con FIPS"^] para obtener más información.
+IMPORTANT: Al habilitar FIPS, debe cambiar el recuento de bits a 256 en el conmutador mediante el comando `ssh key ecdsa 256 force` .  Ver https://docs.netapp.com/us-en/ontap/networking/configure_network_security_using_federal_information_processing_standards_@fips@.html#enable-fips["Configure la seguridad de la red utilizando FIPS."^] Para obtener más detalles.
 
-.El futuro
-Después de haber verificado su configuración SSH,link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"] .
+.¿Que sigue?
+Después de verificar tu configuración SSH,link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"] .

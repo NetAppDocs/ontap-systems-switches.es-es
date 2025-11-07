@@ -2,28 +2,28 @@
 permalink: switch-nvidia-sn2100-storage/components-sn2100-storage.html 
 sidebar: sidebar 
 keywords: nvidia SN2100 switches 
-summary: Para la instalación y el mantenimiento del switch NVIDIA SN2100, asegúrese de revisar la lista de componentes y números de pieza para el kit de armarios y rieles. 
+summary: Para la instalación y el mantenimiento del switch NVIDIA SN2100, asegúrese de revisar la lista de componentes y números de pieza del kit de gabinete y riel. 
 ---
-= Componentes y números de pieza para conmutadores NVIDIA SN2100
+= Componentes y números de pieza para los interruptores NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Para la instalación y el mantenimiento del switch NVIDIA SN2100, asegúrese de revisar la lista de componentes y números de pieza para el kit de armarios y rieles.
+Para la instalación y el mantenimiento del switch NVIDIA SN2100, asegúrese de revisar la lista de componentes y números de pieza del kit de gabinete y riel.
 
 
 
-== Detalles del armario
+== Detalles del gabinete
 
-El conmutador NVIDIA SN2100 (X190006/X190106) se instala en el armario de conmutadores doble/único NVIDIA con los soportes estándar que se incluyen con el conmutador.
+Instale el conmutador NVIDIA SN2100 (X190006/X190106) en el gabinete de conmutadores dobles/simples de NVIDIA con los soportes estándar que se incluyen con el conmutador.
 
 
 
 == Detalles del kit de rieles
 
-La tabla siguiente muestra el número de pieza y la descripción de los interruptores y kits de raíles MSN2100:
+La siguiente tabla enumera el número de pieza y la descripción de los kits de interruptores y rieles MSN2100:
 
 [cols="1,2"]
 |===
@@ -33,46 +33,46 @@ La tabla siguiente muestra el número de pieza y la descripción de los interrup
  a| 
 X190006-PE
  a| 
-Cluster Switch, NVIDIA SN2100, 16PT 100G, PTSX
+Conmutador de clúster, NVIDIA SN2100, 16PT 100G, PTSX
 
 
 
  a| 
 X190006-PI
  a| 
-Cluster Switch, NVIDIA SN2100, 16PT 100G, PSIN
+Conmutador de clúster, NVIDIA SN2100, 16PT 100G, PSIN
 
 
 
  a| 
 X190106-FE-PE
  a| 
-Conmutador, NVIDIA SN2100, 16PT 100G, PTSX, front-end
+Conmutador, NVIDIA SN2100, 16PT 100G, PTSX, Front End
 
 
 
  a| 
 X190106-FE-PI
  a| 
-Conmutador, NVIDIA SN2100, 16PT 100G, PSIN, front-end
+Conmutador, NVIDIA SN2100, 16PT 100G, PSIN, Front End
 
 
 
  a| 
 X-MTEF-KIT-D
  a| 
-Kit de rieles, conmutador doble NVIDIA lado a lado
+Kit de rieles, interruptor doble NVIDIA lado a lado
 
 
 
  a| 
 X-MTEF-KIT-E
  a| 
-Kit de rieles, profundidad corta de un único conmutador NVIDIA
+Kit de rieles, interruptor único NVIDIA de profundidad corta
 
 |===
 
-NOTE: Consulte la documentación de NVIDIA para obtener más información acerca de https://docs.nvidia.com/networking/display/sn2000pub/Installation["Instalación del kit de rieles y interruptor SN2100"^].
+NOTE: Consulte la documentación de NVIDIA para obtener más detalles sobre https://docs.nvidia.com/networking/display/sn2000pub/Installation["Instalación del kit de interruptor y riel SN2100"^] .
 
 .¿Qué sigue?
 Una vez que haya confirmado sus componentes y números de pieza, puede revisar el link:required-documentation-sn2100-storage.html["documentación requerida"].

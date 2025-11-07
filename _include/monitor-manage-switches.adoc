@@ -1,24 +1,24 @@
-= Cree una entrada de conmutador para que ONTAP pueda supervisarla
+= Crea una entrada de switch para que ONTAP pueda monitorizarlo.
 :allow-uri-read: 
 
 
 
 
-== Cree una entrada de conmutador para que ONTAP pueda supervisarla
+== Crea una entrada de switch para que ONTAP pueda monitorizarlo.
 
-Utilice `system switch ethernet create` el comando para configurar y activar manualmente la supervisión de un switch Ethernet especificado. Esto es útil si ONTAP no agrega el conmutador automáticamente, o si ya eliminó el conmutador y desea volver a agregarlo.
+Utilice el `system switch ethernet create` comando para configurar manualmente y habilitar la monitorización de un conmutador Ethernet específico.  Esto resulta útil si ONTAP no agrega el conmutador automáticamente, o si previamente eliminó el conmutador y desea volver a agregarlo.
 
 [source, cli]
 ----
 system switch ethernet create -device DeviceName -address 1.2.3.4 -snmp-version SNMPv2c -community-or-username cshm1! -model NX3132V -type cluster-network
 ----
-Un ejemplo típico es agregar un conmutador llamado [DeviceName], con la dirección IP 1,2.3,4, y las credenciales SNMPv2c establecidas en *cshm1!*. Utilice `-type storage-network` en lugar de `-type cluster-network` si va a configurar un switch de almacenamiento.
+Un ejemplo típico es agregar un switch llamado [DeviceName], con dirección IP 1.2.3.4 y credenciales SNMPv2c configuradas como *cshm1!*.  Usar `-type storage-network` en lugar de `-type cluster-network` Si está configurando un conmutador de almacenamiento.
 
 
 
-== Desactive la supervisión sin eliminar el conmutador
+== Deshabilitar la monitorización sin eliminar el interruptor
 
-Si desea pausar o detener la supervisión de un determinado conmutador, pero aún así conservarlo para una supervisión futura, modifique su `is-monitoring-enabled-admim` parámetro en lugar de eliminarlo.
+Si desea pausar o detener la monitorización de un determinado interruptor, pero conservarla para futuras monitorizaciones, modifique su `is-monitoring-enabled-admim` parámetro en lugar de eliminarlo.
 
 Por ejemplo:
 
@@ -26,22 +26,22 @@ Por ejemplo:
 ----
 system switch ethernet modify -device DeviceName -is-monitoring-enabled-admin false
 ----
-Esto le permite conservar los detalles del switch y la configuración sin generar nuevas alertas o nuevas detecciones.
+Esto le permite conservar los detalles y la configuración del switch sin generar nuevas alertas ni redescubrimientos.
 
 
 
-== Retire un interruptor que ya no necesite
+== Quita el interruptor que ya no necesites.
 
-Se utiliza `system switch ethernet delete` para eliminar un interruptor que se ha desconectado o que ya no es necesario:
+Usar `system switch ethernet delete` Eliminar un interruptor que ha sido desconectado o que ya no es necesario:
 
 [source, cli]
 ----
 system switch ethernet delete -device DeviceName
 ----
-De manera predeterminada, este comando solo se ejecuta correctamente si ONTAP no detecta actualmente el switch a través de CDP o LLDP. Para quitar un conmutador detectado, utilice el `-force` parámetro:
+Por defecto, este comando solo tiene éxito si ONTAP no detecta actualmente el switch a través de CDP o LLDP.  Para extraer un interruptor detectado, utilice el `-force` parámetro:
 
 [source, cli]
 ----
 system switch ethernet delete -device DeviceName -force
 ----
-Cuando `-force` se utiliza, el interruptor puede volver a añadirse automáticamente si ONTAP lo detecta de nuevo.
+Cuando `-force` Si se utiliza, el conmutador podría volver a agregarse automáticamente si ONTAP lo detecta de nuevo.

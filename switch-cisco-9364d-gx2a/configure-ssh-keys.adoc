@@ -2,9 +2,9 @@
 permalink: switch-cisco-9364d-gx2a/configure-ssh-keys.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9332d-gx2b 
-summary: 'SSH es un requisito cuando se utilizan el Monitor de estado del conmutador de clúster (CSHM) y las funciones de recopilación de registros.  Para habilitar SSH en los conmutadores de clúster Cisco 9364d-gx2a, primero genere las claves SSH y luego habilite SSH.' 
+summary: 'SSH es un requisito cuando se utilizan el Monitor de estado del conmutador de clúster (CSHM) y las funciones de recopilación de registros. Para habilitar SSH en los conmutadores de clúster Cisco 9364d-gx2a, primero genere las claves SSH y luego habilite SSH.' 
 ---
-= Compruebe su configuración SSH
+= Verifique su configuración SSH
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -14,19 +14,19 @@ summary: 'SSH es un requisito cuando se utilizan el Monitor de estado del conmut
 Si está utilizando el Monitor de estado del conmutador Ethernet (CSHM) y las funciones de recopilación de registros, verifique que SSH y las claves SSH estén habilitadas en los conmutadores.
 
 .Pasos
-. Compruebe que SSH está habilitado:
+. Verifique que SSH esté habilitado:
 +
 [listing, subs="+quotes"]
 ----
 (switch) *show ssh server*
 ssh version 2 is enabled
 ----
-. Compruebe que las claves SSH estén habilitadas:
+. Verifique que las claves SSH estén habilitadas:
 +
 `show ssh key`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -66,5 +66,5 @@ sshServer              1          enabled
 ====
 
 
-.El futuro
-Después de haber verificado su configuración SSH,link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"] .
+.¿Que sigue?
+Después de verificar tu configuración SSH,link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"] .

@@ -1,9 +1,9 @@
 ---
 section: switch-bes-53248
-title: BES-53248 compatible con Broadcom
+title: BES-53248 con soporte de Broadcom
 entries:
-- title: Manos a la obra
-  pdf-filename: Descripción general_bes53248
+- title: Empezar
+  pdf-filename: Overview_bes53248
   entries:
   - title: Inicio rápido
     url: "/switch-bes-53248/configure-new-switch-overview.html"
@@ -13,31 +13,31 @@ entries:
     url: "/switch-bes-53248/components-bes53248.html"
   - title: Documentación requerida
     url: "/switch-bes-53248/required-documentation-bes53248.html"
-- title: Instale el hardware
+- title: Instala el hardware
   pdf-filename: Install_hardware_bes53248
   entries:
   - title: Flujo de trabajo de instalación de hardware
     url: "/switch-bes-53248/install-hardware-workflow.html"
-  - title: Instale el interruptor
+  - title: Instala el interruptor
     url: "/switch-bes-53248/install-hardware-bes53248.html"
   - title: Revisar el cableado y la configuración
     url: "/switch-bes-53248/cabling-considerations-bes53248.html"
 - title: Configurar el software
-  pdf-filename: Configure_SOFTWARE_bes53248
+  pdf-filename: Configure_software_bes53248
   entries:
-  - title: Flujo de trabajo de instalación del software
+  - title: Flujo de trabajo de instalación de software
     url: "/switch-bes-53248/configure-software-overview-bes53248.html"
-  - title: Configure el switch
+  - title: Configura el interruptor
     url: "/switch-bes-53248/configure-install-initial.html"
-  - title: Instale el software del EFOS
+  - title: Instale el software EFOS
     url: "/switch-bes-53248/configure-efos-software.html"
-  - title: Instale RCF y el archivo de licencia para EFOS 3,12 y posterior
+  - title: Instale RCF y el archivo de licencia para EFOS 3.12 y versiones posteriores.
     url: "/switch-bes-53248/efos-install-rcf-license-file.html"
-  - title: Instale licencias
+  - title: Instalar licencias
     url: "/switch-bes-53248/configure-licenses.html"
-  - title: Instale el archivo de configuración RCF
+  - title: Instalar archivo de configuración RCF
     url: "/switch-bes-53248/configure-install-rcf.html"
-  - title: Active SSH para la recopilación de registros
+  - title: Habilitar SSH para la recopilación de registros
     url: "/switch-bes-53248/configure-ssh.html"
   - title: Restablecer el interruptor a los valores predeterminados de fábrica
     url: "/switch-bes-53248/reset-switch-bes-53248.html"
@@ -46,25 +46,25 @@ entries:
   entries:
   - title: Actualizar el flujo de trabajo
     url: "/switch-bes-53248/upgrade-switch-overview.html"
-  - title: Actualice la versión de EFOS
+  - title: Actualizar versión EFOS
     url: "/switch-bes-53248/upgrade-efos-software.html"
-  - title: Actualice la versión de RCF
+  - title: Actualizar versión RCF
     url: "/switch-bes-53248/upgrade-rcf.html"
-  - title: Verifique el clúster tras la actualización
+  - title: Verificar el clúster después de la actualización
     url: "/switch-bes-53248/replace-verify.html"
-- title: Migrar los switches
-  pdf-filename: Migrate_SWITERS_bes53248
+- title: Migrar los interruptores
+  pdf-filename: Migrate_switches_bes53248
   entries:
-  - title: Migrar desde switches CN1610
+  - title: Migrar desde conmutadores CN1610
     url: "/switch-bes-53248/migrate-cn1610.html"
-  - title: Migre a switches de dos nodos
+  - title: Migrar a un conmutador de dos nodos
     url: "/switch-bes-53248/migrate-to-2n-switched.html"
 - title: Reemplace los interruptores
-  pdf-filename: Reemplace_SWITERS_bes53248
+  pdf-filename: Replace_switches_bes53248
   entries:
-  - title: Requisitos de sustitución
+  - title: Requisitos de reemplazo
     url: "/switch-bes-53248/replace-switch-reqs.html"
-  - title: Reemplace el conmutador BES-53248
+  - title: Reemplace el interruptor BES-53248
     url: "/switch-bes-53248/replace-switch.html"
-  - title: Sustituya los switches del clúster por conexiones sin switch
+  - title: Reemplace los conmutadores de clúster con conexiones sin conmutadores
     url: "/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html"

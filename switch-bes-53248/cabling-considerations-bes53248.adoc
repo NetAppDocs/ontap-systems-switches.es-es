@@ -2,106 +2,106 @@
 permalink: switch-bes-53248/cabling-considerations-bes53248.html 
 sidebar: sidebar 
 keywords: BES-53248 cabling setup, BES-53248 switches configuration, efos 
-summary: Antes de configurar el conmutador Broadcom BES-53248, revise la siguiente información. 
+summary: Antes de configurar su switch Broadcom BES-53248, revise la siguiente información. 
 ---
-= Revise las consideraciones sobre el cableado y la configuración
+= Revisar las consideraciones de cableado y configuración
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Antes de configurar el conmutador Broadcom BES-53248, revise las siguientes consideraciones.
+Antes de configurar su switch Broadcom BES-53248, revise las siguientes consideraciones.
 
 
 
-== Asignaciones de switches de puertos de clúster
+== asignaciones de conmutadores de puerto de clúster
 
-Puede utilizar la tabla de asignaciones de puertos de switch de clúster BES-53248 compatible con Broadcom como guía para configurar el clúster.
+Puede utilizar la tabla de asignaciones de puertos del conmutador de clúster BES-53248 compatible con Broadcom como guía para configurar su clúster.
 
 |===
 
 
-| *Puertos del conmutador* | *Uso de puertos* 
+| *Conmutar puertos* | *Uso de puertos* 
 
 
  a| 
 0-16
  a| 
-Configuración base de nodos de puertos de clúster de 10 GbE
+Nodos de puerto de clúster 10/25GbE, configuración base
 
 
 
  a| 
 17-48
  a| 
-Nodos de puertos de clúster de 10 GbE, con licencias
+Nodos de puerto de clúster 10/25GbE, con licencias
 
 
 
  a| 
 49-54
  a| 
-40/100GbE nodos de puertos en clúster, con licencias, añadidos a la derecha a la izquierda
+Nodos de puerto de clúster 40/100GbE, con licencias, añadidos de derecha a izquierda
 
 
 
  a| 
 55-56
  a| 
-Puertos de enlace entre switches (ISL) de clúster de 100 GbE, configuración base
+Puertos ISL (Inter-Switch Link) de clúster 100GbE, configuración base
 
 |===
-Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para obtener más información sobre los puertos de switch.
+Ver el https://hwu.netapp.com/Switch/Index["Hardware Universe"^] Para obtener más información sobre los puertos del switch.
 
 
 
-== Limitación de velocidad del grupo de puertos
+== restricción de velocidad del grupo de puertos
 
-* En los switches de clúster BES-53248, los puertos de 48 10 GbE (SFP28/SFP+) se combinan en 12 grupos de puertos de 4 de la siguiente manera: Puertos 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44, y 45-48.
-* La velocidad del puerto SFP28/SFP+ debe ser la misma (10 GbE o 25 GbE) en todos los puertos del grupo de 4 puertos.
-* Si las velocidades de un grupo de 4 puertos son diferentes, los puertos del switch no funcionarán correctamente.
+* En los conmutadores de clúster BES-53248, los 48 puertos 10/25GbE (SFP28/SFP+) se combinan en 12 grupos de 4 puertos de la siguiente manera: Puertos 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44 y 45-48.
+* La velocidad del puerto SFP28/SFP+ debe ser la misma (10GbE o 25GbE) en todos los puertos del grupo de 4 puertos.
+* Si las velocidades en un grupo de 4 puertos son diferentes, los puertos del conmutador no funcionarán correctamente.
 
 
 
 
 == Requisitos de FEC
 
-* Para ver los puertos 25G con cables de cobre, consulte la siguiente tabla para obtener más detalles.
+* Para puertos 25G con cables de cobre, consulte la siguiente tabla para obtener más detalles.
 +
-Si el lado del controlador es de `auto`, El lado del interruptor está ajustado a FEC 25G.
+Si el lado del controlador es `auto` , el lado del conmutador está configurado en FEC 25G.
 
 +
-image::../media/FEC_copper_table.jpg[Puertos 25g con cables de cobre]
+image::../media/FEC_copper_table.jpg[Puertos 25G con cables de cobre]
 
-* Para los puertos 25G con cables de fibra óptica, consulte la siguiente tabla para obtener más información:
+* Para puertos de 25G con cables de fibra óptica, consulte la siguiente tabla para obtener más detalles:
 +
-image::../media/FEC_fiber_table.jpg[25g puertos con cables de fibra óptica]
+image::../media/FEC_fiber_table.jpg[Puertos de 25G con cables de fibra óptica]
 
 
 
 
 
-=== Implantación de Bootarg
+=== Implementación de Bootarg
 
-Utilice el siguiente comando para establecer el FEC de puerto 25G en cualquiera de los dos `auto` o. `fc`, según sea necesario:
+Utilice el siguiente comando para configurar el FEC del puerto 25G en: `auto` o `fc` , según sea necesario:
 
 [listing]
 ----
 systemshell -node <node> -command sudo sysctl dev.ice.<X>.requested_fec=<auto/fc>
 ----
-* Cuando se establece en *`auto`*:
+* Cuando se configura para*`auto` *:
 +
-** La `auto` la configuración propaga la configuración al hardware inmediatamente y no es necesario reiniciarla.
-** Si `bootarg.cpk_fec_fc_eXx already exists`, se elimina del almacenamiento de arranque.
-** Después de un reinicio, el `auto` el ajuste permanece en su lugar desde `auto` Es el valor predeterminado de FEC.
+** El `auto` Esta configuración se propaga al hardware inmediatamente y no es necesario reiniciar el sistema.
+** Si `bootarg.cpk_fec_fc_eXx already exists` , se elimina del almacenamiento de bootarg.
+** Tras un reinicio, el `auto` La configuración se mantiene vigente desde entonces `auto` es la configuración FEC predeterminada.
 
 
-* Cuando se establece en *`fc`*:
+* Cuando se configura para*`fc` *:
 +
-** La `FC-FEC` la configuración propaga la configuración al hardware inmediatamente y no es necesario reiniciarla.
-** Un nuevo `bootarg.cpk_fec_fc_eXx` se crea con el valor establecido en true.
-** Después de un reinicio, `FC-FEC` el ajuste permanece en su lugar para que el código de controlador lo utilice.
+** El `FC-FEC` Esta configuración se propaga al hardware inmediatamente y no es necesario reiniciar.
+** Un nuevo `bootarg.cpk_fec_fc_eXx` se crea con el valor establecido en "verdadero".
+** Tras un reinicio, `FC-FEC` La configuración se mantiene para que la utilice el código del controlador.
 
 
 

@@ -2,17 +2,17 @@
 permalink: switch-cshm/monitor-overview.html 
 sidebar: sidebar 
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
-summary: Puede utilizar los siguientes comandos.... 
+summary: Puedes utilizar los siguientes comandos... 
 ---
-= Información general de la comprobación del estado
+= Resumen del control de salud
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Los monitores de estado supervisan proactivamente ciertas condiciones críticas de su clúster y generan alertas si detectan una falla o un riesgo.
+Los monitores de salud supervisan de forma proactiva ciertas condiciones críticas en su clúster y generan alertas si detectan una falla o un riesgo.
 
-Para ver las alertas del monitor de estado del switch Ethernet actualmente elevadas, ejecute el comando: `system health alert show -monitor ethernet-switch`
+Para ver las alertas actuales del monitor de estado del switch Ethernet, ejecute el comando: `system health alert show -monitor ethernet-switch`
 
-Para ver las alertas de control de estado del switch Ethernet disponibles, ejecute el comando: `system health alert definition show -monitor ethernet-switch`
+Para ver las alertas disponibles del monitor de estado del switch Ethernet, ejecute el comando: `system health alert definition show -monitor ethernet-switch`

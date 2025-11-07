@@ -2,180 +2,180 @@
 permalink: switch-cisco-3132q-v/switch-requirements.html 
 sidebar: sidebar 
 keywords: replace, cisco nexus 3132q-v cluster switches 
-summary: Debe conocer determinada información de configuración, las conexiones de puertos y los requisitos de cableado cuando sustituye los switches de clúster Cisco Nexus 3132Q-V. 
+summary: Debe tener en cuenta cierta información de configuración, conexiones de puertos y requisitos de cableado cuando reemplace los conmutadores de clúster Cisco Nexus 3132Q-V. 
 ---
-= Requisitos para sustituir los switches de clúster Cisco Nexus 3132Q-V.
+= Requisitos para la sustitución de switches de clúster Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Asegúrese de comprender los requisitos de configuración, las conexiones de puertos y los requisitos de cableado al sustituir los switches de clúster.
+Asegúrese de comprender los requisitos de configuración, las conexiones de puertos y los requisitos de cableado cuando reemplace los conmutadores del clúster.
 
 
 
-== Requisitos de Cisco Nexus 3132Q-V.
+== Requisitos de Cisco Nexus 3132Q-V
 
-* Se admite el switch de clúster Cisco Nexus 3132Q-V.
-* La cantidad de puertos de 10 GbE y 40 GbE se define en los archivos de configuración de referencia (RCF) disponibles enlink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Descarga del archivo de configuración de referencia del conmutador de red de clúster Cisco®"^] .
-* Los switches de clúster utilizan los puertos de enlace entre switches (ISL) e1/31-32.
-* La link:https://hwu.netapp.com["Hardware Universe"^] Contiene información sobre el cableado compatible con los switches Nexus 3132Q-V:
+* El switch de clúster Cisco Nexus 3132Q-V es compatible.
+* El número de puertos 10 GbE y 40 GbE se define en los archivos de configuración de referencia (RCF) disponibles enlink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Descarga del archivo de configuración de referencia del switch de red en clúster de Cisco"^] .
+* Los conmutadores del clúster utilizan los puertos Inter-Switch Link (ISL) e1/31-32.
+* Ellink:https://hwu.netapp.com["Hardware Universe"^] Contiene información sobre el cableado compatible con los switches Nexus 3132Q-V:
 +
-** Los nodos con conexiones de clúster de 10 GbE requieren módulos ópticos QSFP con cables de fibra de cable multiconector o cables de cobre QSFP a SFP+.
-** Los nodos con conexiones a clúster de 40 GbE requieren módulos ópticos QSFP/QSFP28 compatibles con cables de fibra o cables de conexión directa de cobre QSFP/QSFP28.
-** Los switches de clúster utilizan el cableado ISL adecuado: 2 cables de conexión directa de cobre o fibra QSFP28.
+** Los nodos con conexiones de clúster de 10 GbE requieren módulos ópticos QSFP con cables de fibra de ruptura o cables de cobre de ruptura QSFP a SFP+.
+** Los nodos con conexiones de clúster de 40 GbE requieren módulos ópticos QSFP/QSFP28 compatibles con cables de fibra o cables de conexión directa de cobre QSFP/QSFP28.
+** Los conmutadores del clúster utilizan el cableado ISL apropiado: 2 cables de fibra o cobre de conexión directa QSFP28.
 
 
-* En Nexus 3132Q-V, puede operar puertos QSFP como modos Ethernet de 40 Gb o 4x10 Gb Ethernet.
+* En el Nexus 3132Q-V, puede operar los puertos QSFP como modos Ethernet de 40 Gb o Ethernet de 4x10 Gb.
 +
-De manera predeterminada, hay 32 puertos en el modo Ethernet de 40 Gb. Estos puertos Ethernet de 40 GB están numerados en una convención de nomenclatura de 2 tubos. Por ejemplo, el segundo puerto Ethernet de 40 GB está numerado como 1/2. El proceso de cambiar la configuración de Ethernet de 40 GB a Ethernet de 10 GB se denomina _breakout_ y el proceso de cambiar la configuración de Ethernet de 10 GB a Ethernet de 40 GB se denomina _breakin_. Cuando divide un puerto Ethernet de 40 Gb en puertos Ethernet de 10 Gb, los puertos resultantes se numeran mediante una convención de nomenclatura de 3 tuplas. Por ejemplo, los puertos de arranque del segundo puerto Ethernet de 40 GB están numerados como 1/2/1, 1/2/2, 1/2/3 y 1/2/4.
+Por defecto, hay 32 puertos en el modo Ethernet de 40 Gb.  Estos puertos Ethernet de 40 Gb están numerados según una convención de nomenclatura de 2 tuplas.  Por ejemplo, el segundo puerto Ethernet de 40 Gb está numerado como 1/2.  El proceso de cambiar la configuración de Ethernet de 40 Gb a Ethernet de 10 Gb se llama _breakout_ y el proceso de cambiar la configuración de Ethernet de 10 Gb a Ethernet de 40 Gb se llama _breakin_.  Cuando se divide un puerto Ethernet de 40 Gb en puertos Ethernet de 10 Gb, los puertos resultantes se numeran utilizando una convención de nomenclatura de 3 tuplas.  Por ejemplo, los puertos de ruptura del segundo puerto Ethernet de 40 Gb están numerados como 1/2/1, 1/2/2, 1/2/3 y 1/2/4.
 
-* En el lado izquierdo de Nexus 3132Q-V se encuentra un conjunto de cuatro puertos SFP+ multiplexados al primer puerto QSFP.
+* En el lado izquierdo del Nexus 3132Q-V hay un conjunto de cuatro puertos SFP+ multiplexados al primer puerto QSFP.
 +
-De forma predeterminada, el RCF está estructurado para utilizar el primer puerto QSFP.
+Por defecto, el RCF está estructurado para usar el primer puerto QSFP.
 
 +
-Puede hacer que cuatro puertos SFP+ estén activos en lugar de un puerto QSFP para Nexus 3132Q-V mediante el `hardware profile front portmode sfp-plus` comando. Del mismo modo, se puede restablecer Nexus 3132Q-V para utilizar un puerto QSFP en lugar de cuatro puertos SFP+ mediante el `hardware profile front portmode qsfp` comando.
+Puedes activar cuatro puertos SFP+ en lugar de un puerto QSFP para Nexus 3132Q-V utilizando el siguiente método: `hardware profile front portmode sfp-plus` dominio.  De forma similar, puede restablecer el Nexus 3132Q-V para que utilice un puerto QSFP en lugar de cuatro puertos SFP+ mediante el siguiente procedimiento: `hardware profile front portmode qsfp` dominio.
 
-* Debe haber configurado algunos de los puertos de Nexus 3132Q-V para ejecutarse a 10 GbE o 40 GbE.
+* Debes haber configurado algunos de los puertos del Nexus 3132Q-V para que funcionen a 10 GbE o 40 GbE.
 +
-Puede extraer los primeros seis puertos en modo 4x10 GbE mediante el `interface breakout module 1 port 1-6 map 10g-4x` comando. De forma similar, puede volver a agrupar los primeros seis puertos QSFP+ de la configuración de cable mediante el `no interface breakout module 1 port 1-6 map 10g-4x` comando.
+Puedes configurar los seis primeros puertos en modo 4x10 GbE utilizando el `interface breakout module 1 port 1-6 map 10g-4x` dominio.  De forma similar, puede reagrupar los seis primeros puertos QSFP+ de la configuración breakout utilizando el `no interface breakout module 1 port 1-6 map 10g-4x` dominio.
 
-* Debe haber realizado la planificación, la migración y leer la documentación necesaria sobre la conectividad de 10 GbE y 40 GbE desde los nodos a los switches de clústeres Nexus 3132Q-V.
+* Debes haber realizado la planificación, la migración y leído la documentación requerida sobre la conectividad de 10 GbE y 40 GbE desde los nodos a los conmutadores de clúster Nexus 3132Q-V.
 +
-link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^]Tiene información sobre las versiones de ONTAP y NX-OS compatibles con este procedimiento.
+link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^]Contiene información sobre las versiones de ONTAP y NX-OS compatibles con este procedimiento.
 
 
 
 
 
-== Requisitos de Cisco Nexus 5596
+== Requisitos del Cisco Nexus 5596
 
-* Se admiten los siguientes switches de clúster:
+* Se admiten los siguientes conmutadores de clúster:
 +
 ** Nexus 5596
 ** Nexus 3132Q-V
 
 
-* La cantidad de puertos de 10 GbE y 40 GbE se define en los archivos de configuración de referencia (RCF) disponibles enlink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Descarga del archivo de configuración de referencia del conmutador de red de clúster Cisco®"^] .
-* Los switches de clúster utilizan los siguientes puertos para las conexiones a los nodos:
+* El número de puertos 10 GbE y 40 GbE se define en los archivos de configuración de referencia (RCF) disponibles enlink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Descarga del archivo de configuración de referencia del switch de red en clúster de Cisco"^] .
+* Los conmutadores del clúster utilizan los siguientes puertos para las conexiones a los nodos:
 +
 ** Puertos e1/1-40 (10 GbE): Nexus 5596
 ** Puertos e1/1-30 (40 GbE): Nexus 3132Q-V
 
 
-* Los switches de clúster utilizan los siguientes puertos de enlace entre switches (ISL):
+* Los conmutadores del clúster utilizan los siguientes puertos de enlace entre conmutadores (ISL):
 +
 ** Puertos e1/41-48 (10 GbE): Nexus 5596
 ** Puertos e1/31-32 (40 GbE): Nexus 3132Q-V
 
 
-* La link:https://hwu.netapp.com/["Hardware Universe"^] Contiene información sobre el cableado compatible con los switches Nexus 3132Q-V:
+* Ellink:https://hwu.netapp.com/["Hardware Universe"^] Contiene información sobre el cableado compatible con los switches Nexus 3132Q-V:
 +
-** Los nodos con conexiones de clúster de 10 GbE requieren cables de fibra óptica QSFP a SFP+ o cables de cobre QSFP a SFP+.
-** Los nodos con conexiones de clúster de 40 GbE requieren módulos QSFP/QSFP28optical compatibles con cables de fibra o cables de conexión directa de cobre QSFP/QSFP28.
+** Los nodos con conexiones de clúster de 10 GbE requieren cables de conexión de fibra óptica QSFP a SFP+ o cables de conexión de cobre QSFP a SFP+.
+** Los nodos con conexiones de clúster de 40 GbE requieren módulos ópticos QSFP/QSFP28 compatibles con cables de fibra o cables de conexión directa de cobre QSFP/QSFP28.
 
 
-* Los switches de clúster utilizan el cableado ISL adecuado:
+* Los conmutadores del clúster utilizan el cableado ISL apropiado:
 +
-** Principio: De Nexus 5596 a Nexus 5596 (de SFP+ a SFP+)
+** Inicio: Nexus 5596 a Nexus 5596 (SFP+ a SFP+)
 +
-*** 8 cables de conexión directa de cobre o fibra SFP+
+*** 8 cables SFP+ de fibra o cobre de conexión directa
 
 
-** Provisional: Nexus 5596 a Nexus 3132Q-V (QSFP a 4 partes SFP+)
+** Interina: Nexus 5596 a Nexus 3132Q-V (conversión de QSFP a 4xSFP+)
 +
-*** 1 cables QSFP a SFP+ de fibra óptica o cables de interrupción de cobre
+*** 1 cable de conexión de fibra óptica o cobre QSFP a SFP+
 
 
 ** Final: Nexus 3132Q-V a Nexus 3132Q-V (QSFP28 a QSFP28)
 +
-*** 2 cables de conexión directa de cobre o fibra QSFP28
+*** 2 cables QSFP28 de fibra o cobre de conexión directa
 
 
 
 
-* En los switches Nexus 3132Q-V, puede operar puertos QSFP/QSFP28 como modos Ethernet de 40 Gigabit o Ethernet de 4 x10 Gigabit.
+* En los switches Nexus 3132Q-V, puede operar los puertos QSFP/QSFP28 como modos Ethernet de 40 Gigabit o Ethernet de 4 x 10 Gigabit.
 +
-De manera predeterminada, hay 32 puertos en el modo Ethernet de 40 Gigabit. Estos puertos 40 Gigabit Ethernet están numerados en una convención de nomenclatura de 2 tubos. Por ejemplo, el segundo puerto 40 Gigabit Ethernet está numerado como 1/2. El proceso de cambiar la configuración de 40 Gigabit Ethernet a 10 Gigabit Ethernet se denomina _breakout_ y el proceso de cambiar la configuración de 10 Gigabit Ethernet a 40 Gigabit Ethernet se denomina _breakin_. Al dividir un puerto Ethernet de 40 Gigabit en 10 puertos Gigabit Ethernet, los puertos resultantes se numeran mediante una convención de nomenclatura de 3 tuplas. Por ejemplo, los puertos de salida del segundo puerto Ethernet 40 Gigabit están numerados como 1/2/1, 1/2/2, 1/2/3 y 1/2/4.
+Por defecto, hay 32 puertos en el modo Ethernet de 40 Gigabit.  Estos 40 puertos Gigabit Ethernet están numerados según una convención de nomenclatura de 2 tuplas.  Por ejemplo, el segundo puerto Ethernet de 40 Gigabit está numerado como 1/2.  El proceso de cambiar la configuración de Ethernet de 40 Gigabit a Ethernet de 10 Gigabit se llama _breakout_ y el proceso de cambiar la configuración de Ethernet de 10 Gigabit a Ethernet de 40 Gigabit se llama _breakin_.  Cuando se divide un puerto Ethernet de 40 Gigabit en puertos Ethernet de 10 Gigabit, los puertos resultantes se numeran utilizando una convención de nomenclatura de 3 tuplas.  Por ejemplo, los puertos de ruptura del segundo puerto Ethernet de 40 Gigabit están numerados como 1/2/1, 1/2/2, 1/2/3 y 1/2/4.
 
-* En el lado izquierdo de los conmutadores Nexus 3132Q-V hay un conjunto de 4 puertos SFP+ multiplexados a ese puerto QSFP28.
+* En el lado izquierdo de los switches Nexus 3132Q-V hay un conjunto de 4 puertos SFP+ multiplexados a ese puerto QSFP28.
 +
-De forma predeterminada, el RCF está estructurado para utilizar el puerto QSFP28.
+Por defecto, el RCF está estructurado para usar el puerto QSFP28.
 
-+
-
-NOTE: Puede activar 4 puertos SFP+ en lugar de un puerto QSFP para los switches Nexus 3132Q-V mediante el `hardware profile front portmode sfp-plus` comando. De forma similar, puede restablecer los switches Nexus 3132Q-V para utilizar un puerto QSFP en lugar de 4 puertos SFP+ mediante el `hardware profile front portmode qsfp` comando.
-
-* Ha configurado algunos de los puertos en los switches Nexus 3132Q-V para que se ejecuten a 10 GbE o 40 GbE.
 +
 
-NOTE: Puede dividir los primeros seis puertos en modo 4x10 GbE mediante el `interface breakout module 1 port 1-6 map 10g-4x` comando. De forma similar, puede volver a agrupar los primeros seis puertos QSFP+ de la configuración de cable mediante el `no interface breakout module 1 port 1-6 map 10g-4x` comando.
+NOTE: Puedes activar 4 puertos SFP+ en lugar de un puerto QSFP para los switches Nexus 3132Q-V utilizando el siguiente método: `hardware profile front portmode sfp-plus` dominio.  De forma similar, puede restablecer los switches Nexus 3132Q-V para que utilicen un puerto QSFP en lugar de 4 puertos SFP+ mediante el siguiente procedimiento: `hardware profile front portmode qsfp` dominio.
 
-* Ha realizado la planificación, la migración y la lectura de la documentación necesaria sobre la conectividad de 10 GbE y 40 GbE desde los nodos a los switches de clúster Nexus 3132Q-V.
-* Las versiones de ONTAP y NX-OS compatibles con este procedimiento se encuentran enlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^] .
-
-
-
-
-== Requisitos de CN1610 de NetApp
-
-* Se admiten los siguientes switches de clúster:
+* Has configurado algunos de los puertos de los switches Nexus 3132Q-V para que funcionen a 10 GbE o 40 GbE.
 +
-** CN1610 de NetApp
+
+NOTE: Puedes configurar los seis primeros puertos en modo 4x10 GbE utilizando el `interface breakout module 1 port 1-6 map 10g-4x` dominio.  De forma similar, puede reagrupar los seis primeros puertos QSFP+ de la configuración breakout utilizando el `no interface breakout module 1 port 1-6 map 10g-4x` dominio.
+
+* Usted ha realizado la planificación, la migración y leído la documentación requerida sobre la conectividad de 10 GbE y 40 GbE desde los nodos a los conmutadores de clúster Nexus 3132Q-V.
+* Las versiones de ONTAP y NX-OS compatibles con este procedimiento son las siguientes:link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^] .
+
+
+
+
+== Requisitos de NetApp CN1610
+
+* Se admiten los siguientes conmutadores de clúster:
++
+** NetApp CN1610
 ** Cisco Nexus 3132Q-V
 
 
-* Los switches de clúster admiten las siguientes conexiones de nodo:
+* Los conmutadores del clúster admiten las siguientes conexiones de nodo:
 +
-** NetApp CN1610: Puertos 0/1 a 0/12 (10 GbE)
-** Cisco Nexus 3132Q-V: Puertos E1/1-30 (40 GbE)
+** NetApp CN1610: puertos 0/1 a 0/12 (10 GbE)
+** Cisco Nexus 3132Q-V: puertos e1/1-30 (40 GbE)
 
 
-* Los switches de clúster utilizan los siguientes puertos de enlace entre switches (ISL):
+* Los conmutadores del clúster utilizan los siguientes puertos de enlace entre conmutadores (ISL):
 +
-** NetApp CN1610: Puertos 0/13 a 0/16 (10 GbE)
-** Cisco Nexus 3132Q-V: Puertos E1/31-32 (40 GbE)
+** NetApp CN1610: puertos 0/13 a 0/16 (10 GbE)
+** Cisco Nexus 3132Q-V: puertos e1/31-32 (40 GbE)
 
 
-* La link:https://hwu.netapp.com/["Hardware Universe"^] Contiene información sobre el cableado compatible con los switches Nexus 3132Q-V:
+* Ellink:https://hwu.netapp.com/["Hardware Universe"^] Contiene información sobre el cableado compatible con los switches Nexus 3132Q-V:
 +
-** Los nodos con conexiones de clúster de 10 GbE requieren cables de fibra óptica QSFP a SFP+ o cables de cobre QSFP a SFP+
-** Los nodos con conexiones en clúster de 40 GbE requieren módulos ópticos QSFP/QSFP28 compatibles con cables de fibra óptica o cables de conexión directa de cobre QSFP/QSFP28
+** Los nodos con conexiones de clúster de 10 GbE requieren cables de conexión de fibra óptica QSFP a SFP+ o cables de conexión de cobre QSFP a SFP+.
+** Los nodos con conexiones de clúster de 40 GbE requieren módulos ópticos QSFP/QSFP28 compatibles con cables de fibra óptica o cables de cobre de conexión directa QSFP/QSFP28.
 
 
-* El cableado ISL adecuado es el siguiente:
+* El cableado ISL apropiado es el siguiente:
 +
-** Comenzando: Para CN1610 a CN1610 (SFP+ a SFP+), cuatro cables de conexión directa o fibra óptica SFP+
-** Provisional: Para CN1610 a Nexus 3132Q-V (QSFP a cuatro SFP+), un cable de fibra óptica o cobre QSFP a SFP+
-** Final: Para Nexus 3132Q-V a Nexus 3132Q-V (QSFP28 a QSFP28), dos cables de conexión directa de cobre o fibra óptica QSFP28
+** Inicio: Para CN1610 a CN1610 (SFP+ a SFP+), cuatro cables de fibra óptica o cobre de conexión directa SFP+
+** Provisional: Para CN1610 a Nexus 3132Q-V (QSFP a cuatro SFP+ breakout), un cable de fibra óptica o cobre QSFP a SFP+ breakout
+** Final: Para Nexus 3132Q-V a Nexus 3132Q-V (QSFP28 a QSFP28), dos cables de fibra óptica o cobre de conexión directa QSFP28
 
 
-* Los cables twinax de NetApp no son compatibles con los switches Cisco Nexus 3132Q-V.
+* Los cables twinax de NetApp no ​​son compatibles con los switches Cisco Nexus 3132Q-V.
 +
-Si su configuración actual del CN1610 utiliza cables twinax de NetApp para conexiones clúster-nodo-switch o conexiones ISL y quiere seguir utilizando twinax en su entorno, debe procurar los cables twinax de Cisco. Como alternativa, puede utilizar cables de fibra óptica para las conexiones ISL y las conexiones cluster-nodo-switch.
+Si su configuración actual de CN1610 utiliza cables twinax de NetApp para conexiones de nodo de clúster a conmutador o conexiones ISL y desea continuar utilizando twinax en su entorno, necesita adquirir cables twinax de Cisco .  Como alternativa, puede utilizar cables de fibra óptica tanto para las conexiones ISL como para las conexiones entre el nodo del clúster y el conmutador.
 
-* En los switches Nexus 3132Q-V, puede operar puertos QSFP/QSFP28 como modos Ethernet de 40 Gb o Ethernet de 4x 10 Gb.
+* En los switches Nexus 3132Q-V, puede operar los puertos QSFP/QSFP28 como modos Ethernet de 40 Gb o Ethernet de 4x 10 Gb.
 +
-De manera predeterminada, hay 32 puertos en el modo Ethernet de 40 Gb. Estos puertos Ethernet de 40 GB están numerados en una convención de nomenclatura de 2 tubos. Por ejemplo, el segundo puerto Ethernet de 40 GB está numerado como 1/2. El proceso de cambiar la configuración de Ethernet de 40 GB a Ethernet de 10 GB se denomina _breakout_ y el proceso de cambiar la configuración de Ethernet de 10 GB a Ethernet de 40 GB se denomina _breakin_. Cuando divide un puerto Ethernet de 40 Gb en puertos Ethernet de 10 Gb, los puertos resultantes se numeran mediante una convención de nomenclatura de 3 tuplas. Por ejemplo, los puertos de arranque del segundo puerto Ethernet de 40 GB están numerados como 1/2/1, 1/2/2, 1/2/3 y 1/2/4.
+Por defecto, hay 32 puertos en el modo Ethernet de 40 Gb.  Estos puertos Ethernet de 40 Gb están numerados según una convención de nomenclatura de 2 tuplas.  Por ejemplo, el segundo puerto Ethernet de 40 Gb está numerado como 1/2.  El proceso de cambiar la configuración de Ethernet de 40 Gb a Ethernet de 10 Gb se llama _breakout_ y el proceso de cambiar la configuración de Ethernet de 10 Gb a Ethernet de 40 Gb se llama _breakin_.  Cuando se divide un puerto Ethernet de 40 Gb en puertos Ethernet de 10 Gb, los puertos resultantes se numeran utilizando una convención de nomenclatura de 3 tuplas.  Por ejemplo, los puertos de ruptura del segundo puerto Ethernet de 40 Gb están numerados como 1/2/1, 1/2/2, 1/2/3 y 1/2/4.
 
-* En el lado izquierdo de los conmutadores Nexus 3132Q-V hay un conjunto de cuatro puertos SFP+ multiplexados al primer puerto QSFP.
+* En el lado izquierdo de los switches Nexus 3132Q-V hay un conjunto de cuatro puertos SFP+ multiplexados al primer puerto QSFP.
 +
-De forma predeterminada, el archivo de configuración de referencia (RCF) está estructurado para utilizar el primer puerto QSFP.
-
-+
-Puede hacer que cuatro puertos SFP+ estén activos en lugar de un puerto QSFP para los switches Nexus 3132Q-V mediante el `hardware profile front portmode sfp-plus` comando. De forma similar, puede restablecer los switches Nexus 3132Q-V para utilizar un puerto QSFP en lugar de cuatro puertos SFP+ mediante el `hardware profile front portmode qsfp` comando.
+Por defecto, el archivo de configuración de referencia (RCF) está estructurado para usar el primer puerto QSFP.
 
 +
+Puede habilitar cuatro puertos SFP+ en lugar de un puerto QSFP para los switches Nexus 3132Q-V mediante el uso de `hardware profile front portmode sfp-plus` dominio.  De forma similar, puede restablecer los switches Nexus 3132Q-V para que utilicen un puerto QSFP en lugar de cuatro puertos SFP+ mediante el uso de `hardware profile front portmode qsfp` dominio.
 
-NOTE: Cuando se utilizan los primeros cuatro puertos SFP+, éste deshabilitará el primer puerto QSFP de 40 GbE.
-
-* Debe haber configurado algunos de los puertos de los switches Nexus 3132Q-V para ejecutarse a 10 GbE o 40 GbE.
 +
-Puede dividir los primeros seis puertos en modo 4x10 GbE con el `interface breakout module 1 port 1-6 map 10g-4x` comando. Del mismo modo, puede reagrupar los primeros seis puertos QSFP+ de la configuración _breakout_ mediante el `no interface breakout module 1 port 1-6 map 10g-4x` comando.
 
-* Debe haber realizado la planificación, la migración y leer la documentación necesaria sobre la conectividad de 10 GbE y 40 GbE desde los nodos a los switches de clústeres Nexus 3132Q-V.
+NOTE: Cuando utilice los primeros cuatro puertos SFP+, se deshabilitará el primer puerto QSFP de 40 GbE.
+
+* Debes haber configurado algunos de los puertos de los switches Nexus 3132Q-V para que funcionen a 10 GbE o 40 GbE.
++
+Puedes configurar los seis primeros puertos en modo 4x10 GbE utilizando el `interface breakout module 1 port 1-6 map 10g-4x` dominio.  De forma similar, puede reagrupar los seis primeros puertos QSFP+ de la configuración _breakout_ utilizando el `no interface breakout module 1 port 1-6 map 10g-4x` dominio.
+
+* Debes haber realizado la planificación, la migración y leído la documentación requerida sobre la conectividad de 10 GbE y 40 GbE desde los nodos a los conmutadores de clúster Nexus 3132Q-V.
 * Las versiones de ONTAP y NX-OS compatibles con este procedimiento se enumeran enlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^] .
-* Las versiones de ONTAP y FASTPATH ​​compatibles con este procedimiento se enumeran enlink:https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["Switches CN1601 y CN1610 de NetApp"^] .
+* Las versiones de ONTAP y FASTPATH ​​compatibles con este procedimiento se enumeran enlink:https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["Switches NetApp CN1601 y CN1610"^] .
 

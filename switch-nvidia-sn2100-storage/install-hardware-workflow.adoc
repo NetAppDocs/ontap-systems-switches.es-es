@@ -13,14 +13,14 @@ summary: Antes de configurar los conmutadores de clúster NVIDIA SN2100, revise 
 [role="lead"]
 Para instalar y configurar el hardware de un conmutador de almacenamiento SN2100, siga estos pasos:
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:install-hardware-sn2100-storage.html["Instale el hardware"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1"]link:install-hardware-sn2100-storage.html["Instala el hardware"]
 [role="quick-margin-para"]
 Instale el hardware del interruptor.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"]link:cabling-considerations-sn2100-storage.html["Revise las consideraciones sobre el cableado y la configuración"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"]link:cabling-considerations-sn2100-storage.html["Revisar las consideraciones de cableado y configuración"]
 [role="quick-margin-para"]
-Revise los requisitos para las conexiones ópticas, el adaptador QSA y la velocidad del puerto de conmutación.
+Revisar los requisitos para las conexiones ópticas, el adaptador QSA y la velocidad del puerto de conmutación.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"]link:install-cable-shelves-sn2100-storage.html["Conecte el cable de las bandejas NS224"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"]link:install-cable-shelves-sn2100-storage.html["Cablear los estantes NS224"]
 [role="quick-margin-para"]
-Siga los procedimientos de cableado si dispone de un sistema en el que las bandejas de unidades NS224 deban cablearse como almacenamiento conectado a switch (no como almacenamiento de conexión directa).
+Siga los procedimientos de cableado si tiene un sistema en el que los estantes de unidades NS224 deben cablearse como almacenamiento conectado a un conmutador (no como almacenamiento de conexión directa).

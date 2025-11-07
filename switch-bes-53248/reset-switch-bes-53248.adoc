@@ -2,29 +2,29 @@
 permalink: switch-bes-53248/reset-switch-bes-53248.html 
 sidebar: sidebar 
 keywords: BES-53248 reset switch to factory defaults, BES-53248 switches configuration, efos 
-summary: Antes de configurar el conmutador Broadcom BES-53248, revise la siguiente información. 
+summary: Antes de configurar su switch Broadcom BES-53248, revise la siguiente información. 
 ---
-= Restablecer el conmutador de clúster BES-53248 a los valores predeterminados de fábrica
+= Restablecer el interruptor del clúster BES-53248 a los valores predeterminados de fábrica
 :allow-uri-read: 
 
 
 [role="lead"]
-Para restablecer el conmutador de clúster BES-53248 a los valores predeterminados de fábrica, debe borrar la configuración del conmutador BES-53248.
+Para restablecer el interruptor del clúster BES-53248 a los valores predeterminados de fábrica, debe borrar la configuración del interruptor BES-53248.
 
 .Acerca de esta tarea
-* Debe estar conectado al conmutador mediante la consola serie.
-* Esta tarea restablece la configuración de la red de gestión.
+* Debes estar conectado al switch mediante la consola serie.
+* Esta tarea restablece la configuración de la red de administración.
 
 
 .Pasos
-. Cambiar al símbolo del sistema elevado.
+. Cambie al símbolo del sistema con privilegios elevados.
 +
 [listing, subs="+quotes"]
 ----
 (cs2)> *enable*
 (cs2)#
 ----
-. Borrar la configuración de inicio.
+. Borre la configuración de inicio.
 +
 `erase startup-config`
 
@@ -35,7 +35,7 @@ Para restablecer el conmutador de clúster BES-53248 a los valores predeterminad
 
 Are you sure you want to clear the configuration? (y/n) *y*
 ----
-. Reinicie el conmutador.
+. Reinicia el switch.
 +
 [listing, subs="+quotes"]
 ----
@@ -45,11 +45,11 @@ Are you sure you would like to reset the system? (y/n) *y*
 
 
 
-NOTE: Si el sistema pregunta si desea guardar la configuración no guardada o modificada antes de volver a cargar el conmutador, seleccione *no*.
+NOTE: Si el sistema pregunta si desea guardar la configuración no guardada o modificada antes de reiniciar el switch, seleccione *No*.
 
-. [[paso 4]] Espere a que el conmutador se recargue y luego inicie sesión en el conmutador.
+. [[step4]] Espere a que el switch se recargue y luego inicie sesión en el switch.
 +
-El usuario predeterminado es “admin” y no se establece ninguna contraseña. Se muestra un símbolo del sistema similar a lo siguiente:
+El usuario predeterminado es “admin” y no se ha establecido ninguna contraseña.  Se muestra un mensaje similar al siguiente:
 
 +
 [listing]

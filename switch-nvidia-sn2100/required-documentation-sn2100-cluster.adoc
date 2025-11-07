@@ -2,16 +2,16 @@
 permalink: switch-nvidia-sn2100/required-documentation-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: nvidia SN2100 switches 
-summary: Para la instalación y el mantenimiento del conmutador NVIDIA SN2100, asegúrese de revisar toda la documentación recomendada. 
+summary: Para la instalación y el mantenimiento del switch NVIDIA SN2100, asegúrese de revisar toda la documentación recomendada. 
 ---
-= Requisitos de documentación para los switches NVIDIA SN2100
+= Requisitos de documentación para los conmutadores NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Para la instalación y el mantenimiento del conmutador NVIDIA SN2100, asegúrese de revisar toda la documentación recomendada.
+Para la instalación y el mantenimiento del switch NVIDIA SN2100, asegúrese de revisar toda la documentación recomendada.
 
 [cols="1,2"]
 |===
@@ -19,22 +19,22 @@ Para la instalación y el mantenimiento del conmutador NVIDIA SN2100, asegúrese
 
 
  a| 
-https://docs.nvidia.com/networking/display/sn2000pub/Installation["Guía de instalación del switch NVIDIA"^]
+https://docs.nvidia.com/networking/display/sn2000pub/Installation["Guía de instalación de switches NVIDIA"^]
  a| 
-Describe cómo instalar los switches NVIDIA SN2100.
-
-
-
- a| 
-https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["Guía de cableado de bandeja de unidades NVMe NS224"^]
- a| 
-Información general e ilustraciones que muestran cómo configurar el cableado de bandejas de unidades.
+Describe cómo instalar sus switches NVIDIA SN2100.
 
 
 
  a| 
-https://hwu.netapp.com/["Hardware Universe de NetApp"^]
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["Guía de cableado del chasis de unidades NVMe NS224"^]
  a| 
-Permite confirmar el hardware compatible, como los switches y cables de almacenamiento, para su modelo de plataforma.
+Descripción general e ilustraciones que muestran cómo configurar el cableado para los estantes de unidades.
+
+
+
+ a| 
+https://hwu.netapp.com/["NetApp Hardware Universe"^]
+ a| 
+Te permite confirmar el hardware compatible, como conmutadores de almacenamiento y cables, para tu modelo de plataforma.
 
 |===

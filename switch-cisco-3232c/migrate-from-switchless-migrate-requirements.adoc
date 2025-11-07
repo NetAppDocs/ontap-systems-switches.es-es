@@ -10,62 +10,62 @@ summary: Antes de configurar los switches Cisco Nexus 3232c, revise una descripc
 
 
 [role="lead"]
-Si tiene un clúster de dos nodos sin switch, puede migrar a un clúster con switches de dos nodos que incluya switches de red de clústeres Nexus 3232C de Cisco. Se trata de un procedimiento no disruptivo.
+Si tiene un clúster sin conmutador de dos nodos, puede migrar a un clúster conmutado de dos nodos que incluya conmutadores de red de clúster Cisco Nexus 3232C. Este es un procedimiento que no produce interrupciones.
 
 .Antes de empezar
-Compruebe las siguientes instalaciones y conexiones:
+Verifique las siguientes instalaciones y conexiones:
 
-* Los puertos están disponibles para las conexiones de nodos. Los switches de clúster utilizan los puertos de enlace entre switches (ISL) e1/31-32.
-* Tiene los cables adecuados para las conexiones del clúster:
+* Hay puertos disponibles para conexiones de nodos.  Los conmutadores del clúster utilizan los puertos Inter-Switch Link (ISL) e1/31-32.
+* Dispones de los cables adecuados para las conexiones del clúster:
 +
-** Los nodos con conexiones de clúster de 10 GbE requieren módulos ópticos QSFP con cables de fibra de cable de cable de cobre QSFP a SFP+.
-** Los nodos con conexiones de clúster de 40/100 GbE requieren módulos ópticos QSFP/QSFP28 compatibles con cables de fibra o cables de conexión directa de cobre QSFP/QSFP28.
-** Los switches de clúster requieren el cableado ISL adecuado:
+** Los nodos con conexiones de clúster de 10 GbE requieren módulos ópticos QSFP con cables de fibra de ruptura o cables de cobre de ruptura QSFP a SFP+.
+** Los nodos con conexiones de clúster 40/100 GbE requieren módulos ópticos QSFP/QSFP28 compatibles con cables de fibra o cables de conexión directa de cobre QSFP/QSFP28.
+** Los conmutadores del clúster requieren el cableado ISL apropiado:
 +
-*** Cables de conexión directa de fibra o cobre 2x QSFP28.
+*** 2 cables QSFP28 de fibra o cobre de conexión directa.
 
 
 
 
-* Las configuraciones están correctamente configuradas y funcionan.
+* Las configuraciones están correctamente establecidas y funcionando.
 +
-Los dos nodos deben estar conectados y funcionar en un valor de clúster sin switch de dos nodos.
+Los dos nodos deben estar conectados y funcionando en una configuración de clúster sin conmutador de dos nodos.
 
-* Todos los puertos del clúster están en el estado *up*.
-* Se admite el switch de clúster Cisco Nexus 3232C.
+* Todos los puertos del clúster están en estado *activo*.
+* Se admiten los switches de clúster Cisco Nexus 3232C.
 * La configuración de red del clúster existente tiene lo siguiente:
 +
-** Infraestructura de clúster Nexus 3232C redundante y totalmente funcional en ambos switches
-** Las versiones más recientes de RCF y NX-OS en sus switches
+** Una infraestructura de clúster Nexus 3232C redundante y totalmente funcional en ambos switches
+** Las últimas versiones de RCF y NX-OS en sus switches
 ** Conectividad de gestión en ambos switches
-** Acceso de consola a ambos switches
-** Todas las interfaces lógicas de clúster (LIF) en el estado *up* sin haber sido migradas
-** Personalización inicial del conmutador
-** Todos los puertos ISL habilitados y cableado
+** Acceso por consola a ambos interruptores
+** Todas las interfaces lógicas del clúster (LIF) en estado *activo* sin haber sido migradas.
+** Personalización inicial del interruptor
+** Todos los puertos ISL están habilitados y cableados.
 
 
 
 
 .Acerca de los ejemplos utilizados
-Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:
+Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interruptores y nodos:
 
-* Switches de cluster Nexus 3232C, *C1* y *C2*.
+* Conmutadores de clúster Nexus 3232C, *C1* y *C2*.
 * Los nodos son *n1* y *n2*.
 
 
-Los ejemplos de este procedimiento utilizan dos nodos, cada uno usando dos puertos de interconexión de clúster de 40 GbE *E4A* y *E4E*. El link:https://hwu.netapp.com/["_Hardware Universe_"^] tiene detalles sobre los puertos de clúster en las plataformas.
+Los ejemplos de este procedimiento utilizan dos nodos, cada uno de los cuales utiliza dos puertos de interconexión de clúster de 40 GbE *e4a* y *e4e*.  Ellink:https://hwu.netapp.com/["_Universo del Hardware_"^] Contiene detalles sobre los puertos del clúster en sus plataformas.
 
-* *n1_clus1* es la primera interfaz lógica de clúster (LIF) que se conecta al conmutador de clúster *C1* para el nodo *n1*.
-* *n1_clus2* es el primer LIF de clúster que se conecta al conmutador de clúster *C2* para el nodo *n1*.
-* *n2_clus1* es el primer LIF de clúster que se conecta al conmutador de clúster *C1* para el nodo *n2*.
-* *n2_clus2* es el segundo LIF de clúster que se conecta al conmutador de clúster *C2* para el nodo *n2*.
-* El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Descarga del archivo de configuración de referencia del conmutador de red de clúster Cisco®"^] página.
+* *n1_clus1* es la primera interfaz lógica de clúster (LIF) que se conectará al conmutador de clúster *C1* para el nodo *n1*.
+* *n1_clus2* es el primer LIF de clúster que se conectará al conmutador de clúster *C2* para el nodo *n1*.
+* *n2_clus1* es el primer LIF de clúster que se conectará al conmutador de clúster *C1* para el nodo *n2*.
+* *n2_clus2* es el segundo LIF de clúster que se conectará al conmutador de clúster *C2* para el nodo *n2*.
+* El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en el https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Descarga del archivo de configuración de referencia del switch de red en clúster de Cisco"^] página.
 
 
 [NOTE]
 ====
-Para ello, es necesario utilizar tanto comandos de la ONTAP como comandos de la serie Cisco Nexus 3000; los comandos de la ONTAP se usan a menos que se indique lo contrario.
+El procedimiento requiere el uso de comandos ONTAP y comandos de switches Cisco Nexus serie 3000; se utilizan comandos ONTAP a menos que se indique lo contrario.
 
 ====
-.El futuro
-link:migrate-from-switchless-prepare-to-migrate.html["Prepare la migración"].
+.¿Que sigue?
+link:migrate-from-switchless-prepare-to-migrate.html["Prepárate para la migración"].

@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/configure-new-switch-overview.html 
 sidebar: sidebar 
 keywords: BES-53248 switches, initial installation, configure new bes-53248 switch 
-summary: Antes de configurar switches de clúster BES-53248, revise la descripción general de la configuración. 
+summary: Antes de configurar los conmutadores de clúster BES-53248, revise la descripción general de la configuración. 
 ---
 = Flujo de trabajo de instalación y configuración de los conmutadores BES-53248
 :allow-uri-read: 
@@ -11,11 +11,11 @@ summary: Antes de configurar switches de clúster BES-53248, revise la descripci
 
 
 [role="lead"]
-BES-53248 es un switch nativo diseñado para funcionar en clústeres de ONTAP que van desde dos hasta 24 nodos.
+El BES-53248 es un switch bare metal diseñado para funcionar en clústeres ONTAP que van de dos a 24 nodos.
 
 Siga estos pasos de flujo de trabajo para instalar y configurar sus conmutadores BES-53248.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:configure-reqs-bes53248.html["Revisar los requisitos de configuración"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1"]link:configure-reqs-bes53248.html["Revisar los requisitos de configuración"]
 [role="quick-margin-para"]
 Revise los requisitos de configuración para el conmutador de clúster BES-53248.
 
@@ -27,7 +27,7 @@ Revise los componentes y números de pieza del conmutador de grupo BES-53248.
 [role="quick-margin-para"]
 Revise la documentación específica del conmutador y del controlador para configurar sus conmutadores BES-53248 y el clúster ONTAP .
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:install-hardware-workflow.html["Instale el hardware"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:install-hardware-workflow.html["Instala el hardware"]
 [role="quick-margin-para"]
 Instale el hardware del interruptor.
 

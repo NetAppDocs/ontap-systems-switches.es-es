@@ -2,16 +2,16 @@
 permalink: switch-cshm/log-collection-troubleshoot.html 
 sidebar: sidebar 
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
-summary: Puede utilizar los comandos proporcionados aquí para.... 
+summary: Puedes utilizar los comandos que se proporcionan aquí para... 
 ---
-= Solución de problemas de recopilación de registros
+= Solución de problemas de la recopilación de registros
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si encuentra alguno de los siguientes estados de error indicados por la función de recopilación de registros (visibles en la salida del `system switch ethernet log show` comando), intente los pasos de depuración correspondientes:
+Si encuentra alguno de los siguientes estados de error notificados por la función de recopilación de registros (visibles en la salida de `system switch ethernet log show` comando), pruebe los pasos de depuración correspondientes:
 
 |===
 
@@ -20,38 +20,38 @@ Si encuentra alguno de los siguientes estados de error indicados por la función
 
 
  a| 
-*Las claves RSA no están presentes*
+*Claves RSA no presentes*
  a| 
-Vuelva a generar las claves SSH de ONTAP.
+Regenerar claves SSH de ONTAP .
 
 
 
  a| 
-*Error de contraseña de cambio*
+*Error de contraseña del switch*
  a| 
-Verifique las credenciales, pruebe la conectividad SSH y vuelva a generar las claves SSH de ONTAP. Revise la documentación del switch o póngase en contacto con el soporte de NetApp para obtener instrucciones.
+Verificar credenciales, probar la conectividad SSH y regenerar las claves SSH de ONTAP .  Revise la documentación del switch o póngase en contacto con el soporte de NetApp para obtener instrucciones.
 
 
 
  a| 
 *Las claves ECDSA no están presentes para FIPS*
  a| 
-Si el modo FIPS está activado, es necesario generar claves ECDSA en el conmutador antes de volver a intentarlo.
+Si el modo FIPS está habilitado, las claves ECDSA deben generarse en el conmutador antes de volver a intentarlo.
 
 
 
  a| 
-*Registro preexistente encontrado*
+*Se encontró un registro preexistente*
  a| 
 Elimine el archivo de recopilación de registros anterior del conmutador.
 
 
 
  a| 
-*Error de registro de volcado del interruptor*
+*Error en el registro de volcado del switch*
  a| 
-Asegúrese de que el usuario del conmutador tiene permisos de recopilación de registros. Consulte los requisitos previos anteriores.
+Asegúrese de que el usuario del switch tenga permisos de recopilación de registros.  Consulte los requisitos previos anteriores.
 
 |===
 
-NOTE: Si los detalles de la resolución no funcionan, póngase en contacto con el soporte de NetApp.
+NOTE: Si los detalles de la resolución no funcionan, póngase en contacto con el soporte de NetApp .

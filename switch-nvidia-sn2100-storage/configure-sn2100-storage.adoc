@@ -11,12 +11,12 @@ summary: Para instalar el hardware BES-53248, consulte la documentación de NVID
 
 
 [role="lead"]
-Para configurar el conmutador SN2100, consulte la documentación de NVIDIA.
+Para configurar el switch SN2100, consulte la documentación de NVIDIA.
 
 .Pasos
-. Revise la link:configure-reqs-sn2100-storage.html["requisitos de configuración"].
-. Siga las instrucciones de https://docs.nvidia.com/networking/display/sn2000pub/System+Bring-Up["Puesta en marcha del sistema NVIDIA."^].
+. Revisar ellink:configure-reqs-sn2100-storage.html["requisitos de configuración"] .
+. Siga las instrucciones en https://docs.nvidia.com/networking/display/sn2000pub/System+Bring-Up["Puesta en marcha del sistema NVIDIA ."^] .
 
 
-.El futuro
+.¿Que sigue?
 Una vez que hayas configurado tus interruptores, podráslink:install-cumulus-mode-sn2100-storage.html["Instalar Cumulus Linux en modo Cumulus"] olink:install-onie-mode-sn2100-storage.html["Instalar Cumulus Linux en modo ONIE"] .

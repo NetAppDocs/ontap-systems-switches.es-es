@@ -2,30 +2,30 @@
 sidebar: sidebar 
 permalink: overview-eod.html 
 keywords: switches, fas, aff systems, end of availability, EOD 
-summary: Switches EOD para sistemas FAS y AFF. 
+summary: Interruptores EOD para sistemas FAS y AFF . 
 ---
-= Fin de la disponibilidad
+= Fin de disponibilidad
 :allow-uri-read: 
 :icons: font
 :imagesdir: ./media/
 
 
 [role="lead"]
-Los siguientes switches ya no se pueden comprar, pero siguen siendo compatibles.
+Los siguientes interruptores ya no están disponibles para su compra, pero aún cuentan con soporte.
 
 * link:./switch-cisco-3232c/install-overview-cisco-3232c.html["Cisco Nexus 3232C"]
 * link:./switch-cisco-3132q-v/install-overview-cisco-3132qv.html["Cisco Nexus 3132Q-V"]
 * link:./switch-cisco-92300/install-overview-cisco-92300.html["Cisco Nexus 92300YC"]
-* link:./switch-netapp-cn1610/install-overview-cn1610.html["CN1610 de NetApp"]
+* link:./switch-netapp-cn1610/install-overview-cn1610.html["NetApp CN1610"]
 
 
 
 
 == Anuncios de fin de venta y fin de vida útil
 
-* link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-3000-series-switches/n3k-c3232c-eol.html["Anuncio de fin de venta y fin de vida útil de Nexus 3232C de Cisco"]
-* link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-3000-series-switches/nexus-31108pc-v-31108tc-v-nexus-3132q-v-eol.html["Anuncio de fin de venta y fin de vida útil de Cisco Nexus 31108PC-V, 31108TC-V y Nexus 3132Q-V."]
-* link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/eos-eol-notice-c51-742776.html["Anuncio de fin de venta y fin de vida útil de Cisco N9K-C93120TX, N9K-C92300YC"]
-* link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-5000-series-switches/eos-eol-notice-c51-740720.html["Anuncio de fin de venta y fin de vida útil de los switches de la serie Nexus 5500 de Cisco"]
-* link:https://mysupport.netapp.com/info/communications/ECMLP2859128.html["Fin de la disponibilidad: SKU de interconexión de clúster NetApp CN1610"]
+* link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-3000-series-switches/n3k-c3232c-eol.html["Anuncio de fin de venta y fin de soporte para el Cisco Nexus 3232C"]
+* link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-3000-series-switches/nexus-31108pc-v-31108tc-v-nexus-3132q-v-eol.html["Anuncio de fin de venta y fin de soporte para los modelos Cisco Nexus 31108PC-V, 31108TC-V y Nexus 3132Q-V."]
+* link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/eos-eol-notice-c51-742776.html["Anuncio de fin de venta y fin de soporte para los modelos Cisco N9K-C93120TX y N9K-C92300YC."]
+* link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-5000-series-switches/eos-eol-notice-c51-740720.html["Anuncio de fin de venta y fin de soporte para los switches Cisco Nexus serie 5500"]
+* link:https://mysupport.netapp.com/info/communications/ECMLP2859128.html["Fin de disponibilidad: SKU de interconexión de clúster NetApp CN1610"]
 

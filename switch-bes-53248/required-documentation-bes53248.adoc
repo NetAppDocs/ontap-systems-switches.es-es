@@ -2,22 +2,22 @@
 permalink: switch-bes-53248/required-documentation-bes53248.html 
 sidebar: sidebar 
 keywords: documentation requirements, BES-53248 switches,cluster switches 
-summary: Necesita documentación específica sobre los switches y la controladora para configurar la configuración de Cluster-Mode. 
+summary: Necesitas documentación específica del switch y del controlador para configurar tu modo clúster. 
 ---
-= Requisitos de documentación para los switches de clúster BES-53248
+= Requisitos de documentación para los conmutadores de clúster BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Para la instalación y mantenimiento del conmutador BES-53248, asegúrese de revisar la documentación específica del conmutador y del controlador.
+Para la instalación y el mantenimiento del switch BES-53248, asegúrese de revisar la documentación específica del switch y del controlador.
 
 
 
 == Documentación de Broadcom
 
-Para configurar el switch de clúster BES-53248, necesita los siguientes documentos disponibles en el sitio de soporte de Broadcom: https://www.broadcom.com/support/bes-switch["Línea de producto de conmutador Ethernet Broadcom"^]
+Para configurar el conmutador de clúster BES-53248, necesita los siguientes documentos disponibles en el sitio de soporte de Broadcom: https://www.broadcom.com/support/bes-switch["Línea de productos de conmutadores Ethernet de Broadcom"^]
 
 [cols="1,2"]
 |===
@@ -25,65 +25,65 @@ Para configurar el switch de clúster BES-53248, necesita los siguientes documen
 
 
  a| 
-_EFOS Guía del administrador v3.4.3_
+_Guía del administrador de EFOS v3.4.3_
  a| 
-Proporciona ejemplos de cómo utilizar el conmutador BES-53248 en una red típica.
-
-
-
- a| 
-_Referencia de comandos de la CLI del EFOS v3.4.3_
- a| 
-Describe los comandos de la interfaz de línea de comandos (CLI) que utiliza para ver y configurar el software BES-53248.
+Proporciona ejemplos de cómo utilizar el switch BES-53248 en una red típica.
 
 
 
  a| 
-_Guía de puesta en marcha del EFOS v3.4.3_
+_Referencia de comandos de la CLI de EFOS v3.4.3_
  a| 
-Proporciona información detallada acerca del conmutador BES-53248.
-
-
-
- a| 
-_EFOS SNMP Reference Guide v3.4.3_
- a| 
-Proporciona ejemplos de cómo utilizar el conmutador BES-53248 en una red típica.
+Describe los comandos de la interfaz de línea de comandos (CLI) que se utilizan para ver y configurar el software BES-53248.
 
 
 
  a| 
-_EFOS escala parámetros y valores v3.4.3_
+_Guía de inicio rápido de EFOS v3.4.3_
  a| 
-Describe los parámetros de escala predeterminados con los que se suministra y valida el software EFOS en las plataformas compatibles.
+Proporciona información detallada sobre el conmutador BES-53248.
 
 
 
  a| 
-_EFOS Especificaciones funcionales v3.4.3_
+_Guía de referencia SNMP de EFOS v3.4.3_
+ a| 
+Proporciona ejemplos de cómo utilizar el switch BES-53248 en una red típica.
+
+
+
+ a| 
+_Parámetros y valores de escalado de EFOS v3.4.3_
+ a| 
+Describe los parámetros de escalado predeterminados con los que se entrega y valida el software EFOS en las plataformas compatibles.
+
+
+
+ a| 
+_Especificaciones funcionales de EFOS v3.4.3_
  a| 
 Describe las especificaciones del software EFOS en las plataformas compatibles.
 
 
 
  a| 
-_Notas de publicación de EFOS v3.4.3_
+_Notas de la versión 3.4.3 de EFOS_
  a| 
-Proporciona información específica de la versión sobre el software BES-53248.
+Proporciona información específica de la versión del software BES-53248.
 
 
 
  a| 
-_Matriz de compatibilidad de redes de administración y redes de clúster_
+_Matriz de compatibilidad de redes de clúster y redes de administración_
  a| 
-Proporciona información sobre la compatibilidad de red. La matriz está disponible en el sitio de descarga del conmutador BES-53248 en https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Switches de clúster Broadcom"^].
+Proporciona información sobre la compatibilidad de la red.  La matriz está disponible en el sitio de descarga del conmutador BES-53248 en https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["conmutadores de clúster Broadcom"^] .
 
 |===
 
 
-== Documentación de los sistemas ONTAP y artículos de la base de conocimientos
+== Documentación de sistemas ONTAP y artículos de la base de conocimientos
 
-Para configurar un sistema ONTAP, necesita los siguientes documentos en el sitio de soporte de NetApp en http://mysupport.netapp.com/["mysupport.netapp.com"^] O el sitio de la base de conocimientos (KB) en https://kb.netapp.com/["kb.netapp.com"^].
+Para configurar un sistema ONTAP , necesita los siguientes documentos del sitio de soporte de NetApp en http://mysupport.netapp.com/["mysupport.netapp.com"^] o el sitio de la Base de Conocimiento (KB) en https://kb.netapp.com/["kb.netapp.com"^] .
 
 [cols="1,2"]
 |===
@@ -91,29 +91,29 @@ Para configurar un sistema ONTAP, necesita los siguientes documentos en el sitio
 
 
  a| 
-https://hwu.netapp.com/Home/Index["Hardware Universe de NetApp"^]
+https://hwu.netapp.com/Home/Index["NetApp Hardware Universe"^]
  a| 
-Describe los requisitos de alimentación y del sitio para todo el hardware de NetApp, incluidos los armarios de sistema, y proporciona información sobre los conectores y las opciones de cables relevantes que se deben usar junto con sus números de pieza.
+Describe los requisitos de alimentación y emplazamiento para todo el hardware de NetApp , incluidos los armarios del sistema, y ​​proporciona información sobre los conectores y opciones de cable pertinentes que se deben utilizar junto con sus números de pieza.
 
 
 
  a| 
-Específicos del controlador _instrucciones de instalación y configuración_
+Instrucciones de instalación y configuración específicas del controlador
  a| 
-Describe cómo instalar el hardware de NetApp.
+Describe cómo instalar el hardware de NetApp .
 
 
 
  a| 
 ONTAP 9
  a| 
-Proporciona información detallada sobre todos los aspectos de la versión 9 de ONTAP.
+Proporciona información detallada sobre todos los aspectos de la versión ONTAP 9.
 
 
 
  a| 
-_Cómo añadir licencias de puerto adicionales para el conmutador BES-53248 compatible con Broadcom_
+_Cómo agregar licencias de puertos adicionales para el switch BES-53248 compatible con Broadcom_
  a| 
-Proporciona información detallada sobre cómo agregar licencias de puerto. Vaya a la https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_add_Additional_Port_Licensing_for_the_Broadcom-Supported_BES-53248_Switch["Artículo de base de conocimientos"^].
+Proporciona información detallada sobre la adición de licencias portuarias.  Ve a la https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_add_Additional_Port_Licensing_for_the_Broadcom-Supported_BES-53248_Switch["Artículo de la base de conocimientos"^] .
 
 |===

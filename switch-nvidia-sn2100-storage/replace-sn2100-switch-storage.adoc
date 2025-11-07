@@ -2,73 +2,73 @@
 permalink: switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html 
 sidebar: sidebar 
 keywords: replacing, replace, defective, nvidia, switch, cluster, network, nondisruptive, procedure, ndu, replace a nvidia sn2100 cluster switch - nvidia SN2100 
-summary: 'Sustitución de un conmutador de almacenamiento NVIDIA SN2100 defectuoso en un procedimiento no disruptivo \(NDU\).' 
+summary: 'Reemplazo de un conmutador de almacenamiento NVIDIA SN2100 defectuoso en un procedimiento no disruptivo (NDU).' 
 ---
-= Sustituya el conmutador de almacenamiento NVIDIA SN2100
+= Reemplazar un conmutador de almacenamiento NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Puede sustituir un conmutador de almacenamiento NVIDIA SN2100 defectuoso. Se trata de un procedimiento no disruptivo.
+Puedes reemplazar un conmutador de almacenamiento NVIDIA SN2100 defectuoso. Este es un procedimiento que no produce interrupciones.
 
 .Antes de empezar
-Antes de instalar el software Cumulus y los RCF en un conmutador de almacenamiento NVIDIA SN2100, asegúrese de que:
+Antes de instalar el software Cumulus y los RCF en un conmutador de almacenamiento NVIDIA SN2100, asegúrese de lo siguiente:
 
-* Su sistema puede admitir los switches de almacenamiento NVIDIA SN2100.
-* Ha descargado los RCF correspondientes.
+* Su sistema puede admitir conmutadores de almacenamiento NVIDIA SN2100.
+* Has descargado los formularios RCF correspondientes.
 
 
-La http://hwu.netapp.com["Hardware Universe"^] proporciona información completa sobre los puertos admitidos y sus configuraciones.
+El http://hwu.netapp.com["Hardware Universe"^] Proporciona todos los detalles de los puertos compatibles y sus configuraciones.
 
 La configuración de red existente debe tener las siguientes características:
 
-* Complete todos los pasos de solución de problemas para confirmar que necesita reemplazar su interruptor.
-* Asegúrese de que exista conectividad de administración en ambos conmutadores.
+* Completa todos los pasos de solución de problemas para confirmar que necesitas reemplazar tu interruptor.
+* Asegúrese de que exista conectividad de gestión en ambos conmutadores.
 +
 
-NOTE: Asegúrese de que se han completado todos los pasos de solución de problemas para confirmar que es necesario sustituir el interruptor.
+NOTE: Asegúrese de que se hayan completado todos los pasos de solución de problemas para confirmar que su interruptor necesita ser reemplazado.
 
 
 
-El conmutador NVIDIA SN2100 de repuesto debe tener las siguientes características:
+El switch NVIDIA SN2100 de repuesto debe tener las siguientes características:
 
-* La conectividad de la red de gestión es funcional.
-* Puedes acceder al interruptor de reemplazo usando la consola.
-* La imagen apropiada del sistema operativo RCF y Cumulus se carga en el conmutador.
-* Se ha completado la personalización inicial del conmutador.
+* La conectividad de la red de gestión funciona correctamente.
+* Puedes acceder al interruptor de repuesto usando la consola.
+* La imagen del sistema operativo RCF y Cumulus correspondiente se carga en el switch.
+* La personalización inicial del switch está completa.
 
 
 .Resumen del procedimiento
-Este procedimiento sustituye al segundo conmutador de almacenamiento NVIDIA SN2100 sw2 con el nuevo conmutador NVIDIA SN2100 nsw2. Los dos nodos son 1 y 2.
+Este procedimiento reemplaza el segundo conmutador de almacenamiento NVIDIA SN2100 sw2 con el nuevo conmutador NVIDIA SN2100 nsw2.  Los dos nodos son nodo1 y nodo2.
 
-Pasos a completar:
+Pasos a seguir:
 
-* Confirmar que el interruptor que se va a sustituir es sw2.
-* Desconecte los cables del interruptor sw2.
-* Vuelva a conectar los cables al conmutador nsw2.
-* Verifique todas las configuraciones del dispositivo en el interruptor nsw2.
+* Confirme que el interruptor que se va a reemplazar es el SW2.
+* Desconecta los cables del interruptor sw2.
+* Vuelva a conectar los cables al interruptor nsw2.
+* Verifique todas las configuraciones de los dispositivos en el switch nsw2.
 
 
 .Pasos
-. Si se habilita AutoSupport en este clúster, elimine la creación automática de casos invocando un mensaje de AutoSupport:
+. Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport :
 +
 `system node autosupport invoke -node * -type all - message MAINT=xh`
 
 +
 _x_ es la duración de la ventana de mantenimiento en horas.
 
-. Cambie el nivel de privilegio a avanzado, introduciendo *y* cuando se le solicite continuar:
+. Cambie el nivel de privilegio a avanzado, ingresando *y* cuando se le solicite continuar:
 +
 `set -privilege advanced`
 
-. Verifique el estado de salud de los puertos del nodo de almacenamiento para confirmar la conexión al conmutador de almacenamiento S1:
+. Compruebe el estado de salud de los puertos del nodo de almacenamiento para confirmar la conexión con el conmutador de almacenamiento S1:
 +
 `storage port show -port-type ENET`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -90,12 +90,12 @@ node2
 cluster1::*>
 ----
 ====
-. Compruebe que el interruptor sw1 de almacenamiento esté disponible:
+. Verifique que el interruptor de almacenamiento sw1 esté disponible:
 +
 `network device-discovery show -protocol lldp`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -121,12 +121,12 @@ Press <space> to page down, <return> for next line, or 'q' to quit...
 10 entries were displayed.
 ----
 ====
-. Ejecute el `net show interface` comando en el switch de trabajo para confirmar que puede ver tanto los nodos como todas las bandejas:
+. Ejecutar el `net show interface` Comando en el interruptor de funcionamiento para confirmar que puede ver ambos nodos y todos los estantes:
 +
 `net show interface`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -148,12 +148,12 @@ UP     swp6    100G  9216   Trunk/L2   SHFFG1826000102 (e0b)   Master: bridge(UP
 ...
 ----
 ====
-. Compruebe los puertos de la bandeja en el sistema de almacenamiento:
+. Verifique los puertos de los estantes en el sistema de almacenamiento:
 +
 `storage shelf port show -fields remote-device, remote-port`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -173,13 +173,13 @@ cluster1::*>
 ----
 ====
 . Retire todos los cables conectados al interruptor de almacenamiento sw2.
-. Vuelva a conectar todos los cables al interruptor de recambio nsw2.
-. Vuelva a comprobar el estado de los puertos del nodo de almacenamiento:
+. Vuelva a conectar todos los cables al interruptor de reemplazo nsw2.
+. Vuelva a comprobar el estado de salud de los puertos del nodo de almacenamiento:
 +
 `storage port show -port-type ENET`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -201,12 +201,12 @@ node2
 cluster1::*>
 ----
 ====
-. Compruebe que ambos conmutadores estén disponibles:
+. Verifique que ambos interruptores estén disponibles:
 +
 `net device-discovery show -protocol lldp`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -233,12 +233,12 @@ Press <space> to page down, <return> for next line, or 'q' to quit...
 10 entries were displayed.
 ----
 ====
-. Compruebe los puertos de la bandeja en el sistema de almacenamiento:
+. Verifique los puertos de los estantes en el sistema de almacenamiento:
 +
 `storage shelf port show -fields remote-device, remote-port`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -257,15 +257,15 @@ shelf   id    remote-port     remote-device
 cluster1::*>
 ----
 ====
-. Vuelva a cambiar el nivel de privilegio a admin:
+. Vuelva a cambiar el nivel de privilegios a administrador:
 +
 `set -privilege admin`
 
-. Si ha suprimido la creación automática de casos, vuelva a habilitarla invocando un mensaje de AutoSupport:
+. Si desactivaste la creación automática de casos, vuelve a activarla mediante un mensaje de AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.El futuro
+.¿Que sigue?
 Después de haber reemplazado los interruptores, puedes link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"].

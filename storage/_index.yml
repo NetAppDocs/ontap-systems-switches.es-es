@@ -1,15 +1,15 @@
 ---
 indexpage:
-  title: Switches de almacenamiento
+  title: Conmutadores de almacenamiento
   summary: Utilice la documentación de este sitio para instalar, configurar y mantener
     sus conmutadores de almacenamiento para implementaciones de clústeres ONTAP .
   keywords: storage switches, cisco nexus switches, cluster switches, ontap clusters
   lead: Los conmutadores de almacenamiento le permiten crear clústeres ONTAP con más
-    de dos nodos.  Estos conmutadores de plataforma Cisco Nexus 9000 proporcionan
-    la base para soluciones de interconexión de clústeres escalables en entornos NetApp
+    de dos nodos. Estos conmutadores de plataforma Cisco Nexus 9000 proporcionan la
+    base para soluciones de interconexión de clústeres escalables en entornos NetApp
     ONTAP .
   tiles:
-  - title: Manos a la obra
+  - title: Empezar
     links:
     - title: Cisco Nexus 9336C-FX2 y 9336C-FX2-T
       url: "../switch-cisco-9336c-fx2-storage/configure-switch-overview-9336c-storage.html"
@@ -39,7 +39,7 @@ indexpage:
       url: "../switch-nvidia-sn2100-storage/reset-switch-sn2100-storage.html"
   - title: Documentación relacionada
     links:
-    - title: Sistemas de hardware de ONTAP
+    - title: Sistemas de hardware ONTAP
       url: https://docs.netapp.com/us-en/ontap-systems/index.html
     - title: Documentación de conmutadores de clúster
       url: "../index.html"

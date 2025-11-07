@@ -2,7 +2,7 @@
 permalink: switch-cisco-9336c-fx2-storage/install-nxos-software-9336c-storage.html 
 sidebar: sidebar 
 keywords: procedure, install, nx-os, software, nexus, cluster, switch, install the nx-os software - cisco nexus 9336c-fx2 
-summary: Puede utilizar este procedimiento para instalar el software NX-OS en el switch de clúster Nexus 9336C-FX2. 
+summary: Puede utilizar este procedimiento para instalar el software NX-OS en el conmutador de clúster Nexus 9336C-FX2. 
 ---
 = Instale o actualice el software NX-OS
 :allow-uri-read: 
@@ -13,61 +13,60 @@ summary: Puede utilizar este procedimiento para instalar el software NX-OS en el
 [role="lead"]
 Siga este procedimiento para instalar el software NX-OS en los conmutadores Nexus 9336C-FX2 y 9336C-FX2-T.
 
-Antes de comenzar, complete el procedimiento en link:install-nxos-overview-9336c-storage.html["Prepare la instalación de NX-OS y RCF"].
+Antes de comenzar, complete el procedimiento enlink:install-nxos-overview-9336c-storage.html["Prepárese para instalar NX-OS y RCF."] .
 
 
 
-== Revise los requisitos
+== Requisitos de revisión
 
 .Antes de empezar
 Asegúrese de tener lo siguiente:
 
-* Una copia de seguridad actual de la configuración del switch.
-* Un clúster en pleno funcionamiento (sin errores en los registros o problemas similares).
+* Una copia de seguridad actualizada de la configuración del switch.
+* Un clúster en pleno funcionamiento (sin errores en los registros ni problemas similares).
 
 
 .Documentación sugerida
-* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Página del switch Cisco Ethernet"^]
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["página del switch Ethernet de Cisco"^]
 +
-Consulte en la tabla de compatibilidad del switch las versiones ONTAP y NX-OS compatibles.
+Consulte la tabla de compatibilidad del switch para conocer las versiones compatibles de ONTAP y NX-OS.
 
 * link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-guides-list.html["Guías de actualización y degradación de software"^]
 +
-Consulte las guías de software y actualización correspondientes disponibles en el sitio web de Cisco para obtener documentación completa sobre los procedimientos de actualización y degradación del conmutador Cisco.
+Consulte las guías de software y actualización correspondientes disponibles en el sitio web de Cisco para obtener documentación completa sobre los procedimientos de actualización y degradación de los switches de Cisco .
 
-* link:https://www.cisco.com/c/dam/en/us/td/docs/dcn/tools/nexus-9k3k-issu-matrix/index.html["Matriz de ISSU y actualización de Cisco Nexus 9000 y 3000"^]
+* link:https://www.cisco.com/c/dam/en/us/td/docs/dcn/tools/nexus-9k3k-issu-matrix/index.html["Matriz de actualización e ISSU de Cisco Nexus 9000 y 3000"^]
 +
-Proporciona información sobre actualización/degradación disruptiva para software Cisco NX-OS en los switches de la serie Nexus 9000
-en función de tus versiones actuales y objetivo.
+Proporciona información sobre la actualización/degradación disruptiva del software Cisco NX-OS en los switches de la serie Nexus 9000, según sus versiones actuales y objetivo.
 
 +
-En la página, selecciona *Actualización disruptiva* y selecciona tu versión actual y la versión de destino de la lista desplegable.
+En la página, seleccione *Actualización disruptiva* y seleccione su versión actual y la versión objetivo de la lista desplegable.
 
 
 
 .Acerca de los ejemplos
-Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:
+Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interruptores y nodos:
 
 * Los nombres de los dos switches de Cisco son cs1 y cs2.
-* Los nombres de nodo son cluster1-01, cluster1-02, cluster1-03 y cluster1-04.
-* Los nombres de las LIF del clúster son cluster1-01_clus1, cluster1-01_clus2, cluster1-02_clus1, cluster1-02_clus2 , cluster1-03_clus1, cluster1-03_clus2, cluster1-04_clus1 y cluster1-04_clus2.
-* La `cluster1::*>` prompt indica el nombre del clúster.
+* Los nombres de los nodos son cluster1-01, cluster1-02, cluster1-03 y cluster1-04.
+* Los nombres LIF del clúster son cluster1-01_clus1, cluster1-01_clus2, cluster1-02_clus1, cluster1-02_clus2, cluster1-03_clus1, cluster1-03_clus2, cluster1-04_clus1 y cluster1-04_clus2.
+* El `cluster1::*>` El indicador muestra el nombre del clúster.
 
 
 
 
-== Instale el software
+== Instala el software
 
-Para ello, es necesario utilizar tanto comandos de la ONTAP como comandos de la serie Cisco Nexus 9000; los comandos de la ONTAP se usan a menos que se indique lo contrario.
+El procedimiento requiere el uso de comandos ONTAP y comandos de switches Cisco Nexus serie 9000; se utilizan comandos ONTAP a menos que se indique lo contrario.
 
 .Pasos
-. Conecte el switch de clúster a la red de gestión.
+. Conecte el conmutador del clúster a la red de administración.
 . Utilice el comando ping para verificar la conectividad con el servidor que aloja el software NX-OS y el RCF.
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-Este ejemplo verifica que el switch puede llegar al servidor en la dirección IP 172.19.2.1:
+Este ejemplo verifica que el switch puede alcanzar el servidor en la dirección IP 172.19.2.1:
 
 [listing, subs="+quotes"]
 ----
@@ -77,12 +76,12 @@ Pinging 172.19.2.1 with 0 bytes of data:
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
 ====
-. Muestre los puertos del clúster en cada nodo que están conectados a los switches de clúster:
+. Muestra los puertos del clúster en cada nodo que están conectados a los conmutadores del clúster:
 +
 `network device-discovery show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -106,14 +105,14 @@ cluster1-04/cdp
 cluster1::*>
 ----
 ====
-. Compruebe el estado administrativo y operativo de cada puerto del clúster.
+. Verifique el estado administrativo y operativo de cada puerto del clúster.
 +
-.. Compruebe que todos los puertos del clúster están *up* con un estado correcto:
+.. Verifique que todos los puertos del clúster estén *activos* y en buen estado:
 +
 `network port show -role cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -156,12 +155,12 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 cluster1::*>
 ----
 ====
-.. Compruebe que todas las interfaces del clúster (LIF) están en el puerto de inicio:
+.. Verifique que todas las interfaces del clúster (LIF) estén en el puerto principal:
 +
 `network interface show -role cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -183,12 +182,12 @@ Cluster
 cluster1::*>
 ----
 ====
-.. Compruebe que el clúster muestra información de ambos switches de clúster:
+.. Verifique que el clúster muestre información para ambos conmutadores del clúster:
 +
 `system cluster-switch show -is-monitoring-enabled-operational true`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -216,13 +215,13 @@ cluster1::*>
 ====
 
 
-. Deshabilite la reversión automática en las LIF del clúster. Los LIF de clúster conmutan al switch del clúster asociado y permanecen allí mientras realiza el procedimiento de actualización en el switch de destino:
+. Desactive la reversión automática en los LIF del clúster.  Las LIF del clúster realizan la conmutación por error al conmutador del clúster asociado y permanecen allí mientras se realiza el procedimiento de actualización en el conmutador de destino:
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
-. Copie las imágenes del software NX-OS y EPLD en el switch Nexus 9336C-FX2.
+. Copie el software NX-OS y las imágenes EPLD al conmutador Nexus 9336C-FX2.
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -261,12 +260,12 @@ Copy complete, now saving to disk (please wait)...
 Copy complete.
 ----
 ====
-. Compruebe la versión que se está ejecutando del software NX-OS:
+. Verifique la versión en ejecución del software NX-OS:
 +
 `show version`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -326,10 +325,10 @@ cs2#
 ====
 . Instale la imagen NX-OS.
 +
-La instalación del archivo de imagen hace que se cargue cada vez que se reinicia el conmutador.
+La instalación del archivo de imagen provoca que este se cargue cada vez que se reinicie el switch.
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -396,12 +395,12 @@ Warning: please do not remove or power off the module at this time.
 Finishing the upgrade, switch will reboot in 10 seconds.
 ----
 ====
-. Compruebe la nueva versión del software NX-OS una vez que se haya reiniciado el switch:
+. Verifique la nueva versión del software NX-OS después de que el switch se haya reiniciado:
 +
 `show version`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -456,9 +455,9 @@ plugin
 Active Package(s):
 ----
 ====
-. Actualice la imagen de EPLD y reinicie el switch.
+. Actualice la imagen EPLD y reinicie el switch.
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -507,9 +506,9 @@ EPLDs upgraded.
 Module 1 EPLD upgrade is successful.
 ----
 ====
-. Tras reiniciar el conmutador, vuelva a iniciar sesión y compruebe que la nueva versión de EPLD se ha cargado correctamente.
+. Tras reiniciar el switch, vuelva a iniciar sesión y verifique que la nueva versión de EPLD se haya cargado correctamente.
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -527,14 +526,14 @@ GEM  FPGA                        0x2
 GEM  FPGA                        0x2
 ----
 ====
-. Compruebe el estado de los puertos del clúster en el clúster.
+. Verifique el estado de los puertos del clúster.
 +
-.. Compruebe que los puertos del clúster estén en buen estado en todos los nodos del clúster:
+.. Verifique que los puertos del clúster estén activos y en buen estado en todos los nodos del clúster:
 +
 `network port show -role cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -575,12 +574,12 @@ e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
 8 entries were displayed.
 ----
 ====
-.. Compruebe el estado del switch del clúster.
+.. Verifique el estado del switch desde el clúster.
 +
 `network device-discovery show -protocol cdp`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -623,7 +622,7 @@ cs2                         cluster-network    10.233.205.91    N9K-C9336C-FX2
 
 2 entries were displayed.
 ----
-Puede observar la siguiente salida en la consola del conmutador cs1 dependiendo de la versión RCF cargada previamente en el conmutador:
+Dependiendo de la versión de RCF previamente cargada en el switch, es posible que observe la siguiente salida en la consola del switch cs1:
 
 [listing]
 ----
@@ -634,12 +633,12 @@ Puede observar la siguiente salida en la consola del conmutador cs1 dependiendo 
 ====
 
 
-. Compruebe que el clúster esté en buen estado:
+. Verifique que el clúster esté en buen estado:
 +
 `cluster show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -655,17 +654,17 @@ cluster1-04          true     true          false
 cluster1::*>
 ----
 ====
-. Repita los pasos 6 a 13 para instalar el software NX-OS en el interruptor CS1.
-. Habilite la reversión automática en las LIF del clúster.
+. Repita los pasos 6 a 13 para instalar el software NX-OS en el switch cs1.
+. Habilitar la reversión automática en los LIF del clúster.
 +
 `network interface modify -vserver Cluster -lif * -auto-revert true`
 
-. Compruebe que las LIF del clúster han vuelto a su puerto de inicio:
+. Verifique que los LIF del clúster hayan vuelto a su puerto de origen:
 +
 `network interface show -role cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -688,12 +687,12 @@ cluster1::*>
 ----
 ====
 +
-Si alguna LIF de clúster no ha regresado a sus puertos raíz, revertirla manualmente desde el nodo local:
+Si alguna LIF del clúster no ha regresado a sus puertos de origen, reviértala manualmente desde el nodo local:
 
 +
 `network interface revert -vserver Cluster -lif <lif_name>`
 
 
 
-.El futuro
+.¿Que sigue?
 Después de instalar o actualizar el software NX-OS, puedelink:install-rcf-software-9336c-storage.html["instalar o actualizar el RCF"] .

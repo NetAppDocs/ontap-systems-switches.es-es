@@ -2,7 +2,7 @@
 section: switch-cisco-9364d-gx2a
 title: Cisco Nexus 9364D-GX2A
 entries:
-- title: Manos a la obra
+- title: Empezar
   pdf-filename: Descripción general_9364d-gx2a
   entries:
   - title: Inicio rápido
@@ -13,28 +13,28 @@ entries:
     url: "/switch-cisco-9364d-gx2a/required-documentation-9364d-cluster.html"
   - title: Requisitos de Smart Call Home
     url: "/switch-cisco-9364d-gx2a/smart-call-9364d-cluster.html"
-- title: Instale el hardware
+- title: Instalar hardware
   url: "/switch-cisco-9364d-gx2a/install-hardware.html"
   pdf-filename: Instalar hardware 9364d-gx2a
-- title: Configurar el software
+- title: Configurar software
   pdf-filename: Configurar_software_9364d-gx2a
   entries:
   - title: Configurar el flujo de trabajo del software
     url: "/switch-cisco-9364d-gx2a/configure-software-overview-9364d-cluster.html"
-  - title: Configure el switch
+  - title: Configura el interruptor
     url: "/switch-cisco-9364d-gx2a/setup-switch-9364d-cluster.html"
-  - title: Prepare la instalación de NX-OS y RCF
+  - title: Prepárese para instalar NX-OS y RCF.
     url: "/switch-cisco-9364d-gx2a/install-nxos-overview-9364d-cluster.html"
-  - title: Instale o actualice el software NX-OS
+  - title: Instalar o actualizar el software NX-OS
     url: "/switch-cisco-9364d-gx2a/install-nxos-software-9364d-cluster.html"
-  - title: Instale o actualice el RCF
-    pdf-filename: Install_UPGRADE_rcf
+  - title: Instalar o actualizar el RCF
+    pdf-filename: Instalar_actualización_rcf
     entries:
-    - title: Instale o actualice la descripción general de RCF
+    - title: Descripción general de la instalación o actualización de RCF
       url: "/switch-cisco-9364d-gx2a/install-upgrade-rcf-overview-cluster.html"
-    - title: Instale el RCF
+    - title: Instala el RCF
       url: "/switch-cisco-9364d-gx2a/install-rcf-software-9364d-cluster.html"
-    - title: Actualice su versión de RCF
+    - title: Actualiza tu versión de RCF
       url: "/switch-cisco-9364d-gx2a/upgrade-rcf-software-9364d-cluster.html"
   - title: Verificar que SSH esté habilitado
     url: "/switch-cisco-9364d-gx2a/configure-ssh-keys.html"

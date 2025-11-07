@@ -17,8 +17,8 @@ summary: Restablezca el interruptor 9364D-GX2A a sus valores predeterminados de 
 Para restablecer el interruptor 9364D-GX2A a los valores predeterminados de fábrica, debe borrar la configuración del interruptor 9364D-GX2A.
 
 .Acerca de esta tarea
-* Debe estar conectado al conmutador mediante la consola serie.
-* Esta tarea restablece la configuración de la red de gestión.
+* Debes estar conectado al switch mediante la consola serie.
+* Esta tarea restablece la configuración de la red de administración.
 
 
 .Pasos
@@ -46,6 +46,6 @@ Do you wish to proceed anyway? (y/n) [n] *y*
 This command will reboot the system. (y/n)? [n] *y*
 ----
 +
-El sistema se reinicia y entra en el asistente de configuración.  Durante el arranque, si recibe el mensaje “¿Desea cancelar el aprovisionamiento automático y continuar con la configuración normal?”  (sí/no)[n]”, debe responder *sí* para continuar.
+El sistema se reinicia y entra en el asistente de configuración. Durante el arranque, si recibe el mensaje “¿Desea cancelar el aprovisionamiento automático y continuar con la configuración normal?” (sí/no)[n]”, debe responder *sí* para continuar.
 
 

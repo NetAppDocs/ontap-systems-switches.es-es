@@ -2,19 +2,19 @@
 permalink: switch-bes-53248/configure-licenses.html 
 sidebar: sidebar 
 keywords: bes, cluster, switch, base, model, license, 10gbe, 25gbe, 100gbe, port, add, purchasing, purchase, install licenses for bes-53248 cluster switches - bes-53248 switches 
-summary: El modelo base de switch de clúster BES-53248 tiene licencia para 16 puertos de 10 GbE o 25 GbE y dos puertos de 100 GbE. Es posible añadir puertos nuevos si se adquieren más licencias. 
+summary: El modelo base del conmutador de clúster BES-53248 tiene licencia para 16 puertos 10GbE o 25GbE y dos puertos 100GbE.  Se pueden añadir nuevos puertos adquiriendo más licencias. 
 ---
-= Instale licencias para switches de clúster BES-53248
+= Instale las licencias para los conmutadores de clúster BES-53248.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-El modelo base de switch de clúster BES-53248 tiene licencia para 16 puertos de 10 GbE o 25 GbE y dos puertos de 100 GbE. Puede añadir puertos nuevos si compra más licencias.
+El modelo base del conmutador de clúster BES-53248 tiene licencia para 16 puertos 10GbE o 25GbE y dos puertos 100GbE.  Puedes añadir nuevos puertos comprando más licencias.
 
 
-CAUTION: Para EFOS 3,12 y posterior, siga los pasos de instalación en link:efos-install-rcf-license-file.html["Instale el archivo de configuración de referencia (RCF) y el archivo de licencia"].
+CAUTION: Para EFOS 3.12 y versiones posteriores, siga los pasos de instalación enlink:efos-install-rcf-license-file.html["Instale el archivo de configuración de referencia (RCF) y el archivo de licencia."] .
 
 
 
@@ -24,7 +24,7 @@ Las siguientes licencias están disponibles para su uso en el conmutador de clú
 
 [cols="1,2,3"]
 |===
-| Tipo de licencia | Detalles de licencia | Versión de firmware admitida 
+| Tipo de licencia | Detalles de la licencia | Versión de firmware compatible 
 
 
  a| 
@@ -32,117 +32,117 @@ SW-BES-53248A2-8P-2P
  a| 
 Clave de licencia Broadcom 8PT-10G25G + 2PT-40G100G, X190005/R
  a| 
-EFOS 3.4.4.6 y posterior
+EFOS 3.4.4.6 y versiones posteriores
 
 
 
  a| 
 SW-BES-53248A2-8P-1025G
  a| 
-Clave de licencia 10G25G de 8 puertos Broadcom, X190005/R
+Clave de licencia Broadcom de 8 puertos 10G25G, X190005/R
  a| 
-EFOS 3.4.4.6 y posterior
+EFOS 3.4.4.6 y versiones posteriores
 
 
 
  a| 
 SW-BES53248A2-6P-40-100G
  a| 
-Clave de licencia de Broadcom 6 puertos 40G100G, X190005/R
+Clave de licencia Broadcom de 6 puertos 40G100G, X190005/R
  a| 
-EFOS 3.4.4.6 y posterior
+EFOS 3.4.4.6 y versiones posteriores
 
 |===
 
 
 == Licencias heredadas
 
-En la siguiente tabla se enumeran las licencias heredadas que estaban disponibles para su uso en el conmutador de clúster BES-53248:
+La siguiente tabla enumera las licencias heredadas que estaban disponibles para su uso en el conmutador de clúster BES-53248:
 
 [cols="1,2,3"]
 |===
-| Tipo de licencia | Detalles de licencia | Versión de firmware admitida 
+| Tipo de licencia | Detalles de la licencia | Versión de firmware compatible 
 
 
  a| 
 SW-BES-53248A1-G1-8P-LIC
  a| 
-Clave de licencia Broadcom 8P 10-25,2P40-100, X190005/R.
+Clave de licencia Broadcom 8P 10-25,2P40-100, X190005/R
  a| 
-EFOS 3.4.3.3 y posterior
+EFOS 3.4.3.3 y posteriores
 
 
 
  a| 
 SW-BES-53248A1-G1-16P-LIC
  a| 
-Clave de licencia Broadcom 16P 10-25,4P40-100, X190005/R.
+Clave de licencia Broadcom 16P 10-25,4P40-100, X190005/R
  a| 
-EFOS 3.4.3.3 y posterior
+EFOS 3.4.3.3 y posteriores
 
 
 
  a| 
 SW-BES-53248A1-G1-24P-LIC
  a| 
-Clave de licencia Broadcom 24P 10-25,6P40-100, X190005/R.
+Clave de licencia Broadcom 24P 10-25,6P40-100, X190005/R
  a| 
-EFOS 3.4.3.3 y posterior
+EFOS 3.4.3.3 y posteriores
 
 
 
  a| 
 SW-BES54248-40-100G-LIC
  a| 
-Clave de licencia Broadcom 6Port 40G100G, X190005/R.
+Clave de licencia Broadcom 6Port 40G100G, X190005/R
  a| 
-EFOS 3.4.4.6 y posterior
+EFOS 3.4.4.6 y versiones posteriores
 
 
 
  a| 
 SW-BES53248-8P-10G25G-LIC
  a| 
-Clave de licencia Broadcom de 8 puertos 10G25G, X190005/R.
+Clave de licencia Broadcom 8Port 10G25G, X190005/R
  a| 
-EFOS 3.4.4.6 y posterior
+EFOS 3.4.4.6 y versiones posteriores
 
 
 
  a| 
 SW-BES53248-16P-1025G-LIC
  a| 
-Clave de licencia Broadcom 16Port 10G25G, X190005/R.
+Clave de licencia Broadcom de 16 puertos 10G25G, X190005/R
  a| 
-EFOS 3.4.4.6 y posterior
+EFOS 3.4.4.6 y versiones posteriores
 
 
 
  a| 
 SW-BES53248-24P-1025G-LIC
  a| 
-Clave de licencia Broadcom 24Port 10G25G, X190005/R.
+Clave de licencia Broadcom de 24 puertos 10G/25G, X190005/R
  a| 
-EFOS 3.4.4.6 y posterior
+EFOS 3.4.4.6 y versiones posteriores
 
 |===
 
-NOTE: No se requiere una licencia para la configuración base.
+NOTE: No se requiere licencia para la configuración básica.
 
 
 
-== Instale los archivos de licencia
+== Instalar archivos de licencia
 
-Siga estos pasos para instalar licencias para switches de clúster BES-53248.
+Siga estos pasos para instalar las licencias para los conmutadores de clúster BES-53248.
 
 .Pasos
-. Conecte el switch de clúster a la red de gestión.
-. Utilice la `ping` Comando para verificar la conectividad con el servidor que aloja EFOS, licencias y el archivo RCF.
+. Conecte el conmutador del clúster a la red de administración.
+. Utilice el `ping` comando para verificar la conectividad con el servidor que aloja EFOS, las licencias y el archivo RCF.
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-En este ejemplo se comprueba que el conmutador está conectado al servidor en la dirección IP 172.19.2.1:
+Este ejemplo verifica que el switch está conectado al servidor en la dirección IP 172.19.2.1:
 
 [listing, subs="+quotes"]
 ----
@@ -152,12 +152,12 @@ Pinging 172.19.2.1 with 0 bytes of data:
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
 ====
-. Compruebe el uso actual de la licencia en el conmutador cs2:
+. Compruebe el uso actual de la licencia en el switch cs2:
 +
 `show license`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -174,13 +174,13 @@ No license file found.
 ====
 . Instale el archivo de licencia.
 +
-Repita este paso para cargar más licencias y usar diferentes números de índice de claves.
+Repita este paso para cargar más licencias y utilizar diferentes números de índice de clave.
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-En el siguiente ejemplo, se usa SFTP para copiar un archivo de licencia en un índice de claves 1.
+El siguiente ejemplo utiliza SFTP para copiar un archivo de licencia a un índice de clave 1.
 
 [listing, subs="+quotes"]
 ----
@@ -202,12 +202,12 @@ File transfer in progress. Management access will be blocked for the duration of
 License Key transfer operation completed successfully. System reboot is required.
 ----
 ====
-. Mostrar toda la información de licencia actual y anotar el estado de la licencia antes de reiniciar el conmutador cs2:
+. Muestra toda la información de licencia actual y anota el estado de la licencia antes de reiniciar el switch cs2:
 +
 `show license`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -228,10 +228,10 @@ License Index  License Type      Status
 `show port all | exclude Detach`
 
 +
-Los puertos de los archivos de licencia adicionales no se muestran hasta que se haya reiniciado el conmutador.
+Los puertos de los archivos de licencia adicionales no se muestran hasta que se reinicia el switch.
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -261,12 +261,12 @@ Intf      Type   Mode      Mode       Status     Status Trap    Mode   Timeout
 0/56             Disable   Auto                  Down   Enable  Enable long
 ----
 ====
-. Reinicie el switch:
+. Reinicia el switch:
 +
 `reload`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -282,12 +282,12 @@ Configuration Saved!
 Are you sure you would like to reset the system? (y/n) *y*
 ----
 ====
-. Compruebe que la nueva licencia está activa y tenga en cuenta que se ha aplicado:
+. Compruebe que la nueva licencia esté activa y observe que se ha aplicado:
 +
 `show license`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -309,7 +309,7 @@ License Index  License Type              Status
 `show port all | exclude Detach`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -348,17 +348,17 @@ Intf      Type   Mode      Mode       Status     Status Trap    Mode   Timeout
 
 
 
-CAUTION: Al instalar licencias adicionales, debe configurar las nuevas interfaces manualmente. No vuelva a aplicar un RCF a un interruptor de producción en funcionamiento existente.
+CAUTION: Al instalar licencias adicionales, deberá configurar manualmente las nuevas interfaces.  No vuelva a aplicar un RCF a un interruptor de producción que ya esté en funcionamiento.
 
 
 
-== Solucione problemas de instalación
+== Solucionar problemas de instalación
 
-Cuando se produzcan problemas al instalar una licencia, ejecute los siguientes comandos de depuración antes de ejecutar `copy` comando de nuevo.
+Si surgen problemas al instalar una licencia, ejecute los siguientes comandos de depuración antes de ejecutar el programa. `copy` Orden de nuevo.
 
-Comandos de depuración que se utilizarán: `debug transfer` y.. `debug license`
+Comandos de depuración a utilizar: `debug transfer` y `debug license`
 
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -369,9 +369,9 @@ Debug transfer output is enabled.
 Enabled capability licensing debugging.
 ----
 ====
-Cuando ejecute el `copy` con el `debug transfer` y.. `debug license` opciones habilitadas, se devuelve la salida del registro.
+Cuando ejecutas el `copy` comando con el `debug transfer` y `debug license` Si se habilitan las opciones, se devuelve el registro de salida.
 
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing]
@@ -401,32 +401,32 @@ CAPABILITY LICENSING : Fri Sep 11 13:41:32 2020: Applying license file 1.
 ====
 Compruebe lo siguiente en la salida de depuración:
 
-* Compruebe que el número de serie coincide con: `Serial number QTFCU38290012 matched.`
-* Compruebe que el modelo del interruptor coincide con: `Model BES-53248 matched.`
-* Compruebe que el índice de licencia especificado no se haya utilizado anteriormente. Cuando ya se utiliza un índice de licencia, se devuelve el siguiente error: `License file /mnt/download//license.dat.1 already exists.`
-* Una licencia de puerto no es una licencia de función. Por lo tanto, se espera la siguiente declaración: `Feature not found in license file with index = 1.`
+* Compruebe que el número de serie coincide: `Serial number QTFCU38290012 matched.`
+* Compruebe que el modelo del interruptor coincida: `Model BES-53248 matched.`
+* Compruebe que el índice de licencia especificado no se haya utilizado previamente.  Cuando ya se está utilizando un índice de licencia, se devuelve el siguiente error: `License file /mnt/download//license.dat.1 already exists.`
+* Una licencia de puerto no es una licencia de funcionalidad.  Por lo tanto, se espera la siguiente declaración: `Feature not found in license file with index = 1.`
 
 
-Utilice la `copy` comando para realizar una copia de seguridad de licencias de puerto en el servidor:
+Utilice el `copy` comando para realizar una copia de seguridad de las licencias de puerto en el servidor:
 
 [listing, subs="+quotes"]
 ----
 (cs2)# *copy nvram:license-key 1 scp://<UserName>@<IP_address>/saved_license_1.dat*
 ----
 
-CAUTION: Si necesita degradar el software del conmutador de la versión 3.4.4.6, se eliminarán las licencias. Este es el comportamiento esperado.
+CAUTION: Si necesita degradar el software del switch desde la versión 3.4.4.6, las licencias se eliminarán.  Este es el comportamiento esperado.
 
-Debe instalar una licencia anterior adecuada antes de volver a una versión anterior del software.
+Debe instalar una licencia anterior apropiada antes de volver a una versión anterior del software.
 
 
 
-== Activar puertos con licencia nueva
+== Activar los puertos recién licenciados
 
-Para activar los puertos con licencia nueva, debe editar la última versión del RCF y anular el comentario de los detalles del puerto correspondientes.
+Para activar los puertos recién licenciados, debe editar la última versión del RCF y descomentar los detalles del puerto correspondiente.
 
-La licencia predeterminada activa los puertos 0/1 a 0/16 y 0/55 a 0/56, mientras que los puertos recién licenciados estarán entre los puertos 0/17 a 0/54, dependiendo del tipo y el número de licencias disponibles. Por ejemplo, para activar la licencia SW-BES54248-40-100G-LIC, debe anular el comentario de la siguiente sección en el RCF:
+La licencia predeterminada activa los puertos 0/1 a 0/16 y 0/55 a 0/56, mientras que los puertos recién licenciados estarán entre los puertos 0/17 y 0/54 dependiendo del tipo y la cantidad de licencias disponibles.  Por ejemplo, para activar la licencia SW-BES54248-40-100G-LIC, debe descomentar la siguiente sección en el RCF:
 
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing]
@@ -531,7 +531,7 @@ exit
 ----
 ====
 
-NOTE: Para los puertos de alta velocidad entre 0/49 y 0/54 inclusive, quite el comentario de cada puerto pero sólo descomente una línea *velocidad* en el RCF para cada uno de estos puertos, ya sea: *Velocidad 100G full-duplex* o *velocidad 40G full-duplex* como se muestra en el ejemplo. Para puertos de baja velocidad entre 0/17 y 0/48 incluidos, quite la Marca de comentario de toda la sección de 8 puertos cuando se haya activado una licencia apropiada.
+NOTE: Para los puertos de alta velocidad entre 0/49 y 0/54 inclusive, descomente cada puerto, pero solo descomente una línea *speed* en el RCF para cada uno de estos puertos, ya sea: *speed 100G full-duplex* o *speed 40G full-duplex* como se muestra en el ejemplo.  Para puertos de baja velocidad entre 0/17 y 0/48 inclusive, descomente toda la sección de 8 puertos cuando se haya activado una licencia apropiada.
 
-.El futuro
+.¿Que sigue?
 Una vez instaladas las licencias, puedes link:configure-install-rcf.html["instalar el archivo de configuración de referencia (RCF)"] o link:upgrade-rcf.html["actualizar el RCF"].

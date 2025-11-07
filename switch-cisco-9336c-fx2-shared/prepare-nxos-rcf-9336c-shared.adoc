@@ -4,7 +4,7 @@ permalink: switch-cisco-9336c-fx2-shared/prepare-nxos-rcf-9336c-shared.html
 keywords:  
 summary:  
 ---
-= Prepárese para instalar el software NX-OS y RCF
+= Prepárese para instalar el software NX-OS y RCF.
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -17,61 +17,61 @@ summary:
 Antes de instalar el software NX-OS y el archivo de configuración de referencia (RCF), siga este procedimiento.
 
 .Documentación sugerida
-* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Página del switch Cisco Ethernet"^]
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["página del switch Ethernet de Cisco"^]
 +
-Consulte en la tabla de compatibilidad del switch las versiones ONTAP y NX-OS compatibles.
+Consulte la tabla de compatibilidad del switch para conocer las versiones compatibles de ONTAP y NX-OS.
 
 * link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-guides-list.html["Guías de actualización y degradación de software"^]
 +
-Consulte las guías de software y actualización correspondientes disponibles en el sitio web de Cisco para obtener documentación completa sobre los procedimientos de actualización y degradación del conmutador Cisco.
+Consulte las guías de software y actualización correspondientes disponibles en el sitio web de Cisco para obtener documentación completa sobre los procedimientos de actualización y degradación de los switches de Cisco .
 
-* link:https://www.cisco.com/c/dam/en/us/td/docs/dcn/tools/nexus-9k3k-issu-matrix/index.html["Matriz de ISSU y actualización de Cisco Nexus 9000 y 3000"^]
+* link:https://www.cisco.com/c/dam/en/us/td/docs/dcn/tools/nexus-9k3k-issu-matrix/index.html["Matriz de actualización e ISSU de Cisco Nexus 9000 y 3000"^]
 +
-Proporciona información sobre actualizaciones o desactualizaciones disruptivas para el software Cisco NX-OS en los conmutadores Nexus serie 9000 en función de sus versiones actuales y futuras.
+Proporciona información sobre la actualización/degradación disruptiva del software Cisco NX-OS en los switches de la serie Nexus 9000, según sus versiones actuales y objetivo.
 
 +
-En la página, selecciona *Actualización disruptiva* y selecciona tu versión actual y la versión de destino de la lista desplegable.
+En la página, seleccione *Actualización disruptiva* y seleccione su versión actual y la versión objetivo de la lista desplegable.
 
 
 
 .Acerca de los ejemplos
-Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:
+Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interruptores y nodos:
 
 * Los nombres de los dos switches de Cisco son cs1 y cs2.
-* Los nombres de nodo son cluster1-01 y cluster1-02.
-* Los nombres de las LIF de clúster son cluster1-01_clus1 y cluster1-01_clus2 para cluster1-01 y cluster1-02_clus1 y cluster1-02_clus2 para cluster1-02.
-* La `cluster1::*>` prompt indica el nombre del clúster.
+* Los nombres de los nodos son cluster1-01 y cluster1-02.
+* Los nombres LIF del clúster son cluster1-01_clus1 y cluster1-01_clus2 para cluster1-01 y cluster1-02_clus1 y cluster1-02_clus2 para cluster1-02.
+* El `cluster1::*>` El indicador muestra el nombre del clúster.
 
 
 .Acerca de esta tarea
-Para ello, es necesario utilizar tanto comandos de la ONTAP como comandos de la serie Cisco Nexus 9000; los comandos de la ONTAP se usan a menos que se indique lo contrario.
+El procedimiento requiere el uso de comandos ONTAP y comandos de switches Cisco Nexus serie 9000; se utilizan comandos ONTAP a menos que se indique lo contrario.
 
 .Pasos
-. Si se habilita AutoSupport en este clúster, elimine la creación automática de casos invocando un mensaje de AutoSupport: `system node autosupport invoke -node * -type all -message MAINT=x h`
+. Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=x h`
 +
 donde x es la duración de la ventana de mantenimiento en horas.
 
 +
 
-NOTE: El mensaje de AutoSupport notifica al soporte técnico de esta tarea de mantenimiento para que la creación automática de casos se suprima durante la ventana de mantenimiento.
+NOTE: El mensaje de AutoSupport notifica al soporte técnico sobre esta tarea de mantenimiento para que se suprima la creación automática de casos durante la ventana de mantenimiento.
 
-. Cambie el nivel de privilegio a avanzado, introduciendo *y* cuando se le solicite continuar:
+. Cambie el nivel de privilegio a avanzado, ingresando *y* cuando se le solicite continuar:
 +
 [source, cli]
 ----
 set -privilege advanced
 ----
 +
-El aviso avanzado (`*>`) aparece.
+La solicitud avanzada(`*>` ) aparece.
 
-. Muestre cuántas interfaces de interconexión de clúster se han configurado en cada nodo para cada switch de interconexión de clúster:
+. Muestra cuántas interfaces de interconexión de clúster están configuradas en cada nodo para cada conmutador de interconexión de clúster:
 +
 [source, cli]
 ----
 network device-discovery show -protocol cdp
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -91,7 +91,7 @@ cluster1-01/cdp
 4 entries were displayed.
 ----
 ====
-. Compruebe el estado administrativo u operativo de cada interfaz de clúster.
+. Compruebe el estado administrativo u operativo de cada interfaz del clúster.
 +
 .. Mostrar los atributos del puerto de red:
 +
@@ -100,7 +100,7 @@ cluster1-01/cdp
 network port show -ipspace Cluster
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -124,14 +124,14 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy
 4 entries were displayed.
 ----
 ====
-.. Mostrar información acerca de las LIF:
+.. Mostrar información sobre los LIF:
 +
 [source, cli]
 ----
 network interface show -vserver Cluster
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -152,22 +152,22 @@ Cluster
 ====
 
 
-. Compruebe la conectividad de las interfaces del clúster remoto:
+. Verifique la conectividad de las interfaces del clúster remoto:
 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.9.1 y versiones posteriores
+.ONTAP 9.9.1 y posteriores
 --
-Puede utilizar el `network interface check cluster-connectivity` comando para iniciar una comprobación de accesibilidad de la conectividad del clúster y, a continuación, muestre los detalles:
+Puedes usar el `network interface check cluster-connectivity` comando para iniciar una comprobación de accesibilidad para la conectividad del clúster y luego mostrar los detalles:
 
-`network interface check cluster-connectivity start` y.. `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`y `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* Espere varios segundos antes de ejecutar el `show` comando para mostrar los detalles.
+*NOTA:* Espere unos segundos antes de ejecutar el programa. `show` comando para mostrar los detalles.
 
 [listing, subs="+quotes"]
 ----
@@ -183,9 +183,9 @@ node2
        3/5/2022 19:21:20 -06:00   cluster1-02_clus2    cluster1-01_clus2   none
 ----
 --
-.Todos los lanzamientos de ONTAP
+.Todas las versiones de ONTAP
 --
-En todas las versiones de ONTAP, también se puede utilizar el `cluster ping-cluster -node <name>` comando para comprobar la conectividad:
+Para todas las versiones de ONTAP , también puede usar el `cluster ping-cluster -node <name>` comando para comprobar la conectividad:
 
 `cluster ping-cluster -node <name>`
 
@@ -218,14 +218,14 @@ RPC status:
 ----
 --
 ====
-. [[step6]] Verifique que el comando de reversión automática esté habilitado en todas las LIF de clúster:
+. [[step6]] Verifique que el comando de reversión automática esté habilitado en todas las LIF del clúster:
 +
 [source, cli]
 ----
 network interface show -vserver Cluster -fields auto-revert
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -245,5 +245,5 @@ Cluster
 ====
 
 
-.El futuro
+.¿Que sigue?
 Una vez que te hayas preparado para instalar el software NX-OS y RCF, podrás link:install-nxos-software-9336c-shared.html["Instalar el software NX-OS"].

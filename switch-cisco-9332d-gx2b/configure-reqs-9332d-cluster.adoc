@@ -20,18 +20,18 @@ Para la instalación y el mantenimiento del conmutador Cisco Nexus 9332D-GX2B, a
 
 == Requisitos de red
 
-Necesita la siguiente información de red para todas las configuraciones de los switches.
+Necesita la siguiente información de red para todas las configuraciones del conmutador.
 
-* Subred IP para el tráfico de red de gestión
-* Nombres de host y direcciones IP para cada una de las controladoras del sistema de almacenamiento y todos los switches aplicables
+* Subred IP para la gestión del tráfico de red
+* Nombres de host y direcciones IP para cada uno de los controladores del sistema de almacenamiento y todos los conmutadores aplicables
 * La mayoría de los controladores del sistema de almacenamiento se administran a través de la interfaz e0M conectándose al puerto de servicio Ethernet (ícono de llave inglesa).
-* Consulte la https://hwu.netapp.com["Hardware Universe"^] para obtener la información más reciente.
+* Consulte el https://hwu.netapp.com["Hardware Universe"^] Para obtener la información más reciente.
 
 
 
 
 == Requisitos de cableado
 
-* Tiene el número y tipo adecuados de cables y conectores de cable para los conmutadores. Consulte https://hwu.netapp.com["Hardware Universe"^].
-* Según el tipo de conmutador que esté configurando inicialmente, debe conectarse al puerto de la consola del conmutador con el cable de consola incluido.
+* Tiene la cantidad y el tipo de cables y conectores de cables adecuados para sus conmutadores. Ver el https://hwu.netapp.com["Hardware Universe"^] .
+* Dependiendo del tipo de conmutador que esté configurando inicialmente, deberá conectarse al puerto de consola del conmutador con el cable de consola incluido.
 

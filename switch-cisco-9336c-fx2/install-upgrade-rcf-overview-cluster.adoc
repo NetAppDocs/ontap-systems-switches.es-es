@@ -2,9 +2,9 @@
 permalink: switch-cisco-9336c-fx2/install-upgrade-rcf-overview-cluster.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9336c-fx2 
-summary: 'SSH es un requisito cuando se utilizan las funciones de recopilación de registros y Monitor de estado del conmutador de clúster \(CSHM\). Para habilitar SSH en los switches de clúster Cisco 9336c-FX2, primero se deben generar las claves SSH y, a continuación, se debe habilitar SSH.' 
+summary: 'SSH es un requisito cuando se utilizan el Monitor de estado del conmutador de clúster (CSHM) y las funciones de recopilación de registros. Para habilitar SSH en los conmutadores de clúster Cisco 9336c-fx2, primero genere las claves SSH y luego habilite SSH.' 
 ---
-= Instale o actualice la descripción general del archivo de configuración de referencia (RCF)
+= Descripción general de la instalación o actualización del archivo de configuración de referencia (RCF).
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,95 +13,95 @@ summary: 'SSH es un requisito cuando se utilizan las funciones de recopilación 
 [role="lead"]
 Instale el archivo de configuración de referencia (RCF) después de configurar los conmutadores Nexus 9336C-FX2 y 9336C-FX2-T por primera vez. Actualiza tu versión RCF cuando tienes una versión existente del archivo RCF instalado en tu conmutador.
 
-Consulte el artículo de la base de conocimientos link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración en un switch de interconexión de Cisco manteniendo la conectividad remota"^]para obtener más información al instalar o actualizar su RCF.
+Consulte el artículo de la base de conocimientoslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración de un switch de interconexión Cisco manteniendo la conectividad remota"^] Para obtener más información sobre la instalación o actualización de su RCF.
 
-.Configuraciones de RCF disponibles
-En la siguiente tabla se describen los CFR disponibles para diferentes configuraciones. Seleccione el RCF aplicable a su configuración.
+.Configuraciones RCF disponibles
+La siguiente tabla describe los RCF disponibles para diferentes configuraciones.  Elija el RCF aplicable a su configuración.
 
-Si quiere más información sobre el uso de VLAN y puertos específicos, consulte el banner y la sección de notas importantes de su RCF.
+Para obtener detalles específicos sobre el uso de puertos y VLAN, consulte la sección de notas importantes y el banner en su RCF.
 
 [cols="1,2"]
 |===
-| Nombre de RCF | Descripción 
+| Nombre RCF | Descripción 
 
 
  a| 
-2-Cluster-HA-Breakout
+Ruptura de alta disponibilidad de 2 clústeres
  a| 
-Admite dos clústeres ONTAP con al menos ocho nodos, incluidos los nodos que utilizan puertos compartidos Cluster+HA.
+Admite dos clústeres ONTAP con al menos ocho nodos, incluidos los nodos que utilizan puertos Cluster+HA compartidos.
 
 
 
  a| 
-4-Cluster-HA-Breakout
+Ruptura de 4 clústeres HA
  a| 
-Admite cuatro clústeres ONTAP con al menos cuatro nodos, incluidos los nodos que utilizan puertos compartidos Cluster+HA.
+Admite cuatro clústeres ONTAP con al menos cuatro nodos, incluidos los nodos que utilizan puertos Cluster+HA compartidos.
 
 
 
  a| 
 1-Cluster-HA
  a| 
-Todos los puertos están configurados para 40/100GbE. Admite el tráfico de clúster/alta disponibilidad compartido en los puertos. Necesario para los sistemas AFF A320, AFF A250 y FAS500f. Además, todos los puertos se pueden utilizar como puertos de clúster dedicados.
+Todos los puertos están configurados para 40/100GbE.  Admite tráfico compartido de clúster/HA en puertos.  Requerido para los sistemas AFF A320, AFF A250 y FAS500f .  Además, todos los puertos pueden utilizarse como puertos de clúster dedicados.
 
 
 
  a| 
-1-Cluster-HA-Breakout
+1-Clúster-HA-Ruptura
  a| 
-Los puertos se configuran para 4 puertos de separación de 10 GbE, 4 GbE (RCF 1,6+ en switches 100GbE) y 40/100GbE. Admite el tráfico compartido de clúster/alta disponibilidad en los puertos para los nodos que utilizan puertos de clúster/alta disponibilidad compartidos: Sistemas AFF A320, AFF A250 y FAS500f. Además, todos los puertos se pueden utilizar como puertos de clúster dedicados.
-
-
-
- a| 
-Cluster-HA-Storage
- a| 
-Los puertos se configuran para 40/100GbE para clúster+HA, 4 puertos separados de 10 GbE para clúster y 4 GbE para clúster+HA, y 100GbE para cada par de alta disponibilidad de almacenamiento.
+Los puertos están configurados para breakout 4x10GbE, breakout 4x25GbE (RCF 1.6+ en switches 100GbE) y 40/100GbE.  Admite tráfico compartido de clúster/HA en puertos para nodos que utilizan puertos compartidos de clúster/HA: sistemas AFF A320, AFF A250 y FAS500f .  Además, todos los puertos pueden utilizarse como puertos de clúster dedicados.
 
 
 
  a| 
-Clúster
+Almacenamiento de alta disponibilidad en clúster
  a| 
-Dos variantes de RCF con diferentes asignaciones de 4 puertos 10 GbE (breakout) y de puertos 40/100GbE. Todos los nodos FAS/AFF son compatibles, excepto para los sistemas AFF A320, AFF A250 y FAS500f.
+Los puertos están configurados para 40/100GbE para Cluster+HA, 4x10GbE breakout para Cluster y 4x25GbE breakout para Cluster+HA, y 100GbE para cada par de almacenamiento HA.
 
 
 
  a| 
-Reducida
+Grupo
  a| 
-Todos los puertos se configuran para conexiones de almacenamiento NVMe de 100GbE Gb.
+Dos versiones de RCF con diferentes asignaciones de puertos 4x10GbE (breakout) y puertos 40/100GbE. Se admiten todos los nodos FAS/ AFF , excepto los sistemas AFF A320, AFF A250 y FAS500f .
+
+
+
+ a| 
+Almacenamiento
+ a| 
+Todos los puertos están configurados para conexiones de almacenamiento NVMe de 100 GbE.
 
 |===
 .Documentación sugerida
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco (NSS)"^]
 +
-Consulte la tabla de compatibilidad de switches para conocer las versiones de ONTAP y RCF compatibles en el sitio de soporte de NetApp. Tenga en cuenta que puede haber dependencias de comandos entre la sintaxis del comando en el RCF y la sintaxis encontrada en versiones específicas de NX-OS.
+Consulte la tabla de compatibilidad de switches para conocer las versiones compatibles de ONTAP y RCF en el sitio de soporte de NetApp .  Tenga en cuenta que puede haber dependencias de comandos entre la sintaxis de comandos en RCF y la sintaxis que se encuentra en versiones específicas de NX-OS.
 
 * link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Switches Cisco Nexus serie 3000"^]
 +
-Consulte las guías de software y actualización correspondientes disponibles en el sitio web de Cisco para obtener documentación completa sobre los procedimientos de actualización y degradación del conmutador Cisco.
+Consulte las guías de software y actualización correspondientes disponibles en el sitio web de Cisco para obtener documentación completa sobre los procedimientos de actualización y degradación de los switches de Cisco .
 
 
 
 .Acerca de los ejemplos
-Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:
+Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interruptores y nodos:
 
-* Los nombres de los dos interruptores Cisco son *CS1* y *CS2*.
+* Los nombres de los dos switches de Cisco son *cs1* y *cs2*.
 * Los nombres de los nodos son *cluster1-01*, *cluster1-02*, *cluster1-03* y *cluster1-04*.
-* Los nombres de LIF de los clústeres son *cluster1-01_clus1*, *cluster1-04_clus2*, *cluster1-03_clus2*, *cluster1-03_clus1*, *cluster1-02_clus2*, *cluster1-02_clus2*, *cluster1-01_clus1* y *cluster1-04_clus1*.
-* La `cluster1::*>` prompt indica el nombre del clúster.
+* Los nombres LIF del clúster son *cluster1-01_clus1*, *cluster1-01_clus2*, *cluster1-02_clus1*, *cluster1-02_clus2*, *cluster1-03_clus1*, *cluster1-03_clus2*, *cluster1-04_clus1* y *cluster1-04_clus2*.
+* El `cluster1::*>` El indicador muestra el nombre del clúster.
 
 
-En los ejemplos de este procedimiento se utilizan cuatro nodos. Estos nodos utilizan dos puertos de interconexión de clúster 10GbE *e0a* y *e0b*. Consulte https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para verificar los puertos de clúster correctos en sus plataformas.
+Los ejemplos de este procedimiento utilizan cuatro nodos.  Estos nodos utilizan dos puertos de interconexión de clúster 10GbE *e0a* y *e0b*.  Ver el https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para verificar los puertos de clúster correctos en sus plataformas.
 
 
-NOTE: Los resultados del comando pueden variar en función de las diferentes versiones de ONTAP.
+NOTE: Los resultados del comando pueden variar dependiendo de las diferentes versiones de ONTAP.
 
-Para obtener información detallada sobre las configuraciones de RCF disponibles, consulte link:configure-software-overview-9336c-cluster.html["Flujo de trabajo de instalación del software"].
+Para obtener detalles de las configuraciones RCF disponibles, consultelink:configure-software-overview-9336c-cluster.html["Flujo de trabajo de instalación de software"] .
 
 .Comandos utilizados
-Para ello, es necesario utilizar tanto comandos de la ONTAP como comandos de la serie Cisco Nexus 9000; los comandos de la ONTAP se usan a menos que se indique lo contrario.
+El procedimiento requiere el uso de comandos ONTAP y comandos de switches Cisco Nexus serie 9000; se utilizan comandos ONTAP a menos que se indique lo contrario.
 
-.El futuro
+.¿Que sigue?
 Después de revisar el procedimiento de instalación o actualización de RCF, puedelink:install-rcf-software-9336c-cluster.html["instalar el RCF"] olink:upgrade-rcf-software-9336c-cluster.html["Mejora tu RCF"] según sea necesario.

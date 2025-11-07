@@ -4,18 +4,18 @@ sidebar: sidebar
 keywords: install, Cisco Nexus 3132Q-V 
 summary: Antes de configurar los switches Cisco Nexus 3132Q-V, revise una descripción general del proceso y la nomenclatura. 
 ---
-= Flujo de trabajo de instalación y configuración para los conmutadores Cisco Nexus 3132Q-V
+= Flujo de trabajo de instalación y configuración para conmutadores Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Los switches Cisco Nexus 3132Q-V se pueden utilizar como switches de clúster en su clúster AFF o FAS. Los switches de clúster permiten crear clústeres de ONTAP con más de dos nodos.
+Los conmutadores Cisco Nexus 3132Q-V se pueden utilizar como conmutadores de clúster en su clúster AFF o FAS . Los conmutadores de clúster le permiten crear clústeres ONTAP con más de dos nodos.
 
 Siga estos pasos de flujo de trabajo para instalar y configurar su conmutador Cisco Nexus 3132Q-V.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:configure-reqs-3132q.html["Requisitos de configuración"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1"]link:configure-reqs-3132q.html["Requisitos de configuración"]
 [role="quick-margin-para"]
 Revise los requisitos de configuración para el conmutador de clúster 3132Q-V.
 
@@ -27,7 +27,7 @@ Revise la documentación específica del conmutador y del controlador para confi
 [role="quick-margin-para"]
 Revise los requisitos de la función Cisco Smart Call Home, que se utiliza para monitorear los componentes de hardware y software de su red.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:install-hardware-workflow.html["Instale el hardware"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:install-hardware-workflow.html["Instala el hardware"]
 [role="quick-margin-para"]
 Instale el hardware del interruptor.
 

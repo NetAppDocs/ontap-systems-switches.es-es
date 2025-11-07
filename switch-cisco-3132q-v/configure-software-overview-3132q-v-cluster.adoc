@@ -13,11 +13,11 @@ summary: Descripción general de la configuración del software para los conmuta
 [role="lead"]
 Para instalar y configurar el software de un conmutador Cisco Nexus 3132Q-V e instalar o actualizar el archivo de configuración de referencia (RCF), siga estos pasos:
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:setup-switch.html["Configure el switch"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1"]link:setup-switch.html["Configura el interruptor"]
 [role="quick-margin-para"]
 Configurar el conmutador de clúster 3132Q-V.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"]link:prepare-install-cisco-nexus-3132q.html["Prepárese para instalar el software NX-OS y RCF"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"]link:prepare-install-cisco-nexus-3132q.html["Prepárese para instalar el software NX-OS y RCF."]
 [role="quick-margin-para"]
 El software Cisco NX-OS y RCF deben estar instalados en los conmutadores de clúster Cisco 3132Q-V.
 
@@ -25,11 +25,11 @@ El software Cisco NX-OS y RCF deben estar instalados en los conmutadores de clú
 [role="quick-margin-para"]
 Descargue e instale o actualice el software NX-OS en el conmutador de clúster Cisco 3132Q-V.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:install-rcf-3132q-v.html["Instale el RCF"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:install-rcf-3132q-v.html["Instala el RCF"]
 [role="quick-margin-para"]
 Instale el RCF después de configurar el conmutador Cisco 3132Q-V por primera vez.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-ssh-keys.html["Compruebe la configuración de SSH"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-ssh-keys.html["Verificar la configuración SSH"]
 [role="quick-margin-para"]
 Verifique que SSH esté habilitado en los conmutadores para usar el Monitor de estado del conmutador Ethernet (CSHM) y las funciones de recopilación de registros.
 

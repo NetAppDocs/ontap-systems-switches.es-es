@@ -2,33 +2,33 @@
 permalink: switch-cisco-3132q-v/cn5596-configure-ports.html 
 sidebar: sidebar 
 keywords: cisco 3132q-v, cluster switches 
-summary: Puede utilizar switches Nexus 3132q-v de Cisco como switches de clúster en su clúster AFF o FAS. 
+summary: Puede utilizar los switches Cisco Nexus 3132q-v como switches de clúster en su clúster AFF o FAS . 
 ---
-= Configure sus puertos para la migración de switches de 5596 a switches de 3132Q V.
+= Configure sus puertos para la migración de switches 5596 a switches 3132Q-V.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga estos pasos para configurar los puertos para la migración desde los switches Nexus 5596 a los nuevos switches Nexus 3132Q-V.
+Siga estos pasos para configurar sus puertos para la migración de los switches Nexus 5596 a los nuevos switches Nexus 3132Q-V.
 
 .Pasos
-. En todos los nodos, quite todos los cables conectados al switch CL2 Nexus 5596.
+. En todos los nodos, retire todos los cables conectados al switch Nexus 5596 CL2.
 +
-Con el cableado compatible, vuelva a conectar los puertos desconectados de todos los nodos al switch C2 Nexus 3132Q-V.
+Con el cableado compatible, vuelva a conectar los puertos desconectados en todos los nodos al switch Nexus 3132Q-V C2.
 
-. Retire todos los cables del conmutador Nexus 5596 CL2.
+. Retire todos los cables del switch Nexus 5596 CL2.
 +
-Conecte los cables de interrupción Cisco QSFP a SFP+ adecuados que conectan el puerto 1/24 del nuevo switch Cisco 3132Q-V, C2, a los puertos 45 a 48 en Nexus 5596, CL1 existente.
+Conecte los cables de ruptura Cisco QSFP a SFP+ apropiados que conectan el puerto 1/24 del nuevo switch Cisco 3132Q-V, C2, a los puertos 45 a 48 del Nexus 5596 existente, CL1.
 
-. Compruebe que las interfaces eth1/45-48 ya tienen `channel-group 1 mode active` en su configuración en ejecución.
-. Traiga los puertos ISL 45 a 48 en el switch CL1 de Nexus 5596 activo.
+. Verifique que las interfaces eth1/45-48 ya tengan `channel-group 1 mode active` en su configuración de funcionamiento.
+. Habilite los puertos ISL 45 a 48 en el switch Nexus 5596 activo CL1.
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-El ejemplo siguiente muestra los puertos ISL 45 a 48 que se están poniendo en marcha:
+El siguiente ejemplo muestra la activación de los puertos 45 a 48 de ISL:
 
 [listing]
 ----
@@ -40,15 +40,15 @@ El ejemplo siguiente muestra los puertos ISL 45 a 48 que se están poniendo en m
 (CL1)#
 ----
 ====
-. Compruebe que los ISL son `up` En el interruptor Nexus 5596 CL1:
+. Verifique que los ISL sean `up` en el switch Nexus 5596 CL1:
 +
 `show port-channel summary`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-Los puertos eth1/45 a eth1/48 deben indicar (P) con el significado de los puertos ISL `up` en el puerto-canal:
+Los puertos eth1/45 a eth1/48 deben indicar (P), lo que significa que los puertos ISL son `up` en el canal del puerto:
 
 [listing]
 ----
@@ -69,15 +69,15 @@ Group Port-        Type   Protocol  Member Ports
                                     Eth1/47(P)   Eth1/48(P)
 ----
 ====
-. Compruebe que los ISL son `up` En el interruptor C2 3132Q-V:
+. Verifique que los ISL sean `up` en el interruptor C2 del 3132Q-V:
 +
 `show port-channel summary`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-Los puertos eth1/24/1, eth1/24/2, eth1/24/3 y eth1/24/4 deben indicar (P) lo que significa que los puertos ISL se encuentran `up` en el puerto-canal:
+Los puertos eth1/24/1, eth1/24/2, eth1/24/3 y eth1/24/4 deben indicar (P), lo que significa que los puertos ISL son `up` en el canal del puerto:
 
 [listing]
 ----
@@ -102,10 +102,10 @@ Group Port-        Type   Protocol  Member Ports
 `network port modify`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-En el siguiente ejemplo, se muestran los puertos especificados que se están up en los nodos n1 y n2:
+El siguiente ejemplo muestra cómo se activan los puertos especificados en los nodos n1 y n2:
 
 [listing]
 ----
@@ -115,15 +115,15 @@ cluster::*> network port modify -node n2 -port e0b -up-admin true
 cluster::*> network port modify -node n2 -port e0c -up-admin true
 ----
 ====
-. En todos los nodos, revierte todos los LIF de interconexión del clúster migrados conectados a C2:
+. En todos los nodos, revierta todas las LIF de interconexión de clúster migradas conectadas a C2:
 +
 `network interface revert`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-En el ejemplo siguiente se muestran los LIF de clúster migrados que se están volviendo a sus puertos principales en los nodos n1 y n2:
+El siguiente ejemplo muestra cómo las LIF del clúster migrado vuelven a sus puertos de origen en los nodos n1 y n2:
 
 [listing]
 ----
@@ -133,15 +133,15 @@ cluster::*> network interface revert -vserver Cluster -lif n2_clus2
 cluster::*> network interface revert -vserver Cluster -lif n2_clus3
 ----
 ====
-. Verifique que todos los puertos de interconexión de clúster ahora se reviertan a su origen:
+. Verifique que todos los puertos de interconexión del clúster hayan vuelto a su estado original:
 +
 `network interface show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-En el ejemplo siguiente se muestra que las LIF en clus2 se han revertido a sus puertos raíz y se muestra que las LIF se han revertido correctamente si los puertos de la columna de puerto actual tienen el estado de `true` en la `Is Home` columna. Si la `Is Home` el valor es `false`, El LIF no se ha revertido.
+El siguiente ejemplo muestra que las LIF del clúster 2 volvieron a sus puertos de origen y demuestra que la reversión de las LIF se realizó correctamente si los puertos de la columna Puerto actual tienen el estado de `true` en el `Is Home` columna.  Si el `Is Home` El valor es `false` , el LIF no se ha revertido.
 
 [listing]
 ----
@@ -162,15 +162,15 @@ Cluster
 8 entries were displayed.
 ----
 ====
-. Compruebe que los puertos del clúster están conectados:
+. Verifique que los puertos agrupados estén conectados:
 +
 `network port show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-En el siguiente ejemplo se muestra el resultado del anterior `network port modify` comando, comprobando que todas las interconexiones del clúster lo son `up`:
+El siguiente ejemplo muestra el resultado del anterior `network port modify` comando, verificando que todas las interconexiones del clúster estén `up` :
 
 [listing]
 ----
@@ -198,22 +198,22 @@ e0d       Cluster      Cluster          up   9000  auto/10000 -        -
 8 entries were displayed.
 ----
 ====
-. Compruebe la conectividad de las interfaces del clúster remoto:
+. Verifique la conectividad de las interfaces del clúster remoto:
 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.9.1 y versiones posteriores
+.ONTAP 9.9.1 y posteriores
 --
-Puede utilizar el `network interface check cluster-connectivity` comando para iniciar una comprobación de accesibilidad de la conectividad del clúster y, a continuación, muestre los detalles:
+Puedes usar el `network interface check cluster-connectivity` comando para iniciar una comprobación de accesibilidad para la conectividad del clúster y luego mostrar los detalles:
 
-`network interface check cluster-connectivity start` y.. `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`y `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* Espere varios segundos antes de ejecutar el comando show para mostrar los detalles.
+*NOTA:* Espere unos segundos antes de ejecutar el comando show para que se muestren los detalles.
 
 [listing, subs="+quotes"]
 ----
@@ -230,9 +230,9 @@ n2
        3/5/2022 19:21:20 -06:00   n2_clus2        n1_clus2      none
 ----
 --
-.Todos los lanzamientos de ONTAP
+.Todas las versiones de ONTAP
 --
-En todas las versiones de ONTAP, también se puede utilizar el `cluster ping-cluster -node <name>` comando para comprobar la conectividad:
+Para todas las versiones de ONTAP , también puede usar el `cluster ping-cluster -node <name>` comando para comprobar la conectividad:
 
 `cluster ping-cluster -node <name>`
 
@@ -281,15 +281,15 @@ RPC status:
 ----
 --
 ====
-. [[step12]]En cada nodo del cluster, migre las interfaces asociadas con el primer switch Nexus 5596, CL1, para ser reemplazado:
+. [[step12]]En cada nodo del clúster, migre las interfaces asociadas con el primer switch Nexus 5596, CL1, que se reemplazará:
 +
 `network interface migrate`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-En el ejemplo siguiente se muestran los puertos o las LIF que se están migrando en los nodos n1 y n2:
+El siguiente ejemplo muestra los puertos o LIF que se migran en los nodos n1 y n2:
 
 [listing]
 ----
@@ -303,15 +303,15 @@ cluster::*> network interface migrate -vserver Cluster -lif n2_clus4 -source-nod
 destination-node n2 -destination-port e0c
 ----
 ====
-. Compruebe el estado del clúster:
+. Verifique el estado del clúster:
 +
 `network interface show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-El siguiente ejemplo muestra que las LIF de clúster necesarias se han migrado a puertos de clúster adecuados alojados en el switch de clúster C2:
+El siguiente ejemplo muestra que las LIF del clúster necesarias se han migrado a los puertos del clúster apropiados alojados en el conmutador del clúster C2:
 
 [listing]
 ----
@@ -333,15 +333,15 @@ Cluster
 ----- ------- ----
 ----
 ====
-. En todos los nodos, apague los puertos de nodo que estén conectados a CL1:
+. En todos los nodos, desactive los puertos de nodo que están conectados a CL1:
 +
 `network port modify`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-En el ejemplo siguiente se muestran los puertos especificados que se están apagando en los nodos n1 y n2:
+El siguiente ejemplo muestra cómo se desactivan los puertos especificados en los nodos n1 y n2:
 
 [listing]
 ----
@@ -351,15 +351,15 @@ cluster::*> network port modify -node n2 -port e0a -up-admin false
 cluster::*> network port modify -node n2 -port e0d -up-admin false
 ----
 ====
-. Apague los puertos ISL 24, 31 y 32 en el interruptor C2 activo 3132Q-V:
+. Desactive los puertos ISL 24, 31 y 32 en el switch 3132Q-V activo C2:
 +
 `shutdown`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-El ejemplo siguiente muestra cómo cerrar ISL 24, 31 y 32:
+El siguiente ejemplo muestra cómo desactivar los ISL 24, 31 y 32:
 
 [listing]
 ----
@@ -374,15 +374,15 @@ C2(config-if)# exit
 C2#
 ----
 ====
-. En todos los nodos, quite todos los cables conectados al switch CL1 Nexus 5596.
+. En todos los nodos, retire todos los cables conectados al switch Nexus 5596 CL1.
 +
-Con el cableado compatible, vuelva a conectar los puertos desconectados de todos los nodos al switch Nexus 3132Q-V C1.
+Con el cableado compatible, vuelva a conectar los puertos desconectados en todos los nodos al switch Nexus 3132Q-V C1.
 
-. Retire el cable de arranque QSFP de los puertos Nexus 3132Q-V C2 e1/24.
+. Retire el cable de ruptura QSFP de los puertos e1/24 del Nexus 3132Q-V C2.
 +
-Conecte los puertos e1/31 y e1/32 en C1 a los puertos e1/31 y e1/32 en C2 utilizando cables de fibra óptica Cisco QSFP o de conexión directa compatibles.
+Conecte los puertos e1/31 y e1/32 de C1 a los puertos e1/31 y e1/32 de C2 utilizando fibra óptica Cisco QSFP compatible o cables de conexión directa.
 
-. Restaure la configuración en el puerto 24 y retire el canal de puerto temporal 2 en C2:
+. Restablezca la configuración en el puerto 24 y elimine el canal de puerto temporal 2 en C2:
 +
 [listing]
 ----
@@ -400,12 +400,12 @@ C2# copy running-config startup-config
 [########################################] 100%
 Copy Complete.
 ----
-. Conecte los puertos ISL 31 y 32 en C2, el switch activo 3132Q-V: `no shutdown`
+. Active los puertos ISL 31 y 32 en C2, el switch activo 3132Q-V: `no shutdown`
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-El ejemplo siguiente muestra cómo instalar ISL 31 y 32 en el switch 3132Q-V C2:
+El siguiente ejemplo muestra cómo activar los ISL 31 y 32 en el switch 3132Q-V C2:
 
 [listing]
 ----
@@ -421,5 +421,5 @@ Copy Complete.
 ====
 
 
-.El futuro
-link:cn5596-complete-migration.html["Completa la migración"].
+.¿Que sigue?
+link:cn5596-complete-migration.html["Completa tu migración"].

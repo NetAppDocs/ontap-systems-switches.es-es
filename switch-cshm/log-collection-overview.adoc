@@ -11,6 +11,6 @@ summary: Puede utilizar los comandos proporcionados....
 
 
 [role="lead"]
-Al configurar la recogida de registros, es posible habilitar una recogida horaria de datos periódicos recogidos por AutoSupport, y solicitar registros de soporte detallados.
+Con la recopilación de registros configurada, puede habilitar la recopilación horaria de datos periódicos que recopila AutoSupport y solicitar registros de soporte detallados.
 
-Consulte link:config-log-collection.html["Configure la recopilación de registros"] para obtener más información.
+Verlink:config-log-collection.html["Configurar la recopilación de registros"] Para obtener más detalles.

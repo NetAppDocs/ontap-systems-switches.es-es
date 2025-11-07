@@ -4,65 +4,65 @@ sidebar: sidebar
 keywords: install rcf,setup rcf,rcf file, efos, license file 
 summary: 'Puede instalar el archivo de configuración de referencia (RCF) después de configurar el conmutador de clúster BES-53248 y después de aplicar las nuevas licencias.' 
 ---
-= Instale el archivo de configuración de referencia (RCF) y el archivo de licencia
+= Instale el archivo de configuración de referencia (RCF) y el archivo de licencia.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-A partir de EFOS 3.12.0.1, puede instalar el archivo de configuración de referencia (RCF) y el archivo de licencia después de configurar el conmutador de cluster BES-53248.
+A partir de EFOS 3.12.0.1, puede instalar el archivo de configuración de referencia (RCF) y el archivo de licencia después de configurar el conmutador de clúster BES-53248.
 
 
-CAUTION: Todos los puertos se configuran al instalar el RCF, pero es necesario instalar la licencia para activar los puertos configurados.
+CAUTION: Todos los puertos se configuran al instalar RCF, pero necesita instalar su licencia para activar los puertos configurados.
 
 
 
-== Revise los requisitos
+== Requisitos de revisión
 
 .Antes de empezar
-Compruebe que los siguientes elementos están en su lugar:
+Verifique que se cumplan las siguientes condiciones:
 
-* Una copia de seguridad actual de la configuración del switch.
-* Un clúster en pleno funcionamiento (sin errores en los registros o problemas similares).
-* El RCF actual, disponible en la https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Switches de clúster Broadcom"^] página.
-* Una configuración de inicio en el RCF que refleja las imágenes de inicio deseadas, necesaria si está instalando sólo EFOS y manteniendo su versión actual de RCF. Si necesita cambiar la configuración de arranque para reflejar las imágenes de arranque actuales, debe hacerlo antes de volver a aplicar el RCF para que se cree una instancia de la versión correcta en futuros reinicios.
-* Una conexión de consola al switch, necesaria al instalar el RCF desde un estado predeterminado de fábrica. Este requisito es opcional si ha utilizado el artículo de la base de conocimientos https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración en un switch de interconexión Broadcom manteniendo la conectividad remota"^] para borrar la configuración, de antemano.
+* Una copia de seguridad actualizada de la configuración del switch.
+* Un clúster en pleno funcionamiento (sin errores en los registros ni problemas similares).
+* El RCF actual, disponible en el https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Conmutadores de clúster Broadcom"^] página.
+* Una configuración de arranque en el RCF que refleje las imágenes de arranque deseadas, necesaria si solo va a instalar EFOS y mantener su versión actual de RCF.  Si necesita cambiar la configuración de arranque para que refleje las imágenes de arranque actuales, debe hacerlo antes de volver a aplicar el RCF para que se instancie la versión correcta en futuros reinicios.
+* Se requiere una conexión de consola al switch al instalar el RCF desde un estado predeterminado de fábrica.  Este requisito es opcional si ha utilizado el artículo de la base de conocimientos. https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración de un switch de interconexión Broadcom manteniendo la conectividad remota"^] Para borrar la configuración de antemano.
 
 
 .Documentación sugerida
-Consulte la tabla de compatibilidad del conmutador para conocer las versiones ONTAP y RCF admitidas. Consulte https://mysupport.netapp.com/site/info/broadcom-cluster-switch["Descarga del software EFOS"^] página. Tenga en cuenta que puede haber dependencias de comandos entre la sintaxis de comandos en el RCF y la que se encuentra en las versiones de EFOS.
+Consulte la tabla de compatibilidad del switch para conocer las versiones compatibles de ONTAP y RCF.  Ver el https://mysupport.netapp.com/site/info/broadcom-cluster-switch["Descarga del software EFOS"^] página.  Tenga en cuenta que puede haber dependencias de comandos entre la sintaxis de comandos en RCF y la que se encuentra en las versiones de EFOS.
 
 
 
-== Instale el archivo de configuración
+== Instala el archivo de configuración
 
 .Acerca de los ejemplos
-Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:
+Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interruptores y nodos:
 
-* Los nombres de los dos interruptores BES-53248 son CS1 y CS2.
-* Los nombres de nodo son cluster1-01, cluster1-02, cluster1-03 y cluster1-04.
-* Los nombres de LIF de clúster son cluster1-01_clus1, cluster1-01_clus2, cluster1-02_clus1, cluster1-02_clus2, cluster1-03_clus1, cluster1-03_clus2, cluster1-04_clus1 y cluster1-04_clus2.
-* La `cluster1::*>` prompt indica el nombre del clúster.
-* En los ejemplos de este procedimiento se utilizan cuatro nodos. Estos nodos utilizan dos puertos de interconexión de clúster de 10 GbE `e0a` y.. `e0b`. Consulte https://hwu.netapp.com/Home/Index["Hardware Universe"^] para verificar los puertos de clúster correctos en sus plataformas.
+* Los nombres de los dos conmutadores BES-53248 son cs1 y cs2.
+* Los nombres de los nodos son cluster1-01, cluster1-02, cluster1-03 y cluster1-04.
+* Los nombres del clúster LIF son cluster1-01_clus1, cluster1-01_clus2, cluster1-02_clus1, cluster1-02_clus2, cluster1-03_clus1, cluster1-03_clus2, cluster1-04_clus1 y cluster1-04_clus2.
+* El `cluster1::*>` El indicador muestra el nombre del clúster.
+* Los ejemplos de este procedimiento utilizan cuatro nodos.  Estos nodos utilizan dos puertos de interconexión de clúster 10GbE. `e0a` y `e0b` .  Ver el https://hwu.netapp.com/Home/Index["Hardware Universe"^] para verificar los puertos de clúster correctos en sus plataformas.
 
 
 
-NOTE: Los resultados del comando pueden variar en función de las diferentes versiones de ONTAP.
+NOTE: Los resultados del comando pueden variar dependiendo de las diferentes versiones de ONTAP.
 
 .Acerca de esta tarea
-El procedimiento requiere el uso de comandos de la ONTAP y de comandos del switch de Broadcom; los comandos de la ONTAP se utilizan a menos que se indique lo contrario.
+El procedimiento requiere el uso de comandos ONTAP y comandos de conmutador Broadcom; se utilizan comandos ONTAP a menos que se indique lo contrario.
 
-Durante este procedimiento no se necesita ningún enlace entre switches (ISL) operativo. Esto se debe a que los cambios en la versión de RCF pueden afectar temporalmente a la conectividad ISL. Para garantizar operaciones de clúster no disruptivas, el siguiente procedimiento migra todos los LIF de clúster al switch de partner operativo mientras realiza los pasos en el switch de destino.
-
-
-CAUTION: Antes de instalar una nueva versión de software de switch y RCF, utilice el artículo de la base de conocimientos https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración en un switch de interconexión Broadcom manteniendo la conectividad remota"^] . Si debe borrar completamente los ajustes del switch, deberá volver a realizar la configuración básica. Debe estar conectado al switch mediante la consola de serie, ya que el borrado completo de la configuración restablece la configuración de la red de gestión.
+No se necesita ningún enlace entre conmutadores (ISL) operativo durante este procedimiento. Esto es así por diseño porque los cambios de versión de RCF pueden afectar la conectividad de ISL temporalmente. Para garantizar un funcionamiento ininterrumpido del clúster, el siguiente procedimiento migra todas las LIF del clúster al conmutador asociado operativo mientras se realizan los pasos en el conmutador de destino.
 
 
+CAUTION: Antes de instalar una nueva versión del software del switch y los RCF, consulte el artículo de la base de conocimientos. https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración de un switch de interconexión Broadcom manteniendo la conectividad remota"^] .  Si necesita borrar por completo la configuración del interruptor, deberá realizar de nuevo la configuración básica.  Debe conectarse al switch mediante la consola serie, ya que un borrado completo de la configuración restablece la configuración de la red de administración.
 
-== Paso 1: Prepare la instalación
 
-. Si se habilita AutoSupport en este clúster, elimine la creación automática de casos invocando un mensaje de AutoSupport:
+
+== Paso 1: Prepararse para la instalación
+
+. Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport :
 +
 [source, cli]
 ----
@@ -73,7 +73,7 @@ donde _x_ es la duración de la ventana de mantenimiento en horas.
 
 +
 
-NOTE: El mensaje de AutoSupport notifica al soporte técnico de esta tarea de mantenimiento para que la creación automática de casos se suprima durante la ventana de mantenimiento.
+NOTE: El mensaje de AutoSupport notifica al soporte técnico sobre esta tarea de mantenimiento para que se suprima la creación automática de casos durante la ventana de mantenimiento.
 
 +
 El siguiente comando suprime la creación automática de casos durante dos horas:
@@ -83,23 +83,23 @@ El siguiente comando suprime la creación automática de casos durante dos horas
 ----
 cluster1::*> system node autosupport invoke -node \* -type all -message MAINT=2h
 ----
-. Cambie el nivel de privilegio a avanzado, introduciendo *y* cuando se le solicite continuar:
+. Cambie el nivel de privilegio a avanzado, ingresando *y* cuando se le solicite continuar:
 +
 [source, cli]
 ----
 set -privilege advanced
 ----
 +
-Aparece el mensaje avanzado (*>).
+Aparece el indicador avanzado (*>).
 
-. Muestre los puertos del clúster en cada nodo que están conectados a los switches de clúster:
+. Muestra los puertos del clúster en cada nodo que están conectados a los conmutadores del clúster:
 +
 [source, cli]
 ----
 network device-discovery show
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -123,16 +123,16 @@ cluster1-04/cdp
 cluster1::*>
 ----
 ====
-. Compruebe el estado administrativo y operativo de cada puerto del clúster.
+. Verifique el estado administrativo y operativo de cada puerto del clúster.
 +
-.. Compruebe que todos los puertos del clúster tengan el estado correcto:
+.. Verifique que todos los puertos del clúster estén activos y en buen estado:
 +
 [source, cli]
 ----
 network port show -role cluster
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -175,14 +175,14 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 cluster1::*>
 ----
 ====
-.. Compruebe que todas las interfaces del clúster (LIF) están en el puerto de inicio:
+.. Verifique que todas las interfaces del clúster (LIF) estén en el puerto principal:
 +
 [source, cli]
 ----
 network interface show -role cluster
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -204,14 +204,14 @@ Cluster
 ====
 
 
-. Compruebe que el clúster muestra información para ambos switches de clúster.
+. Verifique que el clúster muestre información para ambos conmutadores del clúster.
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.8 y posteriores
 --
-A partir de ONTAP 9,8, utilice el comando:
+A partir de ONTAP 9.8, utilice el siguiente comando:
 
 [source, cli]
 ----
@@ -238,9 +238,9 @@ cs2                         cluster-network    10.228.143.202   BES-53248
 cluster1::*>
 ----
 --
-.ONTAP 9.7 y anteriores
+.ONTAP 9.7 y versiones anteriores
 --
-Para ONTAP 9,7 y versiones anteriores, utilice el comando:
+Para ONTAP 9.7 y versiones anteriores, utilice el comando:
 
 [source, cli]
 ----
@@ -268,7 +268,7 @@ cluster1::*>
 ----
 --
 ====
-. [[step6]]deshabilite la reversión automática en las LIF del clúster.
+. [[step6]]Deshabilitar la reversión automática en los LIF del clúster.
 +
 [source, cli]
 ----
@@ -280,13 +280,13 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 
 == Paso 2: Configurar puertos
 
-. En el switch CS2, confirme la lista de puertos conectados a los nodos del clúster.
+. En el switch cs2, confirme la lista de puertos que están conectados a los nodos del clúster.
 +
 [source, cli]
 ----
 show isdp neighbor
 ----
-. En el switch de clúster cs2, apague los puertos conectados a los puertos del clúster de los nodos. Por ejemplo, si los puertos 0/1 a 0/16 se conectan a los nodos ONTAP:
+. En el conmutador de clúster cs2, apague los puertos conectados a los puertos de clúster de los nodos.  Por ejemplo, si los puertos 0/1 a 0/16 están conectados a nodos ONTAP :
 +
 [listing, subs="+quotes"]
 ----
@@ -297,14 +297,14 @@ show isdp neighbor
 (cs2)(Interface 0/1-0/16)# *exit*
 (cs2)(Config)#
 ----
-. Comprobar que las LIF del clúster han migrado a los puertos alojados en el switch del clúster cs1. Esto puede tardar unos segundos.
+. Verifique que las LIF del clúster se hayan migrado a los puertos alojados en el conmutador del clúster cs1. Esto podría tardar unos segundos.
 +
 [source, cli]
 ----
 network interface show -role cluster
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -325,12 +325,12 @@ Cluster
 cluster1::*>
 ----
 ====
-. Compruebe que el clúster esté en buen estado:
+. Verifique que el clúster esté en buen estado:
 +
 `cluster show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -344,34 +344,34 @@ cluster1-03          true    true          true
 cluster1-04          true    true          false
 ----
 ====
-. Si todavía no lo ha hecho, guarde la configuración del switch actual copiando el resultado del siguiente comando en un archivo de registro:
+. Si aún no lo ha hecho, guarde la configuración actual del switch copiando el resultado del siguiente comando en un archivo de registro:
 +
 [source, cli]
 ----
 show running-config
 ----
-. Limpie la configuración del interruptor cs2 y realice una configuración básica.
+. Limpie la configuración en el switch cs2 y realice una configuración básica.
 +
 
-CAUTION: Al actualizar o aplicar una nueva RCF, debe borrar los ajustes del conmutador y realizar la configuración básica. Debe estar conectado al conmutador mediante la consola serie para borrar la configuración del conmutador. Este requisito es opcional si ha utilizado el artículo de la base de conocimientos https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración en un switch de interconexión Broadcom mientras se mantiene la conectividad remota"] para borrar la configuración, de antemano.
+CAUTION: Al actualizar o aplicar un nuevo RCF, debe borrar la configuración del switch y realizar la configuración básica.  Para borrar la configuración del switch, debe estar conectado a él mediante la consola serie.  Este requisito es opcional si ha utilizado el artículo de la base de conocimientos. https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración de un switch de interconexión Broadcom manteniendo la conectividad remota"] Para borrar la configuración de antemano.
 
 +
 
-NOTE: Borrar la configuración no se eliminan las licencias.
+NOTE: Borrar la configuración no elimina las licencias.
 
 +
-.. SSH en el switch.
+.. Conéctese al switch mediante SSH.
 +
-Solo proceda cuando todas las LIF de clúster se hayan eliminado de los puertos del switch y el switch esté preparado para borrar la configuración.
+Proceda únicamente cuando se hayan retirado todos los LIF del clúster de los puertos del conmutador y este esté preparado para que se borre la configuración.
 
-.. Introduzca el modo de privilegio:
+.. Ingrese al modo privilegiado:
 +
 [listing]
 ----
 (cs2)> enable
 (cs2)#
 ----
-.. Copie y pegue los siguientes comandos para eliminar la configuración anterior de RCF (dependiendo de la versión anterior de RCF utilizada, algunos comandos pueden generar un error si no hay una configuración concreta):
+.. Copie y pegue los siguientes comandos para eliminar la configuración RCF anterior (dependiendo de la versión RCF anterior utilizada, algunos comandos podrían generar un error si falta alguna configuración):
 +
 [source, cli]
 ----
@@ -438,7 +438,7 @@ Config file 'startup-config' created successfully.
 
 Configuration Saved!
 ----
-.. Reinicie el conmutador:
+.. Realice un reinicio del switch:
 +
 [listing, subs="+quotes"]
 ----
@@ -446,18 +446,18 @@ Configuration Saved!
 
 Are you sure you would like to reset the system? (y/n) *y*
 ----
-.. Vuelva a iniciar sesión en el switch usando SSH para completar la instalación de RCF.
+.. Vuelva a iniciar sesión en el switch mediante SSH para completar la instalación de RCF.
 
 
 
 
-. Registre las personalizaciones realizadas en el RCF anterior y aplíquelas al nuevo RCF. Por ejemplo, configurar las velocidades de los puertos o el modo FEC de codificación fija.
-. Copie el RCF en el bootflash del switch CS2 usando uno de los siguientes protocolos de transferencia: FTP, HTTP, TFTP, SFTP o SCP.
+. Registre cualquier personalización realizada en el RCF anterior y aplíquela al nuevo RCF.  Por ejemplo, configurar las velocidades de los puertos o codificar el modo FEC.
+. Copie el RCF a la memoria flash de arranque del switch cs2 utilizando uno de los siguientes protocolos de transferencia: FTP, HTTP, TFTP, SFTP o SCP.
 +
-Este ejemplo muestra HTTP que se está utilizando para copiar un RCF al bootflash en el switch CS2:
+Este ejemplo muestra el uso de HTTP para copiar un RCF a la memoria flash de arranque en el switch cs2:
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -481,7 +481,7 @@ Configuration script validated.
 File transfer operation completed successfully.
 ----
 ====
-. Compruebe que el script se ha descargado y guardado con el nombre de archivo que le ha proporcionado:
+. Verifique que el script se haya descargado y guardado con el nombre de archivo que le asignó:
 +
 `script list`
 
@@ -496,12 +496,12 @@ Reference-config.scr                       2680         2024 05 31 21:54:22
 1 configuration script(s) found.
 2045 Kbytes free.
 ----
-. Aplique el script al conmutador:
+. Aplique el script al interruptor:
 +
 `script apply`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -521,7 +521,7 @@ Configuration script 'reference-config.scr' applied.
 ====
 . Instale el archivo de licencia.
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -560,9 +560,9 @@ Are you sure you would like to reset the system? (y/n) *y*
 ...
 ----
 ====
-. Examine el resultado del banner en `show clibanner` el comando. Debe leer y seguir estas instrucciones para verificar la configuración y el funcionamiento correctos del interruptor.
+. Examine la salida del banner de `show clibanner` dominio.  Debe leer y seguir estas instrucciones para verificar la configuración y el funcionamiento correctos del interruptor.
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -592,14 +592,14 @@ NOTE:
   command has been executed and the switch rebooted"
 ----
 ====
-. En el switch, compruebe que los puertos adicionales con licencia aparecen después de aplicar el RCF:
+. En el switch, verifique que los puertos con licencia adicionales aparezcan después de aplicar el RCF:
 +
 [source, cli]
 ----
 show port all | exclude Detach
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -635,7 +635,7 @@ Intf      Type   Mode      Mode         Status     Status Trap    Mode   Timeout
 0/56             Enable    100G Full               Down   Enable  Enable long
 ----
 ====
-. En el interruptor, compruebe que se han realizado los cambios:
+. En el switch, verifique que se hayan realizado los cambios:
 +
 [source, cli]
 ----
@@ -646,7 +646,7 @@ show running-config
 ----
 (cs2)# *show running-config*
 ----
-. Guarde la configuración en ejecución para que se convierta en la configuración de inicio al reiniciar el conmutador:
+. Guarda la configuración en ejecución para que se convierta en la configuración de inicio cuando reinicies el switch:
 +
 `write memory`
 
@@ -663,7 +663,7 @@ Config file 'startup-config' created successfully.
 
 Configuration Saved!
 ----
-. Reinicie el conmutador y compruebe que la configuración en ejecución es correcta:
+. Reinicie el switch y verifique que la configuración en ejecución sea correcta:
 +
 `reload`
 
@@ -676,7 +676,7 @@ Are you sure you would like to reset the system? (y/n) *y*
 
 System will now restart!
 ----
-. En el switch de clúster CS2, saque los puertos conectados a los puertos de clúster de los nodos. Por ejemplo, si los puertos 0/1 a 0/16 se conectan a los nodos ONTAP:
+. En el conmutador de clúster cs2, active los puertos conectados a los puertos de clúster de los nodos.  Por ejemplo, si los puertos 0/1 a 0/16 están conectados a nodos ONTAP :
 +
 [listing, subs="+quotes"]
 ----
@@ -687,14 +687,14 @@ System will now restart!
 (cs2)(Interface 0/1-0/16)# *exit*
 (cs2)(Config)#
 ----
-. Compruebe los puertos del switch CS2:
+. Verifique los puertos del switch cs2:
 +
 [source, cli]
 ----
 show interfaces status all | exclude Detach
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -723,16 +723,16 @@ Port       Name                 State   Mode        Status      Type        Cont
 0/56       Cluster   ISL Port   Up      Auto        100G Full   Copper      Inactive    Trunk
 ----
 ====
-. Compruebe el estado de los puertos del clúster en el clúster.
+. Verifique el estado de los puertos del clúster.
 +
-.. Compruebe que los puertos e0b estén activos y en buen estado en todos los nodos del clúster:
+.. Verifique que los puertos e0b estén activos y en buen estado en todos los nodos del clúster:
 +
 [source, cli]
 ----
 network port show -role cluster
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -773,14 +773,14 @@ e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
 e0b       Cluster      Cluster          up   9000  auto/100000 healthy false
 ----
 ====
-.. Compruebe el estado del switch del clúster:
+.. Verifique el estado del switch desde el clúster:
 +
 [source, cli]
 ----
 network device-discovery show -protocol cdp
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -805,14 +805,14 @@ cluster1-04/cdp
 ====
 
 
-. Compruebe que el clúster muestra información para ambos switches de clúster.
+. Verifique que el clúster muestre información para ambos conmutadores del clúster.
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.8 y posteriores
 --
-A partir de ONTAP 9,8, utilice el comando:
+A partir de ONTAP 9.8, utilice el siguiente comando:
 
 [source, cli]
 ----
@@ -839,9 +839,9 @@ cs2                         cluster-network    10.228.143.202   BES-53248
 cluster1::*>
 ----
 --
-.ONTAP 9.7 y anteriores
+.ONTAP 9.7 y versiones anteriores
 --
-Para ONTAP 9,7 y versiones anteriores, utilice el comando:
+Para ONTAP 9.7 y versiones anteriores, utilice el comando:
 
 [source, cli]
 ----
@@ -869,9 +869,9 @@ cluster1::*>
 ----
 --
 ====
-. [[step21]]En el switch de cluster CS1, apague los puertos conectados a los puertos de cluster de los nodos.
+. [[step21]]En el conmutador de clúster cs1, apague los puertos conectados a los puertos de clúster de los nodos.
 +
-En el ejemplo siguiente se utiliza el resultado del ejemplo de interfaz:
+El siguiente ejemplo utiliza la salida de ejemplo de la interfaz:
 
 +
 [listing, subs="+quotes"]
@@ -881,14 +881,14 @@ En el ejemplo siguiente se utiliza el resultado del ejemplo de interfaz:
 (cs1)(Config)# *interface 0/1-0/16*
 (cs1)(Interface 0/1-0/16)# *shutdown*
 ----
-. Comprobar que las LIF del clúster han migrado a los puertos alojados en el switch cs2. Esto puede tardar unos segundos.
+. Verifique que las LIF del clúster se hayan migrado a los puertos alojados en el switch cs2. Esto podría tardar unos segundos.
 +
 [source, cli]
 ----
 network interface show -role cluster
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -909,12 +909,12 @@ Cluster
 cluster1::*>
 ----
 ====
-. Compruebe que el clúster esté en buen estado:
+. Verifique que el clúster esté en buen estado:
 +
 `cluster show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -928,14 +928,14 @@ cluster1-03          true     true          true
 cluster1-04          true     true          false
 ----
 ====
-. Repita los pasos 4 a 19 en el interruptor CS1.
-. Habilite la reversión automática en las LIF del clúster:
+. Repita los pasos 4 a 19 en el interruptor cs1.
+. Habilitar la reversión automática en los LIF del clúster:
 +
 [source, cli]
 ----
 network interface modify -vserver Cluster -lif * -auto-revert true
 ----
-. Reinicie el interruptor CS1. Esto activa las LIF del clúster para que reviertan a sus puertos iniciales. Es posible ignorar los eventos de “puertos de clúster inactivos” que se informan en los nodos mientras se reinicia el switch.
+. Reiniciar interruptor cs1.  Esto provoca que los LIF del clúster vuelvan a sus puertos de origen.  Puede ignorar los eventos de "puertos del clúster inactivos" que se reportan en los nodos mientras se reinicia el conmutador.
 +
 [listing, subs="+quotes"]
 ----
@@ -951,14 +951,14 @@ Configuration Saved! System will now restart!
 
 == Paso 3: Verificar la configuración
 
-. En el switch CS1, verifique que los puertos del switch conectados a los puertos del cluster sean *UP*:
+. En el switch cs1, verifique que los puertos del switch conectados a los puertos del clúster estén *activos*:
 +
 [source, cli]
 ----
 show interfaces status all | exclude Detach
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -987,14 +987,14 @@ Port       Name                 State   Mode        Status      Type        Cont
 0/56       Cluster   ISL Port   Up      Auto        100G Full   Copper      Inactive    Trunk
 ----
 ====
-. Compruebe que el ISL entre los switches CS1 y CS2 funciona:
+. Verifique que el enlace ISL entre los conmutadores cs1 y cs2 funciona correctamente:
 +
 [source, cli]
 ----
 show port-channel 1/1
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -1017,14 +1017,14 @@ Ports   Timeout       Speed     Active
         partner/long
 ----
 ====
-. Compruebe que las LIF del clúster han vuelto a su puerto de inicio:
+. Verifique que los LIF del clúster hayan vuelto a su puerto de origen:
 +
 [source, cli]
 ----
 network interface show -role cluster
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -1044,12 +1044,12 @@ Cluster
             cluster1-04_clus2  up/up      169.254.1.7/23     cluster1-04         e0b     true
 ----
 ====
-. Compruebe que el clúster esté en buen estado:
+. Verifique que el clúster esté en buen estado:
 +
 `cluster show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -1063,22 +1063,22 @@ cluster1-03          true    true          true
 cluster1-04          true    true          false
 ----
 ====
-. Compruebe la conectividad de las interfaces del clúster remoto:
+. Verifique la conectividad de las interfaces del clúster remoto:
 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.9.1 y versiones posteriores
+.ONTAP 9.9.1 y posteriores
 --
-Puede utilizar el `network interface check cluster-connectivity` comando para iniciar una comprobación de accesibilidad de la conectividad del clúster y, a continuación, muestre los detalles:
+Puedes usar el `network interface check cluster-connectivity` comando para iniciar una comprobación de accesibilidad para la conectividad del clúster y luego mostrar los detalles:
 
-`network interface check cluster-connectivity start` y.. `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`y `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* Espere varios segundos antes de ejecutar el `show` comando para mostrar los detalles.
+*NOTA:* Espere unos segundos antes de ejecutar el programa. `show` comando para mostrar los detalles.
 
 [listing, subs="+quotes"]
 ----
@@ -1095,9 +1095,9 @@ cluster1-02
        3/5/2022 19:21:20 -06:00   cluster1-02_clus2   cluster1-02_clus2   none
 ----
 --
-.Todos los lanzamientos de ONTAP
+.Todas las versiones de ONTAP
 --
-En todas las versiones de ONTAP, también se puede utilizar el `cluster ping-cluster -node <name>` comando para comprobar la conectividad:
+Para todas las versiones de ONTAP , también puede usar el `cluster ping-cluster -node <name>` comando para comprobar la conectividad:
 
 `cluster ping-cluster -node <name>`
 
@@ -1143,13 +1143,13 @@ RPC status:
 ----
 --
 ====
-. Vuelva a cambiar el nivel de privilegio a admin:
+. Vuelva a cambiar el nivel de privilegios a administrador:
 +
 [source, cli]
 ----
 set -privilege admin
 ----
-. Si ha suprimido la creación automática de casos, vuelva a habilitarla invocando un mensaje de AutoSupport:
+. Si desactivaste la creación automática de casos, vuelve a activarla mediante un mensaje de AutoSupport :
 +
 [source, cli]
 ----
@@ -1157,5 +1157,5 @@ system node autosupport invoke -node * -type all -message MAINT=END
 ----
 
 
-.El futuro
+.¿Que sigue?
 Una vez instalados RCF y el archivo de licencia, puedes link:configure-ssh.html["habilitar SSH"].

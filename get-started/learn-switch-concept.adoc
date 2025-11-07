@@ -2,7 +2,7 @@
 permalink: get-started/learn-switch-concept.html 
 sidebar: sidebar 
 keywords:  
-summary: Obtenga más información sobre clústeres, almacenamiento y switches compartidos. 
+summary: Aprenda sobre clústeres, almacenamiento y conmutadores compartidos. 
 ---
 = Obtenga información sobre los sistemas AFX, clúster, almacenamiento y conmutadores compartidos
 :allow-uri-read: 
@@ -13,16 +13,16 @@ summary: Obtenga más información sobre clústeres, almacenamiento y switches c
 [role="lead"]
 NetApp ofrece sistemas AFX, clústeres, almacenamiento y conmutadores compartidos que brindan comunicaciones internas con la capacidad de mover datos e interfaces de red sin interrupciones en todo el clúster.
 
-Los switches de «front-end» proporcionan conectividad al almacenamiento host, mientras que los switches de clúster de «back-end» proporcionan conexiones entre dos o más controladoras de NetApp.
+Los switches de “front-end” proporcionan conectividad al almacenamiento del host, mientras que los switches de clúster de “back-end” proporcionan conexiones entre dos o más controladores NetApp .
 
 
-NOTE: Solo se admiten switches back-end validados por NetApp (solicitados a NetApp).
+NOTE: Solo se admiten switches de back-end validados por NetApp(pedidos a NetApp).
 
 
 
 == Conmutadores de sistemas AFX
 
-Los conmutadores de sistemas AFX le permiten crear conmutadores de red rápidos, energéticamente eficientes y que ahorran espacio.  Su pequeño tamaño y alta densidad de puertos los hacen ideales para manejar redes grandes.  Los puertos admiten diferentes velocidades y se pueden dividir en múltiples conexiones.  Los conmutadores de sistemas AFX compatibles con NetApp incluyen:
+Los conmutadores de sistemas AFX le permiten crear conmutadores de red rápidos, energéticamente eficientes y que ahorran espacio. Su pequeño tamaño y alta densidad de puertos los hacen ideales para manejar redes grandes. Los puertos admiten diferentes velocidades y se pueden dividir en múltiples conexiones. Los conmutadores de sistemas AFX compatibles con NetApp incluyen:
 
 * Cisco Nexus 9332D-GX2B
 * Cisco Nexus 9364D-GX2A
@@ -30,9 +30,9 @@ Los conmutadores de sistemas AFX le permiten crear conmutadores de red rápidos,
 
 
 
-== Switches de clúster
+== Conmutadores de clúster
 
-Los switches de clúster permiten crear clústeres de ONTAP con más de dos nodos. Los switches de clúster admitidos por NetApp incluyen:
+Los conmutadores de clúster le permiten crear clústeres ONTAP con más de dos nodos. Los conmutadores de clúster compatibles con NetApp incluyen:
 
 * Broadcom BES-53248
 * Cisco Nexus 9336C-FX2
@@ -41,9 +41,9 @@ Los switches de clúster permiten crear clústeres de ONTAP con más de dos nodo
 
 
 
-== Switches de almacenamiento
+== Conmutadores de almacenamiento
 
-Los switches de almacenamiento le permiten enrutar datos entre servidores y matrices de almacenamiento en una red DE área de almacenamiento (SAN). Algunos de los switches de almacenamiento compatibles con NetApp son:
+Los conmutadores de almacenamiento permiten enrutar datos entre servidores y matrices de almacenamiento en una red de área de almacenamiento (SAN).  Los switches de almacenamiento compatibles con NetApp incluyen:
 
 * Cisco Nexus 9336C-FX2
 * NVIDIA SN2100
@@ -51,21 +51,21 @@ Los switches de almacenamiento le permiten enrutar datos entre servidores y matr
 
 
 
-== Switches compartidos
+== Conmutadores compartidos
 
-Los switches compartidos permiten combinar la funcionalidad de clúster y almacenamiento en una configuración de switch compartido, al admitir el uso de RCF de almacenamiento y clúster compartidos. El switch compartido compatible con NetApp es:
+Los conmutadores compartidos permiten combinar la funcionalidad de clúster y almacenamiento en una configuración de conmutador compartido, al admitir el uso de RCF de clúster y almacenamiento compartidos.  El switch compartido compatible con NetApp es:
 
 * Cisco Nexus 9336C-FX2
 
 
 
 
-== Fin de la disponibilidad
+== Fin de disponibilidad
 
-Los siguientes switches de almacenamiento ya no se pueden adquirir, pero siguen siendo compatibles:
+Los siguientes conmutadores de almacenamiento ya no están disponibles para su compra, pero aún cuentan con soporte:
 
 * Cisco Nexus 3232C
 * Cisco Nexus 3132Q-V
 * Cisco Nexus 92300YC
-* CN1610 de NetApp
+* NetApp CN1610
 

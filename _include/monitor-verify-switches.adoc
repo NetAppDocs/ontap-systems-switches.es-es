@@ -1,47 +1,47 @@
-= Confirmar la supervisión de los switches Ethernet conectados
+= Confirme la monitorización de los switches Ethernet conectados.
 :allow-uri-read: 
 
 
 
 
-== Confirmar la supervisión de los switches Ethernet conectados
+== Confirme la monitorización de los switches Ethernet conectados.
 
-Para confirmar que se están supervisando los conmutadores Ethernet conectados, ejecute:
+Para confirmar que se están monitorizando los conmutadores Ethernet conectados, ejecute:
 
 [source, cli]
 ----
 system switch ethernet show
 ----
-Si la `Model` columna muestra *OTHER* o el `IS Monitored` campo muestra *false*, ONTAP no puede monitorear el conmutador. Un valor de *OTHER* normalmente indica que ONTAP no admite ese cambio para el monitoreo de salud.
+Si el `Model` La columna muestra *OTRO* o la `IS Monitored` Si el campo muestra *falso*, ONTAP no podrá supervisar el switch.  Un valor de *OTRO* normalmente indica que ONTAP no admite ese interruptor para la supervisión del estado.
 
-El `IS Monitored` campo se establece en *false* por el motivo especificado en el `Reason` campo.
+El `IS Monitored` El campo está establecido en *falso* por la razón especificada en el `Reason` campo.
 
 [NOTE]
 ====
-Si un conmutador no aparece en la salida del comando, es probable que ONTAP no lo haya descubierto.  Confirme que el interruptor esté cableado correctamente.  Si es necesario, puede agregar el conmutador manualmente. Consulte link:monitor-manage.html["Gestionar la supervisión de switches Ethernet"] Para más detalles.
+Si un switch no aparece en la salida del comando, es probable que ONTAP no lo haya detectado.  Compruebe que el interruptor está conectado correctamente.  Si es necesario, puede agregar el interruptor manualmente.  Verlink:monitor-manage.html["Gestionar la monitorización de los conmutadores Ethernet"] Para obtener más detalles.
 
 ====
 
 
-== Confirme que el firmware y las versiones de RCF están actualizadas
+== Confirme que las versiones de firmware y RCF estén actualizadas.
 
-Asegúrese de que el switch esté ejecutando el firmware más reciente compatible y de que se haya aplicado un archivo de configuración de referencia compatible (RCF). Más información está disponible en el https://mysupport.netapp.com/site/downloads["Página de descargas de soporte de NetApp"^].
+Asegúrese de que el switch esté ejecutando el firmware compatible más reciente y de que se haya aplicado un archivo de configuración de referencia (RCF) compatible.  Puede encontrar más información en elhttps://mysupport.netapp.com/site/downloads["Página de descargas de soporte de NetApp"^] .
 
-De forma predeterminada, el monitor de estado utiliza SNMPv2c con la cadena comunitaria *cshm1!* para el monitoreo, pero también se puede configurar SNMPv3.
+Por defecto, el monitor de salud utiliza SNMPv2c con la cadena de comunidad *cshm1!* para la monitorización, pero también se puede configurar SNMPv3.
 
-Si necesita cambiar la cadena de comunidad SNMPv2c predeterminada, asegúrese de que la cadena de comunidad SNMPv2c deseada se haya configurado en el switch.
+Si necesita cambiar la cadena de comunidad SNMPv2c predeterminada, asegúrese de que la cadena de comunidad SNMPv2c deseada se haya configurado en el conmutador.
 
 [source, cli]
 ----
 system switch ethernet modify -device SwitchA -snmp-version SNMPv2c -community-or-username newCommunity!
 ----
 
-NOTE: Consulte link:config-snmpv3.html["Opcional: Configure SNMPv3"] para obtener más información sobre la configuración de SNMPv3 para su uso.
+NOTE: Verlink:config-snmpv3.html["Opcional: Configurar SNMPv3"] Para obtener detalles sobre la configuración de SNMPv3 para su uso.
 
 
 
-== Confirme la conexión de red de gestión
+== Confirmar la conexión de red de gestión
 
-Compruebe que el puerto de gestión del switch está conectado a la red de gestión.
+Verifique que el puerto de administración del switch esté conectado a la red de administración.
 
-Se requiere una conexión de puerto de gestión correcta para que ONTAP ejecute consultas SNMP y recopile registros.
+Para que ONTAP pueda realizar consultas SNMP y recopilar registros, se requiere una conexión correcta al puerto de administración.

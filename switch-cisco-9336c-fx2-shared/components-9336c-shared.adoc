@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/components-9336c-shared.html 
 keywords: shared storage cluster switch 
-summary: Desde ONTAP 9.9.1, puede utilizar los switches Cisco Nexus 9336C-FX2 para combinar las funciones de almacenamiento y clúster en un escenario de switch compartido. 
+summary: A partir de ONTAP 9.9.1, puede utilizar los conmutadores Cisco Nexus 9336C-FX2 para combinar la funcionalidad de almacenamiento y clúster en un escenario de conmutador compartido. 
 ---
-= Los componentes y números de pieza de los switches compartidos Cisco Nexus 9336C-FX2
+= Componentes y números de pieza para los switches compartidos Cisco Nexus 9336C-FX2
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,9 +14,9 @@ summary: Desde ONTAP 9.9.1, puede utilizar los switches Cisco Nexus 9336C-FX2 pa
 
 
 [role="lead"]
-En lo que respecta a la instalación y el mantenimiento del switch Cisco Nexus 9336C-FX2, asegúrese de revisar la lista de componentes y sus números de pieza.
+Para la instalación y el mantenimiento del switch Cisco Nexus 9336C-FX2, asegúrese de revisar la lista de componentes y números de pieza.
 
-En la tabla siguiente se enumeran el número de pieza y la descripción del switch 9336C-FX2, sus ventiladores y fuentes de alimentación:
+La siguiente tabla enumera el número de pieza y la descripción del interruptor, los ventiladores y las fuentes de alimentación 9336C-FX2:
 
 |===
 | Número de pieza | Descripción 
@@ -31,16 +31,16 @@ En la tabla siguiente se enumeran el número de pieza y la descripción del swit
 | X190002 | Kit de accesorios X190001/X190003 
 
 
-| X-NXA-PAC-1100W-PE2 | Fuente de alimentación de 1100 W ac N9K-9336C: Flujo de aire de escape lateral del puerto 
+| X-NXA-PAC-1100W-PE2 | Fuente de alimentación N9K-9336C AC 1100W - Flujo de aire de escape del lado del puerto 
 
 
-| X-NXA-PAC-1100W-PI2 | Fuente de alimentación de 1100 W ac N9K-9336C - flujo de aire de entrada lateral del puerto 
+| X-NXA-PAC-1100W-PI2 | Fuente de alimentación N9K-9336C AC 1100W - Entrada de aire por el lado del puerto 
 
 
-| X-NXA-FAN-65CFM-PE | N9K-9336C 65CFM, flujo de aire del lado de la lumbrera 
+| X-NXA-FAN-65CFM-PE | N9K-9336C 65 CFM, flujo de aire de escape del lado de babor 
 
 
-| X-NXA-FAN-65CFM-PI | N9K-9336C 65CFM, flujo de aire de entrada lateral de la lumbrera 
+| X-NXA-FAN-65CFM-PI | N9K-9336C 65 CFM, flujo de aire de entrada del lado de babor 
 |===
 .¿Qué sigue?
 Una vez que haya confirmado sus componentes y números de pieza, puede revisar el link:required-documentation-9336c-shared.html["documentación requerida"].

@@ -4,7 +4,7 @@ permalink: switch-cisco-9336c-fx2-shared/migrate-from-switched-cluster-sat-stora
 keywords:  
 summary:  
 ---
-= Migre desde un clúster con switches con almacenamiento conectado a switches
+= Migrar desde un clúster conmutado con almacenamiento conectado al conmutador
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,19 +14,19 @@ summary:
 
 
 [role="lead"]
-Puede migrar desde un clúster conmutado con almacenamiento conectado a switches reutilizando los switches de almacenamiento.
+Puede migrar desde un clúster conmutado con almacenamiento conectado al conmutador reutilizando los conmutadores de almacenamiento.
 
-Mediante la reutilización de los switches de almacenamiento, los switches de almacenamiento del par de alta disponibilidad 1 se convierten en los switches compartidos, como se muestra en la siguiente figura.
+Al reutilizar los conmutadores de almacenamiento, los conmutadores de almacenamiento del par HA 1 se convierten en los conmutadores compartidos como se muestra en la siguiente figura.
 
-image:9336c_image1.jpg["Conectado a interruptor"]
+image:9336c_image1.jpg["Interruptor conectado"]
 
 .Pasos
-. Compruebe que la configuración del almacenamiento de la pareja de alta disponibilidad 1 (y par de alta disponibilidad 2) sea correcta y esté libre de errores:
+. Verifique que la configuración de almacenamiento del par HA 1 (y del par HA 2) sea correcta y no contenga errores:
 +
 `system switch ethernet show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -57,15 +57,15 @@ storage::*>
 ====
 
 
-. [[step2]]mueva Los cables de la ruta A del par de alta disponibilidad 1, NSM224 de la ruta A del switch de almacenamiento a a los puertos de almacenamiento NSM224 para el par de alta disponibilidad 1, ruta A en el conmutador de almacenamiento A.
-. Mueva el cable desde el par de alta disponibilidad 1, nodo A, ruta A al puerto de almacenamiento NSM224 para el par de alta disponibilidad 1, nodo A en el switch de almacenamiento A.
-. Mueva el cable desde el par de alta disponibilidad 1, nodo B, ruta A al puerto de almacenamiento NSM224 para el par de alta disponibilidad 1, nodo B en el switch de almacenamiento A.
-. Compruebe que el almacenamiento conectado al par de alta disponibilidad 1, el switch De almacenamiento A sea correcto:
+. [[step2]]Mueva los cables del par HA 1, ruta A del NSM224 desde el conmutador de almacenamiento A a los puertos de almacenamiento NSM224 para el par HA 1, ruta A en el conmutador de almacenamiento A.
+. Mueva el cable del par HA 1, nodo A, ruta A al puerto de almacenamiento NSM224 para el par HA 1, nodo A en el conmutador de almacenamiento A.
+. Mueva el cable del par HA 1, nodo B, ruta A al puerto de almacenamiento NSM224 para el par HA 1, nodo B en el conmutador de almacenamiento A.
+. Verifique que el almacenamiento conectado al par HA 1, conmutador de almacenamiento A, esté en buen estado:
 +
 `storage port show -port-type ENET`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -89,13 +89,13 @@ node2
 ====
 
 
-. [[step6]]sustituya el RCF de almacenamiento en el conmutador compartido A por el archivo RCF compartido. Consulte link:install-nxos-rcf-9336c-shared.html["Instale el RCF en un switch compartido Cisco Nexus 9336C-FX2"] para obtener más detalles.
-. Compruebe que el almacenamiento conectado al par de alta disponibilidad 1, el switch De almacenamiento A sea correcto:
+. [[step6]]Reemplace el RCF de almacenamiento en el switch compartido A con el archivo RCF compartido.  Verlink:install-nxos-rcf-9336c-shared.html["Instale el RCF en un switch compartido Cisco Nexus 9336C-FX2."] Para obtener más detalles.
+. Verifique que el almacenamiento conectado al par HA 1, conmutador de almacenamiento A, esté en buen estado:
 +
 `system health alert show -instance`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -106,15 +106,15 @@ There are no entries matching your query.
 ====
 
 
-. [[paso8]]mueva los cables de la ruta B del par de alta disponibilidad 1 y NSM224 del conmutador de almacenamiento B a los puertos de almacenamiento compartidos NS224 para el par de alta disponibilidad 1, ruta B al conmutador de almacenamiento B.
-. Mueva el cable desde el par de alta disponibilidad 1, nodo A, ruta B al puerto de almacenamiento compartido para el par de alta disponibilidad 1, nodo A, ruta B en el switch de almacenamiento B.
-. Mueva el cable desde el par de alta disponibilidad 1, nodo B, ruta B al puerto de almacenamiento compartido para el par de alta disponibilidad 1, nodo B, ruta B en el switch de almacenamiento B.
-. Compruebe que el almacenamiento conectado al par de alta disponibilidad 1, el switch de almacenamiento B sea correcto:
+. [[step8]]Mueva los cables del par HA 1, ruta B del NSM224 desde el conmutador de almacenamiento B a los puertos de almacenamiento NS224 compartidos para el par HA 1, ruta B al conmutador de almacenamiento B.
+. Mueva el cable del par HA 1, nodo A, ruta B al puerto de almacenamiento compartido para el par HA 1, nodo A, ruta B en el conmutador de almacenamiento B.
+. Mueva el cable del par HA 1, nodo B, ruta B al puerto de almacenamiento compartido para el par HA 1, nodo B, ruta B en el conmutador de almacenamiento B.
+. Verifique que el almacenamiento conectado al par HA 1, conmutador de almacenamiento B, esté en buen estado:
 +
 `system health alert show -instance`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -125,13 +125,13 @@ There are no entries matching your query.
 ====
 
 
-. [[step12]]sustituya el archivo RCF de almacenamiento en el conmutador compartido B por el archivo RCF compartido. Consulte link:install-nxos-rcf-9336c-shared.html["Instale el RCF en un switch compartido Cisco Nexus 9336C-FX2"] para obtener más detalles.
-. Compruebe que el almacenamiento conectado al par de alta disponibilidad 1, el switch de almacenamiento B sea correcto:
+. [[step12]]Reemplace el archivo RCF de almacenamiento en el switch compartido B con el archivo RCF compartido.  Verlink:install-nxos-rcf-9336c-shared.html["Instale el RCF en un switch compartido Cisco Nexus 9336C-FX2."] Para obtener más detalles.
+. Verifique que el almacenamiento conectado al par HA 1, conmutador de almacenamiento B, esté en buen estado:
 +
 `system health alert show -instance`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -142,12 +142,12 @@ There are no entries matching your query.
 ====
 
 
-. [[step14]]Verifique que la configuración de almacenamiento del par de alta disponibilidad 1 sea correcta y no tenga errores:
+. [[step14]]Verifique que la configuración de almacenamiento del par HA 1 sea correcta y no presente errores:
 +
 `system switch ethernet show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -178,9 +178,9 @@ storage::*>
 ====
 
 
-. [[step15]]instale los ISL entre el switch compartido A y el conmutador compartido B:
+. [[step15]]Instale los ISL entre el switch compartido A y el switch compartido B:
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -203,14 +203,14 @@ sh1 (config)# *exit*
 ====
 
 
-. [[paso16]]migre la red del clúster desde los switches del clúster existentes a los switches compartidos mediante el procedimiento de sustitución del switch y el RCF compartido. El nuevo conmutador compartido A es "cs1". El nuevo conmutador compartido B es "cs2". Consulte link:replace-9336c-fx2-shared.html["Sustituya un switch compartido Cisco Nexus 9336C-FX2"] y.. link:install-nxos-rcf-9336c-shared.html["Instale el RCF en un switch compartido Cisco Nexus 9336C-FX2"] para obtener más detalles.
-. Compruebe que la configuración de red conmutada sea válida:
+. [[step16]]Migre la red del clúster desde los conmutadores del clúster existentes a los conmutadores compartidos utilizando el procedimiento de reemplazo de conmutadores y el RCF compartido.  El nuevo interruptor compartido A es "cs1".  El nuevo conmutador compartido B es "cs2".  Verlink:replace-9336c-fx2-shared.html["Reemplazar un switch compartido Cisco Nexus 9336C-FX2"] ylink:install-nxos-rcf-9336c-shared.html["Instale el RCF en un switch compartido Cisco Nexus 9336C-FX2."] Para obtener más detalles.
+. Verifique que la configuración de red conmutada sea válida:
 +
 `network port show`
 
-. Quite los switches de clúster que no se utilicen.
-. Retire los interruptores de almacenamiento que no se utilicen.
+. Retire los conmutadores de clúster no utilizados.
+. Retire los interruptores de almacenamiento no utilizados.
 
 
-.El futuro
+.¿Que sigue?
 Después de migrar tus switches, puedes link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"].

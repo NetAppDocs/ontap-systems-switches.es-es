@@ -11,11 +11,11 @@ summary:
 
 
 [role="lead"]
-Los avisos legales proporcionan acceso a las declaraciones de copyright, marcas comerciales, patentes y mucho más.
+Los avisos legales proporcionan acceso a declaraciones de derechos de autor, marcas comerciales, patentes y más.
 
 
 
-== Derechos de autor
+== Copyright
 
 link:https://www.netapp.com/company/legal/copyright/["https://www.netapp.com/company/legal/copyright/"^]
 
@@ -23,15 +23,15 @@ link:https://www.netapp.com/company/legal/copyright/["https://www.netapp.com/com
 
 == Marcas comerciales
 
-NETAPP, el logotipo de NETAPP y las marcas enumeradas en la página de marcas comerciales de NetApp son marcas comerciales de NetApp, Inc. Los demás nombres de empresas y productos son marcas comerciales de sus respectivos propietarios.
+NETAPP, el logotipo de NETAPP y las marcas enumeradas en la página de Marcas comerciales de NetApp son marcas comerciales de NetApp, Inc. Otros nombres de empresas y productos pueden ser marcas comerciales de sus respectivos propietarios.
 
 link:https://www.netapp.com/company/legal/trademarks/["https://www.netapp.com/company/legal/trademarks/"^]
 
 
 
-== Estadounidenses
+== Patentes
 
-Puede encontrar una lista actual de las patentes propiedad de NetApp en:
+Puede encontrar una lista actualizada de las patentes propiedad de NetApp en:
 
 link:https://www.netapp.com/pdf.html?item=/media/11887-patentspage.pdf["https://www.netapp.com/pdf.html?item=/media/11887-patentspage.pdf"^]
 

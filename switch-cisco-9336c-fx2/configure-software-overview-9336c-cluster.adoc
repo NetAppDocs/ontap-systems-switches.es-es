@@ -2,7 +2,7 @@
 permalink: switch-cisco-9336c-fx2/configure-software-overview-9336c-cluster.html 
 sidebar: sidebar 
 keywords: switches, initial installation, configure switch-cisco-9336c-fx2 switch 
-summary: Descripción general de la configuración de software de los switches de clúster Cisco Nexus 9336C-FX2 
+summary: Descripción general de la configuración del software para los conmutadores de clúster Cisco Nexus 9336C-FX2 
 ---
 = Flujo de trabajo de instalación de software para los conmutadores de clúster Cisco Nexus 9336C-FX2 y 9336C-FX2-T
 :allow-uri-read: 
@@ -13,11 +13,11 @@ summary: Descripción general de la configuración de software de los switches d
 [role="lead"]
 Para instalar y configurar el software de los conmutadores Cisco Nexus 9336C-FX2 y 9336C-FX2-T e instalar o actualizar el archivo de configuración de referencia (RCF), siga estos pasos:
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:setup-switch-9336c-cluster.html["Configure el switch"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1"]link:setup-switch-9336c-cluster.html["Configura el interruptor"]
 [role="quick-margin-para"]
 Configurar los conmutadores de clúster 9336C-FX2 y 9336C-FX2-T.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"]link:install-nxos-overview-9336c-cluster.html["Prepárese para instalar el software NX-OS y RCF"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"]link:install-nxos-overview-9336c-cluster.html["Prepárese para instalar el software NX-OS y RCF."]
 [role="quick-margin-para"]
 El software Cisco NX-OS y los archivos de configuración de referencia (RCF) deben instalarse en los conmutadores de clúster Cisco 9336C-FX2 y 9336C-FX2-T.
 
@@ -25,11 +25,11 @@ El software Cisco NX-OS y los archivos de configuración de referencia (RCF) deb
 [role="quick-margin-para"]
 Descargue e instale o actualice el software NX-OS en los conmutadores de clúster Cisco 9336C-FX2 y 9336C-FX2-T.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:install-upgrade-rcf-overview-cluster.html["Instale o actualice el RCF"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:install-upgrade-rcf-overview-cluster.html["Instalar o actualizar el RCF"]
 [role="quick-margin-para"]
 Instale o actualice el RCF después de configurar los conmutadores Cisco 9336C-FX2 y 9336C-FX2-T por primera vez. También puede utilizar este procedimiento para actualizar su versión de RCF.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-ssh-keys.html["Compruebe la configuración de SSH"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-ssh-keys.html["Verificar la configuración SSH"]
 [role="quick-margin-para"]
 Verifique que SSH esté habilitado en los conmutadores para usar el Monitor de estado del conmutador Ethernet (CSHM) y las funciones de recopilación de registros.
 

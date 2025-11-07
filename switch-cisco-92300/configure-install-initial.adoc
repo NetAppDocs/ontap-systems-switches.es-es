@@ -2,7 +2,7 @@
 permalink: switch-cisco-92300/configure-install-initial.html 
 sidebar: sidebar 
 keywords: install cisco 92300YC cluster switch, cisco nx 92300yc 
-summary: Puede utilizar este procedimiento para realizar la instalación inicial del conmutador Cisco Nexus 92300YC. 
+summary: Puede utilizar este procedimiento para realizar la instalación inicial del switch Cisco Nexus 92300YC. 
 ---
 = Configure el switch Cisco Nexus 92300YC
 :allow-uri-read: 
@@ -11,26 +11,26 @@ summary: Puede utilizar este procedimiento para realizar la instalación inicial
 
 
 [role="lead"]
-Siga este procedimiento para configurar y configurar el switch Cisco Nexus 92300YC.
+Siga este procedimiento para instalar y configurar el conmutador Cisco Nexus 92300YC.
 
 .Pasos
-. Conecte el puerto serie a un host o puerto serie.
-. Conecte el puerto de gestión (en el lado que no sea un puerto del switch) a la misma red donde esté ubicado el servidor SFTP.
-. En la consola, configure los ajustes de serie del lado del host:
+. Conecte el puerto serie a un host o a otro puerto serie.
+. Conecte el puerto de administración (en el lado del switch que no es un puerto) a la misma red donde se encuentra su servidor SFTP.
+. En la consola, configure los ajustes de serie del host:
 +
 ** 9600 baudios
 ** 8 bits de datos
 ** 1 bit de parada
-** paridad: none
-** control de flujo: ninguno
+** paridad: ninguna
+** Control de flujo: ninguno
 
 
-. Cuando se arranca por primera vez o se reinicia después de borrar la configuración en ejecución, el switch Nexus 92300YC recorre un ciclo de arranque. Interrumpa este ciclo escribiendo *yes* para cancelar la alimentación en el aprovisionamiento automático.
+. Al arrancar por primera vez o al reiniciar después de borrar la configuración en ejecución, el switch Nexus 92300YC entra en un ciclo de arranque continuo.  Interrumpa este ciclo escribiendo *sí* para cancelar el aprovisionamiento automático de energía.
 +
-Aparecerá la configuración de la cuenta de administración del sistema.
+Se muestra la configuración de la cuenta de administrador del sistema.
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -50,16 +50,16 @@ Do you want to enforce secure password standard (yes/no) [y]:
 ----
 Do you want to enforce secure password standard (yes/no) [y]: *y*
 ----
-. Introduzca y confirme la contraseña para el administrador del usuario:
+. Introduzca y confirme la contraseña del usuario administrador:
 +
 [listing]
 ----
 Enter the password for "admin":
 Confirm the password for "admin":
 ----
-. Escriba *yes* para abrir el cuadro de diálogo Configuración básica del sistema.
+. Escriba *sí* para acceder al cuadro de diálogo de Configuración básica del sistema.
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing]
@@ -79,13 +79,13 @@ to skip the remaining dialogs.
 Would you like to enter the basic configuration dialog (yes/no):
 ----
 ====
-. Cree otra cuenta de inicio de sesión:
+. Crea otra cuenta de inicio de sesión:
 +
 [listing]
 ----
 Create another login account (yes/no) [n]:
 ----
-. Configure las cadenas de comunidad SNMP de solo lectura y de lectura y escritura:
+. Configurar las cadenas de comunidad SNMP de solo lectura y de lectura y escritura:
 +
 [listing]
 ----
@@ -93,13 +93,13 @@ Configure read-only SNMP community string (yes/no) [n]:
 
 Configure read-write SNMP community string (yes/no) [n]:
 ----
-. Configure el nombre del switch del clúster:
+. Configure el nombre del conmutador del clúster:
 +
 [listing, subs="+quotes"]
 ----
 Enter the switch name : *cs2*
 ----
-. Configure la interfaz de gestión fuera de banda:
+. Configurar la interfaz de administración fuera de banda:
 +
 [listing, subs="+quotes"]
 ----
@@ -113,19 +113,19 @@ Configure the default gateway? (yes/no) [y]: *y*
 
 IPv4 address of the default gateway : 172.22.128.1
 ----
-. Configure las opciones avanzadas de IP:
+. Configurar opciones IP avanzadas:
 +
 [listing, subs="+quotes"]
 ----
 Configure advanced IP options? (yes/no) [n]: *n*
 ----
-. Configurar servicios Telnet:
+. Configurar los servicios Telnet:
 +
 [listing, subs="+quotes"]
 ----
 Enable the telnet service? (yes/no) [n]: *n*
 ----
-. Configure los servicios SSH y las claves SSH:
+. Configurar los servicios SSH y las claves SSH:
 +
 [listing, subs="+quotes"]
 ----
@@ -135,7 +135,7 @@ Enable the ssh service? (yes/no) [y]: *y*
 
        Number of rsa key bits <1024-2048> [1024]: *2048*
 ----
-. Configurar otras opciones:
+. Configurar otros ajustes:
 +
 [listing, subs="+quotes"]
 ----
@@ -147,7 +147,7 @@ Configure the ntp server? (yes/no) [n]: *n*
 
   Configure CoPP system profile (strict/moderate/lenient/dense) [strict]: *strict*
 ----
-. Confirme la información del switch y guarde la configuración:
+. Confirme la información del interruptor y guarde la configuración:
 +
 [listing, subs="+quotes"]
 ----
@@ -161,5 +161,5 @@ Copy complete.
 ----
 
 
-.El futuro
-link:install-nxos-overview.html["Prepárese para instalar el software NX-OS y RCF"].
+.¿Que sigue?
+link:install-nxos-overview.html["Prepárese para instalar el software NX-OS y RCF."].

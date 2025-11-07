@@ -2,7 +2,7 @@
 permalink: switch-cisco-9336c-fx2/migrate-to-9336-cluster.html 
 sidebar: sidebar 
 keywords: migrating to a cluster with Cisco Nexus 9336C-FX2 cluster switches, how to migrate 
-summary: Puede migrar switches de clúster Cisco antiguos de forma no disruptiva para un clúster ONTAP a switches de red de clústeres Cisco Nexus 9336C-FX2. 
+summary: Puede migrar conmutadores de clúster Cisco más antiguos y sin interrupciones para un clúster ONTAP a conmutadores de red de clúster Cisco Nexus 9336C-FX2. 
 ---
 = Migrar de conmutadores Cisco más antiguos a conmutadores Cisco Nexus 9336C-FX2 y 9336C-FX2-T
 :allow-uri-read: 
@@ -15,113 +15,113 @@ Puede realizar una migración sin interrupciones desde conmutadores de clúster 
 
 
 
-== Revise los requisitos
+== Requisitos de revisión
 
 Asegúrese de que:
 
-* Ha verificado el número de serie del conmutador para asegurarse de que se migra el conmutador correcto.
-* Algunos de los puertos de los switches Nexus 9336C-FX2 están configurados para funcionar a 10GbE o 40GbE GbE.
-* Se ha planificado, migrado y documentado la conectividad 10GbE y 40GbE desde los nodos a los switches del clúster Nexus 9336C-FX2.
-* El clúster está funcionando completamente (no debería haber errores en los registros o problemas similares).
-* La personalización inicial de los switches Cisco Nexus 9336C-FX2 finaliza para que:
+* Usted ha verificado el número de serie del switch para asegurarse de que se está migrando el switch correcto.
+* Algunos de los puertos de los switches Nexus 9336C-FX2 están configurados para funcionar a 10GbE o 40GbE.
+* Se ha planificado, migrado y documentado la conectividad de 10GbE y 40GbE desde los nodos a los conmutadores de clúster Nexus 9336C-FX2.
+* El clúster está funcionando correctamente (no debería haber errores en los registros ni problemas similares).
+* La personalización inicial de los switches Cisco Nexus 9336C-FX2 está completa, de modo que:
 +
-** Los switches 9336C-FX2 ejecutan la versión de software recomendada más reciente.
-** Confirme que los archivos de configuración de referencia (RFC) se han aplicado por completo a cualquier switch nuevo antes de migrar las LIF a los nuevos switches.
-** Compruebe las configuraciones de funcionamiento e inicio en ambos switches antes de cambiar el tráfico de red.
-** La personalización de cualquier sitio, como DNS, NTP, SMTP, SNMP, Y SSH, se configuran en los nuevos switches.
+** Los switches 9336C-FX2 están ejecutando la última versión recomendada del software.
+** Confirme que los archivos de configuración de referencia (RCF) se hayan aplicado completamente a los nuevos conmutadores antes de migrar las LIF a los nuevos conmutadores.
+** Compruebe las configuraciones de ejecución y de inicio en ambos conmutadores antes de redirigir el tráfico de red.
+** Cualquier personalización del sitio, como DNS, NTP, SMTP, SNMP y SSH, se configura en los nuevos conmutadores.
 
 
-* Tiene acceso a la tabla de compatibilidad del conmutador de https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^] Para las versiones ONTAP, NX-OS y RCF admitidas.
-* Ha revisado las guías de actualización y software adecuadas disponibles en el sitio web de Cisco para los procedimientos de actualización y degradación de switches de Cisco en https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Compatibilidad con los switches Cisco Nexus serie 9000"^] página.
-
-
-
-NOTE: Si está cambiando la velocidad de puerto de los puertos de los clústeres de e0a y e1a en sistemas AFF A800 o AFF C800, puede observar que se están recibiendo paquetes con formato incorrecto tras la conversión de velocidad. Consulte  https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1570339["Error 1570339"^] Y el artículo de la base de conocimientos https://kb.netapp.com/onprem/ontap/hardware/CRC_errors_on_T6_ports_after_converting_from_40GbE_to_100GbE["Errores de CRC en puertos T6 después de convertir de 40GbE a 100GbE"^] para obtener orientación.
+* Tienes acceso a la tabla de compatibilidad del switch en el https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^] Página para las versiones compatibles de ONTAP, NX-OS y RCF.
+* Usted ha revisado el software y las guías de actualización apropiadas disponibles en el sitio web de Cisco para los procedimientos de actualización y degradación del switch Cisco en https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Soporte para switches Cisco Nexus serie 9000"^] página.
 
 
 
-== Migrar los switches
+NOTE: Si está cambiando la velocidad de los puertos del clúster e0a y e1a en los sistemas AFF A800 o AFF C800 , podría observar que se reciben paquetes malformados después de la conversión de velocidad.  Ver https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1570339["Error 1570339"^] y el artículo de la Base de Conocimiento https://kb.netapp.com/onprem/ontap/hardware/CRC_errors_on_T6_ports_after_converting_from_40GbE_to_100GbE["Errores CRC en puertos T6 tras la conversión de 40GbE a 100GbE"^] para ayuda.
+
+
+
+== Migrar los interruptores
 
 .Acerca de los ejemplos
-Los ejemplos de este procedimiento utilizan dos nodos. Estos nodos utilizan dos puertos de interconexión de clúster de 10 GbE en los puertos e0a y e0b. Consulte https://hwu.netapp.com/["Hardware Universe"^] para verificar los puertos de clúster correctos en sus plataformas.
+Los ejemplos de este procedimiento utilizan dos nodos.  Estos nodos utilizan dos puertos de interconexión de clúster 10GbE, e0a y e0b.  Ver el https://hwu.netapp.com/["Hardware Universe"^] para verificar los puertos de clúster correctos en sus plataformas.
 
 
-NOTE: Los resultados del comando pueden variar en función de las diferentes versiones de ONTAP.
+NOTE: Los resultados de los comandos pueden variar dependiendo de las diferentes versiones de ONTAP.
 
-Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:
+Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interruptores y nodos:
 
-* Los nombres de los dos conmutadores Cisco existentes son *cs1* y *cs2*
+* Los nombres de los dos switches Cisco existentes son *cs1* y *cs2*.
 * Los nuevos switches de clúster Nexus 9336C-FX2 son *cs1-new* y *cs2-new*.
-* Los nombres de los nodos son *1* y *2*.
-* Los nombres de LIF del clúster son *1_clus1* y *1_clus2* para el nodo 1, y *2_clus1* y *2_clus2* para el nodo 2.
-* El símbolo *cluster1:*>* indica el nombre del clúster.
+* Los nombres de los nodos son *nodo1* y *nodo2*.
+* Los nombres LIF del clúster son *node1_clus1* y *node1_clus2* para el nodo 1, y *node2_clus1* y *node2_clus2* para el nodo 2.
+* El indicador *cluster1::*>* indica el nombre del clúster.
 
 
 Durante este procedimiento, consulte el siguiente ejemplo:
 
-image::../media/Initial_setup.png[Configuración inicial del switch]
+image::../media/Initial_setup.png[Configuración inicial del interruptor]
 
 .Acerca de esta tarea
-El procedimiento requiere el uso de tanto comandos de la ONTAP como de https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Switches de la serie Nexus 9000"^] Comandos; los comandos de ONTAP se utilizan, a menos que se indique lo contrario.
+El procedimiento requiere el uso de comandos ONTAP y https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Switches de la serie Nexus 9000"^] comandos; se utilizan comandos ONTAP , a menos que se indique lo contrario.
 
-Este procedimiento cubre el siguiente caso:
+Este procedimiento cubre el siguiente escenario:
 
-* El interruptor CS2 se reemplaza por el interruptor CS2-NUEVO primero.
+* El switch cs2 se reemplaza primero por el switch cs2-new.
 +
-** Apague los puertos de los nodos del clúster. Todos los puertos deben apagarse simultáneamente para evitar la inestabilidad del clúster.
+** Desactive los puertos de los nodos del clúster.  Todos los puertos deben apagarse simultáneamente para evitar la inestabilidad del clúster.
 +
-*** Todos los LIF de clúster conmutan al nuevo switch CS2-new.
+*** Todas las LIF del clúster conmutan por error al nuevo conmutador cs2-new.
 
 
-** Después, el cableado entre los nodos y CS2 se desconecta del CS2 y se vuelve a conectar a CS2 nuevo.
+** Luego, el cableado entre los nodos y cs2 se desconecta de cs2 y se vuelve a conectar a cs2-new.
 
 
-* El interruptor CS1 se reemplaza por el interruptor CS1-NUEVO.
+* El interruptor cs1 se reemplaza por el interruptor cs1-nuevo.
 +
-** Apague los puertos de los nodos del clúster. Todos los puertos deben apagarse simultáneamente para evitar la inestabilidad del clúster.
+** Desactive los puertos de los nodos del clúster.  Todos los puertos deben apagarse simultáneamente para evitar la inestabilidad del clúster.
 +
-*** Todos los LIF de clúster conmutan al nuevo switch CS1-new.
+*** Todas las LIF del clúster conmutan por error al nuevo conmutador cs1-new.
 
 
-** Después, el cableado entre los nodos y CS1 se desconecta del CS1 y se vuelve a conectar a CS1 nuevo.
-
-
-
-
-
-NOTE: Durante este procedimiento no se necesita ningún enlace entre switches (ISL) operativo. Esto se debe a que los cambios en la versión de RCF pueden afectar temporalmente a la conectividad ISL. Para garantizar operaciones de clúster no disruptivas, el siguiente procedimiento conmuta por error todos los LIF de clúster al switch operativo asociado mientras realiza los pasos en el switch de destino.
+** Luego, el cableado entre los nodos y cs1 se desconecta de cs1 y se vuelve a conectar a cs1-new.
 
 
 
-=== Paso 1: Preparación para la migración
 
-. Si se habilita AutoSupport en este clúster, elimine la creación automática de casos invocando un mensaje de AutoSupport: `system node autosupport invoke -node * -type all -message MAINT=xh`
+
+NOTE: No se necesita ningún enlace entre conmutadores (ISL) operativo durante este procedimiento. Esto es así por diseño porque los cambios de versión de RCF pueden afectar la conectividad de ISL temporalmente. Para garantizar un funcionamiento ininterrumpido del clúster, el siguiente procedimiento transfiere todas las LIF del clúster al switch asociado operativo mientras se realizan los pasos en el switch de destino.
+
+
+
+=== Paso 1: Prepararse para la migración
+
+. Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=xh`
 +
 donde _x_ es la duración de la ventana de mantenimiento en horas.
 
 +
 
-NOTE: El mensaje de AutoSupport notifica al soporte técnico de esta tarea de mantenimiento para que la creación automática de casos se suprima durante la ventana de mantenimiento.
+NOTE: El mensaje de AutoSupport notifica al soporte técnico sobre esta tarea de mantenimiento para que se suprima la creación automática de casos durante la ventana de mantenimiento.
 
-. Cambie el nivel de privilegio a avanzado, introduciendo *y* cuando se le solicite continuar:
+. Cambie el nivel de privilegio a avanzado, ingresando *y* cuando se le solicite continuar:
 +
 `set -privilege advanced`
 
 +
-Aparece el mensaje avanzado (*>).
+Aparece el indicador avanzado (*>).
 
 
 
 
 
-=== Paso 2: Configure los puertos y el cableado
+=== Paso 2: Configurar puertos y cableado
 
-. En los switches nuevos, confirme que el ISL se ha cableado y está en buen estado entre los switches cs1-new y cs2-new:
+. En los nuevos switches, confirme que el enlace ISL está cableado y funciona correctamente entre los switches cs1-new y cs2-new:
 +
 `show port-channel summary`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -157,12 +157,12 @@ Group Port-       Type     Protocol  Member Ports
 1     Po1(SU)     Eth      LACP      Eth1/35(P)   Eth1/36(P)
 ----
 ====
-. Muestre los puertos del clúster en cada nodo que están conectados a los switches de clúster existentes:
+. Muestra los puertos del clúster en cada nodo que están conectados a los conmutadores del clúster existentes:
 +
 `network device-discovery show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -179,14 +179,14 @@ node2      /cdp
             e0b    cs2                       Ethernet1/2        N5K-C5596UP
 ----
 ====
-. Determinar el estado administrativo u operativo de cada puerto de clúster.
+. Determinar el estado administrativo u operativo de cada puerto del clúster.
 +
-.. Compruebe que todos los puertos del clúster tengan el estado correcto:
+.. Verifique que todos los puertos del clúster estén activos y en buen estado:
 +
 `network port show -ipspace Cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -210,12 +210,12 @@ e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
 e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
 ====
-.. Compruebe que todas las interfaces del clúster (LIF) están en sus puertos de inicio:
+.. Verifique que todas las interfaces del clúster (LIF) estén en sus puertos de origen:
 +
 `network interface show -vserver Cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -232,12 +232,12 @@ Cluster
             node2_clus2  up/up      169.254.19.183/16  node2       e0b     true
 ----
 ====
-.. Compruebe que el clúster muestra información de ambos switches de clúster:
+.. Verifique que el clúster muestre información para ambos conmutadores del clúster:
 +
 `system cluster-switch show -is-monitoring-enabled-operational true`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -264,18 +264,18 @@ cs2                         cluster-network     10.233.205.93   N5K-C5596UP
 ====
 
 
-. [[step_4]]Deshabilite la reversión automática en las LIF del clúster.
+. [[step_4]]Deshabilitar la reversión automática en los LIF del clúster.
 +
-Al deshabilitar la reversión automática para este procedimiento, los LIF del clúster no volverán a moverse automáticamente a su puerto principal. Permanecen en el puerto actual mientras continúa funcionando.
+Al deshabilitar la reversión automática para este procedimiento, los LIF del clúster no volverán automáticamente a su puerto de origen.  Permanecerán en el puerto actual mientras este siga operativo.
 
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
 +
 
-NOTE: Al deshabilitar la reversión automática se garantiza que ONTAP solo conmute a través de los LIF del clúster cuando los puertos del switch se apagen más adelante.
+NOTE: Deshabilitar la reversión automática garantiza que ONTAP solo falle a través de las LIF del clúster cuando los puertos del conmutador se apaguen posteriormente.
 
-. En el conmutador de clúster CS2, apague los puertos conectados a los puertos de clúster de *todos* los nodos para conmutar por error las LIF de clúster:
+. En el conmutador de clúster cs2, apague los puertos conectados a los puertos de clúster de *todos* los nodos para realizar la conmutación por error de las LIF del clúster:
 +
 [listing, subs="+quotes"]
 ----
@@ -286,12 +286,12 @@ cs2(config-if-range)# *exit*
 cs2(config)# *exit*
 cs2#
 ----
-. Compruebe que las LIF del clúster han conmutado al nodo de respaldo a los puertos alojados en el switch del clúster CS1. Esto puede tardar unos segundos.
+. Verifique que las LIF del clúster hayan conmutado por error a los puertos alojados en el conmutador del clúster cs1. Esto podría tardar unos segundos.
 +
 `network interface show -vserver Cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -307,12 +307,12 @@ Cluster
             node2_clus2   up/up      169.254.3.9/16     node2      e0a     false
 ----
 ====
-. Compruebe que el clúster esté en buen estado:
+. Verifique que el clúster esté en buen estado:
 +
 `cluster show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -324,9 +324,9 @@ node1      true    true          false
 node2      true    true          false
 ----
 ====
-. Si las LIF de clúster han conmutado al switch CS1 y el estado del clúster es bueno, vaya a <<step_10,Paso. 10>>. Si algunos LIF del clúster no están en buen estado o el clúster está en mal estado, puede revertir la conectividad al switch CS2 de la siguiente manera:
+. Si las LIF del clúster han conmutado por error al switch cs1 y el clúster está en buen estado, vaya a<<step_10,Paso. 10>> .  Si algunas LIF del clúster no están en buen estado o el clúster no está en buen estado, puede revertir la conectividad al switch cs2, de la siguiente manera:
 +
-.. Abre los puertos conectados a los puertos del cluster de *all* los nodos:
+.. Active los puertos conectados a los puertos del clúster de *todos* los nodos:
 +
 [listing, subs="+quotes"]
 ----
@@ -337,12 +337,12 @@ cs2(config-if-range)# *exit*
 cs2(config)# *exit*
 cs2#
 ----
-.. Compruebe que las LIF del clúster han conmutado al nodo de respaldo a los puertos alojados en el switch del clúster CS1. Esto puede tardar unos segundos.
+.. Verifique que las LIF del clúster hayan conmutado por error a los puertos alojados en el conmutador del clúster cs1. Esto podría tardar unos segundos.
 +
 `network interface show -vserver Cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -358,12 +358,12 @@ Cluster
             node2_clus2   up/up      169.254.3.9/16     node2      e0a     false
 ----
 ====
-.. Compruebe que el clúster esté en buen estado:
+.. Verifique que el clúster esté en buen estado:
 +
 `cluster show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -377,20 +377,20 @@ node2      true    true          false
 ====
 
 
-. Una vez que haya restaurado el estado de LIF y del clúster, reinicie el proceso desde <<step_4,Paso. 4>>.
-. [[STEP_10]]Mueva todos los cables de conexión de nodo de clúster del antiguo conmutador CS2 al nuevo conmutador CS2-new.
+. Una vez que haya restaurado el estado de LIF y del clúster, reinicie el proceso desde<<step_4,Paso. 4>> .
+. [[step_10]]Mueva todos los cables de conexión de los nodos del clúster del antiguo switch cs2 al nuevo switch cs2-new.
 +
-* Cables de conexión de nodo de clúster movidos al switch CS2-new*
+*Los cables de conexión del nodo del clúster se han movido al nuevo switch cs2*
 
 +
-image::../media/new_switch_cs1.png[Los cables de conexión de nodo de clúster se mueven al switch CS2 nuevo]
+image::../media/new_switch_cs1.png[Los cables de conexión de los nodos del clúster se trasladaron al nuevo conmutador cs2.]
 
-. Confirme el estado de las conexiones de red movidas a cs2-new:
+. Confirme el estado de las conexiones de red migradas a cs2-new:
 +
 `network port show -ipspace Cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -415,14 +415,14 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
 ====
 +
-Todos los puertos del clúster que se movieron deben estar en funcionamiento.
+Todos los puertos del clúster que se movieron deberían estar activos.
 
-. Compruebe la información de cercanía en los puertos de clúster:
+. Comprobar la información de los vecinos en los puertos del clúster:
 +
 `network device-discovery show -protocol cdp`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -442,16 +442,16 @@ node2      /cdp
 ----
 ====
 +
-Compruebe que los puertos del clúster movidos ven al conmutador cs2-new como vecino.
+Verifique que los puertos del clúster movidos vean el switch cs2-new como vecino.
 
-. Confirme las conexiones de puertos del switch desde la perspectiva del switch CS2-new:
+. Confirme las conexiones de los puertos del switch desde la perspectiva del switch cs2-new:
 +
 [listing, subs="+quotes"]
 ----
 cs2-new# *show interface brief*
 cs2-new# *show cdp neighbors*
 ----
-. En el conmutador de clúster CS1, apague los puertos conectados a los puertos de clúster de *todos* los nodos para conmutar por error las LIF de clúster.
+. En el conmutador de clúster cs1, apague los puertos conectados a los puertos del clúster de *todos* los nodos para realizar la conmutación por error de las LIF del clúster.
 +
 [listing, subs="+quotes"]
 ----
@@ -463,14 +463,14 @@ cs1(config)# *exit*
 cs1#
 ----
 +
-Todos los LIF del clúster conmutan al nodo de respaldo en el switch CS2 nuevo.
+Todas las LIF del clúster conmutan por error al conmutador cs2-new.
 
-. Compruebe que los LIF del clúster han conmutado al nodo de respaldo en los puertos alojados en el switch CS2-new. Esto puede tardar unos segundos:
+. Verifique que las LIF del clúster hayan conmutado por error a los puertos alojados en el switch cs2-new.  Esto podría tardar unos segundos:
 +
 `network interface show -vserver Cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -486,12 +486,12 @@ Cluster
             node2_clus2  up/up      169.254.3.9/16     node2       e0b     true
 ----
 ====
-. Compruebe que el clúster esté en buen estado:
+. Verifique que el clúster esté en buen estado:
 +
 `cluster show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -503,19 +503,19 @@ node1      true    true          false
 node2      true    true          false
 ----
 ====
-. Mueva los cables de conexión de nodo de clúster de CS1 al nuevo switch de CS1 nuevos.
+. Traslade los cables de conexión del nodo del clúster desde cs1 al nuevo conmutador cs1-new.
 +
-* Cables de conexión de nodo de clúster movidos al switch CS1-new*
+*Los cables de conexión del nodo del clúster se han movido al nuevo switch cs1*
 
 +
-image::../media/new_switch_cs2.png[Los cables de conexión de nodo de clúster se mueven al switch CS1 nuevo]
+image::../media/new_switch_cs2.png[Los cables de conexión del nodo del clúster se trasladaron al nuevo conmutador cs1.]
 
-. Confirme el estado de las conexiones de red movidas a cs1-new:
+. Confirme el estado de las conexiones de red migradas a cs1-new:
 +
 `network port show -ipspace Cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -540,14 +540,14 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
 ====
 +
-Todos los puertos del clúster que se movieron deben estar en funcionamiento.
+Todos los puertos del clúster que se movieron deberían estar activos.
 
-. Compruebe la información de cercanía en los puertos de clúster:
+. Comprobar la información de los vecinos en los puertos del clúster:
 +
 `network device-discovery show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -566,21 +566,21 @@ node2      /cdp
 ----
 ====
 +
-Compruebe que los puertos del clúster movidos ven al switch cs1-new como vecino.
+Verifique que los puertos del clúster movidos vean el switch cs1-new como vecino.
 
-. Confirme las conexiones de puertos del switch desde la perspectiva del switch CS1-new:
+. Confirme las conexiones de los puertos del switch desde la perspectiva del switch cs1-new:
 +
 [listing, subs="+quotes"]
 ----
 cs1-new# *show interface brief*
 cs1-new# *show cdp neighbors*
 ----
-. Compruebe que el ISL entre cs1-new y cs2-new siga operativo:
+. Verifique que el enlace ISL entre cs1-new y cs2-new siga operativo:
 +
 `show port-channel summary`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -622,41 +622,41 @@ Group Port-       Type     Protocol  Member Ports
 
 === Paso 3: Verificar la configuración
 
-. Habilite la reversión automática en las LIF del clúster.
+. Habilitar la reversión automática en los LIF del clúster.
 +
 `network interface modify -vserver Cluster -lif * -auto-revert true`
 
-. Compruebe que las LIF del clúster han vuelto a sus puertos raíz (esto puede tardar un minuto):
+. Verifique que las LIF del clúster hayan vuelto a sus puertos de origen (esto podría tardar un minuto):
 +
 `network interface show -vserver Cluster`
 
 +
-Si los LIF del clúster no han cambiado a su puerto de inicio, los revierte manualmente:
+Si los LIF del clúster no han vuelto a su puerto de origen, vuelva a configurarlos manualmente:
 
 +
 `network interface revert -vserver Cluster -lif *`
 
-. Compruebe que el clúster esté en buen estado:
+. Verifique que el clúster esté en buen estado:
 +
 `cluster show`
 
-. Compruebe la conectividad de las interfaces del clúster remoto:
+. Verifique la conectividad de las interfaces del clúster remoto:
 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.9.1 y versiones posteriores
+.ONTAP 9.9.1 y posteriores
 --
-Puede utilizar el `network interface check cluster-connectivity` comando para iniciar una comprobación de accesibilidad de la conectividad del clúster y, a continuación, muestre los detalles:
+Puedes usar el `network interface check cluster-connectivity` comando para iniciar una comprobación de accesibilidad para la conectividad del clúster y luego mostrar los detalles:
 
-`network interface check cluster-connectivity start` y.. `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`y `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
 
-NOTE: Espere unos segundos antes de ejecutar el `show` Comando para mostrar los detalles.
+NOTE: Espere unos segundos antes de ejecutar el `show` comando para mostrar los detalles.
 
 [listing, subs="+quotes"]
 ----
@@ -673,9 +673,9 @@ node2
        3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
 ----
 --
-.Todos los lanzamientos de ONTAP
+.Todas las versiones de ONTAP
 --
-En todas las versiones de ONTAP, también se puede utilizar el `cluster ping-cluster -node <name>` comando para comprobar la conectividad:
+Para todas las versiones de ONTAP , también puede usar el `cluster ping-cluster -node <name>` comando para comprobar la conectividad:
 
 `cluster ping-cluster -node <name>`
 
@@ -708,8 +708,8 @@ RPC status:
 ----
 --
 ====
-. [[step5]]Si suprimió la creación automática de casos, vuelva a activarla llamando a un mensaje AutoSupport: `system node autosupport invoke -node * -type all -message MAINT=END`
+. [[step5]]Si suprimió la creación automática de casos, vuelva a habilitarla invocando un mensaje de AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
-.El futuro
+.¿Que sigue?
 Una vez que hayas migrado los switches, podráslink:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"] .

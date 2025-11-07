@@ -2,24 +2,24 @@
 permalink: switch-cshm/config-log-collection.html 
 sidebar: sidebar 
 keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation 
-summary: 'La función de recogida de registros del monitor de estado del switch Ethernet (CSHM) se utiliza para recoger registros de clústeres o switches de red de almacenamiento en ONTAP.' 
+summary: 'La función de recopilación de registros del monitor de estado del conmutador Ethernet (CSHM) se utiliza para recopilar registros de los conmutadores de red de clúster o de almacenamiento en ONTAP.' 
 ---
-= Configure la recopilación de registros
+= Configurar la recopilación de registros
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-El monitor de estado del switch Ethernet (CSHM) es responsable de garantizar el estado operativo de los conmutadores de red del clúster y de almacenamiento y de recopilar registros del switch para fines de depuración. Este procedimiento lo guía a través del proceso de configuración de la recopilación, solicitando registros detallados de *Soporte* y habilitando una recopilación por hora de datos *Periódicos* que es recopilada por AutoSupport.
+El monitor de estado del conmutador Ethernet (CSHM) es responsable de garantizar el buen funcionamiento de los conmutadores de red de clúster y almacenamiento y de recopilar los registros de los conmutadores con fines de depuración.  Este procedimiento le guía a través del proceso de configuración de la recopilación, la solicitud de registros detallados de *Soporte* y la habilitación de una recopilación horaria de datos *Periódicos* que recopila AutoSupport.
 
-*NOTA:* Si habilita el modo FIPS, debe completar lo siguiente:
+*NOTA:* Si activa el modo FIPS, deberá completar lo siguiente:
 
 [NOTE]
 ====
-. Vuelva a generar las claves SSH en el switch siguiendo las instrucciones del proveedor.
-. Regenerar claves SSH en ONTAP mediante `debug system regenerate-systemshell-key-pair`
-. Volver a ejecutar la rutina de configuración de la recogida de registros con `system switch ethernet log setup-password` el comando
+. Regenera las claves SSH en el switch siguiendo las instrucciones del proveedor.
+. Regenerar claves SSH en ONTAP usando `debug system regenerate-systemshell-key-pair`
+. Vuelva a ejecutar la rutina de configuración de recopilación de registros utilizando `system switch ethernet log setup-password` dominio
 
 
 ====
@@ -27,15 +27,15 @@ El monitor de estado del switch Ethernet (CSHM) es responsable de garantizar el 
 
 == Antes de empezar
 
-* El usuario debe tener acceso a los comandos de cambio `show` . Si no están disponibles, cree un nuevo usuario y otorgue los permisos necesarios al usuario.
-* La monitorización del estado del interruptor debe estar activada para el interruptor. Verifique esto asegurándose de que el `Is Monitored:` el campo se establece en *true* en la salida del `system switch ethernet show` comando.
-* Para la recopilación de registros con switches Broadcom y Cisco:
+* El usuario debe tener acceso al interruptor. `show` comandos.  Si estos no están disponibles, cree un nuevo usuario y otórguele los permisos necesarios.
+* La monitorización del estado del switch debe estar habilitada.  Verifique esto asegurándose de que `Is Monitored:` El campo se establece en *verdadero* en la salida de `system switch ethernet show` dominio.
+* Para la recopilación de registros con switches Broadcom y Cisco :
 +
 ** El usuario local debe tener privilegios de administrador de red.
-** Se debe crear un usuario nuevo en el switch de cada configuración del clúster con la recopilación de registros habilitada. Estos switches no admiten varias claves SSH para el mismo usuario. Cualquier configuración de recopilación de registros adicional realizada sobrescribe las claves SSH preexistentes para el usuario.
+** Se debe crear un nuevo usuario en el switch para cada configuración de clúster con la recopilación de registros habilitada.  Estos conmutadores no admiten varias claves SSH para el mismo usuario.  Cualquier configuración adicional de recopilación de registros que se realice sobrescribirá las claves SSH preexistentes del usuario.
 
 
-* Para la recopilación de registros de soporte con conmutadores NVIDIA, se debe permitir que _user_ para la recopilación de registros ejecute `cl-support` el comando sin tener que proporcionar una contraseña. Para permitir este uso, ejecute el comando:
+* Para admitir la recopilación de registros con conmutadores NVIDIA , el _usuario_ encargado de la recopilación de registros debe tener permiso para ejecutar el `cl-support` comando sin necesidad de proporcionar una contraseña.  Para permitir este uso, ejecute el comando:
 +
 `echo '_<user>_ ALL = NOPASSWD: /usr/cumulus/bin/cl-support' | sudo EDITOR='tee -a' visudo -f /etc/sudoers.d/cumulus`
 
@@ -47,11 +47,11 @@ El monitor de estado del switch Ethernet (CSHM) es responsable de garantizar el 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.15.1 y versiones posteriores
+.ONTAP 9.15.1 y posteriores
 --
-. Para configurar la recopilación de registros, ejecute el siguiente comando para cada conmutador. Se le pedirá que introduzca el nombre del switch, el nombre de usuario y la contraseña para la recopilación de registros.
+. Para configurar la recopilación de registros, ejecute el siguiente comando para cada conmutador.  Se le solicita que ingrese el nombre del switch, el nombre de usuario y la contraseña para la recopilación de registros.
 +
-*NOTA:* Si responde *y* a la solicitud de especificación del usuario, asegúrese de que el usuario tenga los permisos necesarios como se describe en <<Antes de empezar>> .
+*NOTA:* Si responde *sí* a la solicitud de especificación de usuario, asegúrese de que el usuario tenga los permisos necesarios, tal como se describe en<<Antes de empezar>> .
 
 +
 [source, cli]
@@ -88,9 +88,9 @@ Enter the password again: *<enter switch password>*
 
 
 
-NOTE: Para CL 5.11.1, cree el usuario *cumulus* y responda *y* al siguiente mensaje: ¿Desea especificar un usuario distinto de admin para la recopilación de registros? {y|n}: *y*
+NOTE: Para CL 5.11.1, cree el usuario *cumulus* y responda *y* a la siguiente pregunta: ¿Desea especificar un usuario distinto de admin para la recopilación de registros?  {y|n}: *y*
 
-. [[paso 2]]Habilitar la recopilación periódica de registros:
+. [[step2]]Habilitar la recopilación periódica de registros:
 +
 [source, cli]
 ----
@@ -119,7 +119,7 @@ cs1                                       true        scheduled   never-run
 cs2                                       true        scheduled   never-run
 2 entries were displayed.
 ----
-. Solicitar recogida de registros de soporte:
+. Recopilación de registros de soporte de solicitudes:
 +
 [source, cli]
 ----
@@ -144,7 +144,7 @@ cs1                                       false       halted      initiated
 cs2                                       true        scheduled   initiated
 2 entries were displayed.
 ----
-. Para ver todos los detalles de la recogida de registros, incluida la habilitación, el mensaje de estado, la marca de hora y el nombre de archivo anteriores de la recogida periódica, el estado de la solicitud, el mensaje de estado, y la marca de hora y el nombre de archivo anteriores de la recogida de soporte, utilice lo siguiente:
+. Para ver todos los detalles de la recopilación de registros, incluyendo la habilitación, el mensaje de estado, la marca de tiempo anterior y el nombre de archivo de la recopilación periódica, el estado de la solicitud, el mensaje de estado y la marca de tiempo anterior y el nombre de archivo de la recopilación de soporte, utilice lo siguiente:
 +
 [source, cli]
 ----
@@ -181,9 +181,9 @@ cluster1::*> *system switch ethernet log show -instance*
 --
 .ONTAP 9.14.1 y anteriores
 --
-. Para configurar la recopilación de registros, ejecute el siguiente comando para cada conmutador. Se le pedirá que introduzca el nombre del switch, el nombre de usuario y la contraseña para la recopilación de registros.
+. Para configurar la recopilación de registros, ejecute el siguiente comando para cada conmutador.  Se le solicita que ingrese el nombre del switch, el nombre de usuario y la contraseña para la recopilación de registros.
 +
-*NOTA:* Si responde `y` a la solicitud de especificación del usuario, asegúrese de que el usuario tiene los permisos necesarios como se describe en <<Antes de empezar>>.
+*NOTA:* Si responde `y` En la solicitud de especificación de usuario, asegúrese de que el usuario tenga los permisos necesarios como se describe en<<Antes de empezar>> .
 
 +
 [source, cli]
@@ -220,9 +220,9 @@ Enter the password again: *<enter switch password>*
 
 
 
-NOTE: Para CL 5.11.1, cree el usuario *cumulus* y responda *y* al siguiente mensaje: ¿Desea especificar un usuario distinto de admin para la recopilación de registros? {y|n}: *y*
+NOTE: Para CL 5.11.1, cree el usuario *cumulus* y responda *y* a la siguiente pregunta: ¿Desea especificar un usuario distinto de admin para la recopilación de registros?  {y|n}: *y*
 
-. [[paso 2]] Para solicitar la recopilación de registros de soporte y habilitar la recopilación periódica, ejecute el siguiente comando. Esto inicia ambos tipos de recopilación de registros: Los registros detallados `Support` y una recogida de datos por hora `Periodic` .
+. [[step2]] Para solicitar la recopilación de registros de soporte y habilitar la recopilación periódica, ejecute el siguiente comando.  Esto inicia ambos tipos de recopilación de registros: la detallada. `Support` registros y una recopilación horaria de `Periodic` datos.
 +
 [source, cli]
 ----
@@ -244,7 +244,7 @@ Do you want to modify the cluster switch log collection configuration? {y|n}: [n
 Enabling cluster switch log collection.
 ----
 +
-Espere 10 minutos y compruebe que se complete la recopilación de registros:
+Espere 10 minutos y luego compruebe que la recopilación de registros se haya completado:
 
 +
 [source, cli]
@@ -256,7 +256,7 @@ system switch ethernet log show
 --
 ====
 
-CAUTION: Si la función de recopilación de registros informa de algún estado de error (visible en la salida de `system switch ethernet log show`), consulte link:log-collection-troubleshoot.html["Solución de problemas de recopilación de registros"] para obtener más información.
+CAUTION: Si la función de recopilación de registros informa de algún estado de error (visible en la salida de `system switch ethernet log show` ), verlink:log-collection-troubleshoot.html["Solución de problemas de la recopilación de registros"] Para obtener más detalles.
 
-.El futuro
-link:config-snmpv3.html["Configure SNMPv3 (opcional)"].
+.¿Que sigue?
+link:config-snmpv3.html["Configurar SNMPv3 (opcional)"].

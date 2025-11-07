@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-storage/components-9336c-storage.html 
 keywords: shared storage cluster switch 
-summary: Desde ONTAP 9.9.1, puede utilizar los switches Cisco Nexus 9336C-FX2 para combinar las funciones de almacenamiento y clúster en un escenario de switch compartido. 
+summary: A partir de ONTAP 9.9.1, puede utilizar los conmutadores Cisco Nexus 9336C-FX2 para combinar la funcionalidad de almacenamiento y clúster en un escenario de conmutador compartido. 
 ---
-= Componentes y números de pieza para Cisco switches de almacenamiento Nexus 9336C-FX2 y 9336C-FX2-T.
+= Componentes y números de pieza para los switches de almacenamiento Cisco Nexus 9336C-FX2 y 9336C-FX2-T
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,9 +14,9 @@ summary: Desde ONTAP 9.9.1, puede utilizar los switches Cisco Nexus 9336C-FX2 pa
 
 
 [role="lead"]
-Para la instalación y el mantenimiento de switches de almacenamiento Nexus 9336C-FX2 y 9336C-FX2-T de Cisco, asegúrese de revisar la lista de componentes y números de pieza.
+Para la instalación y el mantenimiento de los switches de almacenamiento Cisco Nexus 9336C-FX2 y 9336C-FX2-T, asegúrese de revisar la lista de componentes y números de pieza.
 
-En la siguiente tabla, se enumeran el número de pieza y la descripción de los switches de almacenamiento 9336C-FX2 y 9336C-FX2-T, los ventiladores y las fuentes de alimentación:
+La siguiente tabla enumera el número de pieza y la descripción de los conmutadores de almacenamiento, ventiladores y fuentes de alimentación 9336C-FX2 y 9336C-FX2-T:
 
 [cols="1,2"]
 |===
@@ -26,49 +26,49 @@ En la siguiente tabla, se enumeran el número de pieza y la descripción de los 
  a| 
 X190200-CS-PE
  a| 
-Switch de cluster, N9336C 36Pt PTSX 10/25/40/100g
+Conmutador de clúster, N9336C 36Pt PTSX 10/25/40/100G
 
 
 
  a| 
 X190200-CS-PI
  a| 
-Conmutador de grupo, N9336C 36Pt PSIN 10/25/40/100g
+Conmutador de clúster, N9336C 36Pt PSIN 10/25/40/100G
 
 
 
  a| 
 X190212-CS-PE
  a| 
-Switch de cluster, N9336C 12pt (9336C-FX2-T) PTSX 10/25/40/100g
+Conmutador de clúster, N9336C 12Pt (9336C-FX2-T) PTSX 10/25/40/100G
 
 
 
  a| 
 X190212-CS-PI
  a| 
-Conmutador de grupo de instrumentos, N9336C 12pt (9336C-FX2-T) PSIN 10/25/40/100g
+Conmutador de clúster, N9336C 12Pt (9336C-FX2-T) PSIN 10/25/40/100G
 
 
 
  a| 
 SW-N9K-FX2-24P-UPG
  a| 
-SW, Cisco 9336CFX2, licencia POD de 24 puertos
+Licencia de software Cisco 9336CFX2 para POD de 24 puertos
 
 
 
  a| 
 X190210-FE-PE
  a| 
-N9K-9336C, FTE, PTSX, 36PT 10/25/40 GQSFP28
+N9K-9336C, FTE, PTSX, 36PT 10/25/40/100GQSFP28
 
 
 
  a| 
 X190210-FE-PI
  a| 
-N9K-9336C, FTE, PSIN, 36PT 10/25/40/100 GQSFP28
+N9K-9336C, FTE, PSIN, 36PT 10/25/40/100GQSFP28
 
 
 
@@ -82,42 +82,42 @@ Kit de accesorios X190001/X190003
  a| 
 X-NXA-PAC-1100W-PE2
  a| 
-Fuente de alimentación de 1100 W ac N9K-9336C: Flujo de aire de escape lateral del puerto
+Fuente de alimentación N9K-9336C AC 1100W - Flujo de aire de escape del lado del puerto
 
 
 
  a| 
 X-NXA-PAC-1100W-PI2
  a| 
-Fuente de alimentación de 1100 W ac N9K-9336C - flujo de aire de entrada lateral del puerto
+Fuente de alimentación N9K-9336C AC 1100W - Entrada de aire por el lado del puerto
 
 
 
  a| 
 X-NXA-FAN-65CFM-PE
  a| 
-N9K-9336C 65CFM, flujo de aire del lado de la lumbrera
+N9K-9336C 65 CFM, flujo de aire de escape del lado de babor
 
 
 
  a| 
 X-NXA-FAN-65CFM-PI
  a| 
-N9K-9336C 65CFM, flujo de aire de entrada lateral de la lumbrera
+N9K-9336C 65 CFM, flujo de aire de entrada del lado de babor
 
 |===
 
 
 == Licencias inteligentes de Cisco solo para puertos 9336C-FX2-T
 
-Para activar más de 12 puertos en su switch de almacenamiento Cisco Nexus 9336C-FX-T, debe comprar una licencia inteligente de Cisco. Las licencias inteligentes de Cisco se administran a través de cuentas inteligentes de Cisco.
+Para activar más de 12 puertos en su switch de almacenamiento Cisco Nexus 9336C-FX-T, debe adquirir una licencia Cisco Smart.  Las licencias Cisco Smart se gestionan a través de cuentas Cisco Smart.
 
-. Cree una nueva cuenta Smart, si es necesario. Consulte https://id.cisco.com/signin/register["Cree una nueva cuenta Smart"^] para obtener más información.
-. Solicitar acceso a una cuenta Smart existente. Consulte https://id.cisco.com/oauth2/default/v1/authorize?response_type=code&scope=openid%20profile%20address%20offline_access%20cci_coimemberOf%20email&client_id=cae-okta-web-gslb-01&state=s2wvKDiBja__7ylXonWrq8w-FAA&redirect_uri=https%3A%2F%2Frpfa.cloudapps.cisco.com%2Fcb%2Fsso&nonce=qO6s3cZE5ZdhC8UKMEfgE6fbu3mvDJ8PTw5jYOp6z30["Solicitar acceso a una cuenta Smart existente"^] para obtener más información.
+. Cree una nueva cuenta Smart, si es necesario. Ver https://id.cisco.com/signin/register["Crea una nueva cuenta inteligente"^] Para más detalles.
+. Solicitar acceso a una cuenta Smart existente. Ver https://id.cisco.com/oauth2/default/v1/authorize?response_type=code&scope=openid%20profile%20address%20offline_access%20cci_coimemberOf%20email&client_id=cae-okta-web-gslb-01&state=s2wvKDiBja__7ylXonWrq8w-FAA&redirect_uri=https%3A%2F%2Frpfa.cloudapps.cisco.com%2Fcb%2Fsso&nonce=qO6s3cZE5ZdhC8UKMEfgE6fbu3mvDJ8PTw5jYOp6z30["Solicitar acceso a una cuenta Smart existente"^] Para más detalles.
 
 
 
-NOTE: Una vez que haya adquirido su licencia Smart, instale el RCF adecuado para habilitar y configurar todos los 36 puertos disponibles para su uso.
+NOTE: Una vez que haya adquirido su licencia Smart, instale el RCF apropiado para habilitar y configurar los 36 puertos disponibles para su uso.
 
 .¿Qué sigue?
 Una vez que haya confirmado sus componentes y números de pieza, puede revisar el link:required-documentation-9336c-storage.html["documentación requerida"].

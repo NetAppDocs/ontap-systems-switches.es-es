@@ -15,64 +15,64 @@ Siga estos pasos para reemplazar un conmutador Nexus 9332D-GX2B defectuoso en un
 
 
 
-== Revise los requisitos
+== Requisitos de revisión
 
-Antes de realizar la sustitución del interruptor, asegúrese de que:
+Antes de realizar el cambio de interruptor, asegúrese de que:
 
-* Ha verificado el número de serie del interruptor para asegurarse de que se sustituye el interruptor correcto.
-* En el clúster y la infraestructura de red existentes:
+* Usted ha verificado el número de serie del interruptor para asegurarse de que se reemplaza el interruptor correcto.
+* Sobre la infraestructura de clúster y red existente:
 +
-** El clúster existente se ha verificado como completamente funcional, con al menos un switch de clúster completamente conectado.
+** Se verifica que el clúster existente es completamente funcional, con al menos un conmutador de clúster totalmente conectado.
 ** Todos los puertos del clúster están activos.
-** Todas las interfaces lógicas de clúster (LIF) están en funcionamiento y en sus puertos raíz.
-** El ONTAP `cluster ping-cluster -node <node-name>` El comando debe indicar que la conectividad básica y la comunicación mayor que PMTU son exitosas en todas las rutas.
+** Todas las interfaces lógicas del clúster (LIF) están activas y en sus puertos de inicio.
+** El ONTAP `cluster ping-cluster -node <node-name>` El comando debe indicar que la conectividad básica y la comunicación superior a PMTU se realizan correctamente en todas las rutas.
 
 
 * En el interruptor de reemplazo Nexus 9332D-GX2B:
 +
-** La conectividad de la red de gestión en el switch de reemplazo es funcional.
-** El acceso de la consola al interruptor de sustitución está en su lugar.
+** La conectividad de la red de gestión en el switch de reemplazo funciona correctamente.
+** El acceso a la consola para el interruptor de repuesto ya está habilitado.
 ** Las conexiones de los nodos son los puertos 1/1 a 1/30.
 ** Todos los puertos de enlace entre conmutadores (ISL) están deshabilitados en los puertos 1/31 y 1/32.
-** El archivo de configuración de referencia (RCF) y el conmutador de imagen del sistema operativo NX-OS se cargan en el conmutador.
-** La personalización inicial del conmutador está completa, como se detalla enlink:setup-switch-9332d-cluster.html["Configurar el conmutador de clúster 9332D-GX2B"] .
+** El archivo de configuración de referencia (RCF) deseado y la imagen del sistema operativo NX-OS se cargan en el conmutador.
+** La personalización inicial del interruptor está completa, tal como se detalla enlink:setup-switch-9332d-cluster.html["Configurar el conmutador de clúster 9332D-GX2B"] .
 +
-Cualquier personalización de sitio anterior, como STP, SNMP y SSH, se copian al nuevo switch.
+Las personalizaciones previas del sitio, como STP, SNMP y SSH, se copian al nuevo conmutador.
 
 
 
-* Ha ejecutado el comando para migrar una LIF de clúster desde el nodo en el que se aloja la LIF del clúster.
-
-
-
-
-== Active el registro de la consola
-
-NetApp recomienda encarecidamente que habilite el inicio de sesión de la consola en los dispositivos que esté utilizando y que realice las siguientes acciones al sustituir el conmutador:
-
-* Deje la función AutoSupport habilitada durante el mantenimiento.
-* Active un AutoSupport de mantenimiento antes y después de las tareas de mantenimiento para deshabilitar la creación de casos durante el mantenimiento. Consulte este artículo de la base de conocimientos https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Cómo impedir la creación automática de casos durante las ventanas de mantenimiento programado"^] para obtener más detalles.
-* Habilite el registro de sesiones para cualquier sesión de CLI. Para obtener instrucciones sobre cómo activar el registro de sesiones, consulte la sección «Salida de sesión de registro» de este artículo de la base de conocimientos https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Cómo configurar PuTTY para una conectividad óptima con sistemas ONTAP"^].
+* Has ejecutado el comando para migrar un LIF de clúster desde el nodo donde está alojado el LIF de clúster.
 
 
 
 
-== Sustituya el interruptor
+== Habilitar el registro en la consola
+
+NetApp recomienda encarecidamente que habilite el registro de consola en los dispositivos que esté utilizando y que realice las siguientes acciones al reemplazar su switch:
+
+* Deje activado el AutoSupport durante el mantenimiento.
+* Active un AutoSupport de mantenimiento antes y después del mantenimiento para deshabilitar la creación de casos durante la duración del mismo.  Consulte este artículo de la base de conocimientos. https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Cómo suprimir la creación automática de casos durante las ventanas de mantenimiento programadas"^] Para obtener más detalles.
+* Habilite el registro de sesión para cualquier sesión de la CLI.  Para obtener instrucciones sobre cómo habilitar el registro de sesiones, consulte la sección "Registro de salida de sesión" en este artículo de la base de conocimientos. https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Cómo configurar PuTTY para una conectividad óptima a los sistemas ONTAP"^] .
+
+
+
+
+== Reemplace el interruptor
 
 .Acerca de los ejemplos
-Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:
+Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interruptores y nodos:
 
 * Los nombres de los conmutadores Nexus 9332D-GX2B existentes son cs1 y cs2.
 * El nombre del nuevo conmutador Nexus 9332D-GX2B es newcs2.
 * Los nombres de los nodos son node1-01, node1-02, node1-03 y node1-04.
 * Los nombres de clúster LIF son node1-01_clus1 y node1-01_clus2 para el nodo1-01, node1-02_clus1 y node1-02_clus2 para el nodo1-02, node1-03_clus1 y node1-03_clus2 para el nodo1-03, y node1-04_clus1 y node1-04_clus2 para el nodo1-04.
-* El símbolo del sistema de cambios en todos los nodos del cluster es cluster1:*>
+* La solicitud para realizar cambios en todos los nodos del clúster es cluster1::*>
 
 
 .Acerca de esta tarea
-El siguiente procedimiento se basa en la siguiente topología de red de clúster:
+El siguiente procedimiento se basa en la siguiente topología de red de clústeres:
 
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -214,9 +214,9 @@ Total entries displayed: 18
 ====
 
 
-=== Paso 1: Prepararse para la sustitución
+=== Paso 1: Prepararse para el reemplazo
 
-. Si se habilita AutoSupport en este clúster, elimine la creación automática de casos invocando un mensaje de AutoSupport:
+. Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=xh`
 
@@ -225,25 +225,25 @@ donde x es la duración de la ventana de mantenimiento en horas.
 
 +
 
-NOTE: El mensaje de AutoSupport notifica al soporte técnico de esta tarea de mantenimiento para que la creación automática de casos se suprima durante la ventana de mantenimiento.
+NOTE: El mensaje de AutoSupport notifica al soporte técnico sobre esta tarea de mantenimiento para que se suprima la creación automática de casos durante la ventana de mantenimiento.
 
-. Instale el RCF y la imagen adecuados en el interruptor, newcs2, y realice las preparaciones necesarias del sitio.
+. Instale el RCF y la imagen apropiados en el switch, newcs2, y realice las preparaciones necesarias en el sitio.
 +
-Si es necesario, verifique, descargue e instale las versiones apropiadas del software RCF y NX-OS para el nuevo switch. Si ha comprobado que el nuevo conmutador está correctamente configurado y no necesita actualizaciones para el software RCF y NX-OS, continúe con el paso 2.
+Si es necesario, verifique, descargue e instale las versiones apropiadas del software RCF y NX-OS para el nuevo conmutador.  Si ha verificado que el nuevo switch está configurado correctamente y no necesita actualizaciones del software RCF y NX-OS, continúe con el paso 2.
 
 +
-.. Vaya a la página _NetApp Cluster and Management Network Switches Reference Configuration File Description_ en el sitio de soporte de NetApp.
-.. Haga clic en el vínculo de _Cluster Network and Management Network Compatibility Matrix_ y a continuación, anote la versión de software del switch que desee.
-.. Haga clic en la flecha de retroceso de su navegador para volver a la página Descripción, haga clic en *CONTINUAR*, acepte el acuerdo de licencia y, a continuación, vaya a la página Descarga.
-.. Siga los pasos de la página Descarga para descargar los archivos RCF y NX-OS correctos para la versión del software ONTAP que está instalando.
+.. Visite la página _NetApp Cluster and Management Network Switches Reference Configuration File Description Page_ en el sitio de soporte de NetApp .
+.. Haga clic en el enlace de la _Matriz de compatibilidad de red de clúster y red de administración_ y, a continuación, anote la versión de software del conmutador necesaria.
+.. Haz clic en la flecha de retroceso de tu navegador para volver a la página de Descripción, haz clic en *CONTINUAR*, acepta el acuerdo de licencia y luego ve a la página de Descarga.
+.. Siga los pasos de la página de descarga para descargar los archivos RCF y NX-OS correctos para la versión del software ONTAP que está instalando.
 
 
 . En el nuevo conmutador, inicie sesión como administrador y apague todos los puertos que estarán conectados a las interfaces del clúster de nodos (puertos 1/1 a 1/30).
 +
-Si el interruptor que va a sustituir no funciona y está apagado, vaya al paso 4. Los LIF de los nodos del clúster ya deberían haber realizado la conmutación al otro puerto del clúster para cada nodo.
+Si el interruptor que está reemplazando no funciona y está apagado, vaya al paso 4.  Las LIF de los nodos del clúster ya deberían haber conmutado por error al otro puerto del clúster para cada nodo.
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -261,14 +261,14 @@ newcs2(config-if-range)# exit
 newcs2(config)# exit
 ----
 ====
-. Compruebe que todas las LIF del clúster tengan la reversión automática habilitada:
+. Verifique que todas las LIF del clúster tengan habilitada la reversión automática:
 +
 [source, cli]
 ----
 network interface show -vserver Cluster -fields auto-revert
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -286,16 +286,16 @@ Cluster      node1-04_clus2   true
 4 entries were displayed.
 ----
 ====
-. Compruebe la conectividad de las interfaces del clúster remoto:
+. Verifique la conectividad de las interfaces del clúster remoto:
 +
-.. Puedes utilizar el `network interface check cluster-connectivity show` Comando para mostrar los detalles de una verificación de accesibilidad para la conectividad del clúster:
+.. Puedes usar el `network interface check cluster-connectivity show` comando para mostrar los detalles de una comprobación de accesibilidad para la conectividad del clúster:
 +
 [source, cli]
 ----
 network interface check cluster-connectivity show
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -315,12 +315,12 @@ node1-02
 .
 ----
 ====
-.. Alternativamente, también puedes utilizar el `cluster ping-cluster -node <node-name>` Comando para comprobar la conectividad:
+.. Alternativamente, también puede utilizar el `cluster ping-cluster -node <node-name>` comando para comprobar la conectividad:
 +
 `cluster ping-cluster -node <node-name>`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -357,7 +357,7 @@ RPC status:
 
 
 
-=== Paso 2: Configure los cables y los puertos
+=== Paso 2: Configurar cables y puertos
 
 . Apague los puertos ISL Eth1/31 y Eth1/32 en el conmutador Nexus 9332D-GX2B cs1.
 +
@@ -376,7 +376,7 @@ cs1(config)# exit
 El canal del puerto debe indicar Po1(SU) y los puertos miembros deben indicar Eth1/31(P) y Eth1/32(P).
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 Este ejemplo habilita los puertos ISL Eth1/31 y Eth1/32 y muestra el resumen del canal del puerto en el conmutador cs1:
@@ -414,10 +414,10 @@ Group Port-       Type     Protocol  Member Ports
 network port show ipspace Cluster
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-La salida debe ser similar a la siguiente:
+El resultado debería ser similar al siguiente:
 
 [listing, subs="+quotes"]
 ----
@@ -461,14 +461,14 @@ e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
 8 entries were displayed.
 ----
 ====
-. En el mismo nodo que utilizó en el paso anterior, revierte la LIF del clúster asociada con el puerto en el paso anterior usando el comando network interface revert.
+. En el mismo nodo que utilizó en el paso anterior, revierta la LIF del clúster asociada con el puerto del paso anterior utilizando el comando de reversión de interfaz de red.
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 En este ejemplo, el nodo LIF node1-01_clus2 en el nodo1-01 se revierte exitosamente si el valor de Inicio es verdadero y el puerto es e7b.
 
-Los siguientes comandos devuelven LIF `node1-01_clus2` en `node1-01` al puerto base `e7a` y muestra información sobre los LIF en ambos nodos.  La activación del primer nodo se realiza correctamente si la columna Is Home es verdadera para ambas interfaces del clúster y muestran las asignaciones de puerto correctas, en este ejemplo `e7a` y `e7b` en el nodo1-01.
+Los siguientes comandos devuelven LIF `node1-01_clus2` en `node1-01` al puerto de origen `e7a` y muestra información sobre los LIF en ambos nodos.  La puesta en marcha del primer nodo se realiza correctamente si la columna "Is Home" es verdadera para ambas interfaces del clúster y muestran las asignaciones de puertos correctas, como en este ejemplo. `e7a` y `e7b` en el nodo1-01.
 
 [listing, subs="+quotes"]
 ----
@@ -487,15 +487,15 @@ Cluster
           .
 ----
 ====
-. Muestra información sobre los nodos de un clúster:
+. Mostrar información sobre los nodos de un clúster:
 +
 `cluster show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-En este ejemplo, se muestra que el estado del nodo para el nodo 1 y el nodo 2 en este clúster es TRUE.
+Este ejemplo muestra que el estado de salud de los nodos node1 y node2 en este clúster es verdadero:
 
 [listing, subs="+quotes"]
 ----
@@ -509,14 +509,14 @@ node1-03       true    true
 node1-04       true    true
 ----
 ====
-. Compruebe que todos los puertos físicos del clúster estén en funcionamiento:
+. Verifique que todos los puertos físicos del clúster estén activos:
 +
 [source, cli]
 ----
 network port show ipspace Cluster
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -544,16 +544,16 @@ e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
 .
 ----
 ====
-. Compruebe la conectividad de las interfaces del clúster remoto:
+. Verifique la conectividad de las interfaces del clúster remoto:
 +
-.. Puedes utilizar el `network interface check cluster-connectivity` Comando para mostrar los detalles de una verificación de accesibilidad para la conectividad del clúster:
+.. Puedes usar el `network interface check cluster-connectivity` comando para mostrar los detalles de una comprobación de accesibilidad para la conectividad del clúster:
 +
 [source, cli]
 ----
 network interface check cluster-connectivity start
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -573,12 +573,12 @@ node1-02
 .
 ----
 ====
-.. Alternativamente, también puedes utilizar el `cluster ping-cluster -node <node-name>` Comando para comprobar la conectividad:
+.. Alternativamente, también puede utilizar el `cluster ping-cluster -node <node-name>` comando para comprobar la conectividad:
 +
 `cluster ping-cluster -node <node-name>`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -621,7 +621,7 @@ RPC status:
 +
 .. *Puertos de clúster*
 +
-... Compruebe que los puertos del clúster estén en buen estado en todos los nodos del clúster:
+... Verifique que los puertos del clúster estén activos y en buen estado en todos los nodos del clúster:
 +
 [source, cli]
 ----
@@ -643,7 +643,7 @@ network device-discovery show -protocol cdp
 show cdp neighbors
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -793,7 +793,7 @@ Total entries displayed: 18
 `ha interconnect status show -node <node-name>`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -861,7 +861,7 @@ Interconnect Port 1 :
 storage port show -port-type ENET
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -905,7 +905,7 @@ node1-04
 storage shelf port show
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -942,7 +942,7 @@ Shelf ID Module State        Internal?
 storage shelf port show -fields remote-device,remote-port,connector-state
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -975,11 +975,11 @@ shelf id connector-state remote-port    remote-device
 
 
 
-. Si ha suprimido la creación automática de casos, vuelva a habilitarla invocando un mensaje de AutoSupport:
+. Si desactivaste la creación automática de casos, vuelve a activarla mediante un mensaje de AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.El futuro
-Después de haber reemplazado los interruptores,link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"] .
+.¿Que sigue?
+Después de haber reemplazado los interruptores, ustedlink:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"] .

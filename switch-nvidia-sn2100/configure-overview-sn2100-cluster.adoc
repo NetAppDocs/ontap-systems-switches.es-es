@@ -2,7 +2,7 @@
 permalink: switch-nvidia-sn2100/configure-overview-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: sn2100 SN2100 switches setup, sn2100 SN2100 switches install, cumulus linux 
-summary: El switch NVIDIA SN2100 es un switch Ethernet de 10/25/40/100 GbE que ejecuta Cumulus Linux. El switch SN2100 presta servicio a aplicaciones de clúster y almacenamiento de ONTAP 9.10.1 en diferentes pares de switches. 
+summary: El switch NVIDIA SN2100 es un switch Ethernet 10/25/40/100 GbE que ejecuta Cumulus Linux.  El switch SN2100 da servicio a aplicaciones de Cluster y Almacenamiento en ONTAP 9.10.1 a través de diferentes pares de switches. 
 ---
 = Flujo de trabajo de instalación y configuración para conmutadores NVIDIA SN2100
 :allow-uri-read: 
@@ -11,11 +11,11 @@ summary: El switch NVIDIA SN2100 es un switch Ethernet de 10/25/40/100 GbE que e
 
 
 [role="lead"]
-NVIDIA SN2100 es un switch de clúster que permite crear clústeres de ONTAP con más de dos nodos.
+El NVIDIA SN2100 es un conmutador de clúster que permite crear clústeres ONTAP con más de dos nodos.
 
 Siga estos pasos de flujo de trabajo para instalar y configurar sus conmutadores NVIDIA SN2100.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:configure-reqs-sn2100-cluster.html["Revisar los requisitos de configuración"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1"]link:configure-reqs-sn2100-cluster.html["Revisar los requisitos de configuración"]
 [role="quick-margin-para"]
 Revise los requisitos de configuración para el conmutador de clúster SN2100.
 
@@ -27,7 +27,7 @@ Revise los componentes y números de pieza del conmutador de grupo SN2100.
 [role="quick-margin-para"]
 Revise la documentación específica del conmutador y del controlador para configurar sus conmutadores SN2100 y el clúster ONTAP .
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:install-hardware-workflow.html["Instale el hardware"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:install-hardware-workflow.html["Instala el hardware"]
 [role="quick-margin-para"]
 Instale el hardware del interruptor.
 

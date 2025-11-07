@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cisco 3232c, cluster switches 
 summary: Para la instalación y el mantenimiento del switch Cisco Nexus 3232C, asegúrese de revisar toda la documentación recomendada. 
 ---
-= Requisitos de documentación para los switches Cisco Nexus 3232C
+= Requisitos de documentación para los conmutadores Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,9 +15,9 @@ Para la instalación y el mantenimiento del switch Cisco Nexus 3232C, asegúrese
 
 
 
-== Documentación de los switches
+== Documentación del interruptor
 
-Para configurar los switches Cisco Nexus 3232C, necesita la siguiente documentación de https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/series.html["Compatibilidad con los switches Cisco Nexus serie 3000"^] página.
+Para configurar los switches Cisco Nexus 3232C, necesita la siguiente documentación de https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/series.html["Soporte para switches Cisco Nexus serie 3000"^] página.
 
 [cols="1,2"]
 |===
@@ -27,63 +27,63 @@ Para configurar los switches Cisco Nexus 3232C, necesita la siguiente documentac
  a| 
 _Guía de instalación de hardware de la serie Nexus 3000_
  a| 
-Proporciona información detallada acerca de los requisitos del sitio, detalles del switch de hardware y las opciones de instalación.
+Proporciona información detallada sobre los requisitos del sitio, detalles del hardware del switch y opciones de instalación.
 
 
 
  a| 
-_Guías de configuración del software del switch Cisco Nexus serie 3000_ (elija la guía para la versión NX-OS instalada en los switches)
+_Guías de configuración de software para switches Cisco Nexus serie 3000_ (elija la guía correspondiente a la versión de NX-OS instalada en sus switches)
  a| 
-Proporciona la información inicial de configuración del switch que necesita para poder configurar el switch para el funcionamiento de ONTAP.
-
-
-
- a| 
-_Guía de actualización y degradación de software NX-OS de Cisco Nexus 3000 Series_ (elija la guía para la versión de NX-OS instalada en los switches)
- a| 
-Proporciona información sobre cómo degradar el switch a software de switch compatible con ONTAP, si es necesario.
+Proporciona la información de configuración inicial del switch que necesita antes de poder configurarlo para el funcionamiento de ONTAP .
 
 
 
  a| 
-_Cisco Nexus 3000 Series NX-OS Command Reference Master Index_
+_Guía de actualización y degradación de software NX-OS de la serie Cisco Nexus 3000_ (elija la guía correspondiente a la versión de NX-OS instalada en sus switches)
  a| 
-Proporciona vínculos a las diferentes referencias de comandos proporcionadas por Cisco.
-
-
-
- a| 
-_Cisco Nexus 3000 MIBs Reference_
- a| 
-Describe los archivos de la base de datos de información de gestión (MIB) para los switches Nexus 3000.
+Proporciona información sobre cómo degradar el software del switch a uno compatible con ONTAP , si fuera necesario.
 
 
 
  a| 
-_Referencia_ de mensajes del sistema NX-OS serie Nexus 3000
+_Índice maestro de referencia de comandos de Cisco Nexus serie 3000 NX-OS_
  a| 
-Describe los mensajes del sistema de los switches Cisco Nexus serie 3000, los que son informativos y otros que podrían ayudar a diagnosticar problemas con los enlaces, el hardware interno o el software del sistema.
-
-
-
- a| 
-_Notas de la versión de Cisco Nexus serie 3000 NX-OS (elija las notas para la versión de NX-OS instalada en los switches)_
- a| 
-Describe las funciones, errores y limitaciones de Cisco Nexus 3000 Series.
+Proporciona enlaces a las diversas referencias de comandos proporcionadas por Cisco.
 
 
 
  a| 
-Información sobre cumplimiento de normativas y seguridad de Cisco Nexus 6000, Cisco Nexus 5000 Series, Cisco Nexus 3000 Series y Cisco Nexus 2000 Series
+_Referencia de MIB de Cisco Nexus 3000_
  a| 
-Proporciona información legal, de seguridad y cumplimiento de normativas de agencias internacionales para los switches de la serie Nexus 3000.
+Describe los archivos de la Base de Información de Gestión (MIB) para los switches Nexus 3000.
+
+
+
+ a| 
+_Referencia de mensajes del sistema NX-OS de la serie Nexus 3000_
+ a| 
+Describe los mensajes del sistema para los switches Cisco Nexus serie 3000, aquellos que son informativos y otros que podrían ayudar a diagnosticar problemas con los enlaces, el hardware interno o el software del sistema.
+
+
+
+ a| 
+_Notas de la versión de NX-OS de la serie Cisco Nexus 3000 (elija las notas correspondientes a la versión de NX-OS instalada en sus switches)_
+ a| 
+Describe las características, errores y limitaciones de la serie Cisco Nexus 3000.
+
+
+
+ a| 
+Información normativa, de cumplimiento y de seguridad para las series Cisco Nexus 6000, Cisco Nexus 5000, Cisco Nexus 3000 y Cisco Nexus 2000.
+ a| 
+Proporciona información sobre cumplimiento normativo, seguridad y requisitos legales de organismos internacionales para los switches de la serie Nexus 3000.
 
 |===
 
 
 == Documentación de los sistemas ONTAP
 
-Para configurar un sistema ONTAP, necesita los siguientes documentos para su versión del sistema operativo de  https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9"^] .
+Para configurar un sistema ONTAP , necesita los siguientes documentos para su versión del sistema operativo de https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9"^] .
 
 [cols="1,2"]
 |===
@@ -91,30 +91,30 @@ Para configurar un sistema ONTAP, necesita los siguientes documentos para su ver
 
 
  a| 
-Específicos del controlador _instrucciones de instalación y configuración_
+Instrucciones de instalación y configuración específicas del controlador
  a| 
-Describe cómo instalar el hardware de NetApp.
+Describe cómo instalar el hardware de NetApp .
 
 
 
  a| 
 Documentación de ONTAP
  a| 
-Proporciona información detallada sobre todos los aspectos de las versiones de ONTAP.
+Proporciona información detallada sobre todos los aspectos de las versiones de ONTAP .
 
 
 
  a| 
 https://hwu.netapp.com["Hardware Universe"^]
  a| 
-Ofrece información de compatibilidad y configuración de hardware de NetApp.
+Proporciona información sobre la configuración y compatibilidad del hardware de NetApp .
 
 |===
 
 
-== Kit de raíl y documentación del armario
+== Documentación del kit de rieles y del gabinete
 
-Para instalar un switch Cisco 3232C en un armario de NetApp, consulte la siguiente documentación del hardware.
+Para instalar un switch Cisco 3232C en un gabinete NetApp , consulte la siguiente documentación de hardware.
 
 [cols="1,2"]
 |===
@@ -122,15 +122,15 @@ Para instalar un switch Cisco 3232C en un armario de NetApp, consulte la siguien
 
 
  a| 
-https://library.netapp.com/ecm/ecm_download_file/ECMM1280394["Armario del sistema 42U, guía detallada"^]
+https://library.netapp.com/ecm/ecm_download_file/ECMM1280394["Gabinete de sistema 42U, guía profunda"^]
  a| 
-Describe las FRU asociadas al armario del sistema 42U, y proporciona instrucciones de mantenimiento y sustitución de FRU.
+Describe las FRU asociadas con el gabinete del sistema 42U y proporciona instrucciones de mantenimiento y reemplazo de FRU.
 
 
 
  a| 
-link:install-cisco-nexus-3232c.html["Instale un switch Cisco Nexus 3232C en un armario de NetApp"^]
+link:install-cisco-nexus-3232c.html["Instale un switch Cisco Nexus 3232C en un gabinete NetApp"^]
  a| 
-Describe cómo instalar un switch Cisco Nexus 3232C en un armario de cuatro parantes de NetApp.
+Describe cómo instalar un switch Cisco Nexus 3232C en un gabinete NetApp de cuatro postes.
 
 |===

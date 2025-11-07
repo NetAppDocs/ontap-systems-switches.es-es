@@ -9,7 +9,7 @@ summary: Detalles del puerto para los conmutadores Cisco Nexus 9332D-GX2B
 
 
 [role="lead"]
-El conmutador Cisco Nexus 9332D-GX2B es parte de la plataforma Cisco Nexus 9000.  Los conmutadores del sistema AFX le permiten crear clústeres ONTAP con más de dos nodos.
+El conmutador Cisco Nexus 9332D-GX2B es parte de la plataforma Cisco Nexus 9000. Los conmutadores del sistema AFX le permiten crear clústeres ONTAP con más de dos nodos.
 
 
 
@@ -33,4 +33,4 @@ Ethernet1/31, Ethernet1/32
 400GbE ISL
 
 |===
-Ver el https://hwu.netapp.com["Hardware Universe"^] para obtener detalles de los puertos utilizados por la plataforma.
+Ver el https://hwu.netapp.com["Hardware Universe"^] Para obtener detalles sobre los puertos utilizados por la plataforma.

@@ -13,14 +13,14 @@ summary: Antes de configurar los conmutadores de clúster Cisco Nexus 9336C-FX2,
 [role="lead"]
 Para instalar y configurar el hardware de los conmutadores de almacenamiento 9336C-FX2 y 9336C-FX2-T, siga estos pasos:
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:setup-worksheet-9336c-storage.html["Complete la hoja de trabajo de cableado"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1"]link:setup-worksheet-9336c-storage.html["Complete la hoja de trabajo de cableado"]
 [role="quick-margin-para"]
-La hoja de cálculo de cableado de ejemplo proporciona ejemplos de asignaciones de puertos recomendadas desde los switches a las controladoras. La hoja de datos en blanco proporciona una plantilla que puede utilizar para configurar su clúster.
+La hoja de cálculo de cableado de muestra proporciona ejemplos de asignaciones de puertos recomendadas desde los conmutadores a los controladores.  La hoja de trabajo en blanco proporciona una plantilla que puede utilizar para configurar su clúster.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"]link:install-9336c-storage.html["Instale el interruptor"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"]link:install-9336c-storage.html["Instala el interruptor"]
 [role="quick-margin-para"]
 Instale los conmutadores de almacenamiento 9336C-FX2 y 9336C-FX2-T.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"]link:install-switch-and-passthrough-panel-9336c-storage.html["Instale el interruptor en un armario NetApp"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"]link:install-switch-and-passthrough-panel-9336c-storage.html["Instale el switch en un armario NetApp"]
 [role="quick-margin-para"]
 Instale los conmutadores 9336C-FX2 y 9336C-FX2-T y el panel de paso en un gabinete NetApp según sea necesario.

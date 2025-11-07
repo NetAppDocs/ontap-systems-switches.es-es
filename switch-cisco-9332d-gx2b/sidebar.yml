@@ -2,7 +2,7 @@
 section: switch-cisco-9332d-gx2b
 title: Cisco Nexus 9332D-GX2B
 entries:
-- title: Manos a la obra
+- title: Empezar
   pdf-filename: Descripción general_9332d-gx2b
   entries:
   - title: Inicio rápido
@@ -13,28 +13,28 @@ entries:
     url: "/switch-cisco-9332d-gx2b/required-documentation-9332d-cluster.html"
   - title: Requisitos de Smart Call Home
     url: "/switch-cisco-9332d-gx2b/smart-call-9332d-cluster.html"
-- title: Instale el hardware
+- title: Instalar hardware
   url: "/switch-cisco-9332d-gx2b/install-hardware.html"
   pdf-filename: Instalar_hardware_9332d-gx2b
-- title: Configurar el software
+- title: Configurar software
   pdf-filename: Configurar_software_9332d-gx2b
   entries:
   - title: Configurar el flujo de trabajo del software
     url: "/switch-cisco-9332d-gx2b/configure-software-overview-9332d-cluster.html"
-  - title: Configure el switch
+  - title: Configura el interruptor
     url: "/switch-cisco-9332d-gx2b/setup-switch-9332d-cluster.html"
-  - title: Prepare la instalación de NX-OS y RCF
+  - title: Prepárese para instalar NX-OS y RCF.
     url: "/switch-cisco-9332d-gx2b/install-nxos-overview-9332d-cluster.html"
-  - title: Instale o actualice el software NX-OS
+  - title: Instalar o actualizar el software NX-OS
     url: "/switch-cisco-9332d-gx2b/install-nxos-software-9332d-cluster.html"
-  - title: Instale o actualice el RCF
-    pdf-filename: Install_UPGRADE_rcf
+  - title: Instalar o actualizar el RCF
+    pdf-filename: Instalar_actualización_rcf
     entries:
-    - title: Instale o actualice la descripción general de RCF
+    - title: Descripción general de la instalación o actualización de RCF
       url: "/switch-cisco-9332d-gx2b/install-upgrade-rcf-overview-cluster.html"
-    - title: Instale el RCF
+    - title: Instala el RCF
       url: "/switch-cisco-9332d-gx2b/install-rcf-software-9332d-cluster.html"
-    - title: Actualice su versión de RCF
+    - title: Actualiza tu versión de RCF
       url: "/switch-cisco-9332d-gx2b/upgrade-rcf-software-9332d-cluster.html"
   - title: Verificar que SSH esté habilitado
     url: "/switch-cisco-9332d-gx2b/configure-ssh-keys.html"

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 3132q-v 
 summary: 'SSH es un requisito cuando se utilizan el Monitor de estado del conmutador de clúster (CSHM) y las funciones de recopilación de registros. Para habilitar SSH en los conmutadores de clúster Cisco 3132q-v, primero genere las claves SSH y luego habilite SSH.' 
 ---
-= Instalación del archivo de configuración de referencia (RCF)
+= Instalar el archivo de configuración de referencia (RCF)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -14,29 +14,29 @@ summary: 'SSH es un requisito cuando se utilizan el Monitor de estado del conmut
 Instale el archivo de configuración de referencia (RCF) después de configurar los conmutadores Nexus 3132Q-V por primera vez.
 
 .Antes de empezar
-Compruebe las siguientes instalaciones y conexiones:
+Verifique las siguientes instalaciones y conexiones:
 
-* Una copia de seguridad actual de la configuración del switch.
-* Un clúster en pleno funcionamiento (sin errores en los registros o problemas similares).
+* Una copia de seguridad actualizada de la configuración del switch.
+* Un clúster en pleno funcionamiento (sin errores en los registros ni problemas similares).
 * El RCF actual.
-* Una conexión de consola al conmutador, necesaria para instalar el RCF.
+* Se requiere una conexión de consola al switch al instalar el RCF.
 
 
 .Acerca de esta tarea
-Para ello, es necesario utilizar tanto comandos de la ONTAP como comandos de la serie Cisco Nexus 3000; los comandos de la ONTAP se usan a menos que se indique lo contrario.
+El procedimiento requiere el uso de comandos ONTAP y comandos de switches Cisco Nexus serie 3000; se utilizan comandos ONTAP a menos que se indique lo contrario.
 
-No se necesita ningún enlace entre conmutadores (ISL) operativo durante este procedimiento.  Esto es así por diseño porque los cambios de versión de RCF pueden afectar la conectividad de ISL temporalmente.  Para habilitar operaciones de clúster sin interrupciones, el siguiente procedimiento migra todos los LIF del clúster al conmutador del socio operativo mientras se realizan los pasos en el conmutador de destino.
+No se necesita ningún enlace entre conmutadores (ISL) operativo durante este procedimiento. Esto es así por diseño porque los cambios de versión de RCF pueden afectar la conectividad de ISL temporalmente. Para habilitar operaciones de clúster sin interrupciones, el siguiente procedimiento migra todos los LIF del clúster al conmutador del socio operativo mientras se realizan los pasos en el conmutador de destino.
 
 
 
 == Paso 1: Instale el RCF en los interruptores
 
-. Muestre los puertos del clúster en cada nodo que están conectados a los switches de clúster:
+. Muestra los puertos del clúster en cada nodo que están conectados a los conmutadores del clúster:
 +
 `network device-discovery show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -60,14 +60,14 @@ cluster1-04/cdp
 cluster1::*>
 ----
 ====
-. Compruebe el estado administrativo y operativo de cada puerto del clúster.
+. Verifique el estado administrativo y operativo de cada puerto del clúster.
 +
-.. Compruebe que todos los puertos del clúster tengan el estado correcto:
+.. Verifique que todos los puertos del clúster estén activos y en buen estado:
 +
 `network port show -ipspace Cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -105,12 +105,12 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 cluster1::*>
 ----
 ====
-.. Compruebe que todas las interfaces del clúster (LIF) están en el puerto de inicio:
+.. Verifique que todas las interfaces del clúster (LIF) estén en el puerto principal:
 +
 `network interface show -vserver Cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -131,12 +131,12 @@ Cluster
 cluster1::*>
 ----
 ====
-.. Compruebe que el clúster muestra información de ambos switches de clúster:
+.. Verifique que el clúster muestre información para ambos conmutadores del clúster:
 +
 `system cluster-switch show -is-monitoring-enabled-operational true`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -165,18 +165,18 @@ cs2                         cluster-network    10.0.0.2         NX3132QV
 
 +
 
-NOTE: Para ONTAP 9.8 y versiones posteriores, utilice el comando `system switch ethernet show -is-monitoring-enabled-operational true`.
+NOTE: Para ONTAP 9.8 y versiones posteriores, utilice el comando `system switch ethernet show -is-monitoring-enabled-operational true` .
 
-. Deshabilite la reversión automática en las LIF del clúster.
+. Desactive la reversión automática en los LIF del clúster.
 +
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
 ----
 +
-Asegúrese de que la reversión automática esté deshabilitada después de ejecutar este comando.
+Asegúrese de que la reversión automática esté desactivada después de ejecutar este comando.
 
-. En el switch de clúster cs2, apague los puertos conectados a los puertos del clúster de los nodos.
+. En el conmutador de clúster cs2, apague los puertos conectados a los puertos de clúster de los nodos.
 +
 [listing, subs="+quotes"]
 ----
@@ -189,14 +189,14 @@ cs2# *exit*
 ----
 +
 
-NOTE: La cantidad de puertos mostrados varía según la cantidad de nodos del clúster.
+NOTE: El número de puertos que se muestran varía en función del número de nodos del clúster.
 
 . Verifique que los puertos del clúster hayan conmutado por error a los puertos alojados en el conmutador de clúster cs1. Esto podría tardar unos segundos.
 +
 `network interface show -vserver Cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -217,12 +217,12 @@ Cluster
 cluster1::*>
 ----
 ====
-. Compruebe que el clúster esté en buen estado:
+. Verifique que el clúster esté en buen estado:
 +
 `cluster show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -237,7 +237,7 @@ cluster1-04          true    true          false
 cluster1::*>
 ----
 ====
-. Si aún no lo ha hecho, guarde una copia de la configuración actual del conmutador copiando la salida del siguiente comando en un archivo de texto:
+. Si aún no lo ha hecho, guarde una copia de la configuración actual del switch copiando el resultado del siguiente comando en un archivo de texto:
 +
 `show running-config`
 
@@ -248,10 +248,10 @@ cluster1::*>
 Asegúrese de configurar lo siguiente: * Nombre de usuario y contraseña * Dirección IP de administración * Puerta de enlace predeterminada * Nombre del conmutador
 
 ====
-. Guarde los detalles básicos de configuración en `write_erase.cfg` archivo en el bootflash.
+. Guarde los detalles de configuración básicos en el `write_erase.cfg` archivo en la memoria flash de arranque.
 +
 
-NOTE: Al actualizar o aplicar un nuevo RCF, debe borrar la configuración del interruptor y realizar la configuración básica.  Debe estar conectado al puerto de consola serie del conmutador para configurar el conmutador nuevamente.
+NOTE: Al actualizar o aplicar un nuevo RCF, debe borrar la configuración del interruptor y realizar la configuración básica. Debe estar conectado al puerto de consola serie del conmutador para configurar el conmutador nuevamente.
 
 +
 `cs2# show run | section "switchname" > bootflash:write_erase.cfg`
@@ -282,13 +282,13 @@ NOTE: Al actualizar o aplicar un nuevo RCF, debe borrar la configuración del in
 `cs2# echo "hardware access-list tcam region qos 256" >> bootflash:write_erase.cfg`
 
 +
-Consulte el artículo de la base de conocimientos https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración en un switch de interconexión de Cisco manteniendo la conectividad remota"^] Para más detalles.
+Consulte el artículo de la base de conocimientos https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración de un switch de interconexión Cisco manteniendo la conectividad remota"^] Para obtener más detalles.
 
-. Verificar que el `write_erase.cfg` El archivo se completa como se esperaba:
+. Verifique que el `write_erase.cfg` El archivo se ha rellenado según lo previsto:
 +
 `*show file bootflash:write_erase.cfg*`
 
-. Emitir el `write erase` Comando para borrar la configuración guardada actual:
+. Emitir el `write erase` comando para borrar la configuración guardada actual:
 +
 `cs2# *write erase*`
 
@@ -298,11 +298,11 @@ Consulte el artículo de la base de conocimientos https://kb.netapp.com/on-prem/
 +
 `Do you wish to proceed anyway? (y/n)  [n] *y*`
 
-. Copie la configuración básica guardada anteriormente en la configuración de inicio.
+. Copie la configuración básica guardada previamente en la configuración de inicio.
 +
 `cs2# *copy bootflash:write_erase.cfg startup-config*`
 
-. Reinicie el switch:
+. Reinicia el switch:
 +
 `cs2# *reload*`
 
@@ -310,19 +310,19 @@ Consulte el artículo de la base de conocimientos https://kb.netapp.com/on-prem/
 `This command will reboot the system. (y/n)?  [n] *y*`
 
 . Repita los pasos 7 a 14 en el interruptor cs1.
-. Conecte los puertos de clúster de todos los nodos del clúster de ONTAP a los switches CS1 y CS2.
+. Conecte los puertos del clúster de todos los nodos del clúster ONTAP a los conmutadores cs1 y cs2.
 
 
 
 
 == Paso 2: Verifique las conexiones del interruptor
 
-. Compruebe que los puertos del switch conectados a los puertos del clúster son *up*.
+. Verifique que los puertos del switch conectados a los puertos del clúster estén *activos*.
 +
 `show interface brief | grep up`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -338,12 +338,12 @@ Eth1/8        1       eth  trunk  up      none                   100G(D) --
 .
 ----
 ====
-. Compruebe que el ISL entre cs1 y cs2 funciona:
+. Verifique que el ISL entre cs1 y cs2 sea funcional:
 +
 `show port-channel summary`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -365,12 +365,12 @@ Group Port-       Type     Protocol  Member Ports
 cs1#
 ----
 ====
-. Compruebe que las LIF del clúster han vuelto a su puerto de inicio:
+. Verifique que los LIF del clúster hayan vuelto a su puerto de origen:
 +
 `network interface show -vserver Cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -391,12 +391,12 @@ Cluster
 cluster1::*>
 ----
 ====
-. Compruebe que el clúster esté en buen estado:
+. Verifique que el clúster esté en buen estado:
 +
 `cluster show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -417,11 +417,11 @@ cluster1::*>
 
 == Paso 3: Configure su clúster ONTAP
 
-NetApp recomienda usar System Manager para configurar clústeres nuevos.
+NetApp recomienda utilizar System Manager para configurar nuevos clústeres.
 
 System Manager proporciona un flujo de trabajo simple y fácil para la configuración y el establecimiento de un clúster, incluida la asignación de una dirección IP de administración de nodo, la inicialización del clúster, la creación de un nivel local, la configuración de protocolos y el aprovisionamiento de almacenamiento inicial.
 
-Referirse alink:https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configure ONTAP en un nuevo clúster con System Manager"] para obtener instrucciones de configuración.
+Referirse alink:https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurar ONTAP en un nuevo clúster con el Administrador del sistema"] para obtener instrucciones de configuración.
 
-.El futuro
+.¿Que sigue?
 Una vez instalado RCF, puedes link:configure-ssh-keys.html["verificar la configuración de SSH"].

@@ -2,770 +2,770 @@
 permalink: switch-cisco-92300/setup-worksheet-92300yc.html 
 sidebar: sidebar 
 keywords: cable worksheet, Cisco NX 92300YC 
-summary: Si desea documentar las plataformas compatibles, debe rellenar la hoja de datos de cableado en blanco utilizando la hoja de datos de cableado de muestra completada como guía. 
+summary: Si desea documentar las plataformas compatibles, debe completar la hoja de trabajo de cableado en blanco utilizando como guía la hoja de trabajo de cableado de muestra completada. 
 ---
-= Complete la hoja de trabajo para el cableado Cisco Nexus 92300YC
+= Hoja de trabajo de cableado completa de Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si desea documentar las plataformas compatibles, descargue un PDF de esta página y rellene la hoja de datos de cableado.
+Si desea documentar las plataformas compatibles, descargue un PDF de esta página y complete la hoja de trabajo de cableado.
 
-La hoja de cálculo de cableado de ejemplo proporciona ejemplos de asignaciones de puertos recomendadas desde los switches a las controladoras. La hoja de datos en blanco proporciona una plantilla que puede utilizar para configurar su clúster.
+La hoja de cálculo de cableado de muestra proporciona ejemplos de asignaciones de puertos recomendadas desde los conmutadores a los controladores.  La hoja de trabajo en blanco proporciona una plantilla que puede utilizar para configurar su clúster.
 
 
 
-== Hoja de trabajo para el cableado de muestra
+== Ejemplo de hoja de trabajo de cableado
 
-La definición de puerto de ejemplo de cada par de conmutadores es la siguiente:
+La definición de puerto de muestra en cada par de conmutadores es la siguiente:
 
 [cols="1, 1, 1, 1"]
 |===
-2+| Switch de clúster a 2+| Switch del clúster B 
+2+| Interruptor de clúster A 2+| Interruptor de clúster B 
 
 
-| Puerto del switch | Uso de nodos y puertos | Puerto del switch | Uso de nodos y puertos 
+| Puerto de conmutación | Uso de nodos y puertos | Puerto de conmutación | Uso de nodos y puertos 
 
 
  a| 
 1
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 1
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 2
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 2
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 3
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 3
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 4
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 4
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 5
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 5
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 6
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 6
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 7
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 7
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 8
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 8
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 9
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 9
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 10
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 10
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 11
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 11
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 12
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 12
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 13
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 13
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 14
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 14
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 15
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 15
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 16
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 16
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 17
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 17
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 18
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 18
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 19
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 19
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 20
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 20
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 21
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 21
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 22
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 22
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 23
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 23
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 24
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 24
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 25
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 25
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 26
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 26
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 27
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 27
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 28
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 28
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 29
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 29
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 30
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 30
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 31
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 31
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 32
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 32
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 33
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 33
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 34
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 34
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 35
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 35
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 36
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 36
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 37
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 37
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 38
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 38
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 39
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 39
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 40
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 40
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 41
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 41
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 42
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 42
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 43
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 43
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 44
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 44
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 45
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 45
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 46
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 46
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 47
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 47
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 48
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
  a| 
 48
  a| 
-Nodo de 10/25 GbE
+nodo 10/25 GbE
 
 
 
  a| 
 49
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
  a| 
 49
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
 
 
 
  a| 
 50
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
  a| 
 50
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
 
 
 
  a| 
 51
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
  a| 
 51
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
 
 
 
  a| 
 52
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
  a| 
 52
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
 
 
 
  a| 
 53
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
  a| 
 53
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
 
 
 
  a| 
 54
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
  a| 
 54
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
 
 
 
  a| 
 55
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
  a| 
 55
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
 
 
 
  a| 
 56
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
  a| 
 56
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
 
 
 
  a| 
 57
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
  a| 
 57
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
 
 
 
  a| 
 58
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
  a| 
 58
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
 
 
 
  a| 
 59
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
  a| 
 59
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
 
 
 
  a| 
 60
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
  a| 
 60
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
 
 
 
  a| 
 61
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
  a| 
 61
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
 
 
 
  a| 
 62
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
  a| 
 62
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
 
 
 
  a| 
 63
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
  a| 
 63
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
 
 
 
  a| 
 64
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
  a| 
 64
  a| 
-Nodo de 40/100 GbE
+nodo 40/100 GbE
 
 
 
  a| 
 65
  a| 
-ISL de 100 GbE al puerto 65 del switch B.
+100 GbE ISL al puerto 65 del switch B
  a| 
 65
  a| 
-ISL de 100 GbE para cambiar el puerto 65
+100 GbE ISL al puerto 65 del switch A
 
 
 
  a| 
 66
  a| 
-ISL de 100 GbE al puerto 66 del switch B.
+ISL de 100 GbE al puerto 66 del switch B
  a| 
 66
  a| 
-ISL de 100 GbE para cambiar el puerto 65
+100 GbE ISL al puerto 65 del switch A
 
 |===
 
 
 == Hoja de trabajo de cableado en blanco
 
-Puede utilizar la hoja de datos de cableado vacía para documentar las plataformas que se admiten como nodos de un clúster. La sección _Cluster Connections_ del https://hwu.netapp.com["Hardware Universe"^] define los puertos de clúster que utiliza la plataforma.
+Puede utilizar la hoja de trabajo de cableado en blanco para documentar las plataformas que se admiten como nodos en un clúster.  La sección _Conexiones de clúster admitidas_ de https://hwu.netapp.com["Hardware Universe"^] Define los puertos del clúster utilizados por la plataforma.
 
 [cols="1, 1, 1, 1"]
 |===
-2+| Switch de clúster a 2+| Switch del clúster B 
+2+| Interruptor de clúster A 2+| Interruptor de clúster B 
 
 
-| Puerto del switch | Uso del nodo/puerto | Puerto del switch | Uso del nodo/puerto 
+| Puerto de conmutación | Uso de nodos/puertos | Puerto de conmutación | Uso de nodos/puertos 
 
 
  a| 
@@ -1347,23 +1347,23 @@ Puede utilizar la hoja de datos de cableado vacía para documentar las plataform
  a| 
 65
  a| 
-ISL al puerto 65 del switch B.
+ISL al puerto 65 del conmutador B
  a| 
 65
  a| 
-ISL para cambiar al puerto 65
+ISL al puerto 65 del conmutador A
 
 
 
  a| 
 66
  a| 
-ISL al puerto 66 del switch B.
+ISL al puerto 66 del conmutador B
  a| 
 66
  a| 
-ISL para cambiar al puerto 66
+ISL al puerto 66 del conmutador A
 
 |===
 .¿Qué sigue?
-link:install-switch-92300yc.html["Instale el interruptor"] .
+link:install-switch-92300yc.html["Instala el interruptor"].

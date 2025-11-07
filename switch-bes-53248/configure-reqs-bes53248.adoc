@@ -2,83 +2,83 @@
 permalink: switch-bes-53248/configure-reqs-bes53248.html 
 sidebar: sidebar 
 keywords: bes, cluster, switch, port, assignment, table, configure, bes-53428 cluster switch port assignments - bes-53428 switches 
-summary: Puede utilizar la tabla de asignación de puertos del conmutador de clúster BES-53248 como guía para configurar el clúster. 
+summary: Puede utilizar la tabla de asignación de puertos del conmutador de clúster BES-53248 como guía para configurar su clúster. 
 ---
-= Requisitos de configuración para los switches de clúster BES-53248
+= Requisitos de configuración para los conmutadores de clúster BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Para la instalación y el mantenimiento del conmutador BES-53248, asegúrese de revisar los requisitos de soporte y configuración de EFOS y ONTAP.
+Para la instalación y el mantenimiento del switch BES-53248, asegúrese de revisar los requisitos de soporte y configuración de EFOS y ONTAP .
 
 
 
 == Soporte para EFOS y ONTAP
 
-Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe de NetApp"^] y.. https://mysupport.netapp.com/site/info/broadcom-cluster-switch["Matriz de compatibilidad de switches Broadcom"^] Para obtener información sobre compatibilidad de EFOS y ONTAP con conmutadores BES-53248. La compatibilidad con EFOS y ONTAP puede variar según el tipo de máquina específico del interruptor BES-53248. Para obtener información detallada sobre todos los tipos de máquinas de conmutación BES-52348, consulte link:components-bes53248.html["Componentes y números de pieza para switches de clúster BES-53248"].
+Ver el https://hwu.netapp.com/Switch/Index["NetApp Hardware Universe"^] y https://mysupport.netapp.com/site/info/broadcom-cluster-switch["Matriz de compatibilidad de conmutadores Broadcom"^] para obtener información sobre la compatibilidad de EFOS y ONTAP con los switches BES-53248.  La compatibilidad con EFOS y ONTAP puede variar según el tipo específico de máquina del switch BES-53248.  Para obtener detalles sobre todos los tipos de máquinas de conmutación BES-52348, consultelink:components-bes53248.html["Componentes y números de pieza para los interruptores de clúster BES-53248"] .
 
 
 
 == Requisitos de configuración
 
-Para configurar un clúster, necesita el número y el tipo de cables y conectores de cable adecuados para los switches del clúster. Según el tipo de switch de clúster que se esté configurando inicialmente, debe conectarse al puerto de la consola del switch con el cable de consola incluido.
+Para configurar un clúster, necesita el número y tipo adecuados de cables y conectores de cable para los conmutadores del clúster.  Dependiendo del tipo de conmutador de clúster que esté configurando inicialmente, deberá conectarse al puerto de consola del conmutador con el cable de consola incluido.
 
 
 
-=== Asignaciones de puertos del switch del clúster
+=== Asignaciones de puertos de conmutador de clúster
 
-Puede utilizar la tabla de asignaciones de puertos de conmutador de clúster BES-53248 compatible con Broadcom como guía para configurar su clúster.
+Puede utilizar la tabla de asignaciones de puertos del conmutador de clúster BES-53248 compatible con Broadcom como guía para configurar su clúster.
 
 [cols="1,2"]
 |===
-| Puertos del switch | Uso de puertos 
+| Puertos de conmutación | Uso de puertos 
 
 
  a| 
 01-16
  a| 
-Configuración base de nodos de puertos de clúster de 10 GbE
+Nodos de puerto de clúster 10/25GbE, configuración base
 
 
 
  a| 
 17-48
  a| 
-Nodos de puertos de clúster de 10 GbE, con licencias
+Nodos de puerto de clúster 10/25GbE, con licencias
 
 
 
  a| 
 49-54
  a| 
-40/100GbE nodos de puertos en clúster, con licencias, añadidos a la derecha a la izquierda
+Nodos de puerto de clúster 40/100GbE, con licencias, añadidos de derecha a izquierda
 
 
 
  a| 
 55-56
  a| 
-Puertos de enlace entre switches (ISL) de clúster de 100 GbE, configuración base
+Puertos ISL (Inter-Switch Link) de clúster 100GbE, configuración base
 
 |===
-Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obtener más información sobre los puertos de switch.
+Ver el https://hwu.netapp.com/Switch/Index["Hardware Universe"] Para obtener más información sobre los puertos del switch.
 
 
 
-=== Limitación de velocidad del grupo de puertos
+=== restricción de velocidad del grupo de puertos
 
-* En los switches de clúster BES-53248, los puertos de 48 10 GbE (SFP28/SFP+) se combinan en 12 grupos de puertos de 4 de la siguiente manera: Puertos 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44, y 45-48.
-* La velocidad del puerto SFP28/SFP+ debe ser la misma (10 GbE o 25 GbE) en todos los puertos del grupo de 4 puertos.
+* En los conmutadores de clúster BES-53248, los 48 puertos 10/25GbE (SFP28/SFP+) se combinan en 12 grupos de 4 puertos de la siguiente manera: Puertos 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44 y 45-48.
+* La velocidad del puerto SFP28/SFP+ debe ser la misma (10GbE o 25GbE) en todos los puertos del grupo de 4 puertos.
 
 
 
 
 === Requisitos adicionales
 
-* Si compra licencias adicionales, consulte link:configure-licenses.html["Activar puertos de licencias nuevas"] para obtener detalles sobre cómo activarlos.
-* Si SSH está activo, debe volver a habilitarlo manualmente después de ejecutar el comando `erase startup-config` y reiniciando el interruptor.
+* Si adquiere licencias adicionales, consultelink:configure-licenses.html["Activar puertos con licencias nuevas"] Para obtener detalles sobre cómo activarlos.
+* Si SSH está activo, deberá volver a habilitarlo manualmente después de ejecutar el comando. `erase startup-config` y reiniciar el conmutador.
 
 
 .¿Qué sigue?

@@ -2,7 +2,7 @@
 permalink: switch-cisco-92300/components-92300.html 
 sidebar: sidebar 
 keywords: cisco nexus 92300YC 
-summary: Si desea crear clústeres de ONTAP con más de dos nodos, necesita dos switches de red de clúster compatibles. Puede usar switches de gestión adicionales, que son opcionales. 
+summary: Si desea crear clústeres ONTAP con más de dos nodos, necesitará dos conmutadores de red de clúster compatibles.  Puede utilizar interruptores de administración adicionales, que son opcionales. 
 ---
 = Componentes y números de pieza de los conmutadores Cisco Nexus 92300YC
 :allow-uri-read: 
@@ -11,9 +11,9 @@ summary: Si desea crear clústeres de ONTAP con más de dos nodos, necesita dos 
 
 
 [role="lead"]
-Para la instalación y mantenimiento del switch Cisco Nexus 92300YC, asegúrese de revisar todos los componentes del switch y sus números de pieza. Consulte https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para obtener más detalles.
+Para la instalación y el mantenimiento del switch Cisco Nexus 92300YC, asegúrese de revisar todos los componentes del switch y los números de pieza. Ver el https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] Para más detalles.
 
-En la siguiente tabla se enumeran el número de pieza y la descripción del conmutador 92300YC, los ventiladores y las fuentes de alimentación:
+La siguiente tabla enumera el número de pieza y la descripción del interruptor, los ventiladores y las fuentes de alimentación 92300YC:
 
 [cols="1,2"]
 |===
@@ -23,21 +23,21 @@ En la siguiente tabla se enumeran el número de pieza y la descripción del conm
  a| 
 190003
  a| 
-Cisco 92300YC, CLSW, 48Pt10/25GB, 18Pt100G, PTSX (PTSX = escape lateral de puerto)
+Cisco 92300YC, CLSW, 48Pt10/25GB, 18Pt100G, PTSX (PTSX = Escape del lado del puerto)
 
 
 
  a| 
 190003R
  a| 
-Cisco 92300YC, CLSW, 48Pt10/25GB, 18Pt100G, PSIN (PSIN = entrada lateral de puerto)
+Cisco 92300YC, CLSW, 48Pt10/25GB, 18Pt100G, PSIN (PSIN = Entrada del lado del puerto)
 
 
 
  a| 
 X-NXA-FAN-35CFM-B
  a| 
-Ventilador, flujo de aire de admisión lateral del puerto Cisco N9K
+Ventilador, entrada de aire lateral del puerto Cisco N9K
 
 
 
@@ -49,23 +49,23 @@ Ventilador, flujo de aire de escape lateral del puerto Cisco N9K
 
 
  a| 
-X-NXA-PAC-650W-B.
+X-NXA-PAC-650W-B
  a| 
-Fuente de alimentación, Cisco 650W - entrada lateral de puerto
+Fuente de alimentación Cisco de 650 W - entrada lateral del puerto
 
 
 
  a| 
 X-NXA-PAC-650W-F
  a| 
-Fuente de alimentación, Cisco 650W - salida lateral de puerto
+Fuente de alimentación Cisco de 650 W - salida de aire lateral (puerto).
 
 |===
 Detalles del flujo de aire del switch Cisco Nexus 92300YC:
 
-* Flujo de aire de escape del lado del puerto (aire estándar) -- el aire frío entra en el chasis a través del ventilador y los módulos de alimentación del pasillo frío y sale por el extremo del puerto del chasis en el pasillo caliente. Flujo de aire de escape del puerto con coloración azul.
-* Flujo de aire de admisión del lado del puerto (aire de retroceso) -- el aire frío entra en el chasis a través del extremo del puerto en el pasillo frío y sale por los módulos de ventilador y fuente de alimentación del pasillo caliente. Flujo de aire de entrada en el puerto con colorante borgoña.
+* Flujo de aire de escape del lado de los puertos (aire estándar): el aire frío entra en el chasis a través de los módulos del ventilador y la fuente de alimentación en el pasillo frío y sale por el extremo de los puertos del chasis en el pasillo caliente.  Salida de aire de escape por el lado de babor con coloración azul.
+* Flujo de aire de entrada por el lado del puerto (aire inverso): el aire frío entra al chasis a través del extremo del puerto en el pasillo frío y sale a través del ventilador y los módulos de alimentación en el pasillo caliente.  Entrada de aire por el lado de babor con color burdeos.
 
 
 .¿Qué sigue?
-link:required-documentation-92300.html["Documentación requerida"] .
+link:required-documentation-92300.html["Documentación requerida"].

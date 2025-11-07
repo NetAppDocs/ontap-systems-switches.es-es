@@ -17,49 +17,49 @@ NX-OS es un sistema operativo de red para la serie Nexus de switches Ethernet y 
 
 
 
-== Revise los requisitos
+== Requisitos de revisión
 
-.Puertos y conexiones de nodo compatibles
-* Los enlaces Inter-Switch (ISL) compatibles con los switches Nexus 92300YC son los puertos 1/65 y 1/66.
-* Las conexiones de nodos compatibles con los switches Nexus 92300YC son los puertos 1/1 a 1/66.
+.Puertos y conexiones de nodos compatibles
+* Los enlaces entre conmutadores (ISL) compatibles con los conmutadores Nexus 92300YC son los puertos 1/65 y 1/66.
+* Las conexiones de nodo compatibles con los switches Nexus 92300YC son los puertos 1/1 a 1/66.
 
 
 .Antes de empezar
 Asegúrese de tener lo siguiente:
 
-* Software Cisco NX-OS de NetApp aplicable para sus switches desde el sitio de soporte de NetApp, disponible en http://mysupport.netapp.com/["mysupport.netapp.com"]
-* Un clúster en pleno funcionamiento (sin errores en los registros o problemas similares).
-* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Página del switch Cisco Ethernet"^]. Consulte en la tabla de compatibilidad del switch las versiones ONTAP y NX-OS compatibles.
+* El software NetApp Cisco NX-OS aplicable para sus switches está disponible en el sitio de soporte de NetApp . http://mysupport.netapp.com/["mysupport.netapp.com"]
+* Un clúster en pleno funcionamiento (sin errores en los registros ni problemas similares).
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["página del switch Ethernet de Cisco"^]. Consulte la tabla de compatibilidad del switch para conocer las versiones compatibles de ONTAP y NX-OS.
 
 
 
 
-== Instale el software
+== Instala el software
 
 Los ejemplos de este procedimiento utilizan dos nodos, pero puede tener hasta 24 nodos en un clúster.
 
 .Acerca de los ejemplos
-Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:
+Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interruptores y nodos:
 
-* Los nombres de switch Nexus 92300YC son `cs1` y.. `cs2`.
-* El ejemplo utilizado en este procedimiento inicia la actualización en el segundo interruptor, _*cs2*._
-* Los nombres de LIF del clúster son `node1_clus1` y.. `node1_clus2` para los nodos 1, y. `node2_clus1` y.. `node2_clus2` para el 2.
-* El nombre del espacio IP es `Cluster`.
-* La `cluster1::*>` prompt indica el nombre del clúster.
-* Los puertos del clúster de cada nodo se llaman `e0a` y.. `e0b`.
+* Los nombres de los switches Nexus 92300YC son `cs1` y `cs2` .
+* El ejemplo utilizado en este procedimiento inicia la actualización en el segundo switch, _*cs2*._
+* Los nombres de los clústeres LIF son `node1_clus1` y `node1_clus2` para el nodo 1, y `node2_clus1` y `node2_clus2` para el nodo 2.
+* El nombre del espacio IP es `Cluster` .
+* El `cluster1::*>` El indicador muestra el nombre del clúster.
+* Los puertos del clúster en cada nodo se llaman `e0a` y `e0b` .
 +
-Consulte link:https://hwu.netapp.com/Home/Index["_Hardware Universe_"] para los puertos de clúster reales compatibles con la plataforma.
+Ver ellink:https://hwu.netapp.com/Home/Index["_Universo del Hardware^_"] para los puertos de clúster reales compatibles con su plataforma.
 
 
 
 .Pasos
-. Conecte el switch de clúster a la red de gestión.
-. Utilice la `ping` Comando para verificar la conectividad con el servidor que aloja el software NX-OS y el RCF.
+. Conecte el conmutador del clúster a la red de administración.
+. Utilice el `ping` comando para verificar la conectividad con el servidor que aloja el software NX-OS y el RCF.
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-Este ejemplo verifica que el switch puede llegar al servidor en la dirección IP 172.19.2.1:
+Este ejemplo verifica que el switch puede alcanzar el servidor en la dirección IP 172.19.2.1:
 
 [listing, subs="+quotes"]
 ----
@@ -69,9 +69,9 @@ Pinging 172.19.2.1 with 0 bytes of data:
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
 ====
-. Copie las imágenes del software NX-OS y EPLD en el switch Nexus 92300YC.
+. Copie el software NX-OS y las imágenes EPLD al conmutador Nexus 92300YC.
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -110,12 +110,12 @@ Copy complete, now saving to disk (please wait)...
 Copy complete.
 ----
 ====
-. Compruebe la versión que se está ejecutando del software NX-OS:
+. Verifique la versión en ejecución del software NX-OS:
 +
 `show version`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -173,10 +173,10 @@ cs2#
 ====
 . Instale la imagen NX-OS.
 +
-La instalación del archivo de imagen hace que se cargue cada vez que se reinicia el conmutador.
+La instalación del archivo de imagen provoca que este se cargue cada vez que se reinicie el switch.
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -244,12 +244,12 @@ Warning: please do not remove or power off the module at this time.
 Finishing the upgrade, switch will reboot in 10 seconds.
 ----
 ====
-. Compruebe la nueva versión del software NX-OS una vez que se haya reiniciado el switch:
+. Verifique la nueva versión del software NX-OS después de que el switch se haya reiniciado:
 +
 `show version`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -304,9 +304,9 @@ plugin
 Active Package(s):
 ----
 ====
-. Actualice la imagen de EPLD y reinicie el switch.
+. Actualice la imagen EPLD y reinicie el switch.
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -356,9 +356,9 @@ EPLDs upgraded.
 Module 1 EPLD upgrade is successful.
 ----
 ====
-. Tras reiniciar el conmutador, vuelva a iniciar sesión y compruebe que la nueva versión de EPLD se ha cargado correctamente.
+. Tras reiniciar el switch, vuelva a iniciar sesión y verifique que la nueva versión de EPLD se haya cargado correctamente.
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing]
@@ -378,5 +378,5 @@ GEM FPGA                         0x2
 ====
 
 
-.El futuro
+.¿Que sigue?
 link:install-the-rcf-file.html["Instale el archivo de configuración de referencia"]

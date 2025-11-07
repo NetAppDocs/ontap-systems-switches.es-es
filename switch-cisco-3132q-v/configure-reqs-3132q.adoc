@@ -2,9 +2,9 @@
 permalink: switch-cisco-3132q-v/configure-reqs-3132q.html 
 sidebar: sidebar 
 keywords: Cisco, 3132Q-V 
-summary: Para la instalación y el mantenimiento del switch Cisco Nexus 3132Q-V, asegúrese de revisar los requisitos de red y configuración 
+summary: Para la instalación y el mantenimiento del switch Cisco Nexus 3132Q-V, asegúrese de revisar los requisitos de red y configuración. 
 ---
-= Requisitos de configuración para switches Cisco Nexus 3132Q-V.
+= Requisitos de configuración para los switches Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -17,20 +17,20 @@ Para la instalación y el mantenimiento del switch Cisco Nexus 3132Q-V, asegúre
 
 == Requisitos de configuración
 
-Para configurar el clúster, necesita el número y el tipo de cables y conectores de cable adecuados para los switches. Según el tipo de switch que esté configurando inicialmente, debe conectarse al puerto de la consola del switch con el cable de consola incluido; también debe proporcionar información de red específica.
+Para configurar su clúster, necesita el número y tipo adecuados de cables y conectores de cable para sus conmutadores.  Dependiendo del tipo de switch que esté configurando inicialmente, deberá conectarse al puerto de consola del switch con el cable de consola incluido; también deberá proporcionar información de red específica.
 
 
 
 == Requisitos de red
 
-Necesita la siguiente información de red para todas las configuraciones de los switches:
+Necesitará la siguiente información de red para todas las configuraciones de conmutadores:
 
-* Subred IP para el tráfico de red de gestión.
-* Nombres de host y direcciones IP para cada una de las controladoras del sistema de almacenamiento y todos los switches aplicables.
-* La mayoría de las controladoras del sistema de almacenamiento se gestionan a través de la interfaz e0M mediante la conexión al puerto de servicio Ethernet (icono de llave inglesa). En los sistemas A800 y A700 de AFF de AFF, la interfaz e0M utiliza un puerto Ethernet dedicado.
+* Subred IP para la gestión del tráfico de red.
+* Nombres de host y direcciones IP para cada uno de los controladores del sistema de almacenamiento y todos los conmutadores aplicables.
+* La mayoría de los controladores del sistema de almacenamiento se administran a través de la interfaz e0M conectándose al puerto de servicio Ethernet (ícono de llave inglesa). En los sistemas AFF A800 y AFF A700 , la interfaz e0M utiliza un puerto Ethernet dedicado.
 
 
-Consulte la https://hwu.netapp.com["Hardware Universe"^] para obtener la información más reciente.
+Consulte el https://hwu.netapp.com["Hardware Universe"^] Para obtener la información más reciente.
 
 .¿Qué sigue?
 Después de revisar los requisitos de configuración, puede revisar link:required-documentation-3132q.html["documentación requerida"].

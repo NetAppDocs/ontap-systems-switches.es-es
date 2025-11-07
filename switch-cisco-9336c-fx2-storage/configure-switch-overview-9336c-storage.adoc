@@ -2,7 +2,7 @@
 permalink: switch-cisco-9336c-fx2-storage/configure-switch-overview-9336c-storage.html 
 sidebar: sidebar 
 keywords: BES-53248 switches, initial installation, configure switch-cisco-9336c-fx2 switch 
-summary: Descripción general de la instalación y la configuración de los switches de almacenamiento Cisco Nexus 9336C-FX2 
+summary: Descripción general de la instalación y configuración de los switches de almacenamiento Cisco Nexus 9336C-FX2 
 ---
 = Flujo de trabajo de instalación y configuración para los conmutadores de almacenamiento Cisco Nexus 9336C-FX2 9336C-FX2-T
 :allow-uri-read: 
@@ -17,7 +17,7 @@ Cisco Nexus 9336C-FX2 (36 puertos) es un conmutador de datos/almacenamiento/clú
 
 Siga estos pasos de flujo de trabajo para instalar y configurar sus conmutadores Cisco 9336C-FX2 y 9336C-FX2-T.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:configure-reqs-9336c-storage.html["Revisar los requisitos de configuración"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1"]link:configure-reqs-9336c-storage.html["Revisar los requisitos de configuración"]
 [role="quick-margin-para"]
 Revise los requisitos de configuración para los conmutadores de almacenamiento 9336C-FX2 y 9336C-FX2-T.
 
@@ -33,7 +33,7 @@ Revise la documentación específica del conmutador y del controlador para confi
 [role="quick-margin-para"]
 Revise los requisitos de la función Cisco Smart Call Home, que se utiliza para monitorear los componentes de hardware y software de su red.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:install-9336c-storage.html["Instale el hardware"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:install-9336c-storage.html["Instala el hardware"]
 [role="quick-margin-para"]
 Instale el hardware del interruptor.
 

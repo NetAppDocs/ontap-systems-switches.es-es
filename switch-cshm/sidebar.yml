@@ -1,34 +1,34 @@
 ---
 section: switch-cshm
-title: Supervise el estado del interruptor
+title: Supervisa el estado del interruptor
 entries:
-- title: Descripción general de la supervisión del estado del switch
+- title: Descripción general de la monitorización del estado del interruptor
   url: "/switch-cshm/cshm-overview.html"
   pdf-filename: Switch_health_cshm
-- title: Configure la supervisión de estado del switch
-  pdf-filename: Configure_SWITCH_HEALTH
+- title: Configurar la monitorización del estado del switch
+  pdf-filename: Configurar_estado_del_interruptor
   entries:
-  - title: Información general de configuración
+  - title: Descripción general de la configuración
     url: "/switch-cshm/config-overview.html"
-  - title: Configure la recopilación de registros
+  - title: Configurar la recopilación de registros
     url: "/switch-cshm/config-log-collection.html"
-  - title: Configure SNMPv3 (opcional)
+  - title: Configurar SNMPv3 (opcional)
     url: "/switch-cshm/config-snmpv3.html"
-- title: Compruebe el estado del interruptor
-  pdf-filename: Monitor_SWITCH_HEALTH
+- title: Compruebe el estado del interruptor.
+  pdf-filename: Monitor_switch_health
   entries:
-  - title: Información general de la comprobación del estado
+  - title: Resumen del control de salud
     url: "/switch-cshm/monitor-overview.html"
-  - title: Gestione la supervisión del switch
+  - title: Gestionar la monitorización del conmutador
     url: "/switch-cshm/monitor-manage.html"
-  - title: Compruebe la supervisión del interruptor
+  - title: Verificar la monitorización del interruptor
     url: "/switch-cshm/monitor-verify.html"
   - title: Solucionar problemas de alertas
     url: "/switch-cshm/monitor-troubleshoot.html"
 - title: Recopilación de registros
-  pdf-filename: log_collection_switch_health
+  pdf-filename: salud del interruptor de recopilación de registros
   entries:
   - title: Descripción general de la recopilación de registros
     url: "/switch-cshm/log-collection-overview.html"
-  - title: Solucionar problemas
+  - title: Solución de problemas
     url: "/switch-cshm/log-collection-troubleshoot.html"

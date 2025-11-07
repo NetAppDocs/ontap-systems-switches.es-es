@@ -2,7 +2,7 @@
 permalink: switch-cisco-9336c-fx2-shared/configure-software-overview-9336c-shared.html 
 sidebar: sidebar 
 keywords: BES-53248 switches, initial installation, configure switch-cisco-9336c-fx2 switch 
-summary: Descripción general de la configuración de software de los switches compartidos Cisco Nexus 9336C-FX2 
+summary: Descripción general de la configuración de software para los switches compartidos Cisco Nexus 9336C-FX2 
 ---
 = Flujo de trabajo de instalación de software para switches compartidos Cisco Nexus 9336C-FX2
 :allow-uri-read: 
@@ -11,13 +11,13 @@ summary: Descripción general de la configuración de software de los switches c
 
 
 [role="lead"]
-Para instalar y configurar software para un switch compartido Cisco Nexus 9336C-FX2, siga estos pasos:
+Para instalar y configurar el software de un switch compartido Cisco Nexus 9336C-FX2, siga estos pasos:
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:setup-and-configure-9336c-shared.html["Configure el switch"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1"]link:setup-and-configure-9336c-shared.html["Configura el interruptor"]
 [role="quick-margin-para"]
 Configurar el conmutador compartido 9336C-FX2.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"]link:prepare-nxos-rcf-9336c-shared.html["Prepárese para instalar el software NX-OS y RCF"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"]link:prepare-nxos-rcf-9336c-shared.html["Prepárese para instalar el software NX-OS y RCF."]
 [role="quick-margin-para"]
 El software Cisco NX-OS y los archivos de configuración de referencia (RCF) deben estar instalados en los conmutadores compartidos Cisco 9336C-FX2.
 
@@ -25,11 +25,11 @@ El software Cisco NX-OS y los archivos de configuración de referencia (RCF) deb
 [role="quick-margin-para"]
 Descargue e instale o actualice el software NX-OS en el conmutador compartido Cisco 9336C-FX2.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:install-nxos-rcf-9336c-shared.html["Instale el RCF"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:install-nxos-rcf-9336c-shared.html["Instala el RCF"]
 [role="quick-margin-para"]
 Instale el RCF después de configurar el conmutador compartido Cisco 9336C-FX2 por primera vez.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:upgrade-rcf-software-9336c-shared.html["Actualice su RCF"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:upgrade-rcf-software-9336c-shared.html["Mejora tu RCF"]
 [role="quick-margin-para"]
 Actualice su versión RCF cuando tenga una versión existente del archivo RCF instalada en sus conmutadores operativos.
 

@@ -2,75 +2,75 @@
 permalink: switch-nvidia-sn2100/replace-sn2100-switch-cluster.html 
 sidebar: sidebar 
 keywords: replacing, replace, defective, nvidia, switch, cluster, network, nondisruptive, procedure, ndu, replace a nvidia msn2100 cluster switch - nvidia SN2100 
-summary: 'La sustitución de un switch NVIDIA SN2100 defectuoso en una red de clúster es un procedimiento no disruptivo \(NDU\).' 
+summary: 'Reemplazar un switch NVIDIA SN2100 defectuoso en una red de clúster es un procedimiento no disruptivo (NDU).' 
 ---
-= Sustituya un conmutador de clúster NVIDIA SN2100
+= Reemplazar un conmutador de clúster NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga este procedimiento para sustituir un conmutador NVIDIA SN2100 defectuoso en una red de clúster. Este es un procedimiento no disruptivo (NDU).
+Siga este procedimiento para reemplazar un conmutador NVIDIA SN2100 defectuoso en una red de clúster. Este es un procedimiento no disruptivo (NDU).
 
 
 
-== Revise los requisitos
+== Requisitos de revisión
 
-.Infraestructura de red y clúster existente
+.Infraestructura de clúster y red existente
 Asegúrese de que:
 
-* El clúster existente se ha verificado como completamente funcional, con al menos un switch de clúster completamente conectado.
+* Se verifica que los clústeres existentes son completamente funcionales, con al menos un conmutador de clúster totalmente conectado.
 * Todos los puertos del clúster están activos.
-* Todas las interfaces lógicas de clúster (LIF) están en funcionamiento y en sus puertos raíz.
-* La ONTAP `cluster ping-cluster -node node1` El comando indica que la conectividad básica y la comunicación más grande que PMTU se realizan correctamente en todas las rutas.
+* Todas las interfaces lógicas del clúster (LIF) están activas y en sus puertos de inicio.
+* El ONTAP `cluster ping-cluster -node node1` El comando indica que la conectividad básica y la comunicación superior a PMTU se realizan correctamente en todas las rutas.
 
 
-.Conmutador de sustitución NVIDIA SN2100
+.Interruptor de repuesto NVIDIA SN2100
 Asegúrese de que:
 
-* La conectividad de la red de gestión en el switch de reemplazo es funcional.
-* El acceso de la consola al interruptor de sustitución está en su lugar.
-* Las conexiones de nodos son los puertos swp1 a swp14.
-* Todos los puertos de enlace entre switches (ISL) están deshabilitados en los puertos swp15 y swp16.
-* El archivo de configuración de referencia (RCF) y el interruptor de imagen del sistema operativo Cumulus se cargan en el conmutador.
-* Se ha completado la personalización inicial del conmutador.
+* La conectividad de la red de gestión en el switch de reemplazo funciona correctamente.
+* El acceso a la consola para el interruptor de repuesto ya está habilitado.
+* Las conexiones de nodo son los puertos swp1 a swp14.
+* Todos los puertos Inter-Switch Link (ISL) están deshabilitados en los puertos swp15 y swp16.
+* El archivo de configuración de referencia (RCF) deseado y el conmutador de imagen del sistema operativo Cumulus se cargan en el conmutador.
+* La personalización inicial del switch está completa.
 
 
-Asegúrese también de que cualquier personalización de sitio anterior, como STP, SNMP y SSH, se copie al nuevo switch.
+Asegúrese también de que cualquier personalización previa del sitio, como STP, SNMP y SSH, se copie al nuevo conmutador.
 
 
-NOTE: Debe ejecutar el comando para migrar una LIF de clúster desde el nodo donde se aloja la LIF del clúster.
-
-
-
-== Active el registro de la consola
-
-NetApp recomienda encarecidamente que habilite el inicio de sesión de la consola en los dispositivos que esté utilizando y que realice las siguientes acciones al sustituir el conmutador:
-
-* Deje la función AutoSupport habilitada durante el mantenimiento.
-* Active un AutoSupport de mantenimiento antes y después de las tareas de mantenimiento para deshabilitar la creación de casos durante el mantenimiento. Consulte este artículo de la base de conocimientos https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Cómo impedir la creación automática de casos durante las ventanas de mantenimiento programado"^] para obtener más detalles.
-* Habilite el registro de sesiones para cualquier sesión de CLI. Para obtener instrucciones sobre cómo activar el registro de sesiones, consulte la sección «Salida de sesión de registro» de este artículo de la base de conocimientos https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Cómo configurar PuTTY para una conectividad óptima con sistemas ONTAP"^].
+NOTE: Debe ejecutar el comando para migrar un LIF de clúster desde el nodo donde se aloja el LIF de clúster.
 
 
 
+== Habilitar el registro en la consola
 
-== Sustituya el interruptor
+NetApp recomienda encarecidamente que habilite el registro de consola en los dispositivos que esté utilizando y que realice las siguientes acciones al reemplazar su switch:
+
+* Deje activado el AutoSupport durante el mantenimiento.
+* Active un AutoSupport de mantenimiento antes y después del mantenimiento para deshabilitar la creación de casos durante la duración del mismo.  Consulte este artículo de la base de conocimientos. https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Cómo suprimir la creación automática de casos durante las ventanas de mantenimiento programadas"^] Para obtener más detalles.
+* Habilite el registro de sesión para cualquier sesión de la CLI.  Para obtener instrucciones sobre cómo habilitar el registro de sesiones, consulte la sección "Registro de salida de sesión" en este artículo de la base de conocimientos. https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Cómo configurar PuTTY para una conectividad óptima a los sistemas ONTAP"^] .
+
+
+
+
+== Reemplace el interruptor
 
 .Acerca de los ejemplos
-Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:
+Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interruptores y nodos:
 
-* Los nombres de los conmutadores NVIDIA SN2100 existentes son _sw1_ y _sw2_.
+* Los nombres de los switches NVIDIA SN2100 existentes son _sw1_ y _sw2_.
 * El nombre del nuevo switch NVIDIA SN2100 es _nsw2_.
-* Los nombres de nodo son _1_ y _2_.
-* Los puertos de clúster de cada nodo se denominan _e3a_ y _e3b_.
-* Los nombres de LIF del clúster son _1_clus1_ y _1_clus2_ para los nodos 1, y _2_clus1_ y _2_clus2_ para los nodos 2.
-* El prompt de cambios en todos los nodos del clúster es `cluster1::*>`
-* Los puertos de arranque tienen el formato: swp[Port]s[breakout Port 0-3]. Por ejemplo, cuatro puertos de arranque en swp1 son _swp1s0_, _swp1s1_, _swp1s2_ y _swp1s3_.
+* Los nombres de los nodos son _node1_ y _node2_.
+* Los puertos del clúster en cada nodo se llaman _e3a_ y _e3b_.
+* Los nombres LIF del clúster son _node1_clus1_ y _node1_clus2_ para el nodo 1, y _node2_clus1_ y _node2_clus2_ para el nodo 2.
+* La solicitud para realizar cambios en todos los nodos del clúster es `cluster1::*>`
+* Los puertos de ruptura adoptan el formato: swp[puerto]s[puerto de ruptura 0-3].  Por ejemplo, cuatro puertos de ruptura en swp1 son _swp1s0_, _swp1s1_, _swp1s2_ y _swp1s3_.
 
 
-.Acerca de la topología de red del clúster
-Este procedimiento se basa en la siguiente topología de red de clúster:
+.Acerca de la topología de la red del clúster
+Este procedimiento se basa en la siguiente topología de red de clústeres:
 
 .Mostrar topología de ejemplo
 [%collapsible]
@@ -145,44 +145,44 @@ swp16      100G   BondMember  sw1                swp16
 ====
 
 
-=== Paso 1: Prepararse para la sustitución
+=== Paso 1: Prepararse para el reemplazo
 
-. Si se habilita AutoSupport en este clúster, elimine la creación automática de casos invocando un mensaje de AutoSupport:
+. Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=xh`
 
 +
 donde _x_ es la duración de la ventana de mantenimiento en horas.
 
-. Cambie el nivel de privilegio a avanzado, introduciendo *y* cuando se le solicite continuar:
+. Cambie el nivel de privilegio a avanzado, ingresando *y* cuando se le solicite continuar:
 +
 `set -privilege advanced`
 
 +
-Aparece el mensaje avanzado (*>).
+Aparece el indicador avanzado (*>).
 
-. Instale el RCF y la imagen adecuados en el interruptor, nsw2, y realice las preparaciones necesarias del sitio.
+. Instale el RCF y la imagen apropiados en el switch, nsw2, y realice las preparaciones necesarias en el sitio.
 +
-Si es necesario, verifique, descargue e instale las versiones apropiadas del software RCF y Cumulus para el nuevo interruptor.
+Si es necesario, verifique, descargue e instale las versiones adecuadas del software RCF y Cumulus para el nuevo conmutador.
 
 +
-.. Puede descargar el software Cumulus correspondiente para los switches de clúster del sitio _NVIDIA Support_. Siga los pasos de la página de descarga para descargar Cumulus Linux para la versión del software ONTAP que está instalando.
-.. El RCF adecuado está disponible en link:https://mysupport.netapp.com/site/products/all/details/nvidia-cluster-storage-switch/downloads-tab["_Cluster de NVIDIA y switches de almacenamiento_"^] página. Siga los pasos de la página de descarga para descargar el RCF correcto para la versión del software ONTAP que está instalando.
+.. Puede descargar el software Cumulus correspondiente a sus conmutadores de clúster desde el sitio de soporte de NVIDIA.  Siga los pasos de la página de descarga para descargar Cumulus Linux para la versión del software ONTAP que está instalando.
+.. El formulario RCF apropiado está disponible en ellink:https://mysupport.netapp.com/site/products/all/details/nvidia-cluster-storage-switch/downloads-tab["_Conmutadores de almacenamiento y clúster de NVIDIA_"^] página.  Siga los pasos de la página de descarga para descargar el RCF correcto para la versión del software ONTAP que está instalando.
 
 
 
 
 
 
-=== Paso 2: Configure los puertos y el cableado
+=== Paso 2: Configurar puertos y cableado
 
 [role="tabbed-block"]
 ====
 .Cumulus Linux 4.4.3
 --
-. En el nuevo switch nsw2, inicie sesión como administrador y apague todos los puertos que se conectarán a las interfaces de clúster del nodo (puertos swp1 a swp14).
+. En el nuevo switch nsw2, inicie sesión como administrador y apague todos los puertos que estarán conectados a las interfaces del clúster de nodos (puertos swp1 a swp14).
 +
-Los LIF de los nodos del clúster ya deberían haber realizado la conmutación al otro puerto del clúster para cada nodo.
+Las LIF de los nodos del clúster ya deberían haber conmutado por error al otro puerto del clúster para cada nodo.
 
 +
 [listing, subs="+quotes"]
@@ -191,7 +191,7 @@ cumulus@nsw2:~$ *net add interface swp1s0-3, swp2s0-3, swp3-14 link down*
 cumulus@nsw2:~$ *net pending*
 cumulus@nsw2:~$ *net commit*
 ----
-. Deshabilite la reversión automática en las LIF del clúster:
+. Deshabilitar la reversión automática en los LIF del clúster:
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
@@ -202,11 +202,11 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert fals
 
 Warning: Disabling the auto-revert feature of the cluster logical interface may effect the availability of your cluster network. Are you sure you want to continue? {y|n}: *y*
 ----
-. Verifique que todos los LIF del clúster tengan la reversión automática deshabilitada:
+. Verifique que todas las LIF del clúster tengan la reversión automática desactivada:
 +
 `net interface show -vserver Cluster -fields auto-revert`
 
-. Apague los puertos ISL swp15 y swp16 en el conmutador SN2100 sw1.
+. Desactive los puertos ISL swp15 y swp16 en el switch SN2100 sw1.
 +
 [listing, subs="+quotes"]
 ----
@@ -214,8 +214,8 @@ cumulus@sw1:~$ *net add interface swp15-16 link down*
 cumulus@sw1:~$ *net pending*
 cumulus@sw1:~$ *net commit*
 ----
-. Retire todos los cables del conmutador SN2100 sw1 y, a continuación, conéctelos a los mismos puertos del conmutador SN2100 nsw2.
-. Suba los puertos ISL swp15 y swp16 entre los switches sw1 y nsw2.
+. Retire todos los cables del switch SN2100 sw1 y luego conéctelos a los mismos puertos del switch SN2100 nsw2.
+. Habilite los puertos ISL swp15 y swp16 entre los switches sw1 y nsw2.
 +
 Los siguientes comandos habilitan los puertos ISL swp15 y swp16 en el switch sw1:
 
@@ -227,7 +227,7 @@ cumulus@sw1:~$ *net pending*
 cumulus@sw1:~$ *net commit*
 ----
 +
-En el siguiente ejemplo, se muestra que los puertos ISL están activos en la switch sw1:
+El siguiente ejemplo muestra que los puertos ISL están activos en el switch sw1:
 
 +
 [listing, subs="+quotes"]
@@ -242,7 +242,7 @@ UP     swp15        100G  9216   BondMember  nsw2 (swp15)   Master: cluster_isl(
 UP     swp16        100G  9216   BondMember  nsw2 (swp16)   Master: cluster_isl(UP)
 ----
 +
-En el siguiente ejemplo, se muestra que los puertos ISL están activos en el switch nsw2:
+El siguiente ejemplo muestra que los puertos ISL están activos en el switch nsw2:
 
 +
 [listing, subs="+quotes"]
@@ -256,12 +256,12 @@ State  Name         Spd   MTU    Mode        LLDP           Summary
 UP     swp15        100G  9216   BondMember  sw1 (swp15)    Master: cluster_isl(UP)
 UP     swp16        100G  9216   BondMember  sw1 (swp16)    Master: cluster_isl(UP)
 ----
-. Compruebe que el puerto `e3b` está activo en todos los nodos:
+. Verifique ese puerto `e3b` está activo en todos los nodos:
 +
 `network port show -ipspace Cluster`
 
 +
-La salida debe ser similar a la siguiente:
+El resultado debería ser similar al siguiente:
 
 +
 [listing, subs="+quotes"]
@@ -285,7 +285,7 @@ Port      IPspace      Broadcast Domain Link MTU   Admin/Oper  Status    Status
 e3a       Cluster      Cluster          up   9000  auto/100000  healthy  false
 e3b       Cluster      Cluster          up   9000  auto/100000  healthy  false
 ----
-. Los puertos de clúster de cada nodo ahora están conectados a los switches de clúster del siguiente modo, desde la perspectiva de los nodos:
+. Los puertos del clúster en cada nodo ahora están conectados a los conmutadores del clúster de la siguiente manera, desde la perspectiva de los nodos:
 +
 [listing, subs="+quotes"]
 ----
@@ -300,7 +300,7 @@ node2      /lldp
             e3a    sw1  (b8:ce:f6:19:1a:7e)   swp4          -
             e3b    nsw2 (b8:ce:f6:19:1b:b6)   swp4          -
 ----
-. Compruebe que todos los puertos de clúster del nodo estén activos:
+. Verifique que todos los puertos del clúster de nodos estén activos:
 +
 `net show interface`
 
@@ -318,12 +318,12 @@ UP     swp4         100G  9216   Trunk/L2                      Master: bridge(UP
 UP     swp15        100G  9216   BondMember  sw1 (swp15)       Master: cluster_isl(UP)
 UP     swp16        100G  9216   BondMember  sw1 (swp16)       Master: cluster_isl(UP)
 ----
-. Compruebe que ambos nodos tengan una conexión cada uno con cada switch:
+. Verifique que ambos nodos tengan una conexión a cada conmutador:
 +
 `net show lldp`
 
 +
-En el siguiente ejemplo, se muestran los resultados adecuados para ambos switches:
+El siguiente ejemplo muestra los resultados correspondientes para ambos interruptores:
 
 +
 [listing, subs="+quotes"]
@@ -347,11 +347,11 @@ swp4       100G   Trunk/L2    node2                e3b
 swp15      100G   BondMember  sw1                swp15
 swp16      100G   BondMember  sw1                swp16
 ----
-. Habilite la reversión automática en las LIF del clúster:
+. Habilitar la reversión automática en los LIF del clúster:
 +
 `cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert true`
 
-. En el switch nsw2, conecte los puertos conectados a los puertos de red de los nodos.
+. En el switch nsw2, active los puertos conectados a los puertos de red de los nodos.
 +
 [listing, subs="+quotes"]
 ----
@@ -359,12 +359,12 @@ cumulus@nsw2:~$ *net del interface swp1-14 link down*
 cumulus@nsw2:~$ *net pending*
 cumulus@nsw2:~$ *net commit*
 ----
-. Muestra información sobre los nodos de un clúster:
+. Mostrar información sobre los nodos de un clúster:
 +
 `cluster show`
 
 +
-En este ejemplo, se muestra que el estado del nodo para el nodo 1 y el nodo 2 en este clúster es TRUE.
+Este ejemplo muestra que el estado de salud de los nodos node1 y node2 en este clúster es verdadero:
 
 +
 [listing, subs="+quotes"]
@@ -376,7 +376,7 @@ Node          Health  Eligibility
 node1         true    true
 node2         true    true
 ----
-. Compruebe que todos los puertos físicos del clúster estén en funcionamiento:
+. Verifique que todos los puertos físicos del clúster estén activos:
 +
 `network port show ipspace Cluster`
 
@@ -405,9 +405,9 @@ e3b       Cluster      Cluster          up    9000  auto/10000  healthy  false
 --
 .Cumulus Linux 5.x
 --
-. En el nuevo switch nsw2, inicie sesión como administrador y apague todos los puertos que se conectarán a las interfaces de clúster del nodo (puertos swp1 a swp14).
+. En el nuevo switch nsw2, inicie sesión como administrador y apague todos los puertos que estarán conectados a las interfaces del clúster de nodos (puertos swp1 a swp14).
 +
-Los LIF de los nodos del clúster ya deberían haber realizado la conmutación al otro puerto del clúster para cada nodo.
+Las LIF de los nodos del clúster ya deberían haber conmutado por error al otro puerto del clúster para cada nodo.
 
 +
 [listing, subs="+quotes"]
@@ -415,7 +415,7 @@ Los LIF de los nodos del clúster ya deberían haber realizado la conmutación a
 cumulus@nsw2:~$ *nv set interface swp15-16 link state down*
 cumulus@nsw2:~$ *nv config apply*
 ----
-. Deshabilite la reversión automática en las LIF del clúster:
+. Deshabilitar la reversión automática en los LIF del clúster:
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
@@ -426,19 +426,19 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert fals
 
 Warning: Disabling the auto-revert feature of the cluster logical interface may effect the availability of your cluster network. Are you sure you want to continue? {y|n}: *y*
 ----
-. Verifique que todos los LIF del clúster tengan la reversión automática deshabilitada:
+. Verifique que todas las LIF del clúster tengan la reversión automática desactivada:
 +
 `network interface show -vserver Cluster -fields auto-revert`
 
-. Apague los puertos ISL swp15 y swp16 en el conmutador SN2100 sw1.
+. Desactive los puertos ISL swp15 y swp16 en el switch SN2100 sw1.
 +
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:~$ *nv set interface swp15-16 link state down*
 cumulus@sw1:~$ *nv config apply*
 ----
-. Retire todos los cables del conmutador SN2100 sw1 y, a continuación, conéctelos a los mismos puertos del conmutador SN2100 nsw2.
-. Suba los puertos ISL swp15 y swp16 entre los switches sw1 y nsw2.
+. Retire todos los cables del switch SN2100 sw1 y luego conéctelos a los mismos puertos del switch SN2100 nsw2.
+. Habilite los puertos ISL swp15 y swp16 entre los switches sw1 y nsw2.
 +
 Los siguientes comandos habilitan los puertos ISL swp15 y swp16 en el switch sw1:
 
@@ -449,7 +449,7 @@ cumulus@sw1:~$ *nv set interface swp15-16 link state down*
 cumulus@sw1:~$ *nv config apply*
 ----
 +
-En el siguiente ejemplo, se muestra que los puertos ISL están activos en la switch sw1:
+El siguiente ejemplo muestra que los puertos ISL están activos en el switch sw1:
 
 +
 [listing, subs="+quotes"]
@@ -464,7 +464,7 @@ UP     swp15        100G  9216   BondMember  nsw2 (swp15)   Master: cluster_isl(
 UP     swp16        100G  9216   BondMember  nsw2 (swp16)   Master: cluster_isl(UP)
 ----
 +
-En el siguiente ejemplo, se muestra que los puertos ISL están activos en el switch nsw2:
+El siguiente ejemplo muestra que los puertos ISL están activos en el switch nsw2:
 
 +
 [listing, subs="+quotes"]
@@ -478,12 +478,12 @@ State  Name         Spd   MTU    Mode        LLDP           Summary
 UP     swp15        100G  9216   BondMember  sw1 (swp15)    Master: cluster_isl(UP)
 UP     swp16        100G  9216   BondMember  sw1 (swp16)    Master: cluster_isl(UP)
 ----
-. Compruebe que el puerto `e3b` está activo en todos los nodos:
+. Verifique ese puerto `e3b` está activo en todos los nodos:
 +
 `network port show -ipspace Cluster`
 
 +
-La salida debe ser similar a la siguiente:
+El resultado debería ser similar al siguiente:
 
 +
 [listing, subs="+quotes"]
@@ -507,7 +507,7 @@ Port      IPspace      Broadcast Domain Link MTU   Admin/Oper  Status    Status
 e3a       Cluster      Cluster          up   9000  auto/100000  healthy  false
 e3b       Cluster      Cluster          up   9000  auto/100000  healthy  false
 ----
-. Los puertos de clúster de cada nodo ahora están conectados a los switches de clúster del siguiente modo, desde la perspectiva de los nodos:
+. Los puertos del clúster en cada nodo ahora están conectados a los conmutadores del clúster de la siguiente manera, desde la perspectiva de los nodos:
 +
 [listing, subs="+quotes"]
 ----
@@ -522,7 +522,7 @@ node2      /lldp
             e3a    sw1  (b8:ce:f6:19:1a:7e)   swp4          -
             e3b    nsw2 (b8:ce:f6:19:1b:b6)   swp4          -
 ----
-. Compruebe que todos los puertos de clúster del nodo estén activos:
+. Verifique que todos los puertos del clúster de nodos estén activos:
 +
 `nv show interface`
 
@@ -540,12 +540,12 @@ UP     swp4         100G  9216   Trunk/L2                      Master: bridge(UP
 UP     swp15        100G  9216   BondMember  sw1 (swp15)       Master: cluster_isl(UP)
 UP     swp16        100G  9216   BondMember  sw1 (swp16)       Master: cluster_isl(UP)
 ----
-. Compruebe que ambos nodos tengan una conexión cada uno con cada switch:
+. Verifique que ambos nodos tengan una conexión a cada conmutador:
 +
 `nv show interface lldp`
 
 +
-En el siguiente ejemplo, se muestran los resultados adecuados para ambos switches:
+El siguiente ejemplo muestra los resultados correspondientes para ambos interruptores:
 
 +
 [listing, subs="+quotes"]
@@ -569,23 +569,23 @@ swp4       100G   Trunk/L2    node2                e3b
 swp15      100G   BondMember  sw1                swp15
 swp16      100G   BondMember  sw1                swp16
 ----
-. Habilite la reversión automática en las LIF del clúster:
+. Habilitar la reversión automática en los LIF del clúster:
 +
 `cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert true`
 
-. En el switch nsw2, conecte los puertos conectados a los puertos de red de los nodos.
+. En el switch nsw2, active los puertos conectados a los puertos de red de los nodos.
 +
 [listing, subs="+quotes"]
 ----
 cumulus@nsw2:~$ *nv set interface swp1-14 link state up*
 cumulus@nsw2:~$ *nv config apply*
 ----
-. Muestra información sobre los nodos de un clúster:
+. Mostrar información sobre los nodos de un clúster:
 +
 `cluster show`
 
 +
-En este ejemplo, se muestra que el estado del nodo para el nodo 1 y el nodo 2 en este clúster es TRUE.
+Este ejemplo muestra que el estado de salud de los nodos node1 y node2 en este clúster es verdadero:
 
 +
 [listing, subs="+quotes"]
@@ -597,7 +597,7 @@ Node          Health  Eligibility
 node1         true    true
 node2         true    true
 ----
-. Compruebe que todos los puertos físicos del clúster estén en funcionamiento:
+. Verifique que todos los puertos físicos del clúster estén activos:
 +
 `network port show ipspace Cluster`
 
@@ -633,7 +633,7 @@ e3b       Cluster      Cluster          up    9000  auto/10000  healthy  false
 ====
 .Cumulus Linux 4.4.3
 --
-. Compruebe que la red de clúster esté en buen estado.
+. Verifique que la red del clúster esté en buen estado.
 +
 [listing, subs="+quotes"]
 ----
@@ -651,7 +651,7 @@ swp16      100G   BondMember  nsw2            swp16
 --
 .Cumulus Linux 5.x
 --
-. Compruebe que la red de clúster esté en buen estado.
+. Verifique que la red del clúster esté en buen estado.
 +
 [listing, subs="+quotes"]
 ----
@@ -668,15 +668,15 @@ swp16      100G   BondMember  nsw2            swp16
 
 --
 ====
-. [[step2]] Vuelva a cambiar el nivel de privilegio a admin:
+. [[paso 2]] Vuelva a cambiar el nivel de privilegios a administrador:
 +
 `set -privilege admin`
 
-. Si ha suprimido la creación automática de casos, vuelva a habilitarla invocando un mensaje de AutoSupport:
+. Si desactivaste la creación automática de casos, vuelve a activarla mediante un mensaje de AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.El futuro
+.¿Que sigue?
 Después de haber reemplazado los interruptores, puedes link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"].

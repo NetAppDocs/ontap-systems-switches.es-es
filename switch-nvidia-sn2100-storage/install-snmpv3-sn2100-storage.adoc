@@ -2,41 +2,41 @@
 permalink: switch-nvidia-sn2100-storage/install-snmpv3-sn2100-storage.html 
 sidebar: sidebar 
 keywords: sn2100 SN2100 cabling setup, sn2100 switches configuration, cumulus linux os 
-summary: Esta versión incluye soporte para SNMPv3 para la supervisión de registros. 
+summary: Esta versión incluye soporte para SNMPv3 para la monitorización de registros. 
 ---
-= Configure SNMPv3 para la recopilación de registros del conmutador
+= Configurar SNMPv3 para la recopilación de registros del switch
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga este procedimiento para configurar SNMPv3, que admite la recopilación de registros de conmutación y la supervisión del estado del conmutador (SHM).
+Siga este procedimiento para configurar SNMPv3, que admite la recopilación de registros de conmutadores y la supervisión del estado del conmutador (SHM).
 
 .Acerca de esta tarea
-Los siguientes comandos configuran un nombre de usuario SNMPv3 en switches NVIDIA SN2100:
+Los siguientes comandos configuran un nombre de usuario SNMPv3 en los switches NVIDIA SN2100:
 
 * Para *sin autenticación*:
 `net add snmp-server username _SNMPv3_USER_ auth-none`
-* Para *autenticación MD5/SHA*:
+* Para la *autenticación MD5/SHA*:
 `net add snmp-server username _SNMPv3_USER_ [auth-md5|auth-sha] _AUTH-PASSWORD_`
-* Para autenticación *MD5/SHA con cifrado AES/DES*:
+* Para la *autenticación MD5/SHA con cifrado AES/DES*:
 `net add snmp-server username _SNMPv3_USER_ [auth-md5|auth-sha] _AUTH-PASSWORD_ [encrypt-aes|encrypt-des] _PRIV-PASSWORD_`
 
 
-El siguiente comando configura un nombre de usuario SNMPv3 en el lado ONTAP:
+El siguiente comando configura un nombre de usuario SNMPv3 en el lado ONTAP :
 `cluster1::*> security login create -user-or-group-name _SNMPv3_USER_ -application snmp -authentication-method usm -remote-switch-ipaddress _ADDRESS_`
 
 El siguiente comando establece el nombre de usuario SNMPv3 con SHM:
 `cluster1::*> system switch ethernet modify -device _DEVICE_ -snmp-version SNMPv3 -community-or-username _SNMPv3_USER_`
 
 .Pasos
-. Configure el usuario SNMPv3 en el conmutador para que utilice autenticación y cifrado:
+. Configure el usuario SNMPv3 en el switch para usar autenticación y cifrado:
 +
 `net show snmp status`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -109,12 +109,12 @@ Version 3 Usernames                Configured     *<---- Configured here*
 cumulus@sw1:~$
 ----
 ====
-. Configure el usuario SNMPv3 en el lado ONTAP:
+. Configure el usuario SNMPv3 en el lado ONTAP :
 +
 `security login create -user-or-group-name SNMPv3User -application snmp -authentication-method usm -remote-switch-ipaddress 10.231.80.212`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -136,12 +136,12 @@ Enter privacy protocol password (minimum 8 characters long):
 Enter privacy protocol password again:
 ----
 ====
-. Configure SHM para supervisar con el nuevo usuario SNMPv3:
+. Configure SHM para que realice la monitorización con el nuevo usuario SNMPv3:
 +
 `system switch ethernet show-all -device "sw1 (b8:59:9f:09:7c:22)" -instance`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -166,12 +166,12 @@ cluster1::*>
 cluster1::*> *system switch ethernet modify -device "sw1 (b8:59:9f:09:7c:22)" -snmp-version SNMPv3 -community-or-username SNMPv3User*
 ----
 ====
-. Compruebe que el número de serie que se va a consultar con el usuario SNMPv3 recién creado es el mismo que se detalla en el paso anterior una vez completado el período de sondeo SHM.
+. Verifique que el número de serie que se consultará con el usuario SNMPv3 recién creado sea el mismo que se detalla en el paso anterior una vez que haya finalizado el período de sondeo SHM.
 +
 `system switch ethernet polling-interval show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]

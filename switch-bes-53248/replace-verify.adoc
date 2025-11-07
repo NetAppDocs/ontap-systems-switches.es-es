@@ -2,32 +2,32 @@
 permalink: switch-bes-53248/replace-verify.html 
 sidebar: sidebar 
 keywords: command, verify, operational, bes, cluster, switch, upgrade, verify the configuration after a cluster switch upgrade - bes-53428 switches 
-summary: Puede utilizar los comandos proporcionados aquí para comprobar que todo funciona después de una actualización de conmutador de clúster BES-53248. 
+summary: Puede utilizar los comandos proporcionados aquí para verificar que todo esté operativo después de una actualización del conmutador de clúster BES-53248. 
 ---
-= Compruebe la red de cluster ONTAP después de una actualización del software EFOS o RCF de los switches de cluster BES-53248
+= Verifique la red del clúster ONTAP después de una actualización del software EFOS o RCF de los conmutadores del clúster BES-53248.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Puede utilizar los siguientes comandos para verificar el estado de la red de clúster de ONTAP después de una actualización del software EFOS o RCF para los switches de clúster BES-53248.
+Puede utilizar los siguientes comandos para verificar el estado de la red del clúster ONTAP después de una actualización del software EFOS o RCF para los conmutadores de clúster BES-53248.
 
 .Pasos
-. Muestra información sobre los puertos de red del clúster con el comando:
+. Muestra información sobre los puertos de red del clúster mediante el siguiente comando:
 +
 [source, cli]
 ----
 network port show -ipspace Cluster
 ----
 +
-`Link` debe tener el valor `up` y.. `Health Status` debe ser `healthy`.
+`Link`debe tener el valor `up` y `Health Status` debe ser `healthy` .
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-En el siguiente ejemplo se muestra el resultado del comando:
+El siguiente ejemplo muestra el resultado del comando:
 
 [listing, subs="+quotes"]
 ----
@@ -50,14 +50,14 @@ e0a    Cluster      Cluster          up   9000  auto/10000 healthy  false
 e0b    Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
 ====
-. Compruebe esto para cada LIF `Is Home` es `true` y.. `Status Admin/Oper` es `up` en ambos nodos, utilizando el comando:
+. Para cada LIF, verifique que `Is Home` es `true` y `Status Admin/Oper` es `up` en ambos nodos, utilizando el comando:
 +
 [source, cli]
 ----
 network interface show -vserver Cluster
 ----
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -74,12 +74,12 @@ Cluster
             node2_clus2  up/up    169.254.110.131/16 node2         e0b     true
 ----
 ====
-. Compruebe que el `Health Status` de cada nodo es `true` con el comando:
+. Verifique que el `Health Status` de cada nodo es `true` usando el comando:
 +
 `cluster show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -94,5 +94,5 @@ node2                true    true          false
 ====
 
 
-.El futuro
+.¿Que sigue?
 Una vez que haya confirmado la actualización de su software EFOS o RCF, podrá link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"].

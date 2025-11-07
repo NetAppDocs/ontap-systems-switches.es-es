@@ -12,29 +12,29 @@ summary: Antes de configurar su conmutador Cisco Nexus SN2100, revise la siguien
 Para restablecer el interruptor del clúster SN2100 a los valores predeterminados de fábrica:
 
 * Para Cumulus Linux 5.10 y versiones anteriores, aplique la imagen de Cumulus.
-* Para Cumulus Linux 5.11 y posteriores, utilice el `nv action reset system factory-default` dominio.
+* Para Cumulus Linux 5.11 y versiones posteriores, se utiliza el `nv action reset system factory-default` dominio.
 
 
 .Acerca de esta tarea
-* Debe estar conectado al conmutador mediante la consola serie.
+* Debes estar conectado al switch mediante la consola serie.
 * Debe tener la contraseña root para acceder a los comandos de sudo.
 
 
 
-NOTE: Para obtener más información sobre la instalación de Cumulus Linux, consultelink:configure-software-overview-sn2100-cluster.html["Flujo de trabajo de instalación de software para los switches NVIDIA SN2100"] .
+NOTE: Para obtener más información sobre la instalación de Cumulus Linux, consultelink:configure-software-overview-sn2100-cluster.html["Flujo de trabajo de instalación de software para switches NVIDIA SN2100"] .
 
 .Pasos
 [role="tabbed-block"]
 ====
 .Cumulus Linux 5.10 y anteriores
 --
-. Desde la consola Cumulus, descargue y ponga en cola la instalación del software del conmutador con el comando `onie-install -a -i` Seguido de la ruta del archivo al software del conmutador, por ejemplo:
+. Desde la consola de Cumulus, descargue y ponga en cola la instalación del software del switch con el comando `onie-install -a -i` seguido de la ruta de acceso al archivo del software del conmutador, por ejemplo:
 +
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:mgmt:~$ *sudo onie-install -a -i http://<web-server>/<path>/cumulus-linux-5.10.0-mlx-amd64.bin*
 ----
-. El instalador inicia la descarga.  Escriba *y* cuando se le solicite para confirmar la instalación cuando se haya descargado y verificado la imagen.
+. El instalador inicia la descarga. Escriba *y* cuando se le solicite para confirmar la instalación cuando se haya descargado y verificado la imagen.
 . Reinicie el conmutador para instalar el nuevo software.
 +
 `sudo reboot`
@@ -46,7 +46,7 @@ cumulus@sw1:mgmt:~$ *sudo reboot*
 ----
 +
 
-NOTE: El conmutador se reinicia y accede a la instalación del software del conmutador, lo que lleva algún tiempo.  Cuando se completa la instalación, el conmutador se reinicia y permanece en el `log-in` inmediato.
+NOTE: El conmutador se reinicia y accede a la instalación del software del conmutador, lo que lleva algún tiempo. Cuando finaliza la instalación, el switch se reinicia y permanece en el `log-in` inmediato.
 
 
 
@@ -72,7 +72,7 @@ Do you want to continue? [y/n] *y*
 ----
 
 
-Ver NVIDIA https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/Installation-Management/Factory-Reset/["Restablecimiento de fábrica"^] documentación para más detalles.
+Consulta la página de NVIDIA. https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/Installation-Management/Factory-Reset/["Restablecimiento de fábrica"^] Documentación para más detalles.
 
 --
 ====

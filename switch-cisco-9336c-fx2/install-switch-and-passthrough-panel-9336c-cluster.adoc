@@ -2,7 +2,7 @@
 permalink: switch-cisco-9336c-fx2/install-switch-and-passthrough-panel-9336c-cluster.html 
 sidebar: sidebar 
 keywords: install, cisco, nexus, switch, pass-through, panel, netapp, cabinet, bracket, switch, install a cisco nexus 9336c-fx2 switch and pass-through panel in a netapp cabinet - cisco nexus 9336c-fx2 
-summary: Puede instalar el switch Cisco Nexus 9336C-FX2 y el panel de paso a través en un armario de NetApp con los soportes estándar que se incluyen con el switch. 
+summary: Puede instalar el conmutador Cisco Nexus 9336C-FX2 y el panel de paso en un gabinete NetApp con los soportes estándar que se incluyen con el conmutador. 
 ---
 = Instalar los conmutadores Cisco Nexus 9336C-FX2 y 9336C-FX2-T en un gabinete NetApp
 :allow-uri-read: 
@@ -16,82 +16,82 @@ Dependiendo de su configuración, es posible que necesite instalar el conmutador
 .Antes de empezar
 Asegúrese de tener lo siguiente:
 
-* El kit de panel de paso a través, que está disponible en NetApp (número de pieza X8784-R6).
+* El kit de panel de paso, que está disponible en NetApp (número de pieza X8784-R6).
 +
-El kit del panel de paso a través de NetApp contiene el siguiente hardware:
+El kit de panel de paso de NetApp contiene el siguiente hardware:
 
 +
-** Un panel de supresión de paso a través
-** Cuatro tornillos de 10-32 x 0,75
-** Cuatro tuercas de 10-32 abrazaderas
+** Un panel ciego pasante
+** Cuatro tornillos 10-32 x .75
+** Cuatro tuercas de clip 10-32
 
 
-* Para cada interruptor, ocho tornillos 10-32 ó 12-24 y tuercas de pinza para montar los soportes y rieles deslizantes en los postes del armario delantero y trasero.
-* El kit de rieles estándar de Cisco para instalar el switch en un armario NetApp.
+* Para cada interruptor, ocho tornillos 10-32 o 12-24 y tuercas de clip para montar los soportes y rieles deslizantes en los postes delanteros y traseros del gabinete.
+* El kit de riel estándar de Cisco para instalar el conmutador en un gabinete NetApp .
 
 
 
-NOTE: Los cables de puente no están incluidos con el kit de paso a través y deben incluirse con los interruptores. Si no se enviaron con los switches, puede solicitarlos a NetApp (número de pieza X1558A-R6).
+NOTE: Los cables puente no están incluidos en el kit de conexión y deben incluirse con los interruptores.  Si no se enviaron con los switches, puede pedirlos a NetApp (número de pieza X1558A-R6).
 
-* Para conocer los requisitos iniciales de preparación, el contenido del kit y las precauciones de seguridad, consulte https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/hw/aci_9336cfx2_hig/guide/b_n9336cFX2_aci_hardware_installation_guide.html["Guía de instalación de hardware de Cisco Nexus serie 9000"^].
+* Para conocer los requisitos de preparación inicial, el contenido del kit y las precauciones de seguridad, consulte https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/hw/aci_9336cfx2_hig/guide/b_n9336cFX2_aci_hardware_installation_guide.html["Guía de instalación de hardware de la serie Cisco Nexus 9000"^] .
 
 
 .Pasos
-. Instale el panel de borrado de paso en el armario de NetApp.
+. Instale el panel de obturación de paso en el armario NetApp .
 +
-.. Determine la ubicación vertical de los interruptores y el panel de supresión en el armario.
+.. Determine la ubicación vertical de los interruptores y del panel ciego en el gabinete.
 +
-En este procedimiento, el panel de limpieza se instala en U40.
+En este procedimiento, el panel de obturación se instala en U40.
 
-.. Instale dos tuercas de abrazadera a cada lado en los orificios cuadrados adecuados para los rieles delanteros del armario.
-.. Centre el panel verticalmente para evitar intrusiones en el espacio adyacente del bastidor y, a continuación, apriete los tornillos.
-.. Inserte los conectores hembra de ambos cables puente de 48 pulgadas desde la parte posterior del panel y a través del conjunto del cepillo.
+.. Instale dos tuercas de clip en cada lado en los orificios cuadrados correspondientes para los rieles del gabinete frontal.
+.. Centre el panel verticalmente para evitar la intrusión en el espacio del rack adyacente y luego apriete los tornillos.
+.. Inserte los conectores hembra de ambos cables puente de 48 pulgadas desde la parte posterior del panel y a través del conjunto de escobillas.
 +
 image::../media/cisco_9148_jumper_cords.gif[]
 
 +
-_(1) conector hembra del cable puente._
+_(1) Conector hembra del cable puente._
 
 
 
-. Instale los soportes de montaje en rack en el chasis del switch Nexus 9336C-FX2.
+. Instale los soportes de montaje en rack en el chasis del conmutador Nexus 9336C-FX2.
 +
-.. Coloque un soporte de montaje de rack frontal en un lado del chasis del switch de modo que el oído de montaje esté alineado con la placa frontal del chasis (en el lado de la fuente de alimentación o del ventilador) y, a continuación, utilice cuatro tornillos M4 para conectar el soporte al chasis.
+.. Coloque un soporte de montaje en rack frontal en un lado del chasis del conmutador de modo que la oreja de montaje esté alineada con la placa frontal del chasis (en el lado de la fuente de alimentación o del ventilador) y luego use cuatro tornillos M4 para fijar el soporte al chasis.
 +
 image::../media/3132q_front_bracket.gif[soporte delantero]
 
-.. Repita el paso 2a con el otro soporte de montaje en bastidor delantero en el otro lado del interruptor.
-.. Instale el soporte de montaje en bastidor trasero en el chasis del interruptor.
-.. Repita el paso 2c con el otro soporte de montaje en rack trasero en el otro lado del interruptor.
+.. Repita el paso 2a con el otro soporte de montaje en rack frontal en el otro lado del conmutador.
+.. Instale el soporte de montaje en rack trasero en el chasis del conmutador.
+.. Repita el paso 2c con el otro soporte de montaje en rack trasero en el otro lado del conmutador.
 
 
-. Instale las tuercas de abrazadera en las ubicaciones de los orificios cuadrados de los cuatro postes de IEA.
+. Instale las tuercas de clip en las ubicaciones de los orificios cuadrados para los cuatro postes IEA.
 +
 image::../media/ru_locations_for_3132q_v.gif[]
 
 +
 Los dos conmutadores 9336C-FX2 y 9336C-FX2-T siempre se montan en la parte superior 2U del gabinete RU41 y 42.
 
-. Instale los rieles deslizantes en el armario.
+. Instale los rieles deslizantes en el gabinete.
 +
-.. Coloque el primer raíl deslizante en la Marca RU42 en la parte posterior del poste trasero izquierdo, inserte los tornillos con el tipo de rosca correspondiente y, a continuación, apriete los tornillos con los dedos.
+.. Coloque el primer riel deslizante en la marca RU42 en la parte posterior del poste trasero izquierdo, inserte los tornillos con el tipo de rosca correspondiente y luego apriete los tornillos con los dedos.
 +
 image::../media/3132q_v_slider_rails.gif[]
 
 +
-_(1) mientras desliza suavemente el raíl deslizante, alinéelo con los orificios de los tornillos del rack._
+_(1) Al deslizar suavemente el riel deslizante, alinéelo con los orificios para tornillos del soporte._
 
 +
-_(2) apriete los tornillos de las guías deslizantes a los postes del armario._
+_(2) Apriete los tornillos de los rieles deslizantes a los postes del gabinete._
 
 .. Repita el paso 4a para el poste trasero del lado derecho.
-.. Repita los pasos 4a y 4b en las ubicaciones RU41 del armario.
+.. Repita los pasos 4a y 4b en las ubicaciones RU41 del gabinete.
 
 
 . Instale el interruptor en el armario.
 +
 
-NOTE: Este paso requiere dos personas: Una persona para sostener el interruptor desde la parte frontal y otra para guiar el interruptor hacia los rieles deslizantes traseros.
+NOTE: Este paso requiere dos personas: una persona para sostener el interruptor desde el frente y otra para guiar el interruptor hacia los rieles deslizantes traseros.
 
 +
 .. Coloque la parte posterior del interruptor en RU41.
@@ -99,37 +99,37 @@ NOTE: Este paso requiere dos personas: Una persona para sostener el interruptor 
 image::../media/3132q_v_positioning.gif[Posicionamiento del 3232C en U39-40]
 
 +
-_(1) a medida que el chasis se empuja hacia los postes traseros, alinee las dos guías de montaje en bastidor trasero con los rieles deslizantes._
+_(1) A medida que el chasis se desplaza hacia los postes traseros, alinee las dos guías de montaje del rack trasero con los rieles deslizantes._
 
 +
-_(2) deslice suavemente el interruptor hasta que los soportes de montaje del bastidor delantero estén a ras con los postes delanteros._
+_(2) Deslice suavemente el interruptor hasta que los soportes de montaje en rack frontales queden al ras con los postes frontales._
 
-.. Conecte el interruptor al armario.
+.. Fije el interruptor al armario.
 +
 image::../media/3132q_attaching.gif[]
 
 +
-_(1) con una persona sujetando la parte delantera del chasis, la otra persona debe apretar completamente los cuatro tornillos traseros a los postes del armario._
+_(1) Mientras una persona sujeta la parte frontal del chasis nivelada, la otra persona debe apretar completamente los cuatro tornillos traseros a los postes del gabinete._
 
-.. Con el chasis apoyado ahora sin ayuda, apriete completamente los tornillos delanteros a los postes.
+.. Con el chasis ahora apoyado sin ayuda, apriete completamente los tornillos delanteros a los postes.
 .. Repita los pasos 5a a 5c para el segundo interruptor en la ubicación RU42.
 +
 
-NOTE: Al utilizar el interruptor completamente instalado como soporte, no es necesario mantener la parte delantera del segundo interruptor durante el proceso de instalación.
+NOTE: Al utilizar el interruptor completamente instalado como soporte, no es necesario sujetar la parte delantera del segundo interruptor durante el proceso de instalación.
 
 
 
-. Cuando los interruptores estén instalados, conecte los cables de puente a las entradas de alimentación del interruptor.
-. Conecte los enchufes macho de ambos cables de puente a las tomas de la PDU más cercanas.
+. Cuando los interruptores estén instalados, conecte los cables puente a las entradas de alimentación del interruptor.
+. Conecte los enchufes macho de ambos cables puente a las tomas de corriente PDU más cercanas disponibles.
 +
 
 NOTE: Para mantener la redundancia, los dos cables deben estar conectados a diferentes PDU.
 
 . Conecte el puerto de administración de cada conmutador 9336C-FX2 y 9336C-FX2-T a cualquiera de los conmutadores de administración (si se solicitaron) o conéctelos directamente a su red de administración.
 +
-El puerto de gestión es el puerto superior derecho ubicado en el lado PSU del switch. El cable CAT6 para cada switch debe enrutarse a través del panel de paso a través después de instalar los switches para conectarse a los switches de administración o a la red de gestión.
+El puerto de administración es el puerto superior derecho ubicado en el lado de la fuente de alimentación del conmutador. El cable CAT6 de cada conmutador debe pasarse a través del panel de paso después de instalar los conmutadores para conectarlos a los conmutadores de administración o a la red de administración.
 
 
 
-.El futuro
+.¿Que sigue?
 Después de instalar los switches en el armario NetApp , puedeslink:setup-switch-9336c-cluster.html["configurar los conmutadores Cisco Nexus 9336C-FX2 y 9336C-FX2-T"] .

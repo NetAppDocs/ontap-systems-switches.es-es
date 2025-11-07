@@ -2,7 +2,7 @@
 section: switch-cisco-3232c
 title: Cisco Nexus 3232C
 entries:
-- title: Manos a la obra
+- title: Empezar
   pdf-filename: Overview_3232C
   entries:
   - title: Inicio rápido
@@ -13,91 +13,92 @@ entries:
     url: "/switch-cisco-3232c/required-documentation-3232c.html"
   - title: Requisitos de Smart Call Home
     url: "/switch-cisco-3232c/smart-call-home-3232c.html"
-- title: Instale el hardware
+- title: Instalar hardware
   pdf-filename: Install_hardware_3232C
   entries:
   - title: Flujo de trabajo de instalación de hardware
     url: "/switch-cisco-3232c/install-hardware-workflow.html"
-  - title: Complete la hoja de cálculo de cableado
+  - title: Hoja de trabajo de cableado completa
     url: "/switch-cisco-3232c/setup_worksheet_3232c.html"
-  - title: Instale el interruptor
+  - title: Instala el interruptor
     url: "/switch-cisco-3232c/install-switch-3232c.html"
-  - title: Instale el switch en el armario de NetApp
+  - title: Instale el switch en el armario NetApp.
     url: "/switch-cisco-3232c/install-cisco-nexus-3232c.html"
   - title: Revisar el cableado y la configuración
     url: "/switch-cisco-3232c/cabling-considerations-3232c.html"
-- title: Configurar el software
+- title: Configurar software
   pdf-filename: Configure_software_3232C
   entries:
-  - title: Flujo de trabajo de instalación del software
+  - title: Flujo de trabajo de instalación de software
     url: "/switch-cisco-3232c/configure-software-overview-3232c-cluster.html"
-  - title: Configure el switch
+  - title: Configura el interruptor
     url: "/switch-cisco-3232c/setup-switch.html"
-  - title: Prepárese para instalar el software NX-OS y RCF
+  - title: Prepárese para instalar el software NX-OS y RCF.
     url: "/switch-cisco-3232c/prepare-install-cisco-nexus-3232c.html"
   - title: Instale el software NX-OS
     url: "/switch-cisco-3232c/install-nx-os-software-3232c.html"
-  - title: Instale o actualice el RCF
+  - title: Instalar o actualizar el RCF
     pdf-filename: instalar_actualizar_rcf
     entries:
-    - title: Instale o actualice la descripción general de RCF
+    - title: Descripción general de la instalación o actualización de RCF
       url: "/switch-cisco-3232c/install-upgrade-rcf-overview-3232c.html"
-    - title: Instale el RCF
+    - title: Instala el RCF
       url: "/switch-cisco-3232c/install-rcf-software-3232c.html"
-    - title: Actualice su versión de RCF
+    - title: Actualiza tu versión de RCF
       url: "/switch-cisco-3232c/upgrade-rcf-software-3232c.html"
   - title: Verificar la configuración de SSH
     url: "/switch-cisco-3232c/configure-ssh-keys.html"
   - title: Restablecer el interruptor a los valores predeterminados de fábrica
     url: "/switch-cisco-3232c/reset-switch-3232c.html"
-- title: Migrar switches
+- title: Migrar interruptores
   pdf-filename: Migrate_switches_3232C
   entries:
-  - title: Migración de switches de CN1610 GbE
+  - title: migración de conmutador CN1610
     pdf-filename: CN1610_switch_migration
     entries:
-    - title: Migrar desde CN1610 switches de flujo de trabajo
+    - title: Flujo de trabajo de migración desde conmutadores CN1610
       url: "/switch-cisco-3232c/cn1610-migrate-workflow.html"
     - title: Requisitos de migración
       url: "/switch-cisco-3232c/cn1610-migrate-to-3232c-overview.html"
-    - title: Prepare la migración
+    - title: Prepárate para la migración
       url: "/switch-cisco-3232c/cn1610-prepare-to-migrate.html"
-    - title: Reemplace el interruptor del grupo de instrumentos CL2
+    - title: Sustituir el interruptor de clúster CL2
       url: "/switch-cisco-3232c/cn1610-replace-CL2.html"
-    - title: Reemplace el interruptor del grupo de instrumentos CL1
+    - title: Sustituir el interruptor de clúster CL1
       url: "/switch-cisco-3232c/cn1610-replace-CL1.html"
-    - title: Completa la migración
+    - title: Completa tu migración
       url: "/switch-cisco-3232c/cn1610-complete-migration.html"
-  - title: Migración de switch Nexus 5596
+  - title: migración de conmutador Nexus 5596
     pdf-filename: CN5596_switch_migration
     entries:
-    - title: Migre desde el flujo de trabajo de los switches Nexus 5596 de Cisco
+    - title: Flujo de trabajo de migración desde switches Cisco Nexus 5596
       url: "/switch-cisco-3232c/cn5596-migrate-workflow.html"
     - title: Requisitos de migración
       url: "/switch-cisco-3232c/cn5596-migrate-requirements.html"
-    - title: Prepare la migración
+    - title: Prepárate para la migración
       url: "/switch-cisco-3232c/cn5596-prepare-to-migrate.html"
-    - title: Configure los puertos
+    - title: Configura tus puertos
       url: "/switch-cisco-3232c/cn5596-configure-ports.html"
-    - title: Completa la migración
+    - title: Completa tu migración
       url: "/switch-cisco-3232c/cn5596-complete-migration.html"
-  - title: Migre desde clústeres de dos nodos sin switch
-    pdf-filename: Migrate_from_switchless_clusters
+  - title: Migrar desde clústeres sin conmutador de dos nodos
+    pdf-filename: Migrar desde clústeres sin conmutadores
     entries:
-    - title: Migre desde un flujo de trabajo de clústeres sin switch de dos nodos
+    - title: Migración desde un flujo de trabajo de clústeres sin conmutador de dos
+        nodos
       url: "/switch-cisco-3232c/migrate-from-switchless-workflow.html"
     - title: Requisitos de migración
       url: "/switch-cisco-3232c/migrate-from-switchless-migrate-requirements.html"
-    - title: Prepare la migración
+    - title: Prepárate para la migración
       url: "/switch-cisco-3232c/migrate-from-switchless-prepare-to-migrate.html"
-    - title: Configure los puertos
+    - title: Configura tus puertos
       url: "/switch-cisco-3232c/migrate-from-switchless-configure-ports.html"
-    - title: Completa la migración
+    - title: Completa tu migración
       url: "/switch-cisco-3232c/migrate-from-switchless-complete-migration.html"
-- title: Sustituya los interruptores
+- title: Reemplace los interruptores
   pdf-filename: Replace_switches_3232C
   entries:
-  - title: Sustituya el switch del clúster
+  - title: Reemplazar interruptor de clúster
     url: "/switch-cisco-3232c/replace-cluster-switch.html"
-  - title: Sustituya los switches del clúster por conexiones sin switch
+  - title: Reemplace los conmutadores de clúster con conexiones sin conmutadores
     url: "/switch-cisco-3232c/migrate-to-switchless-cluster-interconnect.html"

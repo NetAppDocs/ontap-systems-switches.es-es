@@ -2,454 +2,454 @@
 permalink: switch-cisco-9336c-fx2-storage/setup-worksheet-9336c-storage.html 
 sidebar: sidebar 
 keywords: document, support, platform, complete, blank, cabling, worksheet, guide, cisco, nexus, cisco nexus 9336c-fx2 cabling worksheet - cisco nexus 9336-fx2 
-summary: Si desea documentar las plataformas compatibles, debe rellenar la hoja de datos de cableado en blanco utilizando la hoja de datos de cableado de muestra completada como guía. 
+summary: Si desea documentar las plataformas compatibles, debe completar la hoja de trabajo de cableado en blanco utilizando como guía la hoja de trabajo de cableado de muestra completada. 
 ---
-= Complete la hoja de datos de cableado de Nexus 9336C-FX2 o 9336C-FX2-T de Cisco
+= Complete la hoja de trabajo de cableado de Cisco Nexus 9336C-FX2 o 9336C-FX2-T
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si desea documentar las plataformas compatibles, descargue un PDF de esta página y rellene la hoja de datos de cableado.
+Si desea documentar las plataformas compatibles, descargue un PDF de esta página y complete la hoja de trabajo de cableado.
 
-La hoja de cálculo de cableado de ejemplo proporciona ejemplos de asignaciones de puertos recomendadas desde los switches a las controladoras. La hoja de datos en blanco proporciona una plantilla que puede utilizar para configurar su clúster.
+La hoja de cálculo de cableado de muestra proporciona ejemplos de asignaciones de puertos recomendadas desde los conmutadores a los controladores.  La hoja de trabajo en blanco proporciona una plantilla que puede utilizar para configurar su clúster.
 
-* <<Hoja de trabajo para el cableado de muestras 9336C-FX2>>
-* <<Hoja de trabajo para el cableado en blanco 9336C-FX2>>
-* <<Hoja de datos para el cableado de muestras 9336C-FX2-T (12 puertos)>>
-* <<Hoja de datos para el cableado en blanco de 9336C-FX2-T (12 puertos)>>
-
-
+* <<Hoja de trabajo de cableado de muestra 9336C-FX2>>
+* <<Hoja de cableado en blanco 9336C-FX2>>
+* <<Hoja de trabajo de cableado de muestra 9336C-FX2-T (12 puertos)>>
+* <<Hoja de cableado en blanco 9336C-FX2-T (12 puertos)>>
 
 
-== Hoja de trabajo para el cableado de muestras 9336C-FX2
 
-La definición de puerto de ejemplo de cada par de conmutadores es la siguiente:
+
+== Hoja de trabajo de cableado de muestra 9336C-FX2
+
+La definición de puerto de muestra en cada par de conmutadores es la siguiente:
 
 [cols="1,3,1,3"]
 |===
-2+| Switch de clúster a 2+| Switch del clúster B 
+2+| Interruptor de clúster A 2+| Interruptor de clúster B 
 
 
-| Puerto del switch | Uso de nodos y puertos | Puerto del switch | Uso de nodos y puertos 
+| Puerto de conmutación | Uso de nodos y puertos | Puerto de conmutación | Uso de nodos y puertos 
 
 
  a| 
 1
  a| 
-4 nodos de 100 GbE 1
+4x100GbE nodo 1
  a| 
 1
  a| 
-4 nodos de 100 GbE 1
+4x100GbE nodo 1
 
 
 
  a| 
 2
  a| 
-4 nodos de 100 GbE 2
+4x100GbE nodo 2
  a| 
 2
  a| 
-4 nodos de 100 GbE 2
+4x100GbE nodo 2
 
 
 
  a| 
 3
  a| 
-4 nodos de 100 GbE 3
+4x100GbE nodo 3
  a| 
 3
  a| 
-4 nodos de 100 GbE 3
+4x100GbE nodo 3
 
 
 
  a| 
 4
  a| 
-4 nodos de 100 GbE 4
+4 nodos 4x100GbE
  a| 
 4
  a| 
-4 nodos de 100 GbE 4
+4 nodos 4x100GbE
 
 
 
  a| 
 5
  a| 
-4 nodos de 100 GbE 5
+4x100GbE nodo 5
  a| 
 5
  a| 
-4 nodos de 100 GbE 5
+4x100GbE nodo 5
 
 
 
  a| 
 6
  a| 
-4 nodos de 100 GbE 6
+4x100GbE nodo 6
  a| 
 6
  a| 
-4 nodos de 100 GbE 6
+4x100GbE nodo 6
 
 
 
  a| 
 7
  a| 
-4 nodos de 100 GbE 7
+4x100GbE nodo 7
  a| 
 7
  a| 
-4 nodos de 100 GbE 7
+4x100GbE nodo 7
 
 
 
  a| 
 8
  a| 
-4 nodos de 100 GbE 8
+4x100GbE nodo 8
  a| 
 8
  a| 
-4 nodos de 100 GbE 8
+4x100GbE nodo 8
 
 
 
  a| 
 9
  a| 
-4 nodos de 100 GbE 9
+Nodo 9 con 4x100GbE
  a| 
 9
  a| 
-4 nodos de 100 GbE 9
+Nodo 9 con 4x100GbE
 
 
 
  a| 
 10
  a| 
-4 nodos de 100 GbE 10
+4x100GbE nodo 10
  a| 
 10
  a| 
-4 nodos de 100 GbE 10
+4x100GbE nodo 10
 
 
 
  a| 
 11
  a| 
-4 nodos de 100 GbE 11
+4x100GbE nodo 11
  a| 
 11
  a| 
-4 nodos de 100 GbE 11
+4x100GbE nodo 11
 
 
 
  a| 
 12
  a| 
-4 nodos de 100 GbE 12
+4x100GbE nodo 12
  a| 
 12
  a| 
-4 nodos de 100 GbE 12
+4x100GbE nodo 12
 
 
 
  a| 
 13
  a| 
-4 nodos de 100 GbE 13
+4x100GbE nodo 13
  a| 
 13
  a| 
-4 nodos de 100 GbE 13
+4x100GbE nodo 13
 
 
 
  a| 
 14
  a| 
-4 nodos de 100 GbE 14
+4x100GbE nodo 14
  a| 
 14
  a| 
-4 nodos de 100 GbE 14
+4x100GbE nodo 14
 
 
 
  a| 
 15
  a| 
-4 nodos de 100 GbE 15
+4x100GbE nodo 15
  a| 
 15
  a| 
-4 nodos de 100 GbE 15
+4x100GbE nodo 15
 
 
 
  a| 
 16
  a| 
-4 nodos de 100 GbE 16
+4x100GbE nodo 16
  a| 
 16
  a| 
-4 nodos de 100 GbE 16
+4x100GbE nodo 16
 
 
 
  a| 
 17
  a| 
-4 nodos de 100 GbE 17
+4x100GbE nodo 17
  a| 
 17
  a| 
-4 nodos de 100 GbE 17
+4x100GbE nodo 17
 
 
 
  a| 
 18
  a| 
-4 nodos de 100 GbE 18
+4x100GbE nodo 18
  a| 
 18
  a| 
-4 nodos de 100 GbE 18
+4x100GbE nodo 18
 
 
 
  a| 
 19
  a| 
-4 nodos de 100 GbE 19
+Nodo 19 con 4x100GbE
  a| 
 19
  a| 
-4 nodos de 100 GbE 19
+Nodo 19 con 4x100GbE
 
 
 
  a| 
 20
  a| 
-4 nodos de 100 GbE 20
+4x100GbE nodo 20
  a| 
 20
  a| 
-4 nodos de 100 GbE 20
+4x100GbE nodo 20
 
 
 
  a| 
 21
  a| 
-4 nodos de 100 GbE 21
+4x100GbE nodo 21
  a| 
 21
  a| 
-4 nodos de 100 GbE 21
+4x100GbE nodo 21
 
 
 
  a| 
 22
  a| 
-4 nodos de 100 GbE 22
+4x100GbE nodo 22
  a| 
 22
  a| 
-4 nodos de 100 GbE 22
+4x100GbE nodo 22
 
 
 
  a| 
 23
  a| 
-4 nodos de 100 GbE 23
+4x100GbE nodo 23
  a| 
 23
  a| 
-4 nodos de 100 GbE 23
+4x100GbE nodo 23
 
 
 
  a| 
 24
  a| 
-4 nodos de 100 GbE 24
+4 nodos 100GbE 24
  a| 
 24
  a| 
-4 nodos de 100 GbE 24
+4 nodos 100GbE 24
 
 
 
  a| 
 25
  a| 
-4 nodos de 100 GbE 25
+4x100GbE nodo 25
  a| 
 25
  a| 
-4 nodos de 100 GbE 25
+4x100GbE nodo 25
 
 
 
  a| 
 26
  a| 
-4 nodos de 100 GbE 26
+4x100GbE nodo 26
  a| 
 26
  a| 
-4 nodos de 100 GbE 26
+4x100GbE nodo 26
 
 
 
  a| 
 27
  a| 
-4 nodos de 100 GbE 27
+4x100GbE nodo 27
  a| 
 27
  a| 
-4 nodos de 100 GbE 27
+4x100GbE nodo 27
 
 
 
  a| 
 28
  a| 
-4 nodos de 100 GbE 28
+4x100GbE nodo 28
  a| 
 28
  a| 
-4 nodos de 100 GbE 28
+4x100GbE nodo 28
 
 
 
  a| 
 29
  a| 
-4 nodos de 100 GbE 29
+4x100GbE nodo 29
  a| 
 29
  a| 
-4 nodos de 100 GbE 29
+4x100GbE nodo 29
 
 
 
  a| 
 30
  a| 
-4 nodos de 100 GbE 30
+4x100GbE nodo 30
  a| 
 30
  a| 
-4 nodos de 100 GbE 30
+4x100GbE nodo 30
 
 
 
  a| 
 31
  a| 
-4 nodos de 100 GbE 31
+4x100GbE nodo 31
  a| 
 31
  a| 
-4 nodos de 100 GbE 31
+4x100GbE nodo 31
 
 
 
  a| 
 32
  a| 
-4 nodos de 100 GbE 32
+4x100GbE nodo 32
  a| 
 32
  a| 
-4 nodos de 100 GbE 32
+4x100GbE nodo 32
 
 
 
  a| 
 33
  a| 
-4 nodos de 100 GbE 33
+4x100GbE nodo 33
  a| 
 33
  a| 
-4 nodos de 100 GbE 33
+4x100GbE nodo 33
 
 
 
  a| 
 30
  a| 
-4 nodos de 100 GbE 30
+4x100GbE nodo 30
  a| 
 30
  a| 
-4 nodos de 100 GbE 33
+4x100GbE nodo 33
 
 
 
  a| 
 34
  a| 
-4 nodos de 100 GbE 34
+4x100GbE nodo 34
  a| 
 34
  a| 
-4 nodos de 100 GbE 34
+4x100GbE nodo 34
 
 
 
  a| 
 35
  a| 
-4 nodos de 100 GbE 35
+4x100GbE nodo 35
  a| 
 35
  a| 
-4 nodos de 100 GbE 35
+4x100GbE nodo 35
 
 
 
  a| 
 36
  a| 
-4 nodos de 100 GbE 36
+4x100GbE nodo 36
  a| 
 36
  a| 
-4 nodos de 100 GbE 36
+4x100GbE nodo 36
 
 |===
 
 
-== Hoja de trabajo para el cableado en blanco 9336C-FX2
+== Hoja de cableado en blanco 9336C-FX2
 
-Puede utilizar la hoja de datos de cableado vacía para documentar las plataformas que se admiten como nodos de un clúster. La sección _Cluster Connections_ del https://hwu.netapp.com["Hardware Universe"^] define los puertos de clúster que utiliza la plataforma.
+Puede utilizar la hoja de trabajo de cableado en blanco para documentar las plataformas que se admiten como nodos en un clúster.  La sección _Conexiones de clúster admitidas_ de https://hwu.netapp.com["Hardware Universe"^] Define los puertos del clúster utilizados por la plataforma.
 
 [cols="5%, 45%, 5%, 45%"]
 |===
-2+| Switch de clúster a 2+| Switch del clúster B 
+2+| Interruptor de clúster A 2+| Interruptor de clúster B 
 
 
  a| 
@@ -777,125 +777,125 @@ Puede utilizar la hoja de datos de cableado vacía para documentar las plataform
 |===
 
 
-== Hoja de datos para el cableado de muestras 9336C-FX2-T (12 puertos)
+== Hoja de trabajo de cableado de muestra 9336C-FX2-T (12 puertos)
 
-La definición de puerto de ejemplo de cada par de conmutadores es la siguiente:
+La definición de puerto de muestra en cada par de conmutadores es la siguiente:
 
 [cols="1,3,1,3"]
 |===
-2+| Switch de clúster a 2+| Switch del clúster B 
+2+| Interruptor de clúster A 2+| Interruptor de clúster B 
 
 
-| Puerto del switch | Uso de nodos y puertos | Puerto del switch | Uso de nodos y puertos 
+| Puerto de conmutación | Uso de nodos y puertos | Puerto de conmutación | Uso de nodos y puertos 
 
 
  a| 
 1
  a| 
-4 nodos de 100 GbE 1
+4x100GbE nodo 1
  a| 
 1
  a| 
-4 nodos de 100 GbE 1
+4x100GbE nodo 1
 
 
 
  a| 
 2
  a| 
-4 nodos de 100 GbE 2
+4x100GbE nodo 2
  a| 
 2
  a| 
-4 nodos de 100 GbE 2
+4x100GbE nodo 2
 
 
 
  a| 
 3
  a| 
-4 nodos de 100 GbE 3
+4x100GbE nodo 3
  a| 
 3
  a| 
-4 nodos de 100 GbE 3
+4x100GbE nodo 3
 
 
 
  a| 
 4
  a| 
-4 nodos de 100 GbE 4
+4 nodos 4x100GbE
  a| 
 4
  a| 
-4 nodos de 100 GbE 4
+4 nodos 4x100GbE
 
 
 
  a| 
 5
  a| 
-4 nodos de 100 GbE 5
+4x100GbE nodo 5
  a| 
 5
  a| 
-4 nodos de 100 GbE 5
+4x100GbE nodo 5
 
 
 
  a| 
 6
  a| 
-4 nodos de 100 GbE 6
+4x100GbE nodo 6
  a| 
 6
  a| 
-4 nodos de 100 GbE 6
+4x100GbE nodo 6
 
 
 
  a| 
 7
  a| 
-4 nodos de 100 GbE 7
+4x100GbE nodo 7
  a| 
 7
  a| 
-4 nodos de 100 GbE 7
+4x100GbE nodo 7
 
 
 
  a| 
 8
  a| 
-4 nodos de 100 GbE 8
+4x100GbE nodo 8
  a| 
 8
  a| 
-4 nodos de 100 GbE 8
+4x100GbE nodo 8
 
 
 
  a| 
 9
  a| 
-4 nodos de 100 GbE 9
+Nodo 9 con 4x100GbE
  a| 
 9
  a| 
-4 nodos de 100 GbE 9
+Nodo 9 con 4x100GbE
 
 
 
  a| 
 10
  a| 
-4 nodos de 100 GbE 10
+4x100GbE nodo 10
  a| 
 10
  a| 
-4 nodos de 100 GbE 10
+4x100GbE nodo 10
 
 
 
@@ -904,20 +904,20 @@ La definición de puerto de ejemplo de cada par de conmutadores es la siguiente:
  a| 
 Requiere licencia
  a| 
-11 hasta 36
+11 al 36
  a| 
 Requiere licencia
 
 |===
 
 
-== Hoja de datos para el cableado en blanco de 9336C-FX2-T (12 puertos)
+== Hoja de cableado en blanco 9336C-FX2-T (12 puertos)
 
-Puede utilizar la hoja de datos de cableado vacía para documentar las plataformas que se admiten como nodos de un clúster.
+Puede utilizar la hoja de trabajo de cableado en blanco para documentar las plataformas que se admiten como nodos en un clúster.
 
 [cols="1, 1, 1, 1"]
 |===
-2+| Switch de clúster a 2+| Switch del clúster B 
+2+| Interruptor de clúster A 2+| Interruptor de clúster B 
 
 
  a| 
@@ -1011,16 +1011,16 @@ Puede utilizar la hoja de datos de cableado vacía para documentar las plataform
 
 
  a| 
-11 hasta 36
+11 al 36
  a| 
 Requiere licencia
  a| 
-11 hasta 36
+11 al 36
  a| 
 Requiere licencia
 
 |===
-Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obtener más información sobre los puertos de switch.
+Ver el https://hwu.netapp.com/Switch/Index["Hardware Universe"] Para obtener más información sobre los puertos del switch.
 
 .¿Qué sigue?
 Una vez que hayas completado tus hojas de trabajo de cableado, podrás link:install-9336c-storage.html["instalar el interruptor"].

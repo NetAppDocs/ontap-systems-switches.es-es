@@ -2,24 +2,24 @@
 permalink: switch-cisco-3132q-v/migrate-switchless-complete-migration.html 
 sidebar: sidebar 
 keywords: cisco 3132q-v, cluster switches 
-summary: Puede utilizar switches Nexus 3132q-v de Cisco como switches de clúster en su clúster AFF o FAS. 
+summary: Puede utilizar los switches Cisco Nexus 3132q-v como switches de clúster en su clúster AFF o FAS . 
 ---
-= Complete la migración de clústeres de dos nodos sin switch a clústeres con switches de dos nodos
+= Completar la migración de clústeres de dos nodos sin conmutador a clústeres de dos nodos con conmutador.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga estos pasos para completar la migración desde clústeres sin switch a clústeres con switches de dos nodos.
+Siga estos pasos para completar la migración de clústeres sin conmutador a clústeres conmutados de dos nodos.
 
 .Pasos
-. Muestre los números de puertos del switch del clúster a los que está conectado cada puerto del clúster en cada nodo:
+. Muestra los números de puerto del conmutador de clúster a los que está conectado cada puerto de clúster en cada nodo:
 +
 `network device-discovery show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing]
@@ -36,12 +36,12 @@ n2         /cdp
             e4e    C2                  Ethernet1/8      N3K-C3132Q-V
 ----
 ====
-. Mostrar switches de clúster detectados y supervisados:
+. Se muestran los conmutadores del clúster detectados y monitorizados:
 +
 `system cluster-switch show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing]
@@ -69,7 +69,7 @@ C2                          cluster-network      10.10.1.102    NX3132V
 2 entries were displayed.
 ----
 ====
-. Deshabilite los ajustes de configuración de dos nodos sin switch en cualquier nodo:
+. Deshabilite la configuración sin interruptor de dos nodos en cualquier nodo:
 +
 `network options switchless-cluster`
 
@@ -78,28 +78,28 @@ C2                          cluster-network      10.10.1.102    NX3132V
 ----
 network options switchless-cluster modify -enabled false
 ----
-. Compruebe que el `switchless-cluster` la opción se ha desactivado.
+. Verifique que el `switchless-cluster` La opción ha sido desactivada.
 +
 [listing]
 ----
 network options switchless-cluster show
 ----
-. Compruebe la conectividad de las interfaces del clúster remoto:
+. Verifique la conectividad de las interfaces del clúster remoto:
 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.9.1 y versiones posteriores
+.ONTAP 9.9.1 y posteriores
 --
-Puede utilizar el `network interface check cluster-connectivity` comando para iniciar una comprobación de accesibilidad de la conectividad del clúster y, a continuación, muestre los detalles:
+Puedes usar el `network interface check cluster-connectivity` comando para iniciar una comprobación de accesibilidad para la conectividad del clúster y luego mostrar los detalles:
 
-`network interface check cluster-connectivity start` y.. `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`y `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* Espere varios segundos antes de ejecutar el comando show para mostrar los detalles.
+*NOTA:* Espere unos segundos antes de ejecutar el comando show para que se muestren los detalles.
 
 [listing, subs="+quotes"]
 ----
@@ -116,9 +116,9 @@ n2
        3/5/2022 19:21:20 -06:00   n2_clus2        n1_clus2      none
 ----
 --
-.Todos los lanzamientos de ONTAP
+.Todas las versiones de ONTAP
 --
-En todas las versiones de ONTAP, también se puede utilizar el `cluster ping-cluster -node <name>` comando para comprobar la conectividad:
+Para todas las versiones de ONTAP , también puede usar el `cluster ping-cluster -node <name>` comando para comprobar la conectividad:
 
 `cluster ping-cluster -node <name>`
 
@@ -151,11 +151,11 @@ RPC status:
 ----
 --
 ====
-. [[step6]]Si suprimió la creación automática de casos, vuelva a activarla llamando a un mensaje AutoSupport:
+. [[step6]]Si suprimió la creación automática de casos, vuelva a habilitarla invocando un mensaje de AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.El futuro
-link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"].
+.¿Que sigue?
+link:../switch-cshm/config-overview.html["Configurar la monitorización del estado del switch"].

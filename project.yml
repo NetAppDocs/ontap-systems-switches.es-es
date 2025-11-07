@@ -14,37 +14,37 @@ sidebar:
   entries:
   - title: Documentación de conmutadores para sistemas de hardware ONTAP
     url: "/index.html"
-  - title: Manos a la obra
+  - title: Empezar
     entries:
-    - title: Novedades
+    - title: Qué hay de nuevo
       url: "/whats-new.html"
-    - title: Obtenga más información sobre los switches de los sistemas ONTAP
+    - title: Obtenga información sobre los conmutadores de sistemas ONTAP.
       url: "/get-started/learn-switch-concept.html"
-    - title: Póngase en marcha
+    - title: "¡Levántate y corre!"
       url: "/get-started/get-up-and-running.html"
   - title: Conmutadores de sistemas AFX
     url: "/afx/index.html"
     entries:
     - section: switch-cisco-9332d-gx2b
     - section: switch-cisco-9364d-gx2a
-  - title: Switches de clúster
+  - title: Conmutadores de clúster
     url: "/cluster/index.html"
     entries:
     - section: switch-bes-53248
     - section: switch-cisco-9336c-fx2
     - section: switch-nvidia-sn2100
-  - title: Switches de almacenamiento
+  - title: Conmutadores de almacenamiento
     url: "/storage/index.html"
     entries:
     - section: switch-cisco-9336c-fx2-storage
     - section: switch-nvidia-sn2100-storage
-  - title: Switches compartidos
+  - title: Conmutadores compartidos
     url: "/shared/index.html"
     entries:
     - section: switch-cisco-9336c-fx2-shared
-      pdf-filename: switch-cisco-9336c-fx2-storage
+      pdf-filename: switch-cisco-9336c-fx2-almacenamiento
   - section: switch-cshm
-  - title: Switches de fin de disponibilidad
+  - title: Interruptores de fin de disponibilidad
     entries:
     - title: Descripción general
       url: "/overview-eod.html"

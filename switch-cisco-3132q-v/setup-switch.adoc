@@ -2,214 +2,214 @@
 permalink: switch-cisco-3132q-v/setup-switch.html 
 sidebar: sidebar 
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
-summary: Si no tiene la información de configuración y la documentación necesarias, debe recopilar esa información antes de configurar los switches de red del clúster y de gestión. 
+summary: Si aún no dispone de la información de configuración y la documentación necesarias, deberá recopilarlas antes de configurar el clúster y los conmutadores de red de administración. 
 ---
-= Configure el switch Cisco Nexus 3132Q-V.
+= Configure el switch Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga este procedimiento para configurar el switch Cisco Nexus 3132Q-V.
+Siga este procedimiento para configurar el conmutador Cisco Nexus 3132Q-V.
 
 .Antes de empezar
-* Acceso a un servidor HTTP, FTP o TFTP en el sitio de instalación para descargar las versiones correspondientes del NX-OS y del archivo de configuración de referencia (RCF).
-* La versión aplicable de NX-OS, descargada del https://software.cisco.com/download/home["Descarga de software de Cisco"^] página.
-* Se requiere documentación del switch de red, documentación de la controladora y documentación de ONTAP. Para obtener más información, consulte link:required-documentation-3132q.html["Documentación requerida"].
-* Las licencias aplicables, la información de configuración y red, y los cables.
-* Hojas de datos de cableado completadas. Consulte link:setup_worksheet_3132q.html["Hoja de trabajo completa del cableado Cisco Nexus 3132Q-V."].
-* Archivos RCF de red de gestión y red de clúster de NetApp aplicables, descargados del sitio de soporte de NetApp en http://mysupport.netapp.com/["mysupport.netapp.com"^] para los switches que reciba. Todos los switches de red de gestión y red de clúster de Cisco llegan con la configuración predeterminada de fábrica de Cisco. Estos conmutadores también tienen la versión actual del software NX-OS, pero no tienen cargados los RCF.
+* Acceso a un servidor HTTP, FTP o TFTP en el sitio de instalación para descargar las versiones aplicables de NX-OS y el archivo de configuración de referencia (RCF).
+* Versión aplicable de NX-OS, descargada desde https://software.cisco.com/download/home["Descarga de software de Cisco"^] página.
+* Documentación requerida del switch de red, documentación del controlador y documentación de ONTAP . Para obtener más información, consulte link:required-documentation-3132q.html["Documentación requerida"].
+* Licencias aplicables, información de red y configuración, y cables.
+* Hojas de trabajo de cableado completadas. Verlink:setup_worksheet_3132q.html["Hoja de trabajo de cableado completa de Cisco Nexus 3132Q-V"] .
+* Los archivos RCF de red de clúster y de red de administración de NetApp aplicables se pueden descargar del sitio de soporte de NetApp en http://mysupport.netapp.com/["mysupport.netapp.com"^] para los interruptores que reciba.  Todos los switches de red de clúster y de red de administración de Cisco vienen con la configuración predeterminada de fábrica estándar de Cisco .  Estos conmutadores también tienen la versión actual del software NX-OS, pero no tienen cargados los RCF.
 
 
 .Pasos
-. Monte en rack la red del clúster y los switches de red de gestión y las controladoras.
+. Instale en rack los conmutadores y controladores de la red del clúster y de la red de administración.
 +
 [cols="1,2"]
 |===
-| Si está instalando el... | Realice lo siguiente... 
+| Si estás instalando tu... | Entonces... 
 
 
  a| 
-Cisco Nexus 3132Q-V en un armario del sistema de NetApp
+Cisco Nexus 3132Q-V en un gabinete de sistema NetApp
  a| 
-Consulte la guía _instalación de un switch de clúster Cisco Nexus 3132Q-V y panel de paso a través en un armario de NetApp_ para obtener instrucciones sobre cómo instalar el switch en un armario de NetApp.
+Consulte la guía _Instalación de un conmutador de clúster Cisco Nexus 3132Q-V y un panel de paso en un gabinete NetApp para obtener instrucciones sobre cómo instalar el conmutador en un gabinete NetApp .
 
 
 
  a| 
-Equipo en un bastidor de Telco
+Equipos en un rack de telecomunicaciones
  a| 
-Consulte los procedimientos proporcionados en las guías de instalación del hardware del switch y las instrucciones de instalación y configuración de NetApp.
+Consulte los procedimientos proporcionados en las guías de instalación del hardware del switch y las instrucciones de instalación y configuración de NetApp .
 
 |===
-. Conecte los cables de la red de clústeres y los switches de red de gestión a las controladoras mediante la hoja de datos de cableado completada, como se describe en link:setup_worksheet_3132q.html["Hoja de trabajo completa del cableado Cisco Nexus 3132Q-V."].
-. Encienda la red de clúster y los switches de red de gestión y las controladoras.
-. Realice una configuración inicial de los switches de red de clúster.
+. Conecte los conmutadores de red del clúster y de la red de administración a los controladores utilizando la hoja de trabajo de cableado completada, como se describe enlink:setup_worksheet_3132q.html["Hoja de trabajo de cableado completa de Cisco Nexus 3132Q-V"] .
+. Encienda la alimentación de los conmutadores y controladores de la red del clúster y de la red de administración.
+. Realice una configuración inicial de los conmutadores de red del clúster.
 +
-Proporcione las respuestas correspondientes a las siguientes preguntas de configuración inicial cuando arranque el switch por primera vez. La política de seguridad de su sitio define las respuestas y los servicios que se deben habilitar.
+Proporcione las respuestas pertinentes a las siguientes preguntas de configuración inicial cuando encienda el switch por primera vez.  La política de seguridad de su sitio define las respuestas y los servicios que se deben habilitar.
 
 +
 [cols="1,2"]
 |===
-| Prompt | Respuesta 
+| Inmediato | Respuesta 
 
 
  a| 
-¿Desea anular el aprovisionamiento automático y continuar con la configuración normal? (sí/no)
+¿Interrumpir el aprovisionamiento automático y continuar con la configuración normal?  (sí/no)
  a| 
-Responda con *sí*. El valor predeterminado es no
-
-
-
- a| 
-¿Desea aplicar un estándar de contraseña segura? (sí/no)
- a| 
-Responda con *sí*. El valor predeterminado es yes.
+Responda con *sí*.  El valor predeterminado es no.
 
 
 
  a| 
-Introduzca la contraseña para el administrador:
+¿Desea implementar un estándar de contraseñas seguras?  (sí/no)
  a| 
-La contraseña predeterminada es "'admin'"; debe crear una nueva contraseña segura. Se puede rechazar una contraseña débil.
-
-
-
- a| 
-¿Desea introducir el cuadro de diálogo de configuración básica? (sí/no)
- a| 
-Responda con *sí* en la configuración inicial del interruptor.
+Responda con *sí*.  La respuesta predeterminada es sí.
 
 
 
  a| 
-¿Crear otra cuenta de inicio de sesión? (sí/no)
+Introduzca la contraseña de administrador:
  a| 
-Su respuesta depende de las políticas de su sitio con respecto a los administradores alternativos. El valor predeterminado es *no*.
-
-
-
- a| 
-¿Configurar cadena de comunidad SNMP de solo lectura? (sí/no)
- a| 
-Responda con *no*. El valor predeterminado es no
+La contraseña predeterminada es "`admin`"; debe crear una contraseña nueva y segura.  Una contraseña débil puede ser rechazada.
 
 
 
  a| 
-¿Configurar cadena de comunidad SNMP de lectura y escritura? (sí/no)
+¿Desea acceder al cuadro de diálogo de configuración básica?  (sí/no)
  a| 
-Responda con *no*. El valor predeterminado es no
-
-
-
- a| 
-Introduzca el nombre del switch.
- a| 
-El nombre del conmutador está limitado a 63 caracteres alfanuméricos.
+Responda con *sí* en la configuración inicial del switch.
 
 
 
  a| 
-¿Continuar con la configuración de administración fuera de banda (mgmt0)? (sí/no)
+¿Crear otra cuenta de inicio de sesión?  (sí/no)
  a| 
-Responda con *sí* (el valor predeterminado) en ese indicador. En el símbolo de sistema mgmt0 IPv4 address:, introduzca su dirección IP: ip_address.
-
-
-
- a| 
-¿Configurar la puerta de enlace predeterminada? (sí/no)
- a| 
-Responda con *sí*. En la dirección IPv4 de la solicitud default-Gateway:, introduzca su default_Gateway.
+La respuesta depende de las políticas de su sitio web sobre administradores alternativos.  El valor predeterminado es *no*.
 
 
 
  a| 
-¿Configurar las opciones avanzadas de IP? (sí/no)
+¿Configurar la cadena de comunidad SNMP de solo lectura?  (sí/no)
  a| 
-Responda con *no*. El valor predeterminado es no
-
-
-
- a| 
-¿Habilitar el servicio telnet? (sí/no)
- a| 
-Responda con *no*. El valor predeterminado es no
+Responda con *no*.  El valor predeterminado es no.
 
 
 
  a| 
-¿Servicio SSH habilitado? (sí/no)
+¿Configurar la cadena de comunidad SNMP de lectura y escritura?  (sí/no)
  a| 
-Responda con *sí*. El valor predeterminado es yes.
-
-
-NOTE: Se recomienda SSH cuando se utiliza Ethernet Switch Health Monitor (CSHM) para sus funciones de recopilación de registros. También se recomienda SSHv2 para mejorar la seguridad.
+Responda con *no*.  El valor predeterminado es no.
 
 
 
  a| 
-Introduzca el tipo de clave SSH que desea generar (dsa/rsa/rsa1).
+Introduzca el nombre del interruptor.
+ a| 
+El nombre del interruptor está limitado a 63 caracteres alfanuméricos.
+
+
+
+ a| 
+¿Continuar con la configuración de administración fuera de banda (mgmt0)?  (sí/no)
+ a| 
+Responda con *sí* (la opción predeterminada) a esa pregunta.  En el indicador de dirección IPv4 de mgmt0, ingrese su dirección IP: ip_address.
+
+
+
+ a| 
+¿Configurar la puerta de enlace predeterminada?  (sí/no)
+ a| 
+Responda con *sí*.  En el prompt Dirección IPv4 de la puerta de enlace predeterminada: ingrese su puerta de enlace predeterminada.
+
+
+
+ a| 
+¿Configurar opciones IP avanzadas?  (sí/no)
+ a| 
+Responda con *no*.  El valor predeterminado es no.
+
+
+
+ a| 
+¿Habilitar el servicio telnet?  (sí/no)
+ a| 
+Responda con *no*.  El valor predeterminado es no.
+
+
+
+ a| 
+¿Servicio SSH habilitado?  (sí/no)
+ a| 
+Responda con *sí*.  La respuesta predeterminada es sí.
+
+
+NOTE: Se recomienda utilizar SSH al usar Ethernet Switch Health Monitor (CSHM) por sus funciones de recopilación de registros.  También se recomienda SSHv2 para mayor seguridad.
+
+
+
+ a| 
+Ingrese el tipo de clave SSH que desea generar (dsa/rsa/rsa1).
  a| 
 El valor predeterminado es *rsa*.
 
 
 
  a| 
-Introduzca el número de bits de clave (1024-2048).
+Ingrese el número de bits de clave (1024-2048).
  a| 
-Introduzca los bits clave de 1024-2048.
+Ingrese los bits clave del 1024 al 2048.
 
 
 
  a| 
-¿Configurar el servidor NTP? (sí/no)
+¿Configurar el servidor NTP?  (sí/no)
  a| 
-Responda con *no*. El valor predeterminado es no
+Responda con *no*.  El valor predeterminado es no.
 
 
 
  a| 
 Configurar la capa de interfaz predeterminada (L3/L2):
  a| 
-Responda con *L2*. El valor predeterminado es L2.
+Responda con *L2*.  El valor predeterminado es L2.
 
 
 
  a| 
-Configurar el estado predeterminado de la interfaz del puerto del switch (cerrada/nohut):
+Configurar el estado predeterminado de la interfaz del puerto del switch (apagado/abierto):
  a| 
-Responda con *nohut*. El valor predeterminado es nohut.
-
-
-
- a| 
-Configurar el perfil del sistema COPP (estricto/moderado/indulgente/denso):
- a| 
-Responda con *estricto*. El valor predeterminado es estricto.
+Responda con *noshut*.  El valor predeterminado es noshut.
 
 
 
  a| 
-¿Desea editar la configuración? (sí/no)
+Configurar el perfil del sistema CoPP (estricto/moderado/permisivo/denso):
  a| 
-Debería ver la nueva configuración en este momento. Revise y realice los cambios necesarios en la configuración que acaba de introducir. Si está satisfecho con la configuración, responda *no* en el indicador. Responda con *sí* si desea editar los ajustes de configuración.
+Responda con *estricto*.  El valor predeterminado es estricto.
 
 
 
  a| 
-¿Utilizar esta configuración y guardarla? (sí/no)
+¿Desea editar la configuración?  (sí/no)
  a| 
-Responda con *sí* para guardar la configuración. De esta forma se actualizan automáticamente las imágenes kickstart y del sistema.
+En este punto debería ver la nueva configuración.  Revise y realice los cambios necesarios en la configuración que acaba de ingresar.  Responda con *no* cuando se le solicite si está satisfecho con la configuración.  Responda con *sí* si desea editar su configuración.
 
 
-NOTE: Si no guarda la configuración en esta fase, ninguno de los cambios se aplicará la próxima vez que reinicie el conmutador.
+
+ a| 
+¿Usar esta configuración y guardarla?  (sí/no)
+ a| 
+Responda con *sí* para guardar la configuración.  Esto actualiza automáticamente las imágenes de kickstart y del sistema.
+
+
+NOTE: Si no guarda la configuración en este paso, ninguno de los cambios tendrá efecto la próxima vez que reinicie el switch.
 
 |===
-. Compruebe las opciones de configuración que ha realizado en la pantalla que aparece al final de la instalación y asegúrese de guardar la configuración.
-. Compruebe la versión de los switches de red del clúster y, si es necesario, descargue la versión del software compatible con NetApp en los switches de la https://software.cisco.com/download/home["Descarga de software de Cisco"^] página.
+. Verifique las opciones de configuración que seleccionó en la pantalla que aparece al final de la configuración y asegúrese de guardar la configuración.
+. Compruebe la versión en los conmutadores de red del clúster y, si es necesario, descargue la versión del software compatible con NetApp en los conmutadores desde https://software.cisco.com/download/home["Descarga de software de Cisco"^] página.
 
 
-.El futuro
+.¿Que sigue?
 Después de haber configurado tus interruptores, link:prepare-install-cisco-nexus-3132q.html["Prepárese para instalar NX-OS y RCF."].

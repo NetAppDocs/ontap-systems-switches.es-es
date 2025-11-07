@@ -4,43 +4,43 @@ sidebar: sidebar
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 3232c 
 summary: 'SSH es un requisito cuando se utilizan el Monitor de estado del conmutador de clúster (CSHM) y las funciones de recopilación de registros. Para habilitar SSH en los conmutadores de clúster Cisco 3232c, primero genere las claves SSH y luego habilite SSH.' 
 ---
-= Actualice su archivo de configuración de referencia (RCF)
+= Actualiza tu archivo de configuración de referencia (RCF).
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Actualice la versión de RCF cuando tenga instalada una versión existente del archivo RCF en los conmutadores operativos.
+Actualizas tu versión de RCF cuando tienes una versión existente del archivo RCF instalada en tus switches operativos.
 
 .Antes de empezar
 Asegúrese de tener lo siguiente:
 
-* Una copia de seguridad actual de la configuración del switch.
-* Un clúster en pleno funcionamiento (sin errores en los registros o problemas similares).
+* Una copia de seguridad actualizada de la configuración del switch.
+* Un clúster en pleno funcionamiento (sin errores en los registros ni problemas similares).
 * El RCF actual.
-* Si está actualizando la versión de RCF, necesita una configuración de inicio en el RCF que refleje las imágenes de inicio deseadas.
+* Si está actualizando su versión de RCF, necesita una configuración de arranque en RCF que refleje las imágenes de arranque deseadas.
 +
-Si necesita cambiar la configuración de arranque para reflejar las imágenes de arranque actuales, debe hacerlo antes de volver a aplicar el RCF para que se cree una instancia de la versión correcta en futuros reinicios.
+Si necesita cambiar la configuración de arranque para que refleje las imágenes de arranque actuales, debe hacerlo antes de volver a aplicar el RCF para que se instancie la versión correcta en futuros reinicios.
 
 
 
 
-NOTE: Durante este procedimiento no se necesita ningún enlace entre switches (ISL) operativo. Esto se debe a que los cambios en la versión de RCF pueden afectar temporalmente a la conectividad ISL. Para garantizar operaciones de clúster no disruptivas, el siguiente procedimiento migra todas las LIF del clúster al switch de partner operativo mientras realiza los pasos del switch de destino.
+NOTE: No se necesita ningún enlace entre conmutadores (ISL) operativo durante este procedimiento. Esto es así por diseño porque los cambios de versión de RCF pueden afectar la conectividad de ISL temporalmente. Para garantizar un funcionamiento ininterrumpido del clúster, el siguiente procedimiento migra todas las LIF del clúster al conmutador asociado operativo mientras se realizan los pasos en el conmutador de destino.
 
 
-CAUTION: Antes de instalar una nueva versión de software del conmutador y RCF, debe borrar los ajustes del conmutador y realizar la configuración básica. Debe estar conectado al switch mediante la consola serie o haber conservado la información básica de configuración antes de borrar la configuración del switch.
+CAUTION: Antes de instalar una nueva versión del software del switch y los RCF, debe borrar la configuración del switch y realizar una configuración básica.  Debe estar conectado al switch mediante la consola serie o haber guardado la información de configuración básica antes de borrar la configuración del switch.
 
 
 
 == Paso 1: Prepárese para la actualización
 
-. Muestre los puertos del clúster en cada nodo que están conectados a los switches de clúster:
+. Muestra los puertos del clúster en cada nodo que están conectados a los conmutadores del clúster:
 +
 `network device-discovery show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -64,14 +64,14 @@ cluster1-04/cdp
 cluster1::*>
 ----
 ====
-. Compruebe el estado administrativo y operativo de cada puerto del clúster.
+. Verifique el estado administrativo y operativo de cada puerto del clúster.
 +
-.. Compruebe que todos los puertos del clúster tengan el estado correcto:
+.. Verifique que todos los puertos del clúster estén activos y en buen estado:
 +
 `network port show –role cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -109,12 +109,12 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 cluster1::*>
 ----
 ====
-.. Compruebe que todas las interfaces del clúster (LIF) están en el puerto de inicio:
+.. Verifique que todas las interfaces del clúster (LIF) estén en el puerto principal:
 +
 `network interface show -role cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -136,12 +136,12 @@ Cluster
 cluster1::*>
 ----
 ====
-.. Compruebe que el clúster muestra información de ambos switches de clúster:
+.. Verifique que el clúster muestre información para ambos conmutadores del clúster:
 +
 `system cluster-switch show -is-monitoring-enabled-operational true`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -168,7 +168,7 @@ cs2                         cluster-network    10.233.205.93    NX3232C
 ====
 
 
-. Deshabilite la reversión automática en las LIF del clúster.
+. Desactive la reversión automática en los LIF del clúster.
 +
 [listing, subs="+quotes"]
 ----
@@ -180,7 +180,7 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert fals
 
 == Paso 2: Configurar puertos
 
-. En el switch de clúster cs2, apague los puertos conectados a los puertos del clúster de los nodos.
+. En el conmutador de clúster cs2, apague los puertos conectados a los puertos de clúster de los nodos.
 +
 [listing, subs="+quotes"]
 ----
@@ -193,14 +193,14 @@ cs2# *exit*
 ----
 +
 
-CAUTION: Asegúrese de cerrar * todos * puertos de clúster conectados para evitar cualquier problema de conexión de red. Consulte el artículo de la base de conocimientos https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["Nodo fuera de quórum al migrar LIF de clúster durante la actualización del sistema operativo del switch"^] para obtener más información.
+CAUTION: Asegúrese de apagar *todos* los puertos del clúster conectados para evitar problemas de conexión de red.  Consulte el artículo de la base de conocimientos https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["Nodo fuera de quórum al migrar la LIF del clúster durante la actualización del sistema operativo del switch"^] Para obtener más detalles.
 
 . Verifique que los puertos del clúster hayan conmutado por error a los puertos alojados en el conmutador de clúster cs1. Esto podría tardar unos segundos.
 +
 `network interface show -role cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -222,12 +222,12 @@ Cluster
 cluster1::*>
 ----
 ====
-. Compruebe que el clúster esté en buen estado:
+. Verifique que el clúster esté en buen estado:
 +
 `cluster show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -243,12 +243,12 @@ cluster1-04          true    true          false
 cluster1::*>
 ----
 ====
-. Si aún no lo ha hecho, guarde una copia de la configuración actual del conmutador copiando la salida del siguiente comando en un archivo de texto:
+. Si aún no lo ha hecho, guarde una copia de la configuración actual del switch copiando el resultado del siguiente comando en un archivo de texto:
 +
 `show running-config`
 
-. Registre cualquier adición personalizada entre la actual `running-config` y el archivo RCF en uso (como una configuración SNMP para su organización).
-. Guarde los detalles básicos de configuración en `write_erase.cfg` archivo en el bootflash.
+. Registre cualquier adición personalizada entre el actual `running-config` y el archivo RCF en uso (como una configuración SNMP para su organización).
+. Guarde los detalles de configuración básicos en el `write_erase.cfg` archivo en la memoria flash de arranque.
 +
 [NOTE]
 ====
@@ -278,13 +278,13 @@ Asegúrese de configurar lo siguiente: * Nombre de usuario y contraseña * Direc
 `cs2# echo "hardware access-list tcam region qos 256" >> bootflash:write_erase.cfg`
 
 +
-Consulte el artículo de la base de conocimientos https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración en un switch de interconexión de Cisco manteniendo la conectividad remota"^] Para más detalles.
+Consulte el artículo de la base de conocimientos https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración de un switch de interconexión Cisco manteniendo la conectividad remota"^] Para obtener más detalles.
 
-. Verificar que el `write_erase.cfg` El archivo se completa como se esperaba:
+. Verifique que el `write_erase.cfg` El archivo se ha rellenado según lo previsto:
 +
 `*show file bootflash:write_erase.cfg*`
 
-. Emitir el `write erase` Comando para borrar la configuración guardada actual:
+. Emitir el `write erase` comando para borrar la configuración guardada actual:
 +
 `cs2# *write erase*`
 
@@ -294,7 +294,7 @@ Consulte el artículo de la base de conocimientos https://kb.netapp.com/on-prem/
 +
 `Do you wish to proceed anyway? (y/n)  [n] *y*`
 
-. Copie la configuración básica guardada anteriormente en la configuración de inicio.
+. Copie la configuración básica guardada previamente en la configuración de inicio.
 +
 `cs2# *copy bootflash:write_erase.cfg startup-config*`
 
@@ -305,16 +305,16 @@ Consulte el artículo de la base de conocimientos https://kb.netapp.com/on-prem/
 +
 `This command will reboot the system. (y/n)?  [n] *y*`
 
-. Cuando se pueda volver a acceder a la dirección IP de administración, inicie sesión en el switch a través de SSH.
+. Una vez que la dirección IP de administración vuelva a ser accesible, inicie sesión en el switch a través de SSH.
 +
-Es posible que necesite actualizar las entradas del archivo host relacionadas con las claves SSH.
+Es posible que deba actualizar las entradas del archivo host relacionadas con las claves SSH.
 
-. Copie el RCF al bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP.  Para obtener más información sobre los comandos de Cisco , consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referencia de comandos NX-OS de Cisco Nexus serie 3000"^] guías.
+. Copie el RCF al bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP. Para obtener más información sobre los comandos de Cisco , consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referencia de comandos de Cisco Nexus serie 3000 NX-OS"^] guías.
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-En este ejemplo se muestra el uso de TFTP para copiar un RCF al bootflash del conmutador cs2:
+Este ejemplo muestra cómo se utiliza TFTP para copiar un RCF a la memoria flash de arranque del switch cs2:
 
 [listing, subs="+quotes"]
 ----
@@ -326,15 +326,15 @@ TFTP get operation was successful
 Copy complete, now saving to disk (please wait)...
 ----
 ====
-. Aplique el RCF descargado anteriormente al flash de inicio.
+. Aplique el RCF descargado previamente a la memoria flash de arranque.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referencia de comandos NX-OS de Cisco Nexus serie 3000"^] guías.
+Para obtener más información sobre los comandos de Cisco , consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referencia de comandos de Cisco Nexus serie 3000 NX-OS"^] guías.
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-En este ejemplo se muestra el archivo RCF `Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt` instalación en el conmutador cs2:
+Este ejemplo muestra el archivo RCF. `Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt` Instalando en el switch cs2:
 
 [listing, subs="+quotes"]
 ----
@@ -344,50 +344,50 @@ cs2# *copy Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-comm
 +
 [CAUTION]
 ====
-Asegúrese de leer detenidamente las secciones *Notas de instalación*, *Notas importantes* y *banner* de su RCF.  Debe leer y seguir estas instrucciones para garantizar la configuración y el funcionamiento adecuados del conmutador.
+Asegúrese de leer detenidamente las secciones *Notas de instalación*, *Notas importantes* y *banner* de su RCF. Debe leer y seguir estas instrucciones para garantizar la configuración y el funcionamiento adecuados del conmutador.
 
 ====
-. Compruebe que el archivo RCF es la versión más reciente correcta:
+. Verifique que el archivo RCF sea la versión más reciente correcta:
 +
 `show running-config`
 
 +
-Cuando compruebe la salida para verificar que tiene el RCF correcto, asegúrese de que la siguiente información es correcta:
+Al comprobar la salida para verificar que tiene el RCF correcto, asegúrese de que la siguiente información sea correcta:
 
 +
-** El banner de RCF
-** La configuración del nodo y el puerto
+** El estandarte de RCF
+** Configuración del nodo y del puerto
 ** Personalizaciones
 +
-La salida varía en función de la configuración del sitio. Compruebe la configuración del puerto y consulte las notas de versión para conocer los cambios específicos del RCF que haya instalado.
+El resultado varía según la configuración de su sitio.  Compruebe la configuración del puerto y consulte las notas de la versión para conocer los cambios específicos del RCF que haya instalado.
 
 
 
-. Vuelva a aplicar las personalizaciones anteriores a la configuración del conmutador. Consulte la link:cabling-considerations-3232c.html["Revise las consideraciones sobre el cableado y la configuración"] para obtener información detallada sobre cualquier cambio adicional necesario.
-. Después de comprobar que las versiones de RCF y los ajustes del switch son correctos, copie el archivo running-config en el archivo startup-config.
+. Vuelva a aplicar cualquier personalización anterior a la configuración del switch.  Referirse alink:cabling-considerations-3232c.html["Revisar las consideraciones de cableado y configuración"] Para obtener detalles sobre cualquier otro cambio necesario.
+. Después de verificar que las versiones de RCF y la configuración del switch sean correctas, copie el archivo running-config al archivo startup-config.
 +
-Para obtener más información acerca de los comandos de Cisco, consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referencia de comandos NX-OS de Cisco Nexus serie 3000"^] guías.
+Para obtener más información sobre los comandos de Cisco , consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referencia de comandos de Cisco Nexus serie 3000 NX-OS"^] guías.
 
 +
 [listing]
 ----
 cs2# copy running-config startup-config [########################################] 100% Copy complete
 ----
-. Reinicie el interruptor cs2. Es posible ignorar los eventos "puertos de clúster inactivos" que se informan en los nodos mientras se reinicia el switch.
+. Reiniciar interruptor cs2.  Puede ignorar los eventos de "puertos del clúster caídos" que se reportan en los nodos mientras se reinicia el conmutador.
 +
 [listing, subs="+quotes"]
 ----
 cs2# *reload*
 This command will reboot the system. (y/n)?  [n] *y*
 ----
-. Compruebe el estado de los puertos del clúster en el clúster.
+. Verifique el estado de los puertos del clúster.
 +
-.. Compruebe que los puertos e0d están en buen estado y en todos los nodos del clúster:
+.. Verifique que los puertos e0d estén activos y en buen estado en todos los nodos del clúster:
 +
 `network port show -role cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -424,9 +424,9 @@ e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
 8 entries were displayed.
 ----
 ====
-.. Compruebe el estado del switch del clúster (es posible que no muestre el switch cs2, ya que las LIF no son homadas en el e0d).
+.. Verifique el estado del switch desde el clúster (esto podría no mostrar el switch cs2, ya que las LIF no están alojadas en e0d).
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -470,21 +470,21 @@ cs2                         cluster-network    10.233.205.91    N3K-C3232C
 +
 [NOTE]
 ====
-Es posible que observe la siguiente salida en la consola del conmutador cs1 según la versión de RCF cargada previamente en el conmutador 2020 Nov 17 16:07:18 cs1 %$ VDC-1 %$ %STP-2-UNBLOCK_CONSIST_PORT: Unblocking port port-channel1 on VLAN0092.  Se restableció la consistencia del puerto.  17 nov 2020 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_PEER: Bloqueo del canal de puerto 1 en VLAN0001.  VLAN de pares inconsistente.  17 nov 2020 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_LOCAL: Bloqueando el canal de puerto 1 en VLAN0092.  VLAN local inconsistente.
+Es posible que observe la siguiente salida en la consola del conmutador cs1 según la versión de RCF cargada previamente en el conmutador 2020 Nov 17 16:07:18 cs1 %$ VDC-1 %$ %STP-2-UNBLOCK_CONSIST_PORT: Unblocking port port-channel1 on VLAN0092. Se restableció la consistencia del puerto. 17 nov 2020 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_PEER: Bloqueo del canal de puerto 1 en VLAN0001. VLAN de pares inconsistente. 17 nov 2020 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_LOCAL: Bloqueando el canal de puerto 1 en VLAN0092. VLAN local inconsistente.
 
 ====
 
 
 +
 
-NOTE: Los nodos del clúster pueden tardar hasta 5 minutos en informar en buen estado.
+NOTE: Los nodos del clúster pueden tardar hasta 5 minutos en informar que están en buen estado.
 
-. En el switch de clúster cs1, apague los puertos conectados a los puertos del clúster de los nodos.
+. En el conmutador de clúster cs1, apague los puertos conectados a los puertos de clúster de los nodos.
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-En el ejemplo siguiente se utiliza el resultado del ejemplo de interfaz del paso 1:
+El siguiente ejemplo utiliza la salida de ejemplo de interfaz del paso 1:
 
 [listing, subs="+quotes"]
 ----
@@ -492,12 +492,12 @@ cs1(config)# *interface eth1/1/1-2,eth1/7-8*
 cs1(config-if-range)# *shutdown*
 ----
 ====
-. Comprobar que las LIF del clúster han migrado a los puertos alojados en el switch cs2. Esto puede tardar unos segundos.
+. Verifique que las LIF del clúster se hayan migrado a los puertos alojados en el switch cs2. Esto podría tardar unos segundos.
 +
 `network interface show -role cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -519,12 +519,12 @@ Cluster
 cluster1::*>
 ----
 ====
-. Compruebe que el clúster esté en buen estado:
+. Verifique que el clúster esté en buen estado:
 +
 `cluster show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -541,7 +541,7 @@ cluster1::*>
 ----
 ====
 . Repita los pasos 4 a 19 en el interruptor cs1.
-. Habilite la reversión automática en las LIF del clúster.
+. Habilitar la reversión automática en los LIF del clúster.
 +
 [listing, subs="+quotes"]
 ----
@@ -551,14 +551,14 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true
 
 
 
-== Paso 3: Compruebe la configuración de la red del clúster y el estado del clúster
+== Paso 3: Verifique la configuración de red y el estado del clúster.
 
-. Compruebe que los puertos del switch conectados a los puertos del clúster son *up*.
+. Verifique que los puertos del switch conectados a los puertos del clúster estén *activos*.
 +
 `show interface brief | grep up`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -574,12 +574,12 @@ Eth1/8        1       eth  trunk  up      none                   100G(D) --
 .
 ----
 ====
-. Compruebe que el ISL entre cs1 y cs2 funciona:
+. Verifique que el ISL entre cs1 y cs2 sea funcional:
 +
 `show port-channel summary`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -601,12 +601,12 @@ Group Port-       Type     Protocol  Member Ports
 cs1#
 ----
 ====
-. Compruebe que las LIF del clúster han vuelto a su puerto de inicio:
+. Verifique que los LIF del clúster hayan vuelto a su puerto de origen:
 +
 `network interface show -role cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -629,15 +629,15 @@ cluster1::*>
 ----
 ====
 +
-Si alguna de las LIF de clúster no ha vuelto a sus puertos raíz, revierte manualmente:
+Si algún LIFS del clúster no ha regresado a sus puertos de origen, reviértalo manualmente:
 `network interface revert -vserver _vserver_name_ -lif _lif_name_`
 
-. Compruebe que el clúster esté en buen estado:
+. Verifique que el clúster esté en buen estado:
 +
 `cluster show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -653,12 +653,12 @@ cluster1-04          true    true          false
 cluster1::*>
 ----
 ====
-. Compruebe la conectividad de las interfaces del clúster remoto:
+. Verifique la conectividad de las interfaces del clúster remoto:
 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.9.1 y versiones posteriores
+.ONTAP 9.9.1 y posteriores
 --
 Puedes utilizar el `network interface check cluster-connectivity` Comando para iniciar una verificación de accesibilidad para la conectividad del clúster y luego mostrar los detalles:
 `network interface check cluster-connectivity start` y `network interface check cluster-connectivity show`
@@ -667,7 +667,7 @@ Puedes utilizar el `network interface check cluster-connectivity` Comando para i
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* Espere varios segundos antes de ejecutar el `show` comando para mostrar los detalles.
+*NOTA:* Espere unos segundos antes de ejecutar el programa. `show` comando para mostrar los detalles.
 
 [listing, subs="+quotes"]
 ----
@@ -697,7 +697,7 @@ cluster1-04
 .
 ----
 --
-.Todos los lanzamientos de ONTAP
+.Todas las versiones de ONTAP
 --
 Para todas las versiones de ONTAP , también puedes usar el
 `cluster ping-cluster -node <name>` Comando para comprobar la conectividad:
@@ -744,5 +744,5 @@ RPC status:
 ----
 --
 ====
-.El futuro
-Después de haber actualizado su RCF,link:configure-ssh-keys.html["verificar la configuración de SSH"] .
+.¿Que sigue?
+Después de haber actualizado tu RCF,link:configure-ssh-keys.html["verificar la configuración de SSH"] .

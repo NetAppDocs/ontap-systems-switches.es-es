@@ -2,60 +2,60 @@
 permalink: switch-bes-53248/replace-switch-reqs.html 
 sidebar: sidebar 
 keywords: replace, replacing, defective, broadcom-supported, bes, cluster, switch, network, nondisruptive, procedure, ndu, replace a broadcom-supported bes-53428 cluster switch - bes-53428 switches 
-summary: 'La sustitución de un switch de clúster BES-53248 defectuoso compatible con Broadcom en una red de clúster es un procedimiento no disruptivo \(NDU\).' 
+summary: 'Reemplazar un conmutador de clúster BES-53248 defectuoso compatible con Broadcom en una red de clúster es un procedimiento no disruptivo (NDU).' 
 ---
-= Requisitos de sustitución
+= Requisitos de reemplazo
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Antes de sustituir el interruptor, asegúrese de que se cumplen las siguientes condiciones en el entorno actual y en el interruptor de sustitución.
+Antes de sustituir el interruptor, asegúrese de que se cumplen las siguientes condiciones en el entorno actual y en el interruptor de repuesto.
 
 
 
-== Infraestructura de red y clúster existente
-
-Asegúrese de que:
-
-* El clúster existente se ha verificado como completamente funcional, con al menos un switch de clúster completamente conectado.
-* Todos los puertos del clúster son *up*.
-* Todas las interfaces lógicas de cluster (LIF) están administrativamente y operativamente *up* y en sus puertos domésticos.
-* La ONTAP `cluster ping-cluster -node node1` el comando debe indicar que la configuración, `basic connectivity` y.. `larger than PMTU communication`, se realizan correctamente en todas las rutas.
-
-
-
-
-== Conmutador de clúster de sustitución BES-53248
+== Infraestructura de clúster y red existente
 
 Asegúrese de que:
 
-* La conectividad de la red de gestión en el switch de reemplazo es funcional.
-* El acceso de la consola al interruptor de sustitución está en su lugar.
-* Las conexiones de nodos son los puertos 0/1 a 0/16 con licencia predeterminada.
-* Todos los puertos de enlace entre switches (ISL) están deshabilitados en los puertos 0/55 y 0/56.
-* El archivo de configuración de referencia (RCF) y la imagen del conmutador del sistema operativo EFOS se cargan en el conmutador.
-* Se ha completado la personalización inicial del conmutador, tal y como se detalla en link:configure-install-initial.html["Configure el conmutador de clúster BES-53248"].
-
-
-Cualquier personalización de sitio anterior, como STP, SNMP y SSH, se copian al nuevo switch.
-
-
-
-== Active el registro de la consola
-
-NetApp recomienda encarecidamente que habilite el inicio de sesión de la consola en los dispositivos que esté utilizando y que realice las siguientes acciones al sustituir el conmutador:
-
-* Deje la función AutoSupport habilitada durante el mantenimiento.
-* Active un AutoSupport de mantenimiento antes y después de las tareas de mantenimiento para deshabilitar la creación de casos durante el mantenimiento. Consulte este artículo de la base de conocimientos https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Cómo impedir la creación automática de casos durante las ventanas de mantenimiento programado"^] para obtener más detalles.
-* Habilite el registro de sesiones para cualquier sesión de CLI. Para obtener instrucciones sobre cómo activar el registro de sesiones, consulte la sección «Salida de sesión de registro» de este artículo de la base de conocimientos https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Cómo configurar PuTTY para una conectividad óptima con sistemas ONTAP"^].
+* Se verifica que el clúster existente es completamente funcional, con al menos un conmutador de clúster totalmente conectado.
+* Todos los puertos del clúster están *activos*.
+* Todas las interfaces lógicas del clúster (LIF) están administrativa y operativamente *activas* y en sus puertos de origen.
+* El ONTAP `cluster ping-cluster -node node1` El comando debe indicar que la configuración, `basic connectivity` y `larger than PMTU communication` , tienen éxito en todos los caminos.
 
 
 
 
-== Si quiere más información
+== Interruptor de grupo de repuesto BES-53248
+
+Asegúrese de que:
+
+* La conectividad de la red de gestión en el switch de reemplazo funciona correctamente.
+* El acceso a la consola para el interruptor de repuesto ya está habilitado.
+* Las conexiones de nodo son los puertos 0/1 a 0/16 con licencia predeterminada.
+* Todos los puertos Inter-Switch Link (ISL) están deshabilitados en los puertos 0/55 y 0/56.
+* El archivo de configuración de referencia (RCF) deseado y la imagen del sistema operativo EFOS se cargan en el switch.
+* La personalización inicial del interruptor está completa, tal como se detalla enlink:configure-install-initial.html["Configurar el conmutador de clúster BES-53248"] .
+
+
+Las personalizaciones previas del sitio, como STP, SNMP y SSH, se copian al nuevo conmutador.
+
+
+
+== Habilitar el registro en la consola
+
+NetApp recomienda encarecidamente que habilite el registro de consola en los dispositivos que esté utilizando y que realice las siguientes acciones al reemplazar su switch:
+
+* Deje activado el AutoSupport durante el mantenimiento.
+* Active un AutoSupport de mantenimiento antes y después del mantenimiento para deshabilitar la creación de casos durante la duración del mismo.  Consulte este artículo de la base de conocimientos. https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Cómo suprimir la creación automática de casos durante las ventanas de mantenimiento programadas"^] Para obtener más detalles.
+* Habilite el registro de sesión para cualquier sesión de la CLI.  Para obtener instrucciones sobre cómo habilitar el registro de sesiones, consulte la sección "Registro de salida de sesión" en este artículo de la base de conocimientos. https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Cómo configurar PuTTY para una conectividad óptima a los sistemas ONTAP"^] .
+
+
+
+
+== Para más información
 
 * https://mysupport.netapp.com/["Sitio de soporte de NetApp"^]
-* https://hwu.netapp.com/Home/Index["Hardware Universe de NetApp"^]
+* https://hwu.netapp.com/Home/Index["NetApp Hardware Universe"^]
 

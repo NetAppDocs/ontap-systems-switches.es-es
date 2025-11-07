@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: switches hardware installation 
 summary: Para instalar el hardware BES-53248, consulte la documentación de NVIDIA. 
 ---
-= Instale la tornillería del conmutador NVIDIA SN2100
+= Instale el hardware para el conmutador NVIDIA SN2100.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -14,9 +14,9 @@ summary: Para instalar el hardware BES-53248, consulte la documentación de NVID
 Para instalar el hardware SN2100, consulte la documentación de NVIDIA.
 
 .Pasos
-. Revise la link:configure-reqs-sn2100-storage.html["requisitos de configuración"].
-. Siga las instrucciones de https://docs.nvidia.com/networking/display/sn2000pub/Installation["Guía de instalación del switch NVIDIA"^].
+. Revisar ellink:configure-reqs-sn2100-storage.html["requisitos de configuración"] .
+. Siga las instrucciones en https://docs.nvidia.com/networking/display/sn2000pub/Installation["Guía de instalación de switches NVIDIA"^] .
 
 
-.El futuro
+.¿Que sigue?
 Una vez que hayas instalado el hardware, podráslink:cabling-considerations-sn2100-storage.html["revisar el cableado y la configuración"] requisitos.

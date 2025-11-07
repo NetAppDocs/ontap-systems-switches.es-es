@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 3232c 
 summary: 'SSH es un requisito cuando se utilizan el Monitor de estado del conmutador de clúster (CSHM) y las funciones de recopilación de registros. Para habilitar SSH en los conmutadores de clúster Cisco 3232c, primero genere las claves SSH y luego habilite SSH.' 
 ---
-= Instalación del archivo de configuración de referencia (RCF)
+= Instalar el archivo de configuración de referencia (RCF)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -14,32 +14,32 @@ summary: 'SSH es un requisito cuando se utilizan el Monitor de estado del conmut
 Instale el archivo de configuración de referencia (RCF) después de configurar los conmutadores Nexus 3232C por primera vez.
 
 .Antes de empezar
-Compruebe las siguientes instalaciones y conexiones:
+Verifique las siguientes instalaciones y conexiones:
 
-* Una copia de seguridad actual de la configuración del switch.
-* Un clúster en pleno funcionamiento (sin errores en los registros o problemas similares).
+* Una copia de seguridad actualizada de la configuración del switch.
+* Un clúster en pleno funcionamiento (sin errores en los registros ni problemas similares).
 * El RCF actual.
-* Una conexión de consola al conmutador, necesaria para instalar el RCF.
+* Se requiere una conexión de consola al switch al instalar el RCF.
 
 
 .Acerca de esta tarea
-Para ello, es necesario utilizar tanto comandos de la ONTAP como comandos de la serie Cisco Nexus 3000; los comandos de la ONTAP se usan a menos que se indique lo contrario.
+El procedimiento requiere el uso de comandos ONTAP y comandos de switches Cisco Nexus serie 3000; se utilizan comandos ONTAP a menos que se indique lo contrario.
 
-No se necesita ningún enlace entre conmutadores (ISL) operativo durante este procedimiento.  Esto es así por diseño porque los cambios de versión de RCF pueden afectar la conectividad de ISL temporalmente.  Para habilitar operaciones de clúster sin interrupciones, el siguiente procedimiento migra todos los LIF del clúster al conmutador del socio operativo mientras se realizan los pasos en el conmutador de destino.
+No se necesita ningún enlace entre conmutadores (ISL) operativo durante este procedimiento. Esto es así por diseño porque los cambios de versión de RCF pueden afectar la conectividad de ISL temporalmente. Para habilitar operaciones de clúster sin interrupciones, el siguiente procedimiento migra todos los LIF del clúster al conmutador del socio operativo mientras se realizan los pasos en el conmutador de destino.
 
-Asegúrese de completar el procedimiento en link:prepare-install-cisco-nexus-3232c.html["Prepare la instalación de NX-OS y RCF"]y, a continuación, siga los pasos que se indican a continuación.
+Asegúrese de completar el procedimiento enlink:prepare-install-cisco-nexus-3232c.html["Prepárese para instalar NX-OS y RCF."] y luego siga los pasos a continuación.
 
 
 
 == Paso 1: Instale el RCF en los interruptores
 
 . Inicie sesión para cambiar cs2 usando SSH o mediante una consola serial.
-. Copie el RCF al bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP.  Para obtener más información sobre los comandos de Cisco , consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referencia de comandos NX-OS de Cisco Nexus serie 3000"^] .
+. Copie el RCF al bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP. Para obtener más información sobre los comandos de Cisco , consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referencia de comandos de Cisco Nexus serie 3000 NX-OS"^] .
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-En este ejemplo se muestra el uso de TFTP para copiar un RCF al bootflash del conmutador cs2:
+Este ejemplo muestra cómo se utiliza TFTP para copiar un RCF a la memoria flash de arranque del switch cs2:
 
 [listing, subs="+quotes"]
 ----
@@ -51,15 +51,15 @@ TFTP get operation was successful
 Copy complete, now saving to disk (please wait)...
 ----
 ====
-. Aplique el RCF descargado anteriormente al flash de inicio.
+. Aplique el RCF descargado previamente a la memoria flash de arranque.
 +
-Para obtener más información sobre los comandos de Cisco , consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referencia de comandos NX-OS de Cisco Nexus serie 3000"^] .
+Para obtener más información sobre los comandos de Cisco , consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referencia de comandos de Cisco Nexus serie 3000 NX-OS"^] .
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-En este ejemplo se muestra el archivo RCF `Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt` instalación en el conmutador cs2:
+Este ejemplo muestra el archivo RCF. `Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt` Instalando en el switch cs2:
 
 [listing, subs="+quotes"]
 ----
@@ -69,28 +69,28 @@ cs2# *copy Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-comm
 +
 [NOTE]
 ====
-Asegúrese de leer detenidamente las secciones *Notas de instalación*, *Notas importantes* y *banner* de su RCF.  Debe leer y seguir estas instrucciones para garantizar la configuración y el funcionamiento adecuados del conmutador.
+Asegúrese de leer detenidamente las secciones *Notas de instalación*, *Notas importantes* y *banner* de su RCF. Debe leer y seguir estas instrucciones para garantizar la configuración y el funcionamiento adecuados del conmutador.
 
 ====
-. Examine el resultado del banner desde el `show banner motd` comando. Debe leer y seguir las instrucciones que se indican en *Notas importantes* para asegurarse de que la configuración y el funcionamiento del interruptor son correctos.
-. Compruebe que el archivo RCF es la versión más reciente correcta:
+. Examine la salida del banner de `show banner motd` dominio.  Debe leer y seguir las instrucciones que figuran en *Notas importantes* para garantizar la configuración y el funcionamiento correctos del interruptor.
+. Verifique que el archivo RCF sea la versión más reciente correcta:
 +
 `show running-config`
 
 +
-Cuando compruebe la salida para verificar que tiene el RCF correcto, asegúrese de que la siguiente información es correcta:
+Al comprobar la salida para verificar que tiene el RCF correcto, asegúrese de que la siguiente información sea correcta:
 
 +
-** El banner de RCF
-** La configuración del nodo y el puerto
+** El estandarte de RCF
+** Configuración del nodo y del puerto
 ** Personalizaciones
 +
-La salida varía en función de la configuración del sitio. Compruebe la configuración del puerto y consulte las notas de versión para conocer los cambios específicos del RCF que haya instalado.
+El resultado varía según la configuración de su sitio.  Compruebe la configuración del puerto y consulte las notas de la versión para conocer los cambios específicos del RCF que haya instalado.
 
 
 
-. Vuelva a aplicar las personalizaciones anteriores a la configuración del conmutador. Consulte la link:cabling-considerations-3232c.html["Revise las consideraciones sobre el cableado y la configuración"] para obtener información detallada sobre cualquier cambio adicional necesario.
-. Guarde los detalles básicos de configuración en `write_erase.cfg` archivo en el bootflash.
+. Vuelva a aplicar cualquier personalización anterior a la configuración del switch.  Referirse alink:cabling-considerations-3232c.html["Revisar las consideraciones de cableado y configuración"] Para obtener detalles sobre cualquier otro cambio necesario.
+. Guarde los detalles de configuración básicos en el `write_erase.cfg` archivo en la memoria flash de arranque.
 +
 [NOTE]
 ====
@@ -120,13 +120,13 @@ Asegúrese de configurar lo siguiente: * Nombre de usuario y contraseña * Direc
 `cs2# echo "hardware access-list tcam region qos 256" >> bootflash:write_erase.cfg`
 
 +
-Consulte el artículo de la base de conocimientos https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración en un switch de interconexión de Cisco manteniendo la conectividad remota"^] Para más detalles.
+Consulte el artículo de la base de conocimientos https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración de un switch de interconexión Cisco manteniendo la conectividad remota"^] Para obtener más detalles.
 
-. Verificar que el `write_erase.cfg` El archivo se completa como se esperaba:
+. Verifique que el `write_erase.cfg` El archivo se ha rellenado según lo previsto:
 +
 `show file bootflash:write_erase.cfg`
 
-. Emitir el `write erase` Comando para borrar la configuración guardada actual:
+. Emitir el `write erase` comando para borrar la configuración guardada actual:
 +
 `cs2# *write erase*`
 
@@ -136,7 +136,7 @@ Consulte el artículo de la base de conocimientos https://kb.netapp.com/on-prem/
 +
 `Do you wish to proceed anyway? (y/n)  [n] *y*`
 
-. Copie la configuración básica guardada anteriormente en la configuración de inicio.
+. Copie la configuración básica guardada previamente en la configuración de inicio.
 +
 `cs2# *copy bootflash:write_erase.cfg startup-config*`
 
@@ -148,19 +148,19 @@ Consulte el artículo de la base de conocimientos https://kb.netapp.com/on-prem/
 `This command will reboot the system. (y/n)?  [n] *y*`
 
 . Repita los pasos 1 a 12 en el interruptor cs1.
-. Conecte los puertos de clúster de todos los nodos del clúster de ONTAP a los switches CS1 y CS2.
+. Conecte los puertos del clúster de todos los nodos del clúster ONTAP a los conmutadores cs1 y cs2.
 
 
 
 
 == Paso 2: Verifique las conexiones del conmutador
 
-. Compruebe que los puertos del switch conectados a los puertos del clúster son *up*.
+. Verifique que los puertos del switch conectados a los puertos del clúster estén *activos*.
 +
 `show interface brief | grep up`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -176,12 +176,12 @@ Eth1/8        1       eth  trunk  up      none                   100G(D) --
 .
 ----
 ====
-. Compruebe que el ISL entre cs1 y cs2 funciona:
+. Verifique que el ISL entre cs1 y cs2 sea funcional:
 +
 `show port-channel summary`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -203,12 +203,12 @@ Group Port-       Type     Protocol  Member Ports
 cs1#
 ----
 ====
-. Compruebe que las LIF del clúster han vuelto a su puerto de inicio:
+. Verifique que los LIF del clúster hayan vuelto a su puerto de origen:
 +
 `network interface show -role cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -234,12 +234,12 @@ cluster1::*>
 Si algún LIFS del clúster no ha regresado a sus puertos de origen, reviértalo manualmente:
 `network interface revert -vserver <vserver_name> -lif <lif_name>`
 
-. Compruebe que el clúster esté en buen estado:
+. Verifique que el clúster esté en buen estado:
 +
 `cluster show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -261,11 +261,11 @@ cluster1::*>
 
 == Paso 3: Configure su clúster ONTAP
 
-NetApp recomienda usar System Manager para configurar clústeres nuevos.
+NetApp recomienda utilizar System Manager para configurar nuevos clústeres.
 
 System Manager proporciona un flujo de trabajo simple y fácil para la configuración y el establecimiento de un clúster, incluida la asignación de una dirección IP de administración de nodo, la inicialización del clúster, la creación de un nivel local, la configuración de protocolos y el aprovisionamiento de almacenamiento inicial.
 
-Referirse a https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configure ONTAP en un nuevo clúster con System Manager"] para obtener instrucciones de configuración.
+Referirse a https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurar ONTAP en un nuevo clúster con el Administrador del sistema"] para obtener instrucciones de configuración.
 
-.El futuro
-Después de haber instalado el RCF,link:configure-ssh-keys.html["verificar la configuración de SSH"] .
+.¿Que sigue?
+Después de haber instalado RCF, usted link:configure-ssh-keys.html["verificar la configuración de SSH"].

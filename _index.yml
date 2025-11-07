@@ -1,53 +1,53 @@
 ---
 indexpage:
   title: Documentación de conmutadores para sistemas de hardware ONTAP
-  summary: Use los documentos de este sitio para instalar, actualizar y mantener su
-    clúster, su almacenamiento compartido y los switches MetroCluster.
+  summary: Utilice la documentación de este sitio para instalar, actualizar y mantener
+    su clúster, almacenamiento compartido y conmutadores MetroCluster .
   keywords: switches
-  lead: NetApp ofrece clústeres, almacenamiento y switches compartidos para proporcionar
-    conectividad entre el almacenamiento de hosts y dos o más controladoras NetApp,
-    lo que permite mover datos y interfaces de red de forma no disruptiva en toda
-    la infraestructura de almacenamiento.
+  lead: NetApp ofrece conmutadores de clúster, almacenamiento y compartidos para proporcionar
+    conectividad entre el almacenamiento del host y dos o más controladores NetApp
+    , lo que le permite mover datos e interfaces de red a través de su infraestructura
+    de almacenamiento sin interrupciones.
   tiles:
-  - title: Manos a la obra
+  - title: Empezar
     links:
-    - title: Novedades
+    - title: Qué hay de nuevo
       url: whats-new.html
     - title: Inicio rápido
       url: "/get-started/get-up-and-running.html"
     - title: Notas de la versión de ONTAP
       url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508
-  - title: Switches compatibles
+  - title: Interruptores compatibles
     links:
     - title: Conmutadores de sistemas AFX
       url: "/afx/index.html"
-    - title: Switches de clúster
+    - title: Conmutadores de clúster
       url: "/cluster/index.html"
-    - title: Switches de almacenamiento
+    - title: Conmutadores de almacenamiento
       url: "/storage/index.html"
-    - title: Switches compartidos
+    - title: Conmutadores compartidos
       url: "/shared/index.html"
-  - title: Switches de fin de disponibilidad
+  - title: Interruptores de fin de disponibilidad
     links:
-    - title: 'Switch de cluster: Cisco Nexus 3232c'
+    - title: Conmutador de clúster - Cisco Nexus 3232c
       url: "/switch-cisco-3232c/install-overview-cisco-3232c.html"
-    - title: 'Switch de cluster: Cisco Nexus 3132Q-V.'
+    - title: Conmutador de clúster - Cisco Nexus 3132Q-V
       url: "/switch-cisco-3132q-v/install-overview-cisco-3132qv.html"
-    - title: 'Switch de cluster: Cisco Nexus 92300YC.'
+    - title: Conmutador de clúster - Cisco Nexus 92300YC
       url: "/switch-cisco-92300/install-overview-cisco-92300.html"
-    - title: 'Switch de cluster: NetApp CN1610'
+    - title: Conmutador de clúster - NetApp CN1610
       url: "/switch-netapp-cn1610/switch-overview-cn1610.html"
-  - title: Supervisión del estado del switch Ethernet
+  - title: Monitoreo del estado del switch Ethernet
     links:
-    - title: Configure la supervisión de estado del switch
+    - title: Configurar la monitorización del estado del switch
       url: "/switch-cshm/config-overview.html"
-    - title: Compruebe el estado del interruptor
+    - title: Verificar el estado del interruptor
       url: "/switch-cshm/monitor-overview.html"
-    - title: Recopile registros para supervisar el estado de los switches
+    - title: Recopilar registros para la monitorización del estado del switch
       url: "/switch-cshm/log-collection-overview.html"
-  - title: Documentos de ONTAP relacionados
+  - title: Documentos relacionados con ONTAP
     links:
-    - title: Sistemas de hardware de ONTAP
+    - title: Sistemas de hardware ONTAP
       url: https://docs.netapp.com/us-en/ontap-systems/index.html
     - title: Software ONTAP
       url: https://docs.netapp.com/us-en/ontap/index.html
@@ -55,9 +55,9 @@ indexpage:
     links:
     - title: Matriz de interoperabilidad de NetApp
       url: http://mysupport.netapp.com/matrix/
-    - title: Hardware Universe de NetApp
+    - title: NetApp Hardware Universe
       url: https://hwu.netapp.com/
     - title: Base de conocimientos de NetApp
       url: https://kb.netapp.com/
-    - title: Active IQ (se requiere inicio de sesión)
+    - title: Active IQ (se requiere iniciar sesión)
       url: https://activeiq.netapp.com/?source=aiqnsspages

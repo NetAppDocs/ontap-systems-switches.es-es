@@ -2,53 +2,53 @@
 permalink: switch-bes-53248/components-bes53248.html 
 sidebar: sidebar 
 keywords: cluster-mode,supported versions,switches supported,cluster network,efos 
-summary: Para la instalación y mantenimiento del conmutador BES-53248, asegúrese de revisar la lista de componentes y números de pieza. 
+summary: Para la instalación y el mantenimiento del interruptor BES-53248, asegúrese de revisar la lista de componentes y números de pieza. 
 ---
-= Componentes y números de pieza para switches de clúster BES-53248
+= Componentes y números de pieza para los interruptores de clúster BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Para la instalación y mantenimiento del conmutador BES-53248, asegúrese de revisar la lista de componentes y números de pieza.
+Para la instalación y el mantenimiento del interruptor BES-53248, asegúrese de revisar la lista de componentes y números de pieza.
 
-En la siguiente tabla se enumeran el número de pieza, la descripción y las versiones mínimas de EFOS y ONTAP para los componentes del conmutador de clúster BES-53248, incluidos los detalles del kit de guías de montaje en bastidor.
+La siguiente tabla enumera el número de pieza, la descripción y las versiones mínimas de EFOS y ONTAP para los componentes del conmutador de clúster BES-53248, incluidos los detalles del kit de riel de montaje en rack.
 
 
-NOTE: Se requiere una versión EFOS mínima de *3.10.0.3* para los números de pieza *X190005-B* y *X190005R-B*.
+NOTE: Se requiere una versión mínima de EFOS *3.10.0.3* para los números de pieza *X190005-B* y *X190005R-B*.
 
 [cols="20,40,20,20"]
 |===
-| Número de pieza | Descripción | Versión mínima de EFOS | Versión de ONTAP mínima 
+| Número de pieza | Descripción | Versión mínima de EFOS | Versión mínima de ONTAP 
 
 
  a| 
 X190005-B
  a| 
-BES-53248-B/IX8, CLSW, 16PT10/25GB, PTSX (PTSX = escape del lado del puerto)
+BES-53248-B/IX8, CLSW, 16PT10/25GB, PTSX (PTSX = Escape del lado de babor)
  a| 
 3.10.0.3
  a| 
-9.8
+9,8
 
 
 
  a| 
 X190005R-B
  a| 
-BES-53248-B/IX8, CLSW, 16PT10/25GB, PSIN (PSIN = entrada lateral del puerto)
+BES-53248-B/IX8, CLSW, 16PT10/25GB, PSIN (PSIN = entrada del lado de babor)
  a| 
 3.10.0.3
  a| 
-9.8
+9,8
 
 
 
  a| 
 X190005
  a| 
-BES-53248, CLSW, 16PT10/25GB, PTSX, SOPORTE BRDCM
+BES-53248, CLSW, 16Pt10/25GB, PTSX, BRDCM SUPP
  a| 
 3.4.4.6
  a| 
@@ -59,7 +59,7 @@ BES-53248, CLSW, 16PT10/25GB, PTSX, SOPORTE BRDCM
  a| 
 X190005R
  a| 
-BES-53248, CLSW, 16PT10/25GB, PSIN, BRDCM SUPP
+BES-53248, CLSW, 16Pt10/25GB, PSIN, BRDCM SUPP
  a| 
 3.4.4.6
  a| 
@@ -70,11 +70,11 @@ BES-53248, CLSW, 16PT10/25GB, PSIN, BRDCM SUPP
  a| 
 X-RAIL-4POST-190005
  a| 
-Kit de rieles para montaje en rack Ozeki 4 post 19"
+Kit de rieles para montaje en rack Ozeki de 4 postes y 19 pulgadas
  a| 
-N.A.
+N/A
  a| 
-N.A.
+N/A
 
 |===
 
@@ -99,9 +99,9 @@ BES-53248A2
 BES-53248A3
 | 3.10.0.3 
 |===
-Puede determinar su tipo de máquina específico mediante el comando: `show version`
+Puedes determinar el tipo específico de tu máquina utilizando el siguiente comando: `show version`
 
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]

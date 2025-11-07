@@ -2,29 +2,29 @@
 permalink: switch-cisco-3232c/migrate-from-switchless-workflow.html 
 sidebar: sidebar 
 keywords: 3232c cabling setup, 3232c switches configuration, nx-os 
-summary: Antes de configurar el switch Cisco 3232C, revise la siguiente información. 
+summary: Antes de configurar su conmutador Cisco 3232C, revise la siguiente información. 
 ---
-= Migre desde un flujo de trabajo de clústeres sin switches de dos nodos
+= Migrar desde un flujo de trabajo de clúster sin conmutador de dos nodos
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga estos pasos del flujo de trabajo para migrar desde un clúster de dos nodos sin switch a un clúster con switches de clúster Cisco Nexus 3232C.
+Siga estos pasos del flujo de trabajo para migrar de un clúster sin conmutador de dos nodos a un clúster con conmutadores de clúster Cisco Nexus 3232C.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:migrate-from-switchless-migrate-requirements.html["Requisitos de migración"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1"]link:migrate-from-switchless-migrate-requirements.html["Requisitos de migración"]
 [role="quick-margin-para"]
-Revise la información del switch de ejemplo para el proceso de migración.
+Revise la información del ejemplo de cambio para el proceso de migración.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"]link:migrate-from-switchless-prepare-to-migrate.html["Prepare la migración"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"]link:migrate-from-switchless-prepare-to-migrate.html["Prepárate para la migración"]
 [role="quick-margin-para"]
-Prepare su clúster de dos nodos sin switches para migrarlo a un clúster con switches de dos nodos.
+Prepare su clúster de dos nodos sin conmutador para la migración a un clúster de dos nodos con conmutador.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"]link:migrate-from-switchless-configure-ports.html["Configure los puertos"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"]link:migrate-from-switchless-configure-ports.html["Configura tus puertos"]
 [role="quick-margin-para"]
-Configure su clúster de dos nodos sin switches para migrarlo a un clúster con switches de dos nodos.
+Configure su clúster de dos nodos sin conmutador para la migración a un clúster de dos nodos con conmutador.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:migrate-from-switchless-complete-migration.html["Completa la migración"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:migrate-from-switchless-complete-migration.html["Completa tu migración"]
 [role="quick-margin-para"]
-Complete la migración a un clúster con switches de dos nodos.
+Completa tu migración a un clúster conmutado de dos nodos.

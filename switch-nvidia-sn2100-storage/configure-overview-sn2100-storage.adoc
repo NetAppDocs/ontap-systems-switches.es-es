@@ -2,7 +2,7 @@
 permalink: switch-nvidia-sn2100-storage/configure-overview-sn2100-storage.html 
 sidebar: sidebar 
 keywords: sn2100 SN2100 switches setup, sn2100 SN2100 switches install, cumulus linux 
-summary: Antes de configurar los conmutadores NVIDIA SN2100, revise la descripción general del procedimiento. 
+summary: Antes de configurar los switches NVIDIA SN2100, revise la descripción general del procedimiento. 
 ---
 = Flujo de trabajo de instalación y configuración para conmutadores NVIDIA SN2100
 :allow-uri-read: 
@@ -11,11 +11,11 @@ summary: Antes de configurar los conmutadores NVIDIA SN2100, revise la descripci
 
 
 [role="lead"]
-El NVIDIA SN2100 es un switch Ethernet que le permite cambiar datos entre controladoras y bandejas de discos.
+El NVIDIA SN2100 es un switch Ethernet que permite intercambiar datos entre controladores y gabinetes de discos.
 
 Siga estos pasos de flujo de trabajo para instalar y configurar sus conmutadores SN2100.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:configure-reqs-sn2100-storage.html["Revisar los requisitos de configuración"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1"]link:configure-reqs-sn2100-storage.html["Revisar los requisitos de configuración"]
 [role="quick-margin-para"]
 Revise los requisitos de configuración para el conmutador de almacenamiento SN2100.
 
@@ -27,7 +27,7 @@ Revise los componentes y números de pieza del conmutador de almacenamiento SN21
 [role="quick-margin-para"]
 Revise la documentación específica del conmutador y del controlador para configurar sus conmutadores SN2100 y el clúster ONTAP .
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:install-hardware-workflow.html["Instale el hardware"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:install-hardware-workflow.html["Instala el hardware"]
 [role="quick-margin-para"]
 Instale el hardware del interruptor.
 

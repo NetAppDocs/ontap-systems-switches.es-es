@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install rcf,rcf configure 
 summary: Puede instalar el RCF después de configurar el conmutador Nexus 92300YC por primera vez. 
 ---
-= Instalación del archivo de configuración de referencia (RCF)
+= Instalar el archivo de configuración de referencia (RCF)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,44 +13,44 @@ summary: Puede instalar el RCF después de configurar el conmutador Nexus 92300Y
 [role="lead"]
 Puede instalar el RCF después de configurar el conmutador Nexus 92300YC por primera vez.
 
-.Nomenclatura de switch y nodo
-Los ejemplos de este procedimiento utilizan la nomenclatura de conmutador y nodo siguiente:
+.Nomenclatura de interruptores y nodos
+Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interruptores y nodos:
 
-* Los nombres de los dos switches Cisco son `cs1` y.. `cs2`.
-* Los nombres de nodo son `node1` y.. `node2`.
-* Los nombres de LIF del clúster son `node1_clus1` y.. `node1_clus2` para los nodos 1 y `node2_clus1` y.. `node2_clus2` para el 2.
-* La `cluster1::*>` prompt indica el nombre del clúster.
-* Los puertos del clúster de cada nodo se llaman `e0a` y.. `e0b`.
+* Los nombres de los dos switches de Cisco son `cs1` y `cs2` .
+* Los nombres de los nodos son `node1` y `node2` .
+* Los nombres de los clústeres LIF son `node1_clus1` y `node1_clus2` para el nodo 1 y `node2_clus1` y `node2_clus2` para el nodo 2.
+* El `cluster1::*>` El indicador muestra el nombre del clúster.
+* Los puertos del clúster en cada nodo se llaman `e0a` y `e0b` .
 +
-Consulte link:https://hwu.netapp.com/Home/Index["_Hardware Universe_"] para los puertos de clúster reales compatibles con la plataforma.
+Ver ellink:https://hwu.netapp.com/Home/Index["_Universo del Hardware^_"] para los puertos de clúster reales compatibles con su plataforma.
 
 
 
-.Puertos y conexiones de nodo compatibles
-* Los enlaces Inter-Switch (ISL) compatibles con los switches Nexus 92300YC son los puertos 1/65 y 1/66.
-* Las conexiones de nodos compatibles con los switches Nexus 92300YC son los puertos 1/1 a 1/66.
-* Los ejemplos de este procedimiento utilizan dos nodos. Estos nodos utilizan dos puertos de interconexión de clúster de 10 GbE `e0a` y.. `e0b`. Consulte https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para verificar los puertos de clúster correctos en sus plataformas.
+.Puertos y conexiones de nodos compatibles
+* Los enlaces entre conmutadores (ISL) compatibles con los conmutadores Nexus 92300YC son los puertos 1/65 y 1/66.
+* Las conexiones de nodo compatibles con los switches Nexus 92300YC son los puertos 1/1 a 1/66.
+* Los ejemplos de este procedimiento utilizan dos nodos.  Estos nodos utilizan dos puertos de interconexión de clúster 10GbE. `e0a` y `e0b` .  Ver el https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para verificar los puertos de clúster correctos en sus plataformas.
 
 
 .Antes de empezar
-* Debe tener el RCF actual.
-* El clúster debe estar funcionando completamente (no debe haber errores en los registros ni problemas similares).
-* Debe haber comprobado o establecido la configuración de inicio deseada en el RCF para reflejar las imágenes de arranque deseadas si sólo está instalando NX-OS y manteniendo su versión actual de RCF.
-* Si necesita cambiar la configuración de arranque para reflejar las imágenes de arranque actuales, debe hacerlo antes de volver a aplicar el RCF para que se cree una instancia de la versión correcta en futuros reinicios.
-* Debe haber consultado la tabla de compatibilidad de conmutadores de https://support.netapp.com/NOW/download/software/cm_switches/["Switch Ethernet de Cisco"^] Para las versiones ONTAP, NX-OS y RCF admitidas.
-* Puede haber dependencias de comandos entre la sintaxis de comandos en el RCF y la que se encuentra en las versiones de NX-OS.
+* Debe tener el RCF vigente.
+* El clúster debe estar en pleno funcionamiento (no debe haber errores en los registros ni problemas similares).
+* Si solo va a instalar NX-OS y va a mantener su versión actual de RCF, debe haber comprobado o configurado la configuración de arranque deseada en el RCF para que refleje las imágenes de arranque deseadas.
+* Si necesita cambiar la configuración de arranque para que refleje las imágenes de arranque actuales, debe hacerlo antes de volver a aplicar el RCF para que se instancie la versión correcta en futuros reinicios.
+* Debes haber consultado la tabla de compatibilidad del switch en el https://support.netapp.com/NOW/download/software/cm_switches/["conmutador Ethernet de Cisco"^] Página para las versiones compatibles de ONTAP, NX-OS y RCF.
+* Pueden existir dependencias de comandos entre la sintaxis de comandos en RCF y la que se encuentra en las versiones de NX-OS.
 
 
 .Acerca de esta tarea
-Para ello, es necesario utilizar tanto comandos de la ONTAP como comandos de la serie Cisco Nexus 9000; los comandos de la ONTAP se usan a menos que se indique lo contrario.
+El procedimiento requiere el uso de comandos ONTAP y comandos de switches Cisco Nexus serie 9000; se utilizan comandos ONTAP a menos que se indique lo contrario.
 
-Los resultados del comando pueden variar en función de las diferentes versiones de ONTAP.
+Los resultados del comando pueden variar dependiendo de las diferentes versiones de ONTAP.
 
 .Pasos
-. Conecte el switch de clúster a la red de gestión.
+. Conecte el conmutador del clúster a la red de administración.
 . Utilice el comando ping para verificar la conectividad con el servidor que aloja el RCF.
 +
-Este ejemplo verifica que el switch puede llegar al servidor en la dirección IP 172.19.2.1:
+Este ejemplo verifica que el switch puede alcanzar el servidor en la dirección IP 172.19.2.1:
 
 +
 [listing, subs="+quotes"]
@@ -60,7 +60,7 @@ Pinging 172.19.2.1 with 0 bytes of data:
 
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
-. Copie el RCF en el conmutador Nexus 92300YC:
+. Copie el archivo RCF al switch Nexus 92300YC:
 +
 [listing, subs="+quotes"]
 ----
@@ -80,7 +80,7 @@ sftp> exit
 Copy complete, now saving to disk (please wait)...
 Copy complete.
 ----
-. Fusionar el RCF con la configuración de ejecución del conmutador:
+. Fusionar el RCF con la configuración en ejecución del switch:
 +
 [listing, subs="+quotes"]
 ----
@@ -108,7 +108,7 @@ Edge Port Type (Portfast) has been configured on Ethernet1/1 but will only
 Copy complete, now saving to disk (please wait)...
 Copy complete.
 ----
-. Compruebe en el conmutador que el RCF se ha combinado correctamente:
+. Verifique en el switch que el RCF se haya fusionado correctamente:
 +
 `show running-config`
 
@@ -149,7 +149,7 @@ banner motd #
 *                                                                              *
 ********************************************************************************
 ----
-. Guarde la configuración en ejecución para que se convierta en la configuración de inicio al reiniciar el conmutador:
+. Guarda la configuración en ejecución para que se convierta en la configuración de inicio cuando reinicies el switch:
 +
 [listing, subs="+quotes"]
 ----
@@ -159,7 +159,7 @@ cs2# *copy running-config startup-config*
 Copy complete, now saving to disk (please wait)...
 Copy complete.
 ----
-. Para ONTAP 9.6P8 y versiones posteriores, habilite la función de recopilación de registros del monitor de estado del switch Ethernet para recopilar archivos de registro relacionados con el switch mediante los comandos: `system cluster-switch log setup-password` y.. `system cluster-switch log enable-collection`
+. Para ONTAP 9.6P8 y versiones posteriores, habilite la función de recopilación de registros del monitor de estado del switch Ethernet para recopilar archivos de registro relacionados con el switch, utilizando los siguientes comandos: `system cluster-switch log setup-password` y `system cluster-switch log enable-collection`
 +
 [listing, subs="+quotes"]
 ----
@@ -197,7 +197,7 @@ Enabling cluster switch log collection.
 
 cluster1::*>
 ----
-. Reinicie el conmutador y compruebe que la configuración en ejecución es correcta:
+. Reinicie el switch y verifique que la configuración en ejecución sea correcta:
 +
 `reload`
 

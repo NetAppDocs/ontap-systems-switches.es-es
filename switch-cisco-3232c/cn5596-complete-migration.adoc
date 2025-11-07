@@ -2,9 +2,9 @@
 permalink: switch-cisco-3232c/cn5596-complete-migration.html 
 sidebar: sidebar 
 keywords: cisco 3232c, cluster switches 
-summary: Puede utilizar switches Cisco Nexus 3232C como switches de clúster en su clúster AFF o FAS. 
+summary: Puede utilizar los switches Cisco Nexus 3232C como switches de clúster en su clúster AFF o FAS . 
 ---
-= Complete la migración de 5596 switches a 3232C switches
+= Completa la migración de switches 5596 a switches 3232C.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -14,12 +14,12 @@ summary: Puede utilizar switches Cisco Nexus 3232C como switches de clúster en 
 Complete los siguientes pasos para finalizar la migración de los switches Nexus 5596 a los switches Nexus 3232C.
 
 .Pasos
-. Compruebe que se supervisan los switches de clúster adecuados:
+. Verifique que se estén monitoreando los conmutadores de clúster adecuados:
 +
 `system cluster-switch show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing]
@@ -47,11 +47,11 @@ C2                          cluster-network    10.10.1.104      NX3232C
 2 entries were displayed.
 ----
 ====
-. Si ha suprimido la creación automática de casos, vuelva a habilitarla invocando un mensaje de AutoSupport:
+. Si desactivaste la creación automática de casos, vuelve a activarla mediante un mensaje de AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.El futuro
-link:../switch-cshm/config-overview.html["Configure la supervisión de estado del switch"].
+.¿Que sigue?
+link:../switch-cshm/config-overview.html["Configurar la monitorización del estado del switch"].

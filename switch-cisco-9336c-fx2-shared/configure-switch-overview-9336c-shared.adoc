@@ -2,7 +2,7 @@
 permalink: switch-cisco-9336c-fx2-shared/configure-switch-overview-9336c-shared.html 
 sidebar: sidebar 
 keywords: BES-53248 switches, initial installation, configure switch-cisco-9336c-fx2 switch 
-summary: Descripción general de la instalación y la configuración de los switches compartidos Cisco Nexus 9336C-FX2 
+summary: Descripción general de la instalación y configuración de los switches compartidos Cisco Nexus 9336C-FX2 
 ---
 = Flujo de trabajo de instalación y configuración para conmutadores compartidos Cisco Nexus 9336C-FX2
 :allow-uri-read: 
@@ -11,11 +11,11 @@ summary: Descripción general de la instalación y la configuración de los swit
 
 
 [role="lead"]
-El switch compartido Cisco Nexus 9336C-FX2 forma parte de la plataforma Cisco Nexus 9000 y se puede instalar en un armario rack de sistema de NetApp. Los switches compartidos permiten combinar la funcionalidad de clúster y almacenamiento en una configuración de switch compartido, ya que admiten el uso de archivos de configuración de referencia de almacenamiento y clúster compartidos.
+El switch compartido Cisco Nexus 9336C-FX2 forma parte de la plataforma Cisco Nexus 9000 y se puede instalar en un gabinete de sistema NetApp .  Los conmutadores compartidos permiten combinar la funcionalidad de clúster y almacenamiento en una configuración de conmutador compartido, al admitir el uso de archivos de configuración de referencia de clúster y almacenamiento compartidos.
 
 Siga estos pasos de flujo de trabajo para instalar y configurar sus conmutadores Cisco 9336C-FX2.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:configure-reqs-9336c-shared.html["Revisar los requisitos de configuración"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1"]link:configure-reqs-9336c-shared.html["Revisar los requisitos de configuración"]
 [role="quick-margin-para"]
 Revise los requisitos de configuración para el conmutador compartido 9336C-FX2.
 

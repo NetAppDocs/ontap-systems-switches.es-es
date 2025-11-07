@@ -2,29 +2,29 @@
 permalink: switch-bes-53248/CSHM_log_collection.html 
 sidebar: sidebar 
 keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation,BES-53248 Broadcom setup,BES-53248 switches configuration,EFOS 
-summary: 'La función de recogida de registros del monitor de estado del switch Ethernet (CSHM) se utiliza para recoger registros de clústeres o switches de red de almacenamiento en ONTAP.' 
+summary: 'La función de recopilación de registros del monitor de estado del conmutador Ethernet (CSHM) se utiliza para recopilar registros de los conmutadores de red de clúster o de almacenamiento en ONTAP.' 
 ---
-= Recopilación de registro de supervisión del estado del switch Ethernet
+= Recopilación de registros de supervisión del estado del switch Ethernet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-El monitor de estado del switch Ethernet (CSHM) es responsable de garantizar el estado operativo de los conmutadores de red del clúster y de almacenamiento y de recopilar registros del switch para fines de depuración. Este procedimiento lo guía a través del proceso de configuración e inicio de la recopilación de registros detallados de *Soporte* desde el switch e inicia una recopilación por hora de datos *Periódicos* que es recopilada por AutoSupport.
+El monitor de estado del conmutador Ethernet (CSHM) es responsable de garantizar el buen funcionamiento de los conmutadores de red de clúster y almacenamiento y de recopilar los registros de los conmutadores con fines de depuración.  Este procedimiento le guía a través del proceso de configuración e inicio de la recopilación de registros detallados de *Soporte* del switch e inicia una recopilación horaria de datos *Periódicos* que recopila AutoSupport.
 
 .Antes de empezar
-* Para habilitar la función de recopilación de registros, debe ejecutar ONTAP versión 9.10.1P15, 9.11.1P12 o 9.12.1 o posterior, y EFOS 3.8.0.2 o posterior.
-* La monitorización del estado del interruptor debe estar activada para el interruptor. Verifique esto asegurándose de que el `Is Monitored:` el campo se establece en *true* en la salida del `system switch ethernet show` comando.
+* Para habilitar la función de recopilación de registros, debe estar ejecutando ONTAP versión 9.10.1P15, 9.11.1P12 o 9.12.1 o posterior y EFOS 3.8.0.2 o posterior.
+* La monitorización del estado del switch debe estar habilitada.  Verifique esto asegurándose de que `Is Monitored:` El campo se establece en *verdadero* en la salida de `system switch ethernet show` dominio.
 
 
 .Pasos
-. Para configurar la recopilación de registros, ejecute el siguiente comando para cada conmutador. Se le pedirá que introduzca el nombre del switch, el nombre de usuario y la contraseña para la recopilación de registros.
+. Para configurar la recopilación de registros, ejecute el siguiente comando para cada conmutador.  Se le solicita que ingrese el nombre del switch, el nombre de usuario y la contraseña para la recopilación de registros.
 +
 `system switch ethernet log setup-password`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -53,12 +53,12 @@ Enter the password: *<enter switch password>*
 Enter the password again: *<enter switch password>*
 ----
 ====
-. Para iniciar la recopilación de registros, ejecute el siguiente comando, sustituyendo EL DISPOSITIVO por el conmutador utilizado en el comando anterior. Esto inicia ambos tipos de recopilación de registros: Los registros detallados de *Support* y una recopilación horaria de datos *Periódicos*.
+. Para iniciar la recopilación de registros, ejecute el siguiente comando, reemplazando DEVICE con el conmutador utilizado en el comando anterior.  Esto inicia ambos tipos de recopilación de registros: los registros detallados de *Soporte* y una recopilación horaria de datos *Periódicos*.
 +
 `system switch ethernet log modify -device _<switch-name>_ -log-request true`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -77,19 +77,19 @@ Enabling cluster switch log collection.
 ----
 ====
 +
-Espere 10 minutos y compruebe que se complete la recopilación de registros:
+Espere 10 minutos y luego compruebe que la recopilación de registros se haya completado:
 
 +
 `system switch ethernet log show`
 
 +
 
-CAUTION: Si alguno de estos comandos devuelve un error o si la recogida de registros no se completa, póngase en contacto con el soporte de NetApp.
+CAUTION: Si alguno de estos comandos devuelve un error o si la recopilación de registros no se completa, póngase en contacto con el soporte de NetApp .
 
 
 
-.Solucionar problemas
-Si se encuentra con alguno de los siguientes estados de error informados por la función de recopilación de registros (visible en la salida de `system switch ethernet log show`), pruebe los pasos de depuración correspondientes:
+.Solución de problemas
+Si encuentra alguno de los siguientes estados de error notificados por la función de recopilación de registros (visibles en la salida de `system switch ethernet log show` ), pruebe los pasos de depuración correspondientes:
 
 |===
 
@@ -98,36 +98,36 @@ Si se encuentra con alguno de los siguientes estados de error informados por la 
 
 
  a| 
-*Las claves RSA no están presentes*
+*Claves RSA no presentes*
  a| 
-Vuelva a generar las claves SSH de ONTAP. Póngase en contacto con el soporte de NetApp.
+Regenerar claves SSH de ONTAP . Comuníquese con el soporte de NetApp .
 
 
 
  a| 
-*error de contraseña de cambio*
+*Error al cambiar la contraseña*
  a| 
-Verifique las credenciales, pruebe la conectividad SSH y vuelva a generar las claves SSH de ONTAP. Revise la documentación del switch o póngase en contacto con el soporte de NetApp para obtener instrucciones.
+Verificar las credenciales, probar la conectividad SSH y regenerar las claves SSH de ONTAP .  Revise la documentación del switch o póngase en contacto con el soporte de NetApp para obtener instrucciones.
 
 
 
  a| 
 *Las claves ECDSA no están presentes para FIPS*
  a| 
-Si el modo FIPS está activado, es necesario generar claves ECDSA en el conmutador antes de volver a intentarlo.
+Si el modo FIPS está habilitado, las claves ECDSA deben generarse en el conmutador antes de volver a intentarlo.
 
 
 
  a| 
-*registro preexistente encontrado*
+*Se encontró un registro preexistente*
  a| 
 Elimine el archivo de recopilación de registros anterior del conmutador.
 
 
 
  a| 
-*error de registro de volcado del interruptor*
+*error en el registro de volcado del switch*
  a| 
-Asegúrese de que el usuario del conmutador tiene permisos de recopilación de registros. Consulte los requisitos previos anteriores.
+Asegúrese de que el usuario del switch tenga permisos de recopilación de registros.  Consulte los requisitos previos anteriores.
 
 |===

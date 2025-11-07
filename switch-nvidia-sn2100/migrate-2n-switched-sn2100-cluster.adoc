@@ -2,50 +2,50 @@
 permalink: switch-nvidia-sn2100/migrate-2n-switched-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: two-node switchless cluster environments,migrating to a two-node switched NVIDIA SN2100 cluster environment,switchless cluster environments,NVIDIA SN2100 switches 
-summary: Si ya dispone de un entorno de clúster sin switches de dos nodos, puede migrar a un entorno de clústeres con switches de dos nodos mediante switches NVIDIA SN2100 para permitir el escalado más allá de los dos nodos del clúster. 
+summary: Si tiene un entorno de clúster sin conmutadores de dos nodos existente, puede migrar a un entorno de clúster conmutado de dos nodos utilizando conmutadores NVIDIA SN2100 para permitirle escalar más allá de dos nodos en el clúster. 
 ---
-= Migre a un clúster con switches de dos nodos con switches de clúster NVIDIA SN2100
+= Migre a un clúster conmutado de dos nodos con conmutadores de clúster NVIDIA SN2100.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si ya dispone de un entorno de clúster sin switches de dos nodos, puede migrar a un entorno de clústeres con switches de dos nodos mediante switches NVIDIA SN2100 para permitir el escalado más allá de los dos nodos del clúster.
+Si tiene un entorno de clúster sin conmutadores de dos nodos existente, puede migrar a un entorno de clúster conmutado de dos nodos utilizando conmutadores NVIDIA SN2100 para permitirle escalar más allá de dos nodos en el clúster.
 
-El procedimiento que utilice dependerá de si tiene dos puertos de red de clúster dedicados en cada controladora o un único puerto de clúster de cada controladora. El proceso documentado funciona para todos los nodos utilizando puertos ópticos o Twinax, pero no es compatible con este switch si los nodos utilizan puertos RJ45 10GBASE-T integrados para los puertos de red del clúster.
+El procedimiento que utilice dependerá de si dispone de dos puertos de red de clúster dedicados en cada controlador o de un único puerto de clúster en cada controlador.  El proceso documentado funciona para todos los nodos que utilizan puertos ópticos o Twinax, pero no es compatible con este conmutador si los nodos utilizan puertos RJ45 10GBASE-T integrados para los puertos de red del clúster.
 
 
 
-== Revise los requisitos
+== Requisitos de revisión
 
-.Configuración con dos nodos sin switches
+.Configuración sin interruptor de dos nodos
 Asegúrese de que:
 
-* La configuración sin switch de dos nodos está correctamente configurada y funciona.
-* Los nodos ejecutan ONTAP 9.10.1P3 y una versión posterior.
-* Todos los puertos del clúster están en el estado *up*.
-* Todas las interfaces lógicas de cluster (LIF) están en el estado *up* y en sus puertos de inicio.
+* La configuración sin interruptor de dos nodos está correctamente configurada y funcionando.
+* Los nodos ejecutan ONTAP 9.10.1P3 y versiones posteriores.
+* Todos los puertos del clúster están en estado *activo*.
+* Todas las interfaces lógicas del clúster (LIF) están en estado *activo* y en sus puertos de inicio.
 
 
-.Configuración de switch de clúster NVIDIA SN2100
+.Configuración del conmutador de clúster NVIDIA SN2100
 Asegúrese de que:
 
 * Ambos switches tienen conectividad de red de gestión.
-* Hay acceso de la consola a los switches de clúster.
-* El switch de nodo a nodo NVIDIA SN2100 y las conexiones de switch a switch utilizan cables Twinax o de fibra.
+* Existe acceso mediante consola a los conmutadores del clúster.
+* Las conexiones de conmutador a nodo y de conmutador a conmutador NVIDIA SN2100 utilizan cables Twinax o de fibra óptica.
 +
 
-IMPORTANT: Consulte link:cabling-considerations-sn2100-cluster.html["Revise las consideraciones sobre el cableado y la configuración"] para obtener advertencias e información adicional. La https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - interruptores"^] también contiene más información sobre el cableado.
+IMPORTANT: Verlink:cabling-considerations-sn2100-cluster.html["Revisar las consideraciones de cableado y configuración"] Para conocer las salvedades y obtener más detalles.  El https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Interruptores"^] También contiene más información sobre el cableado.
 
-* Los cables de enlace entre switches (ISL) están conectados a los puertos swp15 y swp16 en ambos switches NVIDIA SN2100.
-* Se ha completado la personalización inicial de los dos conmutadores SN2100, de modo que:
+* Los cables Inter-Switch Link (ISL) están conectados a los puertos swp15 y swp16 en ambos switches NVIDIA SN2100.
+* Se ha completado la personalización inicial de ambos conmutadores SN2100, de modo que:
 +
-** Los conmutadores SN2100 ejecutan la última versión de Cumulus Linux
-** Los archivos de configuración de referencia (RCF) se aplican a los conmutadores
-** Cualquier personalización de sitio, como SMTP, SNMP y SSH, se configura en los nuevos switches.
+** Los switches SN2100 ejecutan la última versión de Cumulus Linux.
+** Los archivos de configuración de referencia (RCF) se aplican a los conmutadores.
+** Cualquier personalización del sitio, como SMTP, SNMP y SSH, se configura en los nuevos conmutadores.
 +
-La https://hwu.netapp.com["Hardware Universe"^] contiene la información más reciente acerca de los puertos del clúster reales para las plataformas.
+El https://hwu.netapp.com["Hardware Universe"^] Contiene la información más reciente sobre los puertos de clúster reales para sus plataformas.
 
 
 
@@ -53,47 +53,47 @@ La https://hwu.netapp.com["Hardware Universe"^] contiene la información más re
 
 
 
-== Migrar los switches
+== Migrar los interruptores
 
 .Acerca de los ejemplos
-Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de nodo y conmutador de cluster:
+Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de nodos y conmutadores de clúster:
 
-* Los nombres de los interruptores SN2100 son _sw1_ y _sw2_.
-* Los nombres de las SVM del clúster son _1_ y _2_.
-* Los nombres de las LIF son _1_clus1_ y _1_clus2_ en el nodo 1, y _2_clus1_ y _2_clus2_ en el nodo 2, respectivamente.
-* La `cluster1::*>` prompt indica el nombre del clúster.
-* Los puertos de clúster utilizados en este procedimiento son _e3a_ y _e3b_.
-* Los puertos de arranque tienen el formato: swp[Port]s[breakout Port 0-3]. Por ejemplo, cuatro puertos de arranque en swp1 son _swp1s0_, _swp1s1_, _swp1s2_ y _swp1s3_.
-
-
+* Los nombres de los switches SN2100 son _sw1_ y _sw2_.
+* Los nombres de los SVM del clúster son _node1_ y _node2_.
+* Los nombres de los LIF son _node1_clus1_ y _node1_clus2_ en el nodo 1, y _node2_clus1_ y _node2_clus2_ en el nodo 2 respectivamente.
+* El `cluster1::*>` El indicador muestra el nombre del clúster.
+* Los puertos del clúster utilizados en este procedimiento son _e3a_ y _e3b_.
+* Los puertos de ruptura adoptan el formato: swp[puerto]s[puerto de ruptura 0-3].  Por ejemplo, cuatro puertos de ruptura en swp1 son _swp1s0_, _swp1s1_, _swp1s2_ y _swp1s3_.
 
 
-=== Paso 1: Preparación para la migración
 
-. Si se habilita AutoSupport en este clúster, elimine la creación automática de casos invocando un mensaje de AutoSupport: `system node autosupport invoke -node * -type all -message MAINT=xh`
+
+=== Paso 1: Prepararse para la migración
+
+. Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=xh`
 +
 donde _x_ es la duración de la ventana de mantenimiento en horas.
 
-. Cambie el nivel de privilegio a Advanced, introduzca `y` cuando se le solicite continuar: `set -privilege advanced`
+. Cambie el nivel de privilegio a avanzado, ingresando `y` cuando se le solicite continuar: `set -privilege advanced`
 +
-El aviso avanzado (`*>`) aparece.
+La solicitud avanzada(`*>` ) aparece.
 
 
 
 
 
-=== Paso 2: Configure los puertos y el cableado
+=== Paso 2: Configurar puertos y cableado
 
 [role="tabbed-block"]
 ====
-.Cumulus Linux 4,4.x
+.Cumulus Linux 4.4.x
 --
-. Deshabilite todos los puertos orientados al nodo (no los puertos ISL) en los nuevos switches del clúster sw1 y sw2.
+. Deshabilite todos los puertos orientados a los nodos (excepto los puertos ISL) en ambos conmutadores del nuevo clúster sw1 y sw2.
 +
 No debe deshabilitar los puertos ISL.
 
 +
-Los siguientes comandos desactivan los puertos orientados al nodo en los switches sw1 y sw2:
+Los siguientes comandos deshabilitan los puertos orientados al nodo en los switches sw1 y sw2:
 
 +
 [listing, subs="+quotes"]
@@ -106,12 +106,12 @@ cumulus@sw2:~$ *net add interface swp1s0-3, swp2s0-3, swp3-14 link down*
 cumulus@sw2:~$ *net pending*
 cumulus@sw2:~$ *net commit*
 ----
-. Compruebe que el ISL y los puertos físicos del ISL entre los dos switches SN2100 sw1 y sw2 están en los puertos swp15 y swp16:
+. Verifique que el enlace ISL y los puertos físicos del enlace ISL entre los dos switches SN2100 sw1 y sw2 estén activos en los puertos swp15 y swp16:
 +
 `net show interface`
 
 +
-Los siguientes comandos muestran que los puertos ISL están activos en los switches sw1 y SW2:
+Los siguientes comandos muestran que los puertos ISL están activos en los switches sw1 y sw2:
 
 +
 [listing, subs="+quotes"]
@@ -139,12 +139,12 @@ UP     swp16      100G  9216   BondMember  sw1 (swp16)  Master: cluster_isl(UP)
 --
 .Cumulus Linux 5.x
 --
-. Deshabilite todos los puertos orientados al nodo (no puertos ISL) en los dos switches de clúster nuevos sw1 y SW2.
+. Deshabilite todos los puertos orientados a los nodos (excepto los puertos ISL) en ambos nuevos conmutadores del clúster sw1 y sw2.
 +
 No debe deshabilitar los puertos ISL.
 
 +
-Los siguientes comandos desactivan los puertos orientados al nodo en los switches sw1 y sw2:
+Los siguientes comandos deshabilitan los puertos orientados al nodo en los switches sw1 y sw2:
 
 +
 [listing, subs="+quotes"]
@@ -157,12 +157,12 @@ cumulus@sw2:~$ *nv set interface swp1s0-3,swp2s0-3,swp3-14 link state down*
 cumulus@sw2:~$ *nv config apply*
 cumulus@sw2:~$ *nv config save*
 ----
-. Compruebe que el ISL y los puertos físicos del ISL entre los dos switches SN2100 sw1 y sw2 están en los puertos swp15 y swp16:
+. Verifique que el enlace ISL y los puertos físicos del enlace ISL entre los dos switches SN2100 sw1 y sw2 estén activos en los puertos swp15 y swp16:
 +
 `nv show interface`
 
 +
-Los ejemplos siguientes muestran que los puertos ISL están activos en los switches sw1 y SW2:
+Los siguientes ejemplos muestran que los puertos ISL están activos en los switches sw1 y sw2:
 
 +
 [listing, subs="+quotes"]
@@ -197,10 +197,10 @@ Interface     MTU    Speed  State  Remote Host  Remote Port                     
 `network port show`
 
 +
-Cada puerto debe aparecer `up` para `Link` y saludable para `Health Status`.
+Cada puerto debería mostrar `up` para `Link` y saludable para `Health Status` .
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -227,15 +227,15 @@ e3b       Cluster      Cluster          up   9000  auto/100000 healthy  false
 
 ----
 ====
-. Compruebe que todas las LIF del clúster estén en funcionamiento:
+. Verifique que todas las LIF del clúster estén activas y operativas:
 +
 `network interface show`
 
 +
-Cada LIF de clúster debería mostrar el valor true para `Is Home` y que tengan un `Status Admin/Oper` de `up/up`.
+Cada clúster LIF debería mostrar verdadero para `Is Home` y tener un `Status Admin/Oper` de `up/up` .
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -252,12 +252,12 @@ Cluster
             node2_clus2  up/up    169.254.19.183/16  node2         e3b     true
 ----
 ====
-. Deshabilite la reversión automática en las LIF del clúster:
+. Deshabilitar la reversión automática en los LIF del clúster:
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -275,20 +275,20 @@ Cluster
 
 ----
 ====
-. Desconecte el cable del puerto del clúster e3a del nodo 1 y, a continuación, conecte e3a al puerto 3 del conmutador del cluster sw1, utilizando el cableado adecuado admitido por los conmutadores SN2100.
+. Desconecte el cable del puerto de clúster e3a en el nodo 3 y, luego, conecte e3a al puerto 1 en el conmutador de clúster sw1, utilizando el cableado adecuado compatible con los conmutadores SN2100.
 +
-La https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - interruptores"^] contiene más información sobre el cableado.
+El https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Interruptores"^] Contiene más información sobre el cableado.
 
-. Desconecte el cable del puerto del clúster e3a en el nodo 2 y, a continuación, conecte e3a al puerto 4 del interruptor del cluster sw1, utilizando el cableado adecuado admitido por los interruptores SN2100.
+. Desconecte el cable del puerto de clúster e3a en el nodo 4 y, luego, conecte e3a al puerto 2 en el conmutador de clúster sw1, utilizando el cableado adecuado compatible con los conmutadores SN2100.
 
 
 [role="tabbed-block"]
 ====
-.Cumulus Linux 4,4.x
+.Cumulus Linux 4.4.x
 --
 . [[step8]] En el switch sw1, habilite todos los puertos orientados al nodo.
 +
-Los siguientes comandos habilitan todos los puertos orientados al nodo del switch sw1.
+Los siguientes comandos habilitan todos los puertos orientados al nodo en el switch sw1.
 
 +
 [listing, subs="+quotes"]
@@ -299,7 +299,7 @@ cumulus@sw1:~$ *net commit*
 ----
 
 
-. [[STEP]] En el switch sw1, verifique que todos los puertos estén activos:
+. [[step]] En el switch sw1, verifique que todos los puertos estén activos:
 +
 `net show interface all`
 
@@ -334,7 +334,7 @@ UP     swp16     100G  9216   BondMember  swp16          Master: cluster_isl(UP)
 --
 . [[step8]] En el switch sw1, habilite todos los puertos orientados al nodo.
 +
-Los siguientes comandos habilitan todos los puertos orientados al nodo del switch sw1.
+Los siguientes comandos habilitan todos los puertos orientados al nodo en el switch sw1.
 
 +
 [listing, subs="+quotes"]
@@ -383,10 +383,10 @@ swp16        up     100G   9216   swp       ossg-int-rcf10                    sw
 `network port show -ipspace Cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-En el siguiente ejemplo, se muestra que todos los puertos del clúster están en los nodos 1 y 2:
+El siguiente ejemplo muestra que todos los puertos del clúster están activos en los nodos 1 y 2:
 
 [listing, subs="+quotes"]
 ----
@@ -410,15 +410,15 @@ e3b       Cluster      Cluster          up   9000  auto/100000 healthy  false
 
 ----
 ====
-. Muestra información sobre el estado de los nodos en el clúster:
+. Mostrar información sobre el estado de los nodos en el clúster:
 +
 `cluster show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-En el siguiente ejemplo se muestra información sobre el estado y la elegibilidad de los nodos en el clúster:
+El siguiente ejemplo muestra información sobre el estado y la elegibilidad de los nodos del clúster:
 
 [listing, subs="+quotes"]
 ----
@@ -431,15 +431,15 @@ node2                true    true          false
 
 ----
 ====
-. Desconecte el cable del puerto del clúster e3b del nodo 1 y, a continuación, conecte e3b al puerto 3 del switch del clúster sw2, utilizando el cableado adecuado compatible con los switches SN2100.
-. Desconecte el cable del puerto del clúster e3b en el nodo 2 y, a continuación, conecte e3b al puerto 4 del switch del clúster sw2, utilizando el cableado adecuado compatible con los conmutadores SN2100.
+. Desconecte el cable del puerto de clúster e3b en el nodo 3 y, luego, conecte e3b al puerto 1 en el conmutador de clúster sw2, utilizando el cableado adecuado compatible con los conmutadores SN2100.
+. Desconecte el cable del puerto de clúster e3b en el nodo 4 y, luego, conecte e3b al puerto 2 en el conmutador de clúster sw2, utilizando el cableado adecuado compatible con los conmutadores SN2100.
 
 
 [role="tabbed-block"]
 ====
-.Cumulus Linux 4,4.x
+.Cumulus Linux 4.4.x
 --
-. [[step14]] En el switch SW2, habilite todos los puertos orientados al nodo.
+. [[step14]] En el switch sw2, habilite todos los puertos orientados al nodo.
 +
 Los siguientes comandos habilitan los puertos orientados al nodo en el switch sw2:
 
@@ -450,7 +450,7 @@ cumulus@sw2:~$ *net del interface swp1s0-3, swp2s0-3, swp3-14 link down*
 cumulus@sw2:~$ *net pending*
 cumulus@sw2:~$ *net commit*
 ----
-. [[step15]] En el switch SW2, verifique que todos los puertos estén activos:
+. [[step15]] En el switch sw2, verifique que todos los puertos estén activos:
 +
 `net show interface all`
 
@@ -480,12 +480,12 @@ UP     swp16     100G  9216   BondMember  swp16          Master: cluster_isl(UP)
 ----
 
 
-. [[step16]] En ambos conmutadores sw1 y SW2, verifique que ambos nodos tengan cada uno una conexión a cada conmutador:
+. [[step16]] En ambos conmutadores sw1 y sw2, verifique que ambos nodos tengan una conexión a cada conmutador:
 +
 `net show lldp`
 
 +
-En el siguiente ejemplo se muestran los resultados adecuados para ambos interruptores sw1 y sw2:
+El siguiente ejemplo muestra los resultados correspondientes para ambos interruptores, sw1 y sw2:
 
 
 
@@ -512,7 +512,7 @@ swp16      100G   BondMember  sw1                swp16
 --
 .Cumulus Linux 5.x
 --
-. [[step14]] En el switch SW2, habilite todos los puertos orientados al nodo.
+. [[step14]] En el switch sw2, habilite todos los puertos orientados al nodo.
 +
 Los siguientes comandos habilitan los puertos orientados al nodo en el switch sw2:
 
@@ -523,7 +523,7 @@ cumulus@sw2:~$ *nv set interface swp1s0-3,swp2s0-3,swp3-14 link state up*
 cumulus@sw2:~$ *nv config apply*
 cumulus@sw2:~$ *nv config save*
 ----
-. [[step15]] En el switch SW2, verifique que todos los puertos estén activos:
+. [[step15]] En el switch sw2, verifique que todos los puertos estén activos:
 +
 `nv show interface`
 
@@ -554,12 +554,12 @@ swp16        up     100G   9216   swp       ossg-int-rcf10                    sw
 ----
 
 
-. [[step16]] En ambos conmutadores sw1 y SW2, verifique que ambos nodos tengan cada uno una conexión a cada conmutador:
+. [[step16]] En ambos conmutadores sw1 y sw2, verifique que ambos nodos tengan una conexión a cada conmutador:
 +
 `nv show interface --view=lldp`
 
 +
-Los siguientes ejemplos muestran los resultados adecuados para los switches sw1 y SW2:
+Los siguientes ejemplos muestran los resultados apropiados para ambos interruptores, sw1 y sw2:
 
 +
 [listing, subs="+quotes"]
@@ -612,12 +612,12 @@ swp16        100G   swp       ossg-int-rcf10                      swp16
 
 --
 ====
-. [[step17]] Muestra información sobre los dispositivos de red detectados en el cluster:
+. [[step17]] Mostrar información sobre los dispositivos de red detectados en su clúster:
 +
 `network device-discovery show -protocol lldp`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -634,15 +634,15 @@ node2      /lldp
             e3b    sw2 (b8:ce:f6:19:1b:96)   swp4          -
 ----
 ====
-. Compruebe que todos los puertos del clúster estén activos:
+. Verifique que todos los puertos del clúster estén activos:
 +
 `network port show -ipspace Cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-En el siguiente ejemplo, se muestra que todos los puertos del clúster están en los nodos 1 y 2:
+El siguiente ejemplo muestra que todos los puertos del clúster están activos en los nodos 1 y 2:
 
 [listing, subs="+quotes"]
 ----
@@ -672,12 +672,12 @@ e3b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 
 === Paso 3: Verificar la configuración
 
-. Activa la reversión automática en todos los LIF del clúster:
+. Habilitar la reversión automática en todos los LIF del clúster:
 +
 `net interface modify -vserver Cluster -lif * -auto-revert true`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -694,19 +694,19 @@ Cluster
           node2_clus2   true
 ----
 ====
-. Compruebe que se muestran todas las interfaces `true` para `Is Home`:
+. Verifique que todas las interfaces muestren `true` para `Is Home` :
 +
 `net interface show -vserver Cluster`
 
 +
 
-NOTE: Esto puede tardar un minuto en completarse.
+NOTE: Esto podría tardar un minuto en completarse.
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-En el ejemplo siguiente, se muestra que todas las LIF están activas en los nodos 1 y 2, y eso `Is Home` los resultados son verdaderos:
+El siguiente ejemplo muestra que todas las LIF están activas en los nodos 1 y 2 y que `Is Home` Los resultados son ciertos:
 
 [listing, subs="+quotes"]
 ----
@@ -723,15 +723,15 @@ Cluster
 
 ----
 ====
-. Compruebe que la configuración está desactivada:
+. Verifique que la configuración esté desactivada:
 +
 `network options switchless-cluster show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-El resultado falso en el ejemplo siguiente muestra que las opciones de configuración están deshabilitadas:
+El resultado erróneo del siguiente ejemplo muestra que la configuración está desactivada:
 
 [listing, subs="+quotes"]
 ----
@@ -739,15 +739,15 @@ cluster1::*> *network options switchless-cluster show*
 Enable Switchless Cluster: *false*
 ----
 ====
-. Compruebe el estado de los miembros del nodo en el clúster:
+. Verifique el estado de los nodos miembros del clúster:
 +
 `cluster show`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
-En el siguiente ejemplo se muestra información sobre el estado y la elegibilidad de los nodos en el clúster:
+El siguiente ejemplo muestra información sobre el estado y la elegibilidad de los nodos del clúster:
 
 [listing, subs="+quotes"]
 ----
@@ -759,22 +759,22 @@ node1                true    true          false
 node2                true    true          false
 ----
 ====
-. Compruebe la conectividad de las interfaces del clúster remoto:
+. Verifique la conectividad de las interfaces del clúster remoto:
 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.9.1 y versiones posteriores
+.ONTAP 9.9.1 y posteriores
 --
-Puede utilizar el `network interface check cluster-connectivity` comando para iniciar una comprobación de accesibilidad de la conectividad del clúster y, a continuación, muestre los detalles:
+Puedes usar el `network interface check cluster-connectivity` comando para iniciar una comprobación de accesibilidad para la conectividad del clúster y luego mostrar los detalles:
 
-`network interface check cluster-connectivity start` y.. `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`y `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* Espere varios segundos antes de ejecutar el `show` comando para mostrar los detalles.
+*NOTA:* Espere unos segundos antes de ejecutar el programa. `show` comando para mostrar los detalles.
 
 [listing, subs="+quotes"]
 ----
@@ -790,9 +790,9 @@ node2
        3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
 ----
 --
-.Todos los lanzamientos de ONTAP
+.Todas las versiones de ONTAP
 --
-En todas las versiones de ONTAP, también se puede utilizar el `cluster ping-cluster -node <name>` comando para comprobar la conectividad:
+Para todas las versiones de ONTAP , también puede usar el `cluster ping-cluster -node <name>` comando para comprobar la conectividad:
 
 `cluster ping-cluster -node <name>`
 
@@ -825,15 +825,15 @@ RPC status:
 ----
 --
 ====
-. [[step6]] Vuelva a cambiar el nivel de privilegio a admin:
+. [[paso 6]] Vuelva a cambiar el nivel de privilegios a administrador:
 +
 `set -privilege admin`
 
-. Si ha suprimido la creación automática de casos, rehabilitarla invocando un mensaje de AutoSupport:
+. Si desactivaste la creación automática de casos, vuelve a activarla mediante un mensaje de AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.El futuro
+.¿Que sigue?
 Después de migrar tus switches, puedes link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"].

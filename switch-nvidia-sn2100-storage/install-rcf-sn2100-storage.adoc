@@ -2,9 +2,9 @@
 permalink: switch-nvidia-sn2100-storage/install-rcf-sn2100-storage.html 
 sidebar: sidebar 
 keywords: install rcf script, python script, sn2100 SN2100 switches, cumulus 
-summary: Siga este procedimiento para instalar la secuencia de comandos RCF. 
+summary: Siga este procedimiento para instalar el script RCF. 
 ---
-= Instale o actualice el script RCF
+= Instale o actualice el script RCF.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -14,32 +14,32 @@ summary: Siga este procedimiento para instalar la secuencia de comandos RCF.
 Siga este procedimiento para instalar o actualizar el script RCF.
 
 .Antes de empezar
-Antes de instalar o actualizar la secuencia de comandos RCF, asegúrese de que los siguientes elementos están disponibles en el conmutador:
+Antes de instalar o actualizar el script RCF, asegúrese de que lo siguiente esté disponible en el switch:
 
-* Cumulus Linux 4.4.3 está instalado.
-* Dirección IP, máscara de subred y puerta de enlace predeterminada definida a través de DHCP o configurado manualmente.
+* Está instalado Cumulus Linux 4.4.3.
+* Dirección IP, máscara de subred y puerta de enlace predeterminada definidas mediante DHCP o configuradas manualmente.
 
 
-.Versiones actuales de la secuencia de comandos RCF
-Hay dos secuencias de comandos RCF disponibles para las aplicaciones de almacenamiento y agrupación en clúster. El procedimiento para cada uno es el mismo.
+.Versiones actuales del script RCF
+Existen dos scripts RCF disponibles para aplicaciones de Clustering y Almacenamiento.  El procedimiento es el mismo para cada uno.
 
-* Agrupación en clúster: *MSN2100-RCF-v1._x_-Cluster*
+* Agrupamiento: *MSN2100-RCF-v1._x_-Cluster*
 * Almacenamiento: *MSN2100-RCF-v1._x_-Almacenamiento*
 
 
 
-NOTE: El siguiente procedimiento de ejemplo muestra cómo descargar y aplicar el script RCF para los switches de clúster.
+NOTE: El siguiente procedimiento de ejemplo muestra cómo descargar y aplicar el script RCF para conmutadores de clúster.
 
 
-NOTE: El resultado de ejemplo de comando utiliza la dirección IP de gestión del switch 10.233.204.71, la máscara de red 255.255.254.0 y la pasarela predeterminada 10.233.204.1.
+NOTE: La salida del comando de ejemplo utiliza la dirección IP de administración del switch 10.233.204.71, la máscara de red 255.255.254.0 y la puerta de enlace predeterminada 10.233.204.1.
 
 .Pasos
-. Mostrar las interfaces disponibles en el interruptor SN2100:
+. Muestra las interfaces disponibles en el switch SN2100:
 +
 `net show interface all`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -68,7 +68,7 @@ ADMDN  swp15  N/A  9216   NotConfigured
 ADMDN  swp16  N/A  9216   NotConfigured
 ----
 ====
-. Copie la secuencia de comandos de la pitón de RCF en el conmutador:
+. Copie el script de Python de RCF al switch:
 +
 [listing, subs="+quotes"]
 ----
@@ -79,7 +79,7 @@ cumulus@cumulus:mgmt:/tmp$ *scp _<user>@<host:/<path>_/MSN2100-RCF-v1.8-Cluster*
 ssologin@10.233.204.71's password:
 MSN2100-RCF-v1.8-Cluster                 100% 8607   111.2KB/s         00:00
 ----
-. Aplique el script de pitón de RCF *MSN2100-RCF-v1.8-Cluster*:
+. Aplique el script de Python RCF *MSN2100-RCF-v1.8-Cluster*:
 +
 [listing, subs="+quotes"]
 ----
@@ -101,19 +101,19 @@ Step 12: Configure SNMP
 Step 13: Reboot the switch
 ----
 +
-La secuencia de comandos RCF completa los pasos indicados anteriormente.
+El script RCF completa los pasos enumerados anteriormente.
 
 +
 
-NOTE: Para cualquier problema de script de Python de RCF que no se pueda corregir, póngase en contacto con https://mysupport.netapp.com/["Soporte de NetApp"^] para obtener ayuda.
+NOTE: Para cualquier problema con el script de Python de RCF que no se pueda corregir, póngase en contacto con https://mysupport.netapp.com/["Soporte de NetApp"^] para obtener ayuda.
 
-. Vuelva a aplicar las personalizaciones anteriores a la configuración del conmutador. Consulte la link:cabling-considerations-sn2100-storage.html["Revise las consideraciones sobre el cableado y la configuración"] para obtener información detallada sobre cualquier cambio adicional necesario.
-. Verificar la configuración tras el reinicio:
+. Vuelva a aplicar cualquier personalización anterior a la configuración del switch.  Referirse alink:cabling-considerations-sn2100-storage.html["Revisar las consideraciones de cableado y configuración"] Para obtener detalles sobre cualquier otro cambio necesario.
+. Verifique la configuración después del reinicio:
 +
 `net show interface all`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -184,7 +184,7 @@ switch-priority  TC  ETS
 `net show interface pluggables`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -198,12 +198,12 @@ swp15      0x11 (QSFP28)  Amphenol     112-00573        APF21109348001
 swp16      0x11 (QSFP28)  Amphenol     112-00573        APF21109347895  B0
 ----
 ====
-. Compruebe que cada nodo tenga una conexión con cada switch:
+. Verifique que cada nodo tenga conexión con cada conmutador:
 +
 `net show lldp`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -218,14 +218,14 @@ swp15      100G   BondMember  sw13                    swp15
 swp16      100G   BondMember  sw14                    swp16
 ----
 ====
-. Compruebe el estado de los puertos del clúster en el clúster.
+. Verifique el estado de los puertos del clúster.
 +
-.. Compruebe que los puertos e0d están en buen estado y en todos los nodos del clúster:
+.. Verifique que los puertos e0d estén activos y en buen estado en todos los nodos del clúster:
 +
 `network port show -role cluster`
 
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -249,9 +249,9 @@ e3a       Cluster      Cluster          up   9000  auto/10000 healthy  false
 e3b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
 ====
-.. Compruebe el estado del switch del clúster (es posible que esto no muestre el switch sw2, ya que las LIF no son homed en el e0d).
+.. Verifique el estado del switch desde el clúster (esto podría no mostrar el switch sw2, ya que las LIF no están conectadas a e0d).
 +
-.Muestra el ejemplo
+.Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -293,5 +293,5 @@ sw2                         cluster-network    10.233.205.91    MSN2100-CB2RC
 
 
 
-.El futuro
+.¿Que sigue?
 Después de instalar o actualizar RCF, puedeslink:setup-install-cshm-file.html["instalar el archivo CSHM"] .
