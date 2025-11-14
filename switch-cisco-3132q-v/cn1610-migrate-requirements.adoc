@@ -88,4 +88,4 @@ Ellink:https://hwu.netapp.com/["Hardware Universe"^] Enumera los puertos de clú
 
 
 .¿Que sigue?
-link:cn5596-prepare-to-migrate.html["Prepárate para la migración"].
+Después de revisar los requisitos de migración, puedeslink:cn1610-prepare-to-migrate.html["Prepárate para migrar tus conmutadores."] .

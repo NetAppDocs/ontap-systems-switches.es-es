@@ -609,4 +609,4 @@ Total entries displayed: 4
 
 
 .¿Que sigue?
-link:../switch-cshm/config-overview.html["Configurar la monitorización del estado del switch"].
+Una vez que hayas verificado tu configuración SSH, podrás link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"].

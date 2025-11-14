@@ -556,4 +556,4 @@ e4e       Cluster      Cluster          up   9000 auto/40000  -        -
 
 
 .¿Que sigue?
-link:migrate-switchless-complete-migration.html["Completa tu migración"].
+Una vez que hayas configurado los puertos del switch, podráslink:migrate-switchless-complete-migration.html["Completa tu migración"] .

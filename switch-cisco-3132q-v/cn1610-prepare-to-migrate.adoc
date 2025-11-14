@@ -393,4 +393,4 @@ C2(config-if)# exit
 
 
 .¿Que sigue?
-link:cn1610-configure-ports.html["Configura tus puertos"].
+Una vez que te hayas preparado para migrar tus switches, puedeslink:cn1610-configure-ports.html["Configura tus puertos"] .

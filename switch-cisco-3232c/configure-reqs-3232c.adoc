@@ -33,4 +33,4 @@ Necesitará la siguiente información de red para todas las configuraciones de c
 Consulte el https://hwu.netapp.com["Hardware Universe"^] Para obtener la información más reciente.
 
 .¿Qué sigue?
-Después de confirmar los requisitos de configuración, revise el link:required-documentation-3232c.html["documentación requerida"].
+Una vez que haya confirmado los requisitos de configuración, puede revisarlink:required-documentation-3232c.html["documentación requerida"] .

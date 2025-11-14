@@ -460,4 +460,4 @@ Copy Complete.
 
 
 .¿Que sigue?
-link:cn1610-complete-migration.html["Completa tu migración"].
+Una vez que hayas configurado los puertos del switch, podráslink:cn1610-complete-migration.html["Completa tu migración"] .

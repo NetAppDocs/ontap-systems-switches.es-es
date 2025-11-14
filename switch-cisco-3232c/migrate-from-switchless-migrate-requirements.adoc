@@ -68,4 +68,4 @@ El procedimiento requiere el uso de comandos ONTAP y comandos de switches Cisco 
 
 ====
 .¿Que sigue?
-link:migrate-from-switchless-prepare-to-migrate.html["Prepárate para la migración"].
+Después de revisar los requisitos de migración, puedeslink:migrate-from-switchless-prepare-to-migrate.html["Prepárate para migrar tus conmutadores."] .

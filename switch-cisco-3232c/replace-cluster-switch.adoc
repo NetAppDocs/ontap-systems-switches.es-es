@@ -946,4 +946,4 @@ C2                          cluster-network    10.10.1.103      NX3232C
 
 
 .¿Que sigue?
-link:../switch-cshm/config-overview.html["Configurar la monitorización del estado del switch"].
+Después de haber reemplazado el interruptor, puedeslink:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"] .

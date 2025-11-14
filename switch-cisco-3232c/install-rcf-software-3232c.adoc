@@ -268,4 +268,4 @@ System Manager proporciona un flujo de trabajo simple y fácil para la configura
 Referirse a https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurar ONTAP en un nuevo clúster con el Administrador del sistema"] para obtener instrucciones de configuración.
 
 .¿Que sigue?
-Después de haber instalado RCF, usted link:configure-ssh-keys.html["verificar la configuración de SSH"].
+Una vez instalado RCF, puedes link:configure-ssh-keys.html["verificar la configuración de SSH"].

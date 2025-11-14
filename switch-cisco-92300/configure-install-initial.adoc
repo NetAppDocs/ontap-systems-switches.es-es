@@ -162,4 +162,4 @@ Copy complete.
 
 
 .¿Que sigue?
-link:install-nxos-overview.html["Prepárese para instalar el software NX-OS y RCF."].
+Una vez que hayas configurado tus interruptores, podrás link:install-nxos-overview.html["Prepárese para instalar el software NX-OS y RCF"].

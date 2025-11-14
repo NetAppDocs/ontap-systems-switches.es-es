@@ -100,4 +100,4 @@ Debes preparar ambos interruptores en este momento.  Si necesita actualizar el s
 
 
 .¿Que sigue?
-link:migrate-switchless-configure-ports.html["Configura tus puertos"].
+Una vez que te hayas preparado para migrar tus switches, puedeslink:migrate-switchless-configure-ports.html["Configura tus puertos"] .

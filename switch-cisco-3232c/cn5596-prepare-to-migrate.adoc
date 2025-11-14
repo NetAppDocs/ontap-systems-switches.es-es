@@ -240,4 +240,4 @@ Cluster
 
 
 .¿Que sigue?
-link:cn5596-configure-ports.html["Configura tus puertos"].
+Una vez que te hayas preparado para migrar tus switches, puedeslink:cn5596-configure-ports.html["Configura tus puertos"] .

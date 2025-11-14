@@ -1366,4 +1366,4 @@ ISL al puerto 66 del conmutador A
 
 |===
 .¿Qué sigue?
-link:install-switch-92300yc.html["Instala el interruptor"].
+Una vez que hayas completado tus hojas de trabajo de cableado, podrás link:install-switch-92300yc.html["instalar el interruptor"].

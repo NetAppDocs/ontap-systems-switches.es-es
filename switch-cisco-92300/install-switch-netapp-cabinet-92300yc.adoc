@@ -134,3 +134,6 @@ Para mantener la redundancia, los dos cables deben estar conectados a diferentes
 El puerto de administración es el puerto superior derecho ubicado en el lado de la fuente de alimentación del conmutador. El cable CAT6 de cada conmutador debe pasarse a través del panel de paso después de instalar los conmutadores para conectarlos a los conmutadores de administración o a la red de administración.
 
 
+
+.¿Qué sigue?
+Después de instalar los switches en el armario NetApp , puedeslink:configure-install-initial.html["configurar el conmutador"] .

@@ -133,4 +133,4 @@ Este procedimiento abarca los siguientes escenarios:
 
 
 .¿Que sigue?
-link:cn5596-prepare-to-migrate.html["Prepárate para la migración"].
+Después de revisar los requisitos de migración, puedeslink:cn5596-prepare-to-migrate.html["Prepárate para migrar tus conmutadores."] .

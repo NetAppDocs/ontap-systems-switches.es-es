@@ -495,4 +495,4 @@ cluster::*> *network interface migrate -vserver cluster -lif n2_clus4 -source-no
 
 
 .¿Que sigue?
-link:cn1610-replace-CL1.html["Sustituya el interruptor CN1610 CL1 por el interruptor 3232C C1."].
+Después de haber reemplazado el interruptor CN1610 CL2, puedeslink:cn1610-replace-CL1.html["Sustituir el interruptor CN1610 CL1 por el interruptor 3232C C1."] .

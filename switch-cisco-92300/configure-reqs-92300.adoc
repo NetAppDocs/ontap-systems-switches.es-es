@@ -35,4 +35,4 @@ Necesitará la siguiente información de red para todas las configuraciones de c
 Consulte el https://hwu.netapp.com["Hardware Universe"^] Para obtener la información más reciente.
 
 .¿Qué sigue?
-link:components-92300.html["Componentes y números de pieza"].
+Después de revisar los requisitos de configuración, puede confirmar su link:components-92300.html["componentes y números de pieza"].

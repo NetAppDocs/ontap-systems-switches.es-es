@@ -68,4 +68,4 @@ Detalles del flujo de aire del switch Cisco Nexus 92300YC:
 
 
 .¿Qué sigue?
-link:required-documentation-92300.html["Documentación requerida"].
+Una vez que haya confirmado sus componentes y números de pieza, puede revisar el link:required-documentation-92300.html["documentación requerida"].

@@ -590,4 +590,4 @@ ISL de 100 GbE al puerto 32 del conmutador A
 
 |===
 .¿Qué sigue?
-Después de haber completado tus hojas de trabajo de cableado, tú link:install-switch-3232c.html["instalar el interruptor"].
+Una vez que hayas completado tus hojas de trabajo de cableado, podrás link:install-switch-3232c.html["instalar el interruptor"].

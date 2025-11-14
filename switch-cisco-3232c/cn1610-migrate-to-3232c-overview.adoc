@@ -105,4 +105,4 @@ Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interru
 
 
 .¿Que sigue?
-link:cn1610-prepare-to-migrate.html["Prepárate para la migración"].
+Después de revisar los requisitos de migración, puedeslink:cn1610-prepare-to-migrate.html["Prepárate para migrar tus conmutadores."] .

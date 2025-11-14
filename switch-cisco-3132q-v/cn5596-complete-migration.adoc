@@ -436,4 +436,4 @@ C2                          cluster-network     10.10.1.104      NX3132V
 
 
 .¿Que sigue?
-link:../switch-cshm/config-overview.html["Configurar la monitorización del estado del switch"].
+Una vez que hayas completado la migración de tu switch, podráslink:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"] .
