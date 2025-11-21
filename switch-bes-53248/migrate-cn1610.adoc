@@ -657,14 +657,33 @@ cluster::*> system cluster-switch delete -device CL2
 +
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true*
+cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert true
+----
+. En el switch cs2, apague y reinicie todos los puertos del clúster para activar una reversión automática de todas las LIF del clúster que no estén en sus puertos de origen.
++
+[listing, subs="+quotes"]
+----
+cs2> *enable*
+cs2# *configure*
+cs2(config)# *interface 0/1-0/16*
+cs2(config-if-range)# *shutdown*
+
+(Wait for 5-10 seconds before re-enabling the ports)
+
+cs2(config-if-range)# *no shutdown*
+
+(After executing the no shutdown command, the nodes detect the change and begin to auto-revert the cluster LIFs to their home ports)
+
+cs2(config-if-range)# *exit*
+cs2(config)# *exit*
+cs2#
 ----
 . Verifique que las LIF del clúster hayan vuelto a sus puertos de origen (esto podría tardar un minuto):
 +
 `network interface show -vserver Cluster`
 
 +
-Si los LIF del clúster no han vuelto a su puerto de origen, vuelva a configurarlos manualmente:
+Si alguna de las LIF del clúster no ha vuelto a su puerto de origen, vuelva a configurarla manualmente. Debe conectarse a cada consola del sistema LIF o SP/ BMC de administración de nodos del nodo local propietario del LIF:
 
 +
 `network interface revert -vserver Cluster -lif *`
@@ -739,7 +758,7 @@ RPC status:
 ----
 --
 ====
-. [[step5]]Si suprimió la creación automática de casos, vuelva a habilitarla invocando un mensaje de AutoSupport :
+. [[step6]]Si suprimió la creación automática de casos, vuelva a habilitarla invocando un mensaje de AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 

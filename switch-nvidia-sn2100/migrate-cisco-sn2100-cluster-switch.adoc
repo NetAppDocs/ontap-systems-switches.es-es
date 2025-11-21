@@ -528,28 +528,56 @@ swp16      100G   BondMember  sw1                 swp16
 +
 `cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert true`
 
-. Verifique que todas las LIF de la red del clúster hayan vuelto a sus puertos de origen:
-+
-`network interface show`
+. En el switch sw2, apague y reinicie todos los puertos del clúster para activar una reversión automática de todas las LIF del clúster que no estén en sus puertos de origen.
 
-+
-.Mostrar ejemplo
-[%collapsible]
+
+[role="tabbed-block"]
 ====
+.Cúmulos 4.4.3
+--
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface show -vserver Cluster*
+cumulus@sw2:mgmt:~$ *net add interface swp1-14 link down*
+cumulus@sw2:mgmt:~$ *net pending*
+cumulus@sw2:mgmt:~$ *net commit*
 
-            Logical    Status     Network            Current       Current Is
-Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
------------ ---------- ---------- ------------------ ------------- ------- ----
-Cluster
-            node1_clus1  up/up    169.254.209.69/16  node1         e3a     true
-            node1_clus2  up/up    169.254.49.125/16  node1         e3b     true
-            node2_clus1  up/up    169.254.47.194/16  node2         e3a     true
-            node2_clus2  up/up    169.254.19.183/16  node2         e3b     true
+(Wait for 5-10 seconds before re-enabling the ports)
+
+cumulus@sw2:mgmt:~$ *net add interface swp1-14 link up*
+cumulus@sw2:mgmt:~$ *net pending*
+cumulus@sw2:mgmt:~$ *net commit*
+
+(After executing the link state up command, the nodes detect the change and begin to auto-revert the cluster LIFs to their home ports)
 ----
+--
+.Cúmulos 5.x
+--
+[listing, subs="+quotes"]
+----
+cumulus@sw2:mgmt:~$ *nv set interface swp1-14 link state down*
+cumulus@sw2:mgmt:~$ *nv config apply*
+cumulus@sw2:mgmt:~$ *nv show interface*
+
+(Wait for 5-10 seconds before re-enabling the ports)
+
+cumulus@sw2:mgmt:~$ *nv set interface swp1-14 link state up*
+cumulus@sw2:mgmt:~$ *nv config apply*
+cumulus@sw2:mgmt:~$ *nv show interface*
+
+(After executing the link state up command, the nodes detect the change and begin to auto-revert the cluster LIFs to their home ports)
+----
+--
 ====
+. [[step3]]Verifique que las LIF del clúster hayan vuelto a sus puertos de origen (esto podría tardar un minuto):
++
+`network interface show -vserver Cluster`
+
++
+Si alguna de las LIF del clúster no ha vuelto a su puerto de origen, vuelva a configurarla manualmente. Debe conectarse a cada consola del sistema LIF o SP/ BMC de administración de nodos del nodo local propietario del LIF:
+
++
+`network interface revert -vserver Cluster -lif *`
+
 . Vuelva a cambiar el nivel de privilegios a administrador:
 +
 `set -privilege admin`

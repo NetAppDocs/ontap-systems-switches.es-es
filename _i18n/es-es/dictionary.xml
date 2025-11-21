@@ -282,10 +282,8 @@
   <block id="85e04ff5dd770cff5dbbe435ea94a7dd" category="list-text">Confirme las conexiones de los puertos del switch desde la perspectiva del switch cs1-new:</block>
   <block id="800c1c0a764eb859a7e53df87ed00481" category="list-text">Verifique que el enlace ISL entre cs1-new y cs2-new siga operativo:</block>
   <block id="f8a26b1330fe6b7b741993630dd932e2" category="list-text">Verifique que las LIF del clúster hayan vuelto a sus puertos de origen (esto podría tardar un minuto):</block>
-  <block id="65201dcfc7c620613613b15eb161d307" category="paragraph">Si los LIF del clúster no han vuelto a su puerto de origen, vuelva a configurarlos manualmente:</block>
   <block id="268d66b259b50e25cbef3d39885d450f" category="paragraph"><block ref="d4a4086e7952a80201c11ae52219be46" prefix="" category="inline-code"></block></block>
   <block id="fb17b612fdcb19e9fe42f0afa4b960d0" category="admonition">Espere unos segundos antes de ejecutar el<block ref="a7dd12b1dab17d25467b0b0a4c8d4a92" prefix=" " category="inline-code"></block> comando para mostrar los detalles.</block>
-  <block id="c7ca49e9f550dc9b18f2402f13ad9430" category="list-text">[[step5]]Si suprimió la creación automática de casos, vuelva a habilitarla invocando un mensaje de AutoSupport :<block ref="9ac424c0d7b432975df36a19daf50c9c" prefix=" " category="inline-code"></block></block>
   <block id="58eaebf972358f1cf03d386a4ade1a0f" category="paragraph-title">¿Que sigue?</block>
   <block id="00a850fef80958a3c902c0d0b0fc20c4" category="inline-link-macro">configurar la monitorización del estado del conmutador</block>
   <block id="930d2612130a6eae69f4f0d6b6f79e03" category="paragraph">Una vez que hayas migrado los switches, podrás<block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block> .</block>
@@ -1163,7 +1161,6 @@
   <block id="dae02701a0a247e1012b9b2832c32464" category="list-text">Elimine los conmutadores CN1610 reemplazados de la tabla de conmutadores del clúster, si no se eliminan automáticamente:</block>
   <block id="b48ac462b57bcb2860eecd434bd2c80f" category="paragraph">A partir de ONTAP 9.8, utilice el siguiente comando:<block ref="b4720f8aa09f4e4b3a04e78c558b6c90" prefix=" " category="inline-code"></block></block>
   <block id="c8b9229aed88be3704b6c26029b7ae94" category="paragraph">Para ONTAP 9.7 y versiones anteriores, utilice el comando:<block ref="f055904a9fc3a4f0bc33aca13ecd2b2d" prefix=" " category="inline-code"></block></block>
-  <block id="4e4f70ba52e8cb595faa069991c5a9f4" category="list-text">[[step5]]Si suprimió la creación automática de casos, vuelva a habilitarla invocando un mensaje de AutoSupport :</block>
   <block id="30e3b2cfb1c72e5b230d98750db3bf2b" category="paragraph">Después de migrar tus switches, puedes <block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block>.</block>
   <block id="e8ab0c1581dc0dcc64441ffb1b729ce5" category="summary">Si tiene un clúster de dos nodos sin conmutadores, puede migrar, sin interrupciones, a un clúster de dos nodos con conmutadores que incluya conmutadores de clúster BES-53248 compatibles con Broadcom.</block>
   <block id="446e9d64184ff722494a9a706bbd9d06" category="doc">Migrar a un entorno de clúster NetApp conmutado</block>
@@ -1209,7 +1206,6 @@
   <block id="3d7d92fe9fa50ff07a52fda11ae8d646" category="paragraph">El siguiente ejemplo muestra que los puertos del 1 al 16 están habilitados en el switch cs2:</block>
   <block id="30530896511238b69b0e6acc7e04d6ce" category="list-text">Verifique que todas las interfaces muestren<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> para<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> :</block>
   <block id="f1d50a679b7b3d0967aafba21d2b1454" category="paragraph">El<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block> El resultado del siguiente ejemplo muestra que la configuración está desactivada:</block>
-  <block id="c97fddef37af781b99f2bb564a90861d" category="list-text">[[step9]]Cambie el nivel de privilegios de nuevo a administrador:</block>
   <block id="470e1e7d03d4911b1e5ad8bf036ca8cb" category="inline-link">Artículo de la base de conocimientos de NetApp : Cómo suprimir la creación automática de casos durante las ventanas de mantenimiento programadas</block>
   <block id="1e44ccea9f1ae385026deb840bc9b5f4" category="paragraph">Para obtener más información, consulte:<block ref="780f810d0519883e7efdd6ef45cf51ed" category="inline-link-rx"></block></block>
   <block id="393a5f0f5f1f070aac964741815cca76" category="doc">Sustituir los conmutadores de clúster Broadcom BES-53248 por conexiones sin conmutador</block>
@@ -3789,7 +3785,6 @@
   <block id="db038ea8b37b62294a9f3eebe698b28a" category="paragraph">Cada puerto debería mostrar<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> para<block ref="97e7c9a7d06eac006a28bf05467fcc8b" prefix=" " category="inline-code"></block> y<block ref="741839f346d6e8126ae38ee76a96fd12" prefix=" " category="inline-code"></block> para<block ref="fbcf0d1f787c74663ca9dc925ebf5f0c" prefix=" " category="inline-code"></block> .</block>
   <block id="ba04a36ca69927056bab3bba36362e9b" category="list-text">En los conmutadores cs1 y cs2, verifique que todos los puertos del clúster de nodos estén activos:</block>
   <block id="366abeaa2bac7598f17d029db42f0407" category="paragraph"><block ref="478474aa0db28144d5db02c478cd5215" prefix="" category="inline-code"></block></block>
-  <block id="496fe3dd70b4f5816f2c409909812bb5" category="list-text">Verifique que todas las LIF de la red del clúster hayan vuelto a sus puertos de origen:</block>
   <block id="ccc533253625ec3fd1cd1ad3dd395ae6" category="summary">Si tiene un entorno de clúster sin conmutación de dos nodos existente, puede migrar a un entorno de clúster conmutado de dos nodos mediante conmutadores Cisco Nexus 9336C-FX2 para poder escalar más allá de dos nodos en el clúster.</block>
   <block id="44062246be6e5585fa8092a371375894" category="paragraph">Si tiene un entorno de clúster _sin conmutador_ de dos nodos existente, puede migrar a un entorno de clúster _conmutado_ de dos nodos utilizando los conmutadores Cisco Nexus 9336C-FX2 y 9336C-FX2-T.</block>
   <block id="ec9e474afc999353343db9439e541082" category="summary">Puede migrar conmutadores de clúster Cisco más antiguos y sin interrupciones para un clúster ONTAP a conmutadores de red de clúster Cisco Nexus 9336C-FX2.</block>
@@ -5224,7 +5219,6 @@
   <block id="ec493d1a781282d3b831640adff57617" category="paragraph"><block ref="1be2284fb441d5fc39c1bb2882bcfe33" prefix="" category="inline-code"></block></block>
   <block id="609878b299dde0e13898cea02c9f40e5" category="paragraph"><block ref="780e8a1ebd2c830e4aeaebb59c666b98" prefix="" category="inline-code"></block></block>
   <block id="7c1863f1ebbe4335b617904d5c56fbc1" category="admonition">Esto podría tardar un minuto en completarse.</block>
-  <block id="0e18e00d28d8ccbabfbea2b32f607774" category="list-text">[[paso 6]] Vuelva a cambiar el nivel de privilegios a administrador:</block>
   <block id="0b9620a0fea8fa88010e59eebf7cbf63" category="summary">Puede migrar sin interrupciones los switches de clúster Cisco más antiguos para un clúster ONTAP a los switches de red de clúster NVIDIA SN2100.</block>
   <block id="9cb69df206c9ac9ed5e1f4f5f353f643" category="doc">Migrar de un conmutador de clúster Cisco a un conmutador de clúster NVIDIA SN2100</block>
   <block id="65b0458ae1a5a43752e6cbb805a3b583" category="paragraph">Puede migrar los conmutadores de clúster de Cisco para un clúster ONTAP a conmutadores de clúster NVIDIA SN2100. Este es un procedimiento que no produce interrupciones.</block>
@@ -5857,4 +5851,15 @@
   <block id="896088c62ad7b687065540892080324f" category="paragraph">Después de instalar los switches en el armario NetApp , puedes<block ref="e720d023779d66bfe8b12a8e36518dcc" category="inline-link-macro-rx"></block> .</block>
   <block id="ce7e45bf2954b88a6750644b0448950a" category="paragraph">Una vez instalado RCF, puedes <block ref="9c2eadd0cc07686b4a17c38ca62f4a4c" category="inline-link-macro-rx"></block>.</block>
   <block id="c9c986f56a1b508d37d42c57396f5c6e" category="paragraph">Una vez que hayas completado tus hojas de trabajo de cableado, podrás <block ref="524641f31ca2f6882ec8e6343313f85c" category="inline-link-macro-rx"></block>.</block>
+  <block id="eb87b9d92bab86a5eff1f86bc4b9d609" category="list-text">En el switch cs2, apague y reinicie todos los puertos del clúster para activar una reversión automática de todas las LIF del clúster que no estén en sus puertos de origen.</block>
+  <block id="0722720446d120472012852570da7854" category="paragraph">Si alguna de las LIF del clúster no ha vuelto a su puerto de origen, vuelva a configurarla manualmente. Debe conectarse a cada consola del sistema LIF o SP/ BMC de administración de nodos del nodo local propietario del LIF:</block>
+  <block id="ec5ea2f0318e4d906c296f5576b9c026" category="list-text">[[step6]]Si suprimió la creación automática de casos, vuelva a habilitarla invocando un mensaje de AutoSupport :<block ref="9ac424c0d7b432975df36a19daf50c9c" prefix=" " category="inline-code"></block></block>
+  <block id="a012eaed89d2ac51303f8c01a7d0aaaa" category="list-text">[[step10]]Cambie el nivel de privilegios de nuevo a administrador:</block>
+  <block id="2f3040f570b3d77425ad0bf50fc7985c" category="list-text">[[step6]]Cambie el nivel de privilegios de nuevo a administrador:</block>
+  <block id="eee9eca0197e609d5560419338f13cb5" category="list-text">En el switch sw2, apague y reinicie todos los puertos del clúster para activar una reversión automática de todas las LIF del clúster que no estén en sus puertos de origen.</block>
+  <block id="9867d4546ca72c2aef3de3dd388f027a" category="open-title">Cúmulos 4.4.3</block>
+  <block id="c9e15b180ce232c5238f71bbe70022b5" category="open-title">Cúmulos 5.x</block>
+  <block id="77c4c65090a7a14ac6d2a4180ac07a3c" category="list-text">[[step3]]Verifique que las LIF del clúster hayan vuelto a sus puertos de origen (esto podría tardar un minuto):</block>
+  <block id="5a443ae50dfc3d613ac9445266752a19" category="list-text">[[step8]]Cambie el nivel de privilegios de nuevo a administrador:</block>
+  <block id="397fcdbb1cd3a03c8bd47ec26ea0418d" category="list-text">[[step5]]En el switch c2, apague los puertos conectados a los puertos del clúster de los nodos para realizar la conmutación por error de las LIF del clúster.</block>
 </blocks>
