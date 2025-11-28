@@ -16,13 +16,13 @@ Instale el archivo de configuración de referencia (RCF) después de configurar 
 Consulte el artículo de la base de conocimientoslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración de un switch de interconexión Cisco manteniendo la conectividad remota"^] Para obtener más información sobre la instalación o actualización de su RCF.
 
 .Configuraciones RCF disponibles
-La siguiente tabla describe los RCF disponibles para diferentes configuraciones.  Elija el RCF aplicable a su configuración.
+La siguiente tabla describe los RCF disponibles para diferentes configuraciones. Elija el RCF aplicable a su configuración. Verlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^] Para más información.
 
 Para obtener detalles específicos sobre el uso de puertos y VLAN, consulte la sección de notas importantes y el banner en su RCF.
 
 [cols="1,2"]
 |===
-| Nombre RCF | Descripción 
+| Configuración de RCF | Descripción 
 
 
  a| 
@@ -73,12 +73,39 @@ Almacenamiento
 Todos los puertos están configurados para conexiones de almacenamiento NVMe de 100 GbE.
 
 |===
+.RCF disponibles
+En la siguiente tabla se enumeran los RCF disponibles para los conmutadores 9336C-FX2 y 9336C-FX2-T.  Elija la versión RCF aplicable para su configuración. Verlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^] Para más información.
+
+[cols="1"]
+|===
+| Nombre RCF 
+
+
+ a| 
+RCF de ruptura de clúster HA 1._xx_
+
+
+
+ a| 
+RCF de almacenamiento de alta disponibilidad en clúster 1._xx_
+
+
+
+ a| 
+Almacenamiento RCF 1._xx_
+
+
+
+ a| 
+RCF de alta disponibilidad multiclúster 1._xx_
+
+|===
 .Documentación sugerida
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco (NSS)"^]
 +
 Consulte la tabla de compatibilidad de switches para conocer las versiones compatibles de ONTAP y RCF en el sitio de soporte de NetApp .  Tenga en cuenta que puede haber dependencias de comandos entre la sintaxis de comandos en RCF y la sintaxis que se encuentra en versiones específicas de NX-OS.
 
-* link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Switches Cisco Nexus serie 3000"^]
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-guides-list.html["Switches Cisco Nexus serie 9000"^]
 +
 Consulte las guías de software y actualización correspondientes disponibles en el sitio web de Cisco para obtener documentación completa sobre los procedimientos de actualización y degradación de los switches de Cisco .
 

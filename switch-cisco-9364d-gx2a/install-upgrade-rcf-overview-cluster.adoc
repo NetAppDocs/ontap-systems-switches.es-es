@@ -16,10 +16,10 @@ Instale el archivo de configuración de referencia (RCF) después de configurar 
 Consulte el artículo de la base de conocimientoslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración de un switch de interconexión Cisco manteniendo la conectividad remota"^] Para obtener más información sobre la instalación o actualización de su RCF.
 
 .Configuración RCF disponible
-* *Cluster-HA-Storage*: admite tráfico compartido de clúster/HA/almacenamiento en puertos (NX9364D-GX2A-RCF-v10.0-Shared.txt).
+* *Cluster-HA-Storage AFX*: todos los puertos están configurados en un modo de conexión de 4 x 100 GbE que admite de manera universal clústeres de nodos AFX, HA, puertos de almacenamiento y puertos de estante de almacenamiento NX224.  ISL de 400 GbE entre conmutadores.  (_Cluster-HA-Almacenamiento AFX RCF_vxx.x_).
 
 
-Para obtener detalles específicos sobre el uso de puertos y VLAN, consulte la sección de notas importantes y el banner en su RCF.
+Para obtener detalles específicos sobre el uso de puertos y VLAN, consulte la sección de notas importantes y el banner en su RCF. Verlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^] Para más información.
 
 .Documentación sugerida
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco (NSS)"^]

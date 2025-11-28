@@ -25,6 +25,10 @@ Verifique las siguientes instalaciones y conexiones:
 * Los puertos del clúster de nodos ONTAP no están conectados.
 
 
+.Configuración RCF disponible
+* *ClusterStorageRCF*: admite un clúster particionado más dos zonas de almacenamiento en los conmutadores (Cluster-Storage RCF 1._xx_).
+
+
 
 
 == Paso 1: Instale el RCF en los interruptores
