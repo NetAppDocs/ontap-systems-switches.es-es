@@ -48,8 +48,6 @@ entries:
   entries:
   - title: Migrar a un clúster conmutado de dos nodos
     url: "/switch-cisco-92300/migrate-to-2n-switched.html"
-  - title: Migrar desde un switch Cisco antiguo
-    url: "/switch-cisco-92300/migrate-to-92300yc.html"
 - title: Reemplace los interruptores
   pdf-filename: Replace_switches_92300yc
   entries:

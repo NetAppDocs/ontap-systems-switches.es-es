@@ -53,32 +53,6 @@ entries:
 - title: Migrar interruptores
   pdf-filename: Migrar_conmutadores_3132q-v
   entries:
-  - title: migración de conmutador CN1610
-    pdf-filename: CN1610_switch_migration
-    entries:
-    - title: Flujo de trabajo de migración del switch CN1610
-      url: "/switch-cisco-3132q-v/cn1610-migrate-workflow.html"
-    - title: Requisitos de migración
-      url: "/switch-cisco-3132q-v/cn1610-migrate-requirements.html"
-    - title: Prepárate para la migración
-      url: "/switch-cisco-3132q-v/cn1610-prepare-to-migrate.html"
-    - title: Configura tus puertos
-      url: "/switch-cisco-3132q-v/cn1610-configure-ports.html"
-    - title: Completa tu migración
-      url: "/switch-cisco-3132q-v/cn1610-complete-migration.html"
-  - title: migración de switch Cisco Nexus 5596
-    pdf-filename: CN5596_switch_migration
-    entries:
-    - title: Flujo de trabajo de migración del switch Cisco Nexus 5596
-      url: "/switch-cisco-3132q-v/cn5596-migrate-workflow.html"
-    - title: Requisitos de migración
-      url: "/switch-cisco-3132q-v/cn5596-migrate-requirements.html"
-    - title: Prepárate para la migración
-      url: "/switch-cisco-3132q-v/cn5596-prepare-to-migrate.html"
-    - title: Configura tus puertos
-      url: "/switch-cisco-3132q-v/cn5596-configure-ports.html"
-    - title: Completa tu migración
-      url: "/switch-cisco-3132q-v/cn5596-complete-migration.html"
   - title: Migrar de clústeres sin conmutadores a clústeres conmutados de dos nodos
     pdf-filename: Migrar de clúster sin conmutador a clúster con conmutador
     entries:
