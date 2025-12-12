@@ -5,9 +5,9 @@ indexpage:
     sus conmutadores de almacenamiento para implementaciones de clústeres ONTAP .
   keywords: storage switches, cisco nexus switches, cluster switches, ontap clusters
   lead: Los conmutadores de almacenamiento le permiten crear clústeres ONTAP con más
-    de dos nodos. Estos conmutadores de plataforma Cisco Nexus 9000 proporcionan la
-    base para soluciones de interconexión de clústeres escalables en entornos NetApp
-    ONTAP .
+    de dos nodos. Estos conmutadores de almacenamiento Ethernet proporcionan la base
+    para soluciones de interconexión de clústeres escalables en entornos NetApp ONTAP
+    .
   tiles:
   - title: Empezar
     links:

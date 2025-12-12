@@ -40,7 +40,7 @@ Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interru
 * Los nodos son nodo1 y nodo2.
 
 
-Los ejemplos de este procedimiento utilizan dos nodos: el nodo 1 con dos puertos de almacenamiento y el nodo 2 con dos puertos de almacenamiento.  Ver ellink:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para verificar los puertos de almacenamiento correctos en sus plataformas.
+Los ejemplos de este procedimiento utilizan dos nodos: el nodo 1 con dos puertos de almacenamiento y el nodo 2 con dos puertos de almacenamiento. Ver ellink:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para verificar los puertos de almacenamiento correctos en sus plataformas. Ver link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["¿Qué información adicional necesito para instalar mi equipo que no está en HWU?"^] para obtener más información sobre los requisitos de instalación del conmutador.
 
 
 NOTE: El procedimiento requiere el uso de comandos ONTAP y comandos de switches Cisco Nexus serie 3000; se utilizan comandos ONTAP a menos que se indique lo contrario.  Los resultados del comando pueden variar dependiendo de las diferentes versiones de ONTAP.

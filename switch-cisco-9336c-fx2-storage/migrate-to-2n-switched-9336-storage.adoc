@@ -35,11 +35,10 @@ Asegúrese de tener lo siguiente:
 ** Ambos switches tienen conectividad de red de gestión.
 ** Existe acceso mediante consola a los conmutadores del clúster.
 ** Las conexiones de conmutador nodo a nodo y de conmutador a conmutador Nexus 9336C-FX2 utilizan cables Twinax o de fibra.
-+
-Ver https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Interruptores"^] Para obtener más información sobre el cableado.
 
 
-
+* Ver link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Interruptores"^] Para obtener más información sobre el cableado.
+* Ver link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["¿Qué información adicional necesito para instalar mi equipo que no está en HWU?"^] para obtener más información sobre los requisitos de instalación del conmutador.
 * Los cables de enlace entre conmutadores (ISL) están conectados a los puertos 1/35 y 1/36 en ambos conmutadores 9336C-FX2.
 * Se ha completado la personalización inicial de ambos conmutadores 9336C-FX2, de modo que:
 +

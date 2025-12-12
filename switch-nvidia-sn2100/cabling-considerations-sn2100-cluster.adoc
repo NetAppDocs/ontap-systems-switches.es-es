@@ -50,7 +50,7 @@ swp15-16
 Puertos de enlace entre conmutadores (ISL) de 100 GbE
 
 |===
-Ver el https://hwu.netapp.com/Switch/Index["Hardware Universe"^] Para obtener más información sobre los puertos del switch.
+Ver el link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para obtener más información sobre los puertos de conmutación.
 
 
 
@@ -190,7 +190,7 @@ UP     swp4      100G  9216   Trunk/L2                     Master: bridge(UP)
 
 --
 ====
-Consulte el artículo de la base de conocimientos https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["El switch SN2100 no se conecta usando cables de cobre 40/100GbE."^] Para obtener más detalles.
+Consulte el artículo de la base de conocimientoslink:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["El switch SN2100 no se conecta usando cables de cobre 40/100GbE."^] Para obtener más detalles.
 
 En Cumulus Linux 4.4.2, las conexiones de cobre no son compatibles con los switches SN2100 con NIC X1151A, NIC X1146A o puertos 100GbE integrados. Por ejemplo:
 
@@ -200,24 +200,23 @@ En Cumulus Linux 4.4.2, las conexiones de cobre no son compatibles con los switc
 
 
 
-== Adaptador QSA
+== Módulo QSA
 
-Cuando se utiliza un adaptador QSA para conectarse a los puertos del clúster 10GbE/25GbE en una plataforma, es posible que el enlace no se establezca.
+Al utilizar adaptadores QSFP+ (40 GbE) a SFP+ (10 GbE) o adaptadores QSFP28 (100 GbE) a SFP28 (25 GbE) (QSA), insértelos en puertos de conmutador 40 GbE/100 GbE sin conexión (swp3-swp14). No inserte el módulo QSA en un puerto que esté configurado para conexión.
+
+Cuando se utiliza un módulo QSA para conectarse a los puertos de clúster 10GbE/25GbE en una plataforma, es posible que el enlace no se establezca.
 
 Para resolver este problema, haga lo siguiente:
 
-* Para 10GbE, configure manualmente la velocidad del enlace swp1s0-3 en 10000 y desactive la negociación automática.
-* Para 25GbE, configure manualmente la velocidad del enlace swp2s0-3 en 25000 y desactive la negociación automática.
+* Para 10 GbE, configure manualmente la velocidad del enlace a 10 000 y desactive la negociación automática.
+* Para 25 GbE, configure manualmente la velocidad del enlace a 25000 y desactive la negociación automática.
 
-
-
-NOTE: Cuando utilice adaptadores QSA de 10GbE/25GbE, insértelos en puertos 40GbE/100GbE sin breakout (swp3-swp14).  No inserte el adaptador QSA en un puerto configurado para breakout.
 
 
 
 == Configuración de la velocidad de la interfaz en los puertos de conexión.
 
-Dependiendo del transceptor en el puerto del switch, es posible que deba configurar la velocidad en la interfaz del switch a una velocidad fija.  Si utiliza puertos breakout de 10GbE y 25GbE, verifique que la negociación automática esté desactivada y configure la velocidad de la interfaz en el switch.
+Dependiendo del transceptor en el puerto del switch, es posible que deba configurar la velocidad en la interfaz del switch a una velocidad fija. Si utiliza puertos de conexión de 10 GbE y 25 GbE o un módulo QSA, verifique que la negociación automática esté desactivada y configure la velocidad de la interfaz en el conmutador.
 
 [role="tabbed-block"]
 ====
@@ -332,5 +331,7 @@ UP     swp16      100G  9216   BondMember  cs01 (swp16)     Master: cl
 ----
 --
 ====
+Ver el link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^]y el artículo de la Base de conocimientos link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["¿Qué información adicional necesito para instalar mi equipo que no está en HWU?"^] Para más información.
+
 .¿Que sigue?
 Después de revisar los requisitos de cableado y configuración, puedeslink:install-cable-shelves-sn2100-cluster.html["Cablee los estantes NS224 como almacenamiento conectado al interruptor."] .

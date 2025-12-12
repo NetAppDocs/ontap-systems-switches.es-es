@@ -27,6 +27,7 @@ Si es necesario, consulte lo siguiente para obtener más información:
 * link:https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["NetApp CN1601 y CN1610"^]
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^]
 * link:http://hwu.netapp.com["Hardware Universe"^]
+* link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["¿Qué información adicional necesito para instalar mi equipo que no está en HWU?"^]
 
 
 
@@ -34,7 +35,7 @@ Si es necesario, consulte lo siguiente para obtener más información:
 == Migrar los interruptores
 
 .Acerca de los ejemplos
-Los ejemplos de este procedimiento utilizan cuatro nodos: dos nodos utilizan cuatro puertos de interconexión de clúster 10 GbE: e0a, e0b, e0c y e0d.  Los otros dos nodos utilizan dos cables de fibra de interconexión de clúster de 40 GbE: e4a y e4e.  Ellink:https://hwu.netapp.com/["_Universo del Hardware_"^] Contiene información sobre los cables de fibra óptica del clúster en sus plataformas.
+Los ejemplos de este procedimiento utilizan cuatro nodos: dos nodos utilizan cuatro puertos de interconexión de clúster 10 GbE: e0a, e0b, e0c y e0d. Los otros dos nodos utilizan dos cables de fibra de interconexión de clúster de 40 GbE: e4a y e4e. Ellink:https://hwu.netapp.com/["_Universo del Hardware_"^] Contiene información sobre los cables de fibra óptica del clúster en sus plataformas. Ver link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["¿Qué información adicional necesito para instalar mi equipo que no está en HWU?"^] para obtener más información sobre los requisitos de instalación del conmutador.
 
 Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interruptores y nodos:
 
