@@ -44,7 +44,7 @@ Si desea documentar las plataformas compatibles, debe completar la hoja de traba
 
 La definición de puerto de muestra en cada par de conmutadores es la siguiente:
 
-image:cabling_worksheet.jpg["Hoja de trabajo de cableado"]
+image:cabling-worksheet.jpg["Hoja de trabajo de cableado"]
 
 Dónde:
 
@@ -60,7 +60,7 @@ Dónde:
 
 Puede utilizar la hoja de trabajo de cableado en blanco para documentar las plataformas que se admiten como nodos en un clúster.  La tabla de conexiones de clúster compatibles del Hardware Universe define los puertos de clúster utilizados por la plataforma.
 
-image:blank_cabling_worksheet.jpg["Hoja de trabajo de cableado en blanco"]
+image:blank-cabling-worksheet.jpg["Hoja de trabajo de cableado en blanco"]
 
 Dónde:
 

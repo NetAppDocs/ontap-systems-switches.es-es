@@ -25,9 +25,9 @@ El software Cisco NX-OS y RCF deben estar instalados en los conmutadores de clú
 [role="quick-margin-para"]
 Descargue e instale o actualice el software NX-OS en el conmutador de clúster Cisco 3132Q-V.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:install-rcf-3132q-v.html["Instala el RCF"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:install-upgrade-rcf-overview-3132q-v.html["Instalar o actualizar el RCF"]
 [role="quick-margin-para"]
-Instale el RCF después de configurar el conmutador Cisco 3132Q-V por primera vez.
+Instala o actualiza el RCF después de configurar el conmutador Cisco 3132Q-V.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-ssh-keys.html["Verificar la configuración SSH"]
 [role="quick-margin-para"]
