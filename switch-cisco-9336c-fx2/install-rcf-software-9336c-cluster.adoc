@@ -167,28 +167,7 @@ Consulte el artículo de la base de conocimientoslink:https://kb.netapp.com/on-p
 +
 `*show file bootflash:write_erase.cfg*`
 
-. Emitir el `write erase` comando para borrar la configuración guardada actual:
-+
-`cs1# *write erase*`
-
-+
-`Warning: This command will erase the startup-configuration.`
-
-+
-`Do you wish to proceed anyway? (y/n)  [n] *y*`
-
-. Copie la configuración básica guardada previamente en la configuración de inicio.
-+
-`cs1# *copy bootflash:write_erase.cfg startup-config*.`
-
-. Reiniciar interruptor cs1.
-+
-`cs1# *reload*`
-
-+
-`This command will reboot the system. (y/n)?  [n] *y*`
-
-. Repita los pasos 1 al 13 en el interruptor cs2.
+. Repita los pasos 1 al 10 en el interruptor cs2.
 . Conecte los puertos del clúster de todos los nodos del clúster ONTAP a los conmutadores cs1 y cs2.
 
 
