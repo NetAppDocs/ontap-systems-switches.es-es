@@ -1,5 +1,5 @@
 ---
-permalink: switch-cisco-3232c/upgrade-3232c-storage-switches.html 
+permalink: switch-cisco-3232c-storage/upgrade-3232c-storage-switches.html 
 sidebar: sidebar 
 keywords: upgrade, cisco nexus, 3232c storage switch 
 summary: 'El software Cisco NX-OS y los archivos de configuración de referencia (RCF) se pueden actualizar en los switches de almacenamiento Cisco Nexus 3232C.' 
@@ -25,8 +25,8 @@ Asegúrese de que se cumplan las siguientes condiciones antes de actualizar el s
 +
 Si necesita cambiar las variables de arranque para que reflejen las imágenes de arranque actuales, debe hacerlo antes de volver a aplicar el RCF para que se instancie la versión correcta en futuros reinicios.
 
-* Usted ha consultado el software y las guías de actualización correspondientes disponibles en el sitio web. http://www.cisco.com/en/US/products/ps9670/prod_installation_guides_list.html["Switches Cisco Nexus serie 3000"^] Consulte la página para obtener la documentación completa sobre los procedimientos de actualización y degradación del almacenamiento de Cisco .
-* El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en el https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco®"^] página.
+* Has consultado las guías de software y actualización correspondientes disponibles en la página link:http://www.cisco.com/en/US/products/ps9670/prod_installation_guides_list.html["Switches Cisco Nexus serie 3000"^] para la documentación completa sobre los procedimientos de actualización y degradación del almacenamiento de Cisco.
+* El número de puertos 10 GbE y 40/100 GbE se define en los archivos de configuración de referencia (RCF) disponibles en la página link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco®"^].
 
 
 
@@ -141,7 +141,7 @@ There are no entries matching your query.
 
 . Copie el RCF del switch S2 a la memoria flash de arranque del switch utilizando uno de los siguientes protocolos de transferencia: FTP, HTTP, TFTP, SFTP o SCP.
 +
-Para obtener más información sobre los comandos de Cisco , consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos de Cisco Nexus serie 3000 NX-OS"^] .
+Para obtener más información sobre los comandos de Cisco, consulta la guía correspondiente en el link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos de Cisco Nexus serie 3000 NX-OS"^].
 
 +
 .Mostrar ejemplo
@@ -245,7 +245,7 @@ NOTE: Al aplicar RCF por primera vez, el mensaje *ERROR: Failed to write VSH com
 
 . Después de verificar que las versiones del software y la configuración del interruptor sean correctas, copie el `running-config` archivo al `startup-config` archivo en el switch S2.
 +
-Para obtener más información sobre los comandos de Cisco , consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos de Cisco Nexus serie 3000 NX-OS"^] .
+Para obtener más información sobre los comandos de Cisco, consulta la guía correspondiente en el link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos de Cisco Nexus serie 3000 NX-OS"^].
 
 +
 .Mostrar ejemplo
@@ -378,7 +378,7 @@ S2#
 ====
 . Guarde la configuración.
 +
-Para obtener más información sobre los comandos de Cisco , consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos de Cisco Nexus serie 3000 NX-OS"^] .
+Para obtener más información sobre los comandos de Cisco, consulta la guía correspondiente en el link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos de Cisco Nexus serie 3000 NX-OS"^].
 
 +
 Se le solicita que reinicie el sistema.
@@ -540,3 +540,6 @@ There are no entries matching your query.
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
+
+.¿Que sigue?
+Después de actualizar tu switch, puedes link:../switch-cshm/config-overview.html["configurar la monitorización del estado del conmutador"].

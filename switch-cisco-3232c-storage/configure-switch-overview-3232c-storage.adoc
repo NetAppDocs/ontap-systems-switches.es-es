@@ -1,0 +1,36 @@
+---
+permalink: switch-cisco-3232c-storage/configure-switch-overview-3232c-storage.html 
+sidebar: sidebar 
+keywords: initial installation, configure switch-cisco-3232c-storage switch 
+summary: Descripción general de la instalación y configuración de los switches de almacenamiento Cisco Nexus 3232C 
+---
+= Flujo de trabajo de instalación y configuración para los switches de almacenamiento Cisco Nexus 3232C
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los switches Cisco Nexus 3232C forman parte de la plataforma Cisco Nexus 9000 y pueden instalarse en un gabinete de sistema NetApp.
+
+Sigue estos pasos de flujo de trabajo para instalar y configurar tus switches Cisco 3232C.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1"]link:configure-reqs-3232c-storage.html["Revisar los requisitos de configuración"]
+[role="quick-margin-para"]
+Revisa los requisitos de configuración de los conmutadores de almacenamiento 3232C.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"]link:required-documentation-3232c-storage.html["Revisar la documentación requerida"]
+[role="quick-margin-para"]
+Revise la documentación específica del conmutador y del controlador para configurar sus conmutadores 3232C y el clúster ONTAP .
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"]link:smart-call-home-3232c-storage.html["Revisar los requisitos de Smart Call Home"]
+[role="quick-margin-para"]
+Revise los requisitos de la función Cisco Smart Call Home, que se utiliza para monitorear los componentes de hardware y software de su red.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:install-switch-3232c-storage.html["Instala el hardware"]
+[role="quick-margin-para"]
+Instale el hardware del interruptor.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-software-overview-3232c-storage.html["Configurar el software"]
+[role="quick-margin-para"]
+Configurar el software del conmutador.

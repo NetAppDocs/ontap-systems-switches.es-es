@@ -1,0 +1,52 @@
+---
+permalink: switch-cisco-3232c-storage/install-switch-3232c-storage.html 
+sidebar: sidebar 
+keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 3232c 
+summary: Sigue este procedimiento para instalar el conmutador de almacenamiento Cisco Nexus 3232C. 
+---
+= Instala el conmutador de almacenamiento 3232C
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sigue este procedimiento para instalar y configurar el conmutador de almacenamiento Cisco Nexus 3232C.
+
+.Antes de empezar
+Asegúrese de tener lo siguiente:
+
+* Acceso a un servidor HTTP, FTP o TFTP en el sitio de instalación para descargar las versiones aplicables de NX-OS y del archivo de configuración de referencia (RCF).
+* Versión aplicable de NX-OS, descargada de https://software.cisco.com/download/home["Descarga de software de Cisco"^] página.
+* Licencias aplicables, información de red y configuración, y cables.
+* Los archivos RCF de red de clúster y de red de administración de NetApp aplicables se descargaron del sitio de soporte de NetApp en http://mysupport.netapp.com/["mysupport.netapp.com"^] .  Todos los switches de red de clúster y de red de administración de Cisco vienen con la configuración predeterminada de fábrica estándar de Cisco . Estos conmutadores también tienen la versión actual del software NX-OS pero no tienen los RCF cargados.
+* link:required-documentation-3232c-storage.html["Documentación necesaria del switch y del ONTAP"].
+
+
+.Pasos
+. Instale en rack los conmutadores y controladores de la red del clúster y de la red de administración.
++
+[cols="1,2"]
+|===
+| Si estás instalando... | Entonces... 
+
+
+ a| 
+Cisco Nexus 3232C en un gabinete de sistema NetApp
+ a| 
+Consulte la guía _Instalación de un conmutador de clúster Cisco Nexus 3232C y un panel de paso en un gabinete NetApp para obtener instrucciones sobre cómo instalar el conmutador en un gabinete NetApp .
+
+
+
+ a| 
+Equipos en un rack de telecomunicaciones
+ a| 
+Consulte los procedimientos proporcionados en las guías de instalación del hardware del switch y las instrucciones de instalación y configuración de NetApp .
+
+|===
+. Conecte los conmutadores de red del clúster y de la red de administración a los controladores utilizando las hojas de trabajo de cableado completadas.
+. Encienda la alimentación de los conmutadores y controladores de la red del clúster y de la red de administración.
+
+
+.¿Que sigue?
+Después de que hayas instalado el conmutador de almacenamiento 3232C, puedes link:install-cisco-nexus-3232c-storage.html["instala el conmutador en un armario NetApp"].

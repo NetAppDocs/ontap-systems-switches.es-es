@@ -13,27 +13,37 @@ indexpage:
     links:
     - title: Cisco Nexus 9336C-FX2 y 9336C-FX2-T
       url: "../switch-cisco-9336c-fx2-storage/configure-switch-overview-9336c-storage.html"
+    - title: Cisco Nexus 3232C
+      url: "../switch-cisco-3232c-storage/configure-switch-overview-3232c-storage.html"
     - title: NVIDIA SN2100
       url: "../switch-nvidia-sn2100-storage/configure-overview-sn2100-storage.html"
   - title: Instalar y configurar conmutadores de almacenamiento
     links:
     - title: Instalar el hardware del conmutador 9336C-FX2 y 9336C-FX2-T
       url: "../switch-cisco-9336c-fx2-storage/install-hardware-workflow.html"
+    - title: Instala el hardware del conmutador 3232C
+      url: "../switch-cisco-3232c-storage/install-hardware-workflow.html"
     - title: Instalar el hardware del conmutador NVIDIA SN2100
       url: "../switch-nvidia-sn2100-storage/install-hardware-workflow.html"
     - title: Configurar el software del conmutador 9336C-FX2 y 9336C-FX2-T
       url: "../switch-cisco-9336c-fx2-storage/configure-software-overview-9336c-storage.html"
+    - title: Configura el software del conmutador 3232C
+      url: "../switch-cisco-3232c-storage/configure-switch-overview-3232c-storage.html"
     - title: Configurar el software del conmutador NVIDIA SN2100
       url: "../switch-nvidia-sn2100-storage/configure-software-sn2100-storage.html"
   - title: Mantener los conmutadores de almacenamiento
     links:
     - title: Reemplace el interruptor 9336C-FX2 y 9336C-FX2-T
       url: "../switch-cisco-9336c-fx2-storage/replace-storage-switch-9336c-storage.html"
+    - title: Reemplazar el switch 3232C
+      url: "../switch-cisco-3232c-storage/replace-storage-switch.html"
     - title: Reemplazar el conmutador NVIDIA SN2100
       url: "../switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html"
     - title: Restablecer los interruptores 9336C-FX2 y 9336C-FX2-T a los valores predeterminados
         de fábrica
       url: "../switch-cisco-9336c-fx2-storage/reset-switch-9336c-storage.html"
+    - title: Restablece el conmutador 3232C a los valores de fábrica
+      url: "../switch-cisco-3232c-storage/reset-switch-3232c-storage.html"
     - title: Restablecer el interruptor NVIDIA SN2100 a los valores predeterminados
         de fábrica
       url: "../switch-nvidia-sn2100-storage/reset-switch-sn2100-storage.html"

@@ -1,0 +1,49 @@
+---
+permalink: switch-cisco-3232c-storage/reset-switch-3232c-storage.html 
+sidebar: sidebar 
+keywords: 3232C reset switch to factory defaults, 3232C switches configuration, efos 
+summary: Antes de configurar su conmutador Cisco Nexus 3232C, revise la siguiente información. 
+---
+= Restablece el conmutador de almacenamiento 3232C a los valores predeterminados de fábrica
+:allow-uri-read: 
+
+
+[role="lead"]
+Para restablecer los valores predeterminados de fábrica del conmutador de almacenamiento 3232C, tienes que borrar la configuración del conmutador de almacenamiento 3232C.
+
+.Acerca de esta tarea
+* Debes estar conectado al switch mediante la consola serie.
+* Esta tarea restablece la configuración de la red de administración.
+
+
+.Pasos
+. Borrar la configuración existente:
++
+`write erase`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *write erase*
+
+Warning: This command will erase the startup-configuration.
+Do you wish to proceed anyway? (y/n) [n] *y*
+----
+. Recargue el software del conmutador:
++
+`reload`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *reload*
+
+This command will reboot the system. (y/n)? [n] *y*
+----
++
+El sistema se reinicia y entra en el asistente de configuración. Durante el arranque, si recibe el mensaje “¿Desea cancelar el aprovisionamiento automático y continuar con la configuración normal?” (sí/no)[n]”, debe responder *sí* para continuar.
+
+
+
+.¿Qué sigue?
+Después de restablecer el interruptor, puedes link:configure-software-overview-3232c-storage.html["reconfigurar"] según tus necesidades.

@@ -1,0 +1,38 @@
+---
+permalink: switch-cisco-3232c-storage/configure-software-overview-3232c-storage.html 
+sidebar: sidebar 
+keywords: switches, initial installation, configure switch-cisco-9336c-fx2 switch 
+summary: Descripción general de la configuración de software para los switches de almacenamiento Cisco Nexus 3232C 
+---
+= Flujo de trabajo de instalación de software para switches de almacenamiento Cisco Nexus 3232C
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para instalar y configurar el software de un conmutador Cisco Nexus 3232C e instalar o actualizar el archivo de configuración de referencia (RCF), siga estos pasos:
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1"]link:setup-switch-3232c-storage.html["Configura el interruptor"]
+[role="quick-margin-para"]
+Configura el conmutador de almacenamiento 3232C.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"]link:prepare-install-cisco-nexus-3232c-storage.html["Prepárese para instalar el software NX-OS y RCF."]
+[role="quick-margin-para"]
+El software Cisco NX-OS y los archivos de configuración de referencia (RCFs) deben instalarse en los conmutadores de almacenamiento Cisco 3232C.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"]link:install-nx-os-software-3232c-storage.html["Instale el software NX-OS"]
+[role="quick-margin-para"]
+Descarga e instala o actualiza el software NX-OS en el conmutador de almacenamiento Cisco 3232C.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:install-rcf-software-3232c-storage.html["Instala el RCF"]
+[role="quick-margin-para"]
+Instala el RCF después de configurar el conmutador de almacenamiento Cisco 3232C por primera vez.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-ssh-keys.html["Verificar la configuración SSH"]
+[role="quick-margin-para"]
+Verifique que SSH esté habilitado en los conmutadores para usar el Monitor de estado del conmutador Ethernet (CSHM) y las funciones de recopilación de registros.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]link:reset-switch-3232c-storage.html["Restablecer el interruptor a los valores predeterminados de fábrica"]
+[role="quick-margin-para"]
+Borra la configuración del switch de almacenamiento 3232C.

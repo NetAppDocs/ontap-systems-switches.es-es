@@ -1,0 +1,29 @@
+---
+permalink: switch-cisco-3232c-storage/smart-call-home-3232c-storage.html 
+sidebar: sidebar 
+keywords: cisco 3232c, storage switches 
+summary: Puedes usar conmutadores Cisco Nexus 3232C como conmutadores en tu clúster AFF o FAS. 
+---
+= Requisitos de Smart Call Home
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para utilizar Smart Call Home, debe configurar un conmutador de red de clúster para comunicarse mediante correo electrónico con el sistema Smart Call Home. Además, puede configurar opcionalmente su conmutador de red de clúster para aprovechar la función de soporte Smart Call Home integrada de Cisco.
+
+Smart Call Home monitorea los componentes de hardware y software de su red. Cuando ocurre una configuración crítica del sistema, se genera una notificación por correo electrónico y se envía una alerta a todos los destinatarios configurados en su perfil de destino.
+
+Smart Call Home monitorea los componentes de hardware y software de su red. Cuando ocurre una configuración crítica del sistema, se genera una notificación por correo electrónico y se envía una alerta a todos los destinatarios configurados en su perfil de destino.
+
+Antes de poder utilizar Smart Call Home, tenga en cuenta los siguientes requisitos:
+
+* Debe haber un servidor de correo electrónico instalado.
+* El switch debe tener conectividad IP con el servidor de correo electrónico.
+* Debe configurarse el nombre del contacto (contacto del servidor SNMP), el número de teléfono y la información de la dirección postal.  Esto es necesario para determinar el origen de los mensajes recibidos.
+* Debe asociarse un ID de CCO con un contrato de servicio Cisco SMARTnet apropiado para su empresa.
+* El servicio Cisco SMARTnet debe estar instalado para que el dispositivo pueda registrarse.
+
+
+El http://www.cisco.com/c/en/us/products/switches/index.html["sitio de soporte de Cisco"^] Contiene información sobre los comandos para configurar Smart Call Home.

@@ -1,0 +1,133 @@
+---
+permalink: switch-cisco-3232c-storage/install-cisco-nexus-3232c-storage.html 
+sidebar: sidebar 
+keywords: install, cisco nexus, 3232c storage switch, pass-through panel, netapp cabinet 
+summary: Puedes instalar el conmutador de almacenamiento Cisco Nexus 3232C y el panel de paso en un armario de NetApp con los soportes estándar que vienen incluidos con el conmutador. 
+---
+= Instala un switch de almacenamiento Cisco Nexus 3232C en un armario NetApp
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dependiendo de tu configuración, puede que necesites instalar el switch de almacenamiento Cisco Nexus 3232C y el panel de paso en un gabinete de NetApp con los soportes estándar que vienen incluidos con el switch.
+
+.Antes de empezar
+Verifica que tienes lo siguiente: * Los requisitos de preparación inicial, el contenido del kit y las precauciones de seguridad en el link:http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus3000/hw/installation/guide/b_n3000_hardware_install_guide.html["Guía de instalación de hardware de la serie Cisco Nexus 3000"^]. * Para cada switch, los ocho tornillos 10-32 o 12-24 y las tuercas de clip para montar los soportes y los raíles deslizantes en los postes delantero y trasero del armario. * Kit de raíles estándar de Cisco para instalar el switch en un armario NetApp.
+
+[NOTE]
+====
+Los cables puente no están incluidos en el kit de conexión y deben incluirse con los interruptores.  Si no se enviaron con los switches, puede pedirlos a NetApp (número de pieza X1558A-R6).
+
+====
+.Pasos
+. Instale el panel de obturación de paso en el armario NetApp .
++
+El kit de panel de paso está disponible en NetApp (número de pieza X8784-R6).
+
++
+El kit de panel de paso de NetApp contiene el siguiente hardware:
+
++
+** Un panel ciego pasante
+** Cuatro tornillos 10-32 x .75
+** Cuatro tuercas de clip 10-32
++
+... Determine la ubicación vertical de los interruptores y del panel ciego en el gabinete.
++
+En este procedimiento, el panel de obturación se instalará en U40.
+
+... Instale dos tuercas de clip en cada lado en los orificios cuadrados correspondientes para los rieles del gabinete frontal.
+... Centre el panel verticalmente para evitar la intrusión en el espacio del rack adyacente y luego apriete los tornillos.
+... Inserte los conectores hembra de ambos cables puente de 48 pulgadas desde la parte posterior del panel y a través del conjunto de escobillas.
++
+image::../media/cisco_9148_jumper_cords.gif[]
+
+
+
+
+
+
+
+_(1) Conector hembra del cable puente._
+
+. Instala los soportes de montaje en bastidor en el chasis del conmutador de almacenamiento Nexus 3232C.
++
+.. Coloque un soporte de montaje en rack frontal en un lado del chasis del conmutador de modo que la oreja de montaje esté alineada con la placa frontal del chasis (en el lado de la fuente de alimentación o del ventilador) y luego use cuatro tornillos M4 para fijar el soporte al chasis.
++
+image::../media/3132q_front_bracket.gif[soporte delantero]
+
+.. Repita el paso 2a con el otro soporte de montaje en rack frontal en el otro lado del conmutador.
+.. Instale el soporte de montaje en rack trasero en el chasis del conmutador.
+.. Repita el paso 2c con el otro soporte de montaje en rack trasero en el otro lado del conmutador.
+
+
+. Instale las tuercas de clip en las ubicaciones de los orificios cuadrados para los cuatro postes IEA.
++
+image::../media/ru_locations_for_3132q_v.gif[]
+
++
+Los dos conmutadores 3232C siempre se montarán en las 2U superiores del gabinete RU41 y 42.
+
+. Instale los rieles deslizantes en el gabinete.
++
+.. Coloque el primer riel deslizante en la marca RU42 en la parte posterior del poste trasero izquierdo, inserte los tornillos con el tipo de rosca correspondiente y luego apriete los tornillos con los dedos.
++
+image::../media/3132q_v_slider_rails.gif[]
+
++
+_(1) Al deslizar suavemente el riel deslizante, alinéelo con los orificios para tornillos del estante._ + _(2) Apriete los tornillos de los rieles deslizantes a los postes del gabinete._
+
+.. Repita el paso 4a para el poste trasero del lado derecho.
+.. Repita los pasos 4a y 4b en las ubicaciones RU41 del gabinete.
+
+
+. Instale el interruptor en el armario.
++
+[NOTE]
+====
+Este paso requiere dos personas: una persona para sostener el interruptor desde el frente y otra para guiar el interruptor hacia los rieles deslizantes traseros.
+
+====
++
+.. Coloque la parte posterior del interruptor en RU41.
++
+image::../media/3132q_v_positioning.gif[Posicionamiento del 3232C en U39-40]
+
++
+_(1) A medida que el chasis se desplaza hacia los postes traseros, alinee las dos guías de montaje del rack trasero con los rieles deslizantes._
+
++
+_(2) Deslice suavemente el interruptor hasta que los soportes de montaje en rack frontales queden al ras con los postes frontales._
+
+.. Fije el interruptor al armario.
++
+image::../media/3132q_attaching.gif[]
+
++
+_(1) Mientras una persona sujeta la parte frontal del chasis nivelada, la otra persona debe apretar completamente los cuatro tornillos traseros a los postes del gabinete._
+
+.. Con el chasis ahora apoyado sin ayuda, apriete completamente los tornillos delanteros a los postes.
+.. Repita los pasos 5a a 5c para el segundo interruptor en la ubicación RU42.
++
+[NOTE]
+====
+Al utilizar el interruptor completamente instalado como soporte, no es necesario sujetar la parte delantera del segundo interruptor durante el proceso de instalación.
+
+====
+
+
+. Cuando los interruptores estén instalados, conecte los cables puente a las entradas de alimentación del interruptor.
+. Conecte los enchufes macho de ambos cables puente a las tomas de corriente PDU más cercanas disponibles.
++
+[NOTE]
+====
+Para mantener la redundancia, los dos cables deben estar conectados a diferentes PDU.
+
+====
+. Conecte el puerto de administración de cada conmutador 3232C a cualquiera de los conmutadores de administración (si se solicitaron) o conéctelos directamente a su red de administración.
++
+El puerto de administración es el puerto superior derecho ubicado en el lado de la fuente de alimentación del conmutador. El cable CAT6 de cada conmutador debe pasarse a través del panel de paso después de instalar los conmutadores para conectarlos a los conmutadores de administración o a la red de administración.
+
+
