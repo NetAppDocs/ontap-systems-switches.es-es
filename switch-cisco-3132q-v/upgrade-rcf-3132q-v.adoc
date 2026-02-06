@@ -274,7 +274,7 @@ Asegúrese de configurar lo siguiente:
 . Guarde los detalles de configuración básicos en el `write_erase.cfg` archivo en la memoria flash de arranque.
 +
 
-NOTE: Al actualizar o aplicar un nuevo RCF, debe borrar la configuración del interruptor y realizar la configuración básica. Debe estar conectado al puerto de consola serie del conmutador para configurar el conmutador nuevamente.
+NOTE: Al actualizar o aplicar un nuevo RCF, debes borrar la configuración del conmutador y realizar una configuración básica.
 
 +
 `cs2# show run | section "switchname" > bootflash:write_erase.cfg`
@@ -303,9 +303,6 @@ NOTE: Al actualizar o aplicar un nuevo RCF, debe borrar la configuración del in
 
 +
 `cs2# echo "hardware access-list tcam region qos 256" >> bootflash:write_erase.cfg`
-
-+
-Consulte el artículo de la base de conocimientos https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración de un switch de interconexión Cisco manteniendo la conectividad remota"^] Para obtener más detalles.
 
 . Verifique que el `write_erase.cfg` El archivo se ha rellenado según lo previsto:
 +
