@@ -5763,4 +5763,9 @@
   <block id="6754d52ab3aba634c1d3868f6ff1173b" category="paragraph"><block ref="4b5c6435698a249ed2ca19ecf903991f" prefix="" category="inline-code"></block></block>
   <block id="eff487118c44b434c2174aab2b3a4e1c" category="list-text">Realiza un reinicio del switch cs2.</block>
   <block id="fb14b077ecd3df929fa7f98e0e505f8c" category="admonition">Al actualizar o aplicar un nuevo RCF, debes borrar la configuración del conmutador y realizar una configuración básica.</block>
+  <block id="ece376b7acc25f86ff2e09f80d38755c" category="paragraph">Asegúrate de hacer lo siguiente:</block>
+  <block id="9a9e15bbbf81b37074eb3677448baf70" category="list-text">Ejecuta el comando<block ref="856e0a903a301d6d44f55e6eb5b82200" prefix=" " category="inline-code"></block> en el switch para revisar el impacto de instalar o actualizar la nueva imagen de software NX-OS. Verifica la integridad de la imagen, revisa si son necesarios reinicios, evalúa la compatibilidad del hardware y confirma que hay suficiente espacio.</block>
+  <block id="1ce0015d97074c710fb18a71c0facacd" category="list-text">Revisa las notas de la versión del software NX-OS de destino para ver si hay algún requisito específico.</block>
+  <block id="07e8467e284d5ad4e9a20246ae001803" category="list-text">Verifica que tienes una copia de seguridad actual de la configuración del conmutador.</block>
+  <block id="0280c61cdd286c198feabf97c27f4988" category="list-text">Verifica que tienes un clúster que funciona completamente (sin errores en los registros ni problemas similares).</block>
 </blocks>
