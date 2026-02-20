@@ -1,0 +1,41 @@
+---
+permalink: switch-cisco-9336c-fx2-storage/cabling-considerations-9336c-storage.html 
+sidebar: sidebar 
+keywords: 9336c-fx2 cabling setup, 9336c-fx2 switches configuration, nx-os 
+summary: Antes de configurar su conmutador Cisco 9336C-FX2, revise la siguiente información. 
+---
+= Revisar las consideraciones de cableado y configuración
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de configurar tus switches 9336C-FX2 y 9336C-FX2-T, revisa los requisitos de cableado y configuración.
+
+
+
+== Compatibilidad con puertos Ethernet NVIDIA CX6, CX6-DX y CX7
+
+Si conectas un puerto del switch a un controlador ONTAP usando puertos NIC NVIDIA ConnectX-6 (CX6), ConnectX-6 Dx (CX6-DX) o ConnectX-7 (CX7), debes configurar manualmente la velocidad del puerto del switch.
+
+[listing, subs="+quotes"]
+----
+(s1)(config)# interface Ethernet1/19
+*For 100GbE speed:*
+(s1)(config-if)# *speed 100000*
+*For 40GbE speed:*
+(s1)(config-if)# *speed 40000*
+(s1)(config-if)# no negotiate auto
+(s1)(config-if)# exit
+(s1)(config)# exit
+*Save the changes:*
+(s1)# *copy running-config startup-config*
+----
+
+
+== Información relacionada
+
+* Consulta https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para más información sobre los puertos del switch.
+* Consulta https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["¿Qué información adicional necesito para instalar mi equipo que no está en HWU?"^] para obtener más información sobre los requisitos de instalación del switch.
+

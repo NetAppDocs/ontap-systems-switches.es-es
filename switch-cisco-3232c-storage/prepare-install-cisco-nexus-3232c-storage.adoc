@@ -14,23 +14,13 @@ summary: 'El software Cisco NX-OS y los archivos de configuración de referencia
 Antes de instalar el software NX-OS y el archivo de configuración de referencia (RCF), siga este procedimiento.
 
 .Acerca de los ejemplos
-Los ejemplos de este procedimiento utilizan dos nodos.  Estos nodos utilizan dos puertos de interconexión de clúster 10GbE. `e0a` y `e0b` .
-
-Ver ellink:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para verificar los puertos de clúster correctos en sus plataformas. Ver link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["¿Qué información adicional necesito para instalar mi equipo que no está en HWU?"^] para obtener más información sobre los requisitos de instalación del conmutador.
-
-[NOTE]
-====
-Los resultados del comando pueden variar dependiendo de las diferentes versiones de ONTAP.
-
-====
-.Nomenclatura de interruptores y nodos
 Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interruptores y nodos:
 
-* Los nombres de los dos switches de Cisco son `cs1` y `cs2` .
-* Los nombres de los nodos son `cluster1-01` y `cluster1-02` .
-* Los nombres de los clústeres LIF son `cluster1-01_clus1` y `cluster1-01_clus2` para el clúster 1-01 y `cluster1-02_clus1` y `cluster1-02_clus2` para el clúster 1-02.
-* El `cluster1::*>` El indicador muestra el nombre del clúster.
+* Los nombres de los dos Cisco switches son s1 y s2.
+* Los nombres de los nodos son cluster1-01 y cluster1-02.
 
+
+Consulta el link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para verificar los puertos de red correctos en tus plataformas. Consulta link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["¿Qué información adicional necesito para instalar mi equipo que no está en HWU?"^] para más información sobre los requisitos de instalación del switch.
 
 .Acerca de esta tarea
 El procedimiento requiere el uso de comandos ONTAP y comandos de switches Cisco Nexus serie 3000; se utilizan comandos ONTAP a menos que se indique lo contrario.
@@ -54,7 +44,7 @@ El mensaje de AutoSupport notifica al soporte técnico sobre esta tarea de mante
 +
 La solicitud avanzada(`*>` ) aparece.
 
-. Muestra cuántas interfaces de interconexión de clúster están configuradas en cada nodo para cada conmutador de interconexión de clúster:
+. Muestra cuántas interfaces están configuradas en cada nodo para cada switch:
 +
 `network device-discovery show -protocol cdp`
 
@@ -70,158 +60,93 @@ Node/       Local  Discovered
 Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
 ----------- ------ ------------------------- ----------------- --------
 cluster1-02/cdp
-            e0a    cs1                       Eth1/2            N3K-C3232C
-            e0b    cs2                       Eth1/2            N3K-C3232C
+            e5a    s1                        Eth1/2            N3K-C3232C
+            e3b    s2                        Eth1/2            N3K-C3232C
 cluster1-01/cdp
-            e0a    cs1                       Eth1/1            N3K-C3232C
-            e0b    cs2                       Eth1/1            N3K-C3232C
-
-4 entries were displayed.
+            e5a    s1                        Eth1/1            N3K-C3232C
+            e3b    s2                        Eth1/1            N3K-C3232C
+.
+.
 ----
 ====
-. Compruebe el estado administrativo u operativo de cada interfaz del clúster.
+. Comprueba el estado administrativo u operativo de cada puerto de almacenamiento de nodo y de cada puerto de estantería de almacenamiento.
 +
-.. Mostrar los atributos del puerto de red:
+.. Muestra los atributos del puerto de almacenamiento del nodo:
 +
-`network port show -ipspace Cluster`
+`storage port show`
 
-+
-.Mostrar ejemplo
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *network port show -ipspace Cluster*
-
-Node: cluster1-02
-                                                  Speed(Mbps) Health
-Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
---------- ------------ ---------------- ---- ---- ----------- ------
-e0a       Cluster      Cluster          up   9000  auto/10000 healthy
-e0b       Cluster      Cluster          up   9000  auto/10000 healthy
-
-Node: cluster1-01
-                                                  Speed(Mbps) Health
-Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
---------- ------------ ---------------- ---- ---- ----------- ------
-e0a       Cluster      Cluster          up   9000  auto/10000 healthy
-e0b       Cluster      Cluster          up   9000  auto/10000 healthy
-
-4 entries were displayed.
-----
-====
-.. Mostrar información sobre los LIF:
-`network interface show -vserver Cluster`
 +
 .Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface show -vserver Cluster*
-
-            Logical            Status     Network            Current       Current Is
-Vserver     Interface          Admin/Oper Address/Mask       Node          Port    Home
------------ ------------------ ---------- ------------------ ------------- ------- ----
-Cluster
-            cluster1-01_clus1  up/up      169.254.209.69/16  cluster1-01   e0a     true
-            cluster1-01_clus2  up/up      169.254.49.125/16  cluster1-01   e0b     true
-            cluster1-02_clus1  up/up      169.254.47.194/16  cluster1-02   e0a     true
-            cluster1-02_clus2  up/up      169.254.19.183/16  cluster1-02   e0b     true
-
-4 entries were displayed.
-----
-====
-
-
-. Verifique la conectividad de las interfaces del clúster remoto:
-
-
-[role="tabbed-block"]
-====
-.ONTAP 9.9.1 y posteriores
---
-Puedes usar el `network interface check cluster-connectivity` comando para iniciar una comprobación de accesibilidad para la conectividad del clúster y luego mostrar los detalles:
-
-`network interface check cluster-connectivity start`y `network interface check cluster-connectivity show`
-
-[listing, subs="+quotes"]
-----
-cluster1::*> *network interface check cluster-connectivity start*
-----
-*NOTA:* Espere unos segundos antes de ejecutar el programa. `show` comando para mostrar los detalles.
-
-[listing, subs="+quotes"]
-----
-cluster1::*> *network interface check cluster-connectivity show*
-                                  Source              Destination         Packet
-Node   Date                       LIF                 LIF                 Loss
------- -------------------------- ------------------- ------------------- -----------
+cluster1::*> *storage port show*
+Speed                     VLAN
+Node           Port Type  Mode    (Gb/s) State    Status      ID
+-------------- ---- ----- ------- ------ -------- --------- ----
 cluster1-01
-       3/5/2022 19:21:18 -06:00   cluster1-01_clus2   cluster1-02_clus1   none
-       3/5/2022 19:21:20 -06:00   cluster1-01_clus2   cluster1-02_clus2   none
-.
-.
+               e5a  ENET  storage    100 enabled  online      -
+               e3b  ENET  storage    100 enabled  online      -
 cluster1-02
-       3/5/2022 19:21:18 -06:00   cluster1-02_clus2   cluster1-01_clus1   none
-       3/5/2022 19:21:20 -06:00   cluster1-02_clus2   cluster1-01_clus2   none
-----
---
-.Todas las versiones de ONTAP
---
-Para todas las versiones de ONTAP , también puede usar el `cluster ping-cluster -node <name>` comando para comprobar la conectividad:
 
-`cluster ping-cluster -node <name>`
-
-[listing, subs="+quotes"]
+               e5a  ENET  storage    100 enabled  online      -
+               e3b  ENET  storage    100 enabled  online      -
+.
+.
 ----
-cluster1::*> *cluster ping-cluster -node local*
-Host is cluster1-02
-Getting addresses from network interface table...
-Cluster cluster1-01_clus1 169.254.209.69 cluster1-01     e0a
-Cluster cluster1-01_clus2 169.254.49.125 cluster1-01     e0b
-Cluster cluster1-02_clus1 169.254.47.194 cluster1-02     e0a
-Cluster cluster1-02_clus2 169.254.19.183 cluster1-02     e0b
-Local = 169.254.47.194 169.254.19.183
-Remote = 169.254.209.69 169.254.49.125
-Cluster Vserver Id = 4294967293
-Ping status:....
-Basic connectivity succeeds on 4 path(s)
-Basic connectivity fails on 0 path(s)
-................
-Detected 9000 byte MTU on 4 path(s):
-    Local 169.254.19.183 to Remote 169.254.209.69
-    Local 169.254.19.183 to Remote 169.254.49.125
-    Local 169.254.47.194 to Remote 169.254.209.69
-    Local 169.254.47.194 to Remote 169.254.49.125
-Larger than PMTU communication succeeds on 4 path(s)
-RPC status:
-2 paths up, 0 paths down (tcp check)
-2 paths up, 0 paths down (udp check)
-----
---
 ====
-. [[paso 6]]Verifique que el `auto-revert` El comando está habilitado en todos los LIF del clúster:
-`network interface show -vserver Cluster -fields auto-revert`
+.. Muestra los atributos del puerto de la estantería de almacenamiento: 
+`storage shelf port show`
 +
 .Mostrar ejemplo
 [%collapsible]
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface show -vserver Cluster -fields auto-revert*
-
-          Logical
-Vserver   Interface           Auto-revert
---------- ------------------- ------------
-Cluster
-          cluster1-01_clus1   true
-          cluster1-01_clus2   true
-          cluster1-02_clus1   true
-          cluster1-02_clus2   true
-4 entries were displayed.
+cluster1::*> *storage shelf port show*
+Shelf ID Module State        Internal?
+----- -- ------ ------------ ---------
+1.4
+       0 A      connected    false
+       1 A      connected    false
+       2 B      connected    false
+       3 B      connected    false
+.
+.
 ----
 ====
+.. Verifica que el control del estado del switch (CSHM) esté activado para los switches para que se monitoreen:
++
+`system switch ethernet show`
+
++
+.Mostrar ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::> *system switch ethernet show*
+  Switch             Type               Address          Model
+  ------------------ ------------------ ---------------- ---------------
+  s1                 storage-network    1.0.0.0          N3K-C3232C
+     Serial Number: FFFYYYYYYY1
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    10.3(4a)
+    Version Source: CDP/ISDP
+  s2                 storage-network    1.1.0.0           N3K-C3232C
+     Serial Number: FEEYYYYYYY2
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    10.3(4a)
+    Version Source: CDP/ISDP
+----
+====
+
+
 
 
 .¿Que sigue?

@@ -19,17 +19,17 @@ Consulte el artículo de la base de conocimientoslink:https://kb.netapp.com/on-p
 Verifique las siguientes instalaciones y conexiones:
 
 * Una conexión de consola al conmutador.  La conexión a la consola es opcional si tiene acceso remoto al switch.
-* Los switches cs1 y cs2 están encendidos y la configuración inicial del switch está completa (la dirección IP de administración y SSH están configuradas).
+* El switch s1 y el switch s2 están encendidos y la configuración inicial del switch se ha completado (la dirección IP de gestión y SSH están configurados).
 * Se ha instalado la versión deseada de NX-OS.
-* Los puertos del clúster de nodos ONTAP no están conectados.
+* Los puertos de almacenamiento del nodo ONTAP y los puertos de la shelf de almacenamiento no están conectados.
 
 
 
 
 == Paso 1: Instale el RCF en los interruptores
 
-. Inicie sesión para cambiar cs1 usando SSH o mediante una consola serial.
-. Copie el RCF al bootflash del conmutador cs1 utilizando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP.
+. Inicia sesión en el switch s2 usando SSH o usando una consola serie.
+. Copia el RCF al bootflash del switch s2 usando uno de los siguientes protocolos de transferencia: FTP, TFTP, SFTP o SCP.
 +
 Para obtener más información sobre los comandos de Cisco , consulte la guía correspondiente en https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Referencia de comandos de Cisco Nexus serie 9000 NX-OS"^] .
 
@@ -37,12 +37,12 @@ Para obtener más información sobre los comandos de Cisco , consulte la guía c
 .Mostrar ejemplo
 [%collapsible]
 ====
-Este ejemplo muestra cómo se utiliza TFTP para copiar un RCF a la memoria flash de arranque del switch cs1:
+Este ejemplo muestra TFTP siendo usado para copiar un RCF al bootflash en el switch s2:
 
 [listing, subs="+quotes"]
 ----
-cs1# *copy tftp: bootflash: vrf management*
-Enter source filename: *Nexus_9336C_RCF_v1.6-Storage.txt*
+s2# *copy tftp: bootflash: vrf management*
+Enter source filename: *NX9336C-FX2-RCF-v1.13-1-Storage.txt*
 Enter hostname for the tftp server: *172.22.201.50*
 Trying to connect to tftp server......Connection to Server Established.
 TFTP get operation was successful
@@ -57,11 +57,11 @@ Para obtener más información sobre los comandos de Cisco , consulte la guía c
 .Mostrar ejemplo
 [%collapsible]
 ====
-Este ejemplo muestra el RCF `Nexus_9336C_RCF_v1.6-Storage.txt` Instalando en el switch cs1:
+Este ejemplo muestra el RCF `NX9336C-FX2-RCF-v1.13-1-Storage.txt` instalándose en el switch s2:
 
 [listing]
 ----
-cs1# copy Nexus_9336C_RCF_v1.6-Storage.txt running-config echo-commands
+s2# copy NX9336C-FX2-RCF-v1.13-1-Storage.txt running-config echo-commands
 ----
 ====
 . Examine la salida del banner de `show banner motd` dominio.  Debe leer y seguir estas instrucciones para garantizar la correcta configuración y funcionamiento del interruptor.
@@ -71,19 +71,23 @@ cs1# copy Nexus_9336C_RCF_v1.6-Storage.txt running-config echo-commands
 ====
 [listing]
 ----
-cs1# show banner motd
+s2# show banner motd
 
-******************************************************************************
+**********************************************************
 * NetApp Reference Configuration File (RCF)
 *
-* Switch    : Nexus N9K-C9336C-FX2
-* Filename  : Nexus_9336C_RCF_v1.6-Storage.txt
-* Date      : 10-23-2020
-* Version   : v1.6
+* Switch    : NX9336C-FX2
+* Filename  : NX9336C-FX2-RCF-v1.13-1-Storage.txt
+* Date      : 05-22-2025
+* Version   : v1.13
 *
 * Port Usage : Storage configuration
 * Ports  1-36: 100GbE Controller and Shelf Storage Ports
-******************************************************************************
+*
+* IMPORTANT NOTES
+*
+* Interface port-channel999 is reserved to identify the version of this file.
+**********************************************************
 ----
 ====
 . Verifique que RCF sea la versión más reciente correcta:
@@ -107,68 +111,24 @@ El resultado varía según la configuración de su sitio.  Compruebe la configur
 +
 [listing]
 ----
-cs1# copy running-config startup-config [########################################] 100% Copy complete
+s2# copy running-config startup-config [########################################] 100% Copy complete
 ----
-. Guarde los detalles de configuración básicos en el `write_erase.cfg` archivo en la memoria flash de arranque.
+. Reinicia el switch s2.
 +
-`cs1# show run | i "username admin password" > bootflash:write_erase.cfg`
-
-+
-`cs1# show run | section "vrf context management" >> bootflash:write_erase.cfg`
-
-+
-`cs1# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
-
-+
-`cs1# show run | section "switchname" >> bootflash:write_erase.cfg`
-
-. Al instalar RCF versión 1.12 o posterior, ejecute los siguientes comandos:
-+
-`cs1# echo "hardware access-list tcam region ing-racl 1024" >> bootflash:write_erase.cfg`
-
-+
-`cs1# echo "hardware access-list tcam region egr-racl 1024" >> bootflash:write_erase.cfg`
-
-+
-`cs1# echo "hardware access-list tcam region ing-l2-qos 1280" >> bootflash:write_erase.cfg`
-
-+
-Consulte el artículo de la base de conocimientoslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración de un switch de interconexión Cisco manteniendo la conectividad remota"^] Para obtener más detalles.
-
-. Verifique que el `write_erase.cfg` El archivo se ha rellenado según lo previsto:
-+
-`*show file bootflash:write_erase.cfg*`
-
-. Emitir el `write erase` comando para borrar la configuración guardada actual:
-+
-`cs1# *write erase*`
-
-+
-`Warning: This command will erase the startup-configuration.`
-
-+
-`Do you wish to proceed anyway? (y/n)  [n] *y*`
-
-. Copie la configuración básica guardada previamente en la configuración de inicio.
-+
-`cs1# *copy bootflash:write_erase.cfg startup-config*`
-
-. Reiniciar interruptor cs1.
-+
-`cs1# *reload*`
+`s2# *reload*`
 
 +
 `This command will reboot the system. (y/n)?  [n] *y*`
 
-. Repita los pasos 1 al 13 en el interruptor cs2.
-. Conecte los puertos del clúster de todos los nodos del clúster ONTAP a los conmutadores cs1 y cs2.
+. Repite los pasos 1 a 8 en el switch s1.
+. Conecta los puertos de almacenamiento de nodo y los puertos de estantería de almacenamiento de todos los nodos en el clúster ONTAP a los switches s1 y s2.
 
 
 
 
 == Paso 2: Verifique las conexiones del interruptor
 
-. Verifique que los puertos del switch conectados a los puertos del clúster estén *activos*.
+. Verifica que los puertos del switch estén *up*.
 +
 `show interface brief`
 
@@ -178,7 +138,7 @@ Consulte el artículo de la base de conocimientoslink:https://kb.netapp.com/on-p
 ====
 [listing, subs="+quotes"]
 ----
-cs1# *show interface brief | grep up*
+s1# *show interface brief | grep up*
 mgmt0  --           up     _<mgmt ip address>_                       1000    1500
 Eth1/11         1       eth  trunk  up      none                     100G(D) --
 Eth1/12         1       eth  trunk  up      none                     100G(D) --
@@ -198,7 +158,7 @@ Eth1/29         1       eth  trunk  up      none                     100G(D) --
 Eth1/30         1       eth  trunk  up      none                     100G(D) --
 ----
 ====
-. Verifique que los nodos del clúster se encuentren en sus VLAN de clúster correctas utilizando los siguientes comandos:
+. Verifica que los puertos de almacenamiento del nodo y los puertos de la estantería de almacenamiento estén en sus VLAN correctas usando los siguientes comandos:
 +
 `show vlan brief`
 
@@ -211,7 +171,7 @@ Eth1/30         1       eth  trunk  up      none                     100G(D) --
 ====
 [listing, subs="+quotes"]
 ----
-cs1# *show vlan brief*
+s1# *show vlan brief*
 
 VLAN Name                             Status    Ports
 ---- -------------------------------- --------- -------------------------------
@@ -229,7 +189,7 @@ VLAN Name                             Status    Ports
                                                 Eth1/33, Eth1/34, Eth1/35
                                                 Eth1/36
 
-cs1# *show interface trunk*
+s1# *show interface trunk*
 
 -----------------------------------------------------
 Port          Native  Status        Port

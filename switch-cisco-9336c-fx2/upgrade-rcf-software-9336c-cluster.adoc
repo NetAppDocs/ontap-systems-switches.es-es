@@ -35,6 +35,20 @@ CAUTION: Antes de instalar una nueva versión del software del switch y los RCF,
 
 == Paso 1: Prepárese para la actualización
 
+. Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport :
++
+`system node autosupport invoke -node * -type all -message MAINT=xh`
+
++
+Donde _x_ es la duración de la ventana de mantenimiento en horas.
+
+. Cambie el nivel de privilegio a avanzado, ingresando *y* cuando se le solicite continuar:
++
+`set -privilege advanced`
+
++
+Aparece el indicador avanzado (*>).
+
 . Muestra los puertos del clúster en cada nodo que están conectados a los conmutadores del clúster:
 +
 `network device-discovery show`

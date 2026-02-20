@@ -11,7 +11,7 @@ summary: Descripción general de la instalación y configuración de los switche
 
 
 [role="lead"]
-Los switches Cisco Nexus 3232C forman parte de la plataforma Cisco Nexus 9000 y pueden instalarse en un gabinete de sistema NetApp.
+Los switches Cisco Nexus 3232C forman parte de la plataforma Cisco Nexus 3000 y pueden instalarse en un gabinete de sistema NetApp.
 
 Sigue estos pasos de flujo de trabajo para instalar y configurar tus switches Cisco 3232C.
 

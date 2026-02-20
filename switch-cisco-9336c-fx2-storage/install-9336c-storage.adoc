@@ -1,8 +1,8 @@
 ---
 permalink: switch-cisco-9336c-fx2-storage/install-9336c-storage.html 
 sidebar: sidebar 
-keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
-summary: Si aún no dispone de la información de configuración y la documentación necesarias, deberá recopilarlas antes de configurar el clúster y los conmutadores de red de administración. 
+keywords: require, configuration, information, documentation, storage, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
+summary: Si aún no tienes la información y la documentación de configuración necesarias, necesitas reunir esa información antes de configurar tus switches de red de almacenamiento y gestión. 
 ---
 = Instalar los conmutadores de almacenamiento 9336C-FX2 y 9336C-FX2-T
 :allow-uri-read: 
@@ -20,12 +20,15 @@ Asegúrese de tener lo siguiente:
 * Versión aplicable de NX-OS, descargada de https://software.cisco.com/download/home["Descarga de software de Cisco"^] página.
 * Licencias aplicables, información de red y configuración, y cables.
 * Terminadolink:setup-worksheet-9336c-storage.html["hojas de trabajo de cableado"] .
-* Los archivos RCF de red de clúster y de red de administración de NetApp aplicables se descargaron del sitio de soporte de NetApp en http://mysupport.netapp.com/["mysupport.netapp.com"^] .  Todos los switches de red de clúster y de red de administración de Cisco vienen con la configuración predeterminada de fábrica estándar de Cisco . Estos conmutadores también tienen la versión actual del software NX-OS pero no tienen los RCF cargados.
+* RCF aplicables de la red de almacenamiento NetApp y de la red de gestión descargados del NetApp Support Site en http://mysupport.netapp.com/["mysupport.netapp.com"^].
++
+Todos los switches de red de almacenamiento y de red de gestión de Cisco llegan con la configuración predeterminada de fábrica estándar de Cisco. Estos switches también tienen la versión actual del software NX-OS pero no tienen los RCF cargados.
+
 * Documentación requerida del interruptor. Verlink:required-documentation-9336c-storage.html["Documentación requerida"] Para más información.
 
 
 .Pasos
-. Instale en rack los conmutadores y controladores de la red del clúster y de la red de administración.
+. Monta en rack los switches de red, los switches de gestión y los controladores.
 +
 [cols="1,2"]
 |===
@@ -45,8 +48,8 @@ Equipos en un rack de telecomunicaciones
 Consulte los procedimientos proporcionados en las guías de instalación del hardware del switch y las instrucciones de instalación y configuración de NetApp .
 
 |===
-. Conecte los conmutadores de red del clúster y de la red de administración a los controladores utilizando las hojas de trabajo de cableado completadas.
-. Encienda la alimentación de los conmutadores y controladores de la red del clúster y de la red de administración.
+. Conecta los switches de red y de red de gestión a los controladores usando las hojas de trabajo de cableado completadas.
+. Enciende los conmutadores de red y de gestión, así como los controladores.
 
 
 .¿Que sigue?

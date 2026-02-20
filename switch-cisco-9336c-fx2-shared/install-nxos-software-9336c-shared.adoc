@@ -20,12 +20,10 @@ Antes de comenzar, complete el procedimiento enlink:prepare-nxos-rcf-9336c-share
 == Requisitos de revisión
 
 .Antes de empezar
-Asegúrate de hacer lo siguiente:
+Asegúrese de tener lo siguiente:
 
-* Ejecuta el comando `show install all impact nxos bootflash:<image_name>.bin` en el switch para revisar el impacto de instalar o actualizar la nueva imagen de software NX-OS. Verifica la integridad de la imagen, revisa si son necesarios reinicios, evalúa la compatibilidad del hardware y confirma que hay suficiente espacio.
-* Revisa las notas de la versión del software NX-OS de destino para ver si hay algún requisito específico.
-* Verifica que tienes una copia de seguridad actual de la configuración del conmutador.
-* Verifica que tienes un clúster que funciona completamente (sin errores en los registros ni problemas similares).
+* Una copia de seguridad actualizada de la configuración del switch.
+* Un clúster en pleno funcionamiento (sin errores en los registros ni problemas similares).
 
 
 .Documentación sugerida
@@ -63,7 +61,7 @@ El procedimiento requiere el uso de comandos ONTAP y comandos de switches Cisco 
 
 .Pasos
 . Conecte el conmutador del clúster a la red de administración.
-. Utilice el comando ping para verificar la conectividad con el servidor que aloja el software NX-OS y el RCF.
+. Utilice el `ping` comando para verificar la conectividad con el servidor que aloja el software NX-OS y el RCF.
 +
 .Mostrar ejemplo
 [%collapsible]
@@ -94,20 +92,19 @@ Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
 ----------- ------ ------------------------- ----------------  --------------
 cluster1-01/cdp
             e0a    cs1                       Ethernet1/7       N9K-C9336C-FX2
-            e0b    cs2                       Ethernet1/7       N9K-C9336C-FX2
+            e0d    cs2                       Ethernet1/7       N9K-C9336C-FX2
 cluster1-02/cdp
             e0a    cs1                       Ethernet1/8       N9K-C9336C-FX2
-            e0b    cs2                       Ethernet1/8       N9K-C9336C-FX2
+            e0d    cs2                       Ethernet1/8       N9K-C9336C-FX2
 cluster1-03/cdp
             e0a    cs1                       Ethernet1/1/1     N9K-C9336C-FX2
             e0b    cs2                       Ethernet1/1/1     N9K-C9336C-FX2
 cluster1-04/cdp
             e0a    cs1                       Ethernet1/1/2     N9K-C9336C-FX2
             e0b    cs2                       Ethernet1/1/2     N9K-C9336C-FX2
-cluster1::*>
 ----
 ====
-. Verifique el estado administrativo y operativo de cada puerto del clúster.
+. Comprueba el estado administrativo y operativo de cada puerto de clúster, puerto de almacenamiento de nodo y puerto de estantería de almacenamiento.
 +
 .. Verifique que todos los puertos del clúster estén *activos* y en buen estado:
 +
@@ -127,7 +124,7 @@ Node: cluster1-01
 Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
 --------- ------------ ---------------- ---- ---- ----------- -------- ------
 e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
-e0b       Cluster      Cluster          up   9000  auto/100000 healthy false
+e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
 
 Node: cluster1-02
                                                                        Ignore
@@ -135,7 +132,7 @@ Node: cluster1-02
 Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
 --------- ------------ ---------------- ---- ---- ----------- -------- ------
 e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
-e0b       Cluster      Cluster          up   9000  auto/100000 healthy false
+e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
 8 entries were displayed.
 
 Node: cluster1-03
@@ -154,7 +151,6 @@ Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
 --------- ------------ ---------------- ---- ---- ----------- -------- ------
 e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
 e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
-cluster1::*>
 ----
 ====
 .. Verifique que todas las interfaces del clúster (LIF) estén en el puerto principal:
@@ -173,20 +169,18 @@ Vserver     Interface          Admin/Oper Address/Mask      Node         Port   
 ----------- ------------------ ---------- ----------------- ------------ ------- ----
 Cluster
             cluster1-01_clus1  up/up     169.254.3.4/23     cluster1-01  e0a     true
-            cluster1-01_clus2  up/up     169.254.3.5/23     cluster1-01  e0b     true
+            cluster1-01_clus2  up/up     169.254.3.5/23     cluster1-01  e0d     true
             cluster1-02_clus1  up/up     169.254.3.8/23     cluster1-02  e0a     true
-            cluster1-02_clus2  up/up     169.254.3.9/23     cluster1-02  e0b     true
+            cluster1-02_clus2  up/up     169.254.3.9/23     cluster1-02  e0d     true
             cluster1-03_clus1  up/up     169.254.1.3/23     cluster1-03  e0a     true
             cluster1-03_clus2  up/up     169.254.1.1/23     cluster1-03  e0b     true
             cluster1-04_clus1  up/up     169.254.1.6/23     cluster1-04  e0a     true
             cluster1-04_clus2  up/up     169.254.1.7/23     cluster1-04  e0b     true
-8 entries were displayed.
-cluster1::*>
 ----
 ====
-.. Verifique que el clúster muestre información para ambos conmutadores del clúster:
+.. Verifica que todos los puertos de almacenamiento del nodo estén activos y en buen estado:
 +
-`system cluster-switch show -is-monitoring-enabled-operational true`
+`storage port show -port-type ENET`
 
 +
 .Mostrar ejemplo
@@ -194,25 +188,96 @@ cluster1::*>
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
-Switch                      Type               Address          Model
---------------------------- ------------------ ---------------- --------------
-cs1                         cluster-network    10.233.205.90    N9K-C9336C-FX2
-     Serial Number: FOCXXXXXXGD
-      Is Monitored: true
-            Reason: None
-  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
-                    9.3(5)
-    Version Source: CDP
+cluster1::*> *storage port show -port-type ENET*
 
-cs2                         cluster-network    10.233.205.91    N9K-C9336C-FX2
-     Serial Number: FOCXXXXXXGS
+
+                                      Speed
+Node               Port Type  Mode    (Gb/s) State    Status
+------------------ ---- ----- ------- ------ -------- -----------
+cluster1-01
+                   e5a ENET  -         100   enabled  online
+                   e3b ENET  -         100   enabled  online
+cluster1-02
+                   e5a ENET  -         100   enabled  online
+                   e3b ENET  -         100   enabled  online
+.
+.
+----
+====
+.. Verifique que todos los puertos del estante de almacenamiento estén activos con un estado saludable:
++
+`storage shelf port show`
+
++
+.Mostrar ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::> *storage shelf port show*
+
+Shelf ID Module State        Internal?
+----- -- ------ ------------ ---------
+1.4
+       0 A      connected    false
+       1 A      connected    false
+       2 B      connected    false
+       3 B      connected    false
+.
+.
+----
+====
+.. Verifica que los switches están siendo monitoreados.
++
+`system switch ethernet show`
+
++
+.Mostrar ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet show*
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+s1
+                            storage-network    10.228.143.216   N9K-C9336C-FX2
+     Serial Number: FDOXXXXXXB
       Is Monitored: true
             Reason: None
   Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
-                    9.3(5)
-    Version Source: CDP
-cluster1::*>
+                    10.4(6)
+    Version Source: CDP/ISDP
+
+
+s2
+                            storage-network    10.228.143.219   N9K-C9336C-FX2
+     Serial Number: FDOXXXXXXC
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    10.6(2)
+    Version Source: CDP/ISDP
+
+
+cs1
+                            cluster-network    10.228.184.39    N9K-C9336C-FX2
+     Serial Number: FLMXXXXXXXJ
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    10.4(6)
+    Version Source: CDP/ISDP
+
+
+cs2
+                            cluster-network    10.228.184.40    N9K-C9336C-FX2
+     Serial Number: FLMXXXXXXXG
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    10.6(2)
+    Version Source: CDP/ISDP
 ----
 ====
 
@@ -528,7 +593,7 @@ GEM  FPGA                        0x2
 GEM  FPGA                        0x2
 ----
 ====
-. Verifique el estado de los puertos del clúster.
+. Verifica el estado de todos los puertos del clúster.
 +
 .. Verifique que los puertos del clúster estén activos y en buen estado en todos los nodos del clúster:
 +
@@ -564,7 +629,7 @@ Node: cluster1-03
 Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
 --------- ------------ ---------------- ---- ---- ----------- -------- ------
 e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
-e0b       Cluster      Cluster          up   9000  auto/100000 healthy false
+e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
 
 Node: cluster1-04
                                                                        Ignore
@@ -572,8 +637,7 @@ Node: cluster1-04
 Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
 --------- ------------ ---------------- ---- ---- ----------- -------- ------
 e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
-e0b       Cluster      Cluster          up   9000  auto/100000 healthy false
-8 entries were displayed.
+e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
 ----
 ====
 .. Verifique el estado del switch desde el clúster.
@@ -592,37 +656,16 @@ Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
 ----------- ------ ------------------------- ----------------- --------------
 cluster1-01/cdp
             e0a    cs1                       Ethernet1/7       N9K-C9336C-FX2
-            e0b    cs2                       Ethernet1/7       N9K-C9336C-FX2
+            e0d    cs2                       Ethernet1/7       N9K-C9336C-FX2
 cluster01-2/cdp
             e0a    cs1                       Ethernet1/8       N9K-C9336C-FX2
-            e0b    cs2                       Ethernet1/8       N9K-C9336C-FX2
+            e0d    cs2                       Ethernet1/8       N9K-C9336C-FX2
 cluster01-3/cdp
             e0a    cs1                       Ethernet1/1/1     N9K-C9336C-FX2
             e0b    cs2                       Ethernet1/1/1     N9K-C9336C-FX2
 cluster1-04/cdp
             e0a    cs1                       Ethernet1/1/2     N9K-C9336C-FX2
             e0b    cs2                       Ethernet1/1/2     N9K-C9336C-FX2
-
-cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
-Switch                      Type               Address          Model
---------------------------- ------------------ ---------------- --------------
-cs1                         cluster-network    10.233.205.90    N9K-C9336C-FX2
-     Serial Number: FOCXXXXXXGD
-      Is Monitored: true
-            Reason: None
-  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
-                    9.3(5)
-    Version Source: CDP
-
-cs2                         cluster-network    10.233.205.91    N9K-C9336C-FX2
-     Serial Number: FOCXXXXXXGS
-      Is Monitored: true
-            Reason: None
-  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
-                    9.3(5)
-    Version Source: CDP
-
-2 entries were displayed.
 ----
 Dependiendo de la versión de RCF previamente cargada en el switch, es posible que observe la siguiente salida en la consola del switch cs1:
 
@@ -631,6 +674,108 @@ Dependiendo de la versión de RCF previamente cargada en el switch, es posible q
 2020 Nov 17 16:07:18 cs1 %$ VDC-1 %$ %STP-2-UNBLOCK_CONSIST_PORT: Unblocking port port-channel1 on VLAN0092. Port consistency restored.
 2020 Nov 17 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_PEER: Blocking port-channel1 on VLAN0001. Inconsistent peer vlan.
 2020 Nov 17 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_LOCAL: Blocking port-channel1 on VLAN0092. Inconsistent local vlan.
+----
+====
+.. Verifica que todos los puertos de almacenamiento del nodo estén activos y en buen estado:
++
+`storage port show -port-type ENET`
+
++
+.Mostrar ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage port show -port-type ENET*
+
+
+                                      Speed
+Node               Port Type  Mode    (Gb/s) State    Status
+------------------ ---- ----- ------- ------ -------- -----------
+cluster1-01
+                   e5a ENET  -         100   enabled  online
+                   e3b ENET  -         100   enabled  online
+cluster1-02
+                   e5a ENET  -         100   enabled  online
+                   e3b ENET  -         100   enabled  online
+.
+.
+----
+====
+.. Verifique que todos los puertos del estante de almacenamiento estén activos con un estado saludable:
++
+`storage shelf port show`
+
++
+.Mostrar ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::> *storage shelf port show*
+
+Shelf ID Module State        Internal?
+----- -- ------ ------------ ---------
+1.4
+       0 A      connected    false
+       1 A      connected    false
+       2 B      connected    false
+       3 B      connected    false
+.
+.
+----
+====
+.. Verifica que los switches están siendo monitoreados.
++
+`system switch ethernet show`
+
++
+.Mostrar ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet show*
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+s1
+                            storage-network    10.228.143.216   N9K-C9336C-FX2
+     Serial Number: FDOXXXXXXB
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    10.4(6)
+    Version Source: CDP/ISDP
+
+
+s2
+                            storage-network    10.228.143.219   N9K-C9336C-FX2
+     Serial Number: FDOXXXXXXC
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    10.6(2)
+    Version Source: CDP/ISDP
+
+
+cs1
+                            cluster-network    10.228.184.39    N9K-C9336C-FX2
+     Serial Number: FLMXXXXXXXJ
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    10.4(6)
+    Version Source: CDP/ISDP
+
+
+cs2
+                            cluster-network    10.228.184.40    N9K-C9336C-FX2
+     Serial Number: FLMXXXXXXXG
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    10.6(2)
+    Version Source: CDP/ISDP
 ----
 ====
 
@@ -680,10 +825,10 @@ cluster1::*> *network interface check cluster-connectivity show*
                                   Source               Destination         Packet
 Node   Date                       LIF                  LIF                 Loss
 ------ -------------------------- -------------------- ------------------- -----------
-cluster1-01
+node1
        3/5/2022 19:21:18 -06:00   cluster1-01_clus2    cluster1-02-clus1   none
        3/5/2022 19:21:20 -06:00   cluster1-01_clus2    cluster1-02_clus2   none
-cluster1-02
+node2
        3/5/2022 19:21:18 -06:00   cluster1-02_clus2    cluster1-01_clus1   none
        3/5/2022 19:21:20 -06:00   cluster1-02_clus2    cluster1-01_clus2   none
 ----
@@ -729,7 +874,7 @@ RPC status:
 
 . Verifique que los LIF del clúster hayan vuelto a su puerto de origen:
 +
-`network interface show -vserver Cluster`
+`network interface show -role cluster`
 
 +
 .Mostrar ejemplo
@@ -737,21 +882,19 @@ RPC status:
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface show -vserver Cluster*
+cluster1::*> *network interface show -role cluster*
             Logical            Status     Network            Current             Current Is
 Vserver     Interface          Admin/Oper Address/Mask       Node                Port    Home
 ----------- ------------------ ---------- ------------------ ------------------- ------- ----
 Cluster
-            cluster1-01_clus1  up/up      169.254.3.4/23     cluster1-01         e0b     true
-            cluster1-01_clus2  up/up      169.254.3.5/23     cluster1-01         e0b     true
-            cluster1-02_clus1  up/up      169.254.3.8/23     cluster1-02         e0b     true
-            cluster1-02_clus2  up/up      169.254.3.9/23     cluster1-02         e0b     true
+            cluster1-01_clus1  up/up      169.254.3.4/23     cluster1-01         e0d     true
+            cluster1-01_clus2  up/up      169.254.3.5/23     cluster1-01         e0d     true
+            cluster1-02_clus1  up/up      169.254.3.8/23     cluster1-02         e0d     true
+            cluster1-02_clus2  up/up      169.254.3.9/23     cluster1-02         e0d     true
             cluster1-03_clus1  up/up      169.254.1.3/23     cluster1-03         e0b     true
             cluster1-03_clus2  up/up      169.254.1.1/23     cluster1-03         e0b     true
             cluster1-04_clus1  up/up      169.254.1.6/23     cluster1-04         e0b     true
             cluster1-04_clus2  up/up      169.254.1.7/23     cluster1-04         e0b     true
-8 entries were displayed.
-cluster1::*>
 ----
 ====
 +

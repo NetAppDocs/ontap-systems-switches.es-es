@@ -11,7 +11,7 @@ summary: 'SSH es un requisito cuando se utilizan el Monitor de estado del conmut
 
 
 [role="lead"]
-Si está utilizando las funciones de monitorización del estado del conmutador Ethernet (CSHM) y recopilación de registros, verifique que SSH y las claves SSH estén habilitadas en los conmutadores del clúster.
+Si está utilizando el Monitor de estado del conmutador Ethernet (CSHM) y las funciones de recopilación de registros, verifique que SSH y las claves SSH estén habilitadas en los conmutadores.
 
 .Pasos
 . Verifique que SSH esté habilitado:

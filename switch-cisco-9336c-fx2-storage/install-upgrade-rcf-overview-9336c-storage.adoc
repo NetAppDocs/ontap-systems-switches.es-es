@@ -15,91 +15,9 @@ El archivo de configuración de referencia (RCF) se instala después de configur
 
 Consulte el artículo de la base de conocimientoslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración de un switch de interconexión Cisco manteniendo la conectividad remota"^] Para obtener más información sobre la instalación o actualización de su RCF.
 
-.Configuraciones RCF disponibles
-La siguiente tabla describe los RCF disponibles para diferentes configuraciones. Elija el RCF aplicable a su configuración. Verlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^] Para más información.
+.Configuración RCF disponible
+Storage - (Storage RCF 1._xx_) es la configuración RCF disponible donde todos los puertos están configurados para conexiones de almacenamiento NVMe 100GbE.
 
-Para obtener detalles específicos sobre el uso de puertos y VLAN, consulte la sección de notas importantes y el banner en su RCF.
-
-[cols="1,2"]
-|===
-| Nombre RCF | Descripción 
-
-
- a| 
-Ruptura de alta disponibilidad de 2 clústeres
- a| 
-Admite dos clústeres ONTAP con al menos ocho nodos, incluidos los nodos que utilizan puertos Cluster+HA compartidos.
-
-
-
- a| 
-Ruptura de 4 clústeres HA
- a| 
-Admite cuatro clústeres ONTAP con al menos cuatro nodos, incluidos los nodos que utilizan puertos Cluster+HA compartidos.
-
-
-
- a| 
-1-Cluster-HA
- a| 
-Todos los puertos están configurados para 40/100GbE.  Admite tráfico compartido de clúster/HA en puertos.  Requerido para los sistemas AFF A320, AFF A250 y FAS500f .  Además, todos los puertos pueden utilizarse como puertos de clúster dedicados.
-
-
-
- a| 
-1-Clúster-HA-Ruptura
- a| 
-Los puertos están configurados para breakout 4x10GbE, breakout 4x25GbE (RCF 1.6+ en switches 100GbE) y 40/100GbE.  Admite tráfico compartido de clúster/HA en puertos para nodos que utilizan puertos compartidos de clúster/HA: sistemas AFF A320, AFF A250 y FAS500f .  Además, todos los puertos pueden utilizarse como puertos de clúster dedicados.
-
-
-
- a| 
-Almacenamiento de alta disponibilidad en clúster
- a| 
-Los puertos están configurados para 40/100GbE para Cluster+HA, 4x10GbE breakout para Cluster y 4x25GbE breakout para Cluster+HA, y 100GbE para cada par de almacenamiento HA.
-
-
-
- a| 
-Grupo
- a| 
-Dos versiones de RCF con diferentes asignaciones de puertos 4x10GbE (breakout) y puertos 40/100GbE. Se admiten todos los nodos FAS y AFF , excepto los sistemas AFF A320, AFF A250 y FAS500f .
-
-
-
- a| 
-Almacenamiento
- a| 
-Todos los puertos están configurados para conexiones de almacenamiento NVMe de 100 GbE.
-
-|===
-.RCF disponibles
-En la siguiente tabla se enumeran los RCF disponibles para los conmutadores 9336C-FX2 y 9336C-FX2-T.  Elija la versión RCF aplicable para su configuración. Verlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^] Para más información.
-
-[cols="1"]
-|===
-| Nombre RCF 
-
-
- a| 
-RCF de ruptura de clúster HA 1._xx_
-
-
-
- a| 
-RCF de almacenamiento de alta disponibilidad en clúster 1._xx_
-
-
-
- a| 
-Almacenamiento RCF 1._xx_
-
-
-
- a| 
-RCF de alta disponibilidad multiclúster 1._xx_
-
-|===
 .Documentación sugerida
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^]
 +
@@ -114,10 +32,8 @@ Consulte las guías de software y actualización correspondientes disponibles en
 .Acerca de los ejemplos
 Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interruptores y nodos:
 
-* Los nombres de los dos switches de Cisco son cs1 y cs2.
-* Los nombres de los nodos son node1-01, node1-02, node1-03 y node1-04.
-* Los nombres del clúster LIF son node1-01_clus1, node1-01_clus2, node1-02_clus1, node1-02_clus2, node1-03_clus1, node1-03_clus2, node1-04_clus1 y node1-04_clus2.
-* El `cluster1::*>` El indicador muestra el nombre del clúster.
+* Los nombres de los dos Cisco switches son s1 y s2.
+* Los nombres de los nodos son cluster1-01 y cluster1-02.
 
 
 Ver el https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para verificar los puertos correctos en su plataforma.

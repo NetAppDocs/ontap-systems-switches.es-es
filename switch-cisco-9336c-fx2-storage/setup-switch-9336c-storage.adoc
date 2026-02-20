@@ -20,12 +20,12 @@ Asegúrese de tener lo siguiente:
 * Versión aplicable de NX-OS, descargada desde https://software.cisco.com/download/home["Descarga de software de Cisco"^] página.
 * Licencias aplicables, información de red y configuración, y cables.
 * Terminadolink:setup-worksheet-9336c-storage.html["hojas de trabajo de cableado"] .
-* Los archivos RCF de red de clúster y de red de administración de NetApp aplicables se descargaron del sitio de soporte de NetApp en http://mysupport.netapp.com/["mysupport.netapp.com"^] .  Todos los switches de red de clúster y de red de administración de Cisco vienen con la configuración predeterminada de fábrica estándar de Cisco . Estos conmutadores también tienen la versión actual del software NX-OS pero no tienen los RCF cargados.
+* RCFs de red y de red de gestión de NetApp aplicables descargados del NetApp Support Site en http://mysupport.netapp.com/["mysupport.netapp.com"^]. Todos los switches de red y de red de gestión Cisco llegan con la configuración de fábrica estándar de Cisco. Estos switches también tienen la versión actual del software NX-OS pero no tienen los RCFs cargados.
 * Documentación requerida del interruptor. Verlink:required-documentation-9336c-storage.html["Documentación requerida"] Para más información.
 
 
 .Pasos
-. Realice una configuración inicial de los conmutadores de red del clúster.
+. Realiza una configuración inicial de los switches de red.
 +
 Proporcione las respuestas pertinentes a las siguientes preguntas de configuración inicial cuando encienda el switch por primera vez.  La política de seguridad de su sitio define las respuestas y los servicios que se deben habilitar.
 
@@ -188,7 +188,7 @@ NOTE: Si no guarda la configuración en este paso, ninguno de los cambios tendr�
 
 |===
 . Verifique las opciones de configuración que seleccionó en la pantalla que aparece al final de la configuración y asegúrese de guardar la configuración.
-. Compruebe la versión en los conmutadores de red del clúster y, si es necesario, descargue la versión del software compatible con NetApp en los conmutadores desde https://software.cisco.com/download/home["Descarga de software de Cisco"^] página.
+. Comprueba la versión en los switches de red y, si es necesario, descarga la versión del software compatible con NetApp en los switches desde la  https://software.cisco.com/download/home["Descarga de software de Cisco"^] página.
 
 
 .¿Que sigue?
