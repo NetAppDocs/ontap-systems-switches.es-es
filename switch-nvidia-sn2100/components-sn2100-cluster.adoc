@@ -58,7 +58,7 @@ Kit de rieles, interruptor único NVIDIA de profundidad corta
 
 |===
 
-NOTE: Consulte la documentación de NVIDIA para obtener más detalles sobre https://docs.nvidia.com/networking/display/sn2000pub/Installation["Instalación del kit de interruptor y riel SN2100"^] .
+NOTE: Consulta la documentación de NVIDIA para ver detalles sobre link:https://docs.nvidia.com/networking/display/sn2000pub/Installation["Instalación del kit de interruptor y riel SN2100"^].
 
 .¿Que sigue?
 Una vez que haya confirmado sus componentes y números de pieza, puede revisar el link:required-documentation-sn2100-cluster.html["documentación requerida"].
