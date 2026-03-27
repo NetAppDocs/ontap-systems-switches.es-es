@@ -17,7 +17,7 @@ Puede migrar desde switches Cisco antiguos para un clúster ONTAP a switches de 
 
 == Requisitos de revisión
 
-Debe tener en cuenta cierta información de configuración, conexiones de puertos y requisitos de cableado cuando reemplace algunos switches Cisco antiguos con switches de almacenamiento NVIDIA SN2100. Verlink:configure-overview-sn2100-cluster.html["Descripción general de la instalación y configuración de los switches NVIDIA SN2100"] .
+Debes tener en cuenta cierta información de configuración, conexiones de puertos y requisitos de cableado cuando reemplaces algunos switches Cisco antiguos por switches de almacenamiento NVIDIA SN2100. Consulta link:configure-overview-sn2100-cluster.html["Descripción general de la instalación y configuración de los switches NVIDIA SN2100"].
 
 .Interruptores compatibles
 Se admiten los siguientes conmutadores de almacenamiento:
@@ -26,7 +26,7 @@ Se admiten los siguientes conmutadores de almacenamiento:
 * Cisco Nexus 3232C
 
 
-Para obtener detalles sobre los puertos compatibles y sus configuraciones, consulte la https://hwu.netapp.com/["Hardware Universe"^] .
+Para obtener detalles sobre los puertos compatibles y sus configuraciones, consulta el link:https://hwu.netapp.com/["Hardware Universe"^].
 
 .Lo que necesitarás
 Asegúrese de que:

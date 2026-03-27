@@ -11,7 +11,7 @@ summary: Para la instalación y el mantenimiento del switch NetApp CN1610, aseg�
 
 
 [role="lead"]
-Para la instalación y el mantenimiento del switch NetApp CN1610, asegúrese de revisar toda la documentación recomendada.
+Para la instalación del switch NetApp CN1610, asegúrate de revisar toda la documentación recomendada.
 
 [cols="1,2"]
 |===
@@ -19,21 +19,21 @@ Para la instalación y el mantenimiento del switch NetApp CN1610, asegúrese de 
 
 
  a| 
-https://library.netapp.com/ecm/ecm_download_file/ECMP1117853["Guía de instalación 1G"^]
+link:https://library.netapp.com/ecm/ecm_download_file/ECMP1117853["Guía de instalación 1G"^]
  a| 
 Descripción general de las características de hardware y software del switch CN1601 y proceso de instalación.
 
 
 
  a| 
-https://library.netapp.com/ecm/ecm_download_file/ECMP1117824["Guía de instalación de 10G"^]
+link:https://library.netapp.com/ecm/ecm_download_file/ECMP1117824["Guía de instalación de 10G"^]
  a| 
 Se ofrece una descripción general de las características de hardware y software del switch CN1610, así como de las funciones para instalar el switch y acceder a la CLI.
 
 
 
  a| 
-https://library.netapp.com/ecm/ecm_download_file/ECMP1118645["Guía de configuración e instalación de los switches CN1601 y CN1610"^]
+link:https://library.netapp.com/ecm/ecm_download_file/ECMP1118645["Guía de configuración e instalación de los switches CN1601 y CN1610"^]
  a| 
 Detalles sobre cómo configurar el hardware y el software del switch para su entorno de clúster.
 
@@ -44,9 +44,9 @@ Guía del administrador del switch CN1601
  a| 
 Proporciona ejemplos de cómo utilizar el switch CN1601 en una red típica.
 
-* https://library.netapp.com/ecm/ecm_download_file/ECMP1117844["Guía del administrador"^]
-* https://library.netapp.com/ecm/ecm_download_file/ECMLP2811865["Guía del administrador, versión 1.1.xx"^]
-* https://library.netapp.com/ecm/ecm_download_file/ECMP1117874["Guía del administrador, versión 1.2.xx"^]
+* link:https://library.netapp.com/ecm/ecm_download_file/ECMP1117844["Guía del administrador"^]
+* link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2811865["Guía del administrador, versión 1.1.xx"^]
+* link:https://library.netapp.com/ecm/ecm_download_file/ECMP1117874["Guía del administrador, versión 1.2.xx"^]
 
 
 
@@ -56,9 +56,9 @@ Referencia de comandos CLI del conmutador de red CN1610
  a| 
 Proporciona información detallada sobre los comandos de la interfaz de línea de comandos (CLI) que se utilizan para configurar el software CN1601.
 
-* https://library.netapp.com/ecm/ecm_download_file/ECMP1117834["Referencia de comandos"^]
-* https://library.netapp.com/ecm/ecm_download_file/ECMLP2811863["Referencia de comandos, versión 1.1.xx"^]
-* https://library.netapp.com/ecm/ecm_download_file/ECMP1117863["Referencia de comandos, versión 1.2.xx"^]
+* link:https://library.netapp.com/ecm/ecm_download_file/ECMP1117834["Referencia de comandos"^]
+* link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2811863["Referencia de comandos, versión 1.1.xx"^]
+* link:https://library.netapp.com/ecm/ecm_download_file/ECMP1117863["Referencia de comandos, versión 1.2.xx"^]
 
 
 |===

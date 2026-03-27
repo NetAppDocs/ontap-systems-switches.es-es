@@ -49,8 +49,8 @@ entries:
       url: "/switch-cisco-9336c-fx2/upgrade-rcf-software-9336c-cluster.html"
   - title: Verificar la configuración SSH
     url: "/switch-cisco-9336c-fx2/configure-ssh-keys.html"
-  - title: Restablecer el interruptor a los valores predeterminados de fábrica
-    url: "/switch-cisco-9336c-fx2/reset-switch-9336c.html"
+- title: Restablecer el interruptor a los valores predeterminados de fábrica
+  url: "/switch-cisco-9336c-fx2/reset-switch-9336c.html"
 - title: Migrar los interruptores
   pdf-filename: Migrar_conmutadores_9336c-fx2
   entries:

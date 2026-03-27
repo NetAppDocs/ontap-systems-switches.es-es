@@ -17,7 +17,7 @@ Puede migrar los conmutadores de clúster de Cisco para un clúster ONTAP a conm
 
 == Requisitos de revisión
 
-Debe tener en cuenta cierta información de configuración, conexiones de puertos y requisitos de cableado cuando reemplace algunos conmutadores de clúster Cisco antiguos con conmutadores de clúster NVIDIA SN2100. Verlink:configure-overview-sn2100-cluster.html["Descripción general de la instalación y configuración de los switches NVIDIA SN2100"] .
+Debes tener en cuenta cierta información de configuración, conexiones de puertos y requisitos de cableado cuando reemplaces algunos switches de cluster Cisco antiguos por switches de cluster NVIDIA SN2100. Consulta link:configure-overview-sn2100-cluster.html["Descripción general de la instalación y configuración de los switches NVIDIA SN2100"].
 
 .Interruptores compatibles
 Se admiten los siguientes conmutadores de clúster de Cisco :
@@ -29,7 +29,7 @@ Se admiten los siguientes conmutadores de clúster de Cisco :
 * Nexus 3132Q-V
 
 
-Para obtener detalles sobre los puertos compatibles y sus configuraciones, consulte la https://hwu.netapp.com/["Hardware Universe"^] .
+Para obtener detalles sobre los puertos compatibles y sus configuraciones, consulta la link:https://hwu.netapp.com/["Hardware Universe"^].
 
 .Lo que necesitarás
 Asegúrese de que:
@@ -50,7 +50,7 @@ Asegúrese de que:
 
 
 
-NOTE: Si está cambiando la velocidad de los puertos del clúster e0a y e1a en los sistemas AFF A800 o AFF C800 , podría observar que se reciben paquetes malformados después de la conversión de velocidad.  Ver https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1570339["Error 1570339"^] y el artículo de la Base de Conocimiento https://kb.netapp.com/onprem/ontap/hardware/CRC_errors_on_T6_ports_after_converting_from_40GbE_to_100GbE["Errores CRC en puertos T6 tras la conversión de 40GbE a 100GbE"^] para ayuda.
+NOTE: Si estás cambiando la velocidad de puerto de los puertos de clúster e0a y e1a en sistemas AFF A800 o AFF C800, podrías observar que se reciben paquetes malformados después de la conversión de velocidad. Consulta link:https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1570339["Error 1570339"^] y el artículo de base de conocimientos link:https://kb.netapp.com/onprem/ontap/hardware/CRC_errors_on_T6_ports_after_converting_from_40GbE_to_100GbE["Errores CRC en puertos T6 tras la conversión de 40GbE a 100GbE"^] para orientación.
 
 
 

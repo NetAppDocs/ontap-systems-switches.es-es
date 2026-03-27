@@ -53,7 +53,7 @@ Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interru
 * Los nodos son *n1* y *n2*.
 
 
-Los ejemplos de este procedimiento utilizan dos nodos, cada uno de los cuales utiliza dos puertos de interconexión de clúster de 40 GbE *e4a* y *e4e*.  Ellink:https://hwu.netapp.com/["_Universo del Hardware_"^] Contiene detalles sobre los puertos del clúster en sus plataformas.
+Los ejemplos de este procedimiento utilizan dos nodos, cada uno de los cuales utiliza dos puertos de interconexión de clúster de 40 GbE *e4a* y *e4e*.  Ellink:https://hwu.netapp.com/["Hardware Universe"^] Contiene detalles sobre los puertos del clúster en sus plataformas.
 
 * *n1_clus1* es la primera interfaz lógica de clúster (LIF) que se conectará al conmutador de clúster *C1* para el nodo *n1*.
 * *n1_clus2* es el primer LIF de clúster que se conectará al conmutador de clúster *C2* para el nodo *n1*.

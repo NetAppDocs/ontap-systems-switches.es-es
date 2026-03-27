@@ -35,12 +35,12 @@ entries:
     url: "/switch-bes-53248/efos-install-rcf-license-file.html"
   - title: Instalar licencias
     url: "/switch-bes-53248/configure-licenses.html"
-  - title: Instalar archivo de configuración RCF
+  - title: Instala el RCF
     url: "/switch-bes-53248/configure-install-rcf.html"
   - title: Habilitar SSH para la recopilación de registros
     url: "/switch-bes-53248/configure-ssh.html"
-  - title: Restablecer el interruptor a los valores predeterminados de fábrica
-    url: "/switch-bes-53248/reset-switch-bes-53248.html"
+- title: Restablecer el interruptor a los valores predeterminados de fábrica
+  url: "/switch-bes-53248/reset-switch-bes-53248.html"
 - title: Actualizar el conmutador
   pdf-filename: Upgrade_switches_bes53248
   entries:

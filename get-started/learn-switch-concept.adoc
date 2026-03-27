@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords:  
 summary: Aprenda sobre clústeres, almacenamiento y conmutadores compartidos. 
 ---
-= Obtenga información sobre los sistemas AFX, clúster, almacenamiento y conmutadores compartidos
+= Conoce los sistemas AFX, clúster, almacenamiento y switches compartidos
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -46,6 +46,7 @@ Los conmutadores de clúster le permiten crear clústeres ONTAP con más de dos 
 Los conmutadores de almacenamiento permiten enrutar datos entre servidores y matrices de almacenamiento en una red de área de almacenamiento (SAN).  Los switches de almacenamiento compatibles con NetApp incluyen:
 
 * Cisco Nexus 9336C-FX2
+* Cisco Nexus 3232C
 * NVIDIA SN2100
 
 
@@ -60,12 +61,6 @@ Los conmutadores compartidos permiten combinar la funcionalidad de clúster y al
 
 
 
-== Fin de disponibilidad
+== Interruptores de fin de disponibilidad
 
-Los siguientes conmutadores de almacenamiento ya no están disponibles para su compra, pero aún cuentan con soporte:
-
-* Cisco Nexus 3232C
-* Cisco Nexus 3132Q-V
-* Cisco Nexus 92300YC
-* NetApp CN1610
-
+Para ver una lista de los switches que ya no están disponibles para compra, pero que aún tienen soporte, consulta link:../overview-eod.html["Interruptores de fin de disponibilidad"].

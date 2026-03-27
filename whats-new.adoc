@@ -11,7 +11,7 @@ summary: Conozca los nuevos interruptores para sistemas FAS y AFF .
 
 
 [role="lead"]
-Conozca los nuevos interruptores para sistemas FAS y AFF .  Para obtener información adicional sobre el interruptor, consulte la https://hwu.netapp.com/Switch/Index["NetApp Hardware Universe"^] .
+Conoce los nuevos switches para los sistemas de almacenamiento ONTAP. Para obtener información adicional sobre switches, consulta link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^].
 
 
 

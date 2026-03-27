@@ -13,7 +13,7 @@ summary: 'SSH es un requisito cuando se utilizan el Monitor de estado del conmut
 [role="lead"]
 Instale el archivo de configuración de referencia (RCF) después de configurar los conmutadores Nexus 3132Q-V por primera vez. Actualiza tu versión RCF cuando tienes una versión existente del archivo RCF instalado en tu conmutador.
 
-Consulte el artículo de la base de conocimientoslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración de un switch de interconexión Cisco manteniendo la conectividad remota"^] Para obtener más información sobre la instalación o actualización de su RCF.
+Consulta el artículo de base de conocimientos link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración de un switch de interconexión Cisco manteniendo la conectividad remota"^] para más información cuando instales o actualices tu RCF.
 
 .Configuraciones RCF disponibles
 La siguiente tabla describe los RCF disponibles para diferentes configuraciones.  Elija el RCF aplicable a su configuración.
@@ -74,7 +74,7 @@ Todos los puertos están configurados para conexiones de almacenamiento NVMe de 
 
 |===
 .RCF disponibles
-En la siguiente tabla se enumeran los RCF disponibles para los conmutadores 3132Q-V.  Elija la versión RCF aplicable para su configuración. Verlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^] Para más información.
+En la tabla siguiente se enumeran las RCF disponibles para los switches 3132Q-V. Elige la versión de RCF aplicable para tu configuración. Consulta link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^] para más información.
 
 [cols="1"]
 |===
@@ -115,12 +115,12 @@ Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interru
 * El `cluster1::*>` El indicador muestra el nombre del clúster.
 
 
-Los ejemplos de este procedimiento utilizan cuatro nodos.  Estos nodos utilizan dos puertos de interconexión de clúster 10GbE *e0a* y *e0b*.  Ver el https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para verificar los puertos de clúster correctos en sus plataformas.
+Los ejemplos de este procedimiento utilizan cuatro nodos. Estos nodos utilizan dos puertos de interconexión de clúster 10GbE *e0a* y *e0b*. Consulta la link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para verificar los puertos de clúster correctos en tus plataformas.
 
 
 NOTE: Los resultados del comando pueden variar dependiendo de las diferentes versiones de ONTAP.
 
-Para obtener detalles de las configuraciones RCF disponibles, consultelink:configure-software-overview-3132q-v-cluster.html["Flujo de trabajo de instalación de software"] .
+Para obtener detalles de las configuraciones de RCF disponibles, consulta link:configure-software-overview-3132q-v-cluster.html["Flujo de trabajo de instalación de software"].
 
 .Comandos utilizados
 El procedimiento requiere el uso de comandos ONTAP y comandos de switches Cisco Nexus serie 3000; se utilizan comandos ONTAP a menos que se indique lo contrario.

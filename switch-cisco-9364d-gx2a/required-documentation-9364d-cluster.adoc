@@ -14,13 +14,13 @@ summary: Para la instalación y el mantenimiento del conmutador Cisco Nexus 9364
 
 
 [role="lead"]
-Para la instalación y el mantenimiento del conmutador Cisco Nexus 9364D-GX2A, asegúrese de revisar la documentación específica del conmutador y del controlador para configurar los conmutadores Cisco 9364D-GX2A y el clúster ONTAP .
+Para la instalación del switch Cisco Nexus 9364D-GX2A, asegúrate de revisar la documentación específica del switch y del controlador para configurar tus switches Cisco 9364D-GX2A y el clúster ONTAP.
 
 
 
 == Documentación del interruptor
 
-Para configurar los switches Cisco Nexus 9364D-GX2A, necesita la siguiente documentación de https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Soporte para switches Cisco Nexus serie 9000"^] página:
+Para configurar los switches Cisco Nexus 9364D-GX2A, necesitas la siguiente documentación de link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Soporte para switches Cisco Nexus serie 9000"^].
 
 [cols="1,2"]
 |===
@@ -79,7 +79,7 @@ Proporciona información sobre cumplimiento normativo, seguridad y requisitos le
 
 == Documentación de los sistemas ONTAP
 
-Para configurar un sistema ONTAP , necesita los siguientes documentos para su versión del sistema operativo de https://docs.netapp.com/ontap-9/index.jsp["Centro de documentación de ONTAP 9"^] .
+Para configurar un sistema ONTAP, necesitas los siguientes documentos para tu versión del sistema operativo.
 
 [cols="1,2"]
 |===
@@ -87,21 +87,21 @@ Para configurar un sistema ONTAP , necesita los siguientes documentos para su ve
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-afx/index.html["Documentación de los sistemas AFX"^]
+link:https://docs.netapp.com/us-en/ontap-afx/index.html["Documentación de los sistemas AFX"^]
  a| 
 Describe cómo instalar el hardware de NetApp .
 
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-family/["Documentación de ONTAP"^]
+link:https://docs.netapp.com/us-en/ontap-family/["Documentación de ONTAP"^]
  a| 
 Proporciona información detallada sobre todos los aspectos de las versiones de ONTAP .
 
 
 
  a| 
-https://hwu.netapp.com["Hardware Universe"^]
+link:https://hwu.netapp.com["Hardware Universe"^]
  a| 
 Proporciona información sobre la configuración y compatibilidad del hardware de NetApp .
 

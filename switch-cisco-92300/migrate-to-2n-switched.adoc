@@ -18,7 +18,7 @@ El procedimiento que utilice dependerá de si dispone de dos puertos de red de c
 La mayoría de los sistemas requieren dos puertos de red de clúster dedicados en cada controlador.
 
 
-NOTE: Una vez completada la migración, es posible que deba instalar el archivo de configuración necesario para admitir el monitor de estado del conmutador de clúster (CSHM) para los conmutadores de clúster 92300YC. Verlink:../switch-cshm/cshm-overview.html["Monitoreo de salud del switch (CSHM)"] .
+NOTE: Después de que termine tu migración, puede que necesites instalar el archivo de configuración necesario para admitir Cluster Switch Health Monitor (CSHM) para los switches de clúster 92300YC. Consulta link:../switch-cshm/cshm-overview.html["Monitoreo de salud del switch (CSHM)"].
 
 
 
@@ -41,7 +41,7 @@ Para la configuración del conmutador Cisco Nexus 92300YC:
 * Existe acceso mediante consola a los conmutadores del clúster.
 * Las conexiones de conmutador a nodo y de conmutador a conmutador del Nexus 92300YC utilizan cables twinax o de fibra óptica.
 +
-https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Interruptores"^]Contiene más información sobre el cableado.
+El link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Interruptores"^] contiene más información sobre el cableado.
 
 * Los cables de enlace entre conmutadores (ISL) están conectados a los puertos 1/65 y 1/66 en ambos conmutadores 92300YC.
 * Se ha completado la personalización inicial de ambos switches 92300YC.  De modo que:
@@ -65,7 +65,7 @@ Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de nodos y
 * El `cluster1::*>` El indicador muestra el nombre del clúster.
 * Los puertos del clúster utilizados en este procedimiento son e0a y e0b.
 +
-https://hwu.netapp.com["Hardware Universe"^]Contiene la información más reciente sobre los puertos de clúster reales para sus plataformas.
+La link:https://hwu.netapp.com["Hardware Universe"^] contiene la información más reciente sobre los puertos reales del clúster para tus plataformas.
 
 
 
@@ -311,7 +311,7 @@ Cluster
 ====
 . Desconecte el cable del puerto de clúster e0a en el nodo 1 y, luego, conecte e0a al puerto 1 en el conmutador de clúster cs1, utilizando el cableado adecuado compatible con los conmutadores 92300YC.
 +
-El https://hwu.netapp.com/SWITCH/INDEX["_Universo del hardware - Interruptores_"^] Contiene más información sobre el cableado.
+El link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Interruptores"^] contiene más información sobre el cableado.
 
 . Desconecte el cable del puerto de clúster e0a en el nodo 2 y, luego, conecte e0a al puerto 2 en el conmutador de clúster cs1, utilizando el cableado adecuado compatible con los conmutadores 92300YC.
 . Habilite todos los puertos orientados a nodos en el conmutador de clúster cs1.

@@ -24,7 +24,7 @@ Si desea conectar el almacenamiento NS224 a un switch, siga el diagrama de conex
 
 image:9336c_image1.jpg["Interruptor conectado"]
 
-Ver el https://hwu.netapp.com/Switch/Index["Hardware Universe"] Para obtener más información sobre los puertos del switch. Ver link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["¿Qué información adicional necesito para instalar mi equipo que no está en HWU?"^] para obtener más información sobre los requisitos de instalación del conmutador.
+Consulta el link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para más información sobre los puertos del switch. Consulta link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["¿Qué información adicional necesito para instalar mi equipo que no está en HWU?"^] para más información sobre los requisitos de instalación del switch.
 
 
 
@@ -34,7 +34,7 @@ Si desea conectar el almacenamiento NS224 mediante cable directo en lugar de uti
 
 image:9336c_image2.jpg["Conexión directa"]
 
-Ver el https://hwu.netapp.com/Switch/Index["Hardware Universe"] Para obtener más información sobre los puertos del switch.
+Consulta link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para más información sobre los puertos del switch.
 
 
 
@@ -58,7 +58,7 @@ Dónde:
 
 == Hoja de trabajo de cableado en blanco
 
-Puede utilizar la hoja de trabajo de cableado en blanco para documentar las plataformas que se admiten como nodos en un clúster.  La tabla de conexiones de clúster compatibles del Hardware Universe define los puertos de clúster utilizados por la plataforma.
+Puedes usar la hoja de trabajo de cableado en blanco para documentar las plataformas que son compatibles como nodos en un clúster. La tabla de conexiones de clúster compatibles de link:https://hwu.netapp.com["Hardware Universe"^] define los puertos de clúster que usa la plataforma.
 
 image:blank-cabling-worksheet.jpg["Hoja de trabajo de cableado en blanco"]
 

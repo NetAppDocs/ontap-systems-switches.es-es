@@ -17,10 +17,7 @@ Si tiene un sistema en el que los estantes de unidades NS224 deben cablearse com
 +
 https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["Bandejas de unidades NS224 con conmutador de cableado"^]
 
-* Confirme el hardware compatible, como conmutadores de almacenamiento y cables, para su modelo de plataforma:
-+
-https://hwu.netapp.com/["NetApp Hardware Universe"^]
-
+* Confirma el hardware compatible, como los switches de almacenamiento y cables, para tu modelo de plataforma. Consulta la link:https://hwu.netapp.com/["Hardware Universe"^] para más detalles.
 
 
 .¿Que sigue?

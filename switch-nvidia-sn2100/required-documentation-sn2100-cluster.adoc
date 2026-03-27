@@ -11,7 +11,7 @@ summary: Para la instalación y el mantenimiento del switch NVIDIA SN2100, aseg�
 
 
 [role="lead"]
-Para la instalación y el mantenimiento del switch NVIDIA SN2100, asegúrese de revisar toda la documentación recomendada.
+Para la instalación del switch NVIDIA SN2100, asegúrate de revisar toda la documentación recomendada.
 
 [cols="1,2"]
 |===
@@ -19,22 +19,46 @@ Para la instalación y el mantenimiento del switch NVIDIA SN2100, asegúrese de 
 
 
  a| 
-https://docs.nvidia.com/networking/display/sn2000pub/Installation["Guía de instalación de switches NVIDIA"^]
+link:https://docs.nvidia.com/networking/display/sn2000pub/Installation["Guía de instalación de switches NVIDIA"^]
  a| 
 Describe cómo instalar sus switches NVIDIA SN2100.
 
 
 
  a| 
-https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["Guía de cableado del chasis de unidades NVMe NS224"^]
+link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["Guía de cableado del chasis de unidades NVMe NS224"^]
  a| 
 Descripción general e ilustraciones que muestran cómo configurar el cableado para los estantes de unidades.
 
+|===
+
+
+== Documentación de los sistemas ONTAP
+
+Para configurar un sistema ONTAP, necesitas los siguientes documentos para tu versión del sistema operativo.
+
+[cols="1,2"]
+|===
+| Nombre | Descripción 
 
 
  a| 
-https://hwu.netapp.com/["NetApp Hardware Universe"^]
+Instrucciones de instalación y configuración específicas del controlador
  a| 
-Te permite confirmar el hardware compatible, como conmutadores de almacenamiento y cables, para tu modelo de plataforma.
+Describe cómo instalar el hardware de NetApp .
+
+
+
+ a| 
+link:https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9"^]
+ a| 
+Proporciona información detallada sobre todos los aspectos de las versiones de ONTAP .
+
+
+
+ a| 
+link:https://hwu.netapp.com/["Hardware Universe"^]
+ a| 
+Te permite confirmar el hardware compatible, como conmutadores de clúster y cables, para tu modelo de plataforma.
 
 |===

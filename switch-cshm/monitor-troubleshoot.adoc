@@ -17,4 +17,4 @@ Si se generan alertas, el estado de salud del sistema reporta un estado degradad
 
 Para ver las alertas disponibles del monitor de estado del switch Ethernet, ejecute el comando: `system health alert definition show -monitor ethernet-switch`
 
-Consulte el artículo de la base de conocimientos https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Cluster_Switch_Health_Monitor_CSHM_Alert_Resolution_Guide["Guía de resolución de alertas del monitor de estado del interruptor"^] Para obtener detalles avanzados sobre la resolución de alertas.
+Consulta el artículo de base de conocimientos https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Cluster_Switch_Health_Monitor_CSHM_Alert_Resolution_Guide["Guía de resolución de alertas del monitor de estado del interruptor"^] para obtener detalles de la resolución avanzada de alertas.

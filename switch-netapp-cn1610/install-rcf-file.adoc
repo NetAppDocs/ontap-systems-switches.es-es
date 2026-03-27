@@ -54,7 +54,7 @@ Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interru
 * El `cluster::*>` El indicador muestra el nombre del clúster.
 * Los puertos del clúster en cada nodo se denominan e1a y e2a.
 +
-https://hwu.netapp.com/["Hardware Universe"^]Tiene más información sobre los puertos de clúster reales que son compatibles con su plataforma.
+El link:https://hwu.netapp.com/["Hardware Universe"^] tiene más información sobre los puertos de clúster compatibles con tu plataforma.
 
 * Los enlaces entre conmutadores (ISL) compatibles son los puertos 0/13 a 0/16.
 * Las conexiones de nodo compatibles son los puertos 0/1 a 0/12.

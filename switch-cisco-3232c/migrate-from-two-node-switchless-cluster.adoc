@@ -54,7 +54,7 @@ Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interru
 * Los nodos son n1 y n2.
 
 
-Los ejemplos de este procedimiento utilizan dos nodos, cada uno de los cuales utiliza dos puertos de interconexión de clúster de 40 GbE, e4a y e4e.  Ellink:https://hwu.netapp.com/["_Universo del Hardware_"^] Contiene detalles sobre los puertos del clúster en sus plataformas.
+Los ejemplos de este procedimiento usan dos nodos, cada uno utilizando dos puertos de interconexión de clúster de 40 GbE e4a y e4e. El link:https://hwu.netapp.com/["Hardware Universe"^] tiene detalles sobre los puertos de clúster en tus plataformas.
 
 * n1_clus1 es la primera interfaz lógica de clúster (LIF) que se conectará al conmutador de clúster C1 para el nodo n1.
 * n1_clus2 es el primer LIF de clúster que se conecta al conmutador de clúster C2 para el nodo n1.
@@ -179,7 +179,7 @@ link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storag
 . Haz clic en *CONTINUAR* en la página *Descripción*, acepta el acuerdo de licencia y luego sigue las instrucciones en la página *Descarga* para descargar el RCF.
 . En los switches Nexus 3232C C1 y C2, deshabilite todos los puertos orientados al nodo C1 y C2, pero no deshabilite los puertos ISL e1/31-32.
 +
-Para obtener más información sobre los comandos de Cisco , consulte las guías que se enumeran en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos de Cisco Nexus serie 3000 NX-OS"^] .
+Para obtener más información sobre los comandos de Cisco, consulta las guías que aparecen en la link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos de Cisco Nexus serie 3000 NX-OS"^].
 
 +
 .Mostrar ejemplo
@@ -211,7 +211,7 @@ C2(config)# exit
 `show port-channel summary`
 
 +
-Para obtener más información sobre los comandos de Cisco , consulte las guías que se enumeran en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos de Cisco Nexus serie 3000 NX-OS"^] .
+Para obtener más información sobre los comandos de Cisco, consulta las guías que aparecen en la link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos de Cisco Nexus serie 3000 NX-OS"^].
 
 +
 .Mostrar ejemplo
@@ -249,7 +249,7 @@ Group Port-        Type   Protocol  Member Ports
 ====
 . Muestra la lista de dispositivos vecinos conectados al switch.
 +
-Para obtener más información sobre los comandos de Cisco , consulte las guías que se enumeran en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos de Cisco Nexus serie 3000 NX-OS"^] .
+Para obtener más información sobre los comandos de Cisco, consulta las guías que aparecen en la link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos de Cisco Nexus serie 3000 NX-OS"^].
 
 +
 .Mostrar ejemplo
@@ -446,7 +446,7 @@ Puede consultar la configuración en ejecución y conectar e4a al siguiente puer
 
 . Habilite todos los puertos orientados al nodo en C1.
 +
-Para obtener más información sobre los comandos de Cisco , consulte las guías que se enumeran en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos de Cisco Nexus serie 3000 NX-OS"^] .
+Para obtener más información sobre los comandos de Cisco, consulta las guías que aparecen en la link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos de Cisco Nexus serie 3000 NX-OS"^].
 
 +
 .Mostrar ejemplo

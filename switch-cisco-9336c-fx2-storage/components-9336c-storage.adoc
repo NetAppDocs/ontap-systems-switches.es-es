@@ -112,8 +112,8 @@ N9K-9336C 65 CFM, flujo de aire de entrada del lado de babor
 
 Para activar más de 12 puertos en su switch de almacenamiento Cisco Nexus 9336C-FX-T, debe adquirir una licencia Cisco Smart.  Las licencias Cisco Smart se gestionan a través de cuentas Cisco Smart.
 
-. Cree una nueva cuenta Smart, si es necesario. Ver https://id.cisco.com/signin/register["Crea una nueva cuenta inteligente"^] Para más detalles.
-. Solicitar acceso a una cuenta Smart existente. Ver https://id.cisco.com/oauth2/default/v1/authorize?response_type=code&scope=openid%20profile%20address%20offline_access%20cci_coimemberOf%20email&client_id=cae-okta-web-gslb-01&state=s2wvKDiBja__7ylXonWrq8w-FAA&redirect_uri=https%3A%2F%2Frpfa.cloudapps.cisco.com%2Fcb%2Fsso&nonce=qO6s3cZE5ZdhC8UKMEfgE6fbu3mvDJ8PTw5jYOp6z30["Solicitar acceso a una cuenta Smart existente"^] Para más detalles.
+. Crea una nueva cuenta Smart, si es necesario. Consulta link:https://id.cisco.com/signin/register["Crea una nueva cuenta inteligente"^] para detalles.
+. Solicita acceso a una cuenta Smart existente. Consulta link:https://id.cisco.com/oauth2/default/v1/authorize?response_type=code&scope=openid%20profile%20address%20offline_access%20cci_coimemberOf%20email&client_id=cae-okta-web-gslb-01&state=s2wvKDiBja__7ylXonWrq8w-FAA&redirect_uri=https%3A%2F%2Frpfa.cloudapps.cisco.com%2Fcb%2Fsso&nonce=qO6s3cZE5ZdhC8UKMEfgE6fbu3mvDJ8PTw5jYOp6z30["Solicitar acceso a una cuenta Smart existente"^] para detalles.
 
 
 

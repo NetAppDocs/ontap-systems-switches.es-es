@@ -41,8 +41,8 @@ entries:
     url: "/switch-cisco-3232c-storage/upgrade-rcf-software-3232c-storage.html"
   - title: Verificar la configuración de SSH
     url: "/switch-cisco-3232c-storage/configure-ssh-keys.html"
-  - title: Restablecer el interruptor a los valores predeterminados de fábrica
-    url: "/switch-cisco-3232c-storage/reset-switch-3232c-storage.html"
+- title: Restablecer el interruptor a los valores predeterminados de fábrica
+  url: "/switch-cisco-3232c-storage/reset-switch-3232c-storage.html"
 - title: Reemplazar un conmutador de almacenamiento 3232C
   url: "/switch-cisco-3232c-storage/replace-storage-switch.html"
 - title: Actualiza un conmutador de almacenamiento 3232C

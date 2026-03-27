@@ -40,8 +40,8 @@ entries:
     url: "/switch-nvidia-sn2100/install-rcf-sn2100-cluster.html"
   - title: Instala el archivo CSHM
     url: "/switch-nvidia-sn2100/setup-install-cshm-file.html"
-  - title: Restablecer el interruptor a los valores predeterminados de fábrica
-    url: "/switch-nvidia-sn2100/reset-switch-sn2100.html"
+- title: Restablecer el interruptor a los valores predeterminados de fábrica
+  url: "/switch-nvidia-sn2100/reset-switch-sn2100.html"
 - title: Migrar los interruptores
   pdf-filename: Migrate_switches_sn2100
   entries:

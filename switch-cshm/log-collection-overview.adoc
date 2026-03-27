@@ -13,4 +13,4 @@ summary: Puede utilizar los comandos proporcionados....
 [role="lead"]
 Con la recopilación de registros configurada, puede habilitar la recopilación horaria de datos periódicos que recopila AutoSupport y solicitar registros de soporte detallados.
 
-Verlink:config-log-collection.html["Configurar la recopilación de registros"] Para obtener más detalles.
+Consulta link:config-log-collection.html["Configurar la recopilación de registros"] para más detalles.

@@ -36,7 +36,3 @@ Actualiza tu versión de RCF existente según sea necesario.
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]link:configure-ssh-keys.html["Verificar la configuración SSH"]
 [role="quick-margin-para"]
 Verifique que SSH esté habilitado en los conmutadores para usar el Monitor de estado del conmutador Ethernet (CSHM) y las funciones de recopilación de registros.
-
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Siete"]link:reset-switch-3232c-storage.html["Restablecer el interruptor a los valores predeterminados de fábrica"]
-[role="quick-margin-para"]
-Borra la configuración del switch de almacenamiento 3232C.

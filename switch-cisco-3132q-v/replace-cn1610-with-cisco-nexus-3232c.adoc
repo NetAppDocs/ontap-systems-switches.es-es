@@ -247,7 +247,7 @@ cluster::*> network interface modify -vserver node2 -lif clus4 -auto-revert fals
 Debes preparar ambos interruptores en este momento.  Si necesita actualizar RCF y la imagen, siga estos pasos:
 
 +
-.. Verlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^] en el sitio de soporte de NetApp .
+.. Consulta link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^] en el sitio de soporte de NetApp.
 .. Anota el modelo de tu switch y las versiones de software requeridas en la tabla de esa página.
 .. Descargue la versión adecuada del RCF.
 .. Haz clic en *CONTINUAR* en la página *Descripción*, acepta el acuerdo de licencia y luego sigue las instrucciones en la página *Descarga* para descargar el RCF.

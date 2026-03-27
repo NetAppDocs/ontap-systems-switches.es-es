@@ -32,7 +32,7 @@ Si conecta un puerto de conmutador a un controlador ONTAP utilizando puertos NIC
 *Save the changes:*
 (cs1)# *copy running-config startup-config*
 ----
-Ver el https://hwu.netapp.com/Switch/Index["Hardware Universe"^] Para obtener más información sobre los puertos del switch. Ver link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["¿Qué información adicional necesito para instalar mi equipo que no está en HWU?"^] para obtener más información sobre los requisitos de instalación del conmutador.
+Consulta el link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para más información sobre los puertos del switch. Consulta link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["¿Qué información adicional necesito para instalar mi equipo que no está en HWU?"^] para más información sobre los requisitos de instalación del switch.
 
 
 
@@ -59,4 +59,4 @@ Los puertos e0a y e0b del FAS2820 requieren cambios de configuración de FEC par
 
 En los conmutadores 9336C-FX2 y 9336C-FX2-T, los recursos de memoria direccionable por contenido ternario (TCAM) configurados en la configuración utilizada por el conmutador están agotados.
 
-Consulte el artículo de la base de conocimientos https://kb.netapp.com/on-prem/Switches/Cisco-KBs/Ports_do_not_link_up_on_Cisco_Nexus_9336C-FX2_due_to_TCAM_resources["Los puertos no se conectan en el Cisco Nexus 9336C-FX2 debido a los recursos TCAM."^] Para obtener más detalles sobre cómo resolver este problema.
+Consulta el artículo de base de conocimientos link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/Ports_do_not_link_up_on_Cisco_Nexus_9336C-FX2_due_to_TCAM_resources["Los puertos no se conectan en el Cisco Nexus 9336C-FX2 debido a los recursos TCAM."^] para ver detalles sobre cómo resolver este problema.

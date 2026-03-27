@@ -15,18 +15,18 @@ Siga este procedimiento para instalar y configurar el conmutador Cisco Nexus 323
 
 .Antes de empezar
 * Acceso a un servidor HTTP, FTP o TFTP en el sitio de instalación para descargar las versiones aplicables de NX-OS y el archivo de configuración de referencia (RCF).
-* Versión aplicable de NX-OS, descargada desde https://software.cisco.com/download/home["Descarga de software de Cisco"^] página.
+* Versión de NX-OS aplicable, descargada de link:https://software.cisco.com/download/home["Descarga de software de Cisco"^].
 * Documentación requerida para la red del clúster y el conmutador de red de administración.
 +
-Verlink:required-documentation-3232c.html["Documentación requerida"] Para más información.
+Consulta link:required-documentation-3232c.html["Documentación requerida"] para más información.
 
 * Documentación requerida del controlador y documentación de ONTAP .
 +
-https://netapp.com/us/documenation/index.aspx["Documentación de NetApp"^]
+link:https://netapp.com/us/documenation/index.aspx["Documentación de NetApp"^]
 
 * Licencias aplicables, información de red y configuración, y cables.
 * Hojas de trabajo de cableado completadas.
-* Los archivos RCF de red de clúster y de red de administración de NetApp aplicables se pueden descargar del sitio de soporte de NetApp en http://mysupport.netapp.com/["mysupport.netapp.com"^] para los interruptores que reciba.  Todos los switches de red de clúster y de red de administración de Cisco vienen con la configuración predeterminada de fábrica estándar de Cisco .  Estos conmutadores también tienen la versión actual del software NX-OS, pero no tienen cargados los RCF.
+* RCFs aplicables de red de clúster y red de gestión de NetApp, descargados del NetApp Support Site en link:http://mysupport.netapp.com/["mysupport.netapp.com"^] para los switches que recibas. Todos los switches de red de clúster y red de gestión de Cisco llegan con la configuración predeterminada de fábrica estándar de Cisco. Estos switches también tienen la versión actual del software NX-OS, pero no tienen los RCFs cargados.
 
 
 .Pasos
@@ -40,14 +40,14 @@ https://netapp.com/us/documenation/index.aspx["Documentación de NetApp"^]
  a| 
 Cisco Nexus 3232C en un gabinete de sistema NetApp
  a| 
-Consulte la guía _Instalación de un conmutador de clúster Cisco Nexus 3232C y un panel de paso en un gabinete NetApp para obtener instrucciones sobre cómo instalar el conmutador en un gabinete NetApp .
+Consulta la guía _Installing a Cisco Nexus 3232C cluster switch and pass-through panel in a NetApp cabinet_ para ver las instrucciones para instalar el switch en un armario NetApp.
 
 
 
  a| 
 Equipos en un rack de telecomunicaciones
  a| 
-Consulte los procedimientos proporcionados en las guías de instalación del hardware del switch y las instrucciones de instalación y configuración de NetApp .
+Consulta los procedimientos proporcionados en las guías de instalación del hardware del switch y las instrucciones de instalación y configuración de NetApp.
 
 |===
 . Conecte los conmutadores de red del clúster y de la red de administración a los controladores utilizando las hojas de trabajo de cableado completadas.

@@ -21,7 +21,7 @@ Asegúrese de tener lo siguiente:
 
 
 .Acerca de los ejemplos
-Los ejemplos de este procedimiento utilizan dos nodos.  Estos nodos utilizan dos puertos de interconexión de clúster 10GbE. `e0a` y `e0b` .  Ver el https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para verificar los puertos de clúster correctos en sus plataformas.
+Los ejemplos de este procedimiento utilizan dos nodos. Estos nodos utilizan dos puertos de interconexión de clúster 10GbE `e0a` y `e0b`. Consulta el link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para verificar los puertos de clúster correctos en tus plataformas.
 
 Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interruptores y nodos:
 

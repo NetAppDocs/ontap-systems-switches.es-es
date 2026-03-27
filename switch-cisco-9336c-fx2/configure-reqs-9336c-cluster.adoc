@@ -46,7 +46,7 @@ Si desea crear clústeres ONTAP con más de dos nodos, necesitará dos conmutado
 
 Asegúrese de que:
 
-* Tiene la cantidad y el tipo de cables y conectores de cables adecuados para sus conmutadores. Ver el https://hwu.netapp.com["Hardware Universe"^] .
+* Tienes el número y tipo adecuados de cables y conectores de cable para tus switches. Consulta el link:https://hwu.netapp.com["Hardware Universe"^].
 * Dependiendo del tipo de conmutador que esté configurando inicialmente, deberá conectarse al puerto de consola del conmutador con el cable de consola incluido.
 
 
@@ -59,10 +59,10 @@ Necesita la siguiente información de red para todas las configuraciones del con
 * Subred IP para la gestión del tráfico de red
 * Nombres de host y direcciones IP para cada uno de los controladores del sistema de almacenamiento y todos los conmutadores aplicables
 * La mayoría de los controladores del sistema de almacenamiento se administran a través de la interfaz e0M conectándose al puerto de servicio Ethernet (ícono de llave inglesa). En los sistemas AFF A800 y AFF A700s , la interfaz e0M utiliza un puerto Ethernet dedicado.
-* Consulte el https://hwu.netapp.com["Hardware Universe"^] Para obtener la información más reciente.
+* Consulta el link:https://hwu.netapp.com["Hardware Universe"^] para obtener la información más reciente.
 
 
-Para obtener más información sobre la configuración inicial de su switch, consulte la siguiente guía: https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Guía de instalación y actualización de Cisco Nexus 9336C-FX2"^] .
+Para obtener más información sobre la configuración inicial de tu switch, consulta el siguiente link:https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Guía de instalación y actualización de Cisco Nexus 9336C-FX2"^].
 
 .¿Qué sigue?
 Después de revisar los requisitos de configuración, puede confirmar su link:components-9336c-cluster.html["componentes y números de pieza"].

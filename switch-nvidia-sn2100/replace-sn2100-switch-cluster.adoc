@@ -49,7 +49,7 @@ NOTE: Debe ejecutar el comando para migrar un LIF de clúster desde el nodo dond
 NetApp recomienda encarecidamente que habilite el registro de consola en los dispositivos que esté utilizando y que realice las siguientes acciones al reemplazar su switch:
 
 * Deje activado el AutoSupport durante el mantenimiento.
-* Active un AutoSupport de mantenimiento antes y después del mantenimiento para deshabilitar la creación de casos durante la duración del mismo.  Consulte este artículo de la base de conocimientos. https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Cómo suprimir la creación automática de casos durante las ventanas de mantenimiento programadas"^] Para obtener más detalles.
+* Activa un mantenimiento AutoSupport antes y después del mantenimiento para desactivar la creación de casos durante el mantenimiento. Consulta este artículo de base de conocimientos link:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Cómo suprimir la creación automática de casos durante las ventanas de mantenimiento programadas"^] para más detalles.
 * Habilite el registro de sesión para cualquier sesión de la CLI.  Para obtener instrucciones sobre cómo habilitar el registro de sesiones, consulte la sección "Registro de salida de sesión" en este artículo de la base de conocimientos. https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Cómo configurar PuTTY para una conectividad óptima a los sistemas ONTAP"^] .
 
 

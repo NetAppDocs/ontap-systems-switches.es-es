@@ -17,7 +17,7 @@ Puede migrar los conmutadores de clúster NetApp CN1610 de un clúster ONTAP a c
 
 == Requisitos de revisión
 
-Debe tener en cuenta cierta información de configuración, conexiones de puertos y requisitos de cableado cuando reemplace los conmutadores de clúster NetApp CN1610 con conmutadores de clúster NVIDIA SN2100. Verlink:configure-overview-sn2100-cluster.html["Descripción general de la instalación y configuración de los switches NVIDIA SN2100"] .
+Debes tener en cuenta cierta información de configuración, conexiones de puertos y requisitos de cableado cuando reemplaces los switches de clúster NetApp CN1610 por switches de clúster NVIDIA SN2100. Consulta link:configure-overview-sn2100-cluster.html["Descripción general de la instalación y configuración de los switches NVIDIA SN2100"].
 
 .Interruptores compatibles
 Se admiten los siguientes conmutadores de clúster:
@@ -26,7 +26,7 @@ Se admiten los siguientes conmutadores de clúster:
 * NVIDIA SN2100
 
 
-Para obtener detalles sobre los puertos compatibles y sus configuraciones, consulte la https://hwu.netapp.com/["Hardware Universe"^] .
+Para obtener detalles sobre los puertos compatibles y sus configuraciones, consulta el link:https://hwu.netapp.com/["Hardware Universe"^].
 
 .Antes de empezar
 Verifique que su configuración cumple con los siguientes requisitos:

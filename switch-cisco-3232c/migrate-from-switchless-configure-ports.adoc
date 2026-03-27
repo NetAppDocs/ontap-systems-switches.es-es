@@ -147,7 +147,7 @@ Puede consultar la configuración en ejecución y conectar e4a al siguiente puer
 
 . Habilite todos los puertos orientados al nodo en C1.
 +
-Para obtener más información sobre los comandos de Cisco , consulte las guías que se enumeran en https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos de Cisco Nexus serie 3000 NX-OS"^] .
+Para obtener más información sobre los comandos de Cisco, consulta las guías que aparecen en la link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referencias de comandos de Cisco Nexus serie 3000 NX-OS"^].
 
 +
 .Mostrar ejemplo

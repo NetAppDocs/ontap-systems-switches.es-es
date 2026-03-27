@@ -39,7 +39,7 @@ NOTE: Cada vez que se actualiza Cumulus Linux, se borra y se reconstruye toda la
 
 CAUTION: La contraseña predeterminada para la cuenta de usuario cumulus es *cumulus*.  La primera vez que inicie sesión en Cumulus Linux, deberá cambiar esta contraseña predeterminada.  Debes actualizar cualquier script de automatización antes de instalar una nueva imagen.  Cumulus Linux proporciona opciones de línea de comandos para cambiar automáticamente la contraseña predeterminada durante el proceso de instalación.
 
-Ver https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-510/Installation-Management/Installing-a-New-Cumulus-Linux-Image/["Instalación de una nueva imagen de Cumulus Linux"^] Para obtener más información.
+Consulta link:https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-510/Installation-Management/Installing-a-New-Cumulus-Linux-Image/["Instalación de una nueva imagen de Cumulus Linux"^] para más información.
 
 .Pasos
 [role="tabbed-block"]
@@ -273,7 +273,7 @@ cumulus@sw1:mgmt:~$ *sudo adduser admin nvshow*
      Done.
 ----
 +
-Ver https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["Cuentas de usuario de NVIDIA"^] Para más información.
+Consulta el link:https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["Cuentas de usuario de NVIDIA"^] para más información.
 
 
 
@@ -498,7 +498,7 @@ cumulus@sw1:mgmt:~$ *sudo adduser admin nvshow*
      Done.
 ----
 +
-Ver https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["Cuentas de usuario de NVIDIA"^] Para más información.
+Consulta link:https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["Cuentas de usuario de NVIDIA"^] para más información.
 
 
 

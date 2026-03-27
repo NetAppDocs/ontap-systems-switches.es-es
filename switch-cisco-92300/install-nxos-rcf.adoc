@@ -22,14 +22,14 @@ Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interru
 * El `cluster1::*>` El indicador muestra el nombre del clúster.
 * Los puertos del clúster en cada nodo se llaman `e0a` y `e0b` .
 +
-Ver ellink:https://hwu.netapp.com/Home/Index["_Universo del Hardware^_"] para los puertos de clúster reales compatibles con su plataforma. Ver link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["¿Qué información adicional necesito para instalar mi equipo que no está en HWU?"^] para obtener más información sobre los requisitos de instalación del conmutador.
+Consulta el link:https://hwu.netapp.com/Home/Index["Hardware Universe"^] para ver los puertos de clúster reales compatibles con tu plataforma. Consulta link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["¿Qué información adicional necesito para instalar mi equipo que no está en HWU?"^] para más información sobre los requisitos de instalación del switch.
 
 
 
 .Puertos y conexiones de nodos compatibles
 * Los enlaces entre conmutadores (ISL) compatibles con los conmutadores Nexus 92300YC son los puertos 1/65 y 1/66.
 * Las conexiones de nodo compatibles con los switches Nexus 92300YC son los puertos 1/1 a 1/66.
-* Los ejemplos de este procedimiento utilizan dos nodos.  Estos nodos utilizan dos puertos de interconexión de clúster 10GbE. `e0a` y `e0b` .  Ver el https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para verificar los puertos de clúster correctos en sus plataformas.
+* Los ejemplos de este procedimiento utilizan dos nodos. Estos nodos utilizan dos puertos de interconexión de clúster 10GbE `e0a` y `e0b`. Consulta el link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para verificar los puertos de clúster correctos en tus plataformas.
 
 
 .Antes de empezar

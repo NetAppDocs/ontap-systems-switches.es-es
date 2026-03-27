@@ -445,7 +445,7 @@ Nodo 19 con 4x100GbE
 
 == Hoja de cableado en blanco 9336C-FX2
 
-Puede utilizar la hoja de trabajo de cableado en blanco para documentar las plataformas que se admiten como nodos en un clúster.  La sección _Conexiones de clúster admitidas_ de https://hwu.netapp.com["Hardware Universe"^] Define los puertos del clúster utilizados por la plataforma.
+Puedes usar la hoja de trabajo de cableado en blanco para documentar las plataformas que son compatibles como nodos en un clúster. La sección _Supported Cluster Connections_ del link:https://hwu.netapp.com["Hardware Universe"^] define los puertos de clúster que usa la plataforma.
 
 [cols="5%, 45%, 5%, 45%"]
 |===
@@ -1020,7 +1020,7 @@ Requiere licencia
 Requiere licencia
 
 |===
-Ver el https://hwu.netapp.com/Switch/Index["Hardware Universe"] Para obtener más información sobre los puertos del switch.
+Consulta link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para más información sobre los puertos del switch.
 
 .¿Qué sigue?
 Una vez que hayas completado tus hojas de trabajo de cableado, podrás link:install-9336c-storage.html["instalar el interruptor"].

@@ -16,7 +16,7 @@ Siga este procedimiento para instalar o actualizar el script RCF.
 .Antes de empezar
 Antes de instalar o actualizar el script RCF, asegúrese de que lo siguiente esté disponible en el switch:
 
-* Cumulus Linux está instalado.  Ver el https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para versiones compatibles.
+* Cumulus Linux está instalado. Consulta la link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para ver las versiones compatibles.
 * Dirección IP, máscara de subred y puerta de enlace predeterminada definidas mediante DHCP o configuradas manualmente.
 
 
@@ -30,7 +30,7 @@ Están disponibles las siguientes categorías de configuración de referencia:
 |===
 
 
-| Grupo | En los puertos configurados para una conexión de 4 x 10 GbE, un puerto está configurado para una conexión de 4 x 25 GbE y los otros puertos están configurados para 40/100 GbE. Admite tráfico de clúster/HA compartido en puertos para nodos que utilizan puertos de clúster/HA compartidos. Consulte la tabla de la plataforma en el artículo de la Base de conocimientos. https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/What_AFF_ASA_and_FAS_platforms_use_shared_Cluster_and_HA_Ethernet_ports["¿Qué plataformas AFF, ASA y FAS utilizan puertos Ethernet de alta disponibilidad y de clúster compartidos?"^] . Todos los puertos también pueden utilizarse como puertos de clúster dedicados. 
+| Grupo | En los puertos configurados para breakout 4x10GbE, un puerto está configurado para breakout 4x25GbE y los otros puertos están configurados para 40/100GbE. Admite tráfico de clúster/HA compartido en puertos para nodos que usan puertos de clúster/HA compartidos. Consulta la tabla de plataformas en el artículo de base de conocimientos link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/What_AFF_ASA_and_FAS_platforms_use_shared_Cluster_and_HA_Ethernet_ports["¿Qué plataformas AFF, ASA y FAS utilizan puertos Ethernet de alta disponibilidad y de clúster compartidos?"^]. Todos los puertos pueden usarse también como puertos de clúster dedicados. 
 
 
  a| 

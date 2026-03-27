@@ -87,7 +87,7 @@ Los conmutadores del clúster utilizan los siguientes puertos para las conexione
 * Puertos e1/41-48 (10 GbE): Nexus 5596
 * Puertos e1/31-32 (40/100 GbE): Nexus 3232C
 +
-** Ellink:https://hwu.netapp.com/["_Universo del Hardware_"^] Contiene información sobre el cableado compatible con los switches Nexus 3232C:
+** El link:https://hwu.netapp.com/["Hardware Universe"^] contiene información sobre el cableado compatible con los conmutadores Nexus 3232C:
 
 
 * Los nodos con conexiones de clúster de 10 GbE requieren cables de conexión de fibra óptica QSFP a SFP+ o cables de conexión de cobre QSFP a SFP+.

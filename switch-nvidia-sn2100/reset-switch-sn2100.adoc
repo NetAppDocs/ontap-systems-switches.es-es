@@ -21,7 +21,7 @@ Para restablecer el interruptor del clúster SN2100 a los valores predeterminado
 
 
 
-NOTE: Para obtener más información sobre la instalación de Cumulus Linux, consultelink:configure-software-overview-sn2100-cluster.html["Flujo de trabajo de instalación de software para switches NVIDIA SN2100"] .
+NOTE: Para más información sobre la instalación de Cumulus Linux, consulta link:configure-software-overview-sn2100-cluster.html["Flujo de trabajo de instalación de software para switches NVIDIA SN2100"].
 
 .Pasos
 [role="tabbed-block"]
@@ -72,7 +72,7 @@ Do you want to continue? [y/n] *y*
 ----
 
 
-Consulta la página de NVIDIA. https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/Installation-Management/Factory-Reset/["Restablecimiento de fábrica"^] Documentación para más detalles.
+Consulta la documentación de NVIDIA link:https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/Installation-Management/Factory-Reset/["Restablecimiento de fábrica"^] para más detalles.
 
 --
 ====

@@ -12,7 +12,7 @@ settings:
   langs: es-es,us-en,de-de,fr-fr,it-it,pt-br,ja-jp,ko-kr,zh-cn,zh-tw
 sidebar:
   entries:
-  - title: Documentación de conmutadores para sistemas de hardware ONTAP
+  - title: Cambia la documentación para sistemas de almacenamiento ONTAP
     url: "/index.html"
   - title: Empezar
     entries:

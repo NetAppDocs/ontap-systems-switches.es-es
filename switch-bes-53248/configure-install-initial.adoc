@@ -31,7 +31,7 @@ Los ejemplos de los procedimientos de configuración utilizan la siguiente nomen
 * Los nombres de los clústeres LIF son `node1_clus1` y `node1_clus2` para el nodo 1, y `node2_clus1` y `node2_clus2` para el nodo 2.
 * El nombre del espacio IP es Cluster.
 * El `cluster1::>` El indicador muestra el nombre del clúster.
-* Los puertos del clúster en cada nodo se llaman `e0a` y `e0b` .  Ver el https://hwu.netapp.com/Home/Index["NetApp Hardware Universe"^] para los puertos de clúster reales compatibles con su plataforma.
+* Los puertos de clúster de cada nodo se llaman `e0a` y `e0b`. Consulta la link:https://hwu.netapp.com/Home/Index["Hardware Universe"^] para ver los puertos de clúster reales que admite tu plataforma.
 * Los enlaces entre conmutadores (ISL) compatibles con los conmutadores NetApp son los puertos 0/55 y 0/56.
 * Las conexiones de nodo compatibles con los switches NetApp son los puertos 0/1 a 0/16 con licencia predeterminada.
 * Los ejemplos utilizan dos nodos, pero puede haber hasta 24 nodos en un clúster.

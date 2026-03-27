@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: install rcf,setup rcf,rcf file, efos, license file 
 summary: 'Puede instalar el archivo de configuración de referencia (RCF) después de configurar el conmutador de clúster BES-53248 y después de aplicar las nuevas licencias.' 
 ---
-= Instale el archivo de configuración de referencia (RCF) y el archivo de licencia.
+= Instala el archivo de configuración de referencia (RCF) y el archivo de licencia
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-A partir de EFOS 3.12.0.1, puede instalar el archivo de configuración de referencia (RCF) y el archivo de licencia después de configurar el conmutador de clúster BES-53248.
+A partir de EFOS 3.12.0.1, puedes instalar el RCF y el archivo de licencia después de configurar el switch de clúster BES-53248.
 
 
 CAUTION: Todos los puertos se configuran al instalar RCF, pero necesita instalar su licencia para activar los puertos configurados.
@@ -25,13 +25,13 @@ Verifique que se cumplan las siguientes condiciones:
 
 * Una copia de seguridad actualizada de la configuración del switch.
 * Un clúster en pleno funcionamiento (sin errores en los registros ni problemas similares).
-* El RCF actual, disponible en el https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Conmutadores de clúster Broadcom"^] página.
+* El RCF actual, disponible en la página link:https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Conmutadores de clúster Broadcom"^].
 * Una configuración de arranque en el RCF que refleje las imágenes de arranque deseadas, necesaria si solo va a instalar EFOS y mantener su versión actual de RCF.  Si necesita cambiar la configuración de arranque para que refleje las imágenes de arranque actuales, debe hacerlo antes de volver a aplicar el RCF para que se instancie la versión correcta en futuros reinicios.
-* Se requiere una conexión de consola al switch al instalar el RCF desde un estado predeterminado de fábrica.  Este requisito es opcional si ha utilizado el artículo de la base de conocimientos. https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración de un switch de interconexión Broadcom manteniendo la conectividad remota"^] Para borrar la configuración de antemano.
+* Una conexión de consola al switch, necesaria cuando se instala el RCF desde un estado predeterminado de fábrica. Este requisito es opcional si has usado el artículo de base de conocimientos link:https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración de un switch de interconexión Broadcom manteniendo la conectividad remota"^] para borrar la configuración antes.
 
 
 .Documentación sugerida
-Consulte la tabla de compatibilidad del switch para conocer las versiones compatibles de ONTAP y RCF.  Ver el https://mysupport.netapp.com/site/info/broadcom-cluster-switch["Descarga del software EFOS"^] página.  Tenga en cuenta que puede haber dependencias de comandos entre la sintaxis de comandos en RCF y la que se encuentra en las versiones de EFOS.
+Consulta la tabla de compatibilidad de switches para las versiones compatibles de ONTAP y RCF. Consulta link:https://mysupport.netapp.com/site/info/broadcom-cluster-switch["Descarga del software EFOS"^]. Ten en cuenta que puede haber dependencias de comandos entre la sintaxis de comandos en el RCF y la que se encuentra en las versiones de EFOS.
 
 
 
@@ -44,7 +44,7 @@ Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interru
 * Los nombres de los nodos son cluster1-01, cluster1-02, cluster1-03 y cluster1-04.
 * Los nombres del clúster LIF son cluster1-01_clus1, cluster1-01_clus2, cluster1-02_clus1, cluster1-02_clus2, cluster1-03_clus1, cluster1-03_clus2, cluster1-04_clus1 y cluster1-04_clus2.
 * El `cluster1::*>` El indicador muestra el nombre del clúster.
-* Los ejemplos de este procedimiento utilizan cuatro nodos.  Estos nodos utilizan dos puertos de interconexión de clúster 10GbE. `e0a` y `e0b` .  Ver el https://hwu.netapp.com/Home/Index["Hardware Universe"^] para verificar los puertos de clúster correctos en sus plataformas.
+* Los ejemplos de este procedimiento utilizan cuatro nodos. Estos nodos utilizan dos puertos de interconexión de clúster 10GbE `e0a` y `e0b`. Consulta el link:https://hwu.netapp.com/Home/Index["Hardware Universe"^] para verificar los puertos de clúster correctos en tus plataformas.
 
 
 
@@ -56,7 +56,7 @@ El procedimiento requiere el uso de comandos ONTAP y comandos de conmutador Broa
 No se necesita ningún enlace entre conmutadores (ISL) operativo durante este procedimiento. Esto es así por diseño porque los cambios de versión de RCF pueden afectar la conectividad de ISL temporalmente. Para garantizar un funcionamiento ininterrumpido del clúster, el siguiente procedimiento migra todas las LIF del clúster al conmutador asociado operativo mientras se realizan los pasos en el conmutador de destino.
 
 
-CAUTION: Antes de instalar una nueva versión del software del switch y los RCF, consulte el artículo de la base de conocimientos. https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración de un switch de interconexión Broadcom manteniendo la conectividad remota"^] .  Si necesita borrar por completo la configuración del interruptor, deberá realizar de nuevo la configuración básica.  Debe conectarse al switch mediante la consola serie, ya que un borrado completo de la configuración restablece la configuración de la red de administración.
+CAUTION: Antes de instalar una nueva versión del software del switch y los RCFs, usa el artículo de base de conocimientos link:https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración de un switch de interconexión Broadcom manteniendo la conectividad remota"^]. Si tienes que borrar completamente la configuración del switch, entonces necesitas realizar la configuración básica de nuevo. Debes estar conectado al switch usando la consola serie porque un borrado completo de la configuración restablece la configuración de la red de gestión.
 
 
 

@@ -23,7 +23,7 @@ Se admiten los siguientes conmutadores:
 * Nexus 3232C
 
 
-Las versiones de ONTAP y NX-OS compatibles con este procedimiento se encuentran en la página de switches Ethernet de Cisco . Ver https://mysupport.netapp.com/site/info/cisco-ethernet-switch["conmutadores Ethernet de Cisco"] .
+Las versiones de ONTAP y NX-OS compatibles con este procedimiento están en la página Cisco Ethernet Switches. Consulta https://mysupport.netapp.com/site/info/cisco-ethernet-switch["conmutadores Ethernet de Cisco"^].
 
 .Puertos de conexión
 Los conmutadores utilizan los siguientes puertos para conectarse a los nodos:
@@ -48,7 +48,7 @@ Los conmutadores utilizan los siguientes puertos para conectarse a los nodos:
 
 
 
-El https://hwu.netapp.com["Hardware Universe"] Contiene información sobre el cableado compatible para todos los conmutadores del clúster.
+El link:https://hwu.netapp.com["Hardware Universe"^] contiene información sobre el cableado compatible con todos los switches de clúster.
 
 .Lo que necesitarás
 * Asegúrese de haber completado las siguientes tareas:

@@ -36,7 +36,7 @@ Asegúrese de que:
 * Las conexiones de conmutador a nodo y de conmutador a conmutador NVIDIA SN2100 utilizan cables Twinax o de fibra óptica.
 +
 
-IMPORTANT: Verlink:cabling-considerations-sn2100-cluster.html["Revisar las consideraciones de cableado y configuración"] Para conocer las salvedades y obtener más detalles.  El https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Interruptores"^] También contiene más información sobre el cableado.
+IMPORTANT: Consulta link:cabling-considerations-sn2100-cluster.html["Revisar las consideraciones de cableado y configuración"] para advertencias y más detalles. El link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Interruptores"^] también contiene más información sobre el cableado.
 
 * Los cables Inter-Switch Link (ISL) están conectados a los puertos swp15 y swp16 en ambos switches NVIDIA SN2100.
 * Se ha completado la personalización inicial de ambos conmutadores SN2100, de modo que:
@@ -45,7 +45,7 @@ IMPORTANT: Verlink:cabling-considerations-sn2100-cluster.html["Revisar las consi
 ** Los archivos de configuración de referencia (RCF) se aplican a los conmutadores.
 ** Cualquier personalización del sitio, como SMTP, SNMP y SSH, se configura en los nuevos conmutadores.
 +
-El https://hwu.netapp.com["Hardware Universe"^] Contiene la información más reciente sobre los puertos de clúster reales para sus plataformas.
+La link:https://hwu.netapp.com["Hardware Universe"^] contiene la información más reciente sobre los puertos reales del clúster para tus plataformas.
 
 
 

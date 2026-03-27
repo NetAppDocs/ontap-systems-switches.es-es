@@ -18,7 +18,7 @@ Puede migrar desde un clúster sin conmutadores con almacenamiento de conexión 
 
 El procedimiento que utilice dependerá de si dispone de dos puertos de red de clúster dedicados en cada controlador o de un único puerto de clúster en cada controlador.  El proceso documentado funciona para todos los nodos que utilizan puertos ópticos o Twinax, pero no es compatible con este conmutador si los nodos utilizan puertos RJ45 10Gb BASE-T integrados para los puertos de red del clúster.
 
-La mayoría de los sistemas requieren dos puertos de red de clúster dedicados en cada controlador. Ver https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"] Para más información.
+La mayoría de los sistemas requieren dos puertos de red de clúster dedicados en cada controlador. Consulta link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco"^] para más información.
 
 Si tiene un entorno de clúster sin conmutación de dos nodos existente, puede migrar a un entorno de clúster conmutado de dos nodos mediante conmutadores Cisco Nexus 9336C-FX2 para poder escalar más allá de dos nodos en el clúster.
 
@@ -41,7 +41,7 @@ Asegúrese de que:
 ** Ambos switches tienen conectividad de red de gestión.
 ** Existe acceso mediante consola a los conmutadores del clúster.
 ** Las conexiones de conmutador nodo a nodo y de conmutador a conmutador Nexus 9336C-FX2 utilizan cables Twinax o de fibra.
-** NetApp https://hwu.netapp.com["Hardware Universe"] Contiene más información sobre el cableado.
+** El link:https://hwu.netapp.com["Hardware Universe"^] contiene más información sobre el cableado.
 ** Los cables de enlace entre conmutadores (ISL) están conectados a los puertos 1/35 y 1/36 en ambos conmutadores 9336C-FX2.
 
 
@@ -65,7 +65,7 @@ Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de nodos y
 * Los nombres de los SVM del clúster son _node1_ y _node2_.
 * Los nombres de los LIF son _node1_clus1_ y _node1_clus2_ en el nodo 1, y _node2_clus1_ y _node2_clus2_ en el nodo 2 respectivamente.
 * El indicador cluster1::*> indica el nombre del clúster.
-* Los puertos del clúster utilizados en este procedimiento son _e3a_ y _e3b_, según el controlador AFF A400 .  El https://hwu.netapp.com["Hardware Universe"] Contiene la información más reciente sobre los puertos de clúster reales para sus plataformas.
+* Los puertos de clúster utilizados en este procedimiento son _e3a_ y _e3b_, según el controlador AFF A400. El link:https://hwu.netapp.com["Hardware Universe"^] contiene la información más reciente sobre los puertos de clúster reales para tus plataformas.
 
 
 
@@ -283,7 +283,7 @@ Cluster
 
 . [[step9]]Desconecte el cable del puerto de clúster e3a en el nodo1 y luego conecte e3a al puerto 1 en el conmutador de clúster cs1, utilizando el cableado apropiado compatible con los conmutadores 9336C-FX2.
 +
-NetApp https://hwu.netapp.com["Hardware Universe"] Contiene más información sobre el cableado. Ver link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["¿Qué información adicional necesito para instalar mi equipo que no está en HWU?"^] para obtener más información sobre los requisitos de instalación del conmutador.
+El link:https://hwu.netapp.com["Hardware Universe"^] contiene más información sobre el cableado. Consulta link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["¿Qué información adicional necesito para instalar mi equipo que no está en HWU?"^] para más información sobre los requisitos de instalación del conmutador.
 
 . Desconecte el cable del puerto de clúster e3a en el nodo 2 y, luego, conecte e3a al puerto 2 en el conmutador de clúster cs1, utilizando el cableado adecuado compatible con los conmutadores 9336C-FX2.
 . Habilite todos los puertos orientados a nodos en el conmutador de clúster cs1.
