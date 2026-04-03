@@ -34,3 +34,7 @@ Instale el hardware del interruptor.
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-software-overview-3232c-cluster.html["Configurar el software"]
 [role="quick-margin-para"]
 Configurar el software del conmutador.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]link:../switch-cshm/config-overview.html["Configura CSHM"]
+[role="quick-margin-para"]
+Configura el control del estado del conmutador.

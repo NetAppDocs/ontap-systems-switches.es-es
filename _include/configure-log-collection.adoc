@@ -2,7 +2,7 @@
 :allow-uri-read: 
 
 
-El monitor de estado del conmutador Ethernet (CSHM) es responsable de garantizar el buen funcionamiento de los conmutadores de red de clúster y almacenamiento y de recopilar los registros de los conmutadores con fines de depuración.  Este procedimiento le guía a través del proceso de configuración de la recopilación, la solicitud de registros detallados de *Soporte* y la habilitación de una recopilación horaria de datos *Periódicos* que recopila AutoSupport.
+El control del estado de switches Ethernet (CSHM) es responsable de garantizar el estado operativo de los switches de red y de recopilar registros de switches con fines de depuración. Este procedimiento te guía por el proceso de configurar la recopilación, solicitar registros detallados de *Support* y habilitar una recopilación por hora de datos *Periodic* que recopila AutoSupport.
 
 *NOTA:* Si activa el modo FIPS, deberá completar lo siguiente:
 

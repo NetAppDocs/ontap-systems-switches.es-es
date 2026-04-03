@@ -11,7 +11,7 @@ summary: Aprenda cómo verificar que la monitorización de un switch Ethernet fu
 
 
 [role="lead"]
-El monitor de estado del conmutador Ethernet (CSHM) intenta automáticamente supervisar los conmutadores que descubre; sin embargo, la supervisión podría no producirse automáticamente si los conmutadores no están configurados correctamente.  Debe verificar que el monitor de estado esté configurado correctamente para supervisar sus conmutadores.
+El control del estado de los switches Ethernet (CSHM) intenta controlar automáticamente los switches de red que detecta; sin embargo, es posible que el control no se realice automáticamente si los switches no están configurados correctamente. Debes comprobar que el control del estado está configurado correctamente para controlar tus switches.
 
 
 

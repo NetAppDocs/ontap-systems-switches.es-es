@@ -32,3 +32,7 @@ Existen dos scripts RCF disponibles para aplicaciones de Clustering y Almacenami
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:setup-install-cshm-file.html["Instala el archivo CSHM"]
 [role="quick-margin-para"]
 Puede instalar el archivo de configuración correspondiente para la monitorización del estado de los switches Ethernet de los clústeres NVIDIA .
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]link:../switch-cshm/config-overview.html["Configura CSHM"]
+[role="quick-margin-para"]
+Configura el control del estado del conmutador.
