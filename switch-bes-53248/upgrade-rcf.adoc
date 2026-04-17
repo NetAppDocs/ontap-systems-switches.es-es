@@ -283,7 +283,8 @@ show isdp neighbor
 (cs2)(Config)# *interface 0/1-0/16*
 (cs2)(Interface 0/1-0/16)# *shutdown*
 (cs2)(Interface 0/1-0/16)# *exit*
-(cs2)(Config)#
+(cs2)(Config)# *exit*
+(cs2)#
 ----
 . Verifique que las LIF del clúster se hayan migrado a los puertos alojados en el conmutador del clúster cs1. Esto podría tardar unos segundos.
 +
@@ -356,7 +357,7 @@ Proceda únicamente cuando se hayan retirado todos los LIF del clúster de los p
 +
 [listing]
 ----
-(cs2)> enable
+(cs2)> *enable*
 (cs2)#
 ----
 .. Copie y pegue los siguientes comandos para eliminar la configuración RCF anterior (dependiendo de la versión RCF anterior utilizada, algunos comandos podrían generar un error si falta alguna configuración):
@@ -454,7 +455,10 @@ Are you sure you would like to reset the system? (y/n) *y*
 ====
 .EFOS versión 3.12.x y posteriores
 --
-. Copie el RCF al bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: HTTP, HTTPS, FTP, TFTP, SFTP o SCP.
+
+CAUTION: El archivo debe llamarse `reference-config.scr` cuando subas y apliques el archivo RCF, de lo contrario, el paso de aplicar el script fallará.
+
+. Copia el RCF en el switch cs2 utilizando uno de los siguientes protocolos de transferencia: HTTP, HTTPS, FTP, SFTP o SCP.
 +
 Este ejemplo muestra cómo se utiliza SFTP para copiar un RCF a la memoria flash de arranque del switch cs2:
 
@@ -462,9 +466,9 @@ Este ejemplo muestra cómo se utiliza SFTP para copiar un RCF a la memoria flash
 
 [listing, subs="+quotes"]
 ----
-(cs2)# *copy sftp://172.19.2.1/BES-53248-RCF-v1.9-Cluster-HA.txt nvram:reference-config*
+(cs2)# *copy sftp://172.19.2.1/BES-53248_RCF_v1.9-Cluster-HA.txt nvram:reference-config.scr*
 Remote Password:**
-Mode........................................... TFTP
+Mode........................................... SFTP
 Set Server IP.................................. 172.19.2.1
 Path........................................... /
 Filename....................................... BES-53248_RCF_v1.9-Cluster-HA.txt
@@ -472,7 +476,7 @@ Data Type...................................... Config Script
 Destination Filename........................... reference-config.scr
 Management access will be blocked for the duration of the transfer
 Are you sure you want to start? (y/n) *y*
-TFTP Code transfer starting...
+SFTP Code transfer starting...
 File transfer operation completed successfully.
 ----
 . Verifique que el script se haya descargado y guardado con el nombre de archivo que le asignó:
@@ -513,7 +517,7 @@ Configuration script 'reference-config.scr' applied.
 --
 .Todas las demás versiones de EFOS
 --
-. Copie el RCF al bootflash del conmutador cs2 utilizando uno de los siguientes protocolos de transferencia: HTTP, HTTPS, FTP, TFTP, SFTP o SCP.
+. Copia el RCF en el switch cs2 utilizando uno de los siguientes protocolos de transferencia: HTTP, HTTPS, FTP, SFTP o SCP.
 +
 Este ejemplo muestra cómo se utiliza SFTP para copiar un RCF a la memoria flash de arranque del switch cs2:
 

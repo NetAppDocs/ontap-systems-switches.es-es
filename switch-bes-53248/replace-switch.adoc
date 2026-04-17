@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/replace-switch.html 
 sidebar: sidebar 
 keywords: replace, replacing, defective, broadcom-supported, bes, cluster, switch, network, nondisruptive, procedure, ndu, replace a broadcom-supported bes-53428 cluster switch - bes-53428 switches 
-summary: 'Reemplazar un conmutador de clúster BES-53248 defectuoso compatible con Broadcom en una red de clúster es un procedimiento no disruptivo (NDU).' 
+summary: 'La sustitución de un conmutador de clúster BES-53248 defectuoso con soporte de Broadcom en una red de clúster es un procedimiento no disruptivo (NDU).' 
 ---
 = Reemplace un conmutador de clúster BES-53248 compatible con Broadcom
 :allow-uri-read: 

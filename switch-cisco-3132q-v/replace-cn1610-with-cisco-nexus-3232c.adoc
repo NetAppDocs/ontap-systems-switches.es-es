@@ -253,7 +253,7 @@ Debes preparar ambos interruptores en este momento.  Si necesita actualizar RCF 
 .. Haz clic en *CONTINUAR* en la página *Descripción*, acepta el acuerdo de licencia y luego sigue las instrucciones en la página *Descarga* para descargar el RCF.
 .. Descarga la versión adecuada del software de imagen.
 +
-link:shttps://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Descarga del archivo de configuración de referencia del switch de red de administración y clúster de Cisco"^]
+link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Descarga del archivo de configuración de referencia del switch de red de administración y clúster de Cisco"^]
 
 
 

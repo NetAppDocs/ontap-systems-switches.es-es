@@ -2,7 +2,7 @@
 permalink: switch-cisco-3232c-storage/configure-ssh-keys.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9336c-fx2 
-summary: 'SSH es un requisito cuando se utilizan el Monitor de estado del conmutador de clúster (CSHM) y las funciones de recopilación de registros. Para habilitar SSH en los conmutadores de clúster Cisco 3232C, primero genere las claves SSH y luego habilite SSH.' 
+summary: 'SSH es un requisito cuando se utilizan las funciones Cluster Switch Health Monitor (CSHM) y de recopilación de registros. Para habilitar SSH en los conmutadores de clúster Cisco 3232C, primero generas las claves SSH y luego habilitas SSH.' 
 ---
 = Verifique su configuración SSH
 :allow-uri-read: 

@@ -2,7 +2,7 @@
 permalink: switch-cisco-92300/replace-92300yc.html 
 sidebar: sidebar 
 keywords: replace,upgrade cisco nexus 92300yc cluster switch 
-summary: 'Reemplazar un conmutador Nexus 92300YC defectuoso en una red de clúster es un procedimiento no disruptivo (NDU).' 
+summary: La sustitución de un conmutador Nexus 92300YC defectuoso en una red de clúster es un procedimiento sin interrupciones. 
 ---
 = Reemplazar un conmutador Cisco Nexus 92300YC
 :allow-uri-read: 

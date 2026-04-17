@@ -2,7 +2,7 @@
 permalink: switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html 
 sidebar: sidebar 
 keywords: replacing, replace, defective, nvidia, switch, cluster, network, nondisruptive, procedure, ndu, replace a nvidia sn2100 cluster switch - nvidia SN2100 
-summary: 'Reemplazo de un conmutador de almacenamiento NVIDIA SN2100 defectuoso en un procedimiento no disruptivo (NDU).' 
+summary: 'Sustitución de un switch de almacenamiento NVIDIA SN2100 defectuoso en un procedimiento no disruptivo (NDU).' 
 ---
 = Reemplazar un conmutador de almacenamiento NVIDIA SN2100
 :allow-uri-read: 

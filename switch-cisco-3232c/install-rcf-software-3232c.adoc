@@ -2,7 +2,7 @@
 permalink: switch-cisco-3232c/install-rcf-software-3232c.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 3232c 
-summary: 'SSH es un requisito cuando se utilizan el Monitor de estado del conmutador de clúster (CSHM) y las funciones de recopilación de registros. Para habilitar SSH en los conmutadores de clúster Cisco 3232c, primero genere las claves SSH y luego habilite SSH.' 
+summary: 'SSH es un requisito cuando se utilizan las funciones Cluster Switch Health Monitor (CSHM) y de recopilación de registros. Para habilitar SSH en los conmutadores de clúster Cisco 3232c, primero generas las claves SSH y luego habilitas SSH.' 
 ---
 = Instalar el archivo de configuración de referencia (RCF)
 :allow-uri-read: 
