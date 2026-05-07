@@ -2,7 +2,7 @@
 permalink: switch-netapp-cn1610/prepare-install-fastpath-rcfs.html 
 sidebar: sidebar 
 keywords: install, fastpath, software, rcfs, netapp cluster switch 
-summary: 'Debe instalar el software FASTPATH ​​y los archivos de configuración de referencia (RCF) en un conmutador de clúster NetApp CN1610.' 
+summary: Debes instalar el software FASTPATH y los archivos de configuración de referencia RCF en un conmutador de clúster NetApp CN1610. 
 ---
 = Prepárese para instalar el software FASTPATH ​​y los RCF en un switch de clúster NetApp.
 :allow-uri-read: 

@@ -2,7 +2,7 @@
 permalink: switch-nvidia-sn2100-storage/install-onie-mode-sn2100-storage.html 
 sidebar: sidebar 
 keywords: install cumulus onie mode, sn2100 SN2100 switches setup, cumulus linux, onie mode 
-summary: 'El sistema operativo Cumulus Linux (CL) se puede instalar cuando el switch ejecuta Cumulus Linux u ONIE.' 
+summary: Cumulus Linux CL OS puede instalarse cuando el conmutador está ejecutando Cumulus Linux o ONIE. 
 ---
 = Instalar Cumulus Linux en modo ONIE
 :allow-uri-read: 

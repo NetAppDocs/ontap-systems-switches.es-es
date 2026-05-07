@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/CSHM_log_collection.html 
 sidebar: sidebar 
 keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation,BES-53248 Broadcom setup,BES-53248 switches configuration,EFOS 
-summary: 'La función de recopilación de registros del monitor de estado del conmutador Ethernet (CSHM) se utiliza para recopilar registros de los conmutadores de red de clúster o de almacenamiento en ONTAP.' 
+summary: La función de control del estado de los switches Ethernet CSHM se utiliza para recopilar registros de switches de red de clúster o almacenamiento en ONTAP. 
 ---
 = Recopilación de registros de supervisión del estado del switch Ethernet
 :allow-uri-read: 

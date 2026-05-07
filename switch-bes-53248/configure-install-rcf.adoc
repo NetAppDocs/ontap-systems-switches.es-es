@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/configure-install-rcf.html 
 sidebar: sidebar 
 keywords: install rcf,setup rcf,rcf file 
-summary: 'Puede instalar el archivo de configuración de referencia (RCF) después de configurar el conmutador de clúster BES-53248 y después de aplicar las nuevas licencias.' 
+summary: Puedes instalar el archivo de configuración de referencia RCF después de configurar el conmutador de clúster BES-53248 y después de aplicar las nuevas licencias. 
 ---
 = Instala el archivo de configuración de referencia (RCF)
 :allow-uri-read: 

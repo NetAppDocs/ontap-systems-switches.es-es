@@ -1,8 +1,8 @@
 ---
-permalink: switch-cisco-9364d-gx2a/install-upgrade-rcf-overview-cluster.html 
+permalink: switch-cisco-9332d-gx2b/install-upgrade-rcf-overview-cluster-9332d.html 
 sidebar: sidebar 
-keywords: install, upgarde, cluster, switch, cisco 9364d-gx2a 
-summary: Puede instalar el RCF después de configurar el conmutador Nexus 9364d-gx2a por primera vez. También puede utilizar este procedimiento para actualizar su RCF. 
+keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9332d-gx2b 
+summary: Puede instalar el RCF después de configurar el conmutador Nexus 9332D-GX2B por primera vez. También puede utilizar este procedimiento para actualizar su versión de RCF. 
 ---
 = Instala o actualiza el archivo de configuración de referencia (RCF): descripción general
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Puede instalar el RCF después de configurar el conmutador Nexus 9364d-
 
 
 [role="lead"]
-Instalas el RCF después de configurar el switch Nexus 9364D-GX2A por primera vez. Actualizas tu versión de RCF cuando ya tienes una versión existente del archivo RCF instalada en tu switch.
+Instalas el archivo de configuración de referencia (RCF) después de configurar el switch Nexus 9332D-GX2B por primera vez. Actualizas tu versión de RCF cuando ya tienes una versión existente del archivo RCF instalada en tu switch.
 
 Consulta el artículo de base de conocimientos link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración de un switch de interconexión Cisco manteniendo la conectividad remota"^] para más información cuando instales o actualices tu RCF.
 
@@ -26,7 +26,7 @@ Para obtener detalles específicos sobre el uso de puertos y VLAN, consulta el b
 +
 Consulte la tabla de compatibilidad de switches para conocer las versiones compatibles de ONTAP y RCF en el sitio de soporte de NetApp .  Tenga en cuenta que puede haber dependencias de comandos entre la sintaxis de comandos en RCF y la sintaxis que se encuentra en versiones específicas de NX-OS.
 
-* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-guides-list.html["Switches Cisco Nexus serie 9000"^]
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Switches Cisco Nexus serie 9000"^]
 +
 Consulte las guías de software y actualización correspondientes disponibles en el sitio web de Cisco para obtener documentación completa sobre los procedimientos de actualización y degradación de los switches de Cisco .
 
@@ -41,7 +41,7 @@ Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interru
 * El `cluster1::*>` El indicador muestra el nombre del clúster.
 
 
-Consulta el link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para verificar los puertos de clúster correctos en tus plataformas.
+Consulta el https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para verificar los puertos correctos en tu plataforma.
 
 
 NOTE: Los resultados del comando pueden variar dependiendo de las diferentes versiones de ONTAP.
@@ -50,4 +50,4 @@ NOTE: Los resultados del comando pueden variar dependiendo de las diferentes ver
 El procedimiento requiere el uso de comandos ONTAP y comandos de switches Cisco Nexus serie 9000; se utilizan comandos ONTAP a menos que se indique lo contrario.
 
 .¿Que sigue?
-Después de haber revisado el procedimiento de instalación o actualización de RCF,link:install-rcf-software-9364d-cluster.html["instalar el RCF"] olink:upgrade-rcf-software-9364d-cluster.html["Mejora tu RCF"] según sea necesario.
+Después de haber revisado el procedimiento de instalación o actualización de RCF,link:install-rcf-software-9332d-cluster.html["instalar el RCF"] olink:upgrade-rcf-software-9332d-cluster.html["Mejora tu RCF"] según sea necesario.

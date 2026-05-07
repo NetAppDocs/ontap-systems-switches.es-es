@@ -1,8 +1,8 @@
 ---
-permalink: switch-cisco-9336c-fx2/install-upgrade-rcf-overview-cluster.html 
+permalink: switch-cisco-9336c-fx2/install-upgrade-rcf-overview-cluster-9336c.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9336c-fx2 
-summary: 'SSH es un requisito cuando se utilizan las funciones Cluster Switch Health Monitor (CSHM) y de recopilación de registros. Para habilitar SSH en los conmutadores de clúster Cisco 9336c-fx2, primero generas las claves SSH y luego habilitas SSH.' 
+summary: SSH es un requisito cuando usas las funciones Cluster Switch Health Monitor y de recopilación de registros. Para habilitar SSH en los switches de clúster Cisco 9336c-fx2, primero generas las claves SSH y luego habilitas SSH. 
 ---
 = Descripción general de la instalación o actualización del archivo de configuración de referencia (RCF).
 :allow-uri-read: 

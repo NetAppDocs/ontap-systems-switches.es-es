@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/configure-efos-software.html 
 sidebar: sidebar 
 keywords: BES-53248 cluster switches,installing EFOS software 
-summary: 'Siga estos pasos para instalar el software Ethernet Fabric OS (EFOS) en el conmutador de clúster BES-53248.' 
+summary: Sigue estos pasos para instalar el software Ethernet Fabric OS EFOS en el conmutador de clúster BES-53248. 
 ---
 = Instale el software EFOS
 :allow-uri-read: 

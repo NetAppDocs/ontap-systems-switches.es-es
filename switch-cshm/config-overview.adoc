@@ -2,7 +2,7 @@
 permalink: switch-cshm/config-overview.html 
 sidebar: sidebar 
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
-summary: 'El monitor de estado del conmutador Ethernet (CSHM) es responsable de garantizar el buen funcionamiento de los conmutadores de red de clúster y almacenamiento y de recopilar los registros de los conmutadores con fines de depuración.' 
+summary: El control del estado de los switches Ethernet CSHM se encarga de garantizar el estado operativo de los switches de red de clúster y almacenamiento y de recopilar los registros de los switches con fines de depuración. 
 ---
 = Descripción general de la configuración
 :allow-uri-read: 

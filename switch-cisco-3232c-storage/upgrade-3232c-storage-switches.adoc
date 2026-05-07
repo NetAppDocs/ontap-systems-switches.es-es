@@ -2,7 +2,7 @@
 permalink: switch-cisco-3232c-storage/upgrade-3232c-storage-switches.html 
 sidebar: sidebar 
 keywords: upgrade, cisco nexus, 3232c storage switch 
-summary: 'El software Cisco NX-OS y los archivos de configuración de referencia (RCF) se pueden actualizar en los switches de almacenamiento Cisco Nexus 3232C.' 
+summary: El software Cisco NX-OS y los archivos de configuración de referencia RCF se pueden actualizar en los switches de almacenamiento Cisco Nexus 3232C. 
 ---
 = Actualizar un switch de almacenamiento Cisco Nexus 3232C
 :allow-uri-read: 

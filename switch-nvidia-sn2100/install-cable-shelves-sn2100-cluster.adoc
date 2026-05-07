@@ -2,7 +2,7 @@
 permalink: switch-nvidia-sn2100/install-cable-shelves-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: sn2100 cabling setup, msn2100 sn2100 switches configuration, cumulus linux 
-summary: 'Si tiene un sistema en el que los estantes de unidades NS224 deben cablearse como almacenamiento conectado a un conmutador (no como almacenamiento conectado directamente), utilice la información proporcionada aquí.' 
+summary: Si tienes un sistema en el que las estanterías de unidades NS224 deben cablearse como almacenamiento conectado a conmutador y no como almacenamiento conectado directamente, usa la información que se proporciona aquí. 
 ---
 = Conecte los estantes NS224 como almacenamiento conectado al interruptor.
 :allow-uri-read: 

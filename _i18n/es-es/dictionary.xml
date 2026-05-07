@@ -596,7 +596,6 @@
   <block id="9a5f500ffaccd0b3009efe64697ec210" category="list-text"><block ref="9a5f500ffaccd0b3009efe64697ec210" category="inline-link-macro-rx"></block></block>
   <block id="b28b35ae2bb0ba008baa07b20e30cb9b" category="inline-link-macro">Fin de disponibilidad: SKU de interconexión de clúster NetApp CN1610</block>
   <block id="3f802670007b812ad08c750c46d02d46" category="list-text"><block ref="3f802670007b812ad08c750c46d02d46" category="inline-link-macro-rx"></block></block>
-  <block id="b61075ba30803dc13c18190d95bb660c" category="summary">La función de recopilación de registros del monitor de estado del conmutador Ethernet (CSHM) se utiliza para recopilar registros de los conmutadores de red de clúster o de almacenamiento en ONTAP.</block>
   <block id="cc96021e22980976473658b2f1ba6e98" category="doc">Recopilación de registros de supervisión del estado del switch Ethernet</block>
   <block id="bf4e0c74d0d64f033de371084e1f1021" category="paragraph">El monitor de estado del conmutador Ethernet (CSHM) es responsable de garantizar el buen funcionamiento de los conmutadores de red de clúster y almacenamiento y de recopilar los registros de los conmutadores con fines de depuración.  Este procedimiento le guía a través del proceso de configuración e inicio de la recopilación de registros detallados de *Soporte* del switch e inicia una recopilación horaria de datos *Periódicos* que recopila AutoSupport.</block>
   <block id="43822bbc5cba6f539b9e148db3e66253" category="list-text">Para habilitar la función de recopilación de registros, debe estar ejecutando ONTAP versión 9.10.1P15, 9.11.1P12 o 9.12.1 o posterior y EFOS 3.8.0.2 o posterior.</block>
@@ -619,7 +618,6 @@
   <block id="ad20b6964df2e6ea3df2b394efc811ed" category="paragraph">Elimine el archivo de recopilación de registros anterior del conmutador.</block>
   <block id="20c7a250c756306872ccbb15d529b664" category="paragraph">*error en el registro de volcado del switch*</block>
   <block id="282efbd3d7380f8a34d8579ad5d9c11f" category="paragraph">Asegúrese de que el usuario del switch tenga permisos de recopilación de registros.  Consulte los requisitos previos anteriores.</block>
-  <block id="b8731468035c2cab5635961a32d46c38" category="summary">SNMPv3 se puede utilizar con el monitor de estado del conmutador Ethernet (CSHM).</block>
   <block id="079555d3c02274a2f31c4ed0065d657e" category="doc">Configurar SNMPv3</block>
   <block id="86da6292895a71bdd61d82bd76a5649d" category="paragraph">Siga este procedimiento para configurar SNMPv3, que admite la supervisión del estado del conmutador Ethernet (CSHM).</block>
   <block id="f00216e423dd65c7a8b4a0768c1cf2bc" category="paragraph">Los siguientes comandos configuran un nombre de usuario SNMPv3 en los switches Broadcom BES-53248:</block>
@@ -820,7 +818,6 @@
   <block id="05811097becdf827e7905c7085aac958" category="paragraph"><block ref="2dddacc5e6efaad8de6eb5a7e2c10d11" prefix="" category="inline-code"></block></block>
   <block id="8ec519db7b497274ec49e47d1d5805aa" category="inline-link-macro">Instale el software EFOS</block>
   <block id="1cdfb67cf1efdfc117156b73520a6202" category="paragraph">Una vez que hayas configurado tus interruptores, podrás <block ref="5f8c635ef985b849c8790b2e319cc3c1" category="inline-link-macro-rx"></block>.</block>
-  <block id="245b6d4f01047a24b306b9ff15a6f528" category="summary">Puede instalar el archivo de configuración de referencia (RCF) después de configurar el conmutador de clúster BES-53248 y después de aplicar las nuevas licencias.</block>
   <block id="2ad05b5c21ff6c71199a379622544a42" category="doc">Instalar el archivo de configuración de referencia (RCF)</block>
   <block id="d217db6e5c9fe01778df762ef953150e" category="inline-link-macro">Instale el archivo de configuración de referencia (RCF) y el archivo de licencia.</block>
   <block id="6503ea0189c5cfc2f7fbdef509813892" category="admonition">Para EFOS 3.12 y versiones posteriores, siga los pasos de instalación en<block ref="2875012234c5bc616da894d0cc04d2b5" category="inline-link-macro-rx"></block> .</block>
@@ -1273,7 +1270,6 @@
   <block id="671537f32d06de75a977dc3008daeff5" category="admonition">Si el sistema pregunta si desea guardar la configuración no guardada o modificada antes de reiniciar el switch, seleccione *No*.</block>
   <block id="01abea5f71122f7491f5d67a54692187" category="list-text">[[step4]] Espere a que el switch se recargue y luego inicie sesión en el switch.</block>
   <block id="3298c6d813bb0262584ca3882273ff2a" category="paragraph">El usuario predeterminado es “admin” y no se ha establecido ninguna contraseña.  Se muestra un mensaje similar al siguiente:</block>
-  <block id="83125f7f126ff0a8e1d1c0a2e18662a8" category="summary">Siga estos pasos para actualizar el software Ethernet Fabric OS (EFOS) en el conmutador de clúster BES-53248.</block>
   <block id="8693d3f8c9b18790ed498b6f024a5669" category="doc">Actualizar el software EFOS</block>
   <block id="9aae29728e49aa150331311d8f2d4df9" category="paragraph">Siga estos pasos para actualizar el software EFOS en el conmutador de clúster BES-53248.</block>
   <block id="81f6f81478c921fde89ee0a4441fbf63" category="section-title">Prepárate para la actualización</block>
@@ -1891,7 +1887,6 @@
   <block id="de7ffa00f75520afd4312c03db0da03c" category="list-text"><block ref="de7ffa00f75520afd4312c03db0da03c" category="inline-link-macro-rx"></block></block>
   <block id="c409f8a3c1a31991297c71a6ef92dff2" category="inline-link-macro">Pánico de nodo tras la migración de un clúster conmutado a uno sin conmutación</block>
   <block id="55f49c71e99a86d3514c015252eee468" category="list-text"><block ref="55f49c71e99a86d3514c015252eee468" category="inline-link-macro-rx"></block></block>
-  <block id="dd7ac721959b4aaa170786e82881ae7b" category="summary">El software Cisco NX-OS y los archivos de configuración de referencia (RCF) deben instalarse en los switches de clúster Cisco Nexus 3132Q-V.</block>
   <block id="ccdb01c4cd8e253f3a70d7d150d9bc95" category="paragraph">Antes de instalar el software NX-OS y el archivo de configuración de referencia (RCF), siga este procedimiento.</block>
   <block id="29b5c9f7c3e370b92a6acd04f777cd76" category="paragraph">Los ejemplos de este procedimiento utilizan dos nodos.  Estos nodos utilizan dos puertos de interconexión de clúster 10GbE.<block ref="922c556baf6272bffc4fa28b2e9a0bbc" prefix=" " category="inline-code"></block> y<block ref="22fe67c2e87caff18249cf1804bbeaad" prefix=" " category="inline-code"></block> .</block>
   <block id="eaa553a851c0d94118e84937225d82b3" category="list-text">Los nombres de los nodos son<block ref="b33422d3fbf7a4ba3b02e2bfcd37f46f" prefix=" " category="inline-code"></block> y<block ref="8fc15469c933cd7fd8db166bddedfd77" prefix=" " category="inline-code"></block> .</block>
@@ -1900,7 +1895,6 @@
   <block id="8b7a1c5ca569b4edf87d12744a873c02" category="list-text">[[paso 6]]Verifique que el<block ref="9f1b7141f09f19c4e33409646aef43cf" prefix=" " category="inline-code"></block> El comando está habilitado en todos los LIF del clúster:</block>
   <block id="9c7e872eafa4ce3bafe48b85e4dccabc" category="inline-link-macro">Instalar el software NX-OS</block>
   <block id="a83444c24e0333a8d2c26d5a4a4cb369" category="paragraph">Después de haberte preparado para instalar el software NX-OS y RCF, <block ref="d75ac7de135fb381613e594c611e5a43" category="inline-link-macro-rx"></block>.</block>
-  <block id="185abab67865bc469a6da739830734e2" category="summary">Reemplazar un switch Cisco Nexus 3132Q-V defectuoso en una red de clúster es un procedimiento no disruptivo (NDO) y debe realizar una secuencia específica de tareas.</block>
   <block id="f50bf609e9ecf04112d0a60d1efc13c9" category="doc">Reemplazar los switches de clúster Cisco Nexus 3132Q-V</block>
   <block id="a96967612c6864aa22be45f265f4c533" category="paragraph">Siga este procedimiento para reemplazar un switch Cisco Nexus 3132Q-V defectuoso en una red de clúster.  El procedimiento de reemplazo es un procedimiento no disruptivo (NDO).</block>
   <block id="f3f6fdd1ea886344c6b4f8b4ee91d661" category="paragraph-title">Requisitos del interruptor</block>
@@ -2533,7 +2527,6 @@
   <block id="ff40315daa8444e010ab8f52f7dc5503" category="list-text">Puertos e1/31-32 (40/100 GbE): Nexus 3232C</block>
   <block id="b8b92463e1121f4fb733de40b6f53dc6" category="paragraph">Por defecto, hay 32 puertos en el modo Ethernet 40/100 Gigabit.  Estos 40 puertos Gigabit Ethernet están numerados según una convención de nomenclatura de 2 tuplas.  Por ejemplo, el segundo puerto Ethernet de 40 Gigabit está numerado como 1/2.  El proceso de cambiar la configuración de Ethernet de 40 Gigabit a Ethernet de 10 Gigabit se llama _breakout_ y el proceso de cambiar la configuración de Ethernet de 10 Gigabit a Ethernet de 40 Gigabit se llama _breakin_.  Cuando se divide un puerto Gigabit Ethernet de 40/100 en puertos Gigabit Ethernet de 10, los puertos resultantes se numeran utilizando una convención de nomenclatura de 3 tuplas.  Por ejemplo, los puertos de ruptura del segundo puerto Ethernet Gigabit 40/100 están numerados como 1/2/1, 1/2/2, 1/2/3 y 1/2/4.</block>
   <block id="6772e4d59dd062c5a9260242b751786f" category="doc">Reemplace los conmutadores de clúster Cisco Nexus 3232C con conexiones sin conmutador</block>
-  <block id="f435abab4c17d94cf8603815dbd871f9" category="summary">El software Cisco NX-OS y los archivos de configuración de referencia (RCF) deben instalarse en los switches de clúster Cisco Nexus 3232C.</block>
   <block id="8cf2672ea5c13bbf0de6052b20c338ef" category="doc">Preparar la instalación del software NX-OS y el archivo de configuración de referencia (RCF).</block>
   <block id="8df6d09a602fca4aa18fe9e0b5e94fd4" category="list-text">Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport :<block ref="d4f081f8f7b730c426160bfa9617a56a" prefix=" " category="inline-code"></block></block>
   <block id="4abcd2a6fe57e9f246dd326cae0ddb1b" category="list-text">Mostrar información sobre los LIF:<block ref="7af866342cc7e87972580d7b709d8820" prefix=" " category="inline-code"></block></block>
@@ -2657,7 +2650,6 @@
   <block id="202f974033cf1161982db034d23ab80c" category="paragraph">ISL 100GbE al puerto 31 del switch A</block>
   <block id="0e799942e6eaaf5fb0e0990b9cff01d0" category="paragraph">ISL 100GbE al puerto 32 del switch B</block>
   <block id="ef3ddd21da594e200a83e463425ee831" category="paragraph">ISL de 100 GbE al puerto 32 del conmutador A</block>
-  <block id="5a9c1ae57a80076b39ad53020fd29eed" category="summary">El software Cisco NX-OS y los archivos de configuración de referencia (RCF) se pueden actualizar en los switches de almacenamiento Cisco Nexus 3232C.</block>
   <block id="29165d4eb3f784e35d52698213cb1586" category="doc">Actualizar un switch de almacenamiento Cisco Nexus 3232C</block>
   <block id="aaee942f01ab7b858b2f2b63c62fe972" category="paragraph">Siga estos pasos para actualizar el software Cisco NX-OS y los archivos de configuración de referencia (RCF) en los switches Cisco Nexus 3232C.</block>
   <block id="ee01b78d6cadb3e6f6a563b8d4eb8dee" category="paragraph">Asegúrese de que se cumplan las siguientes condiciones antes de actualizar el software NX-OS y los RCF en el switch de almacenamiento:</block>
@@ -3029,7 +3021,6 @@
   <block id="91a0516fc9c7301309b79a97012571d5" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="3e13f22757b8047fc4e7842e563aeab4" category="inline-link-macro-rx"></block></block>
   <block id="8aa0164f6bb664ee2a1a0b46d6a91f38" category="paragraph">Descargue e instale o actualice el software NX-OS en el conmutador Cisco 9332D-GX2B.</block>
   <block id="11106314fe1d4dd5bee639afb348b915" category="inline-link-macro">Instalar o actualizar el RCF</block>
-  <block id="422c274743fd52a13b84466925d9ae14" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="e1c53d78ceb09f1d765f98cd902707bb" category="inline-link-macro-rx"></block></block>
   <block id="e3f39cacd8425f4e760364f787b5c09d" category="paragraph">Instale o actualice el RCF después de configurar el conmutador Cisco 9332D-GX2B por primera vez. También puede utilizar este procedimiento para actualizar su versión de RCF.</block>
   <block id="28eef302549a5d0d625be1084076abb2" category="inline-link-macro">Verifique que SSH esté habilitado en los conmutadores Cisco 9332D-GX2B</block>
   <block id="e48e15c8bda315a471c31c26f64b5d6b" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="18afa73aedf40d16a12decea9355d4bb" category="inline-link-macro-rx"></block></block>
@@ -3097,7 +3088,6 @@
   <block id="8d2204dbe11911cd9868ab4a33a8ef52" category="list-text">Verificar el estado de todos los puertos del clúster.</block>
   <block id="637a8c78ac727e9cc53c21eac9229e42" category="list-text">Repita los pasos 6 a 13 para instalar el software NX-OS y las imágenes EPLD en el conmutador cs1.</block>
   <block id="4a7de73e27154c91b20bfab9924e4aef" category="paragraph"><block ref="e9ad0d8b982112c28ec03f1b3a17f92e" prefix="" category="inline-code"></block></block>
-  <block id="ad599980e8b337c42970271e9b84f0ee" category="paragraph">Después de haber instalado o actualizado el software NX-OS, usted<block ref="d510068a163bd661380221025541f5da" category="inline-link-macro-rx"></block> .</block>
   <block id="da290344a59f842ad67373838535bbf4" category="summary">Puede instalar el RCF después de configurar el conmutador Nexus 9332D-GX2B por primera vez.</block>
   <block id="88c6fb51a79a63370991d585551ed93a" category="list-text">Una conexión de consola al conmutador.  La conexión a la consola es opcional si tiene acceso remoto al switch.</block>
   <block id="1ececed2a569720ced41e9cd50d7b238" category="list-text">Los switches cs1 y cs2 están encendidos y la configuración inicial del switch está completa (la dirección IP de administración y SSH están configuradas).</block>
@@ -3306,7 +3296,6 @@
   <block id="bbb9faab95e3e9af13430c6529221602" category="summary">Puede utilizar este procedimiento para instalar el software NX-OS en el conmutador de clúster Nexus 9336C-FX2.</block>
   <block id="9eb0d2dee744ca5726b57d78636445af" category="paragraph">Siga este procedimiento para instalar o actualizar el software NX-OS en los conmutadores de clúster Nexus 9336C-FX2 y 9336C-FX2-T.</block>
   <block id="242de61cd0710bcf5f8d68190d392f95" category="paragraph">Antes de comenzar, complete el procedimiento en<block ref="7be1885a02922674638042ed6280ba6b" category="inline-link-macro-rx"></block> .</block>
-  <block id="f81ef217d2c8bc05e0d4e6f1aad50a66" category="paragraph">Después de instalar o actualizar el software NX-OS, puede<block ref="d510068a163bd661380221025541f5da" category="inline-link-macro-rx"></block> .</block>
   <block id="d002eea8f83f99bafbbc5f36440edd41" category="summary">Puede instalar RCF después de configurar el switch Nexus 9336C-FX2 por primera vez. También puede utilizar este procedimiento para actualizar su versión de RCF.</block>
   <block id="5dbda9223b42a1433b17c045beba0f1b" category="paragraph">Instale el archivo de configuración de referencia (RCF) después de configurar los conmutadores Nexus 9336C-FX2 y 9336C-FX2-T por primera vez.</block>
   <block id="4f9d99e1896d0aa94a4ea56a61e0b5d7" category="list-text">Los puertos del clúster de nodos ONTAP no están conectados.</block>
@@ -3979,11 +3968,9 @@
   <block id="da28641e557d1527788801659dc81fd5" category="inline-link-macro">Solución de problemas de la recopilación de registros</block>
   <block id="d9566e63378c0ff8504c903128e5c6f6" category="inline-link-macro">Configurar SNMPv3 (opcional)</block>
   <block id="e2101619626dc7b8ea25749787797515" category="paragraph"><block ref="a294afff18b68f8c1e4f78aeef5ef294" category="inline-link-macro-rx"></block>.</block>
-  <block id="8ae4eeaa7baed19106cc30ea02483c5e" category="summary">El monitor de estado del conmutador Ethernet (CSHM) es responsable de garantizar el buen funcionamiento de los conmutadores de red de clúster y almacenamiento y de recopilar los registros de los conmutadores con fines de depuración.</block>
   <block id="282155126a94a0702cfd80daf38d4362" category="doc">Descripción general de la configuración</block>
   <block id="c4bf003fc396e9ee7d60812f1da24cfe" category="list-text"><block ref="c4bf003fc396e9ee7d60812f1da24cfe" category="inline-link-macro-rx"></block></block>
   <block id="a294afff18b68f8c1e4f78aeef5ef294" category="list-text"><block ref="a294afff18b68f8c1e4f78aeef5ef294" category="inline-link-macro-rx"></block></block>
-  <block id="5b62a4b03175f138ff64effec2560ed7" category="summary">Puede utilizar este procedimiento para configurar SNMPv3 para su switch específico, que admite la monitorización del estado del switch Ethernet (CSHM).</block>
   <block id="62f22218ea7fb3cf6669cdfdb6c908e0" category="doc">Configure SNMPv3 para su switch (opcional)</block>
   <block id="1c10f160ae9b8c4d78cec8e05f3c3a4e" category="paragraph">SNMP se utiliza para monitorizar los switches.  La monitorización mediante SNMPv3 se configura siguiendo este procedimiento.</block>
   <block id="1c76d98a8c6bdaf19a0c6e69ecd5d74b" category="doc">Descripción general del monitor de estado del switch</block>
@@ -4129,7 +4116,6 @@
   <block id="085e32a02cb4ebf3ac87c8b1791d407a" category="inline-link-macro">Instale FASTPATH ​​y RCF en los switches que ejecutan ONTAP 8.3.1 y versiones posteriores.</block>
   <block id="fa46630a0f02f3a3e380fcfce6961441" category="paragraph">Si los switches ejecutan ONTAP 8.3.1 o posterior, siga las instrucciones en<block ref="b8d373212331c2dcd588cc85c06ecfce" category="inline-link-macro-rx"></block></block>
   <block id="a4cc27f030d5855528a867889ecb752b" category="list-text"><block ref="a4cc27f030d5855528a867889ecb752b" category="inline-link-macro-rx"></block></block>
-  <block id="daf20f967e014d2ca0616935fab019db" category="summary">Cuando instale un archivo de configuración de referencia (RCF), primero debe migrar las LIF del clúster fuera del switch cs2.  Una vez instalado y validado el RCF, se pueden migrar de nuevo los LIF.</block>
   <block id="86a663d3b96e07c5a852301b9bd3b075" category="doc">Instale un archivo de configuración de referencia en un switch CN1610.</block>
   <block id="449106779f0029695a2b0e663fb8fc0b" category="paragraph">Siga este procedimiento para instalar un archivo de configuración de referencia (RCF).</block>
   <block id="088aef58f346bbf6485e3c2b1292369d" category="paragraph">Antes de instalar un RCF, primero debe migrar las LIF del clúster fuera del switch cs2.  Una vez instalado y validado el RCF, se pueden migrar de nuevo los LIF.</block>
@@ -4503,7 +4489,6 @@
   <block id="69fe2bd920008d1b6c35f9baad74d4f1" category="inline-link">Bandejas de unidades NS224 con conmutador de cableado</block>
   <block id="1d60ae449462450e67f46eb89e1c693c" category="paragraph"><block ref="1d60ae449462450e67f46eb89e1c693c" category="inline-link-rx"></block></block>
   <block id="aa690319dc0361fc52f6d6941197617e" category="paragraph">Después de haber cableado tus estantes, puedes<block ref="a5a547b7e695aa3612b72d881f169519" category="inline-link-macro-rx"></block> .</block>
-  <block id="4e4a4a02911e122627365a67b690270e" category="summary">El sistema operativo Cumulus Linux (CL) se puede instalar cuando el switch ejecuta Cumulus Linux u ONIE.</block>
   <block id="c1bbeec855d76242340c5bdf0a270fb1" category="paragraph">Siga este procedimiento para instalar el sistema operativo Cumulus Linux (CL) cuando el switch esté funcionando en modo Cumulus.</block>
   <block id="eaeaa3cbb68f870319145c61053e1d67" category="inline-link-macro">Instalar en modo ONIE</block>
   <block id="a11df88b8e5a715c451bd8fd231b9b06" category="list-text">Conocimientos de Linux de nivel intermedio.</block>
@@ -5355,7 +5340,6 @@
   <block id="06f98fb7dabad121f0a305f634bbd3d9" category="list-text"><block ref="2f0c8beed0944d74f65fe6f338a45004" category="inline-link-macro-rx"></block>.</block>
   <block id="b93535b0bc8b7e60ab4fbdfe5a4542d1" category="inline-link-macro">instala el conmutador en un armario NetApp</block>
   <block id="970547de0b1297e6e40fd3ffa36745f2" category="paragraph">Después de que hayas instalado el conmutador de almacenamiento 3232C, puedes <block ref="998eeccb90ed60d04433c9a9a151ef26" category="inline-link-macro-rx"></block>.</block>
-  <block id="678e13be1f1f5630381c676c3babc72d" category="summary">El software Cisco NX-OS y los archivos de configuración de referencia (RCFs) deben instalarse en los switches de almacenamiento Cisco Nexus 3232C.</block>
   <block id="65459cc6f0f81aa31bfc775f15ed6bc4" category="paragraph">Después de que te hayas preparado para instalar el software NX-OS y RCF, puedes <block ref="a2bf6a57e594c94642b3fd5d310037a1" category="inline-link-macro-rx"></block>.</block>
   <block id="312661d0f59054d715a9246594bd18e4" category="paragraph">Después de sustituir el interruptor, puedes <block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block>.</block>
   <block id="ba142a42b9904c0d02cec8569ea8cf6f" category="doc">Requisitos de documentación para los switches de almacenamiento Cisco Nexus 3232C</block>
@@ -5817,32 +5801,58 @@
   <block id="4900377d6745b8a03e6c9a542b3fe2f0" category="paragraph">El control del estado de los switches de Ethernet (CSHM) es responsable de garantizar el estado operativo de los switches de red y de recopilar los registros de los switches con fines de depuración.</block>
   <block id="bc2dfd2fdf95de6b810acf0fa5c67356" category="paragraph">El control del estado de Ethernet Switch (CSHM) utiliza SNMP para supervisar el estado y el rendimiento de los switches de red. Por defecto, SNMPv2c se configura automáticamente a través del Reference Configuration File (RCF). SNMPv3 es más seguro que SNMPv2 porque introduce funciones de seguridad sólidas como autenticación, cifrado e integridad de mensajes, que protegen contra el acceso no autorizado y aseguran la confidencialidad e integridad de los datos durante la transmisión.</block>
   <block id="7cb74dd4a33dec5dc1811198729f1a3d" category="paragraph">El control del estado de los switches Ethernet (CSHM) intenta controlar automáticamente los switches de red que detecta; sin embargo, es posible que el control no se realice automáticamente si los switches no están configurados correctamente. Debes comprobar que el control del estado está configurado correctamente para controlar tus switches.</block>
-  <block id="2cc0a4e03235f6214d4b5fa369958e9f" category="summary">SSH es un requisito cuando se utilizan las funciones Cluster Switch Health Monitor (CSHM) y de recopilación de registros. Para habilitar SSH en los conmutadores de clúster BES-53248, primero generas las claves SSH y luego habilitas SSH.</block>
-  <block id="57ce4745993a2cb21c9606f06974d3c9" category="summary">La sustitución de un conmutador de clúster BES-53248 defectuoso con soporte de Broadcom en una red de clúster es un procedimiento no disruptivo (NDU).</block>
   <block id="9bb9d88110e7f202f1952ebcc9fefc08" category="admonition">El archivo debe llamarse<block ref="a890eeb375a613e0acf945129af8cad4" prefix=" " category="inline-code"></block> cuando subas y apliques el archivo RCF, de lo contrario, el paso de aplicar el script fallará.</block>
   <block id="153aa60e53e376e3c47bb9de3f41cd5c" category="list-text">Copia el RCF en el switch cs2 utilizando uno de los siguientes protocolos de transferencia: HTTP, HTTPS, FTP, SFTP o SCP.</block>
-  <block id="c8db8b64b02e5a6e924b13e7a1c3d54f" category="summary">SSH es un requisito cuando usas las funciones Cluster Switch Health Monitor (CSHM) y de recopilación de registros. Para habilitar SSH en los switches de clúster Cisco 3132Q-V, primero generas las claves SSH y luego habilitas SSH.</block>
-  <block id="7ab09ec5429db2527654e19eec7bb2bd" category="summary">SSH es un requisito cuando se utilizan las funciones Cluster Switch Health Monitor (CSHM) y de recopilación de registros. Para habilitar SSH en los conmutadores de clúster Cisco 3132q-v, primero generas las claves SSH y luego habilitas SSH.</block>
-  <block id="832605a2d3ad68151e1f47c56cdfb281" category="summary">SSH es un requisito cuando se utilizan las funciones Cluster Switch Health Monitor (CSHM) y de recopilación de registros. Para habilitar SSH en los conmutadores de clúster Cisco 3232C, primero generas las claves SSH y luego habilitas SSH.</block>
-  <block id="04a72e0b6098b241a07346d12dc79fdd" category="summary">SSH es un requisito cuando se utilizan las funciones Cluster Switch Health Monitor (CSHM) y de recopilación de registros. Para habilitar SSH en los conmutadores de clúster Cisco 3232c, primero generas las claves SSH y luego habilitas SSH.</block>
-  <block id="de12ff3a93a3d0a5df28bdea267617ac" category="summary">SSH es un requisito cuando se utilizan las funciones Cluster Switch Health Monitor (CSHM) y de recopilación de registros. Para habilitar SSH en los conmutadores de clúster Cisco 92300YC, primero generas las claves SSH y luego habilitas SSH.</block>
-  <block id="bd0c2a5487db101df9e69519dbe7db55" category="summary">El software Cisco NX-OS y los archivos de configuración de referencia (RCFs) deben estar instalados en los conmutadores de clúster Cisco Nexus 92300YC.</block>
   <block id="4bcfba45804fbbbd6422a9b0dea12c5f" category="summary">La sustitución de un conmutador Nexus 92300YC defectuoso en una red de clúster es un procedimiento sin interrupciones.</block>
-  <block id="763d50f75a0946cdabf7614582b13354" category="summary">SSH es un requisito cuando se utilizan las funciones Cluster Switch Health Monitor (CSHM) y de recopilación de registros. Para habilitar SSH en los conmutadores de clúster Cisco 9332d-gx2b, primero generas las claves SSH y luego habilitas SSH.</block>
-  <block id="7e67dabdf4e4228280d37eb5bc37c3d9" category="summary">El software Cisco NX-OS y los archivos de configuración de referencia (RCF) deben estar instalados en los switches de clúster Cisco Nexus 9332D-GX2B.</block>
-  <block id="2beefb4d1a7bb9c61f30e6c0adad3ad5" category="summary">La sustitución de un switch Nexus 9332D-GX2B defectuoso en una red de clúster es un procedimiento no disruptivo (NDU).</block>
-  <block id="c1975d8a3808282d8337678030b4a81a" category="summary">SSH es un requisito cuando se utilizan las funciones Cluster Switch Health Monitor (CSHM) y de recopilación de registros. Para habilitar SSH en los conmutadores de clúster Cisco 9336c-fx2, primero generas las claves SSH y luego habilitas SSH.</block>
-  <block id="9b32aa934f364be9aa6cdf3bf05d15ee" category="summary">El software Cisco NX-OS y los archivos de configuración de referencia (RCFs) deben estar instalados en los conmutadores de clúster Cisco Nexus 9336C-FX2.</block>
   <block id="c506cb52e11779e41b9479bb442eec6e" category="list-text">Copia el RCF al bootflash del switch cs1 utilizando uno de los siguientes protocolos de transferencia: FTP, SFTP o SCP.</block>
   <block id="b3cbf28e617c9f4b35cbc237024a2fbb" category="paragraph">Este ejemplo muestra SFTP siendo usado para copiar un RCF al bootflash en el switch cs1:</block>
-  <block id="456a5c90687a021221cc54821a27d7f4" category="summary">La sustitución de un conmutador Nexus 9336C-FX2 defectuoso en una red en clúster es un procedimiento no disruptivo (NDU).</block>
   <block id="9daa5d42be0756d3784e9f178a3295c6" category="list-text">Copia el RCF al bootflash en el switch cs1 usando uno de los siguientes protocolos de transferencia: FTP, SFTP o SCP.</block>
   <block id="64678126dc02aa542e8431224df8565f" category="inline-link-macro">Cisco 9336C-FX2 Switch falla al arrancar después de instalar RCF – variable de arranque borrada</block>
   <block id="34b6891d558f2193167ecd55dac3e6cd" category="admonition">Si tu conmutador 9336C-FX2 no arranca después de la actualización de RCF, consulta el artículo de base de conocimientos de NetApp <block ref="e42cc9ef430c6ea42d7a305356970328" category="inline-link-macro-rx"></block> para conocer los próximos pasos.</block>
-  <block id="c2bfedfcb69ad2176d378523a1a938f1" category="summary">SSH es un requisito cuando se utilizan las funciones Cluster Switch Health Monitor (CSHM) y de recopilación de registros. Para habilitar SSH en los conmutadores de clúster Cisco 9364d-gx2a, primero generas las claves SSH y luego habilitas SSH.</block>
-  <block id="7da9fcbfb01147ad61851b7542efd343" category="summary">La sustitución de un switch Nexus 9364D-GX2A defectuoso en una red de clúster es un procedimiento no disruptivo (NDU).</block>
-  <block id="087a0cdfa40d1253f83403998d37833d" category="summary">La sustitución de un switch NVIDIA SN2100 defectuoso en una red de cluster es un procedimiento no disruptivo (NDU).</block>
-  <block id="dcb14dbcf0c3e9fd91e172f33a9223b5" category="summary">Puedes usar este procedimiento para instalar el archivo de configuración aplicable para el monitoreo del estado de los switches NVIDIA SN2100.</block>
-  <block id="4010049d40fdd6031ad12cfe5da5d25b" category="summary">Sustitución de un switch de almacenamiento NVIDIA SN2100 defectuoso en un procedimiento no disruptivo (NDU).</block>
-  <block id="5dc8d4198fd0d6a1ba6b728a23ca8894" category="summary">Puedes usar este procedimiento para instalar el archivo de configuración aplicable para el monitoreo del estado de los switches de almacenamiento NVIDIA SN2100.</block>
+  <block id="2a4ac3c5ad5a0411c3db6c64ca660c29" category="summary">La función de control del estado de los switches Ethernet CSHM se utiliza para recopilar registros de switches de red de clúster o almacenamiento en ONTAP.</block>
+  <block id="129ca6886e7c0aa292a0013f8d01e0f6" category="summary">SNMPv3 puede utilizarse con el control del estado del conmutador Ethernet CSHM.</block>
+  <block id="608e93af8c1a89638bf70bcf9e5d130a" category="summary">Sigue estos pasos para instalar el software Ethernet Fabric OS EFOS en el conmutador de clúster BES-53248.</block>
+  <block id="b41a7dd691d25d05d775d9bf2c85110a" category="summary">Puedes instalar el archivo de configuración de referencia RCF después de configurar el conmutador de clúster BES-53248 y después de aplicar las nuevas licencias.</block>
+  <block id="9a81fc8ba4a01863f004ec2b7d1ab49c" category="summary">SSH es un requisito cuando usas las funciones de Cluster Switch Health Monitor (CSHM) y de recopilación de registros. Para habilitar SSH en los switches de clúster BES-53248, primero generas las claves SSH y luego habilitas SSH.</block>
+  <block id="23e833242a47cc3ee42321b95a0175bb" category="summary">La sustitución de un conmutador de clúster BES-53248 defectuoso con soporte de Broadcom en una red de clúster es un procedimiento no disruptivo NDU.</block>
+  <block id="1864f8368cbdcbae0aa7b449880a377c" category="summary">La sustitución de un conmutador BES-53248 compatible con Broadcom defectuoso en una red de clúster es un procedimiento sin interrupciones.</block>
+  <block id="906ad6b73cd9e6d65edfd0e214a3cb4a" category="summary">Sigue estos pasos para actualizar el software Ethernet Fabric OS EFOS en el conmutador de clúster BES-53248.</block>
+  <block id="3fa586c6782d8d9ed13fb2fd8a208cdb" category="summary">SSH es un requisito cuando se utilizan las funciones Cluster Switch Health Monitor y de recopilación de registros. Para habilitar SSH en los conmutadores de clúster Cisco 3132Q-V, primero generas las claves SSH y luego habilitas SSH.</block>
+  <block id="de4458ab7f6068dbff99813d3363f245" category="summary">SSH es un requisito cuando usas las funciones Cluster Switch Health Monitor y de recopilación de registros. Para habilitar SSH en los switches de clúster Cisco 3132q-v, primero generas las claves SSH y luego habilitas SSH.</block>
+  <block id="6620a701d123a0933a3f3b6b1e92f2ba" category="summary">El software Cisco NX-OS y los archivos de configuración de referencia RCF deben instalarse en los switches de clúster Cisco Nexus 3132Q-V.</block>
+  <block id="43368b8a0180033f1f25f94e41cd82df" category="summary">La sustitución de un switch Cisco Nexus 3132Q-V defectuoso en una red en clúster es un procedimiento no disruptivo NDU, y debes realizar una secuencia específica de tareas.</block>
+  <block id="35ef08fe84ca82c2b11faa13a5552cb0" category="summary">SSH es un requisito cuando usas las funciones Cluster Switch Health Monitor y de recopilación de registros. Para habilitar SSH en los switches de clúster Cisco 3232C, primero generas las claves SSH y luego habilitas SSH.</block>
+  <block id="2b22c95ad212ab2e51274a33e7e8030b" category="summary">SSH es un requisito cuando se utilizan las funciones Cluster Switch Health Monitor y de recopilación de registros. Para habilitar SSH en los conmutadores de clúster Cisco 3232c, primero generas las claves SSH y luego habilitas SSH.</block>
+  <block id="0b80f818b0c8c26997674d1b94de13f3" category="summary">El software Cisco NX-OS y los archivos de configuración de referencia RCF deben instalarse en los conmutadores de clúster Cisco Nexus 3232C.</block>
+  <block id="c08a9a43f502117405e3e146fb027e85" category="summary">El software Cisco NX-OS y los archivos de configuración de referencia RCF deben instalarse en los switches de almacenamiento Cisco Nexus 3232C.</block>
+  <block id="f0cbba63fe0485d0d6d69738a9a669e5" category="summary">El software Cisco NX-OS y los archivos de configuración de referencia RCF se pueden actualizar en los switches de almacenamiento Cisco Nexus 3232C.</block>
+  <block id="b2b0edf39628780ce45366ba4ca84392" category="summary">SSH es un requisito cuando usas las funciones Cluster Switch Health Monitor y de recopilación de registros. Para habilitar SSH en los switches de clúster Cisco 92300YC, primero generas las claves SSH y luego habilitas SSH.</block>
+  <block id="fd20c46fa12288caab1fa9d5f7469c1b" category="summary">El software Cisco NX-OS y los archivos de configuración de referencia deben instalarse en los conmutadores de clúster Cisco Nexus 92300YC.</block>
+  <block id="7e587b528f4dcedbc4db78e2545596d6" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="90b9b11f8fd7abc3066a0d7b316e24f5" category="inline-link-macro-rx"></block></block>
+  <block id="841654e405f9a0bb8ffdfb75aaad42c0" category="summary">SSH es un requisito cuando se utilizan las funciones Cluster Switch Health Monitor y de recopilación de registros. Para habilitar SSH en los conmutadores de clúster Cisco 9332d-gx2b, primero generas las claves SSH y luego habilitas SSH.</block>
+  <block id="29421325c2106b4e9184082880e5ea66" category="summary">El software Cisco NX-OS y los archivos de configuración de referencia deben instalarse en los switches de clúster Cisco Nexus 9332D-GX2B.</block>
+  <block id="91d06f8500a917551a5440217dba89f3" category="paragraph">Después de haber instalado o actualizado el software NX-OS, puedes <block ref="76eb954053197b30d476192c7465b363" category="inline-link-macro-rx"></block>.</block>
+  <block id="bf28e42bbd76ac9d7c542101b3ee3931" category="summary">La sustitución de un conmutador Nexus 9332D-GX2B defectuoso en una red de clúster es un procedimiento sin interrupciones.</block>
+  <block id="ebfb47cb0fd72f1145b1474f4040d33d" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="38e656bc27945f705cd928ab2c93fb83" category="inline-link-macro-rx"></block></block>
+  <block id="5b31ee755e00a5a3cc23df4c5ee2f324" category="summary">SSH es un requisito cuando usas las funciones Cluster Switch Health Monitor y de recopilación de registros. Para habilitar SSH en los switches de clúster Cisco 9336c-fx2, primero generas las claves SSH y luego habilitas SSH.</block>
+  <block id="b8c7869aab83ffb3be4bcfbfa10b23c8" category="summary">El software Cisco NX-OS y los archivos de configuración de referencia deben instalarse en los switches de clúster Cisco Nexus 9336C-FX2.</block>
+  <block id="77fdb74564edcab439c72e7d9af00226" category="paragraph">Después de haber instalado o actualizado el software NX-OS, puedes <block ref="bbc21a229d2bff7afb71f10e5c3e230d" category="inline-link-macro-rx"></block>.</block>
+  <block id="04c2bb368c7888ea31fed0b6b4658ee9" category="summary">La sustitución de un conmutador Nexus 9336C-FX2 defectuoso en una red de clúster es un procedimiento sin interrupciones.</block>
+  <block id="fd857595d7d7f811e80cfba0df8f98f8" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="983651a9466a12634a7a3a5579436f67" category="inline-link-macro-rx"></block></block>
+  <block id="79abd5b2dda97ff24898e9572daee12d" category="summary">SSH es un requisito cuando usas las funciones Cluster Switch Health Monitor y de recopilación de registros. Para habilitar SSH en los switches de clúster Cisco 9364d-gx2a, primero generas las claves SSH y luego habilitas SSH.</block>
+  <block id="b6263f0eddfdd6ac4174e6b4c415fb75" category="paragraph">Después de haber instalado o actualizado el software NX-OS, puedes <block ref="a9cd1b97b9eb02a0952efff71db2d3ed" category="inline-link-macro-rx"></block>.</block>
+  <block id="e7a1b78c8c0771f97e46e9dde5c20396" category="summary">La sustitución de un switch Nexus 9364d-gx2a defectuoso en una red de clúster es un procedimiento sin interrupciones.</block>
+  <block id="72a1a76a5a6faf3202dd4efd34bbd310" category="summary">El control del estado de los switches Ethernet CSHM se encarga de garantizar el estado operativo de los switches de red de clúster y almacenamiento y de recopilar los registros de los switches con fines de depuración.</block>
+  <block id="a014d3ed1e1d7c4665a32e412de7933b" category="summary">Puedes usar este procedimiento para configurar SNMPv3 para tu switch específico, que admite el control del estado del switch Ethernet CSHM.</block>
+  <block id="d9154b8d70bef610bba96e93b97edebf" category="summary">Cuando instales un archivo de configuración de referencia RCF, primero debes migrar los LIF del clúster fuera del switch cs2. Después de que el RCF esté instalado y validado, los LIF se pueden migrar de vuelta.</block>
+  <block id="a4c33d2e291f81ac30023413d5151ed1" category="summary">Debes instalar el software FASTPATH y los archivos de configuración de referencia RCF en un conmutador de clúster NetApp CN1610.</block>
+  <block id="9988282f2b81b66b1776de70c0017d2c" category="summary">Si tienes un sistema en el que las estanterías de unidades NS224 deben cablearse como almacenamiento conectado a conmutador y no como almacenamiento conectado directamente, usa la información que se proporciona aquí.</block>
+  <block id="d269d1fe2d9ae994906f5b0f95492726" category="summary">Cumulus Linux CL OS puede instalarse cuando el conmutador está ejecutando Cumulus Linux o ONIE.</block>
+  <block id="16609666d5b3f254c71fec8f6a799b6c" category="summary">La sustitución de un switch NVIDIA SN2100 defectuoso en una red de cluster es un procedimiento sin interrupciones.</block>
+  <block id="c2f363b557f11042735dbadbfbd534d3" category="summary">Puedes usar este procedimiento para instalar el archivo de configuración aplicable para el control del estado de los switches de clúster NVIDIA SN2100.</block>
+  <block id="8c65b4d97114f35bc25f259da3c81bd4" category="summary">La sustitución de un switch de almacenamiento NVIDIA SN2100 defectuoso es un procedimiento sin interrupciones.</block>
+  <block id="2cd1b70f79d5acd7ffb2c204f4069175" category="summary">Puedes usar este procedimiento para instalar el archivo de configuración aplicable para el control del estado de los switches de clúster NVIDIA SN2100 de almacenamiento.</block>
+  <block id="c58eb22b1f3d0163cbb375622152a522" category="sidebar">Install_upgrade_rcf_9332d-gx2b</block>
+  <block id="f4928eb25627cf90ea59457efbdeff2e" category="sidebar">Install_upgrade_rcf_9336c-fx2</block>
+  <block id="0cd336fd1f7f13a9e5729ff446719dda" category="sidebar">Install_upgrade_rcf_9364d-gx2a</block>
 </blocks>

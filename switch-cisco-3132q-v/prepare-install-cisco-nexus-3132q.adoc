@@ -2,7 +2,7 @@
 permalink: switch-cisco-3132q-v/prepare-install-cisco-nexus-3132q.html 
 sidebar: sidebar 
 keywords: install, nx-os software, rcfs, cisco nexus 3132q-v, cluster switches 
-summary: 'El software Cisco NX-OS y los archivos de configuración de referencia (RCF) deben instalarse en los switches de clúster Cisco Nexus 3132Q-V.' 
+summary: El software Cisco NX-OS y los archivos de configuración de referencia RCF deben instalarse en los switches de clúster Cisco Nexus 3132Q-V. 
 ---
 = Prepárese para instalar el software NX-OS y el archivo de configuración de referencia.
 :allow-uri-read: 
