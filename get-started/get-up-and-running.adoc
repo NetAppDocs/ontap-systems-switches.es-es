@@ -68,7 +68,8 @@ Instala tu sistema de almacenamiento y estantes en el armario o estantería.  Ac
  a| 
  a| 
 * https://docs.netapp.com/us-en/ontap-afx/index.html["Sistemas AFX"^]
-* https://docs.netapp.com/us-en/ontap-systems/aff-landing/index.html["Sistemas AFF"^]
+* https://docs.netapp.com/us-en/ontap-systems/aff-aseries/index.html["Sistemas AFF Serie A"^]
+* https://docs.netapp.com/us-en/ontap-systems/aff-cseries/index.html["Sistemas AFF Serie C"^]
 * https://docs.netapp.com/us-en/ontap-systems/allsan-landing/index.html["Sistemas ASA"^]
 * https://docs.netapp.com/us-en/asa-r2/index.html["Sistemas ASA r2"^]
 * https://docs.netapp.com/us-en/ontap-systems/fas/index.html["Sistemas FAS"^]
@@ -172,7 +173,8 @@ Después de configurar sus conmutadores e instalar el software necesario, acceda
  a| 
  a| 
 * https://docs.netapp.com/us-en/ontap-afx/index.html["Sistemas AFX"^]
-* https://docs.netapp.com/us-en/ontap-systems/aff-landing/index.html["Sistemas AFF"^]
+* https://docs.netapp.com/us-en/ontap-systems/aff-aseries/index.html["Sistemas AFF Serie A"^]
+* https://docs.netapp.com/us-en/ontap-systems/aff-cseries/index.html["Sistemas AFF Serie C"^]
 * https://docs.netapp.com/us-en/ontap-systems/allsan-landing/index.html["Sistemas ASA"^]
 * https://docs.netapp.com/us-en/asa-r2/index.html["Sistemas ASA r2"^]
 * https://docs.netapp.com/us-en/ontap-systems/fas/index.html["Sistemas FAS"^]
