@@ -51,6 +51,7 @@ CAUTION: Antes de instalar una nueva versión del software del switch y los RCF,
 
 
 
+[[step-1-prepare-for-upgrade]]
 == Paso 1: Prepararse para la actualización
 
 . Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport :
@@ -266,6 +267,7 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 
 
 
+[[step-2-configure-ports]]
 == Paso 2: Configurar puertos
 
 . En el switch cs2, confirme la lista de puertos que están conectados a los nodos del clúster.
@@ -927,6 +929,7 @@ Para más detalles, consulta link:https://docs.netapp.com/us-en/ontap/networking
 
 
 
+[[step-3-verify-the-configuration]]
 == Paso 3: Verificar la configuración
 
 . En el switch cs1, verifique que los puertos del switch conectados a los puertos del clúster estén *activos*:

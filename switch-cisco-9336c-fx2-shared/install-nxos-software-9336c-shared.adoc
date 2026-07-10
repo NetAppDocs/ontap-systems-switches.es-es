@@ -17,6 +17,7 @@ Antes de comenzar, complete el procedimiento enlink:prepare-nxos-rcf-9336c-share
 
 
 
+[[review-requirements]]
 == Requisitos de revisión
 
 .Antes de empezar
@@ -55,6 +56,7 @@ Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interru
 
 
 
+[[install-the-software]]
 == Instala el software
 
 El procedimiento requiere el uso de comandos ONTAP y comandos de switches Cisco Nexus serie 9000; se utilizan comandos ONTAP a menos que se indique lo contrario.

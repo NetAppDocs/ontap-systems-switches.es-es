@@ -18,6 +18,7 @@ CAUTION: Para EFOS 3.12 y posteriores, sigue los pasos de instalación en link:e
 
 
 
+[[review-requirements]]
 == Requisitos de revisión
 
 .Antes de empezar
@@ -35,6 +36,7 @@ Consulta la tabla de compatibilidad de switches para las versiones compatibles d
 
 
 
+[[install-the-configuration-file]]
 == Instala el archivo de configuración
 
 .Acerca de los ejemplos
@@ -60,6 +62,7 @@ CAUTION: Antes de instalar una nueva versión del software del switch y los RCFs
 
 
 
+[[step-1-prepare-for-the-installation]]
 == Paso 1: Prepararse para la instalación
 
 . Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport :
@@ -278,6 +281,7 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 
 
 
+[[step-2-configure-ports]]
 == Paso 2: Configurar puertos
 
 . En el switch cs2, confirme la lista de puertos que están conectados a los nodos del clúster.
@@ -960,6 +964,7 @@ Configuration Saved! System will now restart!
 
 
 
+[[step-3-verify-the-configuration]]
 == Paso 3: Verificar la configuración
 
 . En el switch cs1, verifique que los puertos del switch conectados a los puertos del clúster estén *activos*:

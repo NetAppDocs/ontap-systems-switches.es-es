@@ -1,0 +1,76 @@
+---
+permalink: switch-cisco-9364d-gx2a/install-configure-switches-in-afx-workflow-9364d.html 
+sidebar: sidebar 
+keywords: switches, initial installation, configure 9364d-gx2ab switch 
+summary: Para instalar y configurar tus switches Cisco Nexus 9364D-GX2A como parte de tu nuevo sistema AFX 1K o AFX 2K, usas una combinación de la documentación de este sitio de switches y del sitio de sistemas AFX. La documentación proporciona enlaces que te dirigen según lo necesites. 
+---
+= Instala y configura switches en un flujo de trabajo del sistema AFX - Cisco Nexus 9364D-GX2A
+:allow-uri-read: 
+
+
+[role="lead"]
+Para instalar y configurar tus switches Cisco Nexus 9364D-GX2A como parte de tu nuevo sistema AFX 1K o AFX 2K, usas una combinación de la documentación de este sitio de switches y del sitio de sistemas AFX. La documentación proporciona enlaces que te dirigen según lo necesites.
+
+
+
+[[install-switches]]
+=== Instalar interruptores
+
+Para instalar tus conmutadores, primero debes preparar la instalación y luego instalar los conmutadores (junto con el hardware del sistema AFX), lo que incluye el cableado y encender los conmutadores.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1"]link:install-prepare-9364d.html["Prepárate para la instalación"]
+[role="quick-margin-para"]
+Prepárate para instalar y configurar los switches revisando la documentación de los sistemas Cisco y ONTAP, preparando tu sitio y entendiendo la configuración preestablecida de los puertos del switch para la versión de RCF compatible con tu sistema AFX.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"]link:install-switches-9364d.html["Instala los switches"]
+[role="quick-margin-para"]
+Se te dirige al flujo de trabajo de instalación y configuración del sistema AFX 1K o AFX 2K para instalar los switches (junto con el hardware del sistema AFX), cablear los switches y luego encenderlos. Después, se te dirige de nuevo a este flujo de trabajo para configurar los switches.
+
+
+
+[[configure-switches]]
+=== Configura conmutadores
+
+Para configurar tus conmutadores, debes completar la configuración inicial de los mismos, revisar los requisitos de cableado y configuración, instalar el NX-OS, instalar el RCF, verificar SSH para la recopilación de registros, configurar el monitoreo de estado de los conmutadores Ethernet (CSHM) y configurar Smart Call Home (opcional).
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1"]link:configure-complete-initial-setup-9364d.html["Completa la configuración inicial del conmutador"]
+[role="quick-margin-para"]
+Una vez encendidos los conmutadores, estos comienzan a arrancar y acceden al asistente de configuración. Se te pedirá que respondas a una serie de preguntas para realizar la configuración inicial (de puesta en marcha) de los conmutadores.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"]link:configure-review-cabling-config-requirements-9364d.html["Revisa los requisitos de cableado y configuración"]
+[role="quick-margin-para"]
+Revisa los requisitos de cableado y configuración.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"]link:configure-install-nxos-9364d.html["Instala el NX-OS"]
+[role="quick-margin-para"]
+Instala la versión actual de NX-OS en los conmutadores compatibles con tu sistema AFX 1K o AFX 2K.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"]link:configure-install-upgrade-rcf-overview-9364d.html["Instala el RCF"]
+[role="quick-margin-para"]
+Instala la versión actual de RCF en los conmutadores que soportan tu sistema AFX 1K o AFX 2K. El enlace te lleva al tema de información general sobre la instalación o actualización de RCF, donde encontrarás lo que necesitas saber antes de instalar el RCF.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-verify-ssh-9364d.html["Verifica SSH para la recopilación de registros"]
+[role="quick-margin-para"]
+Comprueba que SSH esté habilitado para que puedas usar la función de recopilación de registros del control del estado del switch Ethernet (CSHM).
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]link:../switch-cshm/cshm-overview.html["Configura el control del estado del switch Ethernet"]
+[role="quick-margin-para"]
+Configura el control del estado de los switches Ethernet (CSHM) para garantizar el buen funcionamiento de tus switches y para recopilar los registros de los switches con fines de depuración y resolución de problemas.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Siete"]link:configure-smart-call-9364d.html["Configura Smart Call Home (opcional)"]
+[role="quick-margin-para"]
+ONTAP admite el control del estado de los switches Ethernet (CSHM) para supervisar los switches del clúster AFX, así como la capacidad de recopilar registros de diagnóstico de los switches. Smart Call Home de Cisco es una opción que ofrece soporte proactivo y te ayuda a resolver cualquier problema que pueda surgir con los switches.
+
+
+
+[[complete-afx-system-setup]]
+=== Configuración completa del sistema AFX
+
+Para completar la configuración de tu sistema AFX 1K o AFX 2K, debes encender los componentes del sistema AFX y seguir los procedimientos de configuración del sistema.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1"]link:install-complete-afx-setup-9364d.html["Finaliza la configuración del sistema AFX"]
+[role="quick-margin-para"]
+Se te dirige a la documentación de los sistemas AFX para completar la configuración de tu sistema AFX 1K o AFX 2K encendiendo las estanterías de almacenamiento y los controladores, verificando la conectividad de los switches y luego completando los procedimientos de configuración del sistema.
+
+.¿Que sigue?
+Una vez que hayas completado la configuración del sistema AFX, puedes empezar a usar tu sistema AFX. También puedes link:https://docs.netapp.com/us-en/ontap-afx/index.html["obtén más información sobre tu sistema AFX y cómo utilizarlo"^].

@@ -1,0 +1,198 @@
+---
+permalink: switch-cisco-9364d-gx2a/configure-complete-initial-setup-9364d.html 
+sidebar: sidebar 
+keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9364d-gx2a 
+summary: Después de encender los conmutadores Cisco Nexus 9364D-GX2A como parte de la instalación de un nuevo sistema AFX 1K o AFX 2K, o de la sustitución de un conmutador, o tras restablecer un conmutador a sus ajustes predeterminados de fábrica, se te pedirá que completes la configuración inicial de los conmutadores usando el asistente de configuración. Puedes consultar las siguientes preguntas del asistente de configuración y las respuestas recomendadas para ayudarte a completar la configuración inicial de los conmutadores. 
+---
+= Completa la configuración inicial del switch - Cisco Nexus 9364D-GX2A
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Después de encender los conmutadores Cisco Nexus 9364D-GX2A como parte de la instalación de un nuevo sistema AFX 1K o AFX 2K, o de la sustitución de un conmutador, o tras restablecer un conmutador a sus ajustes predeterminados de fábrica, se te pedirá que completes la configuración inicial de los conmutadores usando el asistente de configuración. Puedes consultar las siguientes preguntas del asistente de configuración y las respuestas recomendadas para ayudarte a completar la configuración inicial de los conmutadores.
+
+.Antes de empezar
+Asegúrate de disponer de la información de red y configuración de cada switch y las licencias correspondientes.
+
+.Acerca de esta tarea
+* Debes realizar la configuración inicial en cada conmutador.
+* Si lo necesitas, puedes consultar tu versión de NX-OS de la link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/104x/configuration/fundamentals/cisco-nexus-9000-series-nx-os-fundamentals-configuration-guide-release-104x.html["Guía de configuración básica de NX-OS para la serie Cisco Nexus 9000"^] para obtener información sobre cómo configurar los switches, que se encuentra en el capítulo "Uso de la utilidad de configuración de Cisco NX-OS". También puedes encontrar información sobre la configuración de terminales en el capítulo "Configuración de los ajustes y sesiones de terminal".
+
+
+.Pasos
+. Conecta tu ordenador portátil al puerto de consola serie de los switches.
++
+.. Configura el puerto de la consola serie del portátil a 9,600 baudios con N-8-1.
+
+
+. Establece la contraseña del usuario admin, como se te indique.
+. Finaliza la configuración inicial del switch respondiendo a las siguientes preguntas.
++
+
+NOTE: La política de seguridad de su sitio define las respuestas y los servicios que se deben habilitar.
+
++
+[cols="1,2"]
+|===
+| Inmediato | Respuesta 
+
+
+ a| 
+¿Interrumpir el aprovisionamiento automático y continuar con la configuración normal?  (sí/no)
+ a| 
+Responda con *sí*.  El valor predeterminado es no.
+
+
+
+ a| 
+¿Desea implementar un estándar de contraseñas seguras?  (sí/no)
+ a| 
+Responda con *sí*.  La respuesta predeterminada es sí.
+
+
+
+ a| 
+Introduzca la contraseña de administrador.
+ a| 
+La contraseña predeterminada es "`admin`"; debe crear una contraseña nueva y segura.  Una contraseña débil puede ser rechazada.
+
+
+
+ a| 
+¿Desea acceder al cuadro de diálogo de configuración básica?  (sí/no)
+ a| 
+Responda con *sí* en la configuración inicial del switch.
+
+
+
+ a| 
+¿Crear otra cuenta de inicio de sesión?  (sí/no)
+ a| 
+La respuesta depende de las políticas de su sitio web sobre administradores alternativos.  El valor predeterminado es *no*.
+
+
+
+ a| 
+¿Configurar la cadena de comunidad SNMP de solo lectura?  (sí/no)
+ a| 
+Responda con *no*.  El valor predeterminado es no.
+
+
+
+ a| 
+¿Configurar la cadena de comunidad SNMP de lectura y escritura?  (sí/no)
+ a| 
+Responda con *no*.  El valor predeterminado es no.
+
+
+
+ a| 
+Introduzca el nombre del interruptor.
+ a| 
+Introduzca el nombre del interruptor, que está limitado a 63 caracteres alfanuméricos.
+
+
+
+ a| 
+¿Continuar con la configuración de administración fuera de banda (mgmt0)?  (sí/no)
+ a| 
+Responda con *sí* (la opción predeterminada) a esa pregunta.  En el indicador de dirección IPv4 de mgmt0, ingrese su dirección IP: ip_address.
+
+
+
+ a| 
+¿Configurar la puerta de enlace predeterminada?  (sí/no)
+ a| 
+Responda con *sí*.  En el prompt Dirección IPv4 de la puerta de enlace predeterminada: ingrese su puerta de enlace predeterminada.
+
+
+
+ a| 
+¿Configurar opciones IP avanzadas?  (sí/no)
+ a| 
+Responda con *no*.  El valor predeterminado es no.
+
+
+
+ a| 
+¿Habilitar el servicio telnet?  (sí/no)
+ a| 
+Responda con *no*.  El valor predeterminado es no.
+
+
+
+ a| 
+¿Servicio SSH habilitado?  (sí/no)
+ a| 
+Responda con *sí*.  La respuesta predeterminada es sí.
+
+
+NOTE: Se recomienda utilizar SSH al usar Ethernet Switch Health Monitor (CSHM) por sus funciones de recopilación de registros.  También se recomienda SSHv2 para mayor seguridad.
+
+
+
+ a| 
+Ingrese el tipo de clave SSH que desea generar (dsa/rsa/rsa1).
+ a| 
+El valor predeterminado es *rsa*.
+
+
+
+ a| 
+Ingrese el número de bits de clave (1024-2048).
+ a| 
+Ingrese el número de bits de clave de 1024 a 2048.
+
+
+
+ a| 
+¿Configurar el servidor NTP?  (sí/no)
+ a| 
+Responda con *no*.  El valor predeterminado es no.
+
+
+
+ a| 
+Configurar la capa de interfaz predeterminada (L3/L2)
+ a| 
+Responda con *L2*.  El valor predeterminado es L2.
+
+
+
+ a| 
+Configurar el estado predeterminado de la interfaz del puerto del switch (apagado/abierto)
+ a| 
+Responda con *noshut*.  El valor predeterminado es noshut.
+
+
+
+ a| 
+Configurar el perfil del sistema CoPP (estricto/moderado/permisivo/denso)
+ a| 
+Responda con *estricto*.  El valor predeterminado es estricto.
+
+
+
+ a| 
+¿Desea editar la configuración?  (sí/no)
+ a| 
+En este punto debería ver la nueva configuración.  Revise y realice los cambios necesarios en la configuración que acaba de ingresar.  Responda con *no* cuando se le solicite si está satisfecho con la configuración.  Responda con *sí* si desea editar su configuración.
+
+
+
+ a| 
+¿Usar esta configuración y guardarla?  (sí/no)
+ a| 
+Responda con *sí* para guardar la configuración.  Esto actualiza automáticamente las imágenes de kickstart y del sistema.
+
+
+NOTE: Si no guarda la configuración en este paso, ninguno de los cambios tendrá efecto la próxima vez que reinicie el switch.
+
+|===
+. Verifique las opciones de configuración que seleccionó en la pantalla que aparece al final de la configuración y asegúrese de guardar la configuración.
+
+
+.¿Que sigue?
+Una vez que hayas completado la configuración inicial del conmutador, link:configure-review-cabling-config-requirements-9364d.html["revisar los requisitos de cableado y configuración"].

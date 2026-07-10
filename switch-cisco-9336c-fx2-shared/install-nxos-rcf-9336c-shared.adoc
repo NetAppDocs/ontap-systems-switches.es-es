@@ -31,6 +31,7 @@ Verifique las siguientes instalaciones y conexiones:
 
 
 
+[[step-1-install-the-rcf-on-the-switches]]
 == Paso 1: Instale el RCF en los interruptores
 
 . Inicie sesión para cambiar cs1 usando SSH o mediante una consola serial.
@@ -147,6 +148,7 @@ cs1# copy running-config startup-config [#######################################
 
 
 
+[[step-2-verify-the-switch-connections]]
 == Paso 2: Verifique las conexiones del interruptor
 
 . Verifique que los puertos del switch conectados a los puertos del clúster estén *activos*.
@@ -357,6 +359,7 @@ cs1#
 
 
 
+[[step-3-set-up-your-ontap-cluster]]
 == Paso 3: Configura tu clúster ONTAP
 
 NetApp recomienda utilizar System Manager para configurar nuevos clústeres.

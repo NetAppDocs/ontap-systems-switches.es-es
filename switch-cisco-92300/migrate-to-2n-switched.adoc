@@ -22,6 +22,7 @@ NOTE: Después de que termine tu migración, puede que necesites instalar el arc
 
 
 
+[[review-requirements]]
 == Requisitos de revisión
 
 .Antes de empezar
@@ -54,6 +55,7 @@ El link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Interruptores"^
 
 
 
+[[migrate-the-switch]]
 == Migrar el interruptor
 
 .Acerca de los ejemplos
@@ -71,6 +73,7 @@ La link:https://hwu.netapp.com["Hardware Universe"^] contiene la información m�
 
 
 
+[[step-1-prepare-for-migration]]
 === Paso 1: Prepararse para la migración
 
 . Cambie el nivel de privilegio a avanzado, ingresando `y` cuando se le solicite continuar:
@@ -106,6 +109,7 @@ cluster1::*> *system node autosupport invoke -node * -type all -message MAINT=2h
 
 
 
+[[step-2-configure-cables-and-ports]]
 === Paso 2: Configurar cables y puertos
 
 . Deshabilite todos los puertos orientados a nodos (excepto los puertos ISL) en ambos conmutadores de clúster nuevos cs1 y cs2.
@@ -398,6 +402,7 @@ cs2(config-if-range)# *no shutdown*
 
 
 
+[[step-3-verify-the-configuration]]
 === Paso 3: Verificar la configuración
 
 . Habilitar la reversión automática en los LIF del clúster.

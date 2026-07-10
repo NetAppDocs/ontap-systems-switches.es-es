@@ -15,17 +15,17 @@ Siga este procedimiento para instalar y configurar el conmutador Cisco Nexus 323
 
 .Antes de empezar
 * Acceso a un servidor HTTP, FTP o TFTP en el sitio de instalación para descargar las versiones aplicables de NX-OS y el archivo de configuración de referencia (RCF).
-* Versión aplicable de NX-OS, descargada desde https://software.cisco.com/download/home["Descarga de software de Cisco"^] página.
+* Versión de NX-OS aplicable, descargada de la link:https://software.cisco.com/download/home["Descarga de software de Cisco"^] página.
 * Documentación necesaria sobre la red y el switch de red de gestión.
 +
 Consulta link:required-documentation-3232c-storage.html["Documentación requerida"] para más información.
 
 * Documentación requerida del controlador y documentación de ONTAP .
 +
-https://netapp.com/us/documenation/index.aspx["Documentación de NetApp"^]
+link:https://docs.netapp.com/us-en/ontap/index.html["Documentación de ONTAP 9"^]
 
 * Licencias aplicables, información de red y configuración, y cables.
-* RCFs aplicables de la red de almacenamiento y la red de gestión de NetApp, descargados del NetApp Support Site en http://mysupport.netapp.com/["mysupport.netapp.com"^] para los switches que recibas. Todos los switches de red de almacenamiento y red de gestión de Cisco llegan con la configuración estándar predeterminada de fábrica de Cisco. Estos switches también tienen la versión actual del software NX-OS, pero no tienen los RCFs cargados.
+* Los RCF aplicables a las redes de almacenamiento y gestión de NetApp, descargados del NetApp Support Site en link:http://mysupport.netapp.com/["mysupport.netapp.com"^] para los switches que recibas. Todos los switches de redes de almacenamiento y gestión de Cisco llegan con la configuración predeterminada de fábrica estándar de Cisco. Estos switches también tienen la versión actual del software NX-OS, pero no tienen los RCF cargados.
 
 
 .Pasos

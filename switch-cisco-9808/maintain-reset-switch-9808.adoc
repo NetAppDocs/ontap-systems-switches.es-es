@@ -1,0 +1,59 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9808/maintain-reset-switch-9808.html 
+keywords: reset switch factory defaults 
+summary: Puedes restablecer un switch Cisco Nexus 9808 a su configuración predeterminada de fábrica cuando el switch se va a descomisionar o cuando falla y no puede recuperarse, lo que requiere que lo reconfigures manualmente. 
+---
+= Restablecer un conmutador a los ajustes predeterminados de fábrica - Cisco Nexus 9808
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes restablecer un switch Cisco Nexus 9808 a su configuración predeterminada de fábrica cuando el switch se va a descomisionar o cuando falla y no puede recuperarse, lo que requiere que lo reconfigures manualmente.
+
+.Antes de empezar
+Debes estar conectado al switch mediante la consola serie.
+
+.Acerca de esta tarea
+* Esta tarea restablece la configuración de la red de administración.
+* El comando  `reload` utilizado en este procedimiento reinicia el conmutador, lo que interrumpe todo el tráfico de red que pasa por él. (Debes realizar este procedimiento durante una ventana de mantenimiento cuando el conmutador no esté en uso.)
+
+
+.Pasos
+. Borra la configuración de inicio actual:
++
+`write erase`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *write erase*
+
+Warning: This command will erase the startup-configuration.
+Do you wish to proceed anyway? (y/n) [n] *y*
+----
+. Reinicia el NX-OS:
++
+`reload`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *reload*
+
+This command will reboot the system. (y/n)? [n] *y*
+----
++
+El sistema se reinicia y entra en el asistente de configuración.
+
++
+
+NOTE: Durante el reinicio, si aparece el mensaje «¿Desea cancelar la configuración automática y continuar con la instalación normal? (sí/no)[n]», responde *sí* para continuar.
+
+. Si el conmutador va a ser descomisionado, ya has terminado con este procedimiento; de lo contrario, debes configurar el conmutador usando el link:configure-switch-workflow-9808.html["Configura el flujo de trabajo del conmutador"].
+

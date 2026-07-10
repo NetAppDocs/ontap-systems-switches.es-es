@@ -15,18 +15,21 @@ Para la instalación y el mantenimiento del switch BES-53248, asegúrese de revi
 
 
 
+[[efos-and-ontap-support]]
 == Soporte para EFOS y ONTAP
 
 Consulta el link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] y el link:https://mysupport.netapp.com/site/info/broadcom-cluster-switch["Matriz de compatibilidad de conmutadores Broadcom"^] para información sobre la compatibilidad de EFOS y ONTAP con los switches BES-53248. El soporte de EFOS y ONTAP puede variar según el tipo de máquina específico del switch BES-53248. Para detalles de todos los tipos de máquina del switch BES-52348, consulta link:components-bes53248.html["Componentes y números de pieza para los interruptores de clúster BES-53248"]. Consulta link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["¿Qué información adicional necesito para instalar mi equipo que no está en HWU?"]^ para más información sobre los requisitos de instalación del switch.
 
 
 
+[[configuration-requirements]]
 == Requisitos de configuración
 
 Para configurar un clúster, necesita el número y tipo adecuados de cables y conectores de cable para los conmutadores del clúster.  Dependiendo del tipo de conmutador de clúster que esté configurando inicialmente, deberá conectarse al puerto de consola del conmutador con el cable de consola incluido.
 
 
 
+[[cluster-switch-port-assignments]]
 === Asignaciones de puertos de conmutador de clúster
 
 Puede utilizar la tabla de asignaciones de puertos del conmutador de clúster BES-53248 compatible con Broadcom como guía para configurar su clúster.
@@ -67,6 +70,7 @@ Consulta el link:https://hwu.netapp.com/Switch/Index["Hardware Universe"] para m
 
 
 
+[[port-group-speed-constraint]]
 === restricción de velocidad del grupo de puertos
 
 * En los conmutadores de clúster BES-53248, los 48 puertos 10/25GbE (SFP28/SFP+) se combinan en 12 grupos de 4 puertos de la siguiente manera: Puertos 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44 y 45-48.
@@ -75,6 +79,7 @@ Consulta el link:https://hwu.netapp.com/Switch/Index["Hardware Universe"] para m
 
 
 
+[[additional-requirements]]
 === Requisitos adicionales
 
 * Si compras licencias adicionales, consulta link:configure-licenses.html["Activar puertos con licencias nuevas"] para saber cómo activarlas.

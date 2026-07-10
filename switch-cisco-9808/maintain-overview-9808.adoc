@@ -1,0 +1,20 @@
+---
+permalink: switch-cisco-9808/maintain-overview-9808.html 
+sidebar: sidebar 
+keywords: maintain overview, frus, replace switch, reset to factory defaults, cisco 9808 
+summary: 'Realiza el mantenimiento de tu switch Cisco Nexus 9808 para asegurar la fiabilidad a largo plazo y un rendimiento óptimo. Puedes realizar tareas de mantenimiento como reemplazar componentes del switch que hayan fallado (FRU), cambiar un switch defectuoso y restablecer un switch a la configuración predeterminada de fábrica.' 
+---
+= Mantén la visión general - Cisco Nexus 9808
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Realiza el mantenimiento de tu switch Cisco Nexus 9808 para garantizar la fiabilidad a largo plazo y un rendimiento óptimo. Puedes realizar tareas de mantenimiento como reemplazar componentes defectuosos del switch (FRU), reemplazar un switch defectuoso y restablecer un switch a la configuración predeterminada de fábrica.
+
+Puedes realizar las siguientes tareas de mantenimiento en un conmutador:
+
+* link:maintain-replace-frus-9808.html["Sustituye las FRU"]
+* link:maintain-reset-switch-9808.html["Restablecer un conmutador a los ajustes predeterminados de fábrica"]
+

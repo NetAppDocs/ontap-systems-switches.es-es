@@ -17,6 +17,7 @@ El proceso de migración funciona para todos los puertos de nodos del clúster q
 
 
 
+[[review-requirements]]
 == Requisitos de revisión
 
 Revise los siguientes requisitos para el entorno del clúster.
@@ -61,6 +62,7 @@ El link:https://hwu.netapp.com/Home/Index["Hardware Universe"^] contiene informa
 
 
 
+[[migrate-to-the-cluster-environment]]
 == Migrar al entorno de clúster
 
 .Acerca de los ejemplos
@@ -78,6 +80,7 @@ La link:https://hwu.netapp.com/Home/Index["Hardware Universe"^] contiene la info
 
 
 
+[[step-1-prepare-for-migration]]
 === Paso 1: Prepararse para la migración
 
 . Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport :
@@ -110,6 +113,7 @@ La solicitud avanzada(`*>` ) aparece.
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Paso 2: Configurar puertos y cableado
 
 . Deshabilite todos los puertos orientados al nodo activados (que no sean puertos ISL) en ambos conmutadores del nuevo clúster cs1 *y* cs2.
@@ -415,6 +419,7 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 
 
 
+[[step-3-verify-the-configuration]]
 === Paso 3: Verificar la configuración
 
 . Habilitar la reversión automática en los LIF del clúster.

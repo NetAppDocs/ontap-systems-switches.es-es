@@ -16,6 +16,7 @@ El control del estado de switches Ethernet (CSHM) es responsable de garantizar e
 ====
 
 
+[[before-you-begin]]
 == Antes de empezar
 
 * El usuario debe tener acceso al interruptor. `show` comandos.  Si estos no están disponibles, cree un nuevo usuario y otórguele los permisos necesarios.
@@ -34,6 +35,7 @@ El control del estado de switches Ethernet (CSHM) es responsable de garantizar e
 
 
 
+[[steps]]
 == Pasos
 
 [role="tabbed-block"]

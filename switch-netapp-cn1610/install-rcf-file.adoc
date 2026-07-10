@@ -17,6 +17,7 @@ Antes de instalar un RCF, primero debe migrar las LIF del clúster fuera del swi
 
 
 
+[[review-requirements]]
 == Requisitos de revisión
 
 .Antes de empezar
@@ -36,6 +37,7 @@ Asegúrese de consultar la tabla de compatibilidad del switch en el http://mysup
 
 
 
+[[install-the-rcf]]
 == Instala el RCF
 
 El siguiente procedimiento utiliza la sintaxis de Data ONTAP 8.2 en clúster.  Como resultado, el Vserver del clúster, los nombres de LIF y la salida de la CLI son diferentes a los de Data ONTAP 8.3.
@@ -66,6 +68,7 @@ Asegúrese de consultar la tabla de compatibilidad del switch en el http://mysup
 
 
 
+[[step-1-migrate-cluster]]
 === Paso 1: Migrar el clúster
 
 . Guarda la información de configuración actual de tu switch:
@@ -180,6 +183,7 @@ node2
 
 
 
+[[step-2-install-rcf]]
 === Paso 2: Instalar RCF
 
 . Copie el RCF al switch.
@@ -369,6 +373,7 @@ cluster::*> network port modify -node node2 -port e2a -up-admin true
 
 
 
+[[step-3-validate-installation]]
 === Paso 3: Validar la instalación
 
 . Verifique que el puerto e2a esté activo en ambos nodos:

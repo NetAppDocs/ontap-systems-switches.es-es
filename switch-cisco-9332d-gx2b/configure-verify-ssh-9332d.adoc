@@ -1,0 +1,80 @@
+---
+permalink: switch-cisco-9332d-gx2b/configure-verify-ssh-9332d.html 
+sidebar: sidebar 
+keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9332d-gx2b 
+summary: 'Si estás configurando tus conmutadores como parte de la instalación de un nuevo sistema AFX 1K o AFX 2K, de la sustitución de un conmutador o de un restablecimiento a los ajustes predeterminados de fábrica, y quieres usar el control del estado del conmutador (CSHM) y las funciones de recopilación de registros, debes verificar que SSH y las claves SSH estén habilitadas en los conmutadores.' 
+---
+= Verifica SSH para la recopilación de registros - Cisco Nexus 9332D-GX2B
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si estás configurando tus switches como parte de la instalación de un nuevo sistema AFX 1K o AFX 2K, de la sustitución de un switch o de un restablecimiento a los ajustes predeterminados de fábrica, para usar la función de recopilación de registros del control del estado del switch Ethernet (CSHM), debes verificar que SSH esté habilitado en los switches.
+
+.Antes de empezar
+Debes estar conectado al switch mediante la consola serie.
+
+.Pasos
+. Verifique que SSH esté habilitado:
++
+[listing, subs="+quotes"]
+----
+(switch) *show ssh server*
+ssh version 2 is enabled
+----
+. Verifique que las claves SSH estén habilitadas:
++
+`show ssh key`
+
++
+.Mostrar ejemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(switch)# *show ssh key*
+
+**************************************
+rsa Keys generated:Wed May 14 18:49:37 2025
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQCndfdJesautdCwk5Mk/7pKOFl0IeShc9uBtj74F52vbjyf1FHOCXX7Xf3Vopxs6L1hbzgCpFLo9E7pZBd3I+1AoLyQULtR3svzNieGY8mlWZGLtpKf/P2fDCd8JVJaejrwQhm49WUPiC6ziEqBDMOGhJpD2e9++umyDdr6
+NbmK8Q==
+
+
+bitcount:1024
+fingerprint:
+SHA256:QtNU+Qq2I4ZfYwEfMEB1+z8w7xaKTlantTdsjLBx+OU
+**************************************
+could not retrieve dsa key information
+**************************************
+ecdsa Keys generated:Wed May 14 18:50:56 2025
+
+
+ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBAAYnv17T+JlGmH8rg81xiOow0mPmkbkIG0o7h9EchixO3i3KjgQr8AwqkRHNTcQC3lRnizhJFUeMGCwuQTurziRCwE6fAOkWa2MRyXA1DYRKKXjVEOnW9+MvinMipHQ0cCc
+YSExhh7j4HvWHIuYv8RmD7e3rmDQFlyyiLwdmpGfas2yaw==
+
+
+bitcount:521
+fingerprint:
+SHA256:7cpZ5NGnIq5Iamw67ke+9o4qG9D3xxmGPauVl4X5934
+**************************************
+
+(switch)# *show feature | include scpServer*
+scpServer              1          enabled
+(switch)# *show feature | include ssh*
+sshServer              1          enabled
+(switch)#
+----
+====
+
+
+.¿Que sigue?
+* Una vez que hayas comprobado que SSH está habilitado para la recopilación de registros, link:../switch-cshm/cshm-overview.html["Configura el control del estado del conmutador Ethernet"].
++
+** Una vez que hayas configurado el control del estado del conmutador Ethernet, si deseas aprovechar la función de soporte «Smart Call Home» de Cisco, link:configure-smart-call-9332d.html["configura Smart Call Home"].
+
+
+* Si has configurado tu conmutador como parte de la instalación de un nuevo sistema AFX 1K o AFX 2K, debes link:install-complete-afx-setup-9332d.html["Completa la configuración del sistema AFX"].
+

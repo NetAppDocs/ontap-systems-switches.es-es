@@ -108,6 +108,7 @@ N9K-9336C 65 CFM, flujo de aire de entrada del lado de babor
 |===
 
 
+[[cisco-smart-licenses-for-9336c-fx2-t-ports-only]]
 == Licencias inteligentes de Cisco solo para puertos 9336C-FX2-T
 
 Para activar más de 12 puertos en su switch de almacenamiento Cisco Nexus 9336C-FX-T, debe adquirir una licencia Cisco Smart.  Las licencias Cisco Smart se gestionan a través de cuentas Cisco Smart.

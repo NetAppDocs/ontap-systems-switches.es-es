@@ -17,6 +17,7 @@ Antes de comenzar, complete el procedimiento enlink:install-nxos-overview-9336c-
 
 
 
+[[review-requirements]]
 == Requisitos de revisión
 
 .Antes de empezar
@@ -53,6 +54,7 @@ Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interru
 
 
 
+[[install-or-upgrade-the-software]]
 == Instala o actualiza el software
 
 El procedimiento requiere el uso de comandos ONTAP y comandos de switches Cisco Nexus serie 9000; se utilizan comandos ONTAP a menos que se indique lo contrario.

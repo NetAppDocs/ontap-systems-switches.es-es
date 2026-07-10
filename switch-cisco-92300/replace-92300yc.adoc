@@ -15,6 +15,7 @@ Reemplazar un switch Nexus 92300YC defectuoso en una red de clúster es un proce
 
 
 
+[[review-requirements]]
 == Requisitos de revisión
 
 .Antes de empezar
@@ -45,6 +46,7 @@ Las personalizaciones previas del sitio, como STP, SNMP y SSH, se copian al nuev
 
 
 
+[[enable-console-logging]]
 == Habilitar el registro en la consola
 
 NetApp recomienda encarecidamente que habilite el registro de consola en los dispositivos que esté utilizando y que realice las siguientes acciones al reemplazar su switch:
@@ -56,6 +58,7 @@ NetApp recomienda encarecidamente que habilite el registro de consola en los dis
 
 
 
+[[replace-the-switch]]
 == Reemplace el interruptor
 
 .Acerca de los ejemplos
@@ -162,6 +165,7 @@ Total entries displayed: 4
 ====
 
 
+[[step-1-prepare-for-replacement]]
 === Paso 1: Prepararse para el reemplazo
 
 . Instale el RCF y la imagen apropiados en el switch, newcs2, y realice las preparaciones necesarias en el sitio.
@@ -282,6 +286,7 @@ RPC status:
 ====
 
 
+[[step-2-configure-cables-and-ports]]
 === Paso 2: Configurar cables y puertos
 
 . Desactive los puertos ISL 1/65 y 1/66 en el switch Nexus 92300YC cs1:
@@ -447,6 +452,7 @@ e0b       Cluster      Cluster          up    9000  auto/10000  healthy  false
 
 
 
+[[step-3-complete-the-procedure]]
 === Paso 3: Complete el procedimiento
 
 . Verifique la conectividad de las interfaces del clúster remoto:

@@ -33,6 +33,7 @@ CAUTION: Antes de instalar una nueva versión del software del switch y los RCF,
 
 
 
+[[step-1-prepare-for-the-upgrade]]
 == Paso 1: Prepárese para la actualización
 
 . Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport :
@@ -196,6 +197,7 @@ cluster1::*>
 
 
 
+[[step-2-configure-ports]]
 == Paso 2: Configurar puertos
 
 . En el conmutador de clúster cs1, apague los puertos conectados a los puertos de clúster de los nodos.
@@ -562,6 +564,7 @@ CAUTION: Si tu conmutador 9336C-FX2 no arranca después de la actualización de 
 
 
 
+[[step-3-verify-the-cluster-network-configuration-and-cluster-health]]
 == Paso 3: Verifique la configuración de red y el estado del clúster.
 
 . Verifique que los puertos del switch conectados a los puertos del clúster estén *activos*.

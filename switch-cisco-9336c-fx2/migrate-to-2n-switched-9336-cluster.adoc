@@ -17,6 +17,7 @@ El proceso de migración funciona para todos los nodos que utilizan puertos ópt
 
 
 
+[[review-requirements]]
 == Requisitos de revisión
 
 .Lo que necesitarás
@@ -61,10 +62,12 @@ Consulta el link:https://hwu.netapp.com["Hardware Universe"^] para obtener infor
 
 
 
+[[migrate-the-switches]]
 == Migrar los interruptores
 
 
 
+[[step-1-prepare-for-migration]]
 === Paso 1: Prepararse para la migración
 
 . Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport :
@@ -89,6 +92,7 @@ La solicitud avanzada(`*>` ) aparece.
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Paso 2: Configurar puertos y cableado
 
 . Deshabilite todos los puertos orientados a nodos (excepto los puertos ISL) en ambos conmutadores de clúster nuevos cs1 y cs2.
@@ -410,6 +414,7 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 
 
 
+[[step-3-verify-the-configuration]]
 === Paso 3: Verificar la configuración
 
 . Habilitar la reversión automática en los LIF del clúster.

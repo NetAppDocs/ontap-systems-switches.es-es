@@ -15,6 +15,7 @@ Siga este procedimiento para reemplazar los switches de clúster CN1610 existent
 
 
 
+[[review-requirements]]
 == Requisitos de revisión
 
 Revise los requisitos de NetApp CN1610 enlink:switch-requirements.html["Requisitos para la sustitución de switches de clúster Cisco Nexus 3132Q-V"] .
@@ -28,6 +29,7 @@ Para obtener más información, consulte:
 
 
 
+[[replace-the-switch]]
 == Reemplace el interruptor
 
 .Nomenclatura de interruptores y nodos
@@ -80,6 +82,7 @@ NOTE: El procedimiento requiere el uso de comandos ONTAP y comandos de switches 
 
 
 
+[[step-1-prepare-for-replacement]]
 === Paso 1: Prepararse para el reemplazo
 
 . Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport :
@@ -462,6 +465,7 @@ C2(config-if)# exit
 
 
 
+[[step-2-configure-ports]]
 === Paso 2: Configurar puertos
 
 . En todos los nodos, retire los cables que están conectados al switch CN1610 CL2.
@@ -911,6 +915,7 @@ Copy Complete.
 
 
 
+[[step-3-verify-the-configuration]]
 === Paso 3: Verificar la configuración
 
 . Verifique que las conexiones ISL sean `up` en el interruptor C2 del 3132Q-V:

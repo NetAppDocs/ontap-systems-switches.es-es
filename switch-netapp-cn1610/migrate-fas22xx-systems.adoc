@@ -15,6 +15,7 @@ Si tiene sistemas FAS22xx en un clúster sin conmutador de dos nodos existente e
 
 
 
+[[review-requirements]]
 == Requisitos de revisión
 
 .Antes de empezar
@@ -32,12 +33,14 @@ https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/
 
 
 
+[[migrate-the-switches]]
 == Migrar los interruptores
 
 Este procedimiento es un procedimiento no disruptivo que elimina la conectividad directa del clúster en un entorno sin conmutador y reemplaza cada conexión al conmutador con una conexión al nodo asociado.
 
 
 
+[[step-1-prepare-for-migration]]
 === Paso 1: Prepararse para la migración
 
 . Cambie el nivel de privilegio a avanzado, ingresando `y` cuando se le solicite continuar:
@@ -150,6 +153,7 @@ Cuando aparezca el aviso del nodo dañado, pulse `Ctrl-C` y luego responder `y` 
 
 
 
+[[step-2-configure-cables-and-ports]]
 === Paso 2: Configurar cables y puertos
 
 . En cada módulo controlador, desconecte el cable que conecta el puerto del clúster 10 GbE al clúster sin conmutador.
@@ -301,6 +305,7 @@ RPC status:
 ====
 
 
+[[step-3-complete-the-procedure]]
 === Paso 3: Complete el procedimiento
 
 . Si desactivaste la creación automática de casos, vuelve a activarla mediante un mensaje de AutoSupport :

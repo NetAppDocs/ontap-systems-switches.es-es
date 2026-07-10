@@ -1,0 +1,145 @@
+---
+permalink: switch-cisco-9808/configure-install-upgrade-rcf-overview-9808.html 
+sidebar: sidebar 
+keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9808 
+summary: 'Puedes instalar o actualizar el archivo de configuración de referencia (RCF) en tus switches Nexus 9808. Instalas una versión compatible del RCF en los switches como parte de la instalación de un nuevo sistema AFX 2K, el reemplazo de un módulo supervisor o el restablecimiento de un switch a la configuración predeterminada de fábrica. Actualizas a una versión compatible del RCF en los switches para admitir nuevo hardware, una nueva versión de ONTAP o para alinearte con una nueva versión de NX-OS en la configuración de tu sistema AFX 2K.' 
+---
+= Instala o actualiza la descripción general de RCF - Cisco Nexus 9808
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes instalar o actualizar el archivo de configuración de referencia (RCF) en tus switches Cisco Nexus 9808. Instalas una versión compatible del RCF en los switches como parte de la instalación de un nuevo sistema AFX 2K, el reemplazo de un módulo supervisor o el restablecimiento de un switch a los valores predeterminados de fábrica. Actualizas a una versión compatible del RCF en los switches para admitir nuevo hardware, una nueva versión de ONTAP o para alinearte con una nueva versión de NX-OS en la configuración de tu sistema AFX.
+
+
+NOTE: La instalación o actualización de RCF es independiente de la instalación o actualización de NX-OS. Si vas a instalar o actualizar tanto NX-OS como RCF, se recomienda instalar o actualizar primero NX-OS.
+
+
+
+[[understand-the-supported-rcf-versions]]
+=== Conoce las versiones de RCF compatibles
+
+La versión de ONTAP que se ejecuta en tu sistema AFX y la versión de NX-OS en tus switches Cisco Nexus 9808 determinan las versiones de RCF compatibles con tus switches. Las versiones de RCF tienen configuraciones de velocidad de puerto preestablecidas que determinan cuántos puertos del switch están en modo breakout (4x100GbE) y en modo no breakout.
+
+[NOTE]
+====
+Para consultar la lista actual de versiones de RCF compatibles, visita link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco de NetApp"^].
+
+La información sobre los puertos del switch también se puede consultar en link:https://hwu.netapp.com["NetApp Hardware Universe"^].
+
+====
+
+NOTE: Para obtener detalles específicos sobre el uso de puertos y VLAN, consulta el banner y la sección de notas importantes en tu RCF. Consulta link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco de NetApp"^] para obtener más información.
+
+Por ejemplo, la siguiente tabla muestra los grupos predefinidos de los puertos del switch, sus velocidades de puerto y su uso según la versión 10.1 de RCF.
+
+[cols="1,2"]
+|===
+| Cambiar grupos de puertos del switch | Velocidades y uso de los puertos 
+
+
+ a| 
+De Ethernet1/1 a Ethernet1/18
+ a| 
+Modo 400GbE para conexiones intra-clúster, HA y con los estantes de almacenamiento
+
+
+
+ a| 
+Ethernet1/19 a Ethernet1/35
+ a| 
+Modo 4x100GbE para conexiones intra-clúster, HA y de almacenamiento
+
+
+
+ a| 
+Ethernet1/36
+ a| 
+Conexiones ISL intra-clúster de 400GbE
+
+|===
+
+
+[[change-port-speed-configuration]]
+=== Cambiar la configuración de la velocidad del puerto
+
+En el caso de los conmutadores con RCF 10.1 y versiones posteriores, puedes modificar la configuración de la velocidad de los puertos para ajustar el número de puertos del switch en modo breakout (4x100GbE) y en modo no breakout (400GbE) cuando necesites adaptar una configuración de velocidad de puertos diferente para tu sistema AFX. Cualquier modificación de los puertos que se realice se aplica a cada tarjeta de línea que se esté utilizando en ese momento.
+
+Realizas este cambio como parte del procedimiento de instalación o actualización de RCF. Los procedimientos incluyen pasos que te llevan a esta página.
+
+Introduce los comandos en ambos conmutadores.
+
+[cols="1,2"]
+|===
+| Cambiar la velocidad de los puertos | Pasos 
+
+
+ a| 
+Cambia los puertos no-breakout a puertos breakout
+ a| 
+. Accede al modo de configuración en la CLI.
+. Modifica las velocidades de los puertos y los modos de breakout en los switches:
++
+Para designar puertos de breakout, utiliza el comando  `interface breakout module`.
+
++
+Por ejemplo, para designar los puertos 19-22 en modo 400GbE como puertos breakout (4x100GbE), usa lo siguiente:
+
++
+`interface breakout module 1 port 19-22 map 100g-4x`
+
+. Modifica la lista de puertos con los nuevos puertos que necesiten usar el perfil de puerto para la velocidad de puerto deseada.
++
+Por ejemplo, para modificar la lista de puertos con los nuevos puertos, 19-22, para el perfil de puerto de velocidad 100G, utiliza lo siguiente:
+
++
+`interface e1/19/1-4, e1/20/1-4, e1/21/1-4, e1/22/1-4`
+
+. Configura de forma fija los puertos del switch (4x100GbE) para 100GbE. Si no configuras la velocidad de forma fija, los puertos no se activarán y permanecerán en estado de error desactivado.
++
+`speed 100000`
+
++
+`no negotiate auto`
+
+
+
+
+
+ a| 
+Volver a convertir los puertos breakout en puertos no breakout
+ a| 
+. Accede al modo de configuración en la CLI.
+. Para volver a convertir los puertos de expansión en puertos normales, utiliza el comando  `no interface breakout` en el modo de configuración.
++
+Por ejemplo, para volver a configurar los puertos 19-22 en modo 400GbE, utiliza lo siguiente:
+
++
+`no interface breakout module 1 port 19-22`
+
+
+
+|===
+
+
+[[suggested-documentation]]
+=== Documentación sugerida
+
+Antes de instalar o actualizar el RCF en tus conmutadores, se recomienda que consultes la siguiente documentación:
+
+* Consulta el artículo de base de conocimientos de NetApp link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Cómo borrar la configuración de un switch de interconexión Cisco manteniendo la conectividad remota"^] para obtener más información cuando instales o actualices tu RCF.
+* Consulta el https://hwu.netapp.com/SWITCH/INDEX["NetApp Hardware Universe"^] para verificar los puertos correctos en tu plataforma.
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet de Cisco (NSS)"^]
++
+Consulte la tabla de compatibilidad de switches para conocer las versiones compatibles de ONTAP y RCF en el sitio de soporte de NetApp .  Tenga en cuenta que puede haber dependencias de comandos entre la sintaxis de comandos en RCF y la sintaxis que se encuentra en versiones específicas de NX-OS.
+
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Switches Cisco Nexus serie 9000"^]
++
+Consulte las guías de software y actualización correspondientes disponibles en el sitio web de Cisco para obtener documentación completa sobre los procedimientos de actualización y degradación de los switches de Cisco .
+
+
+
+.¿Que sigue?
+Después de que hayas revisado la descripción general de la instalación o actualización de RCF, link:configure-install-rcf-9808.html["instalar el RCF"] o link:configure-upgrade-rcf-9808.html["actualizar el RCF"] según lo necesites.

@@ -1,0 +1,69 @@
+= 
+:allow-uri-read: 
+
+
+La versión de ONTAP que se ejecuta en tu sistema AFX y la versión de NX-OS en tus switches determinan las versiones de RCF compatibles para tus switches. Las versiones de RCF tienen configuraciones de velocidad de puerto preestablecidas que determinan cuántos puertos del switch están en modo breakout (4x100GbE) y en modo no breakout.
+
+[NOTE]
+====
+Para consultar la lista actualizada de versiones de RCF compatibles, visita la link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco de NetApp"^] página.
+
+La información sobre los puertos del switch también se puede consultar en https://hwu.netapp.com["NetApp Hardware Universe"^].
+
+====
+* Si tienes un sistema AFX 1K, RCF 10.0 y versiones posteriores son compatibles.
+* Si tienes un sistema AFX 2K, RCF 10.1 y versiones posteriores son compatibles.
+* RCF 10.0 consta de un único archivo y es compatible con conmutadores compartidos, `Cluster-HA-Storage AFX RCF_10.0`.
++
+Por ejemplo, la siguiente tabla muestra las agrupaciones predefinidas de los puertos del switch, sus velocidades de puerto y su uso para este archivo RCF.
+
++
+[cols="1,2"]
+|===
+| Cambiar grupos de puertos del switch | Velocidades y uso de los puertos 
+
+
+ a| 
+Ethernet1/1/1-4 a Ethernet1/62/1-4
+ a| 
+Modo 4x100GbE para conexiones de clúster, alta disponibilidad y almacenamiento
+
+
+
+ a| 
+Ethernet1/63, Ethernet1/64
+ a| 
+400GbE ISL
+
+|===
+* RCF 10.1 cuenta con distintos archivos para diferentes casos de uso en los sistemas AFX 1K y AFX 2K. Dependiendo de cómo planees usar los switches en la configuración de tu sistema AFX 1K o AFX 2K (compartido, solo almacenamiento o solo clúster y HA), eliges el archivo RCF correspondiente.
++
+Por ejemplo, si utilizas tus switches como switches compartidos en un sistema AFX 2K, usas el archivo RCF adecuado para ese caso de uso. El archivo RCF adecuado podría llamarse de forma similar a  `RCF-v10.1-NX9364D-GX2A-CL1-ST1-100GBR31-400G31.txt`. La siguiente tabla muestra los grupos predefinidos de los puertos del switch, sus velocidades de puerto y el uso para este archivo RCF.
+
++
+[cols="1,2"]
+|===
+| Cambiar grupos de puertos del switch | Velocidades y uso de los puertos 
+
+
+ a| 
+Ethernet1/1/1-4 a Ethernet1/31/1-4
+ a| 
+Modo 4x100GbE para conexiones intra-clúster, HA y con los estantes de almacenamiento
+
+
+
+ a| 
+Ethernet1/32 a Ethernet1/62
+ a| 
+Modo 400GbE para conexiones intra-clúster, HA y de almacenamiento
+
+
+
+ a| 
+Ethernet1/63, Ethernet1/64
+ a| 
+Conexiones ISL intra-clúster de 400GbE
+
+|===
+

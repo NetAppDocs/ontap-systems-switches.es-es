@@ -33,6 +33,7 @@ CAUTION: Antes de instalar una nueva versión del software del switch y los RCF,
 
 
 
+[[step-1-prepare-for-the-upgrade]]
 == Paso 1: Prepárese para la actualización
 
 . Muestra los puertos del clúster en cada nodo que están conectados a los conmutadores del clúster:
@@ -178,6 +179,7 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert fals
 
 
 
+[[step-2-configure-ports]]
 == Paso 2: Configurar puertos
 
 . En el conmutador de clúster cs2, apague los puertos conectados a los puertos de clúster de los nodos.
@@ -548,6 +550,7 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true
 
 
 
+[[step-3-verify-the-cluster-network-configuration-and-cluster-health]]
 == Paso 3: Verifique la configuración de red y el estado del clúster.
 
 . Verifique que los puertos del switch conectados a los puertos del clúster estén *activos*.

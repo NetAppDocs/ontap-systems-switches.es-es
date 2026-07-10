@@ -18,6 +18,7 @@ Para la instalación y el mantenimiento de los conmutadores Cisco Nexus 9336C-FX
 
 
 
+[[ontap-support]]
 == Compatibilidad con ONTAP
 
 [role="tabbed-block"]
@@ -42,6 +43,7 @@ Si desea crear clústeres ONTAP con más de dos nodos, necesitará dos conmutado
 ====
 
 
+[[configuration-requirements]]
 == Requisitos de configuración
 
 Asegúrese de que:
@@ -52,6 +54,7 @@ Asegúrese de que:
 
 
 
+[[network-requirements]]
 == Requisitos de red
 
 Necesita la siguiente información de red para todas las configuraciones del conmutador.

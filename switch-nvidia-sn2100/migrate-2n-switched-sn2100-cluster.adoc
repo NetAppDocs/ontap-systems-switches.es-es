@@ -17,6 +17,7 @@ El procedimiento que utilice dependerá de si dispone de dos puertos de red de c
 
 
 
+[[review-requirements]]
 == Requisitos de revisión
 
 .Configuración sin interruptor de dos nodos
@@ -53,6 +54,7 @@ La link:https://hwu.netapp.com["Hardware Universe"^] contiene la información m�
 
 
 
+[[migrate-the-switches]]
 == Migrar los interruptores
 
 .Acerca de los ejemplos
@@ -68,6 +70,7 @@ Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de nodos y
 
 
 
+[[step-1-prepare-for-migration]]
 === Paso 1: Prepararse para la migración
 
 . Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=xh`
@@ -82,6 +85,7 @@ La solicitud avanzada(`*>` ) aparece.
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Paso 2: Configurar puertos y cableado
 
 [role="tabbed-block"]
@@ -670,6 +674,7 @@ e3b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 
 
 
+[[step-3-verify-the-configuration]]
 === Paso 3: Verificar la configuración
 
 . Habilitar la reversión automática en todos los LIF del clúster:

@@ -15,6 +15,7 @@ Siga este procedimiento para reemplazar un conmutador NVIDIA SN2100 defectuoso e
 
 
 
+[[review-requirements]]
 == Requisitos de revisión
 
 .Infraestructura de clúster y red existente
@@ -44,6 +45,7 @@ NOTE: Debe ejecutar el comando para migrar un LIF de clúster desde el nodo dond
 
 
 
+[[enable-console-logging]]
 == Habilitar el registro en la consola
 
 NetApp recomienda encarecidamente que habilite el registro de consola en los dispositivos que esté utilizando y que realice las siguientes acciones al reemplazar su switch:
@@ -55,6 +57,7 @@ NetApp recomienda encarecidamente que habilite el registro de consola en los dis
 
 
 
+[[replace-the-switch]]
 == Reemplace el interruptor
 
 .Acerca de los ejemplos
@@ -145,6 +148,7 @@ swp16      100G   BondMember  sw1                swp16
 ====
 
 
+[[step-1-prepare-for-replacement]]
 === Paso 1: Prepararse para el reemplazo
 
 . Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport :
@@ -174,6 +178,7 @@ Si es necesario, verifique, descargue e instale las versiones adecuadas del soft
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Paso 2: Configurar puertos y cableado
 
 [role="tabbed-block"]
@@ -627,6 +632,7 @@ e3b       Cluster      Cluster          up    9000  auto/10000  healthy  false
 ====
 
 
+[[step-3-verify-the-configuration]]
 === Paso 3: Verificar la configuración
 
 [role="tabbed-block"]

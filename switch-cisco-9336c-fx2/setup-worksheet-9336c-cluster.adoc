@@ -23,6 +23,7 @@ La hoja de cálculo de cableado de muestra proporciona ejemplos de asignaciones 
 
 
 
+[[9336c-fx2-sample-cabling-worksheet]]
 == Hoja de trabajo de cableado de muestra 9336C-FX2
 
 La definición de puerto de muestra en cada par de conmutadores es la siguiente:
@@ -333,6 +334,7 @@ ISL 100GbE al puerto 36 del switch A
 |===
 
 
+[[9336c-fx2-blank-cabling-worksheet]]
 == Hoja de cableado en blanco 9336C-FX2
 
 Puede utilizar la hoja de trabajo de cableado en blanco para documentar las plataformas que se admiten como nodos en un clúster.  La sección _Conexiones de clúster admitidas_ de https://hwu.netapp.com["Hardware Universe"^] Define los puertos del clúster utilizados por la plataforma.
@@ -592,6 +594,7 @@ ISL 100GbE al puerto 36 del switch A
 |===
 
 
+[[9336c-fx2-t-sample-cabling-worksheet-12-port]]
 == Hoja de trabajo de cableado de muestra 9336C-FX2-T (12 puertos)
 
 La definición de puerto de muestra en cada par de conmutadores es la siguiente:
@@ -748,6 +751,7 @@ ISL 100GbE al puerto 36 del switch A
 |===
 
 
+[[9336c-fx2-t-blank-cabling-worksheet-12-port]]
 == Hoja de cableado en blanco 9336C-FX2-T (12 puertos)
 
 Puede utilizar la hoja de trabajo de cableado en blanco para documentar las plataformas que se admiten como nodos en un clúster.  La sección _Conexiones de clúster admitidas_ de https://hwu.netapp.com["Hardware Universe"^] Define los puertos del clúster utilizados por la plataforma.

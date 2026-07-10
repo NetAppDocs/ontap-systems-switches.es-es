@@ -1,0 +1,37 @@
+---
+permalink: switch-cisco-9808/install-switches-9808.html 
+sidebar: sidebar 
+keywords: switches, hardware installation, Cisco Nexus, 9808 switches 
+summary: Instalar los switches Cisco Nexus 9808 como parte de una nueva instalación del sistema AFX 2K incluye instalar los switches en un rack o gabinete, conectarlos a los controladores y estantes del sistema, y luego encenderlos. 
+---
+= Instala los switches - Cisco Nexus 9808
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Instalar los switches Cisco Nexus 9808 como parte de una nueva instalación del sistema AFX 2K incluye instalar los switches en un rack o gabinete, conectarlos a los controladores y estantes del sistema, y luego encenderlos.
+
+.Antes de empezar
+Debes haber completado los pasos de preparación para el cambio en link:install-prepare-9808.html["Prepárate para instalar los switches"].
+
+.Acerca de esta tarea
+Usa el flujo de trabajo de instalación y configuración del sistema AFX 2K correspondiente en el sitio de documentación del sistema AFX para instalar y cablear el hardware del sistema, y luego encender los switches.
+
+El proceso de instalación y configuración del sistema incluye instrucciones como:
+
+* Instrucciones para preparar el sitio, desempacar las cajas y comparar el contenido de las cajas con el albarán, y registrar el sistema para acceder a los beneficios de soporte.
+* Instrucciones para instalar los conmutadores, los controladores y las estanterías de almacenamiento en un armario NetApp o en un rack de telecomunicaciones.
+* Instrucciones para el cableado de tu sistema, incluyendo el cableado de los controladores a las conexiones de los switches y el cableado de las bandejas de almacenamiento a las conexiones de los switches.
+
+
+.Paso
+. Instala los conmutadores como parte del proceso de instalación y configuración de tu sistema AFX 2K, ve a link:https://docs.netapp.com/us-en/ontap-afx/install-afx-2k/install-setup-workflow.html["Flujo de instalación y configuración de AFX 2K"^].
+
+
+
+NOTE: Después de instalar los conmutadores, las instrucciones del flujo de instalación y configuración de AFX te redirigen de nuevo a esta documentación sobre los conmutadores para que los configures.
+
+.¿Que sigue?
+Después de que hayas instalado, cableado y encendido tus switches como parte de la instalación de tu sistema AFX 2K, link:install-configure-switches-in-afx-workflow-9808.html#configure-switches["configura tus conmutadores"] y luego link:install-configure-switches-in-afx-workflow-9808.html#complete-afx-system-setup["Completa la configuración del sistema AFX"].

@@ -15,12 +15,14 @@ Para la instalación y el mantenimiento del switch NVIDIA SN2100, asegúrese de 
 
 
 
+[[cabinet-details]]
 == Detalles del gabinete
 
 Instale el conmutador NVIDIA SN2100 (X190006) en el gabinete de conmutadores dobles/simples de NVIDIA con los soportes estándar que se incluyen con el conmutador.
 
 
 
+[[rail-kit-details]]
 == Detalles del kit de rieles
 
 La siguiente tabla enumera el número de pieza y la descripción de los kits de interruptores y rieles SN2100:
@@ -58,7 +60,7 @@ Kit de rieles, interruptor único NVIDIA de profundidad corta
 
 |===
 
-NOTE: Consulta la documentación de NVIDIA para ver detalles sobre link:https://docs.nvidia.com/networking/display/sn2000pub/Installation["Instalación del kit de interruptor y riel SN2100"^].
+NOTE: Consulta la documentación de NVIDIA para ver detalles sobre link:https://networking-docs.nvidia.com/sn2000hw/latest/installation["Instalación del kit de interruptor y riel SN2100"^].
 
 .¿Que sigue?
 Una vez que haya confirmado sus componentes y números de pieza, puede revisar el link:required-documentation-sn2100-cluster.html["documentación requerida"].

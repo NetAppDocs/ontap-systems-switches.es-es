@@ -15,6 +15,7 @@ Siga este procedimiento para instalar el software NX-OS en el switch de clúster
 
 
 
+[[review-requirements]]
 == Requisitos de revisión
 
 .Antes de empezar
@@ -29,6 +30,7 @@ Siga este procedimiento para instalar el software NX-OS en el switch de clúster
 
 
 
+[[install-the-software]]
 == Instala el software
 
 .Acerca de esta tarea

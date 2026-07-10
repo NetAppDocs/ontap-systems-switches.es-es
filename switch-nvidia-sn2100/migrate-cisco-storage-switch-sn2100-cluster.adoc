@@ -15,6 +15,7 @@ Puede migrar desde switches Cisco antiguos para un clúster ONTAP a switches de 
 
 
 
+[[review-requirements]]
 == Requisitos de revisión
 
 Debes tener en cuenta cierta información de configuración, conexiones de puertos y requisitos de cableado cuando reemplaces algunos switches Cisco antiguos por switches de almacenamiento NVIDIA SN2100. Consulta link:configure-overview-sn2100-cluster.html["Descripción general de la instalación y configuración de los switches NVIDIA SN2100"].
@@ -48,6 +49,7 @@ Asegúrese de que:
 
 
 
+[[migrate-the-switches]]
 == Migrar los interruptores
 
 .Acerca de los ejemplos
@@ -72,6 +74,7 @@ Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interru
 
 
 
+[[step-1-prepare-for-migration]]
 === Paso 1: Prepararse para la migración
 
 . Si AutoSupport está habilitado, suprima la creación automática de casos mediante la invocación de un mensaje de AutoSupport :
@@ -89,6 +92,7 @@ Aparece el indicador avanzado (*>).
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Paso 2: Configurar puertos y cableado
 
 . Determine el estado administrativo u operativo de cada interfaz de almacenamiento.
@@ -417,6 +421,7 @@ swp6       100G   Trunk/L2  SHFFG1826000102        e0b
 
 
 
+[[step-3-complete-the-procedure]]
 === Paso 3: Complete el procedimiento
 
 . Cree una contraseña para la función de recopilación de registros del monitor de estado del switch Ethernet:

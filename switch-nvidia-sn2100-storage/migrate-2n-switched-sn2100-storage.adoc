@@ -17,6 +17,7 @@ El procedimiento que utilice dependerá de si dispone de dos puertos de red de c
 
 
 
+[[review-requirements]]
 == Requisitos de revisión
 
 .Lo que necesitarás
@@ -52,6 +53,7 @@ El link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Interruptores"^
 
 
 
+[[migrate-the-switches]]
 == Migrar los interruptores
 
 .Acerca de los ejemplos
@@ -70,6 +72,7 @@ La link:https://hwu.netapp.com["Hardware Universe"^] contiene la información m�
 
 
 
+[[step-1-prepare-for-migration]]
 === Paso 1: Prepararse para la migración
 
 . Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport :
@@ -90,6 +93,7 @@ La solicitud avanzada(`*>` ) aparece.
 
 
 
+[[step-2-configure-cables-and-ports]]
 === Paso 2: Configurar cables y puertos
 
 . Deshabilite todos los puertos orientados a los nodos (excepto los puertos ISL) en ambos conmutadores del nuevo clúster sw1 y sw2.
@@ -420,6 +424,7 @@ swp16      100G   BondMember  sw1                swp16
 
 
 
+[[step-3-complete-the-procedure]]
 === Paso 3: Complete el procedimiento
 
 . Muestra información sobre los dispositivos de red detectados en su clúster:

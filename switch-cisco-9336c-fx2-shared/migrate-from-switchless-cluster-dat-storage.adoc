@@ -24,6 +24,7 @@ Si tiene un entorno de clúster sin conmutación de dos nodos existente, puede m
 
 
 
+[[review-requirements]]
 == Requisitos de revisión
 
 Asegúrese de que:
@@ -56,6 +57,7 @@ Asegúrese de que:
 
 
 
+[[migrate-the-switches]]
 == Migrar los interruptores
 
 .Acerca de los ejemplos
@@ -70,6 +72,7 @@ Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de nodos y
 
 
 
+[[step-1-migrate-from-a-switchless-cluster-with-direct-attached]]
 === Paso 1: Migrar desde un clúster sin conmutador con conexión directa
 
 . Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=xh` .
@@ -649,6 +652,7 @@ RPC status:
 
 
 
+[[step-2-set-up-the-shared-switch]]
 === Paso 2: Configurar el interruptor compartido
 
 Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interruptores y nodos:

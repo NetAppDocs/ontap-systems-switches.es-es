@@ -1,0 +1,110 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9808/install-prepare-9808.html 
+keywords: shared storage cluster switch 
+summary: Antes de instalar los conmutadores Cisco Nexus 9808 como parte de la instalación de un nuevo sistema AFX 2K, debes entender los aspectos relacionados con el conmutador y su instalación revisando la documentación correspondiente de los conmutadores Cisco y de los sistemas ONTAP, entendiendo las versiones de RCF compatibles con los sistemas AFX y considerando el uso de Smart Call Home. 
+---
+= Prepárate para instalar los conmutadores - Cisco Nexus 9808
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de instalar los switches Cisco Nexus 9808 como parte de la instalación de un nuevo sistema AFX 2K, debes entender los aspectos del switch y su instalación revisando la documentación aplicable de los switches Cisco y la documentación de los sistemas ONTAP, entender las versiones del archivo de configuración de referencia (RCF) compatibles con los sistemas AFX y considerar el uso de Smart Call Home.
+
+
+
+[[step-1-review-the-cisco-switch-documentation]]
+=== Paso 1: Consulta la documentación del conmutador Cisco
+
+Deberías revisar los siguientes documentos de instalación y configuración de Cisco para que te familiarices con las notas de la versión del switch, la información de seguridad, las opciones de instalación, la configuración inicial del software y las referencias de comandos.
+
+Todos los documentos de Cisco están disponibles en la página link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Soporte para switches Cisco Nexus serie 9000"^].
+
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-release-notes-list.html["Notas de lanzamiento de Cisco Nexus serie 9000 NX-OS"^] (selecciona las notas de la versión de NX-OS instalada en tus switches)
+* link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/mds9000/hw/regulatory/compliance/RCSI.html?dtid=osscdc000283&linkclickid=srch["Información sobre cumplimiento normativo y seguridad para la serie Cisco Nexus 9000"^]
+* link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/hw/9800/9808/nx-os/cisco-nexus-9808-nx-os-mode-switch-hardware-installation-guide/m-8000-modular-overview-ph2.html?linkclickid=aisrch["Guía de instalación del hardware del conmutador Cisco Nexus 9808 en modo NX-OS"^]
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-and-configuration-guides-list.html["Guías de configuración de software para switches Cisco Nexus serie 9000"^](Seleccione la guía correspondiente a la versión de NX-OS instalada en sus switches)
+* link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/102x/command-reference/config/b_n9k_config_commands_1021.html["Referencia de comandos de Cisco Nexus serie 9000 NX-OS"^] Ofrece enlaces a las distintas guías de referencia de comandos proporcionadas por Cisco.
+
+
+
+
+[[step-2-review-the-netapp-systems-documentation]]
+=== Paso 2: Revisa la documentación de los sistemas NetApp
+
+Deberías revisar la siguiente documentación de sistemas de NetApp para que te familiarices con la instalación del sistema AFX 2K, la información sobre las versiones de ONTAP y los requisitos de configuración y compatibilidad del hardware.
+
+* link:https://docs.netapp.com/us-en/ontap-afx/index.html["Documentación de los sistemas AFX"^] Explica cómo instalar el hardware de NetApp.
+* link:https://docs.netapp.com/us-en/ontap-family/["Documentación de ONTAP"^] Ofrece información detallada sobre todos los aspectos de las versiones de ONTAP.
+* link:https://hwu.netapp.com["NetApp Hardware Universe"^] Ofrece información sobre la configuración y compatibilidad del hardware de NetApp.
+* link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["¿Qué información adicional necesito para instalar mi equipo que no está en HWU?"^] Ofrece más información sobre los requisitos de instalación del sistema de almacenamiento.
+
+
+
+
+[[step-3-understand-the-supported-rcf-versions]]
+=== Paso 3: conoce las versiones de RCF compatibles
+
+La versión de ONTAP que se ejecuta en tu sistema AFX y la versión de NX-OS en tus switches determinan las versiones de RCF compatibles para tus switches. Las versiones de RCF tienen configuraciones de velocidad de puerto preestablecidas que determinan cuántos puertos del switch están en modo breakout (4x100GbE) y en modo no breakout.
+
+[NOTE]
+====
+Para consultar la lista actualizada de versiones de RCF compatibles, visita la link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco de NetApp"^] página.
+
+La información sobre los puertos del switch también se puede consultar en link:https://hwu.netapp.com["NetApp Hardware Universe"^].
+
+====
+Para tu sistema AFX 2K, se admite RCF 10.1 y versiones posteriores.
+
+Por ejemplo, la siguiente tabla muestra los grupos predefinidos de los puertos del switch, sus velocidades de puerto y su uso según la versión 10.1 de RCF.
+
+[cols="1,2"]
+|===
+| Cambiar grupos de puertos del switch | Velocidades y uso de los puertos 
+
+
+ a| 
+Ethernet1/1/1-4 a Ethernet1/14/1-4
+ a| 
+Modo 4x100GbE para conexiones intra-clúster, HA y con los estantes de almacenamiento
+
+
+
+ a| 
+Ethernet1/15 a Ethernet1/30
+ a| 
+Modo 400GbE para conexiones intra-clúster, HA y de almacenamiento
+
+
+
+ a| 
+Ethernet1/31, Ethernet1/32
+ a| 
+Conexiones ISL intra-clúster de 400GbE
+
+|===
+[NOTE]
+====
+Puedes modificar los grupos predefinidos para ajustar el número de puertos del switch en el modo breakout (4x100GbE) y en el modo 400GbE cuando necesites adaptar una configuración de velocidad de puerto diferente para tu sistema AFX.
+
+Harás esto más adelante, como parte del procedimiento de instalación de RCF.
+
+====
+
+
+[[step-4-consider-using-smart-call-home]]
+=== Paso 4: plantéate utilizar Smart Call Home
+
+ONTAP admite el control del estado de los switches Ethernet (CSHM) para supervisar los switches del clúster AFX, así como la capacidad de recopilar registros de diagnóstico de los switches.
+
+Smart Call Home de Cisco es una opción que ofrece soporte proactivo y te ayuda a resolver cualquier problema que pueda surgir con los switches.
+
+Puedes encontrar más información sobre Smart Call Home en la documentación de link:configure-smart-call-9808.html["Configura Smart Call Home"].
+
+.¿Que sigue?
+Después de que hayas preparado todo para instalar tus switches, link:install-switches-9808.html["instalar los interruptores"].

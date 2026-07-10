@@ -4,6 +4,7 @@
 
 
 
+[[review-requirements]]
 == Requisitos de revisión
 
 Asegúrese de que:
@@ -29,6 +30,7 @@ NOTE: Si está cambiando la velocidad de los puertos del clúster e0a y e1a en l
 
 
 
+[[migrate-the-switches]]
 == Migrar los interruptores
 
 .Acerca de los ejemplos
@@ -82,6 +84,7 @@ NOTE: No se necesita ningún enlace entre conmutadores (ISL) operativo durante e
 
 
 
+[[step-1-prepare-for-migration]]
 === Paso 1: Prepararse para la migración
 
 . Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=xh`
@@ -103,6 +106,7 @@ Aparece el indicador avanzado (*>).
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Paso 2: Configurar puertos y cableado
 
 . En los nuevos switches, confirme que el enlace ISL está cableado y funciona correctamente entre los switches cs1-new y cs2-new:
@@ -609,6 +613,7 @@ Group Port-       Type     Protocol  Member Ports
 
 
 
+[[step-3-verify-the-configuration]]
 === Paso 3: Verificar la configuración
 
 . Habilitar la reversión automática en los LIF del clúster.

@@ -1,0 +1,42 @@
+---
+permalink: switch-cisco-9332d-gx2b/install-switches-9332d.html 
+sidebar: sidebar 
+keywords: switches, hardware installation, Cisco Nexus, 9332D-GX2B switches 
+summary: La instalación de los switches Cisco Nexus 9332D-GX2B como parte de la instalación de un nuevo sistema AFX 1K o AFX 2K incluye instalar los switches en un rack o gabinete, conectarlos a los controladores y estantes del sistema, y luego encenderlos. 
+---
+= Instala los switches - Cisco Nexus 9332D-GX2B
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La instalación de los switches Cisco Nexus 9332D-GX2B como parte de la instalación de un nuevo sistema AFX 1K o AFX 2K incluye instalar los switches en un rack o gabinete, conectarlos a los controladores y estantes del sistema, y luego encenderlos.
+
+.Antes de empezar
+Debes haber completado los pasos de preparación para el cambio en link:install-prepare-9332d.html["Prepárate para instalar los switches"].
+
+.Acerca de esta tarea
+Usa el flujo de trabajo de instalación y configuración correspondiente para el sistema AFX 1K o AFX 2K en el sitio de documentación del sistema AFX para instalar y cablear el hardware del sistema, y luego enciende los switches.
+
+El proceso de instalación y configuración del sistema incluye instrucciones como:
+
+* Instrucciones para preparar el sitio, desempacar las cajas y comparar el contenido de las cajas con el albarán, y registrar el sistema para acceder a los beneficios de soporte.
+* Instrucciones para instalar los conmutadores, los controladores y las estanterías de almacenamiento en un armario NetApp o en un rack de telecomunicaciones.
+* Instrucciones para el cableado de tu sistema, incluyendo el cableado de los controladores a las conexiones de los switches y el cableado de las bandejas de almacenamiento a las conexiones de los switches.
+
+
+.Pasos
+. Instala los conmutadores como parte del proceso de instalación y configuración de tu sistema AFX 1K o AFX 2K:
++
+** Para un sistema AFX 1K, ve a link:https://docs.netapp.com/us-en/ontap-afx/install-setup/install-setup-workflow.html["Flujo de instalación y configuración de AFX 1K"^].
+** Para un sistema AFX 2K, ve a la link:https://docs.netapp.com/us-en/ontap-afx/install-afx-2k/install-setup-workflow.html["Flujo de instalación y configuración de AFX 2K"^].
+
+
+
+
+
+NOTE: Después de instalar los conmutadores, las instrucciones del flujo de instalación y configuración de AFX te redirigen de nuevo a esta documentación sobre los conmutadores para que los configures.
+
+.¿Que sigue?
+Una vez que hayas instalado, cableado y encendido los switches como parte de la instalación de tu sistema AFX 1K o AFX 2K, link:https://review.docs.netapp.com/us-en/ontap-systems-switches_hotfix-refactor-phase1/switch-cisco-9332d-gx2b/install-configure-switches-in-afx-workflow-9332d.html#configure-switches["configura tus conmutadores"] y luego link:https://review.docs.netapp.com/us-en/ontap-systems-switches_hotfix-refactor-phase1/switch-cisco-9332d-gx2b/install-configure-switches-in-afx-workflow-9332d.html#complete-afx-system-setup["Completa la configuración del sistema AFX"].

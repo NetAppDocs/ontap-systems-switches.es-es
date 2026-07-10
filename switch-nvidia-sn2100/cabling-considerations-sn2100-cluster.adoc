@@ -15,6 +15,7 @@ Antes de configurar su switch NVIDIA SN2100, revise las siguientes consideracion
 
 
 
+[[nvidia-port-details]]
 == Detalles del puerto NVIDIA
 
 |===
@@ -54,6 +55,7 @@ Consulta link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para má
 
 
 
+[[link-up-delays-with-optical-connections]]
 == Retrasos en la conexión con conexiones ópticas
 
 Si experimenta retrasos de conexión superiores a cinco segundos, Cumulus Linux 5.4 y versiones posteriores incluyen soporte para conexión rápida.  Puedes configurar los enlaces utilizando el `nv set` El comando es el siguiente:
@@ -81,6 +83,7 @@ Only switchd reload required
 ====
 
 
+[[support-for-copper-connections]]
 == Compatibilidad con conexiones de cobre
 
 Para solucionar este problema, son necesarios los siguientes cambios de configuración.
@@ -200,6 +203,7 @@ En Cumulus Linux 4.4.2, las conexiones de cobre no son compatibles con los switc
 
 
 
+[[qsa-module]]
 == Módulo QSA
 
 Al utilizar adaptadores QSFP+ (40 GbE) a SFP+ (10 GbE) o adaptadores QSFP28 (100 GbE) a SFP28 (25 GbE) (QSA), insértelos en puertos de conmutador 40 GbE/100 GbE sin conexión (swp3-swp14). No inserte el módulo QSA en un puerto que esté configurado para conexión.
@@ -214,6 +218,7 @@ Para resolver este problema, haga lo siguiente:
 
 
 
+[[setting-interface-speed-on-breakout-ports]]
 == Configuración de la velocidad de la interfaz en los puertos de conexión.
 
 Dependiendo del transceptor en el puerto del switch, es posible que deba configurar la velocidad en la interfaz del switch a una velocidad fija. Si utiliza puertos de conexión de 10 GbE y 25 GbE o un módulo QSA, verifique que la negociación automática esté desactivada y configure la velocidad de la interfaz en el conmutador.

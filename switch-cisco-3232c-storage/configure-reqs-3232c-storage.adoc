@@ -18,12 +18,14 @@ Para la instalación y el mantenimiento del switch Cisco Nexus 3232C, asegúrese
 
 
 
+[[configuration-requirements]]
 == Requisitos de configuración
 
 Necesitas la cantidad y el tipo adecuados de cables y conectores de cable para tus switches. Dependiendo del tipo de switch que estés configurando al principio, necesitas conectarte al puerto de consola del switch con el cable de consola incluido; también necesitas proporcionar información de red específica.
 
 
 
+[[network-requirements]]
 == Requisitos de red
 
 Necesitará la siguiente información de red para todas las configuraciones de conmutadores:

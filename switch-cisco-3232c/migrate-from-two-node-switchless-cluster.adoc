@@ -15,6 +15,7 @@ Si tiene un clúster de dos nodos _sin conmutadores_, puede migrar a un clúster
 
 
 
+[[review-requirements]]
 == Requisitos de revisión
 
 .Antes de empezar
@@ -70,6 +71,7 @@ El procedimiento requiere el uso de comandos ONTAP y comandos de switches Cisco 
 ====
 
 
+[[step-1-display-and-migrate-physical-and-logical-ports]]
 == Paso 1: Visualizar y migrar los puertos físicos y lógicos
 
 . Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport :
@@ -323,6 +325,7 @@ cluster::*> *network interface migrate -vserver cluster -lif n2_clus1 -source-no
 
 
 
+[[step-2-shut-down-the-reassigned-lifs-and-disconnect-the-cables]]
 == Paso 2: Apague los LIF reasignados y desconecte los cables.
 
 . Verifique que las interfaces del clúster se hayan migrado correctamente:
@@ -438,6 +441,7 @@ Puede consultar la configuración en ejecución y conectar el primer puerto 40 G
 
 
 
+[[step-3-enable-the-cluster-ports]]
 == Paso 3: Habilitar los puertos del clúster
 
 . Desconecta el cable de e4a en el nodo n2.
@@ -554,6 +558,7 @@ Cluster
 
 
 
+[[step-4-enable-the-reassigned-lifs]]
 == Paso 4: Habilitar las LIF reasignadas
 
 . Muestra la conectividad del puerto del clúster en cada nodo:

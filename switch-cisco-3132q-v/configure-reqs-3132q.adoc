@@ -15,12 +15,14 @@ Para la instalación y el mantenimiento del switch Cisco Nexus 3132Q-V, asegúre
 
 
 
+[[configuration-requirements]]
 == Requisitos de configuración
 
 Para configurar su clúster, necesita el número y tipo adecuados de cables y conectores de cable para sus conmutadores.  Dependiendo del tipo de switch que esté configurando inicialmente, deberá conectarse al puerto de consola del switch con el cable de consola incluido; también deberá proporcionar información de red específica.
 
 
 
+[[network-requirements]]
 == Requisitos de red
 
 Necesitará la siguiente información de red para todas las configuraciones de conmutadores:

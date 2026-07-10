@@ -1,0 +1,36 @@
+---
+permalink: switch-cisco-9364d-gx2a/configure-smart-call-9364d.html 
+sidebar: sidebar 
+keywords: cisco smart call,small call home 
+summary: Para utilizar Smart Call Home, debe configurar un conmutador de red de clúster para comunicarse mediante correo electrónico con el sistema Smart Call Home. Además, puede configurar opcionalmente su conmutador de red de clúster para aprovechar la función de soporte Smart Call Home integrada de Cisco. 
+---
+= Configura Smart Call Home - Cisco Nexus 9364D-GX2A
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para utilizar Smart Call Home, debe configurar un conmutador de red de clúster para comunicarse mediante correo electrónico con el sistema Smart Call Home. Además, puede configurar opcionalmente su conmutador de red de clúster para aprovechar la función de soporte Smart Call Home integrada de Cisco.
+
+La función Smart Call Home de Cisco supervisa los componentes de hardware y software de tu red. Cuando se produce un cambio crítico en la configuración del sistema, genera una notificación por correo electrónico y envía una alerta a todos los destinatarios configurados en tu perfil de destino.
+
+[NOTE]
+====
+ONTAP admite el control del estado de los switches Ethernet (CSHM) para supervisar los switches del clúster AFX, así como la capacidad de recopilar registros de diagnóstico de los switches.
+
+Smart Call Home de Cisco es una opción que ofrece soporte proactivo y te ayuda a resolver cualquier problema que pueda surgir con los switches.
+
+====
+Antes de poder utilizar Smart Call Home, tenga en cuenta los siguientes requisitos:
+
+* Debe haber un servidor de correo electrónico instalado.
+* El switch debe tener conectividad IP con el servidor de correo electrónico.
+* Debe configurarse el nombre del contacto (contacto del servidor SNMP), el número de teléfono y la información de la dirección postal.  Esto es necesario para determinar el origen de los mensajes recibidos.
+* Debe asociarse un ID de CCO con un contrato de servicio Cisco SMARTnet apropiado para su empresa.
+* El servicio Cisco SMARTnet debe estar instalado para que el dispositivo pueda registrarse.
+
+
+El http://www.cisco.com/c/en/us/products/switches/index.html["sitio de soporte de Cisco"^] Contiene información sobre los comandos para configurar Smart Call Home.
+
+Smart Call Home se puede configurar tanto durante la instalación y configuración de un nuevo sistema como posteriormente.

@@ -15,6 +15,7 @@ Si tiene un entorno de clúster sin conmutadores de dos nodos existente, puede m
 
 
 
+[[review-requirements]]
 == Requisitos de revisión
 
 .Antes de empezar
@@ -53,6 +54,7 @@ Cualquier configuración previa del sitio, como SMTP, SNMP y SSH, debe copiarse 
 
 
 
+[[migrate-the-switches]]
 == Migrar los interruptores
 
 .Acerca de los ejemplos
@@ -70,6 +72,7 @@ Ellink:https://hwu.netapp.com/["Hardware Universe"^] Contiene la información m�
 
 
 
+[[step-1-prepare-for-migration]]
 === Paso 1: Prepararse para la migración
 
 . Cambie el nivel de privilegio a avanzado, ingresando `y` cuando se le solicite continuar:
@@ -105,6 +108,7 @@ cluster::*> system node autosupport invoke -node * -type all -message MAINT=2h
 
 
 
+[[step-2-configure-ports]]
 === Paso 2: Configurar puertos
 
 . Deshabilite todos los puertos orientados a los nodos (excepto los puertos ISL) en ambos conmutadores del nuevo clúster cs1 y cs2.
@@ -865,6 +869,7 @@ NOTE: Para la versión 8.3 y posteriores, los comandos son:
 
 
 
+[[step-3-complete-the-configuration]]
 === Paso 3: Completar la configuración
 
 . Verifique que todas las interfaces muestren `true` en la columna "Está en casa":

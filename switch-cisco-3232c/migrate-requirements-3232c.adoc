@@ -15,6 +15,7 @@ Antes de migrar a los switches de clúster Cisco Nexus 3232C, revise la informac
 
 
 
+[[cn1610-migrate-requirements]]
 == Requisitos de migración CN1610
 
 Los conmutadores del clúster admiten las siguientes conexiones de nodo:
@@ -74,6 +75,7 @@ Las versiones de ONTAP y FASTPATH ​​compatibles con este procedimiento se en
 
 
 
+[[cn5596-requirements]]
 == Requisitos CN5596
 
 Los conmutadores del clúster utilizan los siguientes puertos para las conexiones a los nodos:

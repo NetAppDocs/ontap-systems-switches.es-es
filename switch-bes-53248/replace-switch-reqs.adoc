@@ -15,6 +15,7 @@ Antes de sustituir el interruptor, asegúrese de que se cumplen las siguientes c
 
 
 
+[[existing-cluster-and-network-infrastructure]]
 == Infraestructura de clúster y red existente
 
 Asegúrese de que:
@@ -27,6 +28,7 @@ Asegúrese de que:
 
 
 
+[[bes-53248-replacement-cluster-switch]]
 == Interruptor de grupo de repuesto BES-53248
 
 Asegúrese de que:
@@ -43,6 +45,7 @@ Las personalizaciones previas del sitio, como STP, SNMP y SSH, se copian al nuev
 
 
 
+[[enable-console-logging]]
 == Habilitar el registro en la consola
 
 NetApp recomienda encarecidamente que habilite el registro de consola en los dispositivos que esté utilizando y que realice las siguientes acciones al reemplazar su switch:
@@ -54,6 +57,7 @@ NetApp recomienda encarecidamente que habilite el registro de consola en los dis
 
 
 
+[[related-information]]
 == Información relacionada
 
 * https://mysupport.netapp.com/["Sitio de soporte de NetApp"^]

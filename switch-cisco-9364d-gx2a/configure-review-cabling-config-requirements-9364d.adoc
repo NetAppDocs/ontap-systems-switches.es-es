@@ -1,0 +1,35 @@
+---
+permalink: switch-cisco-9364d-gx2a/configure-review-cabling-config-requirements-9364d.html 
+sidebar: sidebar 
+keywords: 9364d-gx2a cabling setup, 9364d-gx2a switches configuration, nx-os 
+summary: Si vas a instalar nuevos conmutadores Cisco Nexus 9364D-GX2A como parte de la instalación de un nuevo sistema AFX 1K o AFX 2K, vas a sustituir un conmutador o vas a restablecer la configuración predeterminada de fábrica de un conmutador, debes revisar los siguientes requisitos de cableado y configuración. 
+---
+= Revisar los requisitos de cableado y configuración - Cisco Nexus 9364D-GX2A
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si vas a instalar conmutadores Cisco Nexus 9364D-GX2A como parte de la instalación de un nuevo sistema AFX 1K o AFX 2K, vas a sustituir un conmutador o vas a restablecer la configuración predeterminada de fábrica de un conmutador, debes revisar los siguientes requisitos de cableado y configuración.
+
+
+
+[[hard-code-the-speed-on-breakout-ports]]
+== Fija la velocidad en los puertos breakout
+
+Debes configurar de forma fija los puertos del switch (4x100GbE) para 100GbE. Si no configuras la velocidad de forma fija, los puertos no se activarán y permanecerán en un estado de desactivación por error.
+
+Por ejemplo, para configurar de forma fija 100GbE en los puertos de salida 1-13, haz lo siguiente en el modo de configuración. El ejemplo muestra los comandos que se aplican al primer conmutador (cs1). Repite estos comandos para el segundo conmutador.
+
+[listing, subs="+quotes"]
+----
+(cs1)(config)# *interface e1/1/1-4, e1/2/1-4, e1/3/1-4, e1/4/1-4, e1/5/1-4, e1/6/1-4, e1/7/1-4, e1/8/1-4, e1/9/1-4, e1/10/1-4, e1/11/1-4, e1/12/1-4, e1/13/1-4*
+(cs1)(config-if)# *speed 100000*
+(cs1)(config-if)# *no negotiate auto*
+(cs1)(config-if)# *exit*
+(cs1)(config)# *exit*
+(cs1)# *copy running-config startup-config*
+----
+.¿Que sigue?
+Después de cumplir con los requisitos de cableado y configuración, link:configure-install-nxos-9364d.html["instalar el NX-OS"].

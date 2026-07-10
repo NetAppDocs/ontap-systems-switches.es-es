@@ -12,31 +12,33 @@ indexpage:
   - title: Empezar
     links:
     - title: Cisco Nexus 9332D-GX2B
-      url: "../switch-cisco-9332d-gx2b/configure-switch-overview-9332d-cluster.html"
+      url: "../switch-cisco-9332d-gx2b/install-configure-switches-in-afx-workflow-9332d.html"
     - title: Cisco Nexus 9364D-GX2A
-      url: "../switch-cisco-9364d-gx2a/configure-switch-overview-9364d-cluster.html"
+      url: "../switch-cisco-9364d-gx2a/install-configure-switches-in-afx-workflow-9364d.html"
+    - title: Cisco Nexus 9808
+      url: "../switch-cisco-9808/install-configure-switches-in-afx-workflow-9808.html"
   - title: Instalar y configurar conmutadores AFX
     links:
     - title: Instalar el hardware del conmutador 9332D-GX2B
-      url: "../switch-cisco-9332d-gx2b/install-hardware.html"
+      url: "../switch-cisco-9332d-gx2b/install-configure-switches-in-afx-workflow-9332d.html"
     - title: Instalar el hardware del conmutador 9364D-GX2A
-      url: "../switch-cisco-9364d-gx2a/install-hardware.html"
+      url: "../switch-cisco-9364d-gx2a/install-configure-switches-in-afx-workflow-9364d.html"
+    - title: Instalar el hardware del conmutador 9808
+      url: "../switch-cisco-9808/install-configure-switches-in-afx-workflow-9808.html"
     - title: Configurar el software del conmutador 9332D-GX2B
-      url: "../switch-cisco-9332d-gx2b/configure-software-overview-9332d-cluster.html"
+      url: "../switch-cisco-9332d-gx2b/configure-switch-workflow-9332d.html"
     - title: Configurar el software del conmutador 9364D-GX2A
-      url: "../switch-cisco-9364d-gx2a/configure-software-overview-9364d-cluster.html"
+      url: "../switch-cisco-9364d-gx2a/configure-switch-workflow-9364d.html"
+    - title: Configura el software del conmutador 9808
+      url: "../switch-cisco-9808/configure-switch-workflow-9808.html"
   - title: Mantener los interruptores AFX
     links:
-    - title: Reemplace el interruptor 9332D-GX2B
-      url: "../switch-cisco-9332d-gx2b/replace-9332d-cluster.html"
-    - title: Reemplace el interruptor 9364D-GX2A
-      url: "../switch-cisco-9364d-gx2a/replace-9364d-cluster.html"
-    - title: Restablecer el interruptor 9332D-GX2B a los valores predeterminados de
-        fábrica
-      url: "../switch-cisco-9332d-gx2b/reset-switch-9332d.html"
-    - title: Restablecer el interruptor 9364D-GX2A a los valores predeterminados de
-        fábrica
-      url: "../switch-cisco-9364d-gx2a/reset-switch-9364d.html"
+    - title: Mantén los conmutadores 9332D-GX2B
+      url: "../switch-cisco-9332d-gx2b/maintain-overview-9332d.html"
+    - title: Mantén los conmutadores 9364D-GX2A
+      url: "../switch-cisco-9364d-gx2a/maintain-overview-9364d.html"
+    - title: Mantén los conmutadores 9808
+      url: "../switch-cisco-9808/maintain-overview-9808.html"
   - title: Documentación relacionada
     links:
     - title: Sistemas de hardware ONTAP

@@ -21,6 +21,7 @@ Se admiten los siguientes conmutadores de clúster:
 
 
 
+[[review-requirements]]
 == Requisitos de revisión
 
 Verifique que su configuración cumple con los siguientes requisitos:
@@ -39,6 +40,7 @@ Verifique que su configuración cumple con los siguientes requisitos:
 
 
 
+[[node-connections]]
 === Conexiones de nodos
 
 Los conmutadores del clúster admiten las siguientes conexiones de nodo:
@@ -53,6 +55,7 @@ NOTE: Se pueden activar puertos adicionales mediante la compra de licencias de p
 
 
 
+[[isl-ports]]
 === Puertos ISL
 
 Los conmutadores del clúster utilizan los siguientes puertos de enlace entre conmutadores (ISL):
@@ -65,6 +68,7 @@ La link:https://hwu.netapp.com/Home/Index["Hardware Universe"^] contiene informa
 
 
 
+[[isl-cabling]]
 === Cableado ISL
 
 El cableado ISL apropiado es el siguiente:
@@ -75,6 +79,7 @@ El cableado ISL apropiado es el siguiente:
 
 
 
+[[migrate-the-switches]]
 == Migrar los interruptores
 
 Siga este procedimiento para migrar los conmutadores de clúster CN1610 a conmutadores de clúster BES-53248.
@@ -115,6 +120,7 @@ NOTE: No se necesita ningún enlace entre conmutadores (ISL) operativo durante e
 
 
 
+[[step-1-prepare-for-migration]]
 === Paso 1: Prepararse para la migración
 
 . Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport :
@@ -147,6 +153,7 @@ Aparece el indicador avanzado (*>).
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Paso 2: Configurar puertos y cableado
 
 . En los nuevos switches, confirme que el enlace ISL está cableado y funciona correctamente entre los switches cs1 y cs2:
@@ -651,6 +658,7 @@ cluster::*> system cluster-switch delete -device CL2
 ====
 
 
+[[step-3-verify-the-configuration]]
 === Paso 3: Verificar la configuración
 
 . Habilitar la reversión automática en los LIF del clúster.

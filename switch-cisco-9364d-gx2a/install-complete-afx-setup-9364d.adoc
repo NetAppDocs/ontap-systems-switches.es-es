@@ -1,0 +1,31 @@
+---
+permalink: switch-cisco-9364d-gx2a/install-complete-afx-setup-9364d.html 
+sidebar: sidebar 
+keywords: switches, complete system setup, Cisco Nexus, 9364D-GX2A switches, AFX 
+summary: Después de completar los procedimientos de configuración del switch Cisco Nexus 9364D-GX2A, vas al sitio de documentación del sistema AFX para encender los estantes de almacenamiento y los controladores en tu sistema AFX 1K o AFX 2K, verificar la conectividad del switch y completar la configuración del sistema AFX. 
+---
+= Completa la configuración del sistema AFX - Cisco Nexus 9364D-GX2A
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Después de completar los procedimientos de configuración del switch Cisco Nexus 9364D-GX2A, vas al sitio de documentación del sistema AFX para encender los estantes de almacenamiento y los controladores en tu sistema AFX 1K o AFX 2K, verificar la conectividad del switch y completar la configuración del sistema AFX.
+
+.Antes de empezar
+* Debes haber completado los procedimientos de configuración del conmutador en el link:configure-switch-workflow-9364d.html["configura el flujo de trabajo del conmutador"].
+* Cada conmutador debe estar conectado a una consola o debes tener acceso remoto a cada conmutador.
+
+
+.Pasos
+. Completa los pasos para encender y configurar tu sistema AFX 1K o AFX 2K:
++
+** Para un sistema AFX 1K, ve al procedimiento link:https://docs.netapp.com/us-en/ontap-afx/install-setup/power-on-hardware.html["Encienda su sistema de almacenamiento AFX 1K"^].
+** Para un sistema AFX 2K, ve al procedimiento link:https://docs.netapp.com/us-en/ontap-afx/install-afx-2k/power-on-hardware.html["Enciende tu sistema de almacenamiento AFX 2K"^].
+
+
+
+
+.¿Que sigue?
+Después de que hayas encendido las estanterías de almacenamiento y los controladores y hayas completado la configuración del sistema AFX 1K o AFX 2K, ya podrás utilizar tu sistema AFX.

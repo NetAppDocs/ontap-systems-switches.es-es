@@ -19,6 +19,7 @@ Cada switch se puede configurar como un único puerto 40GbE o como 4 puertos 10G
 
 
 
+[[sample-cabling-worksheet]]
 == Ejemplo de hoja de trabajo de cableado
 
 La definición de puerto de muestra en cada par de conmutadores es la siguiente:
@@ -329,6 +330,7 @@ Reservado
 |===
 
 
+[[blank-cabling-worksheet]]
 == Hoja de trabajo de cableado en blanco
 
 Puedes usar la hoja de trabajo de cableado en blanco para documentar las plataformas que son compatibles como nodos en un clúster. La sección _Supported Cluster Connections_ del link:https://hwu.netapp.com["Hardware Universe"^] define los puertos de clúster que usa la plataforma.

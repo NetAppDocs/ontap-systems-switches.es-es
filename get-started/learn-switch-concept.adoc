@@ -20,6 +20,7 @@ NOTE: Solo se admiten switches de back-end validados por NetApp(pedidos a NetApp
 
 
 
+[[afx-systems-switches]]
 == Conmutadores de sistemas AFX
 
 Los conmutadores de sistemas AFX le permiten crear conmutadores de red rápidos, energéticamente eficientes y que ahorran espacio. Su pequeño tamaño y alta densidad de puertos los hacen ideales para manejar redes grandes. Los puertos admiten diferentes velocidades y se pueden dividir en múltiples conexiones. Los conmutadores de sistemas AFX compatibles con NetApp incluyen:
@@ -30,6 +31,7 @@ Los conmutadores de sistemas AFX le permiten crear conmutadores de red rápidos,
 
 
 
+[[cluster-switches]]
 == Conmutadores de clúster
 
 Los conmutadores de clúster le permiten crear clústeres ONTAP con más de dos nodos. Los conmutadores de clúster compatibles con NetApp incluyen:
@@ -41,6 +43,7 @@ Los conmutadores de clúster le permiten crear clústeres ONTAP con más de dos 
 
 
 
+[[storage-switches]]
 == Conmutadores de almacenamiento
 
 Los conmutadores de almacenamiento permiten enrutar datos entre servidores y matrices de almacenamiento en una red de área de almacenamiento (SAN).  Los switches de almacenamiento compatibles con NetApp incluyen:
@@ -52,6 +55,7 @@ Los conmutadores de almacenamiento permiten enrutar datos entre servidores y mat
 
 
 
+[[shared-switches]]
 == Conmutadores compartidos
 
 Los conmutadores compartidos permiten combinar la funcionalidad de clúster y almacenamiento en una configuración de conmutador compartido, al admitir el uso de RCF de clúster y almacenamiento compartidos.  El switch compartido compatible con NetApp es:
@@ -61,6 +65,7 @@ Los conmutadores compartidos permiten combinar la funcionalidad de clúster y al
 
 
 
+[[end-of-availability-switches]]
 == Interruptores de fin de disponibilidad
 
 Para ver una lista de los switches que ya no están disponibles para compra, pero que aún tienen soporte, consulta link:../overview-eod.html["Interruptores de fin de disponibilidad"].

@@ -6,6 +6,7 @@ Puede migrar de un clúster con una red de clúster conmutada a uno donde dos no
 
 
 
+[[review-requirements]]
 == Requisitos de revisión
 
 .Pautas
@@ -25,6 +26,7 @@ Asegúrese de tener lo siguiente:
 
 
 
+[[migrate-the-switches]]
 == Migrar los interruptores
 
 .Acerca de esta tarea
@@ -37,6 +39,7 @@ Los ejemplos del siguiente procedimiento muestran nodos que utilizan "e0a" y "e0
 
 
 
+[[step-1-prepare-for-migration]]
 === Paso 1: Prepararse para la migración
 
 . Cambie el nivel de privilegio a avanzado, ingresando `y` cuando se le solicite continuar:
@@ -92,6 +95,7 @@ cluster::*> system node autosupport invoke -node * -type all -message MAINT=2h
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Paso 2: Configurar puertos y cableado
 
 . Organice los puertos del clúster en cada conmutador en grupos de manera que los puertos del clúster en el grupo 1 vayan al conmutador de clúster 1 y los puertos del clúster en el grupo 2 vayan al conmutador de clúster 2.  Estos grupos se requerirán más adelante en el procedimiento.
@@ -399,6 +403,7 @@ image::../media/tnsc_node1_and_node2_direct_connection.PNG[Conexión directa ent
 
 
 
+[[step-3-verify-the-configuration]]
 === Paso 3: Verificar la configuración
 
 . Verifique que los puertos de ambos nodos estén conectados correctamente:

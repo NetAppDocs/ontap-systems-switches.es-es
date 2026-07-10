@@ -15,6 +15,7 @@ Siga este procedimiento para migrar un clúster de switches Cisco Nexus 5596 exi
 
 
 
+[[review-requirements]]
 == Requisitos de revisión
 
 Antes de la migración, asegúrese de revisarlink:migrate-requirements-3232c.html["Requisitos de migración"] .
@@ -33,6 +34,7 @@ Para más información, consulta:
 
 
 
+[[migrate-the-switch]]
 == Migrar el interruptor
 
 .Acerca de los ejemplos
@@ -82,6 +84,7 @@ Este procedimiento abarca los siguientes escenarios:
 
 
 
+[[step-1-prepare-for-migration]]
 === Paso 1: Prepararse para la migración
 
 . Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport :
@@ -311,6 +314,7 @@ Cluster
 
 
 
+[[step-2-configure-ports]]
 === Paso 2: Configurar puertos
 
 . Desactive los puertos de interconexión del clúster que están conectados físicamente al switch CL2:
@@ -1230,6 +1234,7 @@ cluster::> system cluster-switch delete –device CL2
 
 
 
+[[step-3-complete-the-procedure]]
 === Paso 3: Complete el procedimiento
 
 . Verifique que se estén monitoreando los conmutadores de clúster adecuados:

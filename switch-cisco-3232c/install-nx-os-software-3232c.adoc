@@ -15,6 +15,7 @@ Puede utilizar este procedimiento para instalar el software NX-OS en el conmutad
 
 
 
+[[review-requirements]]
 == Requisitos de revisión
 
 .Antes de empezar
@@ -26,6 +27,7 @@ Puede utilizar este procedimiento para instalar el software NX-OS en el conmutad
 
 
 
+[[install-the-software]]
 == Instala el software
 
 El procedimiento requiere el uso de comandos ONTAP y comandos de switches Cisco Nexus serie 3000; se utilizan comandos ONTAP a menos que se indique lo contrario.

@@ -15,6 +15,7 @@ Puede migrar conmutadores de clúster CN1610 de NetApp para un clúster ONTAP a 
 
 
 
+[[review-requirements]]
 == Requisitos de revisión
 
 Debe tener en cuenta cierta información de configuración, conexiones de puertos y requisitos de cableado cuando reemplace los conmutadores de clúster NetApp CN1610 con conmutadores de clúster Cisco 9336C-FX2 y 9336C-FX2-T. También debe verificar el número de serie del conmutador para asegurarse de que se migre el conmutador correcto.
@@ -48,6 +49,7 @@ Verifique que su configuración cumple con los siguientes requisitos:
 
 
 
+[[migrate-the-switches]]
 == Migrar los interruptores
 
 .Acerca de los ejemplos
@@ -91,6 +93,7 @@ NOTE: No se necesita ningún enlace entre conmutadores (ISL) operativo durante e
 
 
 
+[[step-1-prepare-for-migration]]
 === Paso 1: Prepararse para la migración
 
 . Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport :
@@ -118,6 +121,7 @@ Al deshabilitar la reversión automática para este procedimiento, los LIF del c
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Paso 2: Configurar puertos y cableado
 
 . Determinar el estado administrativo u operativo de cada interfaz de clúster.
@@ -523,6 +527,7 @@ node2      /cdp
 
 
 
+[[step-3-verify-the-configuration]]
 === Paso 3: Verificar la configuración
 
 . Habilitar la reversión automática en los LIF del clúster:

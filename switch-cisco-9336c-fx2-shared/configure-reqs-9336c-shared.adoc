@@ -18,6 +18,7 @@ Para la instalación y el mantenimiento del switch Cisco Nexus 9336C-FX2, asegú
 
 
 
+[[ontap-support]]
 == Compatibilidad con ONTAP
 
 A partir de ONTAP 9.9.1, puede utilizar los switches Cisco Nexus 9336C-FX2 para combinar la funcionalidad de almacenamiento y clúster en una configuración de switch compartido.
@@ -26,6 +27,7 @@ Si desea crear clústeres ONTAP con más de dos nodos, necesitará dos conmutado
 
 
 
+[[configuration-requirements]]
 == Requisitos de configuración
 
 Para la configuración, necesitará el número y tipo adecuados de cables y conectores de cable para sus conmutadores.
@@ -34,6 +36,7 @@ Dependiendo del tipo de switch que esté configurando inicialmente, deberá cone
 
 
 
+[[network-requirements]]
 == Requisitos de red
 
 Necesita la siguiente información de red para todas las configuraciones del conmutador.

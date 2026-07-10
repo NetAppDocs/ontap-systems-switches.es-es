@@ -15,6 +15,7 @@ Antes de configurar tus switches 9336C-FX2 y 9336C-FX2-T, revisa los requisitos 
 
 
 
+[[support-for-nvidia-cx6-cx6-dx-and-cx7-ethernet-ports]]
 == Compatibilidad con puertos Ethernet NVIDIA CX6, CX6-DX y CX7
 
 Si conectas un puerto del switch a un controlador ONTAP usando puertos NIC NVIDIA ConnectX-6 (CX6), ConnectX-6 Dx (CX6-DX) o ConnectX-7 (CX7), debes configurar manualmente la velocidad del puerto del switch.
@@ -34,6 +35,7 @@ Si conectas un puerto del switch a un controlador ONTAP usando puertos NIC NVIDI
 ----
 
 
+[[related-information]]
 == Información relacionada
 
 * Consulta link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para más información sobre los puertos del switch.

@@ -17,6 +17,7 @@ También puedes usar este procedimiento para actualizar tu versión de RCF. Cons
 
 
 
+[[review-requirements]]
 == Requisitos de revisión
 
 .Antes de empezar
@@ -30,6 +31,7 @@ También puedes usar este procedimiento para actualizar tu versión de RCF. Cons
 
 
 
+[[install-the-file]]
 == Instala el archivo
 
 .Acerca de los ejemplos

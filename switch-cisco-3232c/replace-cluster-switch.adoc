@@ -15,6 +15,7 @@ Siga estos pasos para reemplazar un switch Cisco Nexus 3232C defectuoso en un cl
 
 
 
+[[review-requirements]]
 == Requisitos de revisión
 
 .Lo que necesitarás
@@ -47,6 +48,7 @@ Consulta lo siguiente:
 
 
 
+[[enable-console-logging]]
 == Habilitar el registro en la consola
 
 NetApp recomienda encarecidamente que habilite el registro de consola en los dispositivos que esté utilizando y que realice las siguientes acciones al reemplazar su switch:
@@ -58,6 +60,7 @@ NetApp recomienda encarecidamente que habilite el registro de consola en los dis
 
 
 
+[[replace-the-switch]]
 == Reemplace el interruptor
 
 .Acerca de esta tarea
@@ -91,6 +94,7 @@ Los ejemplos de este procedimiento de sustitución utilizan cuatro nodos. Dos de
 
 
 
+[[step-1-display-and-migrate-the-cluster-ports-to-switch]]
 === Paso 1: Visualizar y migrar los puertos del clúster al switch
 
 . Si AutoSupport está habilitado en este clúster, suprima la creación automática de casos invocando un mensaje de AutoSupport :
@@ -458,6 +462,7 @@ Larger than PMTU communication succeeds on 32 path(s) RPC status:
 ====
 
 
+[[step-2-migrate-isls-to-switch-cl1-and-c2]]
 === Paso 2: Migrar los ISL para cambiar CL1 y C2
 
 . Desactive los puertos 1/31 y 1/32 en el conmutador de clúster CL1.
@@ -572,6 +577,7 @@ cluster::*> *network port modify -node n4 -port e4e -up-admin true*
 
 
 
+[[step-3-revert-all-lifs-to-originally-assigned-ports]]
 === Paso 3: Restablezca todos los LIF a los puertos asignados originalmente.
 
 . Revertir todas las LIF de interconexión de clúster migradas en todos los nodos:
@@ -784,6 +790,7 @@ Larger than PMTU communication succeeds on 32 path(s) RPC status:
 ====
 
 
+[[step-4-verify-all-ports-and-lif-are-correctly-migrated]]
 === Paso 4: Verifique que todos los puertos y LIF se hayan migrado correctamente.
 
 . Para visualizar la información sobre los dispositivos de su configuración, introduzca los siguientes comandos:

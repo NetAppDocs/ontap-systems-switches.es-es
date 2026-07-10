@@ -18,6 +18,7 @@ Para la instalación y el mantenimiento de los conmutadores Cisco Nexus 9336C-FX
 
 
 
+[[configuration-requirements]]
 == Requisitos de configuración
 
 Para la configuración, necesitará el número y tipo adecuados de cables y conectores de cable para sus conmutadores.
@@ -26,6 +27,7 @@ Dependiendo del tipo de switch que esté configurando inicialmente, deberá cone
 
 
 
+[[network-requirements]]
 == Requisitos de red
 
 Necesita la siguiente información de red para todas las configuraciones del conmutador.
