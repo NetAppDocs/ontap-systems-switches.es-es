@@ -1,0 +1,12 @@
+---
+section: switch-cshm-monitor
+title: Compruebe el estado del interruptor.
+entries:
+- title: Resumen del control de salud
+  url: "/switch-cshm/monitor-overview.html"
+- title: Gestionar la monitorización del conmutador
+  url: "/switch-cshm/monitor-manage.html"
+- title: Verificar la monitorización del interruptor
+  url: "/switch-cshm/monitor-verify.html"
+- title: Solucionar problemas de alertas
+  url: "/switch-cshm/monitor-troubleshoot.html"

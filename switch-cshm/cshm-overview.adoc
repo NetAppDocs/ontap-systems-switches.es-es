@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
 summary: El control del estado de los switches Ethernet CSHM se encarga de garantizar el estado operativo de los switches de red de clúster y almacenamiento y de recopilar los registros de los switches con fines de depuración. 
 ---
-= Descripción general del monitor de estado del switch
+= Control del estado del switch de red Ethernet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -12,3 +12,5 @@ summary: El control del estado de los switches Ethernet CSHM se encarga de garan
 
 [role="lead"]
 El control del estado de los switches de Ethernet (CSHM) es responsable de garantizar el estado operativo de los switches de red y de recopilar los registros de los switches con fines de depuración.
+
+CSHM supervisa los switches de clúster y de almacenamiento de red para mantener la fiabilidad de la infraestructura de red. El control del estado detecta automáticamente los problemas de los switches, recopila registros para la resolución de problemas y te avisa cuando ocurren problemas en la red. CSHM es compatible con varios fabricantes y modelos de switches, ayudándote a identificar y resolver problemas de conectividad de red antes de que afecten tu entorno de almacenamiento.

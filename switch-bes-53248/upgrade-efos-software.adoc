@@ -16,6 +16,9 @@ Siga estos pasos para actualizar el software EFOS en el conmutador de clúster B
 El software EFOS incluye un conjunto de funciones y protocolos de red avanzados para el desarrollo de sistemas de infraestructura Ethernet e IP.  Esta arquitectura de software es adecuada para cualquier dispositivo de organización de red que utilice aplicaciones que requieran una inspección o separación exhaustiva de paquetes.
 
 
+NOTE: NetApp recomienda que primero completes cualquier actualización del software ONTAP y luego realices la actualización del software de tus switches.
+
+
 
 [[prepare-for-upgrade]]
 == Prepárate para la actualización
@@ -352,7 +355,12 @@ Additional Packages............................ BGP-4
 ............................................... Prototype Open API
 ----
 ====
-. Repita los pasos 5 a 11 en el interruptor cs1.
+
+
+
+NOTE: Si también vas a actualizar tu RCF en este momento, sigue el procedimiento para actualizar tu RCF en el switch cs2 antes de actualizar el EFOS en el switch cs1. Consulta link:upgrade-rcf.html["actualizar la versión de RCF"] para obtener más detalles.
+
+. [[step12]] Repite los pasos del 5 al 11 en el switch de red cs1.
 . Habilitar la reversión automática en los LIF del clúster.
 +
 [source, cli]

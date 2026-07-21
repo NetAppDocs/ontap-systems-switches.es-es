@@ -1,0 +1,8 @@
+---
+section: switch-cshm-log-collection
+title: Recopilar registros
+entries:
+- title: Descripción general de la recopilación de registros
+  url: "/switch-cshm/log-collection-overview.html"
+- title: Solución de problemas de la recopilación de registros
+  url: "/switch-cshm/log-collection-troubleshoot.html"

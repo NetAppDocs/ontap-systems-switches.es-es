@@ -13,7 +13,7 @@ indexpage:
     links:
     - title: Qué hay de nuevo
       url: whats-new.html
-    - title: Inicio rápido
+    - title: Empezar
       url: "/get-started/get-up-and-running.html"
     - title: Notas de la versión de ONTAP
       url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508
@@ -29,14 +29,10 @@ indexpage:
       url: "/shared/index.html"
   - title: Interruptores de fin de disponibilidad
     links:
-    - title: Conmutador de clúster - Cisco Nexus 3232c
-      url: "/switch-cisco-3232c/install-overview-cisco-3232c.html"
-    - title: Conmutador de clúster - Cisco Nexus 3132Q-V
-      url: "/switch-cisco-3132q-v/install-overview-cisco-3132qv.html"
-    - title: Conmutador de clúster - Cisco Nexus 92300YC
-      url: "/switch-cisco-92300/install-overview-cisco-92300.html"
-    - title: Conmutador de clúster - NetApp CN1610
-      url: "/switch-netapp-cn1610/switch-overview-cn1610.html"
+    - title: NVIDIA SN2100
+      url: "/switch-nvidia-sn2100/configure-overview-sn2100-cluster.html"
+    - title: Almacenamiento NVIDIA SN2100
+      url: "/switch-nvidia-sn2100-storage/configure-overview-sn2100-storage.html"
   - title: Monitoreo del estado del switch Ethernet
     links:
     - title: Configurar la monitorización del estado del switch

@@ -13,6 +13,8 @@ summary: El control del estado de los switches Ethernet CSHM se encarga de garan
 [role="lead"]
 El control del estado de los switches de Ethernet (CSHM) es responsable de garantizar el estado operativo de los switches de red y de recopilar los registros de los switches con fines de depuración.
 
+Antes de que puedas usar CSHM para supervisar tus switches de red, debes configurar la recopilación de registros y, opcionalmente, configurar SNMPv3 para mayor seguridad. La recopilación de registros es necesaria para que CSHM recopile los registros de los switches y los datos de diagnóstico. SNMPv3 proporciona comunicación segura entre ONTAP y tus switches.
+
 * link:config-log-collection.html["Configurar la recopilación de registros"]
 * link:config-snmpv3.html["Configurar SNMPv3 (opcional)"]
 

@@ -15,97 +15,100 @@ Conoce los nuevos switches para los sistemas de almacenamiento ONTAP. Para obten
 
 
 
-[[new-switch-support]]
-== Nuevo soporte para interruptores
-
-[cols="25h,~,~"]
-|===
-| Interruptores | Descripción | Disponible a partir de 
-
-
- a| 
-Conmutador Cisco de 32 puertos 400 GbE (X190300-CS-PI y X190300-PE)
- a| 
-Compatibilidad con conmutadores Cisco 9332D-GX2B intra-clúster/HA/almacenamiento.
- a| 
-ONTAP 9.17.1
+[[july-2026]]
+== julio de 2026
 
 
 
- a| 
-Conmutador Cisco de 64 puertos 400 GbE (X190310-CS-PI)
- a| 
-Compatibilidad con conmutadores Cisco 9364D-GX2A intra-clúster/HA/almacenamiento.
- a| 
-ONTAP 9.17.1
+[[new-cisco-nexus-9808-switch-for-afx-2k]]
+=== Nuevo switch Cisco Nexus 9808 para AFX 2K
+
+Los nuevos switches Cisco 9808 se conectan a los nodos controladores AFX 2K con las estanterías de almacenamiento. Este nuevo switch te permite crear clústeres ONTAP con más de dos nodos. Se usan protocolos avanzados para optimizar el rendimiento. El diseño se basa en el etiquetado de VLAN con múltiples rutas de red, así como en configuraciones de tech‑refresh, para asegurar un funcionamiento continuo y facilitar la actualización.
+
+Son switches de red Cisco de 36 puertos 400GbE con 1 módulo Supervisor, 7 módulos Fabric y 4 unidades de alimentación (PSU) (X-N9K-C9808-B1-A) compatibles con ONTAP 9.19.1 y versiones posteriores.
 
 
 
- a| 
-Conmutador de clúster y almacenamiento Cisco Nexus 9336C-FX2-T de 12 puertos 10/25/40/100GbE (X190212-CS-PE y X190212-CS-PI)
- a| 
-Admite configuraciones de clúster 10/25/40/100GbE y configuraciones de almacenamiento 100GbE (almacenamiento conectado al switch).
- a| 
-ONTAP 9.10.1
+[[2025-releases]]
+== lanzamientos de 2025
+
+.octubre de 2025
+[%collapsible]
+====
+.Conmutadores Cisco Nexus 9332D-GX2B y 9364D-GX2A para AFX 1K
+Los switches Cisco 9364D-GX2A y Cisco 9332D-GX2B te permiten crear clústeres ONTAP con más de dos nodos. Se usan protocolos avanzados para optimizar el rendimiento. El diseño se basa en el etiquetado de VLAN con múltiples rutas de red, así como en configuraciones de tech-refresh, para asegurar un funcionamiento continuo y facilitar la actualización.
+
+Son switches de red Cisco de 32 y 64 puertos 400GbE (X190300-CS-PI, X190300-PE y X190310-CS-PI) que son compatibles con ONTAP 9.17.1 y versiones posteriores.
+
+El nuevo sistema de almacenamiento AFX de NetApp ofrece una solución desagregada diseñada para satisfacer los rigurosos requisitos de las cargas de trabajo NAS y S3 de alto rendimiento, incluidas las aplicaciones de IA y aprendizaje automático. Los sistemas AFX proporcionan capacidades especializadas para los clientes que necesitan un almacenamiento de archivos y objetos escalable y de alto rendimiento.
+
+====
+.mayo de 2025
+[%collapsible]
+====
+.Switch de almacenamiento Cisco Nexus 9336C-FX2-T
+Se trata de switches de almacenamiento Cisco de 12 puertos 10/25/40/100GbE (X190212-CS-PE y X190212-CS-PI) compatibles con ONTAP 9.10.1 y versiones posteriores. Admiten configuraciones de almacenamiento 100GbE (almacenamiento conectado al switch).
+
+====
 
 
+[[2023-release]]
+== Lanzamiento 2023
 
- a| 
-Conmutador de clúster y almacenamiento Cisco Nexus 9336C-FX2-T de 12 puertos 10/25/40/100GbE (X190212-CS-PE y X190212-CS-PI)
- a| 
-Admite configuraciones de clúster 10/25/40/100GbE y configuraciones de almacenamiento 100GbE (almacenamiento conectado al switch).
- a| 
-ONTAP 9.10.1
+.mayo de 2023
+[%collapsible]
+====
+.Switch de clúster Cisco Nexus 9336C-FX2-T
+Se trata de switches de clúster Cisco de 12 puertos 10/25/40/100GbE (X190212-CS-PE y X190212-CS-PI) compatibles con ONTAP 9.10.1 y versiones posteriores. Admiten configuraciones de clúster de 10/25/40/100GbE.
 
-
-
- a| 
-Conmutador NVIDIA de 16 puertos 100GbE (X190006-PE y X190006-PI)
- a| 
-Compatibilidad con el conmutador de interconexión de clústeres y el conmutador de almacenamiento NVIDIA SN2100, incluida la compatibilidad con configuraciones IP de MetroCluster .
- a| 
-ONTAP 9.10.1
+====
 
 
+[[2022-release]]
+== Versión 2022
 
- a| 
-Switch Cisco de 36 puertos 100GbE (X190200-CS-PE y X190200-CS-PI)
- a| 
-Admite una infraestructura compartida (clúster, alta disponibilidad y almacenamiento conectado al switch) en el mismo par de switches Cisco Nexus 9336C-FX2, incluyendo soporte para configuraciones IP de MetroCluster .
- a| 
-ONTAP 9.9.1
+.octubre de 2022
+[%collapsible]
+====
+.Switch NVIDIA SN2100
+El NVIDIA SN2100 es un switch NVIDIA de 16 puertos 100GbE (X190006-PE y X190006-PI) que te permite crear clústeres ONTAP con más de dos nodos, compatible con ONTAP 9.10.1 y versiones posteriores. Es un switch de interconexión de clúster y switch de almacenamiento NVIDIA SN2100, incluyendo compatibilidad con configuraciones IP de MetroCluster.
 
-
-
- a| 
-Switch Cisco de 36 puertos 100GbE (X190200-CS-PE y X190200-CS-PI), (X190210-FE-PE y X190210-FE-PI)
- a| 
-El switch de interconexión de clúster y el switch de almacenamiento Cisco Nexus 9336C-FX2 admiten sistemas de almacenamiento AFF y ASA , así como conectividad de datos front-end.
- a| 
-ONTAP 9.8
+====
 
 
+[[2021-release]]
+== Versión 2021
 
- a| 
-Conmutador Broadcom BES-53248 (X190005 y X190005R)
- a| 
-El conmutador de interconexión de clúster Broadcom BES-53248 admite controladores AFF/ FAS con puertos 10/25GbE y 40/100GbE.
- a| 
-ONTAP 9.8
+.mayo de 2021
+[%collapsible]
+====
+.Switch Cisco Nexus 9336C-FX2
+El Cisco Nexus 9336C-FX2 es un switch de red Cisco de 36 puertos 100GbE (X190200-CS-PE y X190200-CS-PI). Admite una infraestructura compartida (cluster, HA y almacenamiento conectado al switch) en el mismo par de switches Cisco Nexus 9336C-FX2, incluyendo compatibilidad con configuraciones IP de MetroCluster, y soporte para ONTAP 9.9.1 y versiones posteriores.
+
+====
 
 
+[[2019-release]]
+== Lanzamiento de 2019
 
- a| 
-Switch Cisco de 36 puertos 100GbE (X190200) y switch Cisco de 32 puertos 100GbE (X190100 y X190100R)
- a| 
-El switch de almacenamiento Cisco Nexus 3232C admite la conexión de estantes de unidades NVMe NS224 a sistemas de almacenamiento AFF y ASA :
+.mayo de 2019
+[%collapsible]
+====
+.Switch Broadcom BES-53248
+El switch Broadcom BES-53248 (X190005 y X190005R) es compatible con controladoras AFF/FAS con puertos de 10/25GbE y 40/100GbE, y admite ONTAP 9.8 y versiones posteriores.
+
+====
+.marzo de 2019
+[%collapsible]
+====
+.Switches de clúster y almacenamiento Cisco Nexus 3232C
+El switch Cisco Nexus 3232C es un switch Cisco de 36 puertos 100GbE (X190200) y un switch Cisco de 32 puertos 100GbE (X190100 y X190100R). El switch de almacenamiento Cisco Nexus 3232C admite conexiones a los siguientes sistemas de almacenamiento AFF y ASA con estantes de unidades NVMe NS224:
 
 * AFF A800/ AFF ASA A800
 * AFF A700/ AFF ASA A700
 * AFF A400/ AFF ASA A400
-* AFF A320
 
- a| 
-ONTAP 9.8
 
-|===
+Son compatibles con ONTAP 9.8 y versiones posteriores.
+
+====

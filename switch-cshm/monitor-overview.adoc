@@ -2,7 +2,7 @@
 permalink: switch-cshm/monitor-overview.html 
 sidebar: sidebar 
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
-summary: Puedes utilizar los siguientes comandos... 
+summary: Utiliza las alertas del control del estado del switch de red Ethernet para identificar y resolver problemas relacionados con los switches de red en tu clúster ONTAP. 
 ---
 = Resumen del control de salud
 :allow-uri-read: 
@@ -12,6 +12,8 @@ summary: Puedes utilizar los siguientes comandos...
 
 [role="lead"]
 Los monitores de salud supervisan de forma proactiva ciertas condiciones críticas en su clúster y generan alertas si detectan una falla o un riesgo.
+
+Una vez que configuras CSHM, los controles del estado comprueban continuamente tus switches de red en busca de posibles problemas. Cuando un control del estado detecta un fallo o riesgo, genera una alerta que incluye información de diagnóstico para ayudarte a responder rápido. Puedes ver las alertas activas para identificar los problemas actuales y consultar las definiciones de alerta disponibles para entender qué condiciones se están supervisando.
 
 Para ver las alertas actuales del monitor de estado del switch Ethernet, ejecute el comando: `system health alert show -monitor ethernet-switch`
 

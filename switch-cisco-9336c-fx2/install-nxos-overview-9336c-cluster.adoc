@@ -11,6 +11,9 @@ summary: El software Cisco NX-OS y los archivos de configuración de referencia 
 [role="lead"]
 Antes de instalar el software NX-OS y el archivo de configuración de referencia (RCF), siga este procedimiento.
 
+
+NOTE: NetApp recomienda que primero completes cualquier actualización del software ONTAP y luego realices la actualización del software de tus switches.
+
 .Documentación sugerida
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["página del switch Ethernet de Cisco"^]
 +

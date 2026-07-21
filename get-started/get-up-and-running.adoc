@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords:  
 summary: Aprenda sobre clústeres, almacenamiento y conmutadores compartidos. 
 ---
-= Empieza a usar sistemas AFX, clúster, almacenamiento y switches compartidos
+= Guía de inicio rápido para sistemas AFX, clúster, almacenamiento y switches compartidos
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -92,7 +92,7 @@ Las instrucciones de instalación y configuración de los sistemas ONTAP incluye
 [%collapsible]
 ====
 * link:https://docs.netapp.com/us-en/ontap-afx/install-setup/afx-cable-overview.html["Instala conmutadores Cisco Nexus para un sistema AFX 1K"^]
-* link:https://review.docs.netapp.com/us-en/ontap-afx/install-afx-2k/afx-cable-overview.html["Instala conmutadores Cisco Nexus para un sistema AFX 2K"^]
+* link:https://docs.netapp.com/us-en/ontap-afx/install-afx-2k/afx-cable-overview.html["Instala conmutadores Cisco Nexus para un sistema AFX 2K"^]
 
 
 ==== a| 

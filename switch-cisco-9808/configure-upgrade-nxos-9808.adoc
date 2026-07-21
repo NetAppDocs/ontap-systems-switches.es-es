@@ -13,6 +13,9 @@ summary: Actualizas el NX-OS en tus switches Cisco Nexus 9808 para admitir nuevo
 [role="lead"]
 Actualizas el NX-OS en tus switches Cisco Nexus 9808 para admitir nuevo hardware o una nueva versión de ONTAP en tu sistema AFX 2K.
 
+
+NOTE: NetApp recomienda que primero completes cualquier actualización del software ONTAP y luego realices la actualización del software de tus switches.
+
 .Antes de empezar
 * Asegúrate de tener una copia de seguridad actualizada de la configuración del conmutador.
 * Comprueba que tu clúster funcione correctamente, es decir, que no haya errores en los registros ni problemas similares.
@@ -22,7 +25,7 @@ Actualizas el NX-OS en tus switches Cisco Nexus 9808 para admitir nuevo hardware
 * Si lo necesitas, puedes consultar la link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/101x/upgrade/cisco-nexus-9000-nx-os-software-upgrade-downgrade-guide-101x.html["Guía de actualización y degradación de software NX-OS de la serie Cisco Nexus 9000"^] para obtener más información.
 * La versión de ONTAP que se ejecuta en tu sistema AFX determina las versiones de NX-OS compatibles con tus switches.
 +
-** En el caso de los switches en un sistema AFX 2K, se admite ejecutar ONTAP 9.19.1GA o versiones posteriores y NX-OS 10.6 o posteriores.
+** Para los switches en un sistema AFX 2K que ejecutan ONTAP 9.19.1GA o posterior, se admite NX-OS 10.6 y posteriores.
 +
 Para consultar la lista actual de versiones de NX-OS compatibles, visita la link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco de NetApp"^] página.
 
@@ -32,7 +35,7 @@ NOTE: No actualices ni reviertas la versión de NX-OS a una versión no compatib
 
 
 
-* Este procedimiento requiere el uso de comandos de ONTAP y de los conmutadores Cisco Nexus 9000 Series Switches, los pasos indican qué CLI estás usando para introducir los comandos.
+* Dado que este procedimiento requiere el uso de comandos de ONTAP y de comandos de los switches Cisco Nexus 9000 Series, en los pasos se indica qué CLI estás usando para introducir los comandos.
 * Los ejemplos de este procedimiento utilizan la siguiente nomenclatura de interruptores y nodos:
 +
 ** Los nombres de los dos switches de Cisco son cs1 y cs2.
@@ -1287,8 +1290,10 @@ Mediante la CLI de ONTAP, finaliza la actualización de NX-OS volviendo a activa
 
 . Vuelve a activar la reversión automática en las LIF del clúster.
 +
-`network interface modify -vserver Cluster -lif * -auto-revert true`
-
+[source, cli]
+----
+network interface modify -vserver Cluster -lif * -auto-revert true
+----
 . Verifique que los LIF del clúster hayan vuelto a su puerto de origen:
 +
 [source, cli]

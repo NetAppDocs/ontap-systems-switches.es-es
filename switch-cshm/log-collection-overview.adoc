@@ -2,7 +2,7 @@
 permalink: switch-cshm/log-collection-overview.html 
 sidebar: sidebar 
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
-summary: Puede utilizar los comandos proporcionados.... 
+summary: Utiliza la función de recopilación de registros de CSHM para recabar los registros de los switches de red y los datos de diagnóstico para solucionar problemas de los switches de red. 
 ---
 = Descripción general de la recopilación de registros
 :allow-uri-read: 
@@ -12,5 +12,7 @@ summary: Puede utilizar los comandos proporcionados....
 
 [role="lead"]
 Con la recopilación de registros configurada, puede habilitar la recopilación horaria de datos periódicos que recopila AutoSupport y solicitar registros de soporte detallados.
+
+La recopilación de registros te ayuda a resolver problemas de switches de red al recopilar automáticamente los registros y los datos de diagnóstico del switch. Puedes recopilar datos periódicamente según una programación a través de AutoSupport o activar la recopilación bajo demanda cuando necesites registros detallados para solucionar problemas específicos. Los registros recopilados ofrecen visibilidad sobre el estado del switch, los cambios de configuración y los eventos de red.
 
 Consulta link:config-log-collection.html["Configurar la recopilación de registros"] para más detalles.

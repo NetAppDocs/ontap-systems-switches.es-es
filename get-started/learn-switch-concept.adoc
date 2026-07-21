@@ -4,10 +4,8 @@ sidebar: sidebar
 keywords:  
 summary: Aprenda sobre clústeres, almacenamiento y conmutadores compartidos. 
 ---
-= Conoce los sistemas AFX, clúster, almacenamiento y switches compartidos
+= Infórmate sobre los switches de tu sistema ONTAP
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
 [role="lead"]
@@ -19,12 +17,16 @@ Los switches de “front-end” proporcionan conectividad al almacenamiento del 
 NOTE: Solo se admiten switches de back-end validados por NetApp(pedidos a NetApp).
 
 
+CAUTION: Si vas a actualizar tus switches, NetApp recomienda que primero realices cualquier actualización del software ONTAP y, luego, lleves a cabo la actualización del software de tus switches.
+
+
 
 [[afx-systems-switches]]
 == Conmutadores de sistemas AFX
 
-Los conmutadores de sistemas AFX le permiten crear conmutadores de red rápidos, energéticamente eficientes y que ahorran espacio. Su pequeño tamaño y alta densidad de puertos los hacen ideales para manejar redes grandes. Los puertos admiten diferentes velocidades y se pueden dividir en múltiples conexiones. Los conmutadores de sistemas AFX compatibles con NetApp incluyen:
+Los conmutadores de AFX systems permiten crear switches de red rápidos, eficientes desde el punto de vista energético y que ahorran espacio. Su reducido tamaño y su alta densidad de puertos los hacen ideales para gestionar redes de gran tamaño. Los puertos admiten diferentes velocidades y pueden dividirse en múltiples conexiones. NetApp-los conmutadores de AFX systems compatibles incluyen:
 
+* Cisco Nexus 9808
 * Cisco Nexus 9332D-GX2B
 * Cisco Nexus 9364D-GX2A
 
@@ -49,7 +51,6 @@ Los conmutadores de clúster le permiten crear clústeres ONTAP con más de dos 
 Los conmutadores de almacenamiento permiten enrutar datos entre servidores y matrices de almacenamiento en una red de área de almacenamiento (SAN).  Los switches de almacenamiento compatibles con NetApp incluyen:
 
 * Cisco Nexus 9336C-FX2
-* Cisco Nexus 3232C
 * NVIDIA SN2100
 
 
@@ -68,4 +69,4 @@ Los conmutadores compartidos permiten combinar la funcionalidad de clúster y al
 [[end-of-availability-switches]]
 == Interruptores de fin de disponibilidad
 
-Para ver una lista de los switches que ya no están disponibles para compra, pero que aún tienen soporte, consulta link:../overview-eod.html["Interruptores de fin de disponibilidad"].
+Para ver una lista de los switches que ya no están disponibles para compra, pero que aún tienen soporte, consulta link:../eoa/index.html["Interruptores de fin de disponibilidad"].
